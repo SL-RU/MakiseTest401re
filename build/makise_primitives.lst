@@ -1,0 +1,2326 @@
+ARM GAS  /tmp/ccPZdB2k.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"makise_primitives.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.makise_d_clear,"ax",%progbits
+  18              		.align	1
+  19              		.global	makise_d_clear
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	makise_d_clear:
+  26              	.LFB126:
+  27              		.file 1 "MakiseGUI/MakiseGUI/makise_primitives.c"
+   1:MakiseGUI/MakiseGUI/makise_primitives.c **** #include "makise_primitives.h"
+   2:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+   3:MakiseGUI/MakiseGUI/makise_primitives.c **** #define MAX_POLY_CORNERS   200
+   4:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+   5:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+   6:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+   7:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+   8:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+   9:MakiseGUI/MakiseGUI/makise_primitives.c **** //**************************************************************************************
+  10:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_clear(MakiseBuffer* b, uint32_t c)
+  11:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+  28              		.loc 1 11 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 24
+  36              		.cfi_offset 3, -24
+  37              		.cfi_offset 4, -20
+  38              		.cfi_offset 5, -16
+  39              		.cfi_offset 6, -12
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42              	.LVL1:
+  43              	.LBB2:
+  12:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint8_t k = 0;
+  13:MakiseGUI/MakiseGUI/makise_primitives.c ****     for (int i = 0; i < (8/b->pixeldepth); i++)
+  44              		.loc 1 13 0
+  45 0002 0689     		ldrh	r6, [r0, #8]
+ARM GAS  /tmp/ccPZdB2k.s 			page 2
+
+
+  46 0004 0825     		movs	r5, #8
+  47 0006 95FBF6F5 		sdiv	r5, r5, r6
+  48 000a 002D     		cmp	r5, #0
+  49 000c 11DD     		ble	.L4
+  14:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  15:MakiseGUI/MakiseGUI/makise_primitives.c **** 	k |= (c & b->depthmask) << i*b->pixeldepth;
+  50              		.loc 1 15 0
+  51 000e 877A     		ldrb	r7, [r0, #10]	@ zero_extendqisi2
+  52 0010 0F40     		ands	r7, r7, r1
+  53 0012 0023     		movs	r3, #0
+  54 0014 1A46     		mov	r2, r3
+  55 0016 1946     		mov	r1, r3
+  56              	.LVL2:
+  57              	.L3:
+  58              		.loc 1 15 0 is_stmt 0 discriminator 3
+  59 0018 07FA03F4 		lsl	r4, r7, r3
+  60 001c 2143     		orrs	r1, r1, r4
+  61              	.LVL3:
+  62 001e C9B2     		uxtb	r1, r1
+  63              	.LVL4:
+  13:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  64              		.loc 1 13 0 is_stmt 1 discriminator 3
+  65 0020 0132     		adds	r2, r2, #1
+  66              	.LVL5:
+  67 0022 3344     		add	r3, r3, r6
+  68 0024 AA42     		cmp	r2, r5
+  69 0026 F7D1     		bne	.L3
+  70              	.LVL6:
+  71              	.L2:
+  72              	.LBE2:
+  16:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+  17:MakiseGUI/MakiseGUI/makise_primitives.c ****     memset(b->buffer, k, b->size);
+  73              		.loc 1 17 0
+  74 0028 0269     		ldr	r2, [r0, #16]
+  75 002a C068     		ldr	r0, [r0, #12]
+  76              	.LVL7:
+  77 002c FFF7FEFF 		bl	memset
+  78              	.LVL8:
+  79 0030 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  80              	.LVL9:
+  81              	.L4:
+  12:MakiseGUI/MakiseGUI/makise_primitives.c ****     for (int i = 0; i < (8/b->pixeldepth); i++)
+  82              		.loc 1 12 0
+  83 0032 0021     		movs	r1, #0
+  84              	.LVL10:
+  85 0034 F8E7     		b	.L2
+  86              		.cfi_endproc
+  87              	.LFE126:
+  89              		.section	.text.makise_d_point,"ax",%progbits
+  90              		.align	1
+  91              		.global	makise_d_point
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  95              		.fpu fpv4-sp-d16
+  97              	makise_d_point:
+  98              	.LFB127:
+ARM GAS  /tmp/ccPZdB2k.s 			page 3
+
+
+  18:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+  19:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+  20:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_point(MakiseBuffer* b, uint16_t x, uint16_t y, uint32_t c)
+  21:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+  99              		.loc 1 21 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              	.LVL11:
+ 104 0000 08B5     		push	{r3, lr}
+ 105              	.LCFI1:
+ 106              		.cfi_def_cfa_offset 8
+ 107              		.cfi_offset 3, -8
+ 108              		.cfi_offset 14, -4
+  22:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, x, y, c);
+ 109              		.loc 1 22 0
+ 110 0002 FFF7FEFF 		bl	makise_pset
+ 111              	.LVL12:
+ 112 0006 08BD     		pop	{r3, pc}
+ 113              		.cfi_endproc
+ 114              	.LFE127:
+ 116              		.section	.text.makise_d_circle,"ax",%progbits
+ 117              		.align	1
+ 118              		.global	makise_d_circle
+ 119              		.syntax unified
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.fpu fpv4-sp-d16
+ 124              	makise_d_circle:
+ 125              	.LFB130:
+  23:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+  24:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_rect(MakiseBuffer* b, int16_t x, int16_t y, uint16_t w,
+  25:MakiseGUI/MakiseGUI/makise_primitives.c **** 		   uint16_t h, uint32_t c)
+  26:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+  27:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x >= b->width || y >= b->height)
+  28:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+  29:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x < 0)
+  30:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  31:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(-x > w)
+  32:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+  33:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = w + x;
+  34:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x = 0;
+  35:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+  36:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y < 0)
+  37:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  38:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(-y > h)
+  39:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+  40:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = h + y;
+  41:MakiseGUI/MakiseGUI/makise_primitives.c **** 	y = 0;
+  42:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+  43:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x + w >= b->width)
+  44:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = b->width - x - 1;
+  45:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y + h >= b->height)
+  46:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = b->height - y - 1;
+  47:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+  48:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(w == 0 || h == 0)
+  49:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ARM GAS  /tmp/ccPZdB2k.s 			page 4
+
+
+  50:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+  51:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint32_t k, kb, j;
+  52:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+  53:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint8_t C = 0; //byte filled with colors for memset
+  54:MakiseGUI/MakiseGUI/makise_primitives.c ****     for (int i = 0; i < (8/b->pixeldepth); i++)
+  55:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  56:MakiseGUI/MakiseGUI/makise_primitives.c **** 	C |= (c & b->depthmask) << i*b->pixeldepth;
+  57:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+  58:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+  59:MakiseGUI/MakiseGUI/makise_primitives.c ****     w-=1;
+  60:MakiseGUI/MakiseGUI/makise_primitives.c ****     h-=1;
+  61:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+  62:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y, x + w, y, c);
+  63:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y + h, x + w, y + h, c);
+  64:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y, x, y + h, c);
+  65:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x + w, y, x + w, y + h, c);
+  66:MakiseGUI/MakiseGUI/makise_primitives.c ****     /*
+  67:MakiseGUI/MakiseGUI/makise_primitives.c ****       if depth = 4bits
+  68:MakiseGUI/MakiseGUI/makise_primitives.c ****       byte 1       byte 2
+  69:MakiseGUI/MakiseGUI/makise_primitives.c ****       coordinates |1,0   0,0| |3,0   2,0|
+  70:MakiseGUI/MakiseGUI/makise_primitives.c ****       binaryvalue |0000 0000| |0100 0101|
+  71:MakiseGUI/MakiseGUI/makise_primitives.c ****     */
+  72:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+  73:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_rect_filled(MakiseBuffer* b, int16_t x, int16_t y, uint16_t w,
+  74:MakiseGUI/MakiseGUI/makise_primitives.c **** 			  uint16_t h, uint32_t c, uint32_t fill_c)
+  75:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+  76:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x >= b->width || y >= b->height)
+  77:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+  78:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x < 0)
+  79:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  80:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(-x > w)
+  81:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+  82:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = w + x;
+  83:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x = 0;
+  84:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+  85:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y < 0)
+  86:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+  87:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(-y > h)
+  88:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+  89:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = h + y;
+  90:MakiseGUI/MakiseGUI/makise_primitives.c **** 	y = 0;
+  91:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+  92:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x + w >= b->width)
+  93:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = b->width - x - 1;
+  94:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y + h >= b->height)
+  95:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = b->height - y - 1;
+  96:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+  97:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(w == 0 || h == 0)
+  98:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+  99:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 100:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint32_t k, kb, j;
+ 101:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 102:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint8_t C = 0; //byte filled with colors for memset
+ 103:MakiseGUI/MakiseGUI/makise_primitives.c ****     for (int i = 0; i < (8/b->pixeldepth); i++)
+ 104:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 105:MakiseGUI/MakiseGUI/makise_primitives.c **** 	C |= (c & b->depthmask) << i*b->pixeldepth;
+ 106:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ARM GAS  /tmp/ccPZdB2k.s 			page 5
+
+
+ 107:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 108:MakiseGUI/MakiseGUI/makise_primitives.c ****     h -= 1;
+ 109:MakiseGUI/MakiseGUI/makise_primitives.c ****     w -= 1;
+ 110:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 111:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y, x + w, y, c);
+ 112:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y + h, x + w, y + h, c);
+ 113:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y, x, y + h, c);
+ 114:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x + w, y, x + w, y + h, c);
+ 115:MakiseGUI/MakiseGUI/makise_primitives.c ****     /*
+ 116:MakiseGUI/MakiseGUI/makise_primitives.c ****       if depth = 4bits
+ 117:MakiseGUI/MakiseGUI/makise_primitives.c ****       byte 1       byte 2
+ 118:MakiseGUI/MakiseGUI/makise_primitives.c ****       coordinates |1,0   0,0| |3,0   2,0|
+ 119:MakiseGUI/MakiseGUI/makise_primitives.c ****       binaryvalue |0000 0000| |0100 0101|
+ 120:MakiseGUI/MakiseGUI/makise_primitives.c ****     */
+ 121:MakiseGUI/MakiseGUI/makise_primitives.c ****     for (int i = y+1; i < h + y; i++) {
+ 122:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_line(b, x + 1, i, x+w - 1, i, fill_c);
+ 123:MakiseGUI/MakiseGUI/makise_primitives.c ****     }    
+ 124:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+ 125:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_circle(MakiseBuffer* b, uint16_t xc, uint16_t yc, uint16_t r, uint32_t c)
+ 126:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+ 126              		.loc 1 126 0
+ 127              		.cfi_startproc
+ 128              		@ args = 4, pretend = 0, frame = 32
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              	.LVL13:
+ 131 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 132              	.LCFI2:
+ 133              		.cfi_def_cfa_offset 36
+ 134              		.cfi_offset 4, -36
+ 135              		.cfi_offset 5, -32
+ 136              		.cfi_offset 6, -28
+ 137              		.cfi_offset 7, -24
+ 138              		.cfi_offset 8, -20
+ 139              		.cfi_offset 9, -16
+ 140              		.cfi_offset 10, -12
+ 141              		.cfi_offset 11, -8
+ 142              		.cfi_offset 14, -4
+ 143 0004 89B0     		sub	sp, sp, #36
+ 144              	.LCFI3:
+ 145              		.cfi_def_cfa_offset 72
+ 146 0006 0646     		mov	r6, r0
+ 147 0008 0190     		str	r0, [sp, #4]
+ 148 000a 8A46     		mov	r10, r1
+ 149 000c 9346     		mov	fp, r2
+ 150 000e 1D46     		mov	r5, r3
+ 127:MakiseGUI/MakiseGUI/makise_primitives.c ****     //middle point algorythm
+ 128:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t f = 1 - r;
+ 151              		.loc 1 128 0
+ 152 0010 C3F10104 		rsb	r4, r3, #1
+ 153              	.LVL14:
+ 129:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t ddF_x = 1;
+ 130:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t ddF_y = -2 * r;
+ 154              		.loc 1 130 0
+ 155 0014 C3EBC333 		rsb	r3, r3, r3, lsl #15
+ 156              	.LVL15:
+ 157 0018 5B00     		lsls	r3, r3, #1
+ 158 001a 1BB2     		sxth	r3, r3
+ARM GAS  /tmp/ccPZdB2k.s 			page 6
+
+
+ 159 001c 0493     		str	r3, [sp, #16]
+ 160              	.LVL16:
+ 131:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t x = 0;
+ 132:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t y = r;
+ 161              		.loc 1 132 0
+ 162 001e 2FB2     		sxth	r7, r5
+ 163              	.LVL17:
+ 133:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 134:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc + r, c);
+ 164              		.loc 1 134 0
+ 165 0020 AA18     		adds	r2, r5, r2
+ 166              	.LVL18:
+ 167 0022 129B     		ldr	r3, [sp, #72]
+ 168 0024 92B2     		uxth	r2, r2
+ 169 0026 FFF7FEFF 		bl	makise_pset
+ 170              	.LVL19:
+ 135:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc - r, c);
+ 171              		.loc 1 135 0
+ 172 002a ABEB0502 		sub	r2, fp, r5
+ 173 002e 129B     		ldr	r3, [sp, #72]
+ 174 0030 92B2     		uxth	r2, r2
+ 175 0032 5146     		mov	r1, r10
+ 176 0034 3046     		mov	r0, r6
+ 177 0036 FFF7FEFF 		bl	makise_pset
+ 178              	.LVL20:
+ 136:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc + r, yc, c);
+ 179              		.loc 1 136 0
+ 180 003a 05EB0A01 		add	r1, r5, r10
+ 181 003e 129B     		ldr	r3, [sp, #72]
+ 182 0040 5A46     		mov	r2, fp
+ 183 0042 89B2     		uxth	r1, r1
+ 184 0044 3046     		mov	r0, r6
+ 185 0046 FFF7FEFF 		bl	makise_pset
+ 186              	.LVL21:
+ 137:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc - r, yc, c);
+ 187              		.loc 1 137 0
+ 188 004a AAEB0501 		sub	r1, r10, r5
+ 189 004e 129B     		ldr	r3, [sp, #72]
+ 190 0050 5A46     		mov	r2, fp
+ 191 0052 89B2     		uxth	r1, r1
+ 192 0054 3046     		mov	r0, r6
+ 193 0056 FFF7FEFF 		bl	makise_pset
+ 194              	.LVL22:
+ 138:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 139:MakiseGUI/MakiseGUI/makise_primitives.c ****     while(x < y)
+ 195              		.loc 1 139 0
+ 196 005a 002F     		cmp	r7, #0
+ 197 005c 7FDD     		ble	.L9
+ 198 005e 24B2     		sxth	r4, r4
+ 199 0060 0023     		movs	r3, #0
+ 200 0062 0293     		str	r3, [sp, #8]
+ 201 0064 0AF10103 		add	r3, r10, #1
+ 202 0068 0593     		str	r3, [sp, #20]
+ 203 006a 0AF1FF33 		add	r3, r10, #-1
+ 204 006e 0693     		str	r3, [sp, #24]
+ 205 0070 0BF10103 		add	r3, fp, #1
+ 206 0074 0793     		str	r3, [sp, #28]
+ARM GAS  /tmp/ccPZdB2k.s 			page 7
+
+
+ 207 0076 CDF80CA0 		str	r10, [sp, #12]
+ 208 007a 64E0     		b	.L12
+ 209              	.LVL23:
+ 210              	.L11:
+ 211 007c BDF80850 		ldrh	r5, [sp, #8]
+ 212              	.LVL24:
+ 140:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 141:MakiseGUI/MakiseGUI/makise_primitives.c **** 	// ddF_x == 2 * x + 1;
+ 142:MakiseGUI/MakiseGUI/makise_primitives.c **** 	// ddF_y == -2 * y;
+ 143:MakiseGUI/MakiseGUI/makise_primitives.c **** 	// f == x*x + y*y - r*r + 2*x - y + 1;
+ 144:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(f >= 0)
+ 145:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 146:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    y--;
+ 147:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    ddF_y += 2;
+ 148:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    f += ddF_y;
+ 149:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 150:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x++;
+ 151:MakiseGUI/MakiseGUI/makise_primitives.c **** 	ddF_x += 2;
+ 152:MakiseGUI/MakiseGUI/makise_primitives.c **** 	f += ddF_x;
+ 213              		.loc 1 152 0
+ 214 0080 04EB4504 		add	r4, r4, r5, lsl #1
+ 215              	.LVL25:
+ 216 0084 0334     		adds	r4, r4, #3
+ 217 0086 24B2     		sxth	r4, r4
+ 218              	.LVL26:
+ 219 0088 059A     		ldr	r2, [sp, #20]
+ 220 008a 05EB020A 		add	r10, r5, r2
+ 221 008e 1FFA8AFA 		uxth	r10, r10
+ 153:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + x, yc + y, c);
+ 222              		.loc 1 153 0
+ 223 0092 BEB2     		uxth	r6, r7
+ 224 0094 0BEB0609 		add	r9, fp, r6
+ 225 0098 1FFA89F9 		uxth	r9, r9
+ 226 009c 129B     		ldr	r3, [sp, #72]
+ 227 009e 4A46     		mov	r2, r9
+ 228 00a0 5146     		mov	r1, r10
+ 229 00a2 0198     		ldr	r0, [sp, #4]
+ 230 00a4 FFF7FEFF 		bl	makise_pset
+ 231              	.LVL27:
+ 232 00a8 069A     		ldr	r2, [sp, #24]
+ 233 00aa A2EB0508 		sub	r8, r2, r5
+ 234 00ae 1FFA88F8 		uxth	r8, r8
+ 154:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - x, yc + y, c);
+ 235              		.loc 1 154 0
+ 236 00b2 129B     		ldr	r3, [sp, #72]
+ 237 00b4 4A46     		mov	r2, r9
+ 238 00b6 4146     		mov	r1, r8
+ 239 00b8 0198     		ldr	r0, [sp, #4]
+ 240 00ba FFF7FEFF 		bl	makise_pset
+ 241              	.LVL28:
+ 155:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + x, yc - y, c);
+ 242              		.loc 1 155 0
+ 243 00be ABEB0609 		sub	r9, fp, r6
+ 244 00c2 1FFA89F9 		uxth	r9, r9
+ 245 00c6 129B     		ldr	r3, [sp, #72]
+ 246 00c8 4A46     		mov	r2, r9
+ 247 00ca 5146     		mov	r1, r10
+ARM GAS  /tmp/ccPZdB2k.s 			page 8
+
+
+ 248 00cc DDF804A0 		ldr	r10, [sp, #4]
+ 249 00d0 5046     		mov	r0, r10
+ 250 00d2 FFF7FEFF 		bl	makise_pset
+ 251              	.LVL29:
+ 156:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - x, yc - y, c);
+ 252              		.loc 1 156 0
+ 253 00d6 129B     		ldr	r3, [sp, #72]
+ 254 00d8 4A46     		mov	r2, r9
+ 255 00da 4146     		mov	r1, r8
+ 256 00dc 5046     		mov	r0, r10
+ 257 00de FFF7FEFF 		bl	makise_pset
+ 258              	.LVL30:
+ 157:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + y, yc + x, c);
+ 259              		.loc 1 157 0
+ 260 00e2 039B     		ldr	r3, [sp, #12]
+ 261 00e4 03EB0608 		add	r8, r3, r6
+ 262 00e8 1FFA88F8 		uxth	r8, r8
+ 263 00ec 079A     		ldr	r2, [sp, #28]
+ 264 00ee 05EB0209 		add	r9, r5, r2
+ 265 00f2 1FFA89F9 		uxth	r9, r9
+ 266 00f6 129B     		ldr	r3, [sp, #72]
+ 267 00f8 4A46     		mov	r2, r9
+ 268 00fa 4146     		mov	r1, r8
+ 269 00fc 5046     		mov	r0, r10
+ 270 00fe FFF7FEFF 		bl	makise_pset
+ 271              	.LVL31:
+ 158:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - y, yc + x, c);
+ 272              		.loc 1 158 0
+ 273 0102 039B     		ldr	r3, [sp, #12]
+ 274 0104 9E1B     		subs	r6, r3, r6
+ 275 0106 B6B2     		uxth	r6, r6
+ 276 0108 129B     		ldr	r3, [sp, #72]
+ 277 010a 4A46     		mov	r2, r9
+ 278 010c 3146     		mov	r1, r6
+ 279 010e 5046     		mov	r0, r10
+ 280 0110 FFF7FEFF 		bl	makise_pset
+ 281              	.LVL32:
+ 282 0114 0BF1FF39 		add	r9, fp, #-1
+ 283 0118 A9EB0509 		sub	r9, r9, r5
+ 284 011c 1FFA89F9 		uxth	r9, r9
+ 159:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + y, yc - x, c);
+ 285              		.loc 1 159 0
+ 286 0120 129B     		ldr	r3, [sp, #72]
+ 287 0122 4A46     		mov	r2, r9
+ 288 0124 4146     		mov	r1, r8
+ 289 0126 5046     		mov	r0, r10
+ 290 0128 FFF7FEFF 		bl	makise_pset
+ 291              	.LVL33:
+ 160:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - y, yc - x, c);
+ 292              		.loc 1 160 0
+ 293 012c 129B     		ldr	r3, [sp, #72]
+ 294 012e 4A46     		mov	r2, r9
+ 295 0130 3146     		mov	r1, r6
+ 296 0132 5046     		mov	r0, r10
+ 297 0134 FFF7FEFF 		bl	makise_pset
+ 298              	.LVL34:
+ 299 0138 029B     		ldr	r3, [sp, #8]
+ARM GAS  /tmp/ccPZdB2k.s 			page 9
+
+
+ 300 013a 0133     		adds	r3, r3, #1
+ 301 013c 0293     		str	r3, [sp, #8]
+ 302              	.LVL35:
+ 139:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 303              		.loc 1 139 0
+ 304 013e 0135     		adds	r5, r5, #1
+ 305              	.LVL36:
+ 306 0140 2DB2     		sxth	r5, r5
+ 307              	.LVL37:
+ 308 0142 AF42     		cmp	r7, r5
+ 309 0144 0BDD     		ble	.L9
+ 310              	.LVL38:
+ 311              	.L12:
+ 144:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 312              		.loc 1 144 0
+ 313 0146 002C     		cmp	r4, #0
+ 314 0148 98DB     		blt	.L11
+ 146:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    ddF_y += 2;
+ 315              		.loc 1 146 0
+ 316 014a 013F     		subs	r7, r7, #1
+ 317              	.LVL39:
+ 318 014c 3FB2     		sxth	r7, r7
+ 319              	.LVL40:
+ 147:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    f += ddF_y;
+ 320              		.loc 1 147 0
+ 321 014e 049B     		ldr	r3, [sp, #16]
+ 322 0150 0233     		adds	r3, r3, #2
+ 323 0152 9BB2     		uxth	r3, r3
+ 324 0154 1AB2     		sxth	r2, r3
+ 325 0156 0492     		str	r2, [sp, #16]
+ 326              	.LVL41:
+ 148:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 327              		.loc 1 148 0
+ 328 0158 1C44     		add	r4, r4, r3
+ 329              	.LVL42:
+ 330 015a 24B2     		sxth	r4, r4
+ 331              	.LVL43:
+ 332 015c 8EE7     		b	.L11
+ 333              	.LVL44:
+ 334              	.L9:
+ 161:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 162:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 163:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+ 335              		.loc 1 163 0
+ 336 015e 09B0     		add	sp, sp, #36
+ 337              	.LCFI4:
+ 338              		.cfi_def_cfa_offset 36
+ 339              		@ sp needed
+ 340 0160 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 341              		.cfi_endproc
+ 342              	.LFE130:
+ 344              		.section	.text.makise_d_line,"ax",%progbits
+ 345              		.align	1
+ 346              		.global	makise_d_line
+ 347              		.syntax unified
+ 348              		.thumb
+ 349              		.thumb_func
+ARM GAS  /tmp/ccPZdB2k.s 			page 10
+
+
+ 350              		.fpu fpv4-sp-d16
+ 352              	makise_d_line:
+ 353              	.LFB132:
+ 164:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_circle_filled(MakiseBuffer* b, uint16_t xc, uint16_t yc, uint16_t r, uint32_t c, uint
+ 165:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+ 166:MakiseGUI/MakiseGUI/makise_primitives.c ****     //middle point algorythm
+ 167:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t f = 1 - r;
+ 168:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t ddF_x = 1;
+ 169:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t ddF_y = -2 * r;
+ 170:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t x = 0;
+ 171:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t y = r;
+ 172:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t dd;
+ 173:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, xc - r, yc, xc + r, yc, fill_c);
+ 174:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc + r, c);
+ 175:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc - r, c);
+ 176:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc + r, yc, c);
+ 177:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc - r, yc, c);
+ 178:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 179:MakiseGUI/MakiseGUI/makise_primitives.c ****     while(x < y)
+ 180:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 181:MakiseGUI/MakiseGUI/makise_primitives.c **** 	// ddF_x == 2 * x + 1;
+ 182:MakiseGUI/MakiseGUI/makise_primitives.c **** 	// ddF_y == -2 * y;
+ 183:MakiseGUI/MakiseGUI/makise_primitives.c **** 	// f == x*x + y*y - r*r + 2*x - y + 1;
+ 184:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(f >= 0)
+ 185:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 186:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    y--;
+ 187:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    ddF_y += 2;
+ 188:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    f += ddF_y;
+ 189:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 190:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x++;
+ 191:MakiseGUI/MakiseGUI/makise_primitives.c **** 	ddF_x += 2;
+ 192:MakiseGUI/MakiseGUI/makise_primitives.c **** 	f += ddF_x;
+ 193:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 194:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(y != r)
+ 195:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 196:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - x + 1, yc + y, xc + x - 1, yc + y, fill_c);
+ 197:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - x + 1, yc - y, xc + x - 1, yc - y, fill_c);
+ 198:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 199:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if(x != r)
+ 200:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 201:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - y + 1, yc + x, xc + y - 1, yc + x, fill_c);
+ 202:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - y + 1, yc - x, xc + y - 1, yc - x, fill_c);
+ 203:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 204:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + x, yc + y, c);
+ 205:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - x, yc + y, c);
+ 206:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + x, yc - y, c);
+ 207:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - x, yc - y, c);
+ 208:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + y, yc + x, c);
+ 209:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - y, yc + x, c);
+ 210:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + y, yc - x, c);
+ 211:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - y, yc - x, c);
+ 212:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 213:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 214:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+ 215:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_line(MakiseBuffer* b, int16_t x0, int16_t y0,
+ 216:MakiseGUI/MakiseGUI/makise_primitives.c **** 		   int16_t x1, int16_t y1, uint32_t c)
+ 217:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+ARM GAS  /tmp/ccPZdB2k.s 			page 11
+
+
+ 354              		.loc 1 217 0
+ 355              		.cfi_startproc
+ 356              		@ args = 8, pretend = 0, frame = 24
+ 357              		@ frame_needed = 0, uses_anonymous_args = 0
+ 358              	.LVL45:
+ 359 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 360              	.LCFI5:
+ 361              		.cfi_def_cfa_offset 36
+ 362              		.cfi_offset 4, -36
+ 363              		.cfi_offset 5, -32
+ 364              		.cfi_offset 6, -28
+ 365              		.cfi_offset 7, -24
+ 366              		.cfi_offset 8, -20
+ 367              		.cfi_offset 9, -16
+ 368              		.cfi_offset 10, -12
+ 369              		.cfi_offset 11, -8
+ 370              		.cfi_offset 14, -4
+ 371 0004 87B0     		sub	sp, sp, #28
+ 372              	.LCFI6:
+ 373              		.cfi_def_cfa_offset 64
+ 374 0006 BDF94060 		ldrsh	r6, [sp, #64]
+ 218:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x1 < 0 && x0 < 0)
+ 375              		.loc 1 218 0
+ 376 000a 002B     		cmp	r3, #0
+ 377              	.LVL46:
+ 378 000c 7ADB     		blt	.L51
+ 379              	.L16:
+ 219:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 220:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x1 >= b->width && x0 >= b->width)
+ 380              		.loc 1 220 0
+ 381 000e C588     		ldrh	r5, [r0, #6]
+ 382 0010 AB42     		cmp	r3, r5
+ 383 0012 02DB     		blt	.L18
+ 384              		.loc 1 220 0 is_stmt 0 discriminator 1
+ 385 0014 8D42     		cmp	r5, r1
+ 386 0016 40F3E880 		ble	.L15
+ 387              	.L18:
+ 221:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 222:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y1 < 0 && y0 < 0)
+ 388              		.loc 1 222 0 is_stmt 1
+ 389 001a 002E     		cmp	r6, #0
+ 390 001c 75DB     		blt	.L52
+ 391              	.L19:
+ 223:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 224:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y1 >= b->height && y0 >= b->height)
+ 392              		.loc 1 224 0
+ 393 001e B0F804E0 		ldrh	lr, [r0, #4]
+ 394 0022 7645     		cmp	r6, lr
+ 395 0024 02DB     		blt	.L20
+ 396              		.loc 1 224 0 is_stmt 0 discriminator 1
+ 397 0026 9645     		cmp	lr, r2
+ 398 0028 40F3DF80 		ble	.L15
+ 399              	.L20:
+ 400 002c 8146     		mov	r9, r0
+ 401              	.LVL47:
+ 225:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 226:MakiseGUI/MakiseGUI/makise_primitives.c ****     x1 = x1 < 0 ? 0 : x1;
+ARM GAS  /tmp/ccPZdB2k.s 			page 12
+
+
+ 227:MakiseGUI/MakiseGUI/makise_primitives.c ****     y1 = y1 < 0 ? 0 : y1;
+ 228:MakiseGUI/MakiseGUI/makise_primitives.c ****     x0 = x0 < 0 ? 0 : x0;
+ 229:MakiseGUI/MakiseGUI/makise_primitives.c ****     y0 = y0 < 0 ? 0 : y0;
+ 230:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 231:MakiseGUI/MakiseGUI/makise_primitives.c ****     x0 =  x0 < b->width-1 ? x0 : b->width - 1;
+ 402              		.loc 1 231 0 is_stmt 1
+ 403 002e 013D     		subs	r5, r5, #1
+ 404 0030 21EAE174 		bic	r4, r1, r1, asr #31
+ 405 0034 AC42     		cmp	r4, r5
+ 406 0036 A8BF     		it	ge
+ 407 0038 2C46     		movge	r4, r5
+ 408 003a 24B2     		sxth	r4, r4
+ 409              	.LVL48:
+ 232:MakiseGUI/MakiseGUI/makise_primitives.c ****     x1 =  x1 < b->width-1 ? x1 : b->width - 1;
+ 410              		.loc 1 232 0
+ 411 003c 23EAE373 		bic	r3, r3, r3, asr #31
+ 412              	.LVL49:
+ 413 0040 9D42     		cmp	r5, r3
+ 414 0042 A8BF     		it	ge
+ 415 0044 1D46     		movge	r5, r3
+ 416 0046 0FFA85FB 		sxth	fp, r5
+ 417              	.LVL50:
+ 233:MakiseGUI/MakiseGUI/makise_primitives.c ****     y0 =  y0 < b->height-1 ? y0 : b->height - 1;
+ 418              		.loc 1 233 0
+ 419 004a 0EF1FF33 		add	r3, lr, #-1
+ 420 004e 22EAE278 		bic	r8, r2, r2, asr #31
+ 421 0052 9845     		cmp	r8, r3
+ 422 0054 A8BF     		it	ge
+ 423 0056 9846     		movge	r8, r3
+ 424 0058 0FFA88F2 		sxth	r2, r8
+ 425              	.LVL51:
+ 426 005c 1546     		mov	r5, r2
+ 427              	.LVL52:
+ 234:MakiseGUI/MakiseGUI/makise_primitives.c ****     y1 =  y1 < b->height-1 ? y1 : b->height - 1;
+ 428              		.loc 1 234 0
+ 429 005e 26EAE67E 		bic	lr, r6, r6, asr #31
+ 430 0062 9E45     		cmp	lr, r3
+ 431 0064 A8BF     		it	ge
+ 432 0066 9E46     		movge	lr, r3
+ 433 0068 0FFA8EF3 		sxth	r3, lr
+ 434 006c 0593     		str	r3, [sp, #20]
+ 435              	.LVL53:
+ 235:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 236:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t dy = 0;
+ 237:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 238:MakiseGUI/MakiseGUI/makise_primitives.c ****     dy = abs(y0 - y1);				/* The difference between the y's */
+ 436              		.loc 1 238 0
+ 437 006e 0192     		str	r2, [sp, #4]
+ 438 0070 D31A     		subs	r3, r2, r3
+ 439              	.LVL54:
+ 440 0072 002B     		cmp	r3, #0
+ 441 0074 B8BF     		it	lt
+ 442 0076 5B42     		rsblt	r3, r3, #0
+ 443 0078 1BB2     		sxth	r3, r3
+ 444              	.LVL55:
+ 239:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 240:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(dy == 0) //if line is horizontal we can memset it
+ARM GAS  /tmp/ccPZdB2k.s 			page 13
+
+
+ 445              		.loc 1 240 0
+ 446 007a 002B     		cmp	r3, #0
+ 447 007c 6FD1     		bne	.L21
+ 448              	.LVL56:
+ 449              	.LBB3:
+ 450              	.LBB4:
+ 241:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 242:MakiseGUI/MakiseGUI/makise_primitives.c **** 	uint32_t C = 0; //byte filled with colors for memset
+ 243:MakiseGUI/MakiseGUI/makise_primitives.c **** 	uint32_t kb, j;
+ 244:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    
+ 245:MakiseGUI/MakiseGUI/makise_primitives.c **** 	for (int i = 0; i < (32/b->pixeldepth); i++)
+ 451              		.loc 1 245 0 discriminator 1
+ 452 007e 0389     		ldrh	r3, [r0, #8]
+ 453              	.LVL57:
+ 454 0080 2026     		movs	r6, #32
+ 455 0082 96FBF3F6 		sdiv	r6, r6, r3
+ 456 0086 002E     		cmp	r6, #0
+ 457 0088 42DD     		ble	.L38
+ 246:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 247:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    C |= (c & b->depthmask) << i*b->pixeldepth; 
+ 458              		.loc 1 247 0
+ 459 008a 857A     		ldrb	r5, [r0, #10]	@ zero_extendqisi2
+ 460 008c 119A     		ldr	r2, [sp, #68]
+ 461              	.LVL58:
+ 462 008e 1540     		ands	r5, r5, r2
+ 463 0090 9C46     		mov	ip, r3
+ 464 0092 0022     		movs	r2, #0
+ 465 0094 1146     		mov	r1, r2
+ 466 0096 1746     		mov	r7, r2
+ 467              	.LVL59:
+ 468              	.L23:
+ 469              		.loc 1 247 0 is_stmt 0 discriminator 3
+ 470 0098 05FA02F0 		lsl	r0, r5, r2
+ 471 009c 0743     		orrs	r7, r7, r0
+ 472              	.LVL60:
+ 245:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 473              		.loc 1 245 0 is_stmt 1 discriminator 3
+ 474 009e 0131     		adds	r1, r1, #1
+ 475              	.LVL61:
+ 476 00a0 6244     		add	r2, r2, ip
+ 477 00a2 B142     		cmp	r1, r6
+ 478 00a4 F8D1     		bne	.L23
+ 479              	.LVL62:
+ 480              	.L22:
+ 481              	.LBE4:
+ 248:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 249:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 250:MakiseGUI/MakiseGUI/makise_primitives.c **** 	j = x0;
+ 482              		.loc 1 250 0
+ 483 00a6 2546     		mov	r5, r4
+ 484              	.LVL63:
+ 251:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while ((j % (32 / b->pixeldepth)) && j <= x1) { //coordinate position in the array must in the beg
+ 485              		.loc 1 251 0
+ 486 00a8 B4FBF6F2 		udiv	r2, r4, r6
+ 487 00ac 06FB1246 		mls	r6, r6, r2, r4
+ 488 00b0 86B3     		cbz	r6, .L24
+ 489              	.LVL64:
+ARM GAS  /tmp/ccPZdB2k.s 			page 14
+
+
+ 490 00b2 5E46     		mov	r6, fp
+ 491 00b4 5C45     		cmp	r4, fp
+ 492 00b6 15D8     		bhi	.L27
+ 252:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_pset(b, j, y1, c);
+ 493              		.loc 1 252 0
+ 494 00b8 1FFA8EF4 		uxth	r4, lr
+ 495              	.LVL65:
+ 251:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while ((j % (32 / b->pixeldepth)) && j <= x1) { //coordinate position in the array must in the beg
+ 496              		.loc 1 251 0
+ 497 00bc 4FF0200A 		mov	r10, #32
+ 498              	.LVL66:
+ 499              	.L43:
+ 500              		.loc 1 252 0
+ 501 00c0 119B     		ldr	r3, [sp, #68]
+ 502 00c2 2246     		mov	r2, r4
+ 503 00c4 A9B2     		uxth	r1, r5
+ 504 00c6 4846     		mov	r0, r9
+ 505 00c8 FFF7FEFF 		bl	makise_pset
+ 506              	.LVL67:
+ 253:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    j++;
+ 507              		.loc 1 253 0
+ 508 00cc 0135     		adds	r5, r5, #1
+ 509              	.LVL68:
+ 251:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while ((j % (32 / b->pixeldepth)) && j <= x1) { //coordinate position in the array must in the beg
+ 510              		.loc 1 251 0
+ 511 00ce B9F80830 		ldrh	r3, [r9, #8]
+ 512 00d2 9AFBF3F1 		sdiv	r1, r10, r3
+ 513 00d6 B5FBF1F2 		udiv	r2, r5, r1
+ 514 00da 01FB1252 		mls	r2, r1, r2, r5
+ 515 00de CAB1     		cbz	r2, .L24
+ 251:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while ((j % (32 / b->pixeldepth)) && j <= x1) { //coordinate position in the array must in the beg
+ 516              		.loc 1 251 0 is_stmt 0 discriminator 1
+ 517 00e0 B542     		cmp	r5, r6
+ 518 00e2 EDD9     		bls	.L43
+ 519              	.L27:
+ 254:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 255:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 256:MakiseGUI/MakiseGUI/makise_primitives.c **** 	
+ 257:MakiseGUI/MakiseGUI/makise_primitives.c **** 	kb = (y0*(b->width) + j) * (b)->pixeldepth/32;
+ 258:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while(j <= x1 && x1 - j >= 32/b->pixeldepth)
+ 259:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 260:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    b->buffer[kb] = C;
+ 261:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    kb += 1;
+ 262:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    j += 32/b->pixeldepth;
+ 263:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 264:MakiseGUI/MakiseGUI/makise_primitives.c **** 	j-=1;
+ 520              		.loc 1 264 0 is_stmt 1
+ 521 00e4 013D     		subs	r5, r5, #1
+ 522              	.LVL69:
+ 265:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while (j <= x1) {
+ 523              		.loc 1 265 0
+ 524 00e6 B542     		cmp	r5, r6
+ 525 00e8 7FD8     		bhi	.L15
+ 266:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_pset(b, j, y0, c);
+ 526              		.loc 1 266 0
+ 527 00ea 1FFA88F8 		uxth	r8, r8
+ 528 00ee 119C     		ldr	r4, [sp, #68]
+ARM GAS  /tmp/ccPZdB2k.s 			page 15
+
+
+ 529              	.L42:
+ 530 00f0 2346     		mov	r3, r4
+ 531 00f2 4246     		mov	r2, r8
+ 532 00f4 A9B2     		uxth	r1, r5
+ 533 00f6 4846     		mov	r0, r9
+ 534 00f8 FFF7FEFF 		bl	makise_pset
+ 535              	.LVL70:
+ 267:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    j++;
+ 536              		.loc 1 267 0
+ 537 00fc 0135     		adds	r5, r5, #1
+ 538              	.LVL71:
+ 265:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while (j <= x1) {
+ 539              		.loc 1 265 0
+ 540 00fe B542     		cmp	r5, r6
+ 541 0100 F6D9     		bls	.L42
+ 542 0102 72E0     		b	.L15
+ 543              	.LVL72:
+ 544              	.L51:
+ 545              	.LBE3:
+ 218:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 546              		.loc 1 218 0 discriminator 1
+ 547 0104 0029     		cmp	r1, #0
+ 548 0106 82DA     		bge	.L16
+ 549 0108 6FE0     		b	.L15
+ 550              	.L52:
+ 222:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 551              		.loc 1 222 0 discriminator 1
+ 552 010a 002A     		cmp	r2, #0
+ 553 010c 87DA     		bge	.L19
+ 554 010e 6CE0     		b	.L15
+ 555              	.LVL73:
+ 556              	.L38:
+ 557              	.LBB6:
+ 558              	.LBB5:
+ 245:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 559              		.loc 1 245 0
+ 560 0110 0027     		movs	r7, #0
+ 561 0112 C8E7     		b	.L22
+ 562              	.LVL74:
+ 563              	.L24:
+ 564              	.LBE5:
+ 257:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while(j <= x1 && x1 - j >= 32/b->pixeldepth)
+ 565              		.loc 1 257 0
+ 566 0114 B9F80620 		ldrh	r2, [r9, #6]
+ 567 0118 0199     		ldr	r1, [sp, #4]
+ 568 011a 01FB0252 		mla	r2, r1, r2, r5
+ 569 011e 03FB02F3 		mul	r3, r3, r2
+ 570 0122 5B09     		lsrs	r3, r3, #5
+ 571              	.LVL75:
+ 258:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 572              		.loc 1 258 0
+ 573 0124 5E46     		mov	r6, fp
+ 574 0126 AB45     		cmp	fp, r5
+ 575 0128 DCD3     		bcc	.L27
+ 576 012a ABEB0501 		sub	r1, fp, r5
+ 577 012e B9F80800 		ldrh	r0, [r9, #8]
+ 578 0132 2022     		movs	r2, #32
+ARM GAS  /tmp/ccPZdB2k.s 			page 16
+
+
+ 579 0134 92FBF0F2 		sdiv	r2, r2, r0
+ 580 0138 9142     		cmp	r1, r2
+ 581 013a D3D3     		bcc	.L27
+ 582 013c 9B00     		lsls	r3, r3, #2
+ 583              	.LVL76:
+ 262:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 584              		.loc 1 262 0
+ 585 013e 2020     		movs	r0, #32
+ 586              	.L28:
+ 260:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    kb += 1;
+ 587              		.loc 1 260 0
+ 588 0140 D9F80C20 		ldr	r2, [r9, #12]
+ 589 0144 D750     		str	r7, [r2, r3]
+ 262:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 590              		.loc 1 262 0
+ 591 0146 B9F80820 		ldrh	r2, [r9, #8]
+ 592 014a 90FBF2F2 		sdiv	r2, r0, r2
+ 593 014e 1544     		add	r5, r5, r2
+ 594              	.LVL77:
+ 258:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 595              		.loc 1 258 0
+ 596 0150 B542     		cmp	r5, r6
+ 597 0152 C7D8     		bhi	.L27
+ 598 0154 0433     		adds	r3, r3, #4
+ 258:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 599              		.loc 1 258 0 is_stmt 0 discriminator 1
+ 600 0156 711B     		subs	r1, r6, r5
+ 601 0158 9142     		cmp	r1, r2
+ 602 015a F1D2     		bcs	.L28
+ 603 015c C2E7     		b	.L27
+ 604              	.LVL78:
+ 605              	.L21:
+ 606              	.LBE6:
+ 268:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 269:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 270:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 271:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 272:MakiseGUI/MakiseGUI/makise_primitives.c ****     int dx = abs(x1-x0), sx = x0<x1 ? 1 : -1;
+ 607              		.loc 1 272 0 is_stmt 1
+ 608 015e ABEB0402 		sub	r2, fp, r4
+ 609              	.LVL79:
+ 610 0162 002A     		cmp	r2, #0
+ 611 0164 B8BF     		it	lt
+ 612 0166 5242     		rsblt	r2, r2, #0
+ 613 0168 0292     		str	r2, [sp, #8]
+ 614              	.LVL80:
+ 615 016a 5C45     		cmp	r4, fp
+ 616 016c B4BF     		ite	lt
+ 617 016e 0121     		movlt	r1, #1
+ 618 0170 4FF0FF31 		movge	r1, #-1
+ 619 0174 0391     		str	r1, [sp, #12]
+ 620              	.LVL81:
+ 273:MakiseGUI/MakiseGUI/makise_primitives.c ****     int sy = y0<y1 ? 1 : -1; 
+ 621              		.loc 1 273 0
+ 622 0176 0598     		ldr	r0, [sp, #20]
+ 623              	.LVL82:
+ 624 0178 8542     		cmp	r5, r0
+ARM GAS  /tmp/ccPZdB2k.s 			page 17
+
+
+ 625 017a B4BF     		ite	lt
+ 626 017c 0121     		movlt	r1, #1
+ 627 017e 4FF0FF31 		movge	r1, #-1
+ 628              	.LVL83:
+ 629 0182 0491     		str	r1, [sp, #16]
+ 630              	.LVL84:
+ 274:MakiseGUI/MakiseGUI/makise_primitives.c ****     int err = (dx>dy ? dx : -dy)/2, e2;
+ 631              		.loc 1 274 0
+ 632 0184 9A46     		mov	r10, r3
+ 633 0186 9A42     		cmp	r2, r3
+ 634 0188 0ADC     		bgt	.L32
+ 635              		.loc 1 274 0 is_stmt 0 discriminator 1
+ 636 018a 5B42     		negs	r3, r3
+ 637              	.LVL85:
+ 638 018c 03EBD373 		add	r3, r3, r3, lsr #31
+ 639 0190 4FEA6308 		asr	r8, r3, #1
+ 640              	.L34:
+ 275:MakiseGUI/MakiseGUI/makise_primitives.c ****  
+ 276:MakiseGUI/MakiseGUI/makise_primitives.c ****     for(;;){
+ 277:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, x0, y0, c);
+ 278:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if (x0==x1 && y0==y1) break;
+ 279:MakiseGUI/MakiseGUI/makise_primitives.c **** 	e2 = err;
+ 280:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if (e2 >-dx) { err -= dy; x0 += sx; }
+ 641              		.loc 1 280 0 is_stmt 1
+ 642 0194 029B     		ldr	r3, [sp, #8]
+ 643 0196 5F42     		negs	r7, r3
+ 644 0198 CDF80490 		str	r9, [sp, #4]
+ 645 019c A946     		mov	r9, r5
+ 646              	.LVL86:
+ 647 019e 06E0     		b	.L33
+ 648              	.LVL87:
+ 649              	.L32:
+ 274:MakiseGUI/MakiseGUI/makise_primitives.c ****     int err = (dx>dy ? dx : -dy)/2, e2;
+ 650              		.loc 1 274 0 discriminator 2
+ 651 01a0 029B     		ldr	r3, [sp, #8]
+ 652              	.LVL88:
+ 653 01a2 03EBD378 		add	r8, r3, r3, lsr #31
+ 654 01a6 4FEA6808 		asr	r8, r8, #1
+ 655 01aa F3E7     		b	.L34
+ 656              	.LVL89:
+ 657              	.L37:
+ 273:MakiseGUI/MakiseGUI/makise_primitives.c ****     int err = (dx>dy ? dx : -dy)/2, e2;
+ 658              		.loc 1 273 0
+ 659 01ac 9846     		mov	r8, r3
+ 660              	.LVL90:
+ 661              	.L33:
+ 277:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if (x0==x1 && y0==y1) break;
+ 662              		.loc 1 277 0
+ 663 01ae A6B2     		uxth	r6, r4
+ 664 01b0 1FFA89F5 		uxth	r5, r9
+ 665 01b4 119B     		ldr	r3, [sp, #68]
+ 666 01b6 2A46     		mov	r2, r5
+ 667 01b8 3146     		mov	r1, r6
+ 668 01ba 0198     		ldr	r0, [sp, #4]
+ 669 01bc FFF7FEFF 		bl	makise_pset
+ 670              	.LVL91:
+ 278:MakiseGUI/MakiseGUI/makise_primitives.c **** 	e2 = err;
+ARM GAS  /tmp/ccPZdB2k.s 			page 18
+
+
+ 671              		.loc 1 278 0
+ 672 01c0 5C45     		cmp	r4, fp
+ 673 01c2 0FD0     		beq	.L53
+ 674              	.L35:
+ 675              	.LVL92:
+ 676              		.loc 1 280 0
+ 677 01c4 B845     		cmp	r8, r7
+ 678 01c6 13DD     		ble	.L41
+ 679              		.loc 1 280 0 is_stmt 0 discriminator 1
+ 680 01c8 A8EB0A03 		sub	r3, r8, r10
+ 681              	.LVL93:
+ 682 01cc 039A     		ldr	r2, [sp, #12]
+ 683 01ce 1644     		add	r6, r6, r2
+ 684 01d0 34B2     		sxth	r4, r6
+ 685              	.LVL94:
+ 686              	.L36:
+ 281:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if (e2 < dy) { err += dx; y0 += sy; }
+ 687              		.loc 1 281 0 is_stmt 1
+ 688 01d2 D045     		cmp	r8, r10
+ 689 01d4 EADA     		bge	.L37
+ 690              		.loc 1 281 0 is_stmt 0 discriminator 1
+ 691 01d6 029A     		ldr	r2, [sp, #8]
+ 692 01d8 1344     		add	r3, r3, r2
+ 693              	.LVL95:
+ 694 01da 049A     		ldr	r2, [sp, #16]
+ 695 01dc 1544     		add	r5, r5, r2
+ 696 01de 0FFA85F9 		sxth	r9, r5
+ 697              	.LVL96:
+ 698 01e2 E3E7     		b	.L37
+ 699              	.LVL97:
+ 700              	.L53:
+ 278:MakiseGUI/MakiseGUI/makise_primitives.c **** 	e2 = err;
+ 701              		.loc 1 278 0 is_stmt 1 discriminator 1
+ 702 01e4 059B     		ldr	r3, [sp, #20]
+ 703 01e6 9945     		cmp	r9, r3
+ 704 01e8 ECD1     		bne	.L35
+ 705              	.LVL98:
+ 706              	.L15:
+ 282:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 283:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+ 707              		.loc 1 283 0
+ 708 01ea 07B0     		add	sp, sp, #28
+ 709              	.LCFI7:
+ 710              		.cfi_remember_state
+ 711              		.cfi_def_cfa_offset 36
+ 712              		@ sp needed
+ 713 01ec BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 714              	.LVL99:
+ 715              	.L41:
+ 716              	.LCFI8:
+ 717              		.cfi_restore_state
+ 718 01f0 4346     		mov	r3, r8
+ 719 01f2 EEE7     		b	.L36
+ 720              		.cfi_endproc
+ 721              	.LFE132:
+ 723              		.section	.text.makise_d_rect,"ax",%progbits
+ 724              		.align	1
+ARM GAS  /tmp/ccPZdB2k.s 			page 19
+
+
+ 725              		.global	makise_d_rect
+ 726              		.syntax unified
+ 727              		.thumb
+ 728              		.thumb_func
+ 729              		.fpu fpv4-sp-d16
+ 731              	makise_d_rect:
+ 732              	.LFB128:
+  26:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x >= b->width || y >= b->height)
+ 733              		.loc 1 26 0
+ 734              		.cfi_startproc
+ 735              		@ args = 8, pretend = 0, frame = 0
+ 736              		@ frame_needed = 0, uses_anonymous_args = 0
+ 737              	.LVL100:
+ 738 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 739              	.LCFI9:
+ 740              		.cfi_def_cfa_offset 24
+ 741              		.cfi_offset 4, -24
+ 742              		.cfi_offset 5, -20
+ 743              		.cfi_offset 6, -16
+ 744              		.cfi_offset 7, -12
+ 745              		.cfi_offset 8, -8
+ 746              		.cfi_offset 14, -4
+ 747 0004 82B0     		sub	sp, sp, #8
+ 748              	.LCFI10:
+ 749              		.cfi_def_cfa_offset 32
+ 750 0006 0646     		mov	r6, r0
+ 751 0008 1546     		mov	r5, r2
+ 752 000a BDF82070 		ldrh	r7, [sp, #32]
+  27:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 753              		.loc 1 27 0
+ 754 000e C288     		ldrh	r2, [r0, #6]
+ 755              	.LVL101:
+ 756 0010 9142     		cmp	r1, r2
+ 757 0012 4EDA     		bge	.L54
+ 758 0014 0C46     		mov	r4, r1
+  27:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 759              		.loc 1 27 0 is_stmt 0 discriminator 1
+ 760 0016 AE46     		mov	lr, r5
+ 761 0018 B188     		ldrh	r1, [r6, #4]
+ 762              	.LVL102:
+ 763 001a 8D42     		cmp	r5, r1
+ 764 001c 49DA     		bge	.L54
+  29:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 765              		.loc 1 29 0 is_stmt 1
+ 766 001e 002C     		cmp	r4, #0
+ 767 0020 4ADB     		blt	.L64
+ 768              	.LVL103:
+ 769              	.L56:
+  36:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 770              		.loc 1 36 0
+ 771 0022 002D     		cmp	r5, #0
+ 772 0024 4FDB     		blt	.L65
+ 773              	.LVL104:
+ 774              	.L57:
+  43:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = b->width - x - 1;
+ 775              		.loc 1 43 0
+ 776 0026 E018     		adds	r0, r4, r3
+ARM GAS  /tmp/ccPZdB2k.s 			page 20
+
+
+ 777 0028 8242     		cmp	r2, r0
+ 778 002a 02DC     		bgt	.L58
+  44:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y + h >= b->height)
+ 779              		.loc 1 44 0
+ 780 002c 531E     		subs	r3, r2, #1
+ 781              	.LVL105:
+ 782 002e 1B1B     		subs	r3, r3, r4
+ 783 0030 9BB2     		uxth	r3, r3
+ 784              	.LVL106:
+ 785              	.L58:
+  45:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = b->height - y - 1;
+ 786              		.loc 1 45 0
+ 787 0032 EA19     		adds	r2, r5, r7
+ 788 0034 9142     		cmp	r1, r2
+ 789 0036 02DC     		bgt	.L59
+  46:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 790              		.loc 1 46 0
+ 791 0038 4F1E     		subs	r7, r1, #1
+ 792              	.LVL107:
+ 793 003a 7F1B     		subs	r7, r7, r5
+ 794 003c BFB2     		uxth	r7, r7
+ 795              	.LVL108:
+ 796              	.L59:
+  48:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 797              		.loc 1 48 0
+ 798 003e 002B     		cmp	r3, #0
+ 799 0040 37D0     		beq	.L54
+  48:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 800              		.loc 1 48 0 is_stmt 0 discriminator 1
+ 801 0042 002F     		cmp	r7, #0
+ 802 0044 35D0     		beq	.L54
+ 803              	.LVL109:
+ 804              	.LBB7:
+  54:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 805              		.loc 1 54 0 is_stmt 1 discriminator 1
+ 806 0046 3289     		ldrh	r2, [r6, #8]
+ 807 0048 0821     		movs	r1, #8
+ 808 004a 91FBF2F1 		sdiv	r1, r1, r2
+ 809 004e 0029     		cmp	r1, #0
+ 810 0050 03DD     		ble	.L60
+  54:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 811              		.loc 1 54 0 is_stmt 0
+ 812 0052 0022     		movs	r2, #0
+ 813              	.LVL110:
+ 814              	.L61:
+  54:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 815              		.loc 1 54 0 discriminator 3
+ 816 0054 0132     		adds	r2, r2, #1
+ 817              	.LVL111:
+ 818 0056 8A42     		cmp	r2, r1
+ 819 0058 FCD1     		bne	.L61
+ 820              	.LVL112:
+ 821              	.L60:
+ 822              	.LBE7:
+  62:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y + h, x + w, y + h, c);
+ 823              		.loc 1 62 0 is_stmt 1
+ 824 005a 04F1FF38 		add	r8, r4, #-1
+ARM GAS  /tmp/ccPZdB2k.s 			page 21
+
+
+ 825 005e 4344     		add	r3, r3, r8
+ 826              	.LVL113:
+ 827 0060 0FFA83F8 		sxth	r8, r3
+ 828 0064 099B     		ldr	r3, [sp, #36]
+ 829 0066 0193     		str	r3, [sp, #4]
+ 830 0068 0095     		str	r5, [sp]
+ 831 006a 4346     		mov	r3, r8
+ 832 006c 2A46     		mov	r2, r5
+ 833 006e 2146     		mov	r1, r4
+ 834 0070 3046     		mov	r0, r6
+ 835 0072 FFF7FEFF 		bl	makise_d_line
+ 836              	.LVL114:
+  63:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y, x, y + h, c);
+ 837              		.loc 1 63 0
+ 838 0076 6B1E     		subs	r3, r5, #1
+ 839 0078 1F44     		add	r7, r7, r3
+ 840              	.LVL115:
+ 841 007a 3FB2     		sxth	r7, r7
+ 842 007c 099B     		ldr	r3, [sp, #36]
+ 843 007e 0193     		str	r3, [sp, #4]
+ 844 0080 0097     		str	r7, [sp]
+ 845 0082 4346     		mov	r3, r8
+ 846 0084 3A46     		mov	r2, r7
+ 847 0086 2146     		mov	r1, r4
+ 848 0088 3046     		mov	r0, r6
+ 849 008a FFF7FEFF 		bl	makise_d_line
+ 850              	.LVL116:
+  64:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x + w, y, x + w, y + h, c);
+ 851              		.loc 1 64 0
+ 852 008e 099B     		ldr	r3, [sp, #36]
+ 853 0090 0193     		str	r3, [sp, #4]
+ 854 0092 0097     		str	r7, [sp]
+ 855 0094 2346     		mov	r3, r4
+ 856 0096 2A46     		mov	r2, r5
+ 857 0098 2146     		mov	r1, r4
+ 858 009a 3046     		mov	r0, r6
+ 859 009c FFF7FEFF 		bl	makise_d_line
+ 860              	.LVL117:
+  65:MakiseGUI/MakiseGUI/makise_primitives.c ****     /*
+ 861              		.loc 1 65 0
+ 862 00a0 099B     		ldr	r3, [sp, #36]
+ 863 00a2 0193     		str	r3, [sp, #4]
+ 864 00a4 0097     		str	r7, [sp]
+ 865 00a6 4346     		mov	r3, r8
+ 866 00a8 2A46     		mov	r2, r5
+ 867 00aa 4146     		mov	r1, r8
+ 868 00ac 3046     		mov	r0, r6
+ 869 00ae FFF7FEFF 		bl	makise_d_line
+ 870              	.LVL118:
+ 871              	.L54:
+  72:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_rect_filled(MakiseBuffer* b, int16_t x, int16_t y, uint16_t w,
+ 872              		.loc 1 72 0
+ 873 00b2 02B0     		add	sp, sp, #8
+ 874              	.LCFI11:
+ 875              		.cfi_remember_state
+ 876              		.cfi_def_cfa_offset 24
+ 877              		@ sp needed
+ARM GAS  /tmp/ccPZdB2k.s 			page 22
+
+
+ 878 00b4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 879              	.LVL119:
+ 880              	.L64:
+ 881              	.LCFI12:
+ 882              		.cfi_restore_state
+  31:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+ 883              		.loc 1 31 0
+ 884 00b8 6042     		negs	r0, r4
+ 885              	.LVL120:
+ 886 00ba 9842     		cmp	r0, r3
+ 887 00bc F9DC     		bgt	.L54
+  33:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x = 0;
+ 888              		.loc 1 33 0
+ 889 00be 2344     		add	r3, r3, r4
+ 890              	.LVL121:
+ 891 00c0 9BB2     		uxth	r3, r3
+ 892              	.LVL122:
+  34:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 893              		.loc 1 34 0
+ 894 00c2 0024     		movs	r4, #0
+ 895 00c4 ADE7     		b	.L56
+ 896              	.LVL123:
+ 897              	.L65:
+  38:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+ 898              		.loc 1 38 0
+ 899 00c6 CEF1000E 		rsb	lr, lr, #0
+ 900 00ca BE45     		cmp	lr, r7
+ 901 00cc F1DC     		bgt	.L54
+  40:MakiseGUI/MakiseGUI/makise_primitives.c **** 	y = 0;
+ 902              		.loc 1 40 0
+ 903 00ce 2F44     		add	r7, r7, r5
+ 904 00d0 BFB2     		uxth	r7, r7
+ 905              	.LVL124:
+  41:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 906              		.loc 1 41 0
+ 907 00d2 0025     		movs	r5, #0
+ 908 00d4 A7E7     		b	.L57
+ 909              		.cfi_endproc
+ 910              	.LFE128:
+ 912              		.section	.text.makise_d_rect_filled,"ax",%progbits
+ 913              		.align	1
+ 914              		.global	makise_d_rect_filled
+ 915              		.syntax unified
+ 916              		.thumb
+ 917              		.thumb_func
+ 918              		.fpu fpv4-sp-d16
+ 920              	makise_d_rect_filled:
+ 921              	.LFB129:
+  75:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x >= b->width || y >= b->height)
+ 922              		.loc 1 75 0
+ 923              		.cfi_startproc
+ 924              		@ args = 12, pretend = 0, frame = 8
+ 925              		@ frame_needed = 0, uses_anonymous_args = 0
+ 926              	.LVL125:
+ 927 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 928              	.LCFI13:
+ 929              		.cfi_def_cfa_offset 36
+ARM GAS  /tmp/ccPZdB2k.s 			page 23
+
+
+ 930              		.cfi_offset 4, -36
+ 931              		.cfi_offset 5, -32
+ 932              		.cfi_offset 6, -28
+ 933              		.cfi_offset 7, -24
+ 934              		.cfi_offset 8, -20
+ 935              		.cfi_offset 9, -16
+ 936              		.cfi_offset 10, -12
+ 937              		.cfi_offset 11, -8
+ 938              		.cfi_offset 14, -4
+ 939 0004 85B0     		sub	sp, sp, #20
+ 940              	.LCFI14:
+ 941              		.cfi_def_cfa_offset 56
+ 942 0006 0C46     		mov	r4, r1
+ 943 0008 1746     		mov	r7, r2
+ 944 000a BDF83810 		ldrh	r1, [sp, #56]
+ 945              	.LVL126:
+  76:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 946              		.loc 1 76 0
+ 947 000e C288     		ldrh	r2, [r0, #6]
+ 948              	.LVL127:
+ 949 0010 9442     		cmp	r4, r2
+ 950 0012 70DA     		bge	.L66
+ 951 0014 0546     		mov	r5, r0
+  76:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 952              		.loc 1 76 0 is_stmt 0 discriminator 1
+ 953 0016 BE46     		mov	lr, r7
+ 954 0018 8088     		ldrh	r0, [r0, #4]
+ 955              	.LVL128:
+ 956 001a 8742     		cmp	r7, r0
+ 957 001c 6BDA     		bge	.L66
+  78:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 958              		.loc 1 78 0 is_stmt 1
+ 959 001e 002C     		cmp	r4, #0
+ 960 0020 6CDB     		blt	.L79
+ 961              	.LVL129:
+ 962              	.L68:
+  85:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 963              		.loc 1 85 0
+ 964 0022 002F     		cmp	r7, #0
+ 965 0024 71DB     		blt	.L80
+ 966              	.LVL130:
+ 967              	.L69:
+  92:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = b->width - x - 1;
+ 968              		.loc 1 92 0
+ 969 0026 E618     		adds	r6, r4, r3
+ 970 0028 B242     		cmp	r2, r6
+ 971 002a 02DC     		bgt	.L70
+  93:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(y + h >= b->height)
+ 972              		.loc 1 93 0
+ 973 002c 531E     		subs	r3, r2, #1
+ 974              	.LVL131:
+ 975 002e 1B1B     		subs	r3, r3, r4
+ 976 0030 9BB2     		uxth	r3, r3
+ 977              	.LVL132:
+ 978              	.L70:
+  94:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = b->height - y - 1;
+ 979              		.loc 1 94 0
+ARM GAS  /tmp/ccPZdB2k.s 			page 24
+
+
+ 980 0032 BB46     		mov	fp, r7
+ 981 0034 CA19     		adds	r2, r1, r7
+ 982 0036 9042     		cmp	r0, r2
+ 983 0038 02DC     		bgt	.L71
+  95:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 984              		.loc 1 95 0
+ 985 003a 411E     		subs	r1, r0, #1
+ 986              	.LVL133:
+ 987 003c C91B     		subs	r1, r1, r7
+ 988 003e 89B2     		uxth	r1, r1
+ 989              	.LVL134:
+ 990              	.L71:
+  97:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 991              		.loc 1 97 0
+ 992 0040 002B     		cmp	r3, #0
+ 993 0042 58D0     		beq	.L66
+  97:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 994              		.loc 1 97 0 is_stmt 0 discriminator 1
+ 995 0044 0029     		cmp	r1, #0
+ 996 0046 56D0     		beq	.L66
+ 997              	.LVL135:
+ 998              	.LBB8:
+ 103:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 999              		.loc 1 103 0 is_stmt 1 discriminator 1
+ 1000 0048 2A89     		ldrh	r2, [r5, #8]
+ 1001 004a 0820     		movs	r0, #8
+ 1002 004c 90FBF2F0 		sdiv	r0, r0, r2
+ 1003 0050 0028     		cmp	r0, #0
+ 1004 0052 03DD     		ble	.L72
+ 103:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1005              		.loc 1 103 0 is_stmt 0
+ 1006 0054 0022     		movs	r2, #0
+ 1007              	.LVL136:
+ 1008              	.L73:
+ 103:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1009              		.loc 1 103 0 discriminator 3
+ 1010 0056 0132     		adds	r2, r2, #1
+ 1011              	.LVL137:
+ 1012 0058 8242     		cmp	r2, r0
+ 1013 005a FCD1     		bne	.L73
+ 1014              	.LVL138:
+ 1015              	.L72:
+ 1016              	.LBE8:
+ 108:MakiseGUI/MakiseGUI/makise_primitives.c ****     w -= 1;
+ 1017              		.loc 1 108 0 is_stmt 1
+ 1018 005c 01F1FF38 		add	r8, r1, #-1
+ 1019 0060 1FFA88F8 		uxth	r8, r8
+ 1020              	.LVL139:
+ 111:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y + h, x + w, y + h, c);
+ 1021              		.loc 1 111 0
+ 1022 0064 1FFA84F9 		uxth	r9, r4
+ 1023 0068 09F1FF36 		add	r6, r9, #-1
+ 1024 006c 3344     		add	r3, r3, r6
+ 1025              	.LVL140:
+ 1026 006e 9EB2     		uxth	r6, r3
+ 1027 0070 33B2     		sxth	r3, r6
+ 1028 0072 0F9A     		ldr	r2, [sp, #60]
+ARM GAS  /tmp/ccPZdB2k.s 			page 25
+
+
+ 1029 0074 0192     		str	r2, [sp, #4]
+ 1030 0076 0097     		str	r7, [sp]
+ 1031 0078 0393     		str	r3, [sp, #12]
+ 1032 007a 3A46     		mov	r2, r7
+ 1033 007c 2146     		mov	r1, r4
+ 1034 007e 2846     		mov	r0, r5
+ 1035 0080 FFF7FEFF 		bl	makise_d_line
+ 1036              	.LVL141:
+ 112:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x, y, x, y + h, c);
+ 1037              		.loc 1 112 0
+ 1038 0084 08EB070A 		add	r10, r8, r7
+ 1039 0088 0FFA8AFA 		sxth	r10, r10
+ 1040 008c 0F9A     		ldr	r2, [sp, #60]
+ 1041 008e 0192     		str	r2, [sp, #4]
+ 1042 0090 CDF800A0 		str	r10, [sp]
+ 1043 0094 039B     		ldr	r3, [sp, #12]
+ 1044 0096 5246     		mov	r2, r10
+ 1045 0098 2146     		mov	r1, r4
+ 1046 009a 2846     		mov	r0, r5
+ 1047 009c FFF7FEFF 		bl	makise_d_line
+ 1048              	.LVL142:
+ 113:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_d_line(b, x + w, y, x + w, y + h, c);
+ 1049              		.loc 1 113 0
+ 1050 00a0 0F9A     		ldr	r2, [sp, #60]
+ 1051 00a2 0192     		str	r2, [sp, #4]
+ 1052 00a4 CDF800A0 		str	r10, [sp]
+ 1053 00a8 2346     		mov	r3, r4
+ 1054 00aa 3A46     		mov	r2, r7
+ 1055 00ac 2146     		mov	r1, r4
+ 1056 00ae 2846     		mov	r0, r5
+ 1057 00b0 FFF7FEFF 		bl	makise_d_line
+ 1058              	.LVL143:
+ 114:MakiseGUI/MakiseGUI/makise_primitives.c ****     /*
+ 1059              		.loc 1 114 0
+ 1060 00b4 0F9A     		ldr	r2, [sp, #60]
+ 1061 00b6 0192     		str	r2, [sp, #4]
+ 1062 00b8 CDF800A0 		str	r10, [sp]
+ 1063 00bc 0399     		ldr	r1, [sp, #12]
+ 1064 00be 0B46     		mov	r3, r1
+ 1065 00c0 3A46     		mov	r2, r7
+ 1066 00c2 2846     		mov	r0, r5
+ 1067 00c4 FFF7FEFF 		bl	makise_d_line
+ 1068              	.LVL144:
+ 1069              	.LBB9:
+ 121:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_line(b, x + 1, i, x+w - 1, i, fill_c);
+ 1070              		.loc 1 121 0
+ 1071 00c8 0BF10104 		add	r4, fp, #1
+ 1072              	.LVL145:
+ 1073 00cc D844     		add	r8, r8, fp
+ 1074              	.LVL146:
+ 1075 00ce 4445     		cmp	r4, r8
+ 1076 00d0 11DA     		bge	.L66
+ 122:MakiseGUI/MakiseGUI/makise_primitives.c ****     }    
+ 1077              		.loc 1 122 0 discriminator 3
+ 1078 00d2 013E     		subs	r6, r6, #1
+ 1079 00d4 36B2     		sxth	r6, r6
+ 1080 00d6 09F10109 		add	r9, r9, #1
+ARM GAS  /tmp/ccPZdB2k.s 			page 26
+
+
+ 1081              	.LVL147:
+ 1082 00da 0FFA89F9 		sxth	r9, r9
+ 1083              	.LVL148:
+ 1084 00de 109F     		ldr	r7, [sp, #64]
+ 1085              	.LVL149:
+ 1086              	.L75:
+ 1087 00e0 22B2     		sxth	r2, r4
+ 1088 00e2 0197     		str	r7, [sp, #4]
+ 1089 00e4 0092     		str	r2, [sp]
+ 1090 00e6 3346     		mov	r3, r6
+ 1091 00e8 4946     		mov	r1, r9
+ 1092 00ea 2846     		mov	r0, r5
+ 1093 00ec FFF7FEFF 		bl	makise_d_line
+ 1094              	.LVL150:
+ 121:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_line(b, x + 1, i, x+w - 1, i, fill_c);
+ 1095              		.loc 1 121 0 discriminator 3
+ 1096 00f0 0134     		adds	r4, r4, #1
+ 1097              	.LVL151:
+ 1098 00f2 4445     		cmp	r4, r8
+ 1099 00f4 F4DB     		blt	.L75
+ 1100              	.LVL152:
+ 1101              	.L66:
+ 1102              	.LBE9:
+ 124:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_circle(MakiseBuffer* b, uint16_t xc, uint16_t yc, uint16_t r, uint32_t c)
+ 1103              		.loc 1 124 0
+ 1104 00f6 05B0     		add	sp, sp, #20
+ 1105              	.LCFI15:
+ 1106              		.cfi_remember_state
+ 1107              		.cfi_def_cfa_offset 36
+ 1108              		@ sp needed
+ 1109 00f8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1110              	.LVL153:
+ 1111              	.L79:
+ 1112              	.LCFI16:
+ 1113              		.cfi_restore_state
+  80:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+ 1114              		.loc 1 80 0
+ 1115 00fc 6642     		negs	r6, r4
+ 1116 00fe 9E42     		cmp	r6, r3
+ 1117 0100 F9DC     		bgt	.L66
+  82:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x = 0;
+ 1118              		.loc 1 82 0
+ 1119 0102 2344     		add	r3, r3, r4
+ 1120              	.LVL154:
+ 1121 0104 9BB2     		uxth	r3, r3
+ 1122              	.LVL155:
+  83:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 1123              		.loc 1 83 0
+ 1124 0106 0024     		movs	r4, #0
+ 1125 0108 8BE7     		b	.L68
+ 1126              	.LVL156:
+ 1127              	.L80:
+  87:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
+ 1128              		.loc 1 87 0
+ 1129 010a CEF1000E 		rsb	lr, lr, #0
+ 1130 010e 8E45     		cmp	lr, r1
+ 1131 0110 F1DC     		bgt	.L66
+ARM GAS  /tmp/ccPZdB2k.s 			page 27
+
+
+  89:MakiseGUI/MakiseGUI/makise_primitives.c **** 	y = 0;
+ 1132              		.loc 1 89 0
+ 1133 0112 3944     		add	r1, r1, r7
+ 1134 0114 89B2     		uxth	r1, r1
+ 1135              	.LVL157:
+  90:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 1136              		.loc 1 90 0
+ 1137 0116 0027     		movs	r7, #0
+ 1138 0118 85E7     		b	.L69
+ 1139              		.cfi_endproc
+ 1140              	.LFE129:
+ 1142              		.section	.text.makise_d_circle_filled,"ax",%progbits
+ 1143              		.align	1
+ 1144              		.global	makise_d_circle_filled
+ 1145              		.syntax unified
+ 1146              		.thumb
+ 1147              		.thumb_func
+ 1148              		.fpu fpv4-sp-d16
+ 1150              	makise_d_circle_filled:
+ 1151              	.LFB131:
+ 165:MakiseGUI/MakiseGUI/makise_primitives.c ****     //middle point algorythm
+ 1152              		.loc 1 165 0
+ 1153              		.cfi_startproc
+ 1154              		@ args = 8, pretend = 0, frame = 40
+ 1155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1156              	.LVL158:
+ 1157 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1158              	.LCFI17:
+ 1159              		.cfi_def_cfa_offset 36
+ 1160              		.cfi_offset 4, -36
+ 1161              		.cfi_offset 5, -32
+ 1162              		.cfi_offset 6, -28
+ 1163              		.cfi_offset 7, -24
+ 1164              		.cfi_offset 8, -20
+ 1165              		.cfi_offset 9, -16
+ 1166              		.cfi_offset 10, -12
+ 1167              		.cfi_offset 11, -8
+ 1168              		.cfi_offset 14, -4
+ 1169 0004 8DB0     		sub	sp, sp, #52
+ 1170              	.LCFI18:
+ 1171              		.cfi_def_cfa_offset 88
+ 1172 0006 8046     		mov	r8, r0
+ 1173 0008 0390     		str	r0, [sp, #12]
+ 1174 000a 1746     		mov	r7, r2
+ 1175 000c 1C46     		mov	r4, r3
+ 167:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t ddF_x = 1;
+ 1176              		.loc 1 167 0
+ 1177 000e C3F10105 		rsb	r5, r3, #1
+ 1178              	.LVL159:
+ 169:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t x = 0;
+ 1179              		.loc 1 169 0
+ 1180 0012 C3EBC333 		rsb	r3, r3, r3, lsl #15
+ 1181              	.LVL160:
+ 1182 0016 5B00     		lsls	r3, r3, #1
+ 1183 0018 1BB2     		sxth	r3, r3
+ 1184 001a 0B93     		str	r3, [sp, #44]
+ 1185              	.LVL161:
+ARM GAS  /tmp/ccPZdB2k.s 			page 28
+
+
+ 171:MakiseGUI/MakiseGUI/makise_primitives.c ****     int16_t dd;
+ 1186              		.loc 1 171 0
+ 1187 001c 0FFA84FB 		sxth	fp, r4
+ 1188              	.LVL162:
+ 173:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc + r, c);
+ 1189              		.loc 1 173 0
+ 1190 0020 2346     		mov	r3, r4
+ 1191 0022 0C1B     		subs	r4, r1, r4
+ 1192 0024 A4B2     		uxth	r4, r4
+ 1193 0026 3AB2     		sxth	r2, r7
+ 1194              	.LVL163:
+ 1195 0028 0693     		str	r3, [sp, #24]
+ 1196 002a 0591     		str	r1, [sp, #20]
+ 1197 002c 5E18     		adds	r6, r3, r1
+ 1198 002e B6B2     		uxth	r6, r6
+ 1199 0030 1799     		ldr	r1, [sp, #92]
+ 1200              	.LVL164:
+ 1201 0032 0191     		str	r1, [sp, #4]
+ 1202 0034 0092     		str	r2, [sp]
+ 1203 0036 33B2     		sxth	r3, r6
+ 1204 0038 21B2     		sxth	r1, r4
+ 1205 003a FFF7FEFF 		bl	makise_d_line
+ 1206              	.LVL165:
+ 174:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc - r, c);
+ 1207              		.loc 1 174 0
+ 1208 003e 069B     		ldr	r3, [sp, #24]
+ 1209 0040 DA19     		adds	r2, r3, r7
+ 1210 0042 169B     		ldr	r3, [sp, #88]
+ 1211 0044 92B2     		uxth	r2, r2
+ 1212 0046 DDF81490 		ldr	r9, [sp, #20]
+ 1213 004a 4946     		mov	r1, r9
+ 1214 004c 4046     		mov	r0, r8
+ 1215 004e FFF7FEFF 		bl	makise_pset
+ 1216              	.LVL166:
+ 175:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc + r, yc, c);
+ 1217              		.loc 1 175 0
+ 1218 0052 069B     		ldr	r3, [sp, #24]
+ 1219 0054 FA1A     		subs	r2, r7, r3
+ 1220 0056 169B     		ldr	r3, [sp, #88]
+ 1221 0058 92B2     		uxth	r2, r2
+ 1222 005a 4946     		mov	r1, r9
+ 1223 005c 4046     		mov	r0, r8
+ 1224 005e FFF7FEFF 		bl	makise_pset
+ 1225              	.LVL167:
+ 176:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc - r, yc, c);
+ 1226              		.loc 1 176 0
+ 1227 0062 169B     		ldr	r3, [sp, #88]
+ 1228 0064 3A46     		mov	r2, r7
+ 1229 0066 3146     		mov	r1, r6
+ 1230 0068 4046     		mov	r0, r8
+ 1231 006a FFF7FEFF 		bl	makise_pset
+ 1232              	.LVL168:
+ 177:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 1233              		.loc 1 177 0
+ 1234 006e 169B     		ldr	r3, [sp, #88]
+ 1235 0070 3A46     		mov	r2, r7
+ 1236 0072 2146     		mov	r1, r4
+ARM GAS  /tmp/ccPZdB2k.s 			page 29
+
+
+ 1237 0074 4046     		mov	r0, r8
+ 1238 0076 FFF7FEFF 		bl	makise_pset
+ 1239              	.LVL169:
+ 179:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1240              		.loc 1 179 0
+ 1241 007a BBF1000F 		cmp	fp, #0
+ 1242 007e 40F3C580 		ble	.L81
+ 1243 0082 2DB2     		sxth	r5, r5
+ 1244 0084 0023     		movs	r3, #0
+ 1245 0086 0493     		str	r3, [sp, #16]
+ 201:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - y + 1, yc - x, xc + y - 1, yc - x, fill_c);
+ 1246              		.loc 1 201 0
+ 1247 0088 4946     		mov	r1, r9
+ 1248 008a 4B1C     		adds	r3, r1, #1
+ 1249 008c 0893     		str	r3, [sp, #32]
+ 1250 008e 7B1C     		adds	r3, r7, #1
+ 1251 0090 0993     		str	r3, [sp, #36]
+ 1252 0092 09F1FF33 		add	r3, r9, #-1
+ 1253 0096 0A93     		str	r3, [sp, #40]
+ 1254 0098 59E0     		b	.L86
+ 1255              	.LVL170:
+ 1256              	.L85:
+ 1257 009a 089B     		ldr	r3, [sp, #32]
+ 1258 009c F318     		adds	r3, r6, r3
+ 1259 009e 9BB2     		uxth	r3, r3
+ 1260 00a0 1946     		mov	r1, r3
+ 204:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - x, yc + y, c);
+ 1261              		.loc 1 204 0
+ 1262 00a2 1FFA8BF4 		uxth	r4, fp
+ 1263 00a6 07EB0409 		add	r9, r7, r4
+ 1264 00aa 1FFA89F9 		uxth	r9, r9
+ 1265 00ae 169B     		ldr	r3, [sp, #88]
+ 1266 00b0 4A46     		mov	r2, r9
+ 1267 00b2 0791     		str	r1, [sp, #28]
+ 1268 00b4 0398     		ldr	r0, [sp, #12]
+ 1269 00b6 FFF7FEFF 		bl	makise_pset
+ 1270              	.LVL171:
+ 1271 00ba 0A9A     		ldr	r2, [sp, #40]
+ 1272 00bc A2EB0608 		sub	r8, r2, r6
+ 1273 00c0 1FFA88F8 		uxth	r8, r8
+ 205:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + x, yc - y, c);
+ 1274              		.loc 1 205 0
+ 1275 00c4 169B     		ldr	r3, [sp, #88]
+ 1276 00c6 4A46     		mov	r2, r9
+ 1277 00c8 4146     		mov	r1, r8
+ 1278 00ca 0398     		ldr	r0, [sp, #12]
+ 1279 00cc FFF7FEFF 		bl	makise_pset
+ 1280              	.LVL172:
+ 206:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - x, yc - y, c);
+ 1281              		.loc 1 206 0
+ 1282 00d0 A7EB0409 		sub	r9, r7, r4
+ 1283 00d4 1FFA89F9 		uxth	r9, r9
+ 1284 00d8 169B     		ldr	r3, [sp, #88]
+ 1285 00da 4A46     		mov	r2, r9
+ 1286 00dc 0799     		ldr	r1, [sp, #28]
+ 1287 00de 0398     		ldr	r0, [sp, #12]
+ 1288 00e0 FFF7FEFF 		bl	makise_pset
+ARM GAS  /tmp/ccPZdB2k.s 			page 30
+
+
+ 1289              	.LVL173:
+ 207:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + y, yc + x, c);
+ 1290              		.loc 1 207 0
+ 1291 00e4 169B     		ldr	r3, [sp, #88]
+ 1292 00e6 4A46     		mov	r2, r9
+ 1293 00e8 4146     		mov	r1, r8
+ 1294 00ea 0398     		ldr	r0, [sp, #12]
+ 1295 00ec FFF7FEFF 		bl	makise_pset
+ 1296              	.LVL174:
+ 208:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - y, yc + x, c);
+ 1297              		.loc 1 208 0
+ 1298 00f0 059B     		ldr	r3, [sp, #20]
+ 1299 00f2 03EB0408 		add	r8, r3, r4
+ 1300 00f6 1FFA88F8 		uxth	r8, r8
+ 1301 00fa 099A     		ldr	r2, [sp, #36]
+ 1302 00fc 06EB0209 		add	r9, r6, r2
+ 1303 0100 1FFA89F9 		uxth	r9, r9
+ 1304 0104 169B     		ldr	r3, [sp, #88]
+ 1305 0106 4A46     		mov	r2, r9
+ 1306 0108 4146     		mov	r1, r8
+ 1307 010a 0398     		ldr	r0, [sp, #12]
+ 1308 010c FFF7FEFF 		bl	makise_pset
+ 1309              	.LVL175:
+ 209:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + y, yc - x, c);
+ 1310              		.loc 1 209 0
+ 1311 0110 059B     		ldr	r3, [sp, #20]
+ 1312 0112 1C1B     		subs	r4, r3, r4
+ 1313 0114 A4B2     		uxth	r4, r4
+ 1314 0116 169B     		ldr	r3, [sp, #88]
+ 1315 0118 4A46     		mov	r2, r9
+ 1316 011a 2146     		mov	r1, r4
+ 1317 011c DDF80C90 		ldr	r9, [sp, #12]
+ 1318 0120 4846     		mov	r0, r9
+ 1319 0122 FFF7FEFF 		bl	makise_pset
+ 1320              	.LVL176:
+ 1321 0126 7B1E     		subs	r3, r7, #1
+ 1322 0128 9E1B     		subs	r6, r3, r6
+ 1323 012a B6B2     		uxth	r6, r6
+ 210:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc - y, yc - x, c);
+ 1324              		.loc 1 210 0
+ 1325 012c 169B     		ldr	r3, [sp, #88]
+ 1326 012e 3246     		mov	r2, r6
+ 1327 0130 4146     		mov	r1, r8
+ 1328 0132 4846     		mov	r0, r9
+ 1329 0134 FFF7FEFF 		bl	makise_pset
+ 1330              	.LVL177:
+ 211:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 1331              		.loc 1 211 0
+ 1332 0138 169B     		ldr	r3, [sp, #88]
+ 1333 013a 3246     		mov	r2, r6
+ 1334 013c 2146     		mov	r1, r4
+ 1335 013e 4846     		mov	r0, r9
+ 1336 0140 FFF7FEFF 		bl	makise_pset
+ 1337              	.LVL178:
+ 1338 0144 049B     		ldr	r3, [sp, #16]
+ 1339 0146 0133     		adds	r3, r3, #1
+ 1340 0148 0493     		str	r3, [sp, #16]
+ARM GAS  /tmp/ccPZdB2k.s 			page 31
+
+
+ 1341              	.LVL179:
+ 179:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1342              		.loc 1 179 0
+ 1343 014a D345     		cmp	fp, r10
+ 1344 014c 5EDD     		ble	.L81
+ 1345              	.LVL180:
+ 1346              	.L86:
+ 184:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 1347              		.loc 1 184 0
+ 1348 014e 002D     		cmp	r5, #0
+ 1349 0150 0ADB     		blt	.L83
+ 186:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    ddF_y += 2;
+ 1350              		.loc 1 186 0
+ 1351 0152 0BF1FF3B 		add	fp, fp, #-1
+ 1352              	.LVL181:
+ 1353 0156 0FFA8BFB 		sxth	fp, fp
+ 1354              	.LVL182:
+ 187:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    f += ddF_y;
+ 1355              		.loc 1 187 0
+ 1356 015a 0B9B     		ldr	r3, [sp, #44]
+ 1357 015c 0233     		adds	r3, r3, #2
+ 1358 015e 9BB2     		uxth	r3, r3
+ 1359 0160 1AB2     		sxth	r2, r3
+ 1360 0162 0B92     		str	r2, [sp, #44]
+ 1361              	.LVL183:
+ 188:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 1362              		.loc 1 188 0
+ 1363 0164 1D44     		add	r5, r5, r3
+ 1364              	.LVL184:
+ 1365 0166 2DB2     		sxth	r5, r5
+ 1366              	.LVL185:
+ 1367              	.L83:
+ 1368 0168 BDF81060 		ldrh	r6, [sp, #16]
+ 1369 016c 731C     		adds	r3, r6, #1
+ 1370 016e 0FFA83FA 		sxth	r10, r3
+ 1371              	.LVL186:
+ 192:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 1372              		.loc 1 192 0
+ 1373 0172 05EB4605 		add	r5, r5, r6, lsl #1
+ 1374              	.LVL187:
+ 1375 0176 0335     		adds	r5, r5, #3
+ 1376 0178 2DB2     		sxth	r5, r5
+ 1377              	.LVL188:
+ 194:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 1378              		.loc 1 194 0
+ 1379 017a 069B     		ldr	r3, [sp, #24]
+ 1380 017c 9B45     		cmp	fp, r3
+ 1381 017e 1ED0     		beq	.L84
+ 1382 0180 0599     		ldr	r1, [sp, #20]
+ 1383 0182 A1EB0608 		sub	r8, r1, r6
+ 1384 0186 0FFA88F8 		sxth	r8, r8
+ 196:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - x + 1, yc - y, xc + x - 1, yc - y, fill_c);
+ 1385              		.loc 1 196 0
+ 1386 018a 1FFA8BF4 		uxth	r4, fp
+ 1387 018e 3A19     		adds	r2, r7, r4
+ 1388 0190 12B2     		sxth	r2, r2
+ 1389 0192 01EB0609 		add	r9, r1, r6
+ARM GAS  /tmp/ccPZdB2k.s 			page 32
+
+
+ 1390 0196 0FFA89F9 		sxth	r9, r9
+ 1391 019a 179B     		ldr	r3, [sp, #92]
+ 1392 019c 0193     		str	r3, [sp, #4]
+ 1393 019e 0092     		str	r2, [sp]
+ 1394 01a0 4B46     		mov	r3, r9
+ 1395 01a2 4146     		mov	r1, r8
+ 1396 01a4 0398     		ldr	r0, [sp, #12]
+ 1397 01a6 FFF7FEFF 		bl	makise_d_line
+ 1398              	.LVL189:
+ 197:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 1399              		.loc 1 197 0
+ 1400 01aa 3A1B     		subs	r2, r7, r4
+ 1401 01ac 12B2     		sxth	r2, r2
+ 1402 01ae 179B     		ldr	r3, [sp, #92]
+ 1403 01b0 0193     		str	r3, [sp, #4]
+ 1404 01b2 0092     		str	r2, [sp]
+ 1405 01b4 4B46     		mov	r3, r9
+ 1406 01b6 4146     		mov	r1, r8
+ 1407 01b8 0398     		ldr	r0, [sp, #12]
+ 1408 01ba FFF7FEFF 		bl	makise_d_line
+ 1409              	.LVL190:
+ 1410              	.L84:
+ 199:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
+ 1411              		.loc 1 199 0
+ 1412 01be 069B     		ldr	r3, [sp, #24]
+ 1413 01c0 5345     		cmp	r3, r10
+ 1414 01c2 3FF46AAF 		beq	.L85
+ 201:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_d_line(b, xc - y + 1, yc - x, xc + y - 1, yc - x, fill_c);
+ 1415              		.loc 1 201 0
+ 1416 01c6 1FFA8BF4 		uxth	r4, fp
+ 1417 01ca 089B     		ldr	r3, [sp, #32]
+ 1418 01cc A3EB0408 		sub	r8, r3, r4
+ 1419 01d0 0FFA88F8 		sxth	r8, r8
+ 1420 01d4 099B     		ldr	r3, [sp, #36]
+ 1421 01d6 F218     		adds	r2, r6, r3
+ 1422 01d8 12B2     		sxth	r2, r2
+ 1423 01da 0A9B     		ldr	r3, [sp, #40]
+ 1424 01dc 1C44     		add	r4, r4, r3
+ 1425 01de 24B2     		sxth	r4, r4
+ 1426 01e0 179B     		ldr	r3, [sp, #92]
+ 1427 01e2 0193     		str	r3, [sp, #4]
+ 1428 01e4 0092     		str	r2, [sp]
+ 1429 01e6 2346     		mov	r3, r4
+ 1430 01e8 4146     		mov	r1, r8
+ 1431 01ea DDF80C90 		ldr	r9, [sp, #12]
+ 1432 01ee 4846     		mov	r0, r9
+ 1433 01f0 FFF7FEFF 		bl	makise_d_line
+ 1434              	.LVL191:
+ 1435 01f4 7A1E     		subs	r2, r7, #1
+ 1436 01f6 921B     		subs	r2, r2, r6
+ 1437 01f8 12B2     		sxth	r2, r2
+ 202:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
+ 1438              		.loc 1 202 0
+ 1439 01fa 179B     		ldr	r3, [sp, #92]
+ 1440 01fc 0193     		str	r3, [sp, #4]
+ 1441 01fe 0092     		str	r2, [sp]
+ 1442 0200 2346     		mov	r3, r4
+ARM GAS  /tmp/ccPZdB2k.s 			page 33
+
+
+ 1443 0202 4146     		mov	r1, r8
+ 1444 0204 4846     		mov	r0, r9
+ 1445 0206 FFF7FEFF 		bl	makise_d_line
+ 1446              	.LVL192:
+ 1447 020a 46E7     		b	.L85
+ 1448              	.LVL193:
+ 1449              	.L81:
+ 214:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_line(MakiseBuffer* b, int16_t x0, int16_t y0,
+ 1450              		.loc 1 214 0
+ 1451 020c 0DB0     		add	sp, sp, #52
+ 1452              	.LCFI19:
+ 1453              		.cfi_def_cfa_offset 36
+ 1454              		@ sp needed
+ 1455 020e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1456              		.cfi_endproc
+ 1457              	.LFE131:
+ 1459              		.section	.text.makise_d_polyline,"ax",%progbits
+ 1460              		.align	1
+ 1461              		.global	makise_d_polyline
+ 1462              		.syntax unified
+ 1463              		.thumb
+ 1464              		.thumb_func
+ 1465              		.fpu fpv4-sp-d16
+ 1467              	makise_d_polyline:
+ 1468              	.LFB133:
+ 284:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_d_polyline(MakiseBuffer*b, MakisePoint* points, uint32_t count, uint32_t c)
+ 285:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+ 1469              		.loc 1 285 0
+ 1470              		.cfi_startproc
+ 1471              		@ args = 0, pretend = 0, frame = 0
+ 1472              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1473              	.LVL194:
+ 286:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(count == 0 || points == 0)
+ 1474              		.loc 1 286 0
+ 1475 0000 012A     		cmp	r2, #1
+ 1476 0002 1CD9     		bls	.L94
+ 1477              		.loc 1 286 0 is_stmt 0 discriminator 1
+ 1478 0004 D9B1     		cbz	r1, .L94
+ 285:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(count == 0 || points == 0)
+ 1479              		.loc 1 285 0 is_stmt 1
+ 1480 0006 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1481              	.LCFI20:
+ 1482              		.cfi_def_cfa_offset 24
+ 1483              		.cfi_offset 4, -24
+ 1484              		.cfi_offset 5, -20
+ 1485              		.cfi_offset 6, -16
+ 1486              		.cfi_offset 7, -12
+ 1487              		.cfi_offset 8, -8
+ 1488              		.cfi_offset 14, -4
+ 1489 000a 82B0     		sub	sp, sp, #8
+ 1490              	.LCFI21:
+ 1491              		.cfi_def_cfa_offset 32
+ 1492 000c 1F46     		mov	r7, r3
+ 1493 000e 1646     		mov	r6, r2
+ 1494 0010 8046     		mov	r8, r0
+ 1495 0012 0C46     		mov	r4, r1
+ 1496              		.loc 1 286 0
+ARM GAS  /tmp/ccPZdB2k.s 			page 34
+
+
+ 1497 0014 0125     		movs	r5, #1
+ 1498              	.LVL195:
+ 1499              	.L91:
+ 287:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 288:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 289:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint32_t i = 0;
+ 290:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 291:MakiseGUI/MakiseGUI/makise_primitives.c ****     for(i = 1; i < count; i++)
+ 292:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 293:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_line(b, points[i - 1].x, points[i - 1].y, points[i].x, points[i].y, c);
+ 1500              		.loc 1 293 0 discriminator 3
+ 1501 0016 B4F90430 		ldrsh	r3, [r4, #4]
+ 1502 001a B4F90220 		ldrsh	r2, [r4, #2]
+ 1503 001e B4F90010 		ldrsh	r1, [r4]
+ 1504 0022 0197     		str	r7, [sp, #4]
+ 1505 0024 B4F90600 		ldrsh	r0, [r4, #6]
+ 1506 0028 0090     		str	r0, [sp]
+ 1507 002a 4046     		mov	r0, r8
+ 1508 002c FFF7FEFF 		bl	makise_d_line
+ 1509              	.LVL196:
+ 291:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1510              		.loc 1 291 0 discriminator 3
+ 1511 0030 0135     		adds	r5, r5, #1
+ 1512              	.LVL197:
+ 1513 0032 0434     		adds	r4, r4, #4
+ 1514 0034 AE42     		cmp	r6, r5
+ 1515 0036 EED1     		bne	.L91
+ 294:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 295:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+ 1516              		.loc 1 295 0
+ 1517 0038 02B0     		add	sp, sp, #8
+ 1518              	.LCFI22:
+ 1519              		.cfi_def_cfa_offset 24
+ 1520              		@ sp needed
+ 1521 003a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1522              	.LVL198:
+ 1523              	.L94:
+ 1524              	.LCFI23:
+ 1525              		.cfi_def_cfa_offset 0
+ 1526              		.cfi_restore 4
+ 1527              		.cfi_restore 5
+ 1528              		.cfi_restore 6
+ 1529              		.cfi_restore 7
+ 1530              		.cfi_restore 8
+ 1531              		.cfi_restore 14
+ 1532 003e 7047     		bx	lr
+ 1533              		.cfi_endproc
+ 1534              	.LFE133:
+ 1536              		.global	__aeabi_dcmpeq
+ 1537              		.global	__aeabi_d2f
+ 1538              		.section	.text.makise_dex_polyline,"ax",%progbits
+ 1539              		.align	1
+ 1540              		.global	makise_dex_polyline
+ 1541              		.syntax unified
+ 1542              		.thumb
+ 1543              		.thumb_func
+ 1544              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccPZdB2k.s 			page 35
+
+
+ 1546              	makise_dex_polyline:
+ 1547              	.LFB134:
+ 296:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 297:MakiseGUI/MakiseGUI/makise_primitives.c **** void makise_dex_polyline(MakiseBuffer*b, int32_t x, int32_t y, double rot, MakisePoint* points, uin
+ 298:MakiseGUI/MakiseGUI/makise_primitives.c **** {
+ 1548              		.loc 1 298 0
+ 1549              		.cfi_startproc
+ 1550              		@ args = 8, pretend = 0, frame = 16
+ 1551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1552              	.LVL199:
+ 1553 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 1554              	.LCFI24:
+ 1555              		.cfi_def_cfa_offset 28
+ 1556              		.cfi_offset 4, -28
+ 1557              		.cfi_offset 5, -24
+ 1558              		.cfi_offset 6, -20
+ 1559              		.cfi_offset 7, -16
+ 1560              		.cfi_offset 8, -12
+ 1561              		.cfi_offset 9, -8
+ 1562              		.cfi_offset 14, -4
+ 1563 0004 2DED068B 		vpush.64	{d8, d9, d10}
+ 1564              	.LCFI25:
+ 1565              		.cfi_def_cfa_offset 52
+ 1566              		.cfi_offset 80, -52
+ 1567              		.cfi_offset 81, -48
+ 1568              		.cfi_offset 82, -44
+ 1569              		.cfi_offset 83, -40
+ 1570              		.cfi_offset 84, -36
+ 1571              		.cfi_offset 85, -32
+ 1572 0008 87B0     		sub	sp, sp, #28
+ 1573              	.LCFI26:
+ 1574              		.cfi_def_cfa_offset 80
+ 1575 000a 149D     		ldr	r5, [sp, #80]
+ 1576 000c 159F     		ldr	r7, [sp, #84]
+ 299:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(count == 0 || points == 0)
+ 1577              		.loc 1 299 0
+ 1578 000e 002D     		cmp	r5, #0
+ 1579 0010 00F09880 		beq	.L97
+ 1580              		.loc 1 299 0 is_stmt 0 discriminator 1
+ 1581 0014 002B     		cmp	r3, #0
+ 1582 0016 00F09580 		beq	.L97
+ 1583 001a 1C46     		mov	r4, r3
+ 1584 001c B0EE408A 		vmov.f32	s16, s0
+ 1585 0020 F0EE608A 		vmov.f32	s17, s1
+ 1586 0024 9146     		mov	r9, r2
+ 1587 0026 8846     		mov	r8, r1
+ 1588 0028 0646     		mov	r6, r0
+ 300:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
+ 301:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 302:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x == 0 && y == 0 && rot == 0)
+ 1589              		.loc 1 302 0 is_stmt 1
+ 1590 002a 49B9     		cbnz	r1, .L99
+ 1591              		.loc 1 302 0 is_stmt 0 discriminator 1
+ 1592 002c 42B9     		cbnz	r2, .L99
+ 1593              		.loc 1 302 0 discriminator 2
+ 1594 002e 0022     		movs	r2, #0
+ 1595              	.LVL200:
+ARM GAS  /tmp/ccPZdB2k.s 			page 36
+
+
+ 1596 0030 0023     		movs	r3, #0
+ 1597              	.LVL201:
+ 1598 0032 51EC100B 		vmov	r0, r1, d0
+ 1599              	.LVL202:
+ 1600 0036 FFF7FEFF 		bl	__aeabi_dcmpeq
+ 1601              	.LVL203:
+ 1602 003a 0028     		cmp	r0, #0
+ 1603 003c 40F08780 		bne	.L105
+ 1604              	.L99:
+ 1605              	.LVL204:
+ 303:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_polyline(b, points, count, c);
+ 304:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 305:MakiseGUI/MakiseGUI/makise_primitives.c ****     uint32_t i = 0;
+ 306:MakiseGUI/MakiseGUI/makise_primitives.c ****     float co = cos(rot), si = sin(rot);
+ 1606              		.loc 1 306 0 is_stmt 1
+ 1607 0040 B0EE480A 		vmov.f32	s0, s16
+ 1608 0044 F0EE680A 		vmov.f32	s1, s17
+ 1609 0048 FFF7FEFF 		bl	cos
+ 1610              	.LVL205:
+ 1611 004c 51EC100B 		vmov	r0, r1, d0
+ 1612 0050 FFF7FEFF 		bl	__aeabi_d2f
+ 1613              	.LVL206:
+ 1614 0054 09EE100A 		vmov	s18, r0
+ 1615              	.LVL207:
+ 1616 0058 B0EE480A 		vmov.f32	s0, s16
+ 1617 005c F0EE680A 		vmov.f32	s1, s17
+ 1618 0060 FFF7FEFF 		bl	sin
+ 1619              	.LVL208:
+ 1620 0064 51EC100B 		vmov	r0, r1, d0
+ 1621 0068 FFF7FEFF 		bl	__aeabi_d2f
+ 1622              	.LVL209:
+ 1623 006c 09EE900A 		vmov	s19, r0
+ 1624              	.LVL210:
+ 307:MakiseGUI/MakiseGUI/makise_primitives.c ****     float lx, ly, cx, cy;
+ 308:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 309:MakiseGUI/MakiseGUI/makise_primitives.c ****     lx = (points[0].x) * co - (points[0].y) * si + x;
+ 1625              		.loc 1 309 0
+ 1626 0070 B4F90030 		ldrsh	r3, [r4]
+ 1627 0074 07EE903A 		vmov	s15, r3	@ int
+ 1628 0078 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1629 007c B4F90230 		ldrsh	r3, [r4, #2]
+ 1630 0080 07EE103A 		vmov	s14, r3	@ int
+ 1631 0084 B8EEC77A 		vcvt.f32.s32	s14, s14
+ 1632 0088 06EE908A 		vmov	s13, r8	@ int
+ 1633 008c B8EEE6AA 		vcvt.f32.s32	s20, s13
+ 1634 0090 29EE276A 		vmul.f32	s12, s18, s15
+ 1635 0094 69EE876A 		vmul.f32	s13, s19, s14
+ 1636 0098 36EE666A 		vsub.f32	s12, s12, s13
+ 1637 009c 36EE0A6A 		vadd.f32	s12, s12, s20
+ 1638              	.LVL211:
+ 310:MakiseGUI/MakiseGUI/makise_primitives.c ****     ly = (points[0].x) * si + (points[0].y) * co + y;
+ 1639              		.loc 1 310 0
+ 1640 00a0 06EE909A 		vmov	s13, r9	@ int
+ 1641 00a4 F8EEE6AA 		vcvt.f32.s32	s21, s13
+ 1642 00a8 69EEA76A 		vmul.f32	s13, s19, s15
+ 1643 00ac 29EE077A 		vmul.f32	s14, s18, s14
+ 1644 00b0 76EE876A 		vadd.f32	s13, s13, s14
+ARM GAS  /tmp/ccPZdB2k.s 			page 37
+
+
+ 1645 00b4 76EEAA6A 		vadd.f32	s13, s13, s21
+ 1646              	.LVL212:
+ 311:MakiseGUI/MakiseGUI/makise_primitives.c ****     for(i = 1; i < count; i++)
+ 1647              		.loc 1 311 0
+ 1648 00b8 012D     		cmp	r5, #1
+ 1649 00ba 43D9     		bls	.L97
+ 1650 00bc 4FF00108 		mov	r8, #1
+ 1651              	.LVL213:
+ 1652              	.L101:
+ 312:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 313:MakiseGUI/MakiseGUI/makise_primitives.c **** 	cx = (points[i].x) * co - (points[i].y) * si + x;
+ 1653              		.loc 1 313 0 discriminator 3
+ 1654 00c0 B4F90430 		ldrsh	r3, [r4, #4]
+ 1655 00c4 07EE903A 		vmov	s15, r3	@ int
+ 1656 00c8 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1657 00cc B4F90630 		ldrsh	r3, [r4, #6]
+ 1658 00d0 07EE103A 		vmov	s14, r3	@ int
+ 1659 00d4 B8EEC77A 		vcvt.f32.s32	s14, s14
+ 1660 00d8 69EE278A 		vmul.f32	s17, s18, s15
+ 1661 00dc 69EE875A 		vmul.f32	s11, s19, s14
+ 1662 00e0 78EEE58A 		vsub.f32	s17, s17, s11
+ 1663 00e4 78EE8A8A 		vadd.f32	s17, s17, s20
+ 1664              	.LVL214:
+ 314:MakiseGUI/MakiseGUI/makise_primitives.c **** 	cy = (points[i].x) * si + (points[i].y) * co + y;
+ 1665              		.loc 1 314 0 discriminator 3
+ 1666 00e8 29EEA78A 		vmul.f32	s16, s19, s15
+ 1667 00ec 29EE077A 		vmul.f32	s14, s18, s14
+ 1668 00f0 38EE078A 		vadd.f32	s16, s16, s14
+ 1669 00f4 38EE2A8A 		vadd.f32	s16, s16, s21
+ 1670              	.LVL215:
+ 315:MakiseGUI/MakiseGUI/makise_primitives.c **** 
+ 316:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_line(b, lx , ly, cx, cy, c);
+ 1671              		.loc 1 316 0 discriminator 3
+ 1672 00f8 FDEEE87A 		vcvt.s32.f32	s15, s17
+ 1673 00fc CDED027A 		vstr.32	s15, [sp, #8]	@ int
+ 1674 0100 FDEEE67A 		vcvt.s32.f32	s15, s13
+ 1675 0104 CDED037A 		vstr.32	s15, [sp, #12]	@ int
+ 1676 0108 FDEEC67A 		vcvt.s32.f32	s15, s12
+ 1677 010c CDED047A 		vstr.32	s15, [sp, #16]	@ int
+ 1678 0110 0197     		str	r7, [sp, #4]
+ 1679 0112 FDEEC87A 		vcvt.s32.f32	s15, s16
+ 1680 0116 CDED057A 		vstr.32	s15, [sp, #20]	@ int
+ 1681 011a BDF91430 		ldrsh	r3, [sp, #20]
+ 1682 011e 0093     		str	r3, [sp]
+ 1683 0120 BDF90830 		ldrsh	r3, [sp, #8]
+ 1684 0124 BDF90C20 		ldrsh	r2, [sp, #12]
+ 1685 0128 BDF91010 		ldrsh	r1, [sp, #16]
+ 1686 012c 3046     		mov	r0, r6
+ 1687 012e FFF7FEFF 		bl	makise_d_line
+ 1688              	.LVL216:
+ 311:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1689              		.loc 1 311 0 discriminator 3
+ 1690 0132 08F10108 		add	r8, r8, #1
+ 1691              	.LVL217:
+ 1692 0136 0434     		adds	r4, r4, #4
+ 317:MakiseGUI/MakiseGUI/makise_primitives.c **** 	lx = cx;
+ 1693              		.loc 1 317 0 discriminator 3
+ARM GAS  /tmp/ccPZdB2k.s 			page 38
+
+
+ 1694 0138 B0EE686A 		vmov.f32	s12, s17
+ 318:MakiseGUI/MakiseGUI/makise_primitives.c **** 	ly = cy;
+ 1695              		.loc 1 318 0 discriminator 3
+ 1696 013c F0EE486A 		vmov.f32	s13, s16
+ 311:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
+ 1697              		.loc 1 311 0 discriminator 3
+ 1698 0140 4545     		cmp	r5, r8
+ 1699 0142 BDD1     		bne	.L101
+ 1700              	.LVL218:
+ 1701              	.L97:
+ 319:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
+ 320:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 321:MakiseGUI/MakiseGUI/makise_primitives.c **** }
+ 1702              		.loc 1 321 0
+ 1703 0144 07B0     		add	sp, sp, #28
+ 1704              	.LCFI27:
+ 1705              		.cfi_remember_state
+ 1706              		.cfi_def_cfa_offset 52
+ 1707              		@ sp needed
+ 1708 0146 BDEC068B 		vldm	sp!, {d8-d10}
+ 1709              	.LCFI28:
+ 1710              		.cfi_restore 84
+ 1711              		.cfi_restore 85
+ 1712              		.cfi_restore 82
+ 1713              		.cfi_restore 83
+ 1714              		.cfi_restore 80
+ 1715              		.cfi_restore 81
+ 1716              		.cfi_def_cfa_offset 28
+ 1717 014a BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 1718              	.LVL219:
+ 1719              	.L105:
+ 1720              	.LCFI29:
+ 1721              		.cfi_restore_state
+ 303:MakiseGUI/MakiseGUI/makise_primitives.c ****     
+ 1722              		.loc 1 303 0
+ 1723 014e 3B46     		mov	r3, r7
+ 1724 0150 2A46     		mov	r2, r5
+ 1725 0152 2146     		mov	r1, r4
+ 1726 0154 3046     		mov	r0, r6
+ 1727 0156 FFF7FEFF 		bl	makise_d_polyline
+ 1728              	.LVL220:
+ 1729 015a 71E7     		b	.L99
+ 1730              		.cfi_endproc
+ 1731              	.LFE134:
+ 1733              		.text
+ 1734              	.Letext0:
+ 1735              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
+ 1736              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1737              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
+ 1738              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
+ 1739              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 1740              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
+ 1741              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1742              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 1743              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 1744              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1745              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ARM GAS  /tmp/ccPZdB2k.s 			page 39
+
+
+ 1746              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1747              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1748              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 1749              		.file 16 "Inc/spi.h"
+ 1750              		.file 17 "Inc/tim.h"
+ 1751              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 1752              		.file 19 "MakiseGUI/MakiseGUI/makise_text.h"
+ 1753              		.file 20 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 1754              		.file 21 "MakiseGUI/MakiseGUI/makise_primitives.h"
+ 1755              		.file 22 "/usr/arm-none-eabi/include/math.h"
+ 1756              		.file 23 "/usr/arm-none-eabi/include/string.h"
+ARM GAS  /tmp/ccPZdB2k.s 			page 40
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise_primitives.c
+     /tmp/ccPZdB2k.s:18     .text.makise_d_clear:0000000000000000 $t
+     /tmp/ccPZdB2k.s:25     .text.makise_d_clear:0000000000000000 makise_d_clear
+     /tmp/ccPZdB2k.s:90     .text.makise_d_point:0000000000000000 $t
+     /tmp/ccPZdB2k.s:97     .text.makise_d_point:0000000000000000 makise_d_point
+     /tmp/ccPZdB2k.s:117    .text.makise_d_circle:0000000000000000 $t
+     /tmp/ccPZdB2k.s:124    .text.makise_d_circle:0000000000000000 makise_d_circle
+     /tmp/ccPZdB2k.s:345    .text.makise_d_line:0000000000000000 $t
+     /tmp/ccPZdB2k.s:352    .text.makise_d_line:0000000000000000 makise_d_line
+     /tmp/ccPZdB2k.s:724    .text.makise_d_rect:0000000000000000 $t
+     /tmp/ccPZdB2k.s:731    .text.makise_d_rect:0000000000000000 makise_d_rect
+     /tmp/ccPZdB2k.s:913    .text.makise_d_rect_filled:0000000000000000 $t
+     /tmp/ccPZdB2k.s:920    .text.makise_d_rect_filled:0000000000000000 makise_d_rect_filled
+     /tmp/ccPZdB2k.s:1143   .text.makise_d_circle_filled:0000000000000000 $t
+     /tmp/ccPZdB2k.s:1150   .text.makise_d_circle_filled:0000000000000000 makise_d_circle_filled
+     /tmp/ccPZdB2k.s:1460   .text.makise_d_polyline:0000000000000000 $t
+     /tmp/ccPZdB2k.s:1467   .text.makise_d_polyline:0000000000000000 makise_d_polyline
+     /tmp/ccPZdB2k.s:1539   .text.makise_dex_polyline:0000000000000000 $t
+     /tmp/ccPZdB2k.s:1546   .text.makise_dex_polyline:0000000000000000 makise_dex_polyline
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+memset
+makise_pset
+__aeabi_dcmpeq
+__aeabi_d2f
+cos
+sin

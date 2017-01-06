@@ -1,0 +1,6 @@
+#include "makise.h"
+#include "spi.h"
+#include "gpio.h"
+#include <string.h>
+
+MakiseGUI* mt_start();

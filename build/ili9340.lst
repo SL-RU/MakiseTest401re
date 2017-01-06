@@ -1,0 +1,2342 @@
+ARM GAS  /tmp/cce4YAC7.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"ili9340.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.ili9340_sleep,"ax",%progbits
+  18              		.align	1
+  19              		.global	ili9340_sleep
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	ili9340_sleep:
+  26              	.LFB135:
+  27              		.file 1 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.c"
+   1:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //#ifdef MAKISE_ILI9340_USE
+   2:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** #include "ili9340.h"
+   3:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** #include "stm32f4xx_hal_tim.h"
+   4:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_delay(uint32_t x) { HAL_Delay(x); }
+   6:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+   7:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_cs(uint8_t st){HAL_GPIO_WritePin(ILI9340_CS, st ? GPIO_PIN_SET : GPIO_P
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_dc(uint8_t st){HAL_GPIO_WritePin(ILI9340_DC, st ? GPIO_PIN_SET : GPIO_P
+   9:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+  10:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_backlight = 0;
+  11:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+  12:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** void ili9340_driver(MakiseDriver * d)
+  13:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+  14:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->lcd_height    = 320;
+  15:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->lcd_width     = 240;
+  16:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->buffer_height = MAKISE_BUF_H;
+  17:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->buffer_width  = MAKISE_BUF_W;
+  18:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->pixeldepth    = 16;
+  19:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->buffer        = 0;
+  20:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->size          = MAKISE_BUF_H * MAKISE_BUF_W * 2;
+  21:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->posx          = 0;
+  22:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->posy          = 0;
+  23:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->init          = &ili9340_init;
+  24:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->start         = &ili9340_start;
+  25:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->sleep         = &ili9340_sleep;
+  26:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->awake         = &ili9340_awake;
+  27:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->set_backlight = &ili9340_set_backlight;
+  28:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+  29:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+  30:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_init(MakiseGUI* gui)
+  31:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ARM GAS  /tmp/cce4YAC7.s 			page 2
+
+
+  32:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_rst(1);
+  33:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(5);
+  34:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_rst(0);
+  35:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(20);
+  36:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_rst(1);
+  37:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(150);
+  38:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+  39:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x01); //software reset
+  40:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(5);
+  41:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x28);
+  42:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // display off
+  43:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //---------------------------------------------------------
+  44:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // magic?
+  45:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xcf);
+  46:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+  47:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x83);
+  48:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x30);
+  49:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+  50:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xed);
+  51:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x64);
+  52:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x03);
+  53:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x12);
+  54:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x81);
+  55:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xe8);
+  56:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x85);
+  57:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x01);
+  58:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x79);
+  59:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xcb);
+  60:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x39);
+  61:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x2c);
+  62:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+  63:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x34);
+  64:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x02);
+  65:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xf7);
+  66:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x20);
+  67:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xea);
+  68:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+  69:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+  70:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //------------power control------------------------------
+  71:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xc0); //power control
+  72:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x26);
+  73:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xc1); //power control
+  74:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x11);
+  75:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //--------------VCOM
+  76:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xc5); //vcom control
+  77:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x35);//35
+  78:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x3e);//3E
+  79:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xc7); //vcom control
+  80:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xbe); // 0x94
+  81:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //------------memory access control------------------------
+  82:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x36);
+  83:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // memory access control
+  84:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x48); //0048 my,mx,mv,ml,BGR,mh,0.0
+  85:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x3a); // pixel format set
+  86:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x55);//16bit /pixel
+  87:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //----------------- frame rate------------------------------
+  88:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xb1);
+ARM GAS  /tmp/cce4YAC7.s 			page 3
+
+
+  89:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // frame rate
+  90:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+  91:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x1B); //70
+  92:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //----------------Gamma---------------------------------
+  93:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xf2); // 3Gamma Function Disable
+  94:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x08);
+  95:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x26);
+  96:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x02); // gamma set 4 gamma curve 01/02/04/08
+  97:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+  98:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xE0); //positive gamma correction
+  99:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0F); 
+ 100:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x31); 
+ 101:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x2B); 
+ 102:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0C); 
+ 103:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0E); 
+ 104:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x08); 
+ 105:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x4E); 
+ 106:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xF1); 
+ 107:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x37); 
+ 108:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x07); 
+ 109:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x10); 
+ 110:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x03); 
+ 111:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0E); 
+ 112:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x09); 
+ 113:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00); 
+ 114:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xE1); //negamma correction
+ 115:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00); 
+ 116:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0E); 
+ 117:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x14); 
+ 118:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x03); 
+ 119:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x11); 
+ 120:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x07); 
+ 121:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x31); 
+ 122:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xC1); 
+ 123:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x48); 
+ 124:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x08); 
+ 125:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0F); 
+ 126:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0C); 
+ 127:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x31); 
+ 128:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x36); 
+ 129:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0F); 
+ 130:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //--------------ddram ---------------------
+ 131:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x2a);
+ 132:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // column set
+ 133:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // size = 239
+ 134:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 135:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 136:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 137:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xEF);
+ 138:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x2b);
+ 139:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // page address set
+ 140:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // size = 319
+ 141:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 142:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 143:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x01);
+ 144:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x3F);
+ 145:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x34);
+ARM GAS  /tmp/cce4YAC7.s 			page 4
+
+
+ 146:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x35);
+ 147:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x01);
+ 148:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // tearing effect off
+ 149:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // tearing effect on
+ 150:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // ili9340_write_command(0xb4); // display inversion
+ 151:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xb7); //entry mode set
+ 152:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x07);
+ 153:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //-----------------display---------------------
+ 154:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xb6);
+ 155:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // display function control
+ 156:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0a);
+ 157:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x82);
+ 158:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x27);
+ 159:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 160:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x11); //sleep out
+ 161:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(100);
+ 162:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x29); // display on
+ 163:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(100);
+ 164:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 165:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 166:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     return HAL_OK;
+ 167:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 168:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t _ili9340_addr_kek[2];
+ 169:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** void setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1,
+ 170:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 		   uint16_t y1) {
+ 171:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 172:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_cs(0);
+ 173:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(ILI9340_CASET); // Column addr set
+ 174:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 175:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_dc(1);
+ 176:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[0] = x0 >> 8;
+ 177:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[1] = x0;
+ 178:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[2] = x1 >> 8;
+ 179:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[3] = x1;
+ 180:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_SPI_Transmit(&ILI9340_SPI, (uint8_t*)_ili9340_addr_kek, 4, 10);
+ 181:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 182:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(ILI9340_PASET); // Row addr set
+ 183:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 184:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_dc(1);
+ 185:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[0] = y0 >> 8;
+ 186:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[1] = y0;
+ 187:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[2] = y1 >>8;
+ 188:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[3] = y1;
+ 189:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_SPI_Transmit(&ILI9340_SPI, (uint8_t*)_ili9340_addr_kek, 4, 10);
+ 190:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 191:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(ILI9340_RAMWR); // write to RAM
+ 192:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 193:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 194:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint32_t t, ss, se, w=0;
+ 195:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili_f = 0;
+ 196:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern uint16_t taaak = 0;
+ 197:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** void strt_tx(MakiseDriver* d)
+ 198:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 199:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+ 200:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     uint8_t dr = 0;
+ 201:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(d->posy >= d->lcd_height - taaak)
+ 202:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ARM GAS  /tmp/cce4YAC7.s 			page 5
+
+
+ 203:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	ili_f = 0;
+ 204:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	dr = 1;
+ 205:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	d->posy = taaak;
+ 206:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	
+ 207:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	//se = HAL_GetTick();
+ 208:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	//printf("delay %d\n", se - ss);
+ 209:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	//ss = HAL_GetTick();
+ 210:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	
+ 211:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
+ 212:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	if(d->gui->draw != 0)
+ 213:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 214:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    d->gui->draw(d->gui);
+ 215:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 216:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_5);
+ 217:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 218:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 219:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 220:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     setAddrWindow(0, d->posy, d->lcd_width, d->buffer_height - 1 + d->posy);
+ 221:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_render(d->gui);
+ 222:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 223:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 224:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_dc(1);
+ 225:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_cs(0);
+ 226:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 227:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(w==0)
+ 228:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 229:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	HAL_SPI_Transmit_DMA(&ILI9340_SPI, d->buffer, d->size);
+ 230:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	w = 1;
+ 231:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 232:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     else
+ 233:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 234:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	HAL_DMA_Start_IT(ILI9340_SPI.hdmatx, (uint32_t)d->buffer, (uint32_t)&ILI9340_SPI.Instance->DR, d->
+ 235:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	  /* Enable the SPI Error Interrupt Bit */
+ 236:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	SET_BIT(ILI9340_SPI.Instance->CR2, SPI_CR2_ERRIE);
+ 237:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 238:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	/* Enable Tx DMA Request */
+ 239:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	SET_BIT(ILI9340_SPI.Instance->CR2, SPI_CR2_TXDMAEN);
+ 240:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 241:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 242:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+ 243:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(dr)
+ 244:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 245:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	if(d->gui->predraw != 0)
+ 246:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 247:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    d->gui->predraw(d->gui);
+ 248:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 249:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	if(d->gui->update != 0)
+ 250:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 251:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    d->gui->update(d->gui);
+ 252:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 253:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 254:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 255:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 256:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_start(MakiseGUI* gui)
+ 257:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 258:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(ILI9340_LED_USE_PWM)
+ 259:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ARM GAS  /tmp/cce4YAC7.s 			page 6
+
+
+ 260:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	HAL_TIM_Base_Start(ILI9340_LED_PWM);
+ 261:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	HAL_TIM_PWM_Start(ILI9340_LED_PWM, ILI9340_LED_PWM_CHANNEL);
+ 262:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 263:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //    ili9340_set_backlight(1);
+ 264:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_set_backlight(gui, 31);
+ 265:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     strt_tx(gui->driver);
+ 266:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 267:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_sleep(MakiseGUI* gui)
+ 268:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+  28              		.loc 1 268 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34              	.LVL1:
+ 269:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 270:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+  35              		.loc 1 270 0
+  36 0000 7047     		bx	lr
+  37              		.cfi_endproc
+  38              	.LFE135:
+  40              		.section	.text.ili9340_awake,"ax",%progbits
+  41              		.align	1
+  42              		.global	ili9340_awake
+  43              		.syntax unified
+  44              		.thumb
+  45              		.thumb_func
+  46              		.fpu fpv4-sp-d16
+  48              	ili9340_awake:
+  49              	.LFB136:
+ 271:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_awake(MakiseGUI* gui)
+ 272:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+  50              		.loc 1 272 0
+  51              		.cfi_startproc
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54              		@ link register save eliminated.
+  55              	.LVL2:
+  56              	.LVL3:
+ 273:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 274:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+  57              		.loc 1 274 0
+  58 0000 7047     		bx	lr
+  59              		.cfi_endproc
+  60              	.LFE136:
+  62              		.section	.text.ili9340_set_backlight,"ax",%progbits
+  63              		.align	1
+  64              		.global	ili9340_set_backlight
+  65              		.syntax unified
+  66              		.thumb
+  67              		.thumb_func
+  68              		.fpu fpv4-sp-d16
+  70              	ili9340_set_backlight:
+  71              	.LFB137:
+ 275:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_set_backlight(MakiseGUI* gui, uint8_t val)
+ 276:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ARM GAS  /tmp/cce4YAC7.s 			page 7
+
+
+  72              		.loc 1 276 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  77              	.LVL4:
+ 277:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(ILI9340_LED_USE_PWM)
+ 278:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	__HAL_TIM_SET_COMPARE(ILI9340_LED_PWM, ILI9340_LED_PWM_CHANNEL, val);
+  78              		.loc 1 278 0
+  79 0000 014B     		ldr	r3, .L4
+  80 0002 1B68     		ldr	r3, [r3]
+  81 0004 1964     		str	r1, [r3, #64]
+  82              	.LVL5:
+ 279:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     else
+ 280:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	HAL_GPIO_WritePin(ILI9340_LED, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 281:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+  83              		.loc 1 281 0
+  84 0006 7047     		bx	lr
+  85              	.L5:
+  86              		.align	2
+  87              	.L4:
+  88 0008 00000000 		.word	htim3
+  89              		.cfi_endproc
+  90              	.LFE137:
+  92              		.section	.text._ili9340_delay,"ax",%progbits
+  93              		.align	1
+  94              		.global	_ili9340_delay
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  98              		.fpu fpv4-sp-d16
+ 100              	_ili9340_delay:
+ 101              	.LFB126:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 102              		.loc 1 5 0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              	.LVL6:
+ 107 0000 08B5     		push	{r3, lr}
+ 108              	.LCFI0:
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.cfi_offset 3, -8
+ 111              		.cfi_offset 14, -4
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 112              		.loc 1 5 0
+ 113 0002 FFF7FEFF 		bl	HAL_Delay
+ 114              	.LVL7:
+ 115 0006 08BD     		pop	{r3, pc}
+ 116              		.cfi_endproc
+ 117              	.LFE126:
+ 119              		.section	.text._ili9340_rst,"ax",%progbits
+ 120              		.align	1
+ 121              		.global	_ili9340_rst
+ 122              		.syntax unified
+ 123              		.thumb
+ 124              		.thumb_func
+ARM GAS  /tmp/cce4YAC7.s 			page 8
+
+
+ 125              		.fpu fpv4-sp-d16
+ 127              	_ili9340_rst:
+ 128              	.LFB127:
+   6:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_cs(uint8_t st){HAL_GPIO_WritePin(ILI9340_CS, st ? GPIO_PIN_SET : GPIO_P
+ 129              		.loc 1 6 0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133              	.LVL8:
+ 134 0000 08B5     		push	{r3, lr}
+ 135              	.LCFI1:
+ 136              		.cfi_def_cfa_offset 8
+ 137              		.cfi_offset 3, -8
+ 138              		.cfi_offset 14, -4
+   6:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_cs(uint8_t st){HAL_GPIO_WritePin(ILI9340_CS, st ? GPIO_PIN_SET : GPIO_P
+ 139              		.loc 1 6 0
+ 140 0002 021C     		adds	r2, r0, #0
+ 141 0004 18BF     		it	ne
+ 142 0006 0122     		movne	r2, #1
+ 143 0008 2021     		movs	r1, #32
+ 144 000a 0248     		ldr	r0, .L10
+ 145              	.LVL9:
+ 146 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 147              	.LVL10:
+ 148 0010 08BD     		pop	{r3, pc}
+ 149              	.L11:
+ 150 0012 00BF     		.align	2
+ 151              	.L10:
+ 152 0014 00080240 		.word	1073874944
+ 153              		.cfi_endproc
+ 154              	.LFE127:
+ 156              		.section	.text._ili9340_cs,"ax",%progbits
+ 157              		.align	1
+ 158              		.global	_ili9340_cs
+ 159              		.syntax unified
+ 160              		.thumb
+ 161              		.thumb_func
+ 162              		.fpu fpv4-sp-d16
+ 164              	_ili9340_cs:
+ 165              	.LFB128:
+   7:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_dc(uint8_t st){HAL_GPIO_WritePin(ILI9340_DC, st ? GPIO_PIN_SET : GPIO_P
+ 166              		.loc 1 7 0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170              	.LVL11:
+ 171 0000 08B5     		push	{r3, lr}
+ 172              	.LCFI2:
+ 173              		.cfi_def_cfa_offset 8
+ 174              		.cfi_offset 3, -8
+ 175              		.cfi_offset 14, -4
+   7:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_dc(uint8_t st){HAL_GPIO_WritePin(ILI9340_DC, st ? GPIO_PIN_SET : GPIO_P
+ 176              		.loc 1 7 0
+ 177 0002 021C     		adds	r2, r0, #0
+ 178 0004 18BF     		it	ne
+ 179 0006 0122     		movne	r2, #1
+ 180 0008 0121     		movs	r1, #1
+ARM GAS  /tmp/cce4YAC7.s 			page 9
+
+
+ 181 000a 0248     		ldr	r0, .L14
+ 182              	.LVL12:
+ 183 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 184              	.LVL13:
+ 185 0010 08BD     		pop	{r3, pc}
+ 186              	.L15:
+ 187 0012 00BF     		.align	2
+ 188              	.L14:
+ 189 0014 00040240 		.word	1073873920
+ 190              		.cfi_endproc
+ 191              	.LFE128:
+ 193              		.section	.text._ili9340_dc,"ax",%progbits
+ 194              		.align	1
+ 195              		.global	_ili9340_dc
+ 196              		.syntax unified
+ 197              		.thumb
+ 198              		.thumb_func
+ 199              		.fpu fpv4-sp-d16
+ 201              	_ili9340_dc:
+ 202              	.LFB129:
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 203              		.loc 1 8 0
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207              	.LVL14:
+ 208 0000 08B5     		push	{r3, lr}
+ 209              	.LCFI3:
+ 210              		.cfi_def_cfa_offset 8
+ 211              		.cfi_offset 3, -8
+ 212              		.cfi_offset 14, -4
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 213              		.loc 1 8 0
+ 214 0002 021C     		adds	r2, r0, #0
+ 215 0004 18BF     		it	ne
+ 216 0006 0122     		movne	r2, #1
+ 217 0008 1021     		movs	r1, #16
+ 218 000a 0248     		ldr	r0, .L18
+ 219              	.LVL15:
+ 220 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 221              	.LVL16:
+ 222 0010 08BD     		pop	{r3, pc}
+ 223              	.L19:
+ 224 0012 00BF     		.align	2
+ 225              	.L18:
+ 226 0014 00080240 		.word	1073874944
+ 227              		.cfi_endproc
+ 228              	.LFE129:
+ 230              		.section	.text.ili9340_driver,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	ili9340_driver
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 236              		.fpu fpv4-sp-d16
+ 238              	ili9340_driver:
+ 239              	.LFB130:
+ARM GAS  /tmp/cce4YAC7.s 			page 10
+
+
+  13:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->lcd_height    = 320;
+ 240              		.loc 1 13 0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244              		@ link register save eliminated.
+ 245              	.LVL17:
+  14:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->lcd_width     = 240;
+ 246              		.loc 1 14 0
+ 247 0000 4FF4A073 		mov	r3, #320
+ 248 0004 8380     		strh	r3, [r0, #4]	@ movhi
+  15:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->buffer_height = MAKISE_BUF_H;
+ 249              		.loc 1 15 0
+ 250 0006 F022     		movs	r2, #240
+ 251 0008 C280     		strh	r2, [r0, #6]	@ movhi
+  16:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->buffer_width  = MAKISE_BUF_W;
+ 252              		.loc 1 16 0
+ 253 000a 1023     		movs	r3, #16
+ 254 000c 0381     		strh	r3, [r0, #8]	@ movhi
+  17:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->pixeldepth    = 16;
+ 255              		.loc 1 17 0
+ 256 000e 4281     		strh	r2, [r0, #10]	@ movhi
+  18:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->buffer        = 0;
+ 257              		.loc 1 18 0
+ 258 0010 8381     		strh	r3, [r0, #12]	@ movhi
+  19:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->size          = MAKISE_BUF_H * MAKISE_BUF_W * 2;
+ 259              		.loc 1 19 0
+ 260 0012 0023     		movs	r3, #0
+ 261 0014 0361     		str	r3, [r0, #16]
+  20:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->posx          = 0;
+ 262              		.loc 1 20 0
+ 263 0016 4FF4F052 		mov	r2, #7680
+ 264 001a 4261     		str	r2, [r0, #20]
+  21:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->posy          = 0;
+ 265              		.loc 1 21 0
+ 266 001c 0383     		strh	r3, [r0, #24]	@ movhi
+  22:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->init          = &ili9340_init;
+ 267              		.loc 1 22 0
+ 268 001e 4383     		strh	r3, [r0, #26]	@ movhi
+  23:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->start         = &ili9340_start;
+ 269              		.loc 1 23 0
+ 270 0020 054B     		ldr	r3, .L21
+ 271 0022 C361     		str	r3, [r0, #28]
+  24:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->sleep         = &ili9340_sleep;
+ 272              		.loc 1 24 0
+ 273 0024 054B     		ldr	r3, .L21+4
+ 274 0026 0362     		str	r3, [r0, #32]
+  25:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->awake         = &ili9340_awake;
+ 275              		.loc 1 25 0
+ 276 0028 054B     		ldr	r3, .L21+8
+ 277 002a 4362     		str	r3, [r0, #36]
+  26:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     d->set_backlight = &ili9340_set_backlight;
+ 278              		.loc 1 26 0
+ 279 002c 054B     		ldr	r3, .L21+12
+ 280 002e 8362     		str	r3, [r0, #40]
+  27:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 281              		.loc 1 27 0
+ARM GAS  /tmp/cce4YAC7.s 			page 11
+
+
+ 282 0030 054B     		ldr	r3, .L21+16
+ 283 0032 C362     		str	r3, [r0, #44]
+ 284 0034 7047     		bx	lr
+ 285              	.L22:
+ 286 0036 00BF     		.align	2
+ 287              	.L21:
+ 288 0038 00000000 		.word	ili9340_init
+ 289 003c 00000000 		.word	ili9340_start
+ 290 0040 00000000 		.word	ili9340_sleep
+ 291 0044 00000000 		.word	ili9340_awake
+ 292 0048 00000000 		.word	ili9340_set_backlight
+ 293              		.cfi_endproc
+ 294              	.LFE130:
+ 296              		.section	.text.ili9340_render,"ax",%progbits
+ 297              		.align	1
+ 298              		.global	ili9340_render
+ 299              		.syntax unified
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.fpu fpv4-sp-d16
+ 304              	ili9340_render:
+ 305              	.LFB140:
+ 282:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_spi_txhalfcplt(MakiseDriver* d)
+ 283:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 284:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+ 285:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili_f = 1;
+ 286:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(d->posy < d->lcd_height)
+ 287:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	ili9340_render(d->gui);
+ 288:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+ 289:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 290:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_spi_txcplt(MakiseDriver* driver)
+ 291:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 292:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili_f = 2;
+ 293:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_cs(1);
+ 294:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     strt_tx(driver);
+ 295:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 296:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 297:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint16_t clrs[] = {ILI9340_BLACK, ILI9340_WHITE, ILI9340_RED,
+ 298:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 		   ILI9340_GREEN, ILI9340_BLUE, ILI9340_CYAN,
+ 299:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 		   ILI9340_YELLOW, ILI9340_MAGENTA};
+ 300:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** void    ili9340_render(MakiseGUI* gui)
+ 301:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 306              		.loc 1 301 0
+ 307              		.cfi_startproc
+ 308              		@ args = 0, pretend = 0, frame = 0
+ 309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 310              	.LVL18:
+ 311 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 312              	.LCFI4:
+ 313              		.cfi_def_cfa_offset 32
+ 314              		.cfi_offset 4, -32
+ 315              		.cfi_offset 5, -28
+ 316              		.cfi_offset 6, -24
+ 317              		.cfi_offset 7, -20
+ 318              		.cfi_offset 8, -16
+ 319              		.cfi_offset 9, -12
+ 320              		.cfi_offset 10, -8
+ARM GAS  /tmp/cce4YAC7.s 			page 12
+
+
+ 321              		.cfi_offset 14, -4
+ 302:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     MakiseDriver * d = gui->driver;
+ 322              		.loc 1 302 0
+ 323 0004 4568     		ldr	r5, [r0, #4]
+ 324              	.LVL19:
+ 303:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     uint16_t c;
+ 304:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 305:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     uint32_t y = d->posy, x = 0, i = 0,
+ 325              		.loc 1 305 0
+ 326 0006 6B8B     		ldrh	r3, [r5, #26]
+ 327 0008 9846     		mov	r8, r3
+ 328              	.LVL20:
+ 306:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	cu, bu = 0, m;
+ 307:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 308:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(ili_f == 0) //render full buffer
+ 329              		.loc 1 308 0
+ 330 000a 2E4A     		ldr	r2, .L40
+ 331 000c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 332 000e B2B9     		cbnz	r2, .L24
+ 309:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 310:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	m = d->posy + d->buffer_height;
+ 333              		.loc 1 310 0
+ 334 0010 B5F808C0 		ldrh	ip, [r5, #8]
+ 335 0014 9C44     		add	ip, ip, r3
+ 336              	.LVL21:
+ 311:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	d->posy += d->buffer_height;
+ 337              		.loc 1 311 0
+ 338 0016 A5F81AC0 		strh	ip, [r5, #26]	@ movhi
+ 312:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	ili_f = 1;
+ 339              		.loc 1 312 0
+ 340 001a 0122     		movs	r2, #1
+ 341 001c 294B     		ldr	r3, .L40
+ 342              	.LVL22:
+ 343 001e 1A70     		strb	r2, [r3]
+ 305:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	cu, bu = 0, m;
+ 344              		.loc 1 305 0
+ 345 0020 0026     		movs	r6, #0
+ 346              	.LVL23:
+ 347              	.L25:
+ 313:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 314:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     else if(ili_f == 1) //render first half (called by halfcplt callback)
+ 315:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 316:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	m = d->posy + (d->buffer_height / 2);
+ 317:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	y = d->posy;
+ 318:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 319:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     else if(ili_f == 2) //render second half (called by cplt callback)
+ 320:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 321:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	m = d->posy + d->buffer_height;
+ 322:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	y = d->posy + (d->buffer_height / 2);
+ 323:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	i = d->size / 4;
+ 324:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	d->posy += d->buffer_height;
+ 325:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 326:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 327:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     cu = (y * gui->buffer->width)*gui->buffer->pixeldepth/32;
+ 348              		.loc 1 327 0
+ 349 0022 0368     		ldr	r3, [r0]
+ 350 0024 DA88     		ldrh	r2, [r3, #6]
+ARM GAS  /tmp/cce4YAC7.s 			page 13
+
+
+ 351 0026 1F89     		ldrh	r7, [r3, #8]
+ 352 0028 07FB02F7 		mul	r7, r7, r2
+ 353 002c 08FB07F7 		mul	r7, r8, r7
+ 354 0030 7F09     		lsrs	r7, r7, #5
+ 355              	.LVL24:
+ 328:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     for (; y < m; y++) {	
+ 356              		.loc 1 328 0
+ 357 0032 E045     		cmp	r8, ip
+ 358 0034 1AD2     		bcs	.L36
+ 359 0036 0022     		movs	r2, #0
+ 329:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	for (x = 0; x < d->buffer_width; x+=1)
+ 330:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 331:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    c = clrs[((((uint32_t*)gui->buffer->buffer)[cu]) >> bu) & gui->buffer->depthmask];
+ 360              		.loc 1 331 0
+ 361 0038 DFF88CE0 		ldr	lr, .L40+4
+ 362 003c 39E0     		b	.L27
+ 363              	.LVL25:
+ 364              	.L24:
+ 314:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 365              		.loc 1 314 0
+ 366 003e 012A     		cmp	r2, #1
+ 367 0040 03D0     		beq	.L37
+ 319:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 368              		.loc 1 319 0
+ 369 0042 022A     		cmp	r2, #2
+ 370 0044 07D0     		beq	.L38
+ 305:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	cu, bu = 0, m;
+ 371              		.loc 1 305 0
+ 372 0046 0026     		movs	r6, #0
+ 373 0048 EBE7     		b	.L25
+ 374              	.L37:
+ 316:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	y = d->posy;
+ 375              		.loc 1 316 0
+ 376 004a B5F808C0 		ldrh	ip, [r5, #8]
+ 377 004e 03EB5C0C 		add	ip, r3, ip, lsr #1
+ 378              	.LVL26:
+ 305:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	cu, bu = 0, m;
+ 379              		.loc 1 305 0
+ 380 0052 0026     		movs	r6, #0
+ 381 0054 E5E7     		b	.L25
+ 382              	.LVL27:
+ 383              	.L38:
+ 321:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	y = d->posy + (d->buffer_height / 2);
+ 384              		.loc 1 321 0
+ 385 0056 B5F80880 		ldrh	r8, [r5, #8]
+ 386 005a 08EB030C 		add	ip, r8, r3
+ 387              	.LVL28:
+ 322:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	i = d->size / 4;
+ 388              		.loc 1 322 0
+ 389 005e 03EB5808 		add	r8, r3, r8, lsr #1
+ 390              	.LVL29:
+ 323:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	d->posy += d->buffer_height;
+ 391              		.loc 1 323 0
+ 392 0062 6E69     		ldr	r6, [r5, #20]
+ 393 0064 B608     		lsrs	r6, r6, #2
+ 394              	.LVL30:
+ 324:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ARM GAS  /tmp/cce4YAC7.s 			page 14
+
+
+ 395              		.loc 1 324 0
+ 396 0066 A5F81AC0 		strh	ip, [r5, #26]	@ movhi
+ 397 006a DAE7     		b	.L25
+ 398              	.LVL31:
+ 399              	.L36:
+ 400 006c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 401              	.LVL32:
+ 402              	.L30:
+ 403              		.loc 1 331 0
+ 404 0070 D0F80090 		ldr	r9, [r0]
+ 405 0074 D9F80C30 		ldr	r3, [r9, #12]
+ 406 0078 53F82730 		ldr	r3, [r3, r7, lsl #2]
+ 407 007c D340     		lsrs	r3, r3, r2
+ 408 007e 99F80AA0 		ldrb	r10, [r9, #10]	@ zero_extendqisi2
+ 409 0082 03EA0A03 		and	r3, r3, r10
+ 410 0086 3EF813A0 		ldrh	r10, [lr, r3, lsl #1]
+ 411              	.LVL33:
+ 332:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    bu += gui->buffer->pixeldepth;
+ 412              		.loc 1 332 0
+ 413 008a B9F80830 		ldrh	r3, [r9, #8]
+ 414 008e 1A44     		add	r2, r2, r3
+ 415              	.LVL34:
+ 333:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    if(bu>=32)
+ 416              		.loc 1 333 0
+ 417 0090 1F2A     		cmp	r2, #31
+ 418              	.LVL35:
+ 334:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    {
+ 335:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 		bu = 0;
+ 336:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 		cu ++;
+ 419              		.loc 1 336 0
+ 420 0092 84BF     		itt	hi
+ 421 0094 0137     		addhi	r7, r7, #1
+ 422              	.LVL36:
+ 335:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 		cu ++;
+ 423              		.loc 1 335 0
+ 424 0096 0022     		movhi	r2, #0
+ 425              	.LVL37:
+ 337:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    }
+ 338:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    //c+=bc;
+ 339:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    ((uint16_t*)d->buffer)[i] = c;
+ 426              		.loc 1 339 0
+ 427 0098 2B69     		ldr	r3, [r5, #16]
+ 428 009a 23F804A0 		strh	r10, [r3, r4]	@ movhi
+ 340:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	    i+=1;
+ 429              		.loc 1 340 0
+ 430 009e 0136     		adds	r6, r6, #1
+ 431              	.LVL38:
+ 329:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 432              		.loc 1 329 0
+ 433 00a0 0131     		adds	r1, r1, #1
+ 434              	.LVL39:
+ 435 00a2 0234     		adds	r4, r4, #2
+ 436 00a4 6B89     		ldrh	r3, [r5, #10]
+ 437 00a6 8B42     		cmp	r3, r1
+ 438 00a8 E2D8     		bhi	.L30
+ 439              	.LVL40:
+ 440              	.L31:
+ARM GAS  /tmp/cce4YAC7.s 			page 15
+
+
+ 328:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	for (x = 0; x < d->buffer_width; x+=1)
+ 441              		.loc 1 328 0
+ 442 00aa 08F10108 		add	r8, r8, #1
+ 443              	.LVL41:
+ 444 00ae C445     		cmp	ip, r8
+ 445 00b0 05D0     		beq	.L39
+ 446              	.LVL42:
+ 447              	.L27:
+ 329:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 448              		.loc 1 329 0 discriminator 1
+ 449 00b2 6B89     		ldrh	r3, [r5, #10]
+ 450 00b4 002B     		cmp	r3, #0
+ 451 00b6 F8D0     		beq	.L31
+ 452 00b8 7400     		lsls	r4, r6, #1
+ 329:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 453              		.loc 1 329 0 is_stmt 0
+ 454 00ba 0021     		movs	r1, #0
+ 455 00bc D8E7     		b	.L30
+ 456              	.LVL43:
+ 457              	.L39:
+ 458 00be BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 459              	.LVL44:
+ 460              	.L41:
+ 461 00c2 00BF     		.align	2
+ 462              	.L40:
+ 463 00c4 00000000 		.word	.LANCHOR0
+ 464 00c8 00000000 		.word	.LANCHOR1
+ 465              		.cfi_endproc
+ 466              	.LFE140:
+ 468              		.section	.text.ili9340_spi_txhalfcplt,"ax",%progbits
+ 469              		.align	1
+ 470              		.global	ili9340_spi_txhalfcplt
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.fpu fpv4-sp-d16
+ 476              	ili9340_spi_txhalfcplt:
+ 477              	.LFB138:
+ 283:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+ 478              		.loc 1 283 0 is_stmt 1
+ 479              		.cfi_startproc
+ 480              		@ args = 0, pretend = 0, frame = 0
+ 481              		@ frame_needed = 0, uses_anonymous_args = 0
+ 482              	.LVL45:
+ 483 0000 10B5     		push	{r4, lr}
+ 484              	.LCFI5:
+ 485              		.cfi_def_cfa_offset 8
+ 486              		.cfi_offset 4, -8
+ 487              		.cfi_offset 14, -4
+ 488 0002 0446     		mov	r4, r0
+ 284:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili_f = 1;
+ 489              		.loc 1 284 0
+ 490 0004 1021     		movs	r1, #16
+ 491 0006 0948     		ldr	r0, .L46
+ 492              	.LVL46:
+ 493 0008 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 494              	.LVL47:
+ARM GAS  /tmp/cce4YAC7.s 			page 16
+
+
+ 285:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(d->posy < d->lcd_height)
+ 495              		.loc 1 285 0
+ 496 000c 0122     		movs	r2, #1
+ 497 000e 084B     		ldr	r3, .L46+4
+ 498 0010 1A70     		strb	r2, [r3]
+ 286:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	ili9340_render(d->gui);
+ 499              		.loc 1 286 0
+ 500 0012 628B     		ldrh	r2, [r4, #26]
+ 501 0014 A388     		ldrh	r3, [r4, #4]
+ 502 0016 9A42     		cmp	r2, r3
+ 503 0018 04D3     		bcc	.L45
+ 504              	.L43:
+ 288:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 505              		.loc 1 288 0
+ 506 001a 1021     		movs	r1, #16
+ 507 001c 0348     		ldr	r0, .L46
+ 508 001e FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 509              	.LVL48:
+ 289:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_spi_txcplt(MakiseDriver* driver)
+ 510              		.loc 1 289 0
+ 511 0022 10BD     		pop	{r4, pc}
+ 512              	.LVL49:
+ 513              	.L45:
+ 287:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
+ 514              		.loc 1 287 0
+ 515 0024 2068     		ldr	r0, [r4]
+ 516 0026 FFF7FEFF 		bl	ili9340_render
+ 517              	.LVL50:
+ 518 002a F6E7     		b	.L43
+ 519              	.L47:
+ 520              		.align	2
+ 521              	.L46:
+ 522 002c 00040240 		.word	1073873920
+ 523 0030 00000000 		.word	.LANCHOR0
+ 524              		.cfi_endproc
+ 525              	.LFE138:
+ 527              		.section	.text.ili9340_write_data,"ax",%progbits
+ 528              		.align	1
+ 529              		.global	ili9340_write_data
+ 530              		.syntax unified
+ 531              		.thumb
+ 532              		.thumb_func
+ 533              		.fpu fpv4-sp-d16
+ 535              	ili9340_write_data:
+ 536              	.LFB141:
+ 341:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 342:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 343:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 344:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 345:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 346:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_write_data(uint8_t d)
+ 347:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 537              		.loc 1 347 0
+ 538              		.cfi_startproc
+ 539              		@ args = 0, pretend = 0, frame = 8
+ 540              		@ frame_needed = 0, uses_anonymous_args = 0
+ 541              	.LVL51:
+ARM GAS  /tmp/cce4YAC7.s 			page 17
+
+
+ 542 0000 10B5     		push	{r4, lr}
+ 543              	.LCFI6:
+ 544              		.cfi_def_cfa_offset 8
+ 545              		.cfi_offset 4, -8
+ 546              		.cfi_offset 14, -4
+ 547 0002 82B0     		sub	sp, sp, #8
+ 548              	.LCFI7:
+ 549              		.cfi_def_cfa_offset 16
+ 550 0004 02AC     		add	r4, sp, #8
+ 551 0006 04F8010D 		strb	r0, [r4, #-1]!
+ 552              	.LVL52:
+ 553              	.LBB36:
+ 554              	.LBB37:
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 555              		.loc 1 8 0
+ 556 000a 0122     		movs	r2, #1
+ 557 000c 1021     		movs	r1, #16
+ 558 000e 0548     		ldr	r0, .L50
+ 559              	.LVL53:
+ 560 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 561              	.LVL54:
+ 562              	.LBE37:
+ 563              	.LBE36:
+ 348:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_dc(1);
+ 349:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 350:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_SPI_Transmit(&ILI9340_SPI, &d, 1, 10);
+ 564              		.loc 1 350 0
+ 565 0014 0A23     		movs	r3, #10
+ 566 0016 0122     		movs	r2, #1
+ 567 0018 2146     		mov	r1, r4
+ 568 001a 0348     		ldr	r0, .L50+4
+ 569 001c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 570              	.LVL55:
+ 351:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 571              		.loc 1 351 0
+ 572 0020 02B0     		add	sp, sp, #8
+ 573              	.LCFI8:
+ 574              		.cfi_def_cfa_offset 8
+ 575              		@ sp needed
+ 576 0022 10BD     		pop	{r4, pc}
+ 577              	.L51:
+ 578              		.align	2
+ 579              	.L50:
+ 580 0024 00080240 		.word	1073874944
+ 581 0028 00000000 		.word	hspi1
+ 582              		.cfi_endproc
+ 583              	.LFE141:
+ 585              		.section	.text.ili9340_write_command,"ax",%progbits
+ 586              		.align	1
+ 587              		.global	ili9340_write_command
+ 588              		.syntax unified
+ 589              		.thumb
+ 590              		.thumb_func
+ 591              		.fpu fpv4-sp-d16
+ 593              	ili9340_write_command:
+ 594              	.LFB142:
+ 352:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ARM GAS  /tmp/cce4YAC7.s 			page 18
+
+
+ 353:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_write_command(uint8_t c)
+ 354:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** {
+ 595              		.loc 1 354 0
+ 596              		.cfi_startproc
+ 597              		@ args = 0, pretend = 0, frame = 8
+ 598              		@ frame_needed = 0, uses_anonymous_args = 0
+ 599              	.LVL56:
+ 600 0000 10B5     		push	{r4, lr}
+ 601              	.LCFI9:
+ 602              		.cfi_def_cfa_offset 8
+ 603              		.cfi_offset 4, -8
+ 604              		.cfi_offset 14, -4
+ 605 0002 82B0     		sub	sp, sp, #8
+ 606              	.LCFI10:
+ 607              		.cfi_def_cfa_offset 16
+ 608 0004 02AC     		add	r4, sp, #8
+ 609 0006 04F8010D 		strb	r0, [r4, #-1]!
+ 610              	.LVL57:
+ 611              	.LBB38:
+ 612              	.LBB39:
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 613              		.loc 1 8 0
+ 614 000a 0022     		movs	r2, #0
+ 615 000c 1021     		movs	r1, #16
+ 616 000e 0548     		ldr	r0, .L54
+ 617              	.LVL58:
+ 618 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 619              	.LVL59:
+ 620              	.LBE39:
+ 621              	.LBE38:
+ 355:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_dc(0);
+ 356:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 357:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_SPI_Transmit(&ILI9340_SPI, &c, 1, 10);
+ 622              		.loc 1 357 0
+ 623 0014 0A23     		movs	r3, #10
+ 624 0016 0122     		movs	r2, #1
+ 625 0018 2146     		mov	r1, r4
+ 626 001a 0348     		ldr	r0, .L54+4
+ 627 001c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 628              	.LVL60:
+ 358:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 359:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 629              		.loc 1 359 0
+ 630 0020 02B0     		add	sp, sp, #8
+ 631              	.LCFI11:
+ 632              		.cfi_def_cfa_offset 8
+ 633              		@ sp needed
+ 634 0022 10BD     		pop	{r4, pc}
+ 635              	.L55:
+ 636              		.align	2
+ 637              	.L54:
+ 638 0024 00080240 		.word	1073874944
+ 639 0028 00000000 		.word	hspi1
+ 640              		.cfi_endproc
+ 641              	.LFE142:
+ 643              		.section	.text.ili9340_init,"ax",%progbits
+ 644              		.align	1
+ARM GAS  /tmp/cce4YAC7.s 			page 19
+
+
+ 645              		.global	ili9340_init
+ 646              		.syntax unified
+ 647              		.thumb
+ 648              		.thumb_func
+ 649              		.fpu fpv4-sp-d16
+ 651              	ili9340_init:
+ 652              	.LFB131:
+  31:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_rst(1);
+ 653              		.loc 1 31 0
+ 654              		.cfi_startproc
+ 655              		@ args = 0, pretend = 0, frame = 0
+ 656              		@ frame_needed = 0, uses_anonymous_args = 0
+ 657              	.LVL61:
+ 658 0000 10B5     		push	{r4, lr}
+ 659              	.LCFI12:
+ 660              		.cfi_def_cfa_offset 8
+ 661              		.cfi_offset 4, -8
+ 662              		.cfi_offset 14, -4
+ 663              	.LVL62:
+ 664              	.LBB40:
+ 665              	.LBB41:
+   6:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_cs(uint8_t st){HAL_GPIO_WritePin(ILI9340_CS, st ? GPIO_PIN_SET : GPIO_P
+ 666              		.loc 1 6 0
+ 667 0002 A84C     		ldr	r4, .L58
+ 668 0004 0122     		movs	r2, #1
+ 669 0006 2021     		movs	r1, #32
+ 670 0008 2046     		mov	r0, r4
+ 671              	.LVL63:
+ 672 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 673              	.LVL64:
+ 674              	.LBE41:
+ 675              	.LBE40:
+ 676              	.LBB42:
+ 677              	.LBB43:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 678              		.loc 1 5 0
+ 679 000e 0520     		movs	r0, #5
+ 680 0010 FFF7FEFF 		bl	HAL_Delay
+ 681              	.LVL65:
+ 682              	.LBE43:
+ 683              	.LBE42:
+ 684              	.LBB44:
+ 685              	.LBB45:
+   6:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_cs(uint8_t st){HAL_GPIO_WritePin(ILI9340_CS, st ? GPIO_PIN_SET : GPIO_P
+ 686              		.loc 1 6 0
+ 687 0014 0022     		movs	r2, #0
+ 688 0016 2021     		movs	r1, #32
+ 689 0018 2046     		mov	r0, r4
+ 690 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 691              	.LVL66:
+ 692              	.LBE45:
+ 693              	.LBE44:
+ 694              	.LBB46:
+ 695              	.LBB47:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 696              		.loc 1 5 0
+ 697 001e 1420     		movs	r0, #20
+ARM GAS  /tmp/cce4YAC7.s 			page 20
+
+
+ 698 0020 FFF7FEFF 		bl	HAL_Delay
+ 699              	.LVL67:
+ 700              	.LBE47:
+ 701              	.LBE46:
+ 702              	.LBB48:
+ 703              	.LBB49:
+   6:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_cs(uint8_t st){HAL_GPIO_WritePin(ILI9340_CS, st ? GPIO_PIN_SET : GPIO_P
+ 704              		.loc 1 6 0
+ 705 0024 0122     		movs	r2, #1
+ 706 0026 2021     		movs	r1, #32
+ 707 0028 2046     		mov	r0, r4
+ 708 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 709              	.LVL68:
+ 710              	.LBE49:
+ 711              	.LBE48:
+ 712              	.LBB50:
+ 713              	.LBB51:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 714              		.loc 1 5 0
+ 715 002e 9620     		movs	r0, #150
+ 716 0030 FFF7FEFF 		bl	HAL_Delay
+ 717              	.LVL69:
+ 718              	.LBE51:
+ 719              	.LBE50:
+  39:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(5);
+ 720              		.loc 1 39 0
+ 721 0034 0120     		movs	r0, #1
+ 722 0036 FFF7FEFF 		bl	ili9340_write_command
+ 723              	.LVL70:
+ 724              	.LBB52:
+ 725              	.LBB53:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 726              		.loc 1 5 0
+ 727 003a 0520     		movs	r0, #5
+ 728 003c FFF7FEFF 		bl	HAL_Delay
+ 729              	.LVL71:
+ 730              	.LBE53:
+ 731              	.LBE52:
+  41:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // display off
+ 732              		.loc 1 41 0
+ 733 0040 2820     		movs	r0, #40
+ 734 0042 FFF7FEFF 		bl	ili9340_write_command
+ 735              	.LVL72:
+  45:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 736              		.loc 1 45 0
+ 737 0046 CF20     		movs	r0, #207
+ 738 0048 FFF7FEFF 		bl	ili9340_write_command
+ 739              	.LVL73:
+  46:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x83);
+ 740              		.loc 1 46 0
+ 741 004c 0020     		movs	r0, #0
+ 742 004e FFF7FEFF 		bl	ili9340_write_data
+ 743              	.LVL74:
+  47:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x30);
+ 744              		.loc 1 47 0
+ 745 0052 8320     		movs	r0, #131
+ 746 0054 FFF7FEFF 		bl	ili9340_write_data
+ARM GAS  /tmp/cce4YAC7.s 			page 21
+
+
+ 747              	.LVL75:
+  48:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 748              		.loc 1 48 0
+ 749 0058 3020     		movs	r0, #48
+ 750 005a FFF7FEFF 		bl	ili9340_write_data
+ 751              	.LVL76:
+  50:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x64);
+ 752              		.loc 1 50 0
+ 753 005e ED20     		movs	r0, #237
+ 754 0060 FFF7FEFF 		bl	ili9340_write_command
+ 755              	.LVL77:
+  51:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x03);
+ 756              		.loc 1 51 0
+ 757 0064 6420     		movs	r0, #100
+ 758 0066 FFF7FEFF 		bl	ili9340_write_data
+ 759              	.LVL78:
+  52:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x12);
+ 760              		.loc 1 52 0
+ 761 006a 0320     		movs	r0, #3
+ 762 006c FFF7FEFF 		bl	ili9340_write_data
+ 763              	.LVL79:
+  53:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x81);
+ 764              		.loc 1 53 0
+ 765 0070 1220     		movs	r0, #18
+ 766 0072 FFF7FEFF 		bl	ili9340_write_data
+ 767              	.LVL80:
+  54:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xe8);
+ 768              		.loc 1 54 0
+ 769 0076 8120     		movs	r0, #129
+ 770 0078 FFF7FEFF 		bl	ili9340_write_data
+ 771              	.LVL81:
+  55:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x85);
+ 772              		.loc 1 55 0
+ 773 007c E820     		movs	r0, #232
+ 774 007e FFF7FEFF 		bl	ili9340_write_command
+ 775              	.LVL82:
+  56:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x01);
+ 776              		.loc 1 56 0
+ 777 0082 8520     		movs	r0, #133
+ 778 0084 FFF7FEFF 		bl	ili9340_write_data
+ 779              	.LVL83:
+  57:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x79);
+ 780              		.loc 1 57 0
+ 781 0088 0120     		movs	r0, #1
+ 782 008a FFF7FEFF 		bl	ili9340_write_data
+ 783              	.LVL84:
+  58:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xcb);
+ 784              		.loc 1 58 0
+ 785 008e 7920     		movs	r0, #121
+ 786 0090 FFF7FEFF 		bl	ili9340_write_data
+ 787              	.LVL85:
+  59:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x39);
+ 788              		.loc 1 59 0
+ 789 0094 CB20     		movs	r0, #203
+ 790 0096 FFF7FEFF 		bl	ili9340_write_command
+ 791              	.LVL86:
+  60:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x2c);
+ARM GAS  /tmp/cce4YAC7.s 			page 22
+
+
+ 792              		.loc 1 60 0
+ 793 009a 3920     		movs	r0, #57
+ 794 009c FFF7FEFF 		bl	ili9340_write_data
+ 795              	.LVL87:
+  61:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 796              		.loc 1 61 0
+ 797 00a0 2C20     		movs	r0, #44
+ 798 00a2 FFF7FEFF 		bl	ili9340_write_data
+ 799              	.LVL88:
+  62:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x34);
+ 800              		.loc 1 62 0
+ 801 00a6 0020     		movs	r0, #0
+ 802 00a8 FFF7FEFF 		bl	ili9340_write_data
+ 803              	.LVL89:
+  63:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x02);
+ 804              		.loc 1 63 0
+ 805 00ac 3420     		movs	r0, #52
+ 806 00ae FFF7FEFF 		bl	ili9340_write_data
+ 807              	.LVL90:
+  64:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xf7);
+ 808              		.loc 1 64 0
+ 809 00b2 0220     		movs	r0, #2
+ 810 00b4 FFF7FEFF 		bl	ili9340_write_data
+ 811              	.LVL91:
+  65:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x20);
+ 812              		.loc 1 65 0
+ 813 00b8 F720     		movs	r0, #247
+ 814 00ba FFF7FEFF 		bl	ili9340_write_command
+ 815              	.LVL92:
+  66:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xea);
+ 816              		.loc 1 66 0
+ 817 00be 2020     		movs	r0, #32
+ 818 00c0 FFF7FEFF 		bl	ili9340_write_data
+ 819              	.LVL93:
+  67:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 820              		.loc 1 67 0
+ 821 00c4 EA20     		movs	r0, #234
+ 822 00c6 FFF7FEFF 		bl	ili9340_write_command
+ 823              	.LVL94:
+  68:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 824              		.loc 1 68 0
+ 825 00ca 0020     		movs	r0, #0
+ 826 00cc FFF7FEFF 		bl	ili9340_write_data
+ 827              	.LVL95:
+  69:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //------------power control------------------------------
+ 828              		.loc 1 69 0
+ 829 00d0 0020     		movs	r0, #0
+ 830 00d2 FFF7FEFF 		bl	ili9340_write_data
+ 831              	.LVL96:
+  71:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x26);
+ 832              		.loc 1 71 0
+ 833 00d6 C020     		movs	r0, #192
+ 834 00d8 FFF7FEFF 		bl	ili9340_write_command
+ 835              	.LVL97:
+  72:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xc1); //power control
+ 836              		.loc 1 72 0
+ 837 00dc 2620     		movs	r0, #38
+ARM GAS  /tmp/cce4YAC7.s 			page 23
+
+
+ 838 00de FFF7FEFF 		bl	ili9340_write_data
+ 839              	.LVL98:
+  73:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x11);
+ 840              		.loc 1 73 0
+ 841 00e2 C120     		movs	r0, #193
+ 842 00e4 FFF7FEFF 		bl	ili9340_write_command
+ 843              	.LVL99:
+  74:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //--------------VCOM
+ 844              		.loc 1 74 0
+ 845 00e8 1120     		movs	r0, #17
+ 846 00ea FFF7FEFF 		bl	ili9340_write_data
+ 847              	.LVL100:
+  76:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x35);//35
+ 848              		.loc 1 76 0
+ 849 00ee C520     		movs	r0, #197
+ 850 00f0 FFF7FEFF 		bl	ili9340_write_command
+ 851              	.LVL101:
+  77:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x3e);//3E
+ 852              		.loc 1 77 0
+ 853 00f4 3520     		movs	r0, #53
+ 854 00f6 FFF7FEFF 		bl	ili9340_write_data
+ 855              	.LVL102:
+  78:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xc7); //vcom control
+ 856              		.loc 1 78 0
+ 857 00fa 3E20     		movs	r0, #62
+ 858 00fc FFF7FEFF 		bl	ili9340_write_data
+ 859              	.LVL103:
+  79:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xbe); // 0x94
+ 860              		.loc 1 79 0
+ 861 0100 C720     		movs	r0, #199
+ 862 0102 FFF7FEFF 		bl	ili9340_write_command
+ 863              	.LVL104:
+  80:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //------------memory access control------------------------
+ 864              		.loc 1 80 0
+ 865 0106 BE20     		movs	r0, #190
+ 866 0108 FFF7FEFF 		bl	ili9340_write_data
+ 867              	.LVL105:
+  82:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // memory access control
+ 868              		.loc 1 82 0
+ 869 010c 3620     		movs	r0, #54
+ 870 010e FFF7FEFF 		bl	ili9340_write_command
+ 871              	.LVL106:
+  84:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x3a); // pixel format set
+ 872              		.loc 1 84 0
+ 873 0112 4820     		movs	r0, #72
+ 874 0114 FFF7FEFF 		bl	ili9340_write_data
+ 875              	.LVL107:
+  85:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x55);//16bit /pixel
+ 876              		.loc 1 85 0
+ 877 0118 3A20     		movs	r0, #58
+ 878 011a FFF7FEFF 		bl	ili9340_write_command
+ 879              	.LVL108:
+  86:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //----------------- frame rate------------------------------
+ 880              		.loc 1 86 0
+ 881 011e 5520     		movs	r0, #85
+ 882 0120 FFF7FEFF 		bl	ili9340_write_data
+ 883              	.LVL109:
+ARM GAS  /tmp/cce4YAC7.s 			page 24
+
+
+  88:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // frame rate
+ 884              		.loc 1 88 0
+ 885 0124 B120     		movs	r0, #177
+ 886 0126 FFF7FEFF 		bl	ili9340_write_command
+ 887              	.LVL110:
+  90:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x1B); //70
+ 888              		.loc 1 90 0
+ 889 012a 0020     		movs	r0, #0
+ 890 012c FFF7FEFF 		bl	ili9340_write_data
+ 891              	.LVL111:
+  91:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //----------------Gamma---------------------------------
+ 892              		.loc 1 91 0
+ 893 0130 1B20     		movs	r0, #27
+ 894 0132 FFF7FEFF 		bl	ili9340_write_data
+ 895              	.LVL112:
+  93:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x08);
+ 896              		.loc 1 93 0
+ 897 0136 F220     		movs	r0, #242
+ 898 0138 FFF7FEFF 		bl	ili9340_write_command
+ 899              	.LVL113:
+  94:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x26);
+ 900              		.loc 1 94 0
+ 901 013c 0820     		movs	r0, #8
+ 902 013e FFF7FEFF 		bl	ili9340_write_data
+ 903              	.LVL114:
+  95:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x02); // gamma set 4 gamma curve 01/02/04/08
+ 904              		.loc 1 95 0
+ 905 0142 2620     		movs	r0, #38
+ 906 0144 FFF7FEFF 		bl	ili9340_write_command
+ 907              	.LVL115:
+  96:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 908              		.loc 1 96 0
+ 909 0148 0220     		movs	r0, #2
+ 910 014a FFF7FEFF 		bl	ili9340_write_data
+ 911              	.LVL116:
+  98:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0F); 
+ 912              		.loc 1 98 0
+ 913 014e E020     		movs	r0, #224
+ 914 0150 FFF7FEFF 		bl	ili9340_write_command
+ 915              	.LVL117:
+  99:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x31); 
+ 916              		.loc 1 99 0
+ 917 0154 0F20     		movs	r0, #15
+ 918 0156 FFF7FEFF 		bl	ili9340_write_data
+ 919              	.LVL118:
+ 100:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x2B); 
+ 920              		.loc 1 100 0
+ 921 015a 3120     		movs	r0, #49
+ 922 015c FFF7FEFF 		bl	ili9340_write_data
+ 923              	.LVL119:
+ 101:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0C); 
+ 924              		.loc 1 101 0
+ 925 0160 2B20     		movs	r0, #43
+ 926 0162 FFF7FEFF 		bl	ili9340_write_data
+ 927              	.LVL120:
+ 102:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0E); 
+ 928              		.loc 1 102 0
+ARM GAS  /tmp/cce4YAC7.s 			page 25
+
+
+ 929 0166 0C20     		movs	r0, #12
+ 930 0168 FFF7FEFF 		bl	ili9340_write_data
+ 931              	.LVL121:
+ 103:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x08); 
+ 932              		.loc 1 103 0
+ 933 016c 0E20     		movs	r0, #14
+ 934 016e FFF7FEFF 		bl	ili9340_write_data
+ 935              	.LVL122:
+ 104:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x4E); 
+ 936              		.loc 1 104 0
+ 937 0172 0820     		movs	r0, #8
+ 938 0174 FFF7FEFF 		bl	ili9340_write_data
+ 939              	.LVL123:
+ 105:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xF1); 
+ 940              		.loc 1 105 0
+ 941 0178 4E20     		movs	r0, #78
+ 942 017a FFF7FEFF 		bl	ili9340_write_data
+ 943              	.LVL124:
+ 106:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x37); 
+ 944              		.loc 1 106 0
+ 945 017e F120     		movs	r0, #241
+ 946 0180 FFF7FEFF 		bl	ili9340_write_data
+ 947              	.LVL125:
+ 107:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x07); 
+ 948              		.loc 1 107 0
+ 949 0184 3720     		movs	r0, #55
+ 950 0186 FFF7FEFF 		bl	ili9340_write_data
+ 951              	.LVL126:
+ 108:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x10); 
+ 952              		.loc 1 108 0
+ 953 018a 0720     		movs	r0, #7
+ 954 018c FFF7FEFF 		bl	ili9340_write_data
+ 955              	.LVL127:
+ 109:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x03); 
+ 956              		.loc 1 109 0
+ 957 0190 1020     		movs	r0, #16
+ 958 0192 FFF7FEFF 		bl	ili9340_write_data
+ 959              	.LVL128:
+ 110:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0E); 
+ 960              		.loc 1 110 0
+ 961 0196 0320     		movs	r0, #3
+ 962 0198 FFF7FEFF 		bl	ili9340_write_data
+ 963              	.LVL129:
+ 111:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x09); 
+ 964              		.loc 1 111 0
+ 965 019c 0E20     		movs	r0, #14
+ 966 019e FFF7FEFF 		bl	ili9340_write_data
+ 967              	.LVL130:
+ 112:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00); 
+ 968              		.loc 1 112 0
+ 969 01a2 0920     		movs	r0, #9
+ 970 01a4 FFF7FEFF 		bl	ili9340_write_data
+ 971              	.LVL131:
+ 113:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0xE1); //negamma correction
+ 972              		.loc 1 113 0
+ 973 01a8 0020     		movs	r0, #0
+ 974 01aa FFF7FEFF 		bl	ili9340_write_data
+ARM GAS  /tmp/cce4YAC7.s 			page 26
+
+
+ 975              	.LVL132:
+ 114:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00); 
+ 976              		.loc 1 114 0
+ 977 01ae E120     		movs	r0, #225
+ 978 01b0 FFF7FEFF 		bl	ili9340_write_command
+ 979              	.LVL133:
+ 115:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0E); 
+ 980              		.loc 1 115 0
+ 981 01b4 0020     		movs	r0, #0
+ 982 01b6 FFF7FEFF 		bl	ili9340_write_data
+ 983              	.LVL134:
+ 116:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x14); 
+ 984              		.loc 1 116 0
+ 985 01ba 0E20     		movs	r0, #14
+ 986 01bc FFF7FEFF 		bl	ili9340_write_data
+ 987              	.LVL135:
+ 117:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x03); 
+ 988              		.loc 1 117 0
+ 989 01c0 1420     		movs	r0, #20
+ 990 01c2 FFF7FEFF 		bl	ili9340_write_data
+ 991              	.LVL136:
+ 118:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x11); 
+ 992              		.loc 1 118 0
+ 993 01c6 0320     		movs	r0, #3
+ 994 01c8 FFF7FEFF 		bl	ili9340_write_data
+ 995              	.LVL137:
+ 119:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x07); 
+ 996              		.loc 1 119 0
+ 997 01cc 1120     		movs	r0, #17
+ 998 01ce FFF7FEFF 		bl	ili9340_write_data
+ 999              	.LVL138:
+ 120:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x31); 
+ 1000              		.loc 1 120 0
+ 1001 01d2 0720     		movs	r0, #7
+ 1002 01d4 FFF7FEFF 		bl	ili9340_write_data
+ 1003              	.LVL139:
+ 121:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xC1); 
+ 1004              		.loc 1 121 0
+ 1005 01d8 3120     		movs	r0, #49
+ 1006 01da FFF7FEFF 		bl	ili9340_write_data
+ 1007              	.LVL140:
+ 122:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x48); 
+ 1008              		.loc 1 122 0
+ 1009 01de C120     		movs	r0, #193
+ 1010 01e0 FFF7FEFF 		bl	ili9340_write_data
+ 1011              	.LVL141:
+ 123:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x08); 
+ 1012              		.loc 1 123 0
+ 1013 01e4 4820     		movs	r0, #72
+ 1014 01e6 FFF7FEFF 		bl	ili9340_write_data
+ 1015              	.LVL142:
+ 124:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0F); 
+ 1016              		.loc 1 124 0
+ 1017 01ea 0820     		movs	r0, #8
+ 1018 01ec FFF7FEFF 		bl	ili9340_write_data
+ 1019              	.LVL143:
+ 125:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0C); 
+ARM GAS  /tmp/cce4YAC7.s 			page 27
+
+
+ 1020              		.loc 1 125 0
+ 1021 01f0 0F20     		movs	r0, #15
+ 1022 01f2 FFF7FEFF 		bl	ili9340_write_data
+ 1023              	.LVL144:
+ 126:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x31); 
+ 1024              		.loc 1 126 0
+ 1025 01f6 0C20     		movs	r0, #12
+ 1026 01f8 FFF7FEFF 		bl	ili9340_write_data
+ 1027              	.LVL145:
+ 127:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x36); 
+ 1028              		.loc 1 127 0
+ 1029 01fc 3120     		movs	r0, #49
+ 1030 01fe FFF7FEFF 		bl	ili9340_write_data
+ 1031              	.LVL146:
+ 128:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x0F); 
+ 1032              		.loc 1 128 0
+ 1033 0202 3620     		movs	r0, #54
+ 1034 0204 FFF7FEFF 		bl	ili9340_write_data
+ 1035              	.LVL147:
+ 129:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //--------------ddram ---------------------
+ 1036              		.loc 1 129 0
+ 1037 0208 0F20     		movs	r0, #15
+ 1038 020a FFF7FEFF 		bl	ili9340_write_data
+ 1039              	.LVL148:
+ 131:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // column set
+ 1040              		.loc 1 131 0
+ 1041 020e 2A20     		movs	r0, #42
+ 1042 0210 FFF7FEFF 		bl	ili9340_write_command
+ 1043              	.LVL149:
+ 134:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 1044              		.loc 1 134 0
+ 1045 0214 0020     		movs	r0, #0
+ 1046 0216 FFF7FEFF 		bl	ili9340_write_data
+ 1047              	.LVL150:
+ 135:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 1048              		.loc 1 135 0
+ 1049 021a 0020     		movs	r0, #0
+ 1050 021c FFF7FEFF 		bl	ili9340_write_data
+ 1051              	.LVL151:
+ 136:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0xEF);
+ 1052              		.loc 1 136 0
+ 1053 0220 0020     		movs	r0, #0
+ 1054 0222 FFF7FEFF 		bl	ili9340_write_data
+ 1055              	.LVL152:
+ 137:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x2b);
+ 1056              		.loc 1 137 0
+ 1057 0226 EF20     		movs	r0, #239
+ 1058 0228 FFF7FEFF 		bl	ili9340_write_data
+ 1059              	.LVL153:
+ 138:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // page address set
+ 1060              		.loc 1 138 0
+ 1061 022c 2B20     		movs	r0, #43
+ 1062 022e FFF7FEFF 		bl	ili9340_write_command
+ 1063              	.LVL154:
+ 141:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 1064              		.loc 1 141 0
+ 1065 0232 0020     		movs	r0, #0
+ARM GAS  /tmp/cce4YAC7.s 			page 28
+
+
+ 1066 0234 FFF7FEFF 		bl	ili9340_write_data
+ 1067              	.LVL155:
+ 142:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x01);
+ 1068              		.loc 1 142 0
+ 1069 0238 0020     		movs	r0, #0
+ 1070 023a FFF7FEFF 		bl	ili9340_write_data
+ 1071              	.LVL156:
+ 143:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x3F);
+ 1072              		.loc 1 143 0
+ 1073 023e 0120     		movs	r0, #1
+ 1074 0240 FFF7FEFF 		bl	ili9340_write_data
+ 1075              	.LVL157:
+ 144:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x34);
+ 1076              		.loc 1 144 0
+ 1077 0244 3F20     		movs	r0, #63
+ 1078 0246 FFF7FEFF 		bl	ili9340_write_data
+ 1079              	.LVL158:
+ 145:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x35);
+ 1080              		.loc 1 145 0
+ 1081 024a 3420     		movs	r0, #52
+ 1082 024c FFF7FEFF 		bl	ili9340_write_command
+ 1083              	.LVL159:
+ 146:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x01);
+ 1084              		.loc 1 146 0
+ 1085 0250 3520     		movs	r0, #53
+ 1086 0252 FFF7FEFF 		bl	ili9340_write_command
+ 1087              	.LVL160:
+ 147:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // tearing effect off
+ 1088              		.loc 1 147 0
+ 1089 0256 0120     		movs	r0, #1
+ 1090 0258 FFF7FEFF 		bl	ili9340_write_data
+ 1091              	.LVL161:
+ 151:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x07);
+ 1092              		.loc 1 151 0
+ 1093 025c B720     		movs	r0, #183
+ 1094 025e FFF7FEFF 		bl	ili9340_write_command
+ 1095              	.LVL162:
+ 152:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     //-----------------display---------------------
+ 1096              		.loc 1 152 0
+ 1097 0262 0720     		movs	r0, #7
+ 1098 0264 FFF7FEFF 		bl	ili9340_write_data
+ 1099              	.LVL163:
+ 154:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     // display function control
+ 1100              		.loc 1 154 0
+ 1101 0268 B620     		movs	r0, #182
+ 1102 026a FFF7FEFF 		bl	ili9340_write_command
+ 1103              	.LVL164:
+ 156:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x82);
+ 1104              		.loc 1 156 0
+ 1105 026e 0A20     		movs	r0, #10
+ 1106 0270 FFF7FEFF 		bl	ili9340_write_data
+ 1107              	.LVL165:
+ 157:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x27);
+ 1108              		.loc 1 157 0
+ 1109 0274 8220     		movs	r0, #130
+ 1110 0276 FFF7FEFF 		bl	ili9340_write_data
+ 1111              	.LVL166:
+ARM GAS  /tmp/cce4YAC7.s 			page 29
+
+
+ 158:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_data(0x00);
+ 1112              		.loc 1 158 0
+ 1113 027a 2720     		movs	r0, #39
+ 1114 027c FFF7FEFF 		bl	ili9340_write_data
+ 1115              	.LVL167:
+ 159:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_write_command(0x11); //sleep out
+ 1116              		.loc 1 159 0
+ 1117 0280 0020     		movs	r0, #0
+ 1118 0282 FFF7FEFF 		bl	ili9340_write_data
+ 1119              	.LVL168:
+ 160:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(100);
+ 1120              		.loc 1 160 0
+ 1121 0286 1120     		movs	r0, #17
+ 1122 0288 FFF7FEFF 		bl	ili9340_write_command
+ 1123              	.LVL169:
+ 1124              	.LBB54:
+ 1125              	.LBB55:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 1126              		.loc 1 5 0
+ 1127 028c 6420     		movs	r0, #100
+ 1128 028e FFF7FEFF 		bl	HAL_Delay
+ 1129              	.LVL170:
+ 1130              	.LBE55:
+ 1131              	.LBE54:
+ 162:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_delay(100);
+ 1132              		.loc 1 162 0
+ 1133 0292 2920     		movs	r0, #41
+ 1134 0294 FFF7FEFF 		bl	ili9340_write_command
+ 1135              	.LVL171:
+ 1136              	.LBB56:
+ 1137              	.LBB57:
+   5:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_rst(uint8_t st){HAL_GPIO_WritePin(ILI9340_RST, st ? GPIO_PIN_SET : GPIO
+ 1138              		.loc 1 5 0
+ 1139 0298 6420     		movs	r0, #100
+ 1140 029a FFF7FEFF 		bl	HAL_Delay
+ 1141              	.LVL172:
+ 1142              	.LBE57:
+ 1143              	.LBE56:
+ 167:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t _ili9340_addr_kek[2];
+ 1144              		.loc 1 167 0
+ 1145 029e 0020     		movs	r0, #0
+ 1146 02a0 10BD     		pop	{r4, pc}
+ 1147              	.L59:
+ 1148 02a2 00BF     		.align	2
+ 1149              	.L58:
+ 1150 02a4 00080240 		.word	1073874944
+ 1151              		.cfi_endproc
+ 1152              	.LFE131:
+ 1154              		.section	.text.setAddrWindow,"ax",%progbits
+ 1155              		.align	1
+ 1156              		.global	setAddrWindow
+ 1157              		.syntax unified
+ 1158              		.thumb
+ 1159              		.thumb_func
+ 1160              		.fpu fpv4-sp-d16
+ 1162              	setAddrWindow:
+ 1163              	.LFB132:
+ARM GAS  /tmp/cce4YAC7.s 			page 30
+
+
+ 170:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1164              		.loc 1 170 0
+ 1165              		.cfi_startproc
+ 1166              		@ args = 0, pretend = 0, frame = 0
+ 1167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1168              	.LVL173:
+ 1169 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 1170              	.LCFI13:
+ 1171              		.cfi_def_cfa_offset 32
+ 1172              		.cfi_offset 3, -32
+ 1173              		.cfi_offset 4, -28
+ 1174              		.cfi_offset 5, -24
+ 1175              		.cfi_offset 6, -20
+ 1176              		.cfi_offset 7, -16
+ 1177              		.cfi_offset 8, -12
+ 1178              		.cfi_offset 9, -8
+ 1179              		.cfi_offset 14, -4
+ 1180 0004 8146     		mov	r9, r0
+ 1181 0006 0F46     		mov	r7, r1
+ 1182 0008 1546     		mov	r5, r2
+ 1183 000a 1E46     		mov	r6, r3
+ 1184              	.LVL174:
+ 1185              	.LBB58:
+ 1186              	.LBB59:
+   7:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_dc(uint8_t st){HAL_GPIO_WritePin(ILI9340_DC, st ? GPIO_PIN_SET : GPIO_P
+ 1187              		.loc 1 7 0
+ 1188 000c 0022     		movs	r2, #0
+ 1189              	.LVL175:
+ 1190 000e 0121     		movs	r1, #1
+ 1191              	.LVL176:
+ 1192 0010 1A48     		ldr	r0, .L62
+ 1193              	.LVL177:
+ 1194 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1195              	.LVL178:
+ 1196              	.LBE59:
+ 1197              	.LBE58:
+ 173:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     
+ 1198              		.loc 1 173 0
+ 1199 0016 2A20     		movs	r0, #42
+ 1200 0018 FFF7FEFF 		bl	ili9340_write_command
+ 1201              	.LVL179:
+ 1202              	.LBB60:
+ 1203              	.LBB61:
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1204              		.loc 1 8 0
+ 1205 001c DFF86880 		ldr	r8, .L62+12
+ 1206 0020 0122     		movs	r2, #1
+ 1207 0022 1021     		movs	r1, #16
+ 1208 0024 4046     		mov	r0, r8
+ 1209 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1210              	.LVL180:
+ 1211              	.LBE61:
+ 1212              	.LBE60:
+ 176:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[1] = x0;
+ 1213              		.loc 1 176 0
+ 1214 002a 154C     		ldr	r4, .L62+4
+ 1215 002c 4FEA1923 		lsr	r3, r9, #8
+ARM GAS  /tmp/cce4YAC7.s 			page 31
+
+
+ 1216 0030 2370     		strb	r3, [r4]
+ 177:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[2] = x1 >> 8;
+ 1217              		.loc 1 177 0
+ 1218 0032 84F80190 		strb	r9, [r4, #1]
+ 178:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[3] = x1;
+ 1219              		.loc 1 178 0
+ 1220 0036 2B0A     		lsrs	r3, r5, #8
+ 1221 0038 A370     		strb	r3, [r4, #2]
+ 179:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_SPI_Transmit(&ILI9340_SPI, (uint8_t*)_ili9340_addr_kek, 4, 10);
+ 1222              		.loc 1 179 0
+ 1223 003a E570     		strb	r5, [r4, #3]
+ 180:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1224              		.loc 1 180 0
+ 1225 003c 114D     		ldr	r5, .L62+8
+ 1226 003e 0A23     		movs	r3, #10
+ 1227 0040 0422     		movs	r2, #4
+ 1228 0042 2146     		mov	r1, r4
+ 1229 0044 2846     		mov	r0, r5
+ 1230 0046 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 1231              	.LVL181:
+ 182:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1232              		.loc 1 182 0
+ 1233 004a 2B20     		movs	r0, #43
+ 1234 004c FFF7FEFF 		bl	ili9340_write_command
+ 1235              	.LVL182:
+ 1236              	.LBB62:
+ 1237              	.LBB63:
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1238              		.loc 1 8 0
+ 1239 0050 0122     		movs	r2, #1
+ 1240 0052 1021     		movs	r1, #16
+ 1241 0054 4046     		mov	r0, r8
+ 1242 0056 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1243              	.LVL183:
+ 1244              	.LBE63:
+ 1245              	.LBE62:
+ 185:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[1] = y0;
+ 1246              		.loc 1 185 0
+ 1247 005a 3B0A     		lsrs	r3, r7, #8
+ 1248 005c 2370     		strb	r3, [r4]
+ 186:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[2] = y1 >>8;
+ 1249              		.loc 1 186 0
+ 1250 005e 6770     		strb	r7, [r4, #1]
+ 187:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_addr_kek[3] = y1;
+ 1251              		.loc 1 187 0
+ 1252 0060 330A     		lsrs	r3, r6, #8
+ 1253 0062 A370     		strb	r3, [r4, #2]
+ 188:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     HAL_SPI_Transmit(&ILI9340_SPI, (uint8_t*)_ili9340_addr_kek, 4, 10);
+ 1254              		.loc 1 188 0
+ 1255 0064 E670     		strb	r6, [r4, #3]
+ 189:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1256              		.loc 1 189 0
+ 1257 0066 0A23     		movs	r3, #10
+ 1258 0068 0422     		movs	r2, #4
+ 1259 006a 2146     		mov	r1, r4
+ 1260 006c 2846     		mov	r0, r5
+ 1261 006e FFF7FEFF 		bl	HAL_SPI_Transmit
+ARM GAS  /tmp/cce4YAC7.s 			page 32
+
+
+ 1262              	.LVL184:
+ 191:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 1263              		.loc 1 191 0
+ 1264 0072 2C20     		movs	r0, #44
+ 1265 0074 FFF7FEFF 		bl	ili9340_write_command
+ 1266              	.LVL185:
+ 1267 0078 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 1268              	.L63:
+ 1269              		.align	2
+ 1270              	.L62:
+ 1271 007c 00040240 		.word	1073873920
+ 1272 0080 00000000 		.word	_ili9340_addr_kek
+ 1273 0084 00000000 		.word	hspi1
+ 1274 0088 00080240 		.word	1073874944
+ 1275              		.cfi_endproc
+ 1276              	.LFE132:
+ 1278              		.section	.text.strt_tx,"ax",%progbits
+ 1279              		.align	1
+ 1280              		.global	strt_tx
+ 1281              		.syntax unified
+ 1282              		.thumb
+ 1283              		.thumb_func
+ 1284              		.fpu fpv4-sp-d16
+ 1286              	strt_tx:
+ 1287              	.LFB133:
+ 198:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** //    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+ 1288              		.loc 1 198 0
+ 1289              		.cfi_startproc
+ 1290              		@ args = 0, pretend = 0, frame = 0
+ 1291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1292              	.LVL186:
+ 1293 0000 70B5     		push	{r4, r5, r6, lr}
+ 1294              	.LCFI14:
+ 1295              		.cfi_def_cfa_offset 16
+ 1296              		.cfi_offset 4, -16
+ 1297              		.cfi_offset 5, -12
+ 1298              		.cfi_offset 6, -8
+ 1299              		.cfi_offset 14, -4
+ 1300 0002 0446     		mov	r4, r0
+ 1301              	.LVL187:
+ 201:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 1302              		.loc 1 201 0
+ 1303 0004 284B     		ldr	r3, .L73
+ 1304 0006 1A88     		ldrh	r2, [r3]
+ 1305 0008 418B     		ldrh	r1, [r0, #26]
+ 1306 000a 8388     		ldrh	r3, [r0, #4]
+ 1307 000c 9B1A     		subs	r3, r3, r2
+ 1308 000e 9942     		cmp	r1, r3
+ 1309 0010 0ADB     		blt	.L70
+ 203:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	dr = 1;
+ 1310              		.loc 1 203 0
+ 1311 0012 0021     		movs	r1, #0
+ 1312 0014 254B     		ldr	r3, .L73+4
+ 1313 0016 1970     		strb	r1, [r3]
+ 1314              	.LVL188:
+ 205:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	
+ 1315              		.loc 1 205 0
+ARM GAS  /tmp/cce4YAC7.s 			page 33
+
+
+ 1316 0018 4283     		strh	r2, [r0, #26]	@ movhi
+ 212:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 1317              		.loc 1 212 0
+ 1318 001a 0068     		ldr	r0, [r0]
+ 1319              	.LVL189:
+ 1320 001c 8368     		ldr	r3, [r0, #8]
+ 1321 001e 002B     		cmp	r3, #0
+ 1322 0020 2ED0     		beq	.L71
+ 214:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 1323              		.loc 1 214 0
+ 1324 0022 9847     		blx	r3
+ 1325              	.LVL190:
+ 204:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	d->posy = taaak;
+ 1326              		.loc 1 204 0
+ 1327 0024 0125     		movs	r5, #1
+ 1328 0026 00E0     		b	.L65
+ 1329              	.LVL191:
+ 1330              	.L70:
+ 200:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(d->posy >= d->lcd_height - taaak)
+ 1331              		.loc 1 200 0
+ 1332 0028 0025     		movs	r5, #0
+ 1333              	.LVL192:
+ 1334              	.L65:
+ 220:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili9340_render(d->gui);
+ 1335              		.loc 1 220 0
+ 1336 002a 618B     		ldrh	r1, [r4, #26]
+ 1337 002c 2389     		ldrh	r3, [r4, #8]
+ 1338 002e 0B44     		add	r3, r3, r1
+ 1339 0030 013B     		subs	r3, r3, #1
+ 1340 0032 9BB2     		uxth	r3, r3
+ 1341 0034 E288     		ldrh	r2, [r4, #6]
+ 1342 0036 0020     		movs	r0, #0
+ 1343 0038 FFF7FEFF 		bl	setAddrWindow
+ 1344              	.LVL193:
+ 221:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1345              		.loc 1 221 0
+ 1346 003c 2068     		ldr	r0, [r4]
+ 1347 003e FFF7FEFF 		bl	ili9340_render
+ 1348              	.LVL194:
+ 1349              	.LBB64:
+ 1350              	.LBB65:
+   8:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1351              		.loc 1 8 0
+ 1352 0042 0122     		movs	r2, #1
+ 1353 0044 1021     		movs	r1, #16
+ 1354 0046 1A48     		ldr	r0, .L73+8
+ 1355 0048 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1356              	.LVL195:
+ 1357              	.LBE65:
+ 1358              	.LBE64:
+ 1359              	.LBB66:
+ 1360              	.LBB67:
+   7:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_dc(uint8_t st){HAL_GPIO_WritePin(ILI9340_DC, st ? GPIO_PIN_SET : GPIO_P
+ 1361              		.loc 1 7 0
+ 1362 004c 0022     		movs	r2, #0
+ 1363 004e 0121     		movs	r1, #1
+ 1364 0050 1848     		ldr	r0, .L73+12
+ARM GAS  /tmp/cce4YAC7.s 			page 34
+
+
+ 1365 0052 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1366              	.LVL196:
+ 1367              	.LBE67:
+ 1368              	.LBE66:
+ 227:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 1369              		.loc 1 227 0
+ 1370 0056 184B     		ldr	r3, .L73+16
+ 1371 0058 1B68     		ldr	r3, [r3]
+ 1372 005a 9BB9     		cbnz	r3, .L66
+ 229:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	w = 1;
+ 1373              		.loc 1 229 0
+ 1374 005c A28A     		ldrh	r2, [r4, #20]
+ 1375 005e 2169     		ldr	r1, [r4, #16]
+ 1376 0060 1648     		ldr	r0, .L73+20
+ 1377 0062 FFF7FEFF 		bl	HAL_SPI_Transmit_DMA
+ 1378              	.LVL197:
+ 230:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 1379              		.loc 1 230 0
+ 1380 0066 0122     		movs	r2, #1
+ 1381 0068 134B     		ldr	r3, .L73+16
+ 1382 006a 1A60     		str	r2, [r3]
+ 1383              	.L67:
+ 243:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     {
+ 1384              		.loc 1 243 0
+ 1385 006c 3DB1     		cbz	r5, .L64
+ 245:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 1386              		.loc 1 245 0
+ 1387 006e 2068     		ldr	r0, [r4]
+ 1388 0070 C368     		ldr	r3, [r0, #12]
+ 1389 0072 03B1     		cbz	r3, .L69
+ 247:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 1390              		.loc 1 247 0
+ 1391 0074 9847     		blx	r3
+ 1392              	.LVL198:
+ 1393              	.L69:
+ 249:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	{
+ 1394              		.loc 1 249 0
+ 1395 0076 2068     		ldr	r0, [r4]
+ 1396 0078 0369     		ldr	r3, [r0, #16]
+ 1397 007a 03B1     		cbz	r3, .L64
+ 251:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	}
+ 1398              		.loc 1 251 0
+ 1399 007c 9847     		blx	r3
+ 1400              	.LVL199:
+ 1401              	.L64:
+ 1402 007e 70BD     		pop	{r4, r5, r6, pc}
+ 1403              	.LVL200:
+ 1404              	.L71:
+ 204:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	d->posy = taaak;
+ 1405              		.loc 1 204 0
+ 1406 0080 0125     		movs	r5, #1
+ 1407 0082 D2E7     		b	.L65
+ 1408              	.LVL201:
+ 1409              	.L66:
+ 234:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	  /* Enable the SPI Error Interrupt Bit */
+ 1410              		.loc 1 234 0
+ 1411 0084 0D4E     		ldr	r6, .L73+20
+ARM GAS  /tmp/cce4YAC7.s 			page 35
+
+
+ 1412 0086 3268     		ldr	r2, [r6]
+ 1413 0088 6369     		ldr	r3, [r4, #20]
+ 1414 008a 0C32     		adds	r2, r2, #12
+ 1415 008c 2169     		ldr	r1, [r4, #16]
+ 1416 008e B06C     		ldr	r0, [r6, #72]
+ 1417 0090 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 1418              	.LVL202:
+ 236:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1419              		.loc 1 236 0
+ 1420 0094 3368     		ldr	r3, [r6]
+ 1421 0096 5A68     		ldr	r2, [r3, #4]
+ 1422 0098 42F02002 		orr	r2, r2, #32
+ 1423 009c 5A60     		str	r2, [r3, #4]
+ 239:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1424              		.loc 1 239 0
+ 1425 009e 5A68     		ldr	r2, [r3, #4]
+ 1426 00a0 42F00202 		orr	r2, r2, #2
+ 1427 00a4 5A60     		str	r2, [r3, #4]
+ 1428 00a6 E1E7     		b	.L67
+ 1429              	.L74:
+ 1430              		.align	2
+ 1431              	.L73:
+ 1432 00a8 00000000 		.word	.LANCHOR2
+ 1433 00ac 00000000 		.word	.LANCHOR0
+ 1434 00b0 00080240 		.word	1073874944
+ 1435 00b4 00040240 		.word	1073873920
+ 1436 00b8 00000000 		.word	.LANCHOR3
+ 1437 00bc 00000000 		.word	hspi1
+ 1438              		.cfi_endproc
+ 1439              	.LFE133:
+ 1441              		.section	.text.ili9340_start,"ax",%progbits
+ 1442              		.align	1
+ 1443              		.global	ili9340_start
+ 1444              		.syntax unified
+ 1445              		.thumb
+ 1446              		.thumb_func
+ 1447              		.fpu fpv4-sp-d16
+ 1449              	ili9340_start:
+ 1450              	.LFB134:
+ 257:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     if(ILI9340_LED_USE_PWM)
+ 1451              		.loc 1 257 0
+ 1452              		.cfi_startproc
+ 1453              		@ args = 0, pretend = 0, frame = 0
+ 1454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1455              	.LVL203:
+ 1456 0000 38B5     		push	{r3, r4, r5, lr}
+ 1457              	.LCFI15:
+ 1458              		.cfi_def_cfa_offset 16
+ 1459              		.cfi_offset 3, -16
+ 1460              		.cfi_offset 4, -12
+ 1461              		.cfi_offset 5, -8
+ 1462              		.cfi_offset 14, -4
+ 1463 0002 0546     		mov	r5, r0
+ 260:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 	HAL_TIM_PWM_Start(ILI9340_LED_PWM, ILI9340_LED_PWM_CHANNEL);
+ 1464              		.loc 1 260 0
+ 1465 0004 074C     		ldr	r4, .L77
+ 1466 0006 2046     		mov	r0, r4
+ARM GAS  /tmp/cce4YAC7.s 			page 36
+
+
+ 1467              	.LVL204:
+ 1468 0008 FFF7FEFF 		bl	HAL_TIM_Base_Start
+ 1469              	.LVL205:
+ 261:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     }
+ 1470              		.loc 1 261 0
+ 1471 000c 0C21     		movs	r1, #12
+ 1472 000e 2046     		mov	r0, r4
+ 1473 0010 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 1474              	.LVL206:
+ 1475              	.LBB70:
+ 1476              	.LBB71:
+ 278:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     else
+ 1477              		.loc 1 278 0
+ 1478 0014 2368     		ldr	r3, [r4]
+ 1479 0016 1F22     		movs	r2, #31
+ 1480 0018 1A64     		str	r2, [r3, #64]
+ 1481              	.LVL207:
+ 1482              	.LBE71:
+ 1483              	.LBE70:
+ 265:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 1484              		.loc 1 265 0
+ 1485 001a 6868     		ldr	r0, [r5, #4]
+ 1486 001c FFF7FEFF 		bl	strt_tx
+ 1487              	.LVL208:
+ 266:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** uint8_t ili9340_sleep(MakiseGUI* gui)
+ 1488              		.loc 1 266 0
+ 1489 0020 38BD     		pop	{r3, r4, r5, pc}
+ 1490              	.LVL209:
+ 1491              	.L78:
+ 1492 0022 00BF     		.align	2
+ 1493              	.L77:
+ 1494 0024 00000000 		.word	htim3
+ 1495              		.cfi_endproc
+ 1496              	.LFE134:
+ 1498              		.section	.text.ili9340_spi_txcplt,"ax",%progbits
+ 1499              		.align	1
+ 1500              		.global	ili9340_spi_txcplt
+ 1501              		.syntax unified
+ 1502              		.thumb
+ 1503              		.thumb_func
+ 1504              		.fpu fpv4-sp-d16
+ 1506              	ili9340_spi_txcplt:
+ 1507              	.LFB139:
+ 291:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     ili_f = 2;
+ 1508              		.loc 1 291 0
+ 1509              		.cfi_startproc
+ 1510              		@ args = 0, pretend = 0, frame = 0
+ 1511              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1512              	.LVL210:
+ 1513 0000 10B5     		push	{r4, lr}
+ 1514              	.LCFI16:
+ 1515              		.cfi_def_cfa_offset 8
+ 1516              		.cfi_offset 4, -8
+ 1517              		.cfi_offset 14, -4
+ 1518 0002 0446     		mov	r4, r0
+ 292:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c ****     _ili9340_cs(1);
+ 1519              		.loc 1 292 0
+ARM GAS  /tmp/cce4YAC7.s 			page 37
+
+
+ 1520 0004 0222     		movs	r2, #2
+ 1521 0006 054B     		ldr	r3, .L81
+ 1522 0008 1A70     		strb	r2, [r3]
+ 1523              	.LVL211:
+ 1524              	.LBB72:
+ 1525              	.LBB73:
+   7:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** extern inline void _ili9340_dc(uint8_t st){HAL_GPIO_WritePin(ILI9340_DC, st ? GPIO_PIN_SET : GPIO_P
+ 1526              		.loc 1 7 0
+ 1527 000a 0122     		movs	r2, #1
+ 1528 000c 1146     		mov	r1, r2
+ 1529 000e 0448     		ldr	r0, .L81+4
+ 1530              	.LVL212:
+ 1531 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1532              	.LVL213:
+ 1533              	.LBE73:
+ 1534              	.LBE72:
+ 294:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** }
+ 1535              		.loc 1 294 0
+ 1536 0014 2046     		mov	r0, r4
+ 1537 0016 FFF7FEFF 		bl	strt_tx
+ 1538              	.LVL214:
+ 295:MakiseGUI/MakiseGUI/ILI9340C/ili9340.c **** 
+ 1539              		.loc 1 295 0
+ 1540 001a 10BD     		pop	{r4, pc}
+ 1541              	.LVL215:
+ 1542              	.L82:
+ 1543              		.align	2
+ 1544              	.L81:
+ 1545 001c 00000000 		.word	.LANCHOR0
+ 1546 0020 00040240 		.word	1073873920
+ 1547              		.cfi_endproc
+ 1548              	.LFE139:
+ 1550              		.global	clrs
+ 1551              		.global	taaak
+ 1552              		.global	ili_f
+ 1553              		.global	w
+ 1554              		.comm	se,4,4
+ 1555              		.comm	ss,4,4
+ 1556              		.comm	t,4,4
+ 1557              		.comm	_ili9340_addr_kek,2,4
+ 1558              		.global	ili9340_backlight
+ 1559              		.section	.bss.ili9340_backlight,"aw",%nobits
+ 1562              	ili9340_backlight:
+ 1563 0000 00       		.space	1
+ 1564              		.section	.bss.ili_f,"aw",%nobits
+ 1565              		.set	.LANCHOR0,. + 0
+ 1568              	ili_f:
+ 1569 0000 00       		.space	1
+ 1570              		.section	.bss.taaak,"aw",%nobits
+ 1571              		.align	1
+ 1572              		.set	.LANCHOR2,. + 0
+ 1575              	taaak:
+ 1576 0000 0000     		.space	2
+ 1577              		.section	.bss.w,"aw",%nobits
+ 1578              		.align	2
+ 1579              		.set	.LANCHOR3,. + 0
+ 1582              	w:
+ARM GAS  /tmp/cce4YAC7.s 			page 38
+
+
+ 1583 0000 00000000 		.space	4
+ 1584              		.section	.data.clrs,"aw",%progbits
+ 1585              		.align	2
+ 1586              		.set	.LANCHOR1,. + 0
+ 1589              	clrs:
+ 1590 0000 0000     		.short	0
+ 1591 0002 FFFF     		.short	-1
+ 1592 0004 00F8     		.short	-2048
+ 1593 0006 E007     		.short	2016
+ 1594 0008 1F00     		.short	31
+ 1595 000a FF07     		.short	2047
+ 1596 000c E0FF     		.short	-32
+ 1597 000e 1FF8     		.short	-2017
+ 1598              		.text
+ 1599              	.Letext0:
+ 1600              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1601              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1602              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1603              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 1604              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1605              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 1606              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 1607              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 1608              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 1609              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1610              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1611              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1612              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1613              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 1614              		.file 16 "Inc/spi.h"
+ 1615              		.file 17 "Inc/tim.h"
+ 1616              		.file 18 "MakiseGUI/MakiseGUI/makise.h"
+ 1617              		.file 19 "MakiseGUI/MakiseGUI/makise_text.h"
+ 1618              		.file 20 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 1619              		.file 21 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 1620              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  /tmp/cce4YAC7.s 			page 39
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 ili9340.c
+     /tmp/cce4YAC7.s:18     .text.ili9340_sleep:0000000000000000 $t
+     /tmp/cce4YAC7.s:25     .text.ili9340_sleep:0000000000000000 ili9340_sleep
+     /tmp/cce4YAC7.s:41     .text.ili9340_awake:0000000000000000 $t
+     /tmp/cce4YAC7.s:48     .text.ili9340_awake:0000000000000000 ili9340_awake
+     /tmp/cce4YAC7.s:63     .text.ili9340_set_backlight:0000000000000000 $t
+     /tmp/cce4YAC7.s:70     .text.ili9340_set_backlight:0000000000000000 ili9340_set_backlight
+     /tmp/cce4YAC7.s:88     .text.ili9340_set_backlight:0000000000000008 $d
+     /tmp/cce4YAC7.s:93     .text._ili9340_delay:0000000000000000 $t
+     /tmp/cce4YAC7.s:100    .text._ili9340_delay:0000000000000000 _ili9340_delay
+     /tmp/cce4YAC7.s:120    .text._ili9340_rst:0000000000000000 $t
+     /tmp/cce4YAC7.s:127    .text._ili9340_rst:0000000000000000 _ili9340_rst
+     /tmp/cce4YAC7.s:152    .text._ili9340_rst:0000000000000014 $d
+     /tmp/cce4YAC7.s:157    .text._ili9340_cs:0000000000000000 $t
+     /tmp/cce4YAC7.s:164    .text._ili9340_cs:0000000000000000 _ili9340_cs
+     /tmp/cce4YAC7.s:189    .text._ili9340_cs:0000000000000014 $d
+     /tmp/cce4YAC7.s:194    .text._ili9340_dc:0000000000000000 $t
+     /tmp/cce4YAC7.s:201    .text._ili9340_dc:0000000000000000 _ili9340_dc
+     /tmp/cce4YAC7.s:226    .text._ili9340_dc:0000000000000014 $d
+     /tmp/cce4YAC7.s:231    .text.ili9340_driver:0000000000000000 $t
+     /tmp/cce4YAC7.s:238    .text.ili9340_driver:0000000000000000 ili9340_driver
+     /tmp/cce4YAC7.s:288    .text.ili9340_driver:0000000000000038 $d
+     /tmp/cce4YAC7.s:651    .text.ili9340_init:0000000000000000 ili9340_init
+     /tmp/cce4YAC7.s:1449   .text.ili9340_start:0000000000000000 ili9340_start
+     /tmp/cce4YAC7.s:297    .text.ili9340_render:0000000000000000 $t
+     /tmp/cce4YAC7.s:304    .text.ili9340_render:0000000000000000 ili9340_render
+     /tmp/cce4YAC7.s:463    .text.ili9340_render:00000000000000c4 $d
+     /tmp/cce4YAC7.s:469    .text.ili9340_spi_txhalfcplt:0000000000000000 $t
+     /tmp/cce4YAC7.s:476    .text.ili9340_spi_txhalfcplt:0000000000000000 ili9340_spi_txhalfcplt
+     /tmp/cce4YAC7.s:522    .text.ili9340_spi_txhalfcplt:000000000000002c $d
+     /tmp/cce4YAC7.s:528    .text.ili9340_write_data:0000000000000000 $t
+     /tmp/cce4YAC7.s:535    .text.ili9340_write_data:0000000000000000 ili9340_write_data
+     /tmp/cce4YAC7.s:580    .text.ili9340_write_data:0000000000000024 $d
+     /tmp/cce4YAC7.s:586    .text.ili9340_write_command:0000000000000000 $t
+     /tmp/cce4YAC7.s:593    .text.ili9340_write_command:0000000000000000 ili9340_write_command
+     /tmp/cce4YAC7.s:638    .text.ili9340_write_command:0000000000000024 $d
+     /tmp/cce4YAC7.s:644    .text.ili9340_init:0000000000000000 $t
+     /tmp/cce4YAC7.s:1150   .text.ili9340_init:00000000000002a4 $d
+     /tmp/cce4YAC7.s:1155   .text.setAddrWindow:0000000000000000 $t
+     /tmp/cce4YAC7.s:1162   .text.setAddrWindow:0000000000000000 setAddrWindow
+     /tmp/cce4YAC7.s:1271   .text.setAddrWindow:000000000000007c $d
+                            *COM*:0000000000000002 _ili9340_addr_kek
+     /tmp/cce4YAC7.s:1279   .text.strt_tx:0000000000000000 $t
+     /tmp/cce4YAC7.s:1286   .text.strt_tx:0000000000000000 strt_tx
+     /tmp/cce4YAC7.s:1432   .text.strt_tx:00000000000000a8 $d
+     /tmp/cce4YAC7.s:1442   .text.ili9340_start:0000000000000000 $t
+     /tmp/cce4YAC7.s:1494   .text.ili9340_start:0000000000000024 $d
+     /tmp/cce4YAC7.s:1499   .text.ili9340_spi_txcplt:0000000000000000 $t
+     /tmp/cce4YAC7.s:1506   .text.ili9340_spi_txcplt:0000000000000000 ili9340_spi_txcplt
+     /tmp/cce4YAC7.s:1545   .text.ili9340_spi_txcplt:000000000000001c $d
+     /tmp/cce4YAC7.s:1589   .data.clrs:0000000000000000 clrs
+     /tmp/cce4YAC7.s:1575   .bss.taaak:0000000000000000 taaak
+     /tmp/cce4YAC7.s:1568   .bss.ili_f:0000000000000000 ili_f
+     /tmp/cce4YAC7.s:1582   .bss.w:0000000000000000 w
+                            *COM*:0000000000000004 se
+                            *COM*:0000000000000004 ss
+ARM GAS  /tmp/cce4YAC7.s 			page 40
+
+
+                            *COM*:0000000000000004 t
+     /tmp/cce4YAC7.s:1562   .bss.ili9340_backlight:0000000000000000 ili9340_backlight
+     /tmp/cce4YAC7.s:1563   .bss.ili9340_backlight:0000000000000000 $d
+     /tmp/cce4YAC7.s:1569   .bss.ili_f:0000000000000000 $d
+     /tmp/cce4YAC7.s:1571   .bss.taaak:0000000000000000 $d
+     /tmp/cce4YAC7.s:1578   .bss.w:0000000000000000 $d
+     /tmp/cce4YAC7.s:1585   .data.clrs:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+htim3
+HAL_Delay
+HAL_GPIO_WritePin
+HAL_GPIO_TogglePin
+HAL_SPI_Transmit
+hspi1
+HAL_SPI_Transmit_DMA
+HAL_DMA_Start_IT
+HAL_TIM_Base_Start
+HAL_TIM_PWM_Start

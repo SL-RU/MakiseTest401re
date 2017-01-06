@@ -1,0 +1,45 @@
+ARM GAS  /tmp/ccecxzae.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"fonts.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              	.Letext0:
+  18              		.file 1 "/usr/arm-none-eabi/include/machine/_default_types.h"
+  19              		.file 2 "/usr/arm-none-eabi/include/sys/lock.h"
+  20              		.file 3 "/usr/arm-none-eabi/include/sys/_types.h"
+  21              		.file 4 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+  22              		.file 5 "/usr/arm-none-eabi/include/sys/reent.h"
+  23              		.file 6 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  24              		.file 7 "Drivers/CMSIS/Include/core_cm4.h"
+  25              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  26              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+  27              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+  28              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+  29              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+  30              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+  31              		.file 14 "Inc/spi.h"
+  32              		.file 15 "Inc/tim.h"
+  33              		.file 16 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+  34              		.file 17 "MakiseGUI/MakiseGUI/makise_text.h"
+  35              		.file 18 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ARM GAS  /tmp/ccecxzae.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 fonts.c
+
+NO UNDEFINED SYMBOLS

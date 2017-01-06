@@ -1,0 +1,100 @@
+ARM GAS  /tmp/cc94tUoP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"printf.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._write,"ax",%progbits
+  18              		.align	1
+  19              		.global	_write
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_write:
+  26              	.LFB126:
+  27              		.file 1 "Src/printf.c"
+   1:Src/printf.c  **** #include <stdio.h>
+   2:Src/printf.c  **** #include "usart.h"
+   3:Src/printf.c  **** /***************************************************************************/
+   4:Src/printf.c  **** 
+   5:Src/printf.c  **** /* For GCC compiler revise _write() function for printf functionality */
+   6:Src/printf.c  **** int _write(int file, char *ptr, int len)
+   7:Src/printf.c  **** {
+  28              		.loc 1 7 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 1446     		mov	r4, r2
+   8:Src/printf.c  ****     file = file;
+   9:Src/printf.c  ****     HAL_UART_Transmit(&huart6, (uint8_t*)ptr, len, 10);
+  39              		.loc 1 9 0
+  40 0004 0A23     		movs	r3, #10
+  41 0006 92B2     		uxth	r2, r2
+  42              	.LVL1:
+  43 0008 0248     		ldr	r0, .L3
+  44              	.LVL2:
+  45 000a FFF7FEFF 		bl	HAL_UART_Transmit
+  46              	.LVL3:
+  10:Src/printf.c  ****     return len;
+  11:Src/printf.c  **** }
+  47              		.loc 1 11 0
+ARM GAS  /tmp/cc94tUoP.s 			page 2
+
+
+  48 000e 2046     		mov	r0, r4
+  49 0010 10BD     		pop	{r4, pc}
+  50              	.LVL4:
+  51              	.L4:
+  52 0012 00BF     		.align	2
+  53              	.L3:
+  54 0014 00000000 		.word	huart6
+  55              		.cfi_endproc
+  56              	.LFE126:
+  58              		.text
+  59              	.Letext0:
+  60              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+  61              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
+  62              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
+  63              		.file 5 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+  64              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
+  65              		.file 7 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  66              		.file 8 "Drivers/CMSIS/Include/core_cm4.h"
+  67              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  68              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+  69              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+  70              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+  71              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+  72              		.file 14 "Inc/usart.h"
+ARM GAS  /tmp/cc94tUoP.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 printf.c
+     /tmp/cc94tUoP.s:18     .text._write:0000000000000000 $t
+     /tmp/cc94tUoP.s:25     .text._write:0000000000000000 _write
+     /tmp/cc94tUoP.s:54     .text._write:0000000000000014 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+HAL_UART_Transmit
+huart6

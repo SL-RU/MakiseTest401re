@@ -1,0 +1,412 @@
+ARM GAS  /tmp/ccOVqzi1.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sdio.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MX_SDIO_SD_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	MX_SDIO_SD_Init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	MX_SDIO_SD_Init:
+  26              	.LFB126:
+  27              		.file 1 "Src/sdio.c"
+   1:Src/sdio.c    **** /**
+   2:Src/sdio.c    ****   ******************************************************************************
+   3:Src/sdio.c    ****   * File Name          : SDIO.c
+   4:Src/sdio.c    ****   * Description        : This file provides code for the configuration
+   5:Src/sdio.c    ****   *                      of the SDIO instances.
+   6:Src/sdio.c    ****   ******************************************************************************
+   7:Src/sdio.c    ****   *
+   8:Src/sdio.c    ****   * Copyright (c) 2017 STMicroelectronics International N.V. 
+   9:Src/sdio.c    ****   * All rights reserved.
+  10:Src/sdio.c    ****   *
+  11:Src/sdio.c    ****   * Redistribution and use in source and binary forms, with or without 
+  12:Src/sdio.c    ****   * modification, are permitted, provided that the following conditions are met:
+  13:Src/sdio.c    ****   *
+  14:Src/sdio.c    ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  15:Src/sdio.c    ****   *    this list of conditions and the following disclaimer.
+  16:Src/sdio.c    ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  17:Src/sdio.c    ****   *    this list of conditions and the following disclaimer in the documentation
+  18:Src/sdio.c    ****   *    and/or other materials provided with the distribution.
+  19:Src/sdio.c    ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  20:Src/sdio.c    ****   *    contributors to this software may be used to endorse or promote products 
+  21:Src/sdio.c    ****   *    derived from this software without specific written permission.
+  22:Src/sdio.c    ****   * 4. This software, including modifications and/or derivative works of this 
+  23:Src/sdio.c    ****   *    software, must execute solely and exclusively on microcontroller or
+  24:Src/sdio.c    ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+  25:Src/sdio.c    ****   * 5. Redistribution and use of this software other than as permitted under 
+  26:Src/sdio.c    ****   *    this license is void and will automatically terminate your rights under 
+  27:Src/sdio.c    ****   *    this license. 
+  28:Src/sdio.c    ****   *
+  29:Src/sdio.c    ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  30:Src/sdio.c    ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  31:Src/sdio.c    ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+ARM GAS  /tmp/ccOVqzi1.s 			page 2
+
+
+  32:Src/sdio.c    ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  33:Src/sdio.c    ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  34:Src/sdio.c    ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  35:Src/sdio.c    ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  36:Src/sdio.c    ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  37:Src/sdio.c    ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  38:Src/sdio.c    ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  39:Src/sdio.c    ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  40:Src/sdio.c    ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  41:Src/sdio.c    ****   *
+  42:Src/sdio.c    ****   ******************************************************************************
+  43:Src/sdio.c    ****   */
+  44:Src/sdio.c    **** 
+  45:Src/sdio.c    **** /* Includes ------------------------------------------------------------------*/
+  46:Src/sdio.c    **** #include "sdio.h"
+  47:Src/sdio.c    **** 
+  48:Src/sdio.c    **** #include "gpio.h"
+  49:Src/sdio.c    **** 
+  50:Src/sdio.c    **** /* USER CODE BEGIN 0 */
+  51:Src/sdio.c    **** 
+  52:Src/sdio.c    **** /* USER CODE END 0 */
+  53:Src/sdio.c    **** 
+  54:Src/sdio.c    **** SD_HandleTypeDef hsd;
+  55:Src/sdio.c    **** HAL_SD_CardInfoTypedef SDCardInfo;
+  56:Src/sdio.c    **** 
+  57:Src/sdio.c    **** /* SDIO init function */
+  58:Src/sdio.c    **** 
+  59:Src/sdio.c    **** void MX_SDIO_SD_Init(void)
+  60:Src/sdio.c    **** {
+  28              		.loc 1 60 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  61:Src/sdio.c    **** 
+  62:Src/sdio.c    ****   hsd.Instance = SDIO;
+  33              		.loc 1 62 0
+  34 0000 054B     		ldr	r3, .L2
+  35 0002 064A     		ldr	r2, .L2+4
+  36 0004 1A60     		str	r2, [r3]
+  63:Src/sdio.c    ****   hsd.Init.ClockEdge = SDIO_CLOCK_EDGE_RISING;
+  37              		.loc 1 63 0
+  38 0006 0022     		movs	r2, #0
+  39 0008 5A60     		str	r2, [r3, #4]
+  64:Src/sdio.c    ****   hsd.Init.ClockBypass = SDIO_CLOCK_BYPASS_DISABLE;
+  40              		.loc 1 64 0
+  41 000a 9A60     		str	r2, [r3, #8]
+  65:Src/sdio.c    ****   hsd.Init.ClockPowerSave = SDIO_CLOCK_POWER_SAVE_DISABLE;
+  42              		.loc 1 65 0
+  43 000c DA60     		str	r2, [r3, #12]
+  66:Src/sdio.c    ****   hsd.Init.BusWide = SDIO_BUS_WIDE_1B;
+  44              		.loc 1 66 0
+  45 000e 1A61     		str	r2, [r3, #16]
+  67:Src/sdio.c    ****   hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_DISABLE;
+  46              		.loc 1 67 0
+  47 0010 5A61     		str	r2, [r3, #20]
+  68:Src/sdio.c    ****   hsd.Init.ClockDiv = 2;
+ARM GAS  /tmp/ccOVqzi1.s 			page 3
+
+
+  48              		.loc 1 68 0
+  49 0012 0222     		movs	r2, #2
+  50 0014 9A61     		str	r2, [r3, #24]
+  51 0016 7047     		bx	lr
+  52              	.L3:
+  53              		.align	2
+  54              	.L2:
+  55 0018 00000000 		.word	hsd
+  56 001c 002C0140 		.word	1073818624
+  57              		.cfi_endproc
+  58              	.LFE126:
+  60              		.section	.text.HAL_SD_MspInit,"ax",%progbits
+  61              		.align	1
+  62              		.global	HAL_SD_MspInit
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  66              		.fpu fpv4-sp-d16
+  68              	HAL_SD_MspInit:
+  69              	.LFB127:
+  69:Src/sdio.c    **** 
+  70:Src/sdio.c    **** }
+  71:Src/sdio.c    **** 
+  72:Src/sdio.c    **** void HAL_SD_MspInit(SD_HandleTypeDef* sdHandle)
+  73:Src/sdio.c    **** {
+  70              		.loc 1 73 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 24
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              	.LVL0:
+  74:Src/sdio.c    **** 
+  75:Src/sdio.c    ****   GPIO_InitTypeDef GPIO_InitStruct;
+  76:Src/sdio.c    ****   if(sdHandle->Instance==SDIO)
+  75              		.loc 1 76 0
+  76 0000 0268     		ldr	r2, [r0]
+  77 0002 174B     		ldr	r3, .L11
+  78 0004 9A42     		cmp	r2, r3
+  79 0006 00D0     		beq	.L10
+  80 0008 7047     		bx	lr
+  81              	.L10:
+  73:Src/sdio.c    **** 
+  82              		.loc 1 73 0
+  83 000a F0B5     		push	{r4, r5, r6, r7, lr}
+  84              	.LCFI0:
+  85              		.cfi_def_cfa_offset 20
+  86              		.cfi_offset 4, -20
+  87              		.cfi_offset 5, -16
+  88              		.cfi_offset 6, -12
+  89              		.cfi_offset 7, -8
+  90              		.cfi_offset 14, -4
+  91 000c 87B0     		sub	sp, sp, #28
+  92              	.LCFI1:
+  93              		.cfi_def_cfa_offset 48
+  94              	.LBB2:
+  77:Src/sdio.c    ****   {
+  78:Src/sdio.c    ****   /* USER CODE BEGIN SDIO_MspInit 0 */
+  79:Src/sdio.c    **** 
+ARM GAS  /tmp/ccOVqzi1.s 			page 4
+
+
+  80:Src/sdio.c    ****   /* USER CODE END SDIO_MspInit 0 */
+  81:Src/sdio.c    ****     /* Peripheral clock enable */
+  82:Src/sdio.c    ****     __HAL_RCC_SDIO_CLK_ENABLE();
+  95              		.loc 1 82 0
+  96 000e 0024     		movs	r4, #0
+  97 0010 0094     		str	r4, [sp]
+  98 0012 03F58633 		add	r3, r3, #68608
+  99 0016 5A6C     		ldr	r2, [r3, #68]
+ 100 0018 42F40062 		orr	r2, r2, #2048
+ 101 001c 5A64     		str	r2, [r3, #68]
+ 102 001e 5B6C     		ldr	r3, [r3, #68]
+ 103 0020 03F40063 		and	r3, r3, #2048
+ 104 0024 0093     		str	r3, [sp]
+ 105 0026 009B     		ldr	r3, [sp]
+ 106              	.LBE2:
+  83:Src/sdio.c    ****   
+  84:Src/sdio.c    ****     /**SDIO GPIO Configuration    
+  85:Src/sdio.c    ****     PC8     ------> SDIO_D0
+  86:Src/sdio.c    ****     PC9     ------> SDIO_D1
+  87:Src/sdio.c    ****     PC10     ------> SDIO_D2
+  88:Src/sdio.c    ****     PC11     ------> SDIO_D3
+  89:Src/sdio.c    ****     PC12     ------> SDIO_CK
+  90:Src/sdio.c    ****     PD2     ------> SDIO_CMD 
+  91:Src/sdio.c    ****     */
+  92:Src/sdio.c    ****     GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
+ 107              		.loc 1 92 0
+ 108 0028 4FF4F853 		mov	r3, #7936
+ 109 002c 0193     		str	r3, [sp, #4]
+  93:Src/sdio.c    ****                           |GPIO_PIN_12;
+  94:Src/sdio.c    ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 110              		.loc 1 94 0
+ 111 002e 0227     		movs	r7, #2
+ 112 0030 0297     		str	r7, [sp, #8]
+  95:Src/sdio.c    ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 113              		.loc 1 95 0
+ 114 0032 0394     		str	r4, [sp, #12]
+  96:Src/sdio.c    ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 115              		.loc 1 96 0
+ 116 0034 0326     		movs	r6, #3
+ 117 0036 0496     		str	r6, [sp, #16]
+  97:Src/sdio.c    ****     GPIO_InitStruct.Alternate = GPIO_AF12_SDIO;
+ 118              		.loc 1 97 0
+ 119 0038 0C25     		movs	r5, #12
+ 120 003a 0595     		str	r5, [sp, #20]
+  98:Src/sdio.c    ****     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 121              		.loc 1 98 0
+ 122 003c 01A9     		add	r1, sp, #4
+ 123 003e 0948     		ldr	r0, .L11+4
+ 124              	.LVL1:
+ 125 0040 FFF7FEFF 		bl	HAL_GPIO_Init
+ 126              	.LVL2:
+  99:Src/sdio.c    **** 
+ 100:Src/sdio.c    ****     GPIO_InitStruct.Pin = GPIO_PIN_2;
+ 127              		.loc 1 100 0
+ 128 0044 0423     		movs	r3, #4
+ 129 0046 0193     		str	r3, [sp, #4]
+ 101:Src/sdio.c    ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ARM GAS  /tmp/ccOVqzi1.s 			page 5
+
+
+ 130              		.loc 1 101 0
+ 131 0048 0297     		str	r7, [sp, #8]
+ 102:Src/sdio.c    ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 132              		.loc 1 102 0
+ 133 004a 0394     		str	r4, [sp, #12]
+ 103:Src/sdio.c    ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 134              		.loc 1 103 0
+ 135 004c 0496     		str	r6, [sp, #16]
+ 104:Src/sdio.c    ****     GPIO_InitStruct.Alternate = GPIO_AF12_SDIO;
+ 136              		.loc 1 104 0
+ 137 004e 0595     		str	r5, [sp, #20]
+ 105:Src/sdio.c    ****     HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+ 138              		.loc 1 105 0
+ 139 0050 0DEB0301 		add	r1, sp, r3
+ 140 0054 0448     		ldr	r0, .L11+8
+ 141 0056 FFF7FEFF 		bl	HAL_GPIO_Init
+ 142              	.LVL3:
+ 106:Src/sdio.c    **** 
+ 107:Src/sdio.c    ****   /* USER CODE BEGIN SDIO_MspInit 1 */
+ 108:Src/sdio.c    **** 
+ 109:Src/sdio.c    ****   /* USER CODE END SDIO_MspInit 1 */
+ 110:Src/sdio.c    ****   }
+ 111:Src/sdio.c    **** }
+ 143              		.loc 1 111 0
+ 144 005a 07B0     		add	sp, sp, #28
+ 145              	.LCFI2:
+ 146              		.cfi_def_cfa_offset 20
+ 147              		@ sp needed
+ 148 005c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 149              	.L12:
+ 150 005e 00BF     		.align	2
+ 151              	.L11:
+ 152 0060 002C0140 		.word	1073818624
+ 153 0064 00080240 		.word	1073874944
+ 154 0068 000C0240 		.word	1073875968
+ 155              		.cfi_endproc
+ 156              	.LFE127:
+ 158              		.section	.text.HAL_SD_MspDeInit,"ax",%progbits
+ 159              		.align	1
+ 160              		.global	HAL_SD_MspDeInit
+ 161              		.syntax unified
+ 162              		.thumb
+ 163              		.thumb_func
+ 164              		.fpu fpv4-sp-d16
+ 166              	HAL_SD_MspDeInit:
+ 167              	.LFB128:
+ 112:Src/sdio.c    **** 
+ 113:Src/sdio.c    **** void HAL_SD_MspDeInit(SD_HandleTypeDef* sdHandle)
+ 114:Src/sdio.c    **** {
+ 168              		.loc 1 114 0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              	.LVL4:
+ 173 0000 08B5     		push	{r3, lr}
+ 174              	.LCFI3:
+ 175              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccOVqzi1.s 			page 6
+
+
+ 176              		.cfi_offset 3, -8
+ 177              		.cfi_offset 14, -4
+ 115:Src/sdio.c    **** 
+ 116:Src/sdio.c    ****   if(sdHandle->Instance==SDIO)
+ 178              		.loc 1 116 0
+ 179 0002 0268     		ldr	r2, [r0]
+ 180 0004 094B     		ldr	r3, .L17
+ 181 0006 9A42     		cmp	r2, r3
+ 182 0008 00D0     		beq	.L16
+ 183              	.LVL5:
+ 184              	.L13:
+ 185 000a 08BD     		pop	{r3, pc}
+ 186              	.LVL6:
+ 187              	.L16:
+ 117:Src/sdio.c    ****   {
+ 118:Src/sdio.c    ****   /* USER CODE BEGIN SDIO_MspDeInit 0 */
+ 119:Src/sdio.c    **** 
+ 120:Src/sdio.c    ****   /* USER CODE END SDIO_MspDeInit 0 */
+ 121:Src/sdio.c    ****     /* Peripheral clock disable */
+ 122:Src/sdio.c    ****     __HAL_RCC_SDIO_CLK_DISABLE();
+ 188              		.loc 1 122 0
+ 189 000c 084A     		ldr	r2, .L17+4
+ 190 000e 536C     		ldr	r3, [r2, #68]
+ 191 0010 23F40063 		bic	r3, r3, #2048
+ 192 0014 5364     		str	r3, [r2, #68]
+ 123:Src/sdio.c    ****   
+ 124:Src/sdio.c    ****     /**SDIO GPIO Configuration    
+ 125:Src/sdio.c    ****     PC8     ------> SDIO_D0
+ 126:Src/sdio.c    ****     PC9     ------> SDIO_D1
+ 127:Src/sdio.c    ****     PC10     ------> SDIO_D2
+ 128:Src/sdio.c    ****     PC11     ------> SDIO_D3
+ 129:Src/sdio.c    ****     PC12     ------> SDIO_CK
+ 130:Src/sdio.c    ****     PD2     ------> SDIO_CMD 
+ 131:Src/sdio.c    ****     */
+ 132:Src/sdio.c    ****     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
+ 193              		.loc 1 132 0
+ 194 0016 4FF4F851 		mov	r1, #7936
+ 195 001a 0648     		ldr	r0, .L17+8
+ 196              	.LVL7:
+ 197 001c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 198              	.LVL8:
+ 133:Src/sdio.c    ****                           |GPIO_PIN_12);
+ 134:Src/sdio.c    **** 
+ 135:Src/sdio.c    ****     HAL_GPIO_DeInit(GPIOD, GPIO_PIN_2);
+ 199              		.loc 1 135 0
+ 200 0020 0421     		movs	r1, #4
+ 201 0022 0548     		ldr	r0, .L17+12
+ 202 0024 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 203              	.LVL9:
+ 136:Src/sdio.c    **** 
+ 137:Src/sdio.c    ****   }
+ 138:Src/sdio.c    ****   /* USER CODE BEGIN SDIO_MspDeInit 1 */
+ 139:Src/sdio.c    **** 
+ 140:Src/sdio.c    ****   /* USER CODE END SDIO_MspDeInit 1 */
+ 141:Src/sdio.c    **** } 
+ 204              		.loc 1 141 0
+ 205 0028 EFE7     		b	.L13
+ARM GAS  /tmp/ccOVqzi1.s 			page 7
+
+
+ 206              	.L18:
+ 207 002a 00BF     		.align	2
+ 208              	.L17:
+ 209 002c 002C0140 		.word	1073818624
+ 210 0030 00380240 		.word	1073887232
+ 211 0034 00080240 		.word	1073874944
+ 212 0038 000C0240 		.word	1073875968
+ 213              		.cfi_endproc
+ 214              	.LFE128:
+ 216              		.comm	SDCardInfo,88,8
+ 217              		.comm	hsd,96,4
+ 218              		.text
+ 219              	.Letext0:
+ 220              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 221              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 222              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 223              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 224              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 225              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 226              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 227              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 228              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 229              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 230              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 231              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 232              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
+ 233              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
+ 234              		.file 16 "Inc/sdio.h"
+ARM GAS  /tmp/ccOVqzi1.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sdio.c
+     /tmp/ccOVqzi1.s:18     .text.MX_SDIO_SD_Init:0000000000000000 $t
+     /tmp/ccOVqzi1.s:25     .text.MX_SDIO_SD_Init:0000000000000000 MX_SDIO_SD_Init
+     /tmp/ccOVqzi1.s:55     .text.MX_SDIO_SD_Init:0000000000000018 $d
+                            *COM*:0000000000000060 hsd
+     /tmp/ccOVqzi1.s:61     .text.HAL_SD_MspInit:0000000000000000 $t
+     /tmp/ccOVqzi1.s:68     .text.HAL_SD_MspInit:0000000000000000 HAL_SD_MspInit
+     /tmp/ccOVqzi1.s:152    .text.HAL_SD_MspInit:0000000000000060 $d
+     /tmp/ccOVqzi1.s:159    .text.HAL_SD_MspDeInit:0000000000000000 $t
+     /tmp/ccOVqzi1.s:166    .text.HAL_SD_MspDeInit:0000000000000000 HAL_SD_MspDeInit
+     /tmp/ccOVqzi1.s:209    .text.HAL_SD_MspDeInit:000000000000002c $d
+                            *COM*:0000000000000058 SDCardInfo
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_DeInit

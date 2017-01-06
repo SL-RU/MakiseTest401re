@@ -1,0 +1,396 @@
+ARM GAS  /tmp/ccH4Of53.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"makise.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.makise_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	makise_init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	makise_init:
+  26              	.LFB126:
+  27              		.file 1 "MakiseGUI/MakiseGUI/makise.c"
+   1:MakiseGUI/MakiseGUI/makise.c **** #include "makise.h"
+   2:MakiseGUI/MakiseGUI/makise.c **** 
+   3:MakiseGUI/MakiseGUI/makise.c **** uint32_t makise_init(MakiseGUI * gui, MakiseDriver* driver, MakiseBuffer* buffer)
+   4:MakiseGUI/MakiseGUI/makise.c **** {
+  28              		.loc 1 4 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+   5:MakiseGUI/MakiseGUI/makise.c ****     gui->driver = driver;
+  34              		.loc 1 5 0
+  35 0000 4160     		str	r1, [r0, #4]
+   6:MakiseGUI/MakiseGUI/makise.c ****     gui->buffer = buffer;
+  36              		.loc 1 6 0
+  37 0002 0260     		str	r2, [r0]
+   7:MakiseGUI/MakiseGUI/makise.c ****     gui->draw = 0;
+  38              		.loc 1 7 0
+  39 0004 0023     		movs	r3, #0
+  40 0006 8360     		str	r3, [r0, #8]
+   8:MakiseGUI/MakiseGUI/makise.c ****     buffer->height = driver->lcd_height;
+  41              		.loc 1 8 0
+  42 0008 8B88     		ldrh	r3, [r1, #4]
+  43 000a 9380     		strh	r3, [r2, #4]	@ movhi
+   9:MakiseGUI/MakiseGUI/makise.c ****     buffer->width = driver->lcd_width;
+  44              		.loc 1 9 0
+  45 000c CB88     		ldrh	r3, [r1, #6]
+  46 000e D380     		strh	r3, [r2, #6]	@ movhi
+  10:MakiseGUI/MakiseGUI/makise.c ****     driver->gui = gui;
+  47              		.loc 1 10 0
+  48 0010 0860     		str	r0, [r1]
+ARM GAS  /tmp/ccH4Of53.s 			page 2
+
+
+  11:MakiseGUI/MakiseGUI/makise.c ****     buffer->gui = gui;
+  49              		.loc 1 11 0
+  50 0012 1060     		str	r0, [r2]
+  12:MakiseGUI/MakiseGUI/makise.c ****     
+  13:MakiseGUI/MakiseGUI/makise.c ****     buffer->depthmask = MAKISEGUI_BUFFER_DEPTHMASK;
+  51              		.loc 1 13 0
+  52 0014 0323     		movs	r3, #3
+  53 0016 9372     		strb	r3, [r2, #10]
+  14:MakiseGUI/MakiseGUI/makise.c ****     buffer->pixeldepth = MAKISEGUI_BUFFER_DEPTH;
+  54              		.loc 1 14 0
+  55 0018 0223     		movs	r3, #2
+  56 001a 1381     		strh	r3, [r2, #8]	@ movhi
+  15:MakiseGUI/MakiseGUI/makise.c ****     buffer->width = driver->lcd_width;
+  57              		.loc 1 15 0
+  58 001c CB88     		ldrh	r3, [r1, #6]
+  59 001e D380     		strh	r3, [r2, #6]	@ movhi
+  16:MakiseGUI/MakiseGUI/makise.c ****     buffer->height = driver->lcd_height;
+  60              		.loc 1 16 0
+  61 0020 8988     		ldrh	r1, [r1, #4]
+  62              	.LVL1:
+  63 0022 9180     		strh	r1, [r2, #4]	@ movhi
+  17:MakiseGUI/MakiseGUI/makise.c ****     
+  18:MakiseGUI/MakiseGUI/makise.c ****     //buffer len in bits
+  19:MakiseGUI/MakiseGUI/makise.c ****     uint32_t len = buffer->height * buffer->width * buffer->pixeldepth;
+  64              		.loc 1 19 0
+  65 0024 03FB01F3 		mul	r3, r3, r1
+  66 0028 5B00     		lsls	r3, r3, #1
+  67              	.LVL2:
+  20:MakiseGUI/MakiseGUI/makise.c ****     //count in bytes
+  21:MakiseGUI/MakiseGUI/makise.c ****     uint32_t lenb = len/8;
+  68              		.loc 1 21 0
+  69 002a D808     		lsrs	r0, r3, #3
+  70              	.LVL3:
+  22:MakiseGUI/MakiseGUI/makise.c ****     if(lenb * 8 < len)
+  71              		.loc 1 22 0
+  72 002c 23F00701 		bic	r1, r3, #7
+  73 0030 8B42     		cmp	r3, r1
+  23:MakiseGUI/MakiseGUI/makise.c **** 	lenb += 1;
+  74              		.loc 1 23 0
+  75 0032 88BF     		it	hi
+  76 0034 0130     		addhi	r0, r0, #1
+  77              	.LVL4:
+  24:MakiseGUI/MakiseGUI/makise.c **** 
+  25:MakiseGUI/MakiseGUI/makise.c ****     buffer->size = lenb;
+  78              		.loc 1 25 0
+  79 0036 1061     		str	r0, [r2, #16]
+  26:MakiseGUI/MakiseGUI/makise.c ****     
+  27:MakiseGUI/MakiseGUI/makise.c ****     return lenb;
+  28:MakiseGUI/MakiseGUI/makise.c **** }
+  80              		.loc 1 28 0
+  81 0038 7047     		bx	lr
+  82              		.cfi_endproc
+  83              	.LFE126:
+  85              		.section	.text.makise_start,"ax",%progbits
+  86              		.align	1
+  87              		.global	makise_start
+  88              		.syntax unified
+ARM GAS  /tmp/ccH4Of53.s 			page 3
+
+
+  89              		.thumb
+  90              		.thumb_func
+  91              		.fpu fpv4-sp-d16
+  93              	makise_start:
+  94              	.LFB127:
+  29:MakiseGUI/MakiseGUI/makise.c **** uint8_t makise_start(MakiseGUI * gui)
+  30:MakiseGUI/MakiseGUI/makise.c **** {
+  95              		.loc 1 30 0
+  96              		.cfi_startproc
+  97              		@ args = 0, pretend = 0, frame = 0
+  98              		@ frame_needed = 0, uses_anonymous_args = 0
+  99              	.LVL5:
+ 100 0000 08B5     		push	{r3, lr}
+ 101              	.LCFI0:
+ 102              		.cfi_def_cfa_offset 8
+ 103              		.cfi_offset 3, -8
+ 104              		.cfi_offset 14, -4
+  31:MakiseGUI/MakiseGUI/makise.c ****     assert_param(gui == 0);
+  32:MakiseGUI/MakiseGUI/makise.c ****     assert_param(gui->driver == 0);
+  33:MakiseGUI/MakiseGUI/makise.c **** 
+  34:MakiseGUI/MakiseGUI/makise.c ****     gui->driver->start(gui);
+ 105              		.loc 1 34 0
+ 106 0002 4368     		ldr	r3, [r0, #4]
+ 107 0004 1B6A     		ldr	r3, [r3, #32]
+ 108 0006 9847     		blx	r3
+ 109              	.LVL6:
+  35:MakiseGUI/MakiseGUI/makise.c **** }
+ 110              		.loc 1 35 0
+ 111 0008 08BD     		pop	{r3, pc}
+ 112              		.cfi_endproc
+ 113              	.LFE127:
+ 115              		.section	.text.makise_pget,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	makise_pget
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv4-sp-d16
+ 123              	makise_pget:
+ 124              	.LFB128:
+  36:MakiseGUI/MakiseGUI/makise.c **** 
+  37:MakiseGUI/MakiseGUI/makise.c **** uint32_t kpset, kpset32, kpsett;
+  38:MakiseGUI/MakiseGUI/makise.c **** inline uint32_t makise_pget(MakiseBuffer *b, uint16_t x, uint16_t y)
+  39:MakiseGUI/MakiseGUI/makise.c **** {
+ 125              		.loc 1 39 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130              	.LVL7:
+  40:MakiseGUI/MakiseGUI/makise.c ****     if((x) < b->width && (y) < (b)->height)		
+ 131              		.loc 1 40 0
+ 132 0000 C388     		ldrh	r3, [r0, #6]
+ 133 0002 8B42     		cmp	r3, r1
+ 134 0004 18D9     		bls	.L7
+  39:MakiseGUI/MakiseGUI/makise.c ****     if((x) < b->width && (y) < (b)->height)		
+ 135              		.loc 1 39 0 discriminator 1
+ARM GAS  /tmp/ccH4Of53.s 			page 4
+
+
+ 136 0006 10B4     		push	{r4}
+ 137              	.LCFI1:
+ 138              		.cfi_def_cfa_offset 4
+ 139              		.cfi_offset 4, -4
+ 140              		.loc 1 40 0 discriminator 1
+ 141 0008 8488     		ldrh	r4, [r0, #4]
+ 142 000a 9442     		cmp	r4, r2
+ 143 000c 16D9     		bls	.L8
+  41:MakiseGUI/MakiseGUI/makise.c ****     {							
+  42:MakiseGUI/MakiseGUI/makise.c **** 	kpset = ((y)*((b)->width) + (x)) * (b)->pixeldepth;
+ 144              		.loc 1 42 0
+ 145 000e 03FB0212 		mla	r2, r3, r2, r1
+ 146              	.LVL8:
+ 147 0012 0389     		ldrh	r3, [r0, #8]
+ 148 0014 03FB02F3 		mul	r3, r3, r2
+ 149 0018 094A     		ldr	r2, .L13
+ 150 001a 1360     		str	r3, [r2]
+  43:MakiseGUI/MakiseGUI/makise.c **** 	kpset32 = kpset/32;
+ 151              		.loc 1 43 0
+ 152 001c 5909     		lsrs	r1, r3, #5
+ 153              	.LVL9:
+ 154 001e 094A     		ldr	r2, .L13+4
+ 155 0020 1160     		str	r1, [r2]
+  44:MakiseGUI/MakiseGUI/makise.c **** 	return (b)->depthmask & ((b)->buffer[kpset32] >> (kpset-(kpset32)*32));
+ 156              		.loc 1 44 0
+ 157 0022 C468     		ldr	r4, [r0, #12]
+ 158 0024 03F01F02 		and	r2, r3, #31
+ 159 0028 54F82130 		ldr	r3, [r4, r1, lsl #2]
+ 160 002c D340     		lsrs	r3, r3, r2
+ 161 002e 807A     		ldrb	r0, [r0, #10]	@ zero_extendqisi2
+ 162              	.LVL10:
+ 163 0030 1840     		ands	r0, r0, r3
+ 164              	.L5:
+  45:MakiseGUI/MakiseGUI/makise.c ****     }						
+  46:MakiseGUI/MakiseGUI/makise.c ****     return 0;
+  47:MakiseGUI/MakiseGUI/makise.c **** }
+ 165              		.loc 1 47 0
+ 166 0032 5DF8044B 		ldr	r4, [sp], #4
+ 167              	.LCFI2:
+ 168              		.cfi_restore 4
+ 169              		.cfi_def_cfa_offset 0
+ 170 0036 7047     		bx	lr
+ 171              	.LVL11:
+ 172              	.L7:
+  46:MakiseGUI/MakiseGUI/makise.c **** }
+ 173              		.loc 1 46 0
+ 174 0038 0020     		movs	r0, #0
+ 175              	.LVL12:
+ 176 003a 7047     		bx	lr
+ 177              	.LVL13:
+ 178              	.L8:
+ 179              	.LCFI3:
+ 180              		.cfi_def_cfa_offset 4
+ 181              		.cfi_offset 4, -4
+ 182 003c 0020     		movs	r0, #0
+ 183              	.LVL14:
+ 184 003e F8E7     		b	.L5
+ARM GAS  /tmp/ccH4Of53.s 			page 5
+
+
+ 185              	.L14:
+ 186              		.align	2
+ 187              	.L13:
+ 188 0040 00000000 		.word	kpset
+ 189 0044 00000000 		.word	kpset32
+ 190              		.cfi_endproc
+ 191              	.LFE128:
+ 193              		.section	.text.makise_pset,"ax",%progbits
+ 194              		.align	1
+ 195              		.global	makise_pset
+ 196              		.syntax unified
+ 197              		.thumb
+ 198              		.thumb_func
+ 199              		.fpu fpv4-sp-d16
+ 201              	makise_pset:
+ 202              	.LFB129:
+  48:MakiseGUI/MakiseGUI/makise.c **** 
+  49:MakiseGUI/MakiseGUI/makise.c **** inline void makise_pset(MakiseBuffer *b, uint16_t x, uint16_t y, uint32_t c)
+  50:MakiseGUI/MakiseGUI/makise.c **** {
+ 203              		.loc 1 50 0
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207              		@ link register save eliminated.
+ 208              	.LVL15:
+ 209 0000 F0B4     		push	{r4, r5, r6, r7}
+ 210              	.LCFI4:
+ 211              		.cfi_def_cfa_offset 16
+ 212              		.cfi_offset 4, -16
+ 213              		.cfi_offset 5, -12
+ 214              		.cfi_offset 6, -8
+ 215              		.cfi_offset 7, -4
+  51:MakiseGUI/MakiseGUI/makise.c ****     if((x) < (b)->width && (y) < (b)->height)				
+ 216              		.loc 1 51 0
+ 217 0002 C488     		ldrh	r4, [r0, #6]
+ 218 0004 8C42     		cmp	r4, r1
+ 219 0006 21D9     		bls	.L15
+ 220              		.loc 1 51 0 is_stmt 0 discriminator 1
+ 221 0008 8588     		ldrh	r5, [r0, #4]
+ 222 000a 9542     		cmp	r5, r2
+ 223 000c 1ED9     		bls	.L15
+  52:MakiseGUI/MakiseGUI/makise.c ****     {									
+  53:MakiseGUI/MakiseGUI/makise.c **** 	kpset = ((y)*((b)->width) + (x)) * (b)->pixeldepth;
+ 224              		.loc 1 53 0 is_stmt 1
+ 225 000e 04FB0211 		mla	r1, r4, r2, r1
+ 226              	.LVL16:
+ 227 0012 0289     		ldrh	r2, [r0, #8]
+ 228              	.LVL17:
+ 229 0014 02FB01F2 		mul	r2, r2, r1
+ 230 0018 0D49     		ldr	r1, .L18
+ 231 001a 0A60     		str	r2, [r1]
+  54:MakiseGUI/MakiseGUI/makise.c **** 	kpset32 = kpset/32;
+ 232              		.loc 1 54 0
+ 233 001c 5509     		lsrs	r5, r2, #5
+ 234 001e 0D49     		ldr	r1, .L18+4
+ 235 0020 0D60     		str	r5, [r1]
+ 236 0022 02F01F02 		and	r2, r2, #31
+ARM GAS  /tmp/ccH4Of53.s 			page 6
+
+
+  55:MakiseGUI/MakiseGUI/makise.c **** 	kpsett = kpset - kpset32*32;
+ 237              		.loc 1 55 0
+ 238 0026 0C49     		ldr	r1, .L18+8
+ 239 0028 0A60     		str	r2, [r1]
+  56:MakiseGUI/MakiseGUI/makise.c **** 
+  57:MakiseGUI/MakiseGUI/makise.c **** 	if((b)->depthmask & ((b)->buffer[kpset32] >> (kpsett)) & c)
+ 240              		.loc 1 57 0
+ 241 002a 847A     		ldrb	r4, [r0, #10]	@ zero_extendqisi2
+ 242 002c C068     		ldr	r0, [r0, #12]
+ 243              	.LVL18:
+ 244 002e 50F82510 		ldr	r1, [r0, r5, lsl #2]
+ 245 0032 04EA0307 		and	r7, r4, r3
+ 246 0036 21FA02F6 		lsr	r6, r1, r2
+ 247 003a 3742     		tst	r7, r6
+ 248 003c 06D1     		bne	.L15
+  58:MakiseGUI/MakiseGUI/makise.c **** 	    return;
+  59:MakiseGUI/MakiseGUI/makise.c **** 	
+  60:MakiseGUI/MakiseGUI/makise.c **** 	(b)->buffer[kpset32] = ((b)->buffer[kpset32] & ~((b)->depthmask << kpsett)) | (c<<kpsett); 
+ 249              		.loc 1 60 0
+ 250 003e 9440     		lsls	r4, r4, r2
+ 251 0040 21EA0401 		bic	r1, r1, r4
+ 252 0044 9340     		lsls	r3, r3, r2
+ 253              	.LVL19:
+ 254 0046 0B43     		orrs	r3, r3, r1
+ 255 0048 40F82530 		str	r3, [r0, r5, lsl #2]
+ 256              	.L15:
+  61:MakiseGUI/MakiseGUI/makise.c ****     }
+  62:MakiseGUI/MakiseGUI/makise.c **** }
+ 257              		.loc 1 62 0
+ 258 004c F0BC     		pop	{r4, r5, r6, r7}
+ 259              	.LCFI5:
+ 260              		.cfi_restore 7
+ 261              		.cfi_restore 6
+ 262              		.cfi_restore 5
+ 263              		.cfi_restore 4
+ 264              		.cfi_def_cfa_offset 0
+ 265 004e 7047     		bx	lr
+ 266              	.L19:
+ 267              		.align	2
+ 268              	.L18:
+ 269 0050 00000000 		.word	kpset
+ 270 0054 00000000 		.word	kpset32
+ 271 0058 00000000 		.word	kpsett
+ 272              		.cfi_endproc
+ 273              	.LFE129:
+ 275              		.comm	kpsett,4,4
+ 276              		.comm	kpset32,4,4
+ 277              		.comm	kpset,4,4
+ 278              		.text
+ 279              	.Letext0:
+ 280              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
+ 281              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 282              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
+ 283              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
+ 284              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 285              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
+ 286              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  /tmp/ccH4Of53.s 			page 7
+
+
+ 287              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 288              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 289              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 290              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 291              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 292              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 293              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 294              		.file 16 "Inc/spi.h"
+ 295              		.file 17 "Inc/tim.h"
+ 296              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 297              		.file 19 "MakiseGUI/MakiseGUI/makise_text.h"
+ 298              		.file 20 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ARM GAS  /tmp/ccH4Of53.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise.c
+     /tmp/ccH4Of53.s:18     .text.makise_init:0000000000000000 $t
+     /tmp/ccH4Of53.s:25     .text.makise_init:0000000000000000 makise_init
+     /tmp/ccH4Of53.s:86     .text.makise_start:0000000000000000 $t
+     /tmp/ccH4Of53.s:93     .text.makise_start:0000000000000000 makise_start
+     /tmp/ccH4Of53.s:116    .text.makise_pget:0000000000000000 $t
+     /tmp/ccH4Of53.s:123    .text.makise_pget:0000000000000000 makise_pget
+     /tmp/ccH4Of53.s:188    .text.makise_pget:0000000000000040 $d
+                            *COM*:0000000000000004 kpset
+                            *COM*:0000000000000004 kpset32
+     /tmp/ccH4Of53.s:194    .text.makise_pset:0000000000000000 $t
+     /tmp/ccH4Of53.s:201    .text.makise_pset:0000000000000000 makise_pset
+     /tmp/ccH4Of53.s:269    .text.makise_pset:0000000000000050 $d
+                            *COM*:0000000000000004 kpsett
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS
