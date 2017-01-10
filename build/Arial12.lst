@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cchARS0o.s 			page 1
+ARM GAS  /tmp/ccwdm6tQ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/cchARS0o.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"Arial12.c"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cchARS0o.s 			page 1
   57 003e 7401     		.short	372
   58 0040 8001     		.short	384
   59 0042 8C01     		.short	396
-ARM GAS  /tmp/cchARS0o.s 			page 2
+ARM GAS  /tmp/ccwdm6tQ.s 			page 2
 
 
   60 0044 9801     		.short	408
@@ -85,1424 +85,688 @@ ARM GAS  /tmp/cchARS0o.s 			page 1
   81 006e 9402     		.short	660
   82 0070 AC02     		.short	684
   83 0072 B802     		.short	696
-  84 0074 C402     		.short	708
-  85 0076 D002     		.short	720
-  86 0078 DC02     		.short	732
-  87 007a E802     		.short	744
-  88 007c F402     		.short	756
-  89 007e 0003     		.short	768
-  90 0080 0C03     		.short	780
-  91 0082 1803     		.short	792
-  92 0084 2403     		.short	804
-  93 0086 3003     		.short	816
-  94 0088 3C03     		.short	828
-  95 008a 4803     		.short	840
-  96 008c 5403     		.short	852
-  97 008e 6003     		.short	864
-  98 0090 6C03     		.short	876
-  99 0092 7803     		.short	888
- 100 0094 8403     		.short	900
- 101 0096 9003     		.short	912
- 102 0098 9C03     		.short	924
- 103 009a A803     		.short	936
- 104 009c B403     		.short	948
- 105 009e C003     		.short	960
- 106 00a0 CC03     		.short	972
- 107 00a2 D803     		.short	984
- 108 00a4 E403     		.short	996
- 109 00a6 F003     		.short	1008
- 110 00a8 FC03     		.short	1020
- 111 00aa 0804     		.short	1032
- 112 00ac 1404     		.short	1044
- 113 00ae 2004     		.short	1056
- 114 00b0 2C04     		.short	1068
- 115 00b2 3804     		.short	1080
- 116 00b4 4404     		.short	1092
-ARM GAS  /tmp/cchARS0o.s 			page 3
+  84              		.section	.rodata.Arial_12_SymbolTable,"a",%progbits
+  85              		.align	2
+  88              	Arial_12_SymbolTable:
+  89 0000 00       		.byte	0
+  90 0001 00       		.byte	0
+  91 0002 00       		.byte	0
+  92 0003 00       		.byte	0
+  93 0004 00       		.byte	0
+  94 0005 00       		.byte	0
+  95 0006 00       		.byte	0
+  96 0007 00       		.byte	0
+  97 0008 00       		.byte	0
+  98 0009 00       		.byte	0
+  99 000a 00       		.byte	0
+ 100 000b 00       		.byte	0
+ 101 000c 00       		.byte	0
+ 102 000d 00       		.byte	0
+ 103 000e 00       		.byte	0
+ 104 000f 01       		.byte	1
+ 105 0010 01       		.byte	1
+ 106 0011 01       		.byte	1
+ 107 0012 01       		.byte	1
+ 108 0013 01       		.byte	1
+ 109 0014 00       		.byte	0
+ 110 0015 01       		.byte	1
+ 111 0016 00       		.byte	0
+ 112 0017 00       		.byte	0
+ 113 0018 00       		.byte	0
+ 114 0019 00       		.byte	0
+ 115 001a 00       		.byte	0
+ 116 001b 05       		.byte	5
+ 117 001c 05       		.byte	5
+ 118 001d 00       		.byte	0
+ARM GAS  /tmp/ccwdm6tQ.s 			page 3
 
 
- 117 00b6 5004     		.short	1104
- 118 00b8 5C04     		.short	1116
- 119 00ba 6804     		.short	1128
- 120 00bc 7404     		.short	1140
- 121 00be 8004     		.short	1152
- 122              		.section	.rodata.Arial_12_SymbolTable,"a",%progbits
- 123              		.align	2
- 126              	Arial_12_SymbolTable:
- 127 0000 00       		.byte	0
- 128 0001 00       		.byte	0
- 129 0002 00       		.byte	0
- 130 0003 00       		.byte	0
- 131 0004 00       		.byte	0
- 132 0005 00       		.byte	0
- 133 0006 00       		.byte	0
- 134 0007 00       		.byte	0
- 135 0008 00       		.byte	0
- 136 0009 00       		.byte	0
- 137 000a 00       		.byte	0
- 138 000b 00       		.byte	0
- 139 000c 00       		.byte	0
- 140 000d 00       		.byte	0
- 141 000e 00       		.byte	0
- 142 000f 01       		.byte	1
- 143 0010 01       		.byte	1
- 144 0011 01       		.byte	1
- 145 0012 01       		.byte	1
- 146 0013 01       		.byte	1
- 147 0014 00       		.byte	0
- 148 0015 01       		.byte	1
- 149 0016 00       		.byte	0
- 150 0017 00       		.byte	0
- 151 0018 00       		.byte	0
- 152 0019 00       		.byte	0
- 153 001a 00       		.byte	0
- 154 001b 05       		.byte	5
- 155 001c 05       		.byte	5
- 156 001d 00       		.byte	0
- 157 001e 00       		.byte	0
- 158 001f 00       		.byte	0
- 159 0020 00       		.byte	0
- 160 0021 00       		.byte	0
- 161 0022 00       		.byte	0
- 162 0023 00       		.byte	0
- 163 0024 00       		.byte	0
- 164 0025 00       		.byte	0
- 165 0026 00       		.byte	0
- 166 0027 0A       		.byte	10
- 167 0028 0A       		.byte	10
- 168 0029 0F       		.byte	15
- 169 002a 05       		.byte	5
- 170 002b 0F       		.byte	15
- 171 002c 05       		.byte	5
- 172 002d 05       		.byte	5
- 173 002e 00       		.byte	0
- 174 002f 00       		.byte	0
- 175 0030 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 4
+ 119 001e 00       		.byte	0
+ 120 001f 00       		.byte	0
+ 121 0020 00       		.byte	0
+ 122 0021 00       		.byte	0
+ 123 0022 00       		.byte	0
+ 124 0023 00       		.byte	0
+ 125 0024 00       		.byte	0
+ 126 0025 00       		.byte	0
+ 127 0026 00       		.byte	0
+ 128 0027 0A       		.byte	10
+ 129 0028 0A       		.byte	10
+ 130 0029 0F       		.byte	15
+ 131 002a 05       		.byte	5
+ 132 002b 0F       		.byte	15
+ 133 002c 05       		.byte	5
+ 134 002d 05       		.byte	5
+ 135 002e 00       		.byte	0
+ 136 002f 00       		.byte	0
+ 137 0030 00       		.byte	0
+ 138 0031 00       		.byte	0
+ 139 0032 04       		.byte	4
+ 140 0033 0E       		.byte	14
+ 141 0034 15       		.byte	21
+ 142 0035 05       		.byte	5
+ 143 0036 0E       		.byte	14
+ 144 0037 14       		.byte	20
+ 145 0038 15       		.byte	21
+ 146 0039 0E       		.byte	14
+ 147 003a 04       		.byte	4
+ 148 003b 00       		.byte	0
+ 149 003c 00       		.byte	0
+ 150 003d 00       		.byte	0
+ 151 003e 00       		.byte	0
+ 152 003f 22       		.byte	34
+ 153 0040 15       		.byte	21
+ 154 0041 12       		.byte	18
+ 155 0042 08       		.byte	8
+ 156 0043 24       		.byte	36
+ 157 0044 54       		.byte	84
+ 158 0045 22       		.byte	34
+ 159 0046 00       		.byte	0
+ 160 0047 00       		.byte	0
+ 161 0048 00       		.byte	0
+ 162 0049 00       		.byte	0
+ 163 004a 00       		.byte	0
+ 164 004b 0E       		.byte	14
+ 165 004c 0A       		.byte	10
+ 166 004d 06       		.byte	6
+ 167 004e 06       		.byte	6
+ 168 004f 19       		.byte	25
+ 169 0050 19       		.byte	25
+ 170 0051 26       		.byte	38
+ 171 0052 00       		.byte	0
+ 172 0053 00       		.byte	0
+ 173 0054 00       		.byte	0
+ 174 0055 00       		.byte	0
+ 175 0056 00       		.byte	0
+ARM GAS  /tmp/ccwdm6tQ.s 			page 4
 
 
- 176 0031 00       		.byte	0
- 177 0032 04       		.byte	4
- 178 0033 0E       		.byte	14
- 179 0034 15       		.byte	21
- 180 0035 05       		.byte	5
- 181 0036 0E       		.byte	14
- 182 0037 14       		.byte	20
- 183 0038 15       		.byte	21
- 184 0039 0E       		.byte	14
- 185 003a 04       		.byte	4
- 186 003b 00       		.byte	0
- 187 003c 00       		.byte	0
- 188 003d 00       		.byte	0
- 189 003e 00       		.byte	0
- 190 003f 22       		.byte	34
- 191 0040 15       		.byte	21
- 192 0041 12       		.byte	18
- 193 0042 08       		.byte	8
- 194 0043 24       		.byte	36
- 195 0044 54       		.byte	84
- 196 0045 22       		.byte	34
- 197 0046 00       		.byte	0
- 198 0047 00       		.byte	0
- 199 0048 00       		.byte	0
- 200 0049 00       		.byte	0
- 201 004a 00       		.byte	0
- 202 004b 0E       		.byte	14
- 203 004c 0A       		.byte	10
- 204 004d 06       		.byte	6
- 205 004e 06       		.byte	6
- 206 004f 19       		.byte	25
- 207 0050 19       		.byte	25
- 208 0051 26       		.byte	38
- 209 0052 00       		.byte	0
- 210 0053 00       		.byte	0
- 211 0054 00       		.byte	0
- 212 0055 00       		.byte	0
- 213 0056 00       		.byte	0
- 214 0057 01       		.byte	1
- 215 0058 01       		.byte	1
- 216 0059 00       		.byte	0
- 217 005a 00       		.byte	0
- 218 005b 00       		.byte	0
- 219 005c 00       		.byte	0
- 220 005d 00       		.byte	0
- 221 005e 00       		.byte	0
- 222 005f 00       		.byte	0
- 223 0060 00       		.byte	0
- 224 0061 00       		.byte	0
- 225 0062 00       		.byte	0
- 226 0063 02       		.byte	2
- 227 0064 01       		.byte	1
- 228 0065 01       		.byte	1
- 229 0066 01       		.byte	1
- 230 0067 01       		.byte	1
- 231 0068 01       		.byte	1
- 232 0069 01       		.byte	1
-ARM GAS  /tmp/cchARS0o.s 			page 5
+ 176 0057 01       		.byte	1
+ 177 0058 01       		.byte	1
+ 178 0059 00       		.byte	0
+ 179 005a 00       		.byte	0
+ 180 005b 00       		.byte	0
+ 181 005c 00       		.byte	0
+ 182 005d 00       		.byte	0
+ 183 005e 00       		.byte	0
+ 184 005f 00       		.byte	0
+ 185 0060 00       		.byte	0
+ 186 0061 00       		.byte	0
+ 187 0062 00       		.byte	0
+ 188 0063 02       		.byte	2
+ 189 0064 01       		.byte	1
+ 190 0065 01       		.byte	1
+ 191 0066 01       		.byte	1
+ 192 0067 01       		.byte	1
+ 193 0068 01       		.byte	1
+ 194 0069 01       		.byte	1
+ 195 006a 01       		.byte	1
+ 196 006b 02       		.byte	2
+ 197 006c 00       		.byte	0
+ 198 006d 00       		.byte	0
+ 199 006e 00       		.byte	0
+ 200 006f 01       		.byte	1
+ 201 0070 02       		.byte	2
+ 202 0071 02       		.byte	2
+ 203 0072 02       		.byte	2
+ 204 0073 02       		.byte	2
+ 205 0074 02       		.byte	2
+ 206 0075 02       		.byte	2
+ 207 0076 02       		.byte	2
+ 208 0077 01       		.byte	1
+ 209 0078 00       		.byte	0
+ 210 0079 00       		.byte	0
+ 211 007a 00       		.byte	0
+ 212 007b 02       		.byte	2
+ 213 007c 07       		.byte	7
+ 214 007d 05       		.byte	5
+ 215 007e 00       		.byte	0
+ 216 007f 00       		.byte	0
+ 217 0080 00       		.byte	0
+ 218 0081 00       		.byte	0
+ 219 0082 00       		.byte	0
+ 220 0083 00       		.byte	0
+ 221 0084 00       		.byte	0
+ 222 0085 00       		.byte	0
+ 223 0086 00       		.byte	0
+ 224 0087 00       		.byte	0
+ 225 0088 04       		.byte	4
+ 226 0089 04       		.byte	4
+ 227 008a 1F       		.byte	31
+ 228 008b 04       		.byte	4
+ 229 008c 04       		.byte	4
+ 230 008d 00       		.byte	0
+ 231 008e 00       		.byte	0
+ 232 008f 00       		.byte	0
+ARM GAS  /tmp/ccwdm6tQ.s 			page 5
 
 
- 233 006a 01       		.byte	1
- 234 006b 02       		.byte	2
- 235 006c 00       		.byte	0
- 236 006d 00       		.byte	0
- 237 006e 00       		.byte	0
- 238 006f 01       		.byte	1
- 239 0070 02       		.byte	2
- 240 0071 02       		.byte	2
- 241 0072 02       		.byte	2
- 242 0073 02       		.byte	2
- 243 0074 02       		.byte	2
- 244 0075 02       		.byte	2
- 245 0076 02       		.byte	2
- 246 0077 01       		.byte	1
- 247 0078 00       		.byte	0
- 248 0079 00       		.byte	0
- 249 007a 00       		.byte	0
- 250 007b 02       		.byte	2
- 251 007c 07       		.byte	7
- 252 007d 05       		.byte	5
- 253 007e 00       		.byte	0
- 254 007f 00       		.byte	0
- 255 0080 00       		.byte	0
- 256 0081 00       		.byte	0
- 257 0082 00       		.byte	0
- 258 0083 00       		.byte	0
- 259 0084 00       		.byte	0
- 260 0085 00       		.byte	0
- 261 0086 00       		.byte	0
- 262 0087 00       		.byte	0
- 263 0088 04       		.byte	4
- 264 0089 04       		.byte	4
- 265 008a 1F       		.byte	31
- 266 008b 04       		.byte	4
- 267 008c 04       		.byte	4
- 268 008d 00       		.byte	0
- 269 008e 00       		.byte	0
- 270 008f 00       		.byte	0
- 271 0090 00       		.byte	0
- 272 0091 00       		.byte	0
- 273 0092 00       		.byte	0
- 274 0093 00       		.byte	0
- 275 0094 00       		.byte	0
- 276 0095 00       		.byte	0
- 277 0096 00       		.byte	0
- 278 0097 00       		.byte	0
- 279 0098 00       		.byte	0
- 280 0099 02       		.byte	2
- 281 009a 01       		.byte	1
- 282 009b 00       		.byte	0
- 283 009c 00       		.byte	0
- 284 009d 00       		.byte	0
- 285 009e 00       		.byte	0
- 286 009f 00       		.byte	0
- 287 00a0 00       		.byte	0
- 288 00a1 00       		.byte	0
- 289 00a2 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 6
+ 233 0090 00       		.byte	0
+ 234 0091 00       		.byte	0
+ 235 0092 00       		.byte	0
+ 236 0093 00       		.byte	0
+ 237 0094 00       		.byte	0
+ 238 0095 00       		.byte	0
+ 239 0096 00       		.byte	0
+ 240 0097 00       		.byte	0
+ 241 0098 00       		.byte	0
+ 242 0099 02       		.byte	2
+ 243 009a 01       		.byte	1
+ 244 009b 00       		.byte	0
+ 245 009c 00       		.byte	0
+ 246 009d 00       		.byte	0
+ 247 009e 00       		.byte	0
+ 248 009f 00       		.byte	0
+ 249 00a0 00       		.byte	0
+ 250 00a1 00       		.byte	0
+ 251 00a2 00       		.byte	0
+ 252 00a3 07       		.byte	7
+ 253 00a4 00       		.byte	0
+ 254 00a5 00       		.byte	0
+ 255 00a6 00       		.byte	0
+ 256 00a7 00       		.byte	0
+ 257 00a8 00       		.byte	0
+ 258 00a9 00       		.byte	0
+ 259 00aa 00       		.byte	0
+ 260 00ab 00       		.byte	0
+ 261 00ac 00       		.byte	0
+ 262 00ad 00       		.byte	0
+ 263 00ae 00       		.byte	0
+ 264 00af 00       		.byte	0
+ 265 00b0 00       		.byte	0
+ 266 00b1 01       		.byte	1
+ 267 00b2 00       		.byte	0
+ 268 00b3 00       		.byte	0
+ 269 00b4 00       		.byte	0
+ 270 00b5 00       		.byte	0
+ 271 00b6 00       		.byte	0
+ 272 00b7 04       		.byte	4
+ 273 00b8 04       		.byte	4
+ 274 00b9 02       		.byte	2
+ 275 00ba 02       		.byte	2
+ 276 00bb 02       		.byte	2
+ 277 00bc 01       		.byte	1
+ 278 00bd 01       		.byte	1
+ 279 00be 00       		.byte	0
+ 280 00bf 00       		.byte	0
+ 281 00c0 00       		.byte	0
+ 282 00c1 00       		.byte	0
+ 283 00c2 00       		.byte	0
+ 284 00c3 06       		.byte	6
+ 285 00c4 09       		.byte	9
+ 286 00c5 09       		.byte	9
+ 287 00c6 09       		.byte	9
+ 288 00c7 09       		.byte	9
+ 289 00c8 09       		.byte	9
+ARM GAS  /tmp/ccwdm6tQ.s 			page 6
 
 
- 290 00a3 07       		.byte	7
- 291 00a4 00       		.byte	0
- 292 00a5 00       		.byte	0
- 293 00a6 00       		.byte	0
- 294 00a7 00       		.byte	0
- 295 00a8 00       		.byte	0
- 296 00a9 00       		.byte	0
- 297 00aa 00       		.byte	0
- 298 00ab 00       		.byte	0
- 299 00ac 00       		.byte	0
- 300 00ad 00       		.byte	0
- 301 00ae 00       		.byte	0
- 302 00af 00       		.byte	0
- 303 00b0 00       		.byte	0
- 304 00b1 01       		.byte	1
- 305 00b2 00       		.byte	0
- 306 00b3 00       		.byte	0
- 307 00b4 00       		.byte	0
- 308 00b5 00       		.byte	0
- 309 00b6 00       		.byte	0
- 310 00b7 04       		.byte	4
- 311 00b8 04       		.byte	4
- 312 00b9 02       		.byte	2
- 313 00ba 02       		.byte	2
- 314 00bb 02       		.byte	2
- 315 00bc 01       		.byte	1
- 316 00bd 01       		.byte	1
- 317 00be 00       		.byte	0
- 318 00bf 00       		.byte	0
- 319 00c0 00       		.byte	0
- 320 00c1 00       		.byte	0
- 321 00c2 00       		.byte	0
- 322 00c3 06       		.byte	6
- 323 00c4 09       		.byte	9
- 324 00c5 09       		.byte	9
- 325 00c6 09       		.byte	9
- 326 00c7 09       		.byte	9
- 327 00c8 09       		.byte	9
- 328 00c9 06       		.byte	6
- 329 00ca 00       		.byte	0
- 330 00cb 00       		.byte	0
- 331 00cc 00       		.byte	0
- 332 00cd 00       		.byte	0
- 333 00ce 00       		.byte	0
- 334 00cf 04       		.byte	4
- 335 00d0 06       		.byte	6
- 336 00d1 05       		.byte	5
- 337 00d2 04       		.byte	4
- 338 00d3 04       		.byte	4
- 339 00d4 04       		.byte	4
- 340 00d5 04       		.byte	4
- 341 00d6 00       		.byte	0
- 342 00d7 00       		.byte	0
- 343 00d8 00       		.byte	0
- 344 00d9 00       		.byte	0
- 345 00da 00       		.byte	0
- 346 00db 06       		.byte	6
-ARM GAS  /tmp/cchARS0o.s 			page 7
+ 290 00c9 06       		.byte	6
+ 291 00ca 00       		.byte	0
+ 292 00cb 00       		.byte	0
+ 293 00cc 00       		.byte	0
+ 294 00cd 00       		.byte	0
+ 295 00ce 00       		.byte	0
+ 296 00cf 04       		.byte	4
+ 297 00d0 06       		.byte	6
+ 298 00d1 05       		.byte	5
+ 299 00d2 04       		.byte	4
+ 300 00d3 04       		.byte	4
+ 301 00d4 04       		.byte	4
+ 302 00d5 04       		.byte	4
+ 303 00d6 00       		.byte	0
+ 304 00d7 00       		.byte	0
+ 305 00d8 00       		.byte	0
+ 306 00d9 00       		.byte	0
+ 307 00da 00       		.byte	0
+ 308 00db 06       		.byte	6
+ 309 00dc 09       		.byte	9
+ 310 00dd 08       		.byte	8
+ 311 00de 04       		.byte	4
+ 312 00df 02       		.byte	2
+ 313 00e0 01       		.byte	1
+ 314 00e1 0F       		.byte	15
+ 315 00e2 00       		.byte	0
+ 316 00e3 00       		.byte	0
+ 317 00e4 00       		.byte	0
+ 318 00e5 00       		.byte	0
+ 319 00e6 00       		.byte	0
+ 320 00e7 06       		.byte	6
+ 321 00e8 09       		.byte	9
+ 322 00e9 08       		.byte	8
+ 323 00ea 04       		.byte	4
+ 324 00eb 08       		.byte	8
+ 325 00ec 09       		.byte	9
+ 326 00ed 06       		.byte	6
+ 327 00ee 00       		.byte	0
+ 328 00ef 00       		.byte	0
+ 329 00f0 00       		.byte	0
+ 330 00f1 00       		.byte	0
+ 331 00f2 00       		.byte	0
+ 332 00f3 08       		.byte	8
+ 333 00f4 0C       		.byte	12
+ 334 00f5 0A       		.byte	10
+ 335 00f6 09       		.byte	9
+ 336 00f7 1F       		.byte	31
+ 337 00f8 08       		.byte	8
+ 338 00f9 08       		.byte	8
+ 339 00fa 00       		.byte	0
+ 340 00fb 00       		.byte	0
+ 341 00fc 00       		.byte	0
+ 342 00fd 00       		.byte	0
+ 343 00fe 00       		.byte	0
+ 344 00ff 0E       		.byte	14
+ 345 0100 02       		.byte	2
+ 346 0101 07       		.byte	7
+ARM GAS  /tmp/ccwdm6tQ.s 			page 7
 
 
- 347 00dc 09       		.byte	9
- 348 00dd 08       		.byte	8
- 349 00de 04       		.byte	4
- 350 00df 02       		.byte	2
- 351 00e0 01       		.byte	1
- 352 00e1 0F       		.byte	15
- 353 00e2 00       		.byte	0
- 354 00e3 00       		.byte	0
- 355 00e4 00       		.byte	0
- 356 00e5 00       		.byte	0
- 357 00e6 00       		.byte	0
- 358 00e7 06       		.byte	6
- 359 00e8 09       		.byte	9
- 360 00e9 08       		.byte	8
- 361 00ea 04       		.byte	4
- 362 00eb 08       		.byte	8
- 363 00ec 09       		.byte	9
- 364 00ed 06       		.byte	6
- 365 00ee 00       		.byte	0
- 366 00ef 00       		.byte	0
- 367 00f0 00       		.byte	0
- 368 00f1 00       		.byte	0
- 369 00f2 00       		.byte	0
- 370 00f3 08       		.byte	8
- 371 00f4 0C       		.byte	12
- 372 00f5 0A       		.byte	10
- 373 00f6 09       		.byte	9
- 374 00f7 1F       		.byte	31
- 375 00f8 08       		.byte	8
- 376 00f9 08       		.byte	8
- 377 00fa 00       		.byte	0
- 378 00fb 00       		.byte	0
- 379 00fc 00       		.byte	0
- 380 00fd 00       		.byte	0
- 381 00fe 00       		.byte	0
- 382 00ff 0E       		.byte	14
- 383 0100 02       		.byte	2
- 384 0101 07       		.byte	7
- 385 0102 09       		.byte	9
- 386 0103 08       		.byte	8
- 387 0104 09       		.byte	9
- 388 0105 06       		.byte	6
- 389 0106 00       		.byte	0
- 390 0107 00       		.byte	0
- 391 0108 00       		.byte	0
- 392 0109 00       		.byte	0
- 393 010a 00       		.byte	0
- 394 010b 06       		.byte	6
- 395 010c 09       		.byte	9
- 396 010d 01       		.byte	1
- 397 010e 07       		.byte	7
- 398 010f 09       		.byte	9
- 399 0110 09       		.byte	9
- 400 0111 06       		.byte	6
- 401 0112 00       		.byte	0
- 402 0113 00       		.byte	0
- 403 0114 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 8
+ 347 0102 09       		.byte	9
+ 348 0103 08       		.byte	8
+ 349 0104 09       		.byte	9
+ 350 0105 06       		.byte	6
+ 351 0106 00       		.byte	0
+ 352 0107 00       		.byte	0
+ 353 0108 00       		.byte	0
+ 354 0109 00       		.byte	0
+ 355 010a 00       		.byte	0
+ 356 010b 06       		.byte	6
+ 357 010c 09       		.byte	9
+ 358 010d 01       		.byte	1
+ 359 010e 07       		.byte	7
+ 360 010f 09       		.byte	9
+ 361 0110 09       		.byte	9
+ 362 0111 06       		.byte	6
+ 363 0112 00       		.byte	0
+ 364 0113 00       		.byte	0
+ 365 0114 00       		.byte	0
+ 366 0115 00       		.byte	0
+ 367 0116 00       		.byte	0
+ 368 0117 0F       		.byte	15
+ 369 0118 08       		.byte	8
+ 370 0119 04       		.byte	4
+ 371 011a 04       		.byte	4
+ 372 011b 04       		.byte	4
+ 373 011c 02       		.byte	2
+ 374 011d 02       		.byte	2
+ 375 011e 00       		.byte	0
+ 376 011f 00       		.byte	0
+ 377 0120 00       		.byte	0
+ 378 0121 00       		.byte	0
+ 379 0122 00       		.byte	0
+ 380 0123 06       		.byte	6
+ 381 0124 09       		.byte	9
+ 382 0125 09       		.byte	9
+ 383 0126 06       		.byte	6
+ 384 0127 09       		.byte	9
+ 385 0128 09       		.byte	9
+ 386 0129 06       		.byte	6
+ 387 012a 00       		.byte	0
+ 388 012b 00       		.byte	0
+ 389 012c 00       		.byte	0
+ 390 012d 00       		.byte	0
+ 391 012e 00       		.byte	0
+ 392 012f 06       		.byte	6
+ 393 0130 09       		.byte	9
+ 394 0131 09       		.byte	9
+ 395 0132 0E       		.byte	14
+ 396 0133 08       		.byte	8
+ 397 0134 09       		.byte	9
+ 398 0135 06       		.byte	6
+ 399 0136 00       		.byte	0
+ 400 0137 00       		.byte	0
+ 401 0138 00       		.byte	0
+ 402 0139 00       		.byte	0
+ 403 013a 00       		.byte	0
+ARM GAS  /tmp/ccwdm6tQ.s 			page 8
 
 
- 404 0115 00       		.byte	0
- 405 0116 00       		.byte	0
- 406 0117 0F       		.byte	15
- 407 0118 08       		.byte	8
- 408 0119 04       		.byte	4
- 409 011a 04       		.byte	4
- 410 011b 04       		.byte	4
- 411 011c 02       		.byte	2
- 412 011d 02       		.byte	2
- 413 011e 00       		.byte	0
- 414 011f 00       		.byte	0
- 415 0120 00       		.byte	0
- 416 0121 00       		.byte	0
- 417 0122 00       		.byte	0
- 418 0123 06       		.byte	6
- 419 0124 09       		.byte	9
- 420 0125 09       		.byte	9
- 421 0126 06       		.byte	6
- 422 0127 09       		.byte	9
- 423 0128 09       		.byte	9
- 424 0129 06       		.byte	6
- 425 012a 00       		.byte	0
- 426 012b 00       		.byte	0
- 427 012c 00       		.byte	0
- 428 012d 00       		.byte	0
- 429 012e 00       		.byte	0
- 430 012f 06       		.byte	6
- 431 0130 09       		.byte	9
- 432 0131 09       		.byte	9
- 433 0132 0E       		.byte	14
- 434 0133 08       		.byte	8
- 435 0134 09       		.byte	9
- 436 0135 06       		.byte	6
- 437 0136 00       		.byte	0
- 438 0137 00       		.byte	0
- 439 0138 00       		.byte	0
- 440 0139 00       		.byte	0
- 441 013a 00       		.byte	0
- 442 013b 00       		.byte	0
- 443 013c 00       		.byte	0
- 444 013d 01       		.byte	1
- 445 013e 00       		.byte	0
- 446 013f 00       		.byte	0
- 447 0140 00       		.byte	0
- 448 0141 01       		.byte	1
- 449 0142 00       		.byte	0
- 450 0143 00       		.byte	0
- 451 0144 00       		.byte	0
- 452 0145 00       		.byte	0
- 453 0146 00       		.byte	0
- 454 0147 00       		.byte	0
- 455 0148 00       		.byte	0
- 456 0149 02       		.byte	2
- 457 014a 00       		.byte	0
- 458 014b 00       		.byte	0
- 459 014c 00       		.byte	0
- 460 014d 02       		.byte	2
-ARM GAS  /tmp/cchARS0o.s 			page 9
+ 404 013b 00       		.byte	0
+ 405 013c 00       		.byte	0
+ 406 013d 01       		.byte	1
+ 407 013e 00       		.byte	0
+ 408 013f 00       		.byte	0
+ 409 0140 00       		.byte	0
+ 410 0141 01       		.byte	1
+ 411 0142 00       		.byte	0
+ 412 0143 00       		.byte	0
+ 413 0144 00       		.byte	0
+ 414 0145 00       		.byte	0
+ 415 0146 00       		.byte	0
+ 416 0147 00       		.byte	0
+ 417 0148 00       		.byte	0
+ 418 0149 02       		.byte	2
+ 419 014a 00       		.byte	0
+ 420 014b 00       		.byte	0
+ 421 014c 00       		.byte	0
+ 422 014d 02       		.byte	2
+ 423 014e 01       		.byte	1
+ 424 014f 00       		.byte	0
+ 425 0150 00       		.byte	0
+ 426 0151 00       		.byte	0
+ 427 0152 00       		.byte	0
+ 428 0153 00       		.byte	0
+ 429 0154 08       		.byte	8
+ 430 0155 06       		.byte	6
+ 431 0156 01       		.byte	1
+ 432 0157 06       		.byte	6
+ 433 0158 08       		.byte	8
+ 434 0159 00       		.byte	0
+ 435 015a 00       		.byte	0
+ 436 015b 00       		.byte	0
+ 437 015c 00       		.byte	0
+ 438 015d 00       		.byte	0
+ 439 015e 00       		.byte	0
+ 440 015f 00       		.byte	0
+ 441 0160 00       		.byte	0
+ 442 0161 0F       		.byte	15
+ 443 0162 00       		.byte	0
+ 444 0163 0F       		.byte	15
+ 445 0164 00       		.byte	0
+ 446 0165 00       		.byte	0
+ 447 0166 00       		.byte	0
+ 448 0167 00       		.byte	0
+ 449 0168 00       		.byte	0
+ 450 0169 00       		.byte	0
+ 451 016a 00       		.byte	0
+ 452 016b 00       		.byte	0
+ 453 016c 01       		.byte	1
+ 454 016d 06       		.byte	6
+ 455 016e 08       		.byte	8
+ 456 016f 06       		.byte	6
+ 457 0170 01       		.byte	1
+ 458 0171 00       		.byte	0
+ 459 0172 00       		.byte	0
+ 460 0173 00       		.byte	0
+ARM GAS  /tmp/ccwdm6tQ.s 			page 9
 
 
- 461 014e 01       		.byte	1
- 462 014f 00       		.byte	0
- 463 0150 00       		.byte	0
- 464 0151 00       		.byte	0
- 465 0152 00       		.byte	0
- 466 0153 00       		.byte	0
- 467 0154 08       		.byte	8
- 468 0155 06       		.byte	6
- 469 0156 01       		.byte	1
- 470 0157 06       		.byte	6
- 471 0158 08       		.byte	8
- 472 0159 00       		.byte	0
- 473 015a 00       		.byte	0
- 474 015b 00       		.byte	0
- 475 015c 00       		.byte	0
- 476 015d 00       		.byte	0
- 477 015e 00       		.byte	0
- 478 015f 00       		.byte	0
- 479 0160 00       		.byte	0
- 480 0161 0F       		.byte	15
- 481 0162 00       		.byte	0
- 482 0163 0F       		.byte	15
- 483 0164 00       		.byte	0
- 484 0165 00       		.byte	0
- 485 0166 00       		.byte	0
- 486 0167 00       		.byte	0
- 487 0168 00       		.byte	0
- 488 0169 00       		.byte	0
- 489 016a 00       		.byte	0
- 490 016b 00       		.byte	0
- 491 016c 01       		.byte	1
- 492 016d 06       		.byte	6
- 493 016e 08       		.byte	8
- 494 016f 06       		.byte	6
- 495 0170 01       		.byte	1
- 496 0171 00       		.byte	0
- 497 0172 00       		.byte	0
- 498 0173 00       		.byte	0
- 499 0174 00       		.byte	0
- 500 0175 00       		.byte	0
- 501 0176 00       		.byte	0
- 502 0177 06       		.byte	6
- 503 0178 09       		.byte	9
- 504 0179 08       		.byte	8
- 505 017a 04       		.byte	4
- 506 017b 04       		.byte	4
- 507 017c 00       		.byte	0
- 508 017d 04       		.byte	4
- 509 017e 00       		.byte	0
- 510 017f 00       		.byte	0
- 511 0180 00       		.byte	0
- 512 0181 00       		.byte	0
- 513 0182 00       		.byte	0
- 514 0183 3C       		.byte	60
- 515 0184 42       		.byte	66
- 516 0185 B9       		.byte	-71
- 517 0186 A5       		.byte	-91
-ARM GAS  /tmp/cchARS0o.s 			page 10
+ 461 0174 00       		.byte	0
+ 462 0175 00       		.byte	0
+ 463 0176 00       		.byte	0
+ 464 0177 06       		.byte	6
+ 465 0178 09       		.byte	9
+ 466 0179 08       		.byte	8
+ 467 017a 04       		.byte	4
+ 468 017b 04       		.byte	4
+ 469 017c 00       		.byte	0
+ 470 017d 04       		.byte	4
+ 471 017e 00       		.byte	0
+ 472 017f 00       		.byte	0
+ 473 0180 00       		.byte	0
+ 474 0181 00       		.byte	0
+ 475 0182 00       		.byte	0
+ 476 0183 3C       		.byte	60
+ 477 0184 42       		.byte	66
+ 478 0185 B9       		.byte	-71
+ 479 0186 A5       		.byte	-91
+ 480 0187 A5       		.byte	-91
+ 481 0188 A5       		.byte	-91
+ 482 0189 79       		.byte	121
+ 483 018a 82       		.byte	-126
+ 484 018b 7C       		.byte	124
+ 485 018c 00       		.byte	0
+ 486 018d 00       		.byte	0
+ 487 018e 00       		.byte	0
+ 488 018f 04       		.byte	4
+ 489 0190 04       		.byte	4
+ 490 0191 0A       		.byte	10
+ 491 0192 0A       		.byte	10
+ 492 0193 0E       		.byte	14
+ 493 0194 11       		.byte	17
+ 494 0195 11       		.byte	17
+ 495 0196 00       		.byte	0
+ 496 0197 00       		.byte	0
+ 497 0198 00       		.byte	0
+ 498 0199 00       		.byte	0
+ 499 019a 00       		.byte	0
+ 500 019b 0F       		.byte	15
+ 501 019c 11       		.byte	17
+ 502 019d 11       		.byte	17
+ 503 019e 0F       		.byte	15
+ 504 019f 11       		.byte	17
+ 505 01a0 11       		.byte	17
+ 506 01a1 0F       		.byte	15
+ 507 01a2 00       		.byte	0
+ 508 01a3 00       		.byte	0
+ 509 01a4 00       		.byte	0
+ 510 01a5 00       		.byte	0
+ 511 01a6 00       		.byte	0
+ 512 01a7 1E       		.byte	30
+ 513 01a8 21       		.byte	33
+ 514 01a9 01       		.byte	1
+ 515 01aa 01       		.byte	1
+ 516 01ab 01       		.byte	1
+ 517 01ac 21       		.byte	33
+ARM GAS  /tmp/ccwdm6tQ.s 			page 10
 
 
- 518 0187 A5       		.byte	-91
- 519 0188 A5       		.byte	-91
- 520 0189 79       		.byte	121
- 521 018a 82       		.byte	-126
- 522 018b 7C       		.byte	124
- 523 018c 00       		.byte	0
- 524 018d 00       		.byte	0
- 525 018e 00       		.byte	0
- 526 018f 04       		.byte	4
- 527 0190 04       		.byte	4
- 528 0191 0A       		.byte	10
- 529 0192 0A       		.byte	10
- 530 0193 0E       		.byte	14
- 531 0194 11       		.byte	17
- 532 0195 11       		.byte	17
- 533 0196 00       		.byte	0
- 534 0197 00       		.byte	0
- 535 0198 00       		.byte	0
- 536 0199 00       		.byte	0
- 537 019a 00       		.byte	0
- 538 019b 0F       		.byte	15
- 539 019c 11       		.byte	17
- 540 019d 11       		.byte	17
- 541 019e 0F       		.byte	15
- 542 019f 11       		.byte	17
- 543 01a0 11       		.byte	17
- 544 01a1 0F       		.byte	15
- 545 01a2 00       		.byte	0
- 546 01a3 00       		.byte	0
- 547 01a4 00       		.byte	0
- 548 01a5 00       		.byte	0
- 549 01a6 00       		.byte	0
- 550 01a7 1E       		.byte	30
- 551 01a8 21       		.byte	33
- 552 01a9 01       		.byte	1
- 553 01aa 01       		.byte	1
- 554 01ab 01       		.byte	1
- 555 01ac 21       		.byte	33
- 556 01ad 1E       		.byte	30
- 557 01ae 00       		.byte	0
- 558 01af 00       		.byte	0
- 559 01b0 00       		.byte	0
- 560 01b1 00       		.byte	0
- 561 01b2 00       		.byte	0
- 562 01b3 1F       		.byte	31
- 563 01b4 21       		.byte	33
- 564 01b5 21       		.byte	33
- 565 01b6 21       		.byte	33
- 566 01b7 21       		.byte	33
- 567 01b8 21       		.byte	33
- 568 01b9 1F       		.byte	31
- 569 01ba 00       		.byte	0
- 570 01bb 00       		.byte	0
- 571 01bc 00       		.byte	0
- 572 01bd 00       		.byte	0
- 573 01be 00       		.byte	0
- 574 01bf 1F       		.byte	31
-ARM GAS  /tmp/cchARS0o.s 			page 11
+ 518 01ad 1E       		.byte	30
+ 519 01ae 00       		.byte	0
+ 520 01af 00       		.byte	0
+ 521 01b0 00       		.byte	0
+ 522 01b1 00       		.byte	0
+ 523 01b2 00       		.byte	0
+ 524 01b3 1F       		.byte	31
+ 525 01b4 21       		.byte	33
+ 526 01b5 21       		.byte	33
+ 527 01b6 21       		.byte	33
+ 528 01b7 21       		.byte	33
+ 529 01b8 21       		.byte	33
+ 530 01b9 1F       		.byte	31
+ 531 01ba 00       		.byte	0
+ 532 01bb 00       		.byte	0
+ 533 01bc 00       		.byte	0
+ 534 01bd 00       		.byte	0
+ 535 01be 00       		.byte	0
+ 536 01bf 1F       		.byte	31
+ 537 01c0 01       		.byte	1
+ 538 01c1 01       		.byte	1
+ 539 01c2 1F       		.byte	31
+ 540 01c3 01       		.byte	1
+ 541 01c4 01       		.byte	1
+ 542 01c5 1F       		.byte	31
+ 543 01c6 00       		.byte	0
+ 544 01c7 00       		.byte	0
+ 545 01c8 00       		.byte	0
+ 546 01c9 00       		.byte	0
+ 547 01ca 00       		.byte	0
+ 548 01cb 1F       		.byte	31
+ 549 01cc 01       		.byte	1
+ 550 01cd 01       		.byte	1
+ 551 01ce 1F       		.byte	31
+ 552 01cf 01       		.byte	1
+ 553 01d0 01       		.byte	1
+ 554 01d1 01       		.byte	1
+ 555 01d2 00       		.byte	0
+ 556 01d3 00       		.byte	0
+ 557 01d4 00       		.byte	0
+ 558 01d5 00       		.byte	0
+ 559 01d6 00       		.byte	0
+ 560 01d7 1E       		.byte	30
+ 561 01d8 21       		.byte	33
+ 562 01d9 01       		.byte	1
+ 563 01da 39       		.byte	57
+ 564 01db 21       		.byte	33
+ 565 01dc 21       		.byte	33
+ 566 01dd 1E       		.byte	30
+ 567 01de 00       		.byte	0
+ 568 01df 00       		.byte	0
+ 569 01e0 00       		.byte	0
+ 570 01e1 00       		.byte	0
+ 571 01e2 00       		.byte	0
+ 572 01e3 21       		.byte	33
+ 573 01e4 21       		.byte	33
+ 574 01e5 21       		.byte	33
+ARM GAS  /tmp/ccwdm6tQ.s 			page 11
 
 
- 575 01c0 01       		.byte	1
- 576 01c1 01       		.byte	1
- 577 01c2 1F       		.byte	31
- 578 01c3 01       		.byte	1
- 579 01c4 01       		.byte	1
- 580 01c5 1F       		.byte	31
- 581 01c6 00       		.byte	0
- 582 01c7 00       		.byte	0
- 583 01c8 00       		.byte	0
- 584 01c9 00       		.byte	0
- 585 01ca 00       		.byte	0
- 586 01cb 1F       		.byte	31
- 587 01cc 01       		.byte	1
- 588 01cd 01       		.byte	1
- 589 01ce 1F       		.byte	31
- 590 01cf 01       		.byte	1
- 591 01d0 01       		.byte	1
- 592 01d1 01       		.byte	1
- 593 01d2 00       		.byte	0
- 594 01d3 00       		.byte	0
- 595 01d4 00       		.byte	0
- 596 01d5 00       		.byte	0
- 597 01d6 00       		.byte	0
- 598 01d7 1E       		.byte	30
- 599 01d8 21       		.byte	33
- 600 01d9 01       		.byte	1
- 601 01da 39       		.byte	57
- 602 01db 21       		.byte	33
- 603 01dc 21       		.byte	33
- 604 01dd 1E       		.byte	30
- 605 01de 00       		.byte	0
- 606 01df 00       		.byte	0
- 607 01e0 00       		.byte	0
- 608 01e1 00       		.byte	0
- 609 01e2 00       		.byte	0
- 610 01e3 21       		.byte	33
- 611 01e4 21       		.byte	33
- 612 01e5 21       		.byte	33
- 613 01e6 3F       		.byte	63
- 614 01e7 21       		.byte	33
- 615 01e8 21       		.byte	33
- 616 01e9 21       		.byte	33
- 617 01ea 00       		.byte	0
- 618 01eb 00       		.byte	0
- 619 01ec 00       		.byte	0
- 620 01ed 00       		.byte	0
- 621 01ee 00       		.byte	0
- 622 01ef 01       		.byte	1
- 623 01f0 01       		.byte	1
- 624 01f1 01       		.byte	1
- 625 01f2 01       		.byte	1
- 626 01f3 01       		.byte	1
- 627 01f4 01       		.byte	1
- 628 01f5 01       		.byte	1
- 629 01f6 00       		.byte	0
- 630 01f7 00       		.byte	0
- 631 01f8 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 12
+ 575 01e6 3F       		.byte	63
+ 576 01e7 21       		.byte	33
+ 577 01e8 21       		.byte	33
+ 578 01e9 21       		.byte	33
+ 579 01ea 00       		.byte	0
+ 580 01eb 00       		.byte	0
+ 581 01ec 00       		.byte	0
+ 582 01ed 00       		.byte	0
+ 583 01ee 00       		.byte	0
+ 584 01ef 01       		.byte	1
+ 585 01f0 01       		.byte	1
+ 586 01f1 01       		.byte	1
+ 587 01f2 01       		.byte	1
+ 588 01f3 01       		.byte	1
+ 589 01f4 01       		.byte	1
+ 590 01f5 01       		.byte	1
+ 591 01f6 00       		.byte	0
+ 592 01f7 00       		.byte	0
+ 593 01f8 00       		.byte	0
+ 594 01f9 00       		.byte	0
+ 595 01fa 00       		.byte	0
+ 596 01fb 08       		.byte	8
+ 597 01fc 08       		.byte	8
+ 598 01fd 08       		.byte	8
+ 599 01fe 08       		.byte	8
+ 600 01ff 08       		.byte	8
+ 601 0200 09       		.byte	9
+ 602 0201 06       		.byte	6
+ 603 0202 00       		.byte	0
+ 604 0203 00       		.byte	0
+ 605 0204 00       		.byte	0
+ 606 0205 00       		.byte	0
+ 607 0206 00       		.byte	0
+ 608 0207 11       		.byte	17
+ 609 0208 09       		.byte	9
+ 610 0209 05       		.byte	5
+ 611 020a 03       		.byte	3
+ 612 020b 05       		.byte	5
+ 613 020c 09       		.byte	9
+ 614 020d 11       		.byte	17
+ 615 020e 00       		.byte	0
+ 616 020f 00       		.byte	0
+ 617 0210 00       		.byte	0
+ 618 0211 00       		.byte	0
+ 619 0212 00       		.byte	0
+ 620 0213 01       		.byte	1
+ 621 0214 01       		.byte	1
+ 622 0215 01       		.byte	1
+ 623 0216 01       		.byte	1
+ 624 0217 01       		.byte	1
+ 625 0218 01       		.byte	1
+ 626 0219 0F       		.byte	15
+ 627 021a 00       		.byte	0
+ 628 021b 00       		.byte	0
+ 629              		.section	.rodata.Arial_12_WidthTable,"a",%progbits
+ 630              		.align	2
+ 633              	Arial_12_WidthTable:
+ARM GAS  /tmp/ccwdm6tQ.s 			page 12
 
 
- 632 01f9 00       		.byte	0
- 633 01fa 00       		.byte	0
- 634 01fb 08       		.byte	8
- 635 01fc 08       		.byte	8
- 636 01fd 08       		.byte	8
- 637 01fe 08       		.byte	8
- 638 01ff 08       		.byte	8
- 639 0200 09       		.byte	9
- 640 0201 06       		.byte	6
- 641 0202 00       		.byte	0
- 642 0203 00       		.byte	0
- 643 0204 00       		.byte	0
- 644 0205 00       		.byte	0
- 645 0206 00       		.byte	0
- 646 0207 11       		.byte	17
- 647 0208 09       		.byte	9
- 648 0209 05       		.byte	5
- 649 020a 03       		.byte	3
- 650 020b 05       		.byte	5
- 651 020c 09       		.byte	9
- 652 020d 11       		.byte	17
- 653 020e 00       		.byte	0
- 654 020f 00       		.byte	0
- 655 0210 00       		.byte	0
- 656 0211 00       		.byte	0
- 657 0212 00       		.byte	0
- 658 0213 01       		.byte	1
- 659 0214 01       		.byte	1
- 660 0215 01       		.byte	1
- 661 0216 01       		.byte	1
- 662 0217 01       		.byte	1
- 663 0218 01       		.byte	1
- 664 0219 0F       		.byte	15
- 665 021a 00       		.byte	0
- 666 021b 00       		.byte	0
- 667 021c 00       		.byte	0
- 668 021d 00       		.byte	0
- 669 021e 00       		.byte	0
- 670 021f 63       		.byte	99
- 671 0220 63       		.byte	99
- 672 0221 55       		.byte	85
- 673 0222 55       		.byte	85
- 674 0223 55       		.byte	85
- 675 0224 49       		.byte	73
- 676 0225 49       		.byte	73
- 677 0226 00       		.byte	0
- 678 0227 00       		.byte	0
- 679 0228 00       		.byte	0
- 680 0229 00       		.byte	0
- 681 022a 00       		.byte	0
- 682 022b 21       		.byte	33
- 683 022c 23       		.byte	35
- 684 022d 25       		.byte	37
- 685 022e 25       		.byte	37
- 686 022f 29       		.byte	41
- 687 0230 31       		.byte	49
- 688 0231 21       		.byte	33
-ARM GAS  /tmp/cchARS0o.s 			page 13
+ 634 0000 02       		.byte	2
+ 635 0001 01       		.byte	1
+ 636 0002 03       		.byte	3
+ 637 0003 04       		.byte	4
+ 638 0004 05       		.byte	5
+ 639 0005 07       		.byte	7
+ 640 0006 06       		.byte	6
+ 641 0007 01       		.byte	1
+ 642 0008 02       		.byte	2
+ 643 0009 02       		.byte	2
+ 644 000a 03       		.byte	3
+ 645 000b 05       		.byte	5
+ 646 000c 02       		.byte	2
+ 647 000d 03       		.byte	3
+ 648 000e 01       		.byte	1
+ 649 000f 03       		.byte	3
+ 650 0010 04       		.byte	4
+ 651 0011 03       		.byte	3
+ 652 0012 04       		.byte	4
+ 653 0013 04       		.byte	4
+ 654 0014 05       		.byte	5
+ 655 0015 04       		.byte	4
+ 656 0016 04       		.byte	4
+ 657 0017 04       		.byte	4
+ 658 0018 04       		.byte	4
+ 659 0019 04       		.byte	4
+ 660 001a 01       		.byte	1
+ 661 001b 02       		.byte	2
+ 662 001c 04       		.byte	4
+ 663 001d 04       		.byte	4
+ 664 001e 04       		.byte	4
+ 665 001f 04       		.byte	4
+ 666 0020 08       		.byte	8
+ 667 0021 05       		.byte	5
+ 668 0022 05       		.byte	5
+ 669 0023 06       		.byte	6
+ 670 0024 06       		.byte	6
+ 671 0025 05       		.byte	5
+ 672 0026 05       		.byte	5
+ 673 0027 06       		.byte	6
+ 674 0028 06       		.byte	6
+ 675 0029 01       		.byte	1
+ 676 002a 04       		.byte	4
+ 677 002b 05       		.byte	5
+ 678 002c 04       		.byte	4
+ 679 002d 07       		.byte	7
+ 680 002e 06       		.byte	6
+ 681 002f 06       		.byte	6
+ 682 0030 05       		.byte	5
+ 683 0031 06       		.byte	6
+ 684 0032 07       		.byte	7
+ 685 0033 05       		.byte	5
+ 686 0034 05       		.byte	5
+ 687 0035 06       		.byte	6
+ 688 0036 05       		.byte	5
+ 689 0037 09       		.byte	9
+ 690 0038 05       		.byte	5
+ARM GAS  /tmp/ccwdm6tQ.s 			page 13
 
 
- 689 0232 00       		.byte	0
- 690 0233 00       		.byte	0
- 691 0234 00       		.byte	0
- 692 0235 00       		.byte	0
- 693 0236 00       		.byte	0
- 694 0237 1E       		.byte	30
- 695 0238 21       		.byte	33
- 696 0239 21       		.byte	33
- 697 023a 21       		.byte	33
- 698 023b 21       		.byte	33
- 699 023c 21       		.byte	33
- 700 023d 1E       		.byte	30
- 701 023e 00       		.byte	0
- 702 023f 00       		.byte	0
- 703 0240 00       		.byte	0
- 704 0241 00       		.byte	0
- 705 0242 00       		.byte	0
- 706 0243 0F       		.byte	15
- 707 0244 11       		.byte	17
- 708 0245 11       		.byte	17
- 709 0246 0F       		.byte	15
- 710 0247 01       		.byte	1
- 711 0248 01       		.byte	1
- 712 0249 01       		.byte	1
- 713 024a 00       		.byte	0
- 714 024b 00       		.byte	0
- 715 024c 00       		.byte	0
- 716 024d 00       		.byte	0
- 717 024e 00       		.byte	0
- 718 024f 1E       		.byte	30
- 719 0250 21       		.byte	33
- 720 0251 21       		.byte	33
- 721 0252 21       		.byte	33
- 722 0253 29       		.byte	41
- 723 0254 31       		.byte	49
- 724 0255 1E       		.byte	30
- 725 0256 20       		.byte	32
- 726 0257 00       		.byte	0
- 727 0258 00       		.byte	0
- 728 0259 00       		.byte	0
- 729 025a 00       		.byte	0
- 730 025b 1F       		.byte	31
- 731 025c 21       		.byte	33
- 732 025d 21       		.byte	33
- 733 025e 1F       		.byte	31
- 734 025f 11       		.byte	17
- 735 0260 21       		.byte	33
- 736 0261 41       		.byte	65
- 737 0262 00       		.byte	0
- 738 0263 00       		.byte	0
- 739 0264 00       		.byte	0
- 740 0265 00       		.byte	0
- 741 0266 00       		.byte	0
- 742 0267 0E       		.byte	14
- 743 0268 11       		.byte	17
- 744 0269 01       		.byte	1
- 745 026a 0E       		.byte	14
-ARM GAS  /tmp/cchARS0o.s 			page 14
-
-
- 746 026b 10       		.byte	16
- 747 026c 11       		.byte	17
- 748 026d 0E       		.byte	14
- 749 026e 00       		.byte	0
- 750 026f 00       		.byte	0
- 751 0270 00       		.byte	0
- 752 0271 00       		.byte	0
- 753 0272 00       		.byte	0
- 754 0273 1F       		.byte	31
- 755 0274 04       		.byte	4
- 756 0275 04       		.byte	4
- 757 0276 04       		.byte	4
- 758 0277 04       		.byte	4
- 759 0278 04       		.byte	4
- 760 0279 04       		.byte	4
- 761 027a 00       		.byte	0
- 762 027b 00       		.byte	0
- 763 027c 00       		.byte	0
- 764 027d 00       		.byte	0
- 765 027e 00       		.byte	0
- 766 027f 21       		.byte	33
- 767 0280 21       		.byte	33
- 768 0281 21       		.byte	33
- 769 0282 21       		.byte	33
- 770 0283 21       		.byte	33
- 771 0284 21       		.byte	33
- 772 0285 1E       		.byte	30
- 773 0286 00       		.byte	0
- 774 0287 00       		.byte	0
- 775 0288 00       		.byte	0
- 776 0289 00       		.byte	0
- 777 028a 00       		.byte	0
- 778 028b 11       		.byte	17
- 779 028c 11       		.byte	17
- 780 028d 0A       		.byte	10
- 781 028e 0A       		.byte	10
- 782 028f 0A       		.byte	10
- 783 0290 0A       		.byte	10
- 784 0291 04       		.byte	4
- 785 0292 00       		.byte	0
- 786 0293 00       		.byte	0
- 787 0294 00       		.byte	0
- 788 0295 00       		.byte	0
- 789 0296 00       		.byte	0
- 790 0297 00       		.byte	0
- 791 0298 00       		.byte	0
- 792 0299 00       		.byte	0
- 793 029a 11       		.byte	17
- 794 029b 01       		.byte	1
- 795 029c 11       		.byte	17
- 796 029d 01       		.byte	1
- 797 029e AA       		.byte	-86
- 798 029f 00       		.byte	0
- 799 02a0 AA       		.byte	-86
- 800 02a1 00       		.byte	0
- 801 02a2 AA       		.byte	-86
- 802 02a3 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 15
-
-
- 803 02a4 AA       		.byte	-86
- 804 02a5 00       		.byte	0
- 805 02a6 44       		.byte	68
- 806 02a7 00       		.byte	0
- 807 02a8 00       		.byte	0
- 808 02a9 00       		.byte	0
- 809 02aa 00       		.byte	0
- 810 02ab 00       		.byte	0
- 811 02ac 00       		.byte	0
- 812 02ad 00       		.byte	0
- 813 02ae 00       		.byte	0
- 814 02af 11       		.byte	17
- 815 02b0 0A       		.byte	10
- 816 02b1 0A       		.byte	10
- 817 02b2 04       		.byte	4
- 818 02b3 0A       		.byte	10
- 819 02b4 0A       		.byte	10
- 820 02b5 11       		.byte	17
- 821 02b6 00       		.byte	0
- 822 02b7 00       		.byte	0
- 823 02b8 00       		.byte	0
- 824 02b9 00       		.byte	0
- 825 02ba 00       		.byte	0
- 826 02bb 11       		.byte	17
- 827 02bc 0A       		.byte	10
- 828 02bd 0A       		.byte	10
- 829 02be 04       		.byte	4
- 830 02bf 04       		.byte	4
- 831 02c0 04       		.byte	4
- 832 02c1 04       		.byte	4
- 833 02c2 00       		.byte	0
- 834 02c3 00       		.byte	0
- 835 02c4 00       		.byte	0
- 836 02c5 00       		.byte	0
- 837 02c6 00       		.byte	0
- 838 02c7 1F       		.byte	31
- 839 02c8 10       		.byte	16
- 840 02c9 08       		.byte	8
- 841 02ca 04       		.byte	4
- 842 02cb 02       		.byte	2
- 843 02cc 01       		.byte	1
- 844 02cd 1F       		.byte	31
- 845 02ce 00       		.byte	0
- 846 02cf 00       		.byte	0
- 847 02d0 00       		.byte	0
- 848 02d1 00       		.byte	0
- 849 02d2 00       		.byte	0
- 850 02d3 03       		.byte	3
- 851 02d4 01       		.byte	1
- 852 02d5 01       		.byte	1
- 853 02d6 01       		.byte	1
- 854 02d7 01       		.byte	1
- 855 02d8 01       		.byte	1
- 856 02d9 01       		.byte	1
- 857 02da 01       		.byte	1
- 858 02db 03       		.byte	3
- 859 02dc 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 16
-
-
- 860 02dd 00       		.byte	0
- 861 02de 00       		.byte	0
- 862 02df 01       		.byte	1
- 863 02e0 01       		.byte	1
- 864 02e1 02       		.byte	2
- 865 02e2 02       		.byte	2
- 866 02e3 02       		.byte	2
- 867 02e4 04       		.byte	4
- 868 02e5 04       		.byte	4
- 869 02e6 00       		.byte	0
- 870 02e7 00       		.byte	0
- 871 02e8 00       		.byte	0
- 872 02e9 00       		.byte	0
- 873 02ea 00       		.byte	0
- 874 02eb 03       		.byte	3
- 875 02ec 02       		.byte	2
- 876 02ed 02       		.byte	2
- 877 02ee 02       		.byte	2
- 878 02ef 02       		.byte	2
- 879 02f0 02       		.byte	2
- 880 02f1 02       		.byte	2
- 881 02f2 02       		.byte	2
- 882 02f3 03       		.byte	3
- 883 02f4 00       		.byte	0
- 884 02f5 00       		.byte	0
- 885 02f6 00       		.byte	0
- 886 02f7 02       		.byte	2
- 887 02f8 05       		.byte	5
- 888 02f9 05       		.byte	5
- 889 02fa 00       		.byte	0
- 890 02fb 00       		.byte	0
- 891 02fc 00       		.byte	0
- 892 02fd 00       		.byte	0
- 893 02fe 00       		.byte	0
- 894 02ff 00       		.byte	0
- 895 0300 00       		.byte	0
- 896 0301 00       		.byte	0
- 897 0302 00       		.byte	0
- 898 0303 00       		.byte	0
- 899 0304 00       		.byte	0
- 900 0305 00       		.byte	0
- 901 0306 00       		.byte	0
- 902 0307 00       		.byte	0
- 903 0308 00       		.byte	0
- 904 0309 00       		.byte	0
- 905 030a 00       		.byte	0
- 906 030b 1F       		.byte	31
- 907 030c 00       		.byte	0
- 908 030d 00       		.byte	0
- 909 030e 00       		.byte	0
- 910 030f 01       		.byte	1
- 911 0310 02       		.byte	2
- 912 0311 00       		.byte	0
- 913 0312 00       		.byte	0
- 914 0313 00       		.byte	0
- 915 0314 00       		.byte	0
- 916 0315 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 17
-
-
- 917 0316 00       		.byte	0
- 918 0317 00       		.byte	0
- 919 0318 00       		.byte	0
- 920 0319 00       		.byte	0
- 921 031a 00       		.byte	0
- 922 031b 00       		.byte	0
- 923 031c 00       		.byte	0
- 924 031d 07       		.byte	7
- 925 031e 08       		.byte	8
- 926 031f 0E       		.byte	14
- 927 0320 09       		.byte	9
- 928 0321 0E       		.byte	14
- 929 0322 00       		.byte	0
- 930 0323 00       		.byte	0
- 931 0324 00       		.byte	0
- 932 0325 00       		.byte	0
- 933 0326 00       		.byte	0
- 934 0327 01       		.byte	1
- 935 0328 01       		.byte	1
- 936 0329 07       		.byte	7
- 937 032a 09       		.byte	9
- 938 032b 09       		.byte	9
- 939 032c 09       		.byte	9
- 940 032d 07       		.byte	7
- 941 032e 00       		.byte	0
- 942 032f 00       		.byte	0
- 943 0330 00       		.byte	0
- 944 0331 00       		.byte	0
- 945 0332 00       		.byte	0
- 946 0333 00       		.byte	0
- 947 0334 00       		.byte	0
- 948 0335 0E       		.byte	14
- 949 0336 01       		.byte	1
- 950 0337 01       		.byte	1
- 951 0338 01       		.byte	1
- 952 0339 0E       		.byte	14
- 953 033a 00       		.byte	0
- 954 033b 00       		.byte	0
- 955 033c 00       		.byte	0
- 956 033d 00       		.byte	0
- 957 033e 00       		.byte	0
- 958 033f 08       		.byte	8
- 959 0340 08       		.byte	8
- 960 0341 0E       		.byte	14
- 961 0342 09       		.byte	9
- 962 0343 09       		.byte	9
- 963 0344 09       		.byte	9
- 964 0345 0E       		.byte	14
- 965 0346 00       		.byte	0
- 966 0347 00       		.byte	0
- 967 0348 00       		.byte	0
- 968 0349 00       		.byte	0
- 969 034a 00       		.byte	0
- 970 034b 00       		.byte	0
- 971 034c 00       		.byte	0
- 972 034d 06       		.byte	6
- 973 034e 09       		.byte	9
-ARM GAS  /tmp/cchARS0o.s 			page 18
-
-
- 974 034f 0F       		.byte	15
- 975 0350 01       		.byte	1
- 976 0351 0E       		.byte	14
- 977 0352 00       		.byte	0
- 978 0353 00       		.byte	0
- 979 0354 00       		.byte	0
- 980 0355 00       		.byte	0
- 981 0356 00       		.byte	0
- 982 0357 04       		.byte	4
- 983 0358 02       		.byte	2
- 984 0359 07       		.byte	7
- 985 035a 02       		.byte	2
- 986 035b 02       		.byte	2
- 987 035c 02       		.byte	2
- 988 035d 02       		.byte	2
- 989 035e 00       		.byte	0
- 990 035f 00       		.byte	0
- 991 0360 00       		.byte	0
- 992 0361 00       		.byte	0
- 993 0362 00       		.byte	0
- 994 0363 00       		.byte	0
- 995 0364 00       		.byte	0
- 996 0365 0E       		.byte	14
- 997 0366 09       		.byte	9
- 998 0367 09       		.byte	9
- 999 0368 09       		.byte	9
- 1000 0369 0E       		.byte	14
- 1001 036a 08       		.byte	8
- 1002 036b 07       		.byte	7
- 1003 036c 00       		.byte	0
- 1004 036d 00       		.byte	0
- 1005 036e 00       		.byte	0
- 1006 036f 01       		.byte	1
- 1007 0370 01       		.byte	1
- 1008 0371 07       		.byte	7
- 1009 0372 09       		.byte	9
- 1010 0373 09       		.byte	9
- 1011 0374 09       		.byte	9
- 1012 0375 09       		.byte	9
- 1013 0376 00       		.byte	0
- 1014 0377 00       		.byte	0
- 1015 0378 00       		.byte	0
- 1016 0379 00       		.byte	0
- 1017 037a 00       		.byte	0
- 1018 037b 01       		.byte	1
- 1019 037c 00       		.byte	0
- 1020 037d 01       		.byte	1
- 1021 037e 01       		.byte	1
- 1022 037f 01       		.byte	1
- 1023 0380 01       		.byte	1
- 1024 0381 01       		.byte	1
- 1025 0382 00       		.byte	0
- 1026 0383 00       		.byte	0
- 1027 0384 00       		.byte	0
- 1028 0385 00       		.byte	0
- 1029 0386 00       		.byte	0
- 1030 0387 02       		.byte	2
-ARM GAS  /tmp/cchARS0o.s 			page 19
-
-
- 1031 0388 00       		.byte	0
- 1032 0389 02       		.byte	2
- 1033 038a 02       		.byte	2
- 1034 038b 02       		.byte	2
- 1035 038c 02       		.byte	2
- 1036 038d 02       		.byte	2
- 1037 038e 02       		.byte	2
- 1038 038f 01       		.byte	1
- 1039 0390 00       		.byte	0
- 1040 0391 00       		.byte	0
- 1041 0392 00       		.byte	0
- 1042 0393 01       		.byte	1
- 1043 0394 01       		.byte	1
- 1044 0395 09       		.byte	9
- 1045 0396 05       		.byte	5
- 1046 0397 07       		.byte	7
- 1047 0398 09       		.byte	9
- 1048 0399 11       		.byte	17
- 1049 039a 00       		.byte	0
- 1050 039b 00       		.byte	0
- 1051 039c 00       		.byte	0
- 1052 039d 00       		.byte	0
- 1053 039e 00       		.byte	0
- 1054 039f 01       		.byte	1
- 1055 03a0 01       		.byte	1
- 1056 03a1 01       		.byte	1
- 1057 03a2 01       		.byte	1
- 1058 03a3 01       		.byte	1
- 1059 03a4 01       		.byte	1
- 1060 03a5 01       		.byte	1
- 1061 03a6 00       		.byte	0
- 1062 03a7 00       		.byte	0
- 1063 03a8 00       		.byte	0
- 1064 03a9 00       		.byte	0
- 1065 03aa 00       		.byte	0
- 1066 03ab 00       		.byte	0
- 1067 03ac 00       		.byte	0
- 1068 03ad 37       		.byte	55
- 1069 03ae 49       		.byte	73
- 1070 03af 49       		.byte	73
- 1071 03b0 49       		.byte	73
- 1072 03b1 49       		.byte	73
- 1073 03b2 00       		.byte	0
- 1074 03b3 00       		.byte	0
- 1075 03b4 00       		.byte	0
- 1076 03b5 00       		.byte	0
- 1077 03b6 00       		.byte	0
- 1078 03b7 00       		.byte	0
- 1079 03b8 00       		.byte	0
- 1080 03b9 07       		.byte	7
- 1081 03ba 09       		.byte	9
- 1082 03bb 09       		.byte	9
- 1083 03bc 09       		.byte	9
- 1084 03bd 09       		.byte	9
- 1085 03be 00       		.byte	0
- 1086 03bf 00       		.byte	0
- 1087 03c0 00       		.byte	0
-ARM GAS  /tmp/cchARS0o.s 			page 20
-
-
- 1088 03c1 00       		.byte	0
- 1089 03c2 00       		.byte	0
- 1090 03c3 00       		.byte	0
- 1091 03c4 00       		.byte	0
- 1092 03c5 06       		.byte	6
- 1093 03c6 09       		.byte	9
- 1094 03c7 09       		.byte	9
- 1095 03c8 09       		.byte	9
- 1096 03c9 06       		.byte	6
- 1097 03ca 00       		.byte	0
- 1098 03cb 00       		.byte	0
- 1099 03cc 00       		.byte	0
- 1100 03cd 00       		.byte	0
- 1101 03ce 00       		.byte	0
- 1102 03cf 00       		.byte	0
- 1103 03d0 00       		.byte	0
- 1104 03d1 07       		.byte	7
- 1105 03d2 09       		.byte	9
- 1106 03d3 09       		.byte	9
- 1107 03d4 09       		.byte	9
- 1108 03d5 07       		.byte	7
- 1109 03d6 01       		.byte	1
- 1110 03d7 01       		.byte	1
- 1111 03d8 00       		.byte	0
- 1112 03d9 00       		.byte	0
- 1113 03da 00       		.byte	0
- 1114 03db 00       		.byte	0
- 1115 03dc 00       		.byte	0
- 1116 03dd 0E       		.byte	14
- 1117 03de 09       		.byte	9
- 1118 03df 09       		.byte	9
- 1119 03e0 09       		.byte	9
- 1120 03e1 0E       		.byte	14
- 1121 03e2 08       		.byte	8
- 1122 03e3 08       		.byte	8
- 1123 03e4 00       		.byte	0
- 1124 03e5 00       		.byte	0
- 1125 03e6 00       		.byte	0
- 1126 03e7 00       		.byte	0
- 1127 03e8 00       		.byte	0
- 1128 03e9 07       		.byte	7
- 1129 03ea 01       		.byte	1
- 1130 03eb 01       		.byte	1
- 1131 03ec 01       		.byte	1
- 1132 03ed 01       		.byte	1
- 1133 03ee 00       		.byte	0
- 1134 03ef 00       		.byte	0
- 1135 03f0 00       		.byte	0
- 1136 03f1 00       		.byte	0
- 1137 03f2 00       		.byte	0
- 1138 03f3 00       		.byte	0
- 1139 03f4 00       		.byte	0
- 1140 03f5 0E       		.byte	14
- 1141 03f6 01       		.byte	1
- 1142 03f7 06       		.byte	6
- 1143 03f8 08       		.byte	8
- 1144 03f9 07       		.byte	7
-ARM GAS  /tmp/cchARS0o.s 			page 21
-
-
- 1145 03fa 00       		.byte	0
- 1146 03fb 00       		.byte	0
- 1147 03fc 00       		.byte	0
- 1148 03fd 00       		.byte	0
- 1149 03fe 00       		.byte	0
- 1150 03ff 00       		.byte	0
- 1151 0400 02       		.byte	2
- 1152 0401 07       		.byte	7
- 1153 0402 02       		.byte	2
- 1154 0403 02       		.byte	2
- 1155 0404 02       		.byte	2
- 1156 0405 04       		.byte	4
- 1157 0406 00       		.byte	0
- 1158 0407 00       		.byte	0
- 1159 0408 00       		.byte	0
- 1160 0409 00       		.byte	0
- 1161 040a 00       		.byte	0
- 1162 040b 00       		.byte	0
- 1163 040c 00       		.byte	0
- 1164 040d 09       		.byte	9
- 1165 040e 09       		.byte	9
- 1166 040f 09       		.byte	9
- 1167 0410 09       		.byte	9
- 1168 0411 0E       		.byte	14
- 1169 0412 00       		.byte	0
- 1170 0413 00       		.byte	0
- 1171 0414 00       		.byte	0
- 1172 0415 00       		.byte	0
- 1173 0416 00       		.byte	0
- 1174 0417 00       		.byte	0
- 1175 0418 00       		.byte	0
- 1176 0419 11       		.byte	17
- 1177 041a 0A       		.byte	10
- 1178 041b 0A       		.byte	10
- 1179 041c 0A       		.byte	10
- 1180 041d 04       		.byte	4
- 1181 041e 00       		.byte	0
- 1182 041f 00       		.byte	0
- 1183 0420 00       		.byte	0
- 1184 0421 00       		.byte	0
- 1185 0422 00       		.byte	0
- 1186 0423 00       		.byte	0
- 1187 0424 00       		.byte	0
- 1188 0425 15       		.byte	21
- 1189 0426 15       		.byte	21
- 1190 0427 15       		.byte	21
- 1191 0428 0A       		.byte	10
- 1192 0429 0A       		.byte	10
- 1193 042a 00       		.byte	0
- 1194 042b 00       		.byte	0
- 1195 042c 00       		.byte	0
- 1196 042d 00       		.byte	0
- 1197 042e 00       		.byte	0
- 1198 042f 00       		.byte	0
- 1199 0430 00       		.byte	0
- 1200 0431 11       		.byte	17
- 1201 0432 0A       		.byte	10
-ARM GAS  /tmp/cchARS0o.s 			page 22
-
-
- 1202 0433 04       		.byte	4
- 1203 0434 0A       		.byte	10
- 1204 0435 11       		.byte	17
- 1205 0436 00       		.byte	0
- 1206 0437 00       		.byte	0
- 1207 0438 00       		.byte	0
- 1208 0439 00       		.byte	0
- 1209 043a 00       		.byte	0
- 1210 043b 00       		.byte	0
- 1211 043c 00       		.byte	0
- 1212 043d 11       		.byte	17
- 1213 043e 0A       		.byte	10
- 1214 043f 0A       		.byte	10
- 1215 0440 0A       		.byte	10
- 1216 0441 04       		.byte	4
- 1217 0442 04       		.byte	4
- 1218 0443 03       		.byte	3
- 1219 0444 00       		.byte	0
- 1220 0445 00       		.byte	0
- 1221 0446 00       		.byte	0
- 1222 0447 00       		.byte	0
- 1223 0448 00       		.byte	0
- 1224 0449 0F       		.byte	15
- 1225 044a 04       		.byte	4
- 1226 044b 02       		.byte	2
- 1227 044c 01       		.byte	1
- 1228 044d 0F       		.byte	15
- 1229 044e 00       		.byte	0
- 1230 044f 00       		.byte	0
- 1231 0450 00       		.byte	0
- 1232 0451 00       		.byte	0
- 1233 0452 00       		.byte	0
- 1234 0453 04       		.byte	4
- 1235 0454 02       		.byte	2
- 1236 0455 02       		.byte	2
- 1237 0456 02       		.byte	2
- 1238 0457 01       		.byte	1
- 1239 0458 02       		.byte	2
- 1240 0459 02       		.byte	2
- 1241 045a 02       		.byte	2
- 1242 045b 04       		.byte	4
- 1243 045c 00       		.byte	0
- 1244 045d 00       		.byte	0
- 1245 045e 00       		.byte	0
- 1246 045f 01       		.byte	1
- 1247 0460 01       		.byte	1
- 1248 0461 01       		.byte	1
- 1249 0462 01       		.byte	1
- 1250 0463 01       		.byte	1
- 1251 0464 01       		.byte	1
- 1252 0465 01       		.byte	1
- 1253 0466 01       		.byte	1
- 1254 0467 01       		.byte	1
- 1255 0468 00       		.byte	0
- 1256 0469 00       		.byte	0
- 1257 046a 00       		.byte	0
- 1258 046b 01       		.byte	1
-ARM GAS  /tmp/cchARS0o.s 			page 23
-
-
- 1259 046c 02       		.byte	2
- 1260 046d 02       		.byte	2
- 1261 046e 02       		.byte	2
- 1262 046f 04       		.byte	4
- 1263 0470 02       		.byte	2
- 1264 0471 02       		.byte	2
- 1265 0472 02       		.byte	2
- 1266 0473 01       		.byte	1
- 1267 0474 00       		.byte	0
- 1268 0475 00       		.byte	0
- 1269 0476 00       		.byte	0
- 1270 0477 00       		.byte	0
- 1271 0478 00       		.byte	0
- 1272 0479 00       		.byte	0
- 1273 047a 0A       		.byte	10
- 1274 047b 05       		.byte	5
- 1275 047c 00       		.byte	0
- 1276 047d 00       		.byte	0
- 1277 047e 00       		.byte	0
- 1278 047f 00       		.byte	0
- 1279 0480 00       		.byte	0
- 1280 0481 00       		.byte	0
- 1281 0482 00       		.byte	0
- 1282 0483 00       		.byte	0
- 1283 0484 00       		.byte	0
- 1284 0485 00       		.byte	0
- 1285 0486 00       		.byte	0
- 1286 0487 00       		.byte	0
- 1287 0488 00       		.byte	0
- 1288 0489 00       		.byte	0
- 1289 048a 00       		.byte	0
- 1290 048b 00       		.byte	0
- 1291              		.section	.rodata.Arial_12_WidthTable,"a",%progbits
- 1292              		.align	2
- 1295              	Arial_12_WidthTable:
- 1296 0000 02       		.byte	2
- 1297 0001 01       		.byte	1
- 1298 0002 03       		.byte	3
- 1299 0003 04       		.byte	4
- 1300 0004 05       		.byte	5
- 1301 0005 07       		.byte	7
- 1302 0006 06       		.byte	6
- 1303 0007 01       		.byte	1
- 1304 0008 02       		.byte	2
- 1305 0009 02       		.byte	2
- 1306 000a 03       		.byte	3
- 1307 000b 05       		.byte	5
- 1308 000c 02       		.byte	2
- 1309 000d 03       		.byte	3
- 1310 000e 01       		.byte	1
- 1311 000f 03       		.byte	3
- 1312 0010 04       		.byte	4
- 1313 0011 03       		.byte	3
- 1314 0012 04       		.byte	4
- 1315 0013 04       		.byte	4
- 1316 0014 05       		.byte	5
- 1317 0015 04       		.byte	4
-ARM GAS  /tmp/cchARS0o.s 			page 24
-
-
- 1318 0016 04       		.byte	4
- 1319 0017 04       		.byte	4
- 1320 0018 04       		.byte	4
- 1321 0019 04       		.byte	4
- 1322 001a 01       		.byte	1
- 1323 001b 02       		.byte	2
- 1324 001c 04       		.byte	4
- 1325 001d 04       		.byte	4
- 1326 001e 04       		.byte	4
- 1327 001f 04       		.byte	4
- 1328 0020 08       		.byte	8
- 1329 0021 05       		.byte	5
- 1330 0022 05       		.byte	5
- 1331 0023 06       		.byte	6
- 1332 0024 06       		.byte	6
- 1333 0025 05       		.byte	5
- 1334 0026 05       		.byte	5
- 1335 0027 06       		.byte	6
- 1336 0028 06       		.byte	6
- 1337 0029 01       		.byte	1
- 1338 002a 04       		.byte	4
- 1339 002b 05       		.byte	5
- 1340 002c 04       		.byte	4
- 1341 002d 07       		.byte	7
- 1342 002e 06       		.byte	6
- 1343 002f 06       		.byte	6
- 1344 0030 05       		.byte	5
- 1345 0031 06       		.byte	6
- 1346 0032 07       		.byte	7
- 1347 0033 05       		.byte	5
- 1348 0034 05       		.byte	5
- 1349 0035 06       		.byte	6
- 1350 0036 05       		.byte	5
- 1351 0037 09       		.byte	9
- 1352 0038 05       		.byte	5
- 1353 0039 05       		.byte	5
- 1354 003a 05       		.byte	5
- 1355 003b 02       		.byte	2
- 1356 003c 03       		.byte	3
- 1357 003d 02       		.byte	2
- 1358 003e 03       		.byte	3
- 1359 003f 05       		.byte	5
- 1360 0040 02       		.byte	2
- 1361 0041 04       		.byte	4
- 1362 0042 04       		.byte	4
- 1363 0043 04       		.byte	4
- 1364 0044 04       		.byte	4
- 1365 0045 04       		.byte	4
- 1366 0046 03       		.byte	3
- 1367 0047 04       		.byte	4
- 1368 0048 04       		.byte	4
- 1369 0049 01       		.byte	1
- 1370 004a 02       		.byte	2
- 1371 004b 05       		.byte	5
- 1372 004c 01       		.byte	1
- 1373 004d 07       		.byte	7
- 1374 004e 04       		.byte	4
-ARM GAS  /tmp/cchARS0o.s 			page 25
-
-
- 1375 004f 04       		.byte	4
- 1376 0050 04       		.byte	4
- 1377 0051 04       		.byte	4
- 1378 0052 03       		.byte	3
- 1379 0053 04       		.byte	4
- 1380 0054 03       		.byte	3
- 1381 0055 04       		.byte	4
- 1382 0056 05       		.byte	5
- 1383 0057 05       		.byte	5
- 1384 0058 05       		.byte	5
- 1385 0059 05       		.byte	5
- 1386 005a 04       		.byte	4
- 1387 005b 03       		.byte	3
- 1388 005c 01       		.byte	1
- 1389 005d 03       		.byte	3
- 1390 005e 04       		.byte	4
- 1391 005f 02       		.byte	2
- 1392              		.section	.rodata.F_Arial12,"a",%progbits
- 1393              		.align	2
- 1396              	F_Arial12:
- 1397 0000 00000000 		.word	Arial_12_SymbolTable
- 1398 0004 0000     		.short	0
- 1399 0006 0C00     		.short	12
- 1400 0008 00000000 		.word	Arial_12_WidthTable
- 1401 000c 00000000 		.word	Arial_12_OffsetTable
- 1402 0010 2000     		.short	32
- 1403 0012 E000     		.short	224
- 1404 0014 0100     		.short	1
- 1405 0016 0000     		.space	2
- 1406              		.text
- 1407              	.Letext0:
- 1408              		.file 1 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 1409              		.file 2 "/usr/arm-none-eabi/include/sys/lock.h"
- 1410              		.file 3 "/usr/arm-none-eabi/include/sys/_types.h"
- 1411              		.file 4 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 1412              		.file 5 "/usr/arm-none-eabi/include/sys/reent.h"
- 1413              		.file 6 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 1414              		.file 7 "Drivers/CMSIS/Include/core_cm4.h"
- 1415              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 1416              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 1417              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1418              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1419              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 1420              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 1421              		.file 14 "Inc/spi.h"
- 1422              		.file 15 "Inc/tim.h"
- 1423              		.file 16 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 1424              		.file 17 "MakiseGUI/MakiseGUI/makise_text.h"
- 1425              		.file 18 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 1426              		.file 19 "MakiseGUI/MakiseGUI/fonts/Arial12.c"
-ARM GAS  /tmp/cchARS0o.s 			page 26
+ 691 0039 05       		.byte	5
+ 692              		.section	.rodata.F_Arial12,"a",%progbits
+ 693              		.align	2
+ 696              	F_Arial12:
+ 697 0000 00000000 		.word	Arial_12_SymbolTable
+ 698 0004 0000     		.short	0
+ 699 0006 0C00     		.short	12
+ 700 0008 00000000 		.word	Arial_12_WidthTable
+ 701 000c 00000000 		.word	Arial_12_OffsetTable
+ 702 0010 2000     		.short	32
+ 703 0012 E000     		.short	224
+ 704 0014 0100     		.short	1
+ 705 0016 0000     		.space	2
+ 706              		.text
+ 707              	.Letext0:
+ 708              		.file 1 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 709              		.file 2 "/usr/arm-none-eabi/include/sys/lock.h"
+ 710              		.file 3 "/usr/arm-none-eabi/include/sys/_types.h"
+ 711              		.file 4 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 712              		.file 5 "/usr/arm-none-eabi/include/sys/reent.h"
+ 713              		.file 6 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 714              		.file 7 "Drivers/CMSIS/Include/core_cm4.h"
+ 715              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 716              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 717              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 718              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 719              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 720              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 721              		.file 14 "Inc/spi.h"
+ 722              		.file 15 "Inc/tim.h"
+ 723              		.file 16 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 724              		.file 17 "MakiseGUI/MakiseGUI/makise_text.h"
+ 725              		.file 18 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 726              		.file 19 "MakiseGUI/MakiseGUI/fonts/Arial12.c"
+ARM GAS  /tmp/ccwdm6tQ.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Arial12.c
-     /tmp/cchARS0o.s:1396   .rodata.F_Arial12:0000000000000000 F_Arial12
-     /tmp/cchARS0o.s:25     .rodata.Arial_12_OffsetTable:0000000000000000 Arial_12_OffsetTable
-     /tmp/cchARS0o.s:1295   .rodata.Arial_12_WidthTable:0000000000000000 Arial_12_WidthTable
-     /tmp/cchARS0o.s:126    .rodata.Arial_12_SymbolTable:0000000000000000 Arial_12_SymbolTable
-     /tmp/cchARS0o.s:22     .rodata.Arial_12_OffsetTable:0000000000000000 $d
-     /tmp/cchARS0o.s:123    .rodata.Arial_12_SymbolTable:0000000000000000 $d
-     /tmp/cchARS0o.s:1292   .rodata.Arial_12_WidthTable:0000000000000000 $d
-     /tmp/cchARS0o.s:1393   .rodata.F_Arial12:0000000000000000 $d
+     /tmp/ccwdm6tQ.s:696    .rodata.F_Arial12:0000000000000000 F_Arial12
+     /tmp/ccwdm6tQ.s:25     .rodata.Arial_12_OffsetTable:0000000000000000 Arial_12_OffsetTable
+     /tmp/ccwdm6tQ.s:633    .rodata.Arial_12_WidthTable:0000000000000000 Arial_12_WidthTable
+     /tmp/ccwdm6tQ.s:88     .rodata.Arial_12_SymbolTable:0000000000000000 Arial_12_SymbolTable
+     /tmp/ccwdm6tQ.s:22     .rodata.Arial_12_OffsetTable:0000000000000000 $d
+     /tmp/ccwdm6tQ.s:85     .rodata.Arial_12_SymbolTable:0000000000000000 $d
+     /tmp/ccwdm6tQ.s:630    .rodata.Arial_12_WidthTable:0000000000000000 $d
+     /tmp/ccwdm6tQ.s:693    .rodata.F_Arial12:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

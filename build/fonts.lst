@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccecxzae.s 			page 1
+ARM GAS  /tmp/ccXTSq2c.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccecxzae.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"fonts.c"
@@ -36,7 +36,7 @@ ARM GAS  /tmp/ccecxzae.s 			page 1
   33              		.file 16 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
   34              		.file 17 "MakiseGUI/MakiseGUI/makise_text.h"
   35              		.file 18 "MakiseGUI/MakiseGUI/fonts/fonts.h"
-ARM GAS  /tmp/ccecxzae.s 			page 2
+ARM GAS  /tmp/ccXTSq2c.s 			page 2
 
 
 DEFINED SYMBOLS

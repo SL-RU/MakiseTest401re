@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccTEKxHM.s 			page 1
+ARM GAS  /tmp/ccvY3hAD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccTEKxHM.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"dma.c"
@@ -19,14 +19,15 @@ ARM GAS  /tmp/ccTEKxHM.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text.MX_DMA_Init,"ax",%progbits
   18              		.align	1
-  19              		.global	MX_DMA_Init
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  23              		.fpu fpv4-sp-d16
-  25              	MX_DMA_Init:
-  26              	.LFB126:
-  27              		.file 1 "Src/dma.c"
+  19              		.p2align 2,,3
+  20              		.global	MX_DMA_Init
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	MX_DMA_Init:
+  27              	.LFB126:
+  28              		.file 1 "Src/dma.c"
    1:Src/dma.c     **** /**
    2:Src/dma.c     ****   ******************************************************************************
    3:Src/dma.c     ****   * File Name          : dma.c
@@ -57,10 +58,10 @@ ARM GAS  /tmp/ccTEKxHM.s 			page 1
   28:Src/dma.c     ****   *
   29:Src/dma.c     ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
   30:Src/dma.c     ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+ARM GAS  /tmp/ccvY3hAD.s 			page 2
+
+
   31:Src/dma.c     ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-ARM GAS  /tmp/ccTEKxHM.s 			page 2
-
-
   32:Src/dma.c     ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
   33:Src/dma.c     ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
   34:Src/dma.c     ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -93,32 +94,31 @@ ARM GAS  /tmp/ccTEKxHM.s 			page 1
   61:Src/dma.c     ****   */
   62:Src/dma.c     **** void MX_DMA_Init(void) 
   63:Src/dma.c     **** {
-  28              		.loc 1 63 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 8
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32 0000 00B5     		push	{lr}
-  33              	.LCFI0:
-  34              		.cfi_def_cfa_offset 4
-  35              		.cfi_offset 14, -4
-  36 0002 83B0     		sub	sp, sp, #12
-  37              	.LCFI1:
-  38              		.cfi_def_cfa_offset 16
-  39              	.LBB2:
+  29              		.loc 1 63 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+  37 0002 83B0     		sub	sp, sp, #12
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 16
+  40              	.LBB2:
   64:Src/dma.c     ****   /* DMA controller clock enable */
   65:Src/dma.c     ****   __HAL_RCC_DMA2_CLK_ENABLE();
-  40              		.loc 1 65 0
-  41 0004 0021     		movs	r1, #0
-  42 0006 0191     		str	r1, [sp, #4]
-  43 0008 094B     		ldr	r3, .L3
-  44 000a 1A6B     		ldr	r2, [r3, #48]
-  45 000c 42F48002 		orr	r2, r2, #4194304
-  46 0010 1A63     		str	r2, [r3, #48]
-  47 0012 1B6B     		ldr	r3, [r3, #48]
-  48 0014 03F48003 		and	r3, r3, #4194304
-  49 0018 0193     		str	r3, [sp, #4]
-  50 001a 019B     		ldr	r3, [sp, #4]
-ARM GAS  /tmp/ccTEKxHM.s 			page 3
+  41              		.loc 1 65 0
+  42 0004 0022     		movs	r2, #0
+  43 0006 0A4B     		ldr	r3, .L3
+  44 0008 0192     		str	r2, [sp, #4]
+  45 000a 196B     		ldr	r1, [r3, #48]
+  46 000c 41F48001 		orr	r1, r1, #4194304
+  47 0010 1963     		str	r1, [r3, #48]
+  48 0012 1B6B     		ldr	r3, [r3, #48]
+  49 0014 03F48003 		and	r3, r3, #4194304
+  50 0018 0193     		str	r3, [sp, #4]
+ARM GAS  /tmp/ccvY3hAD.s 			page 3
 
 
   51              	.LBE2:
@@ -127,49 +127,55 @@ ARM GAS  /tmp/ccTEKxHM.s 			page 1
   68:Src/dma.c     ****   /* DMA2_Stream3_IRQn interrupt configuration */
   69:Src/dma.c     ****   HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 0, 0);
   52              		.loc 1 69 0
-  53 001c 0A46     		mov	r2, r1
-  54 001e 3B20     		movs	r0, #59
-  55 0020 FFF7FEFF 		bl	HAL_NVIC_SetPriority
-  56              	.LVL0:
+  53 001a 1146     		mov	r1, r2
+  54 001c 3B20     		movs	r0, #59
+  55              	.LBB3:
+  65:Src/dma.c     **** 
+  56              		.loc 1 65 0
+  57 001e 019B     		ldr	r3, [sp, #4]
+  58              	.LBE3:
+  59              		.loc 1 69 0
+  60 0020 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  61              	.LVL0:
   70:Src/dma.c     ****   HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
-  57              		.loc 1 70 0
-  58 0024 3B20     		movs	r0, #59
-  59 0026 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
-  60              	.LVL1:
+  62              		.loc 1 70 0
+  63 0024 3B20     		movs	r0, #59
+  64 0026 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+  65              	.LVL1:
   71:Src/dma.c     **** 
   72:Src/dma.c     **** }
-  61              		.loc 1 72 0
-  62 002a 03B0     		add	sp, sp, #12
-  63              	.LCFI2:
-  64              		.cfi_def_cfa_offset 4
-  65              		@ sp needed
-  66 002c 5DF804FB 		ldr	pc, [sp], #4
-  67              	.L4:
-  68              		.align	2
-  69              	.L3:
-  70 0030 00380240 		.word	1073887232
-  71              		.cfi_endproc
-  72              	.LFE126:
-  74              		.text
-  75              	.Letext0:
-  76              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
-  77              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
-  78              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
-  79              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
-  80              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
-  81              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
-  82              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
-  83              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
-  84              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
-  85              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/ccTEKxHM.s 			page 4
+  66              		.loc 1 72 0
+  67 002a 03B0     		add	sp, sp, #12
+  68              	.LCFI2:
+  69              		.cfi_def_cfa_offset 4
+  70              		@ sp needed
+  71 002c 5DF804FB 		ldr	pc, [sp], #4
+  72              	.L4:
+  73              		.align	2
+  74              	.L3:
+  75 0030 00380240 		.word	1073887232
+  76              		.cfi_endproc
+  77              	.LFE126:
+  79              		.text
+  80              	.Letext0:
+  81              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+  82              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  83              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+  84              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  85              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+  86              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+  87              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+  88              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+  89              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+  90              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /tmp/ccvY3hAD.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 dma.c
-     /tmp/ccTEKxHM.s:18     .text.MX_DMA_Init:0000000000000000 $t
-     /tmp/ccTEKxHM.s:25     .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
-     /tmp/ccTEKxHM.s:70     .text.MX_DMA_Init:0000000000000030 $d
+     /tmp/ccvY3hAD.s:18     .text.MX_DMA_Init:0000000000000000 $t
+     /tmp/ccvY3hAD.s:26     .text.MX_DMA_Init:0000000000000000 MX_DMA_Init
+     /tmp/ccvY3hAD.s:75     .text.MX_DMA_Init:0000000000000030 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc5aQGlS.s 			page 1
+ARM GAS  /tmp/ccmjMA4M.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/cc5aQGlS.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"makise_e_buttons.c"
@@ -19,14 +19,15 @@ ARM GAS  /tmp/cc5aQGlS.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text._m_button_predraw,"ax",%progbits
   18              		.align	1
-  19              		.global	_m_button_predraw
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  23              		.fpu fpv4-sp-d16
-  25              	_m_button_predraw:
-  26              	.LFB128:
-  27              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c"
+  19              		.p2align 2,,3
+  20              		.global	_m_button_predraw
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	_m_button_predraw:
+  27              	.LFB128:
+  28              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c"
    1:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** #include "makise_gui.h"
    2:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
    3:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** uint8_t _m_button_draw   (MElement* b);
@@ -57,10 +58,10 @@ ARM GAS  /tmp/cc5aQGlS.s 			page 1
   28:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.x = x;
   29:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.y = y;
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.width = w;
+ARM GAS  /tmp/ccmjMA4M.s 			page 2
+
+
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.height = h;
-ARM GAS  /tmp/cc5aQGlS.s 			page 2
-
-
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->enabled = 1;
   34:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->id = makise_g_newid();
@@ -84,389 +85,451 @@ ARM GAS  /tmp/cc5aQGlS.s 			page 1
   52:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
   53:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** uint8_t _m_button_predraw(MElement* b)
   54:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** {
-  28              		.loc 1 54 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33              	.LVL0:
+  29              		.loc 1 54 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              	.LVL0:
   55:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** //    printf("Button %d predr\n", b->id);
   56:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     return M_OK;
   57:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
-  34              		.loc 1 57 0
-  35 0000 0120     		movs	r0, #1
-  36              	.LVL1:
-  37 0002 7047     		bx	lr
-  38              		.cfi_endproc
-  39              	.LFE128:
-  41              		.section	.text._m_button_input,"ax",%progbits
-  42              		.align	1
-  43              		.global	_m_button_input
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  47              		.fpu fpv4-sp-d16
-  49              	_m_button_input:
-  50              	.LFB129:
+  35              		.loc 1 57 0
+  36 0000 0120     		movs	r0, #1
+  37              	.LVL1:
+  38 0002 7047     		bx	lr
+  39              		.cfi_endproc
+  40              	.LFE128:
+  42              		.section	.text._m_button_input,"ax",%progbits
+  43              		.align	1
+  44              		.p2align 2,,3
+  45              		.global	_m_button_input
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  49              		.fpu fpv4-sp-d16
+  51              	_m_button_input:
+  52              	.LFB129:
   58:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** MInputResultEnum _m_button_input  (MElement* b, MInputData data)
   59:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** {
-  51              		.loc 1 59 0
-  52              		.cfi_startproc
-  53              		@ args = 0, pretend = 0, frame = 16
-  54              		@ frame_needed = 0, uses_anonymous_args = 0
-  55              		@ link register save eliminated.
-  56              	.LVL2:
-  57 0000 84B0     		sub	sp, sp, #16
-  58              	.LCFI0:
-ARM GAS  /tmp/cc5aQGlS.s 			page 3
+  53              		.loc 1 59 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 16
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              	.LVL2:
+  58 0000 00B5     		push	{lr}
+ARM GAS  /tmp/ccmjMA4M.s 			page 3
 
 
-  59              		.cfi_def_cfa_offset 16
-  60 0002 04A8     		add	r0, sp, #16
-  61              	.LVL3:
-  62 0004 00E90E00 		stmdb	r0, {r1, r2, r3}
+  59              	.LCFI0:
+  60              		.cfi_def_cfa_offset 4
+  61              		.cfi_offset 14, -4
+  62              	.LVL3:
+  63 0002 85B0     		sub	sp, sp, #20
+  64              	.LCFI1:
+  65              		.cfi_def_cfa_offset 24
+  66              		.loc 1 59 0
+  67 0004 0DF1100E 		add	lr, sp, #16
+  68 0008 0EE90E00 		stmdb	lr, {r1, r2, r3}
   60:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
-  63              		.loc 1 60 0
-  64 0008 04B0     		add	sp, sp, #16
-  65              	.LCFI1:
-  66              		.cfi_def_cfa_offset 0
-  67              		@ sp needed
-  68 000a 7047     		bx	lr
-  69              		.cfi_endproc
-  70              	.LFE129:
-  72              		.section	.text._m_button_focus,"ax",%progbits
-  73              		.align	1
-  74              		.global	_m_button_focus
-  75              		.syntax unified
-  76              		.thumb
-  77              		.thumb_func
-  78              		.fpu fpv4-sp-d16
-  80              	_m_button_focus:
-  81              	.LFB130:
+  69              		.loc 1 60 0
+  70 000c 05B0     		add	sp, sp, #20
+  71              	.LCFI2:
+  72              		.cfi_def_cfa_offset 4
+  73              		@ sp needed
+  74 000e 5DF804FB 		ldr	pc, [sp], #4
+  75              		.cfi_endproc
+  76              	.LFE129:
+  78 0012 00BF     		.section	.text._m_button_focus,"ax",%progbits
+  79              		.align	1
+  80              		.p2align 2,,3
+  81              		.global	_m_button_focus
+  82              		.syntax unified
+  83              		.thumb
+  84              		.thumb_func
+  85              		.fpu fpv4-sp-d16
+  87              	_m_button_focus:
+  88              	.LFB130:
   61:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** MFocusEnum _m_button_focus  (MElement* b, MFocusEnum act)
   62:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** {
-  82              		.loc 1 62 0
-  83              		.cfi_startproc
-  84              		@ args = 0, pretend = 0, frame = 0
-  85              		@ frame_needed = 0, uses_anonymous_args = 0
-  86              		@ link register save eliminated.
-  87              	.LVL4:
-  88              	.LVL5:
+  89              		.loc 1 62 0
+  90              		.cfi_startproc
+  91              		@ args = 0, pretend = 0, frame = 0
+  92              		@ frame_needed = 0, uses_anonymous_args = 0
+  93              		@ link register save eliminated.
+  94              	.LVL4:
+  95              	.LVL5:
   63:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
-  89              		.loc 1 63 0
-  90 0000 7047     		bx	lr
-  91              		.cfi_endproc
-  92              	.LFE130:
-  94              		.section	.text._m_button_free,"ax",%progbits
-  95              		.align	1
-  96              		.global	_m_button_free
-  97              		.syntax unified
-  98              		.thumb
-  99              		.thumb_func
- 100              		.fpu fpv4-sp-d16
- 102              	_m_button_free:
- 103              	.LFB131:
+  96              		.loc 1 63 0
+  97 0000 7047     		bx	lr
+  98              		.cfi_endproc
+  99              	.LFE130:
+ 101 0002 00BF     		.section	.text._m_button_free,"ax",%progbits
+ 102              		.align	1
+ 103              		.p2align 2,,3
+ 104              		.global	_m_button_free
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.fpu fpv4-sp-d16
+ 110              	_m_button_free:
+ 111              	.LFB131:
   64:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** uint8_t _m_button_free   (MElement* b)
   65:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** {
- 104              		.loc 1 65 0
- 105              		.cfi_startproc
- 106              		@ args = 0, pretend = 0, frame = 0
- 107              		@ frame_needed = 0, uses_anonymous_args = 0
- 108              		@ link register save eliminated.
- 109              	.LVL6:
- 110              	.LVL7:
+ 112              		.loc 1 65 0
+ 113              		.cfi_startproc
+ARM GAS  /tmp/ccmjMA4M.s 			page 4
+
+
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              		@ link register save eliminated.
+ 117              	.LVL6:
+ 118              	.LVL7:
   66:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
- 111              		.loc 1 66 0
- 112 0000 7047     		bx	lr
-ARM GAS  /tmp/cc5aQGlS.s 			page 4
-
-
- 113              		.cfi_endproc
- 114              	.LFE131:
- 116              		.section	.text._m_button_draw,"ax",%progbits
- 117              		.align	1
- 118              		.global	_m_button_draw
- 119              		.syntax unified
- 120              		.thumb
- 121              		.thumb_func
- 122              		.fpu fpv4-sp-d16
- 124              	_m_button_draw:
- 125              	.LFB127:
+ 119              		.loc 1 66 0
+ 120 0000 7047     		bx	lr
+ 121              		.cfi_endproc
+ 122              	.LFE131:
+ 124 0002 00BF     		.section	.text._m_button_draw,"ax",%progbits
+ 125              		.align	1
+ 126              		.p2align 2,,3
+ 127              		.global	_m_button_draw
+ 128              		.syntax unified
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.fpu fpv4-sp-d16
+ 133              	_m_button_draw:
+ 134              	.LFB127:
   45:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     makise_d_rect_filled(b->gui->buffer, b->position.real_x, b->position.real_y, b->position.width,
- 126              		.loc 1 45 0
- 127              		.cfi_startproc
- 128              		@ args = 0, pretend = 0, frame = 0
- 129              		@ frame_needed = 0, uses_anonymous_args = 0
- 130              	.LVL8:
- 131 0000 70B5     		push	{r4, r5, r6, lr}
- 132              	.LCFI2:
- 133              		.cfi_def_cfa_offset 16
- 134              		.cfi_offset 4, -16
- 135              		.cfi_offset 5, -12
- 136              		.cfi_offset 6, -8
- 137              		.cfi_offset 14, -4
- 138 0002 84B0     		sub	sp, sp, #16
- 139              	.LCFI3:
- 140              		.cfi_def_cfa_offset 32
- 141 0004 0446     		mov	r4, r0
+ 135              		.loc 1 45 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139              	.LVL8:
+ 140 0000 70B5     		push	{r4, r5, r6, lr}
+ 141              	.LCFI3:
+ 142              		.cfi_def_cfa_offset 16
+ 143              		.cfi_offset 4, -16
+ 144              		.cfi_offset 5, -12
+ 145              		.cfi_offset 6, -8
+ 146              		.cfi_offset 14, -4
   46:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     makise_d_line(b->gui->buffer, b->position.real_x, b->position.real_y, 0, 0, 3);
- 142              		.loc 1 46 0
- 143 0006 456B     		ldr	r5, [r0, #52]
- 144 0008 038C     		ldrh	r3, [r0, #32]
- 145 000a B0F92C20 		ldrsh	r2, [r0, #44]
- 146 000e B0F92810 		ldrsh	r1, [r0, #40]
- 147 0012 0068     		ldr	r0, [r0]
- 148              	.LVL9:
- 149 0014 0068     		ldr	r0, [r0]
- 150 0016 AE6D     		ldr	r6, [r5, #88]
- 151 0018 0296     		str	r6, [sp, #8]
- 152 001a 2D6E     		ldr	r5, [r5, #96]
- 153 001c 0195     		str	r5, [sp, #4]
- 154 001e A58C     		ldrh	r5, [r4, #36]
- 155 0020 0095     		str	r5, [sp]
- 156 0022 FFF7FEFF 		bl	makise_d_rect_filled
- 157              	.LVL10:
+ 147              		.loc 1 46 0
+ 148 0002 456B     		ldr	r5, [r0, #52]
+ 149 0004 0368     		ldr	r3, [r0]
+ 150 0006 AA6D     		ldr	r2, [r5, #88]
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     makise_d_rect_filled(b->gui->buffer, b->position.real_x, b->position.real_y, b->position.width,
+ 151              		.loc 1 45 0
+ 152 0008 0446     		mov	r4, r0
+ 153 000a 84B0     		sub	sp, sp, #16
+ 154              	.LCFI4:
+ 155              		.cfi_def_cfa_offset 32
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     makise_d_line(b->gui->buffer, b->position.real_x, b->position.real_y, 0, 0, 3);
+ 156              		.loc 1 46 0
+ 157 000c 1868     		ldr	r0, [r3]
+ 158              	.LVL9:
+ 159 000e 238C     		ldrh	r3, [r4, #32]
+ 160 0010 0292     		str	r2, [sp, #8]
+ 161 0012 2E6E     		ldr	r6, [r5, #96]
+ 162 0014 A58C     		ldrh	r5, [r4, #36]
+ 163 0016 B4F92C20 		ldrsh	r2, [r4, #44]
+ 164 001a B4F92810 		ldrsh	r1, [r4, #40]
+ 165 001e 8DE86000 		stm	sp, {r5, r6}
+ 166 0022 FFF7FEFF 		bl	makise_d_rect_filled
+ 167              	.LVL10:
+ARM GAS  /tmp/ccmjMA4M.s 			page 5
+
+
   47:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     makise_d_string(b->gui->buffer, ((MButton*)b->data)->text, b->position.real_x + 2, b->position.
- 158              		.loc 1 47 0
- 159 0026 B4F92C20 		ldrsh	r2, [r4, #44]
- 160 002a B4F92810 		ldrsh	r1, [r4, #40]
- 161 002e 2368     		ldr	r3, [r4]
- 162 0030 1868     		ldr	r0, [r3]
- 163 0032 0323     		movs	r3, #3
- 164 0034 0193     		str	r3, [sp, #4]
- 165 0036 0023     		movs	r3, #0
- 166 0038 0093     		str	r3, [sp]
- 167 003a FFF7FEFF 		bl	makise_d_line
- 168              	.LVL11:
-ARM GAS  /tmp/cc5aQGlS.s 			page 5
-
-
+ 168              		.loc 1 47 0
+ 169 0026 2368     		ldr	r3, [r4]
+ 170 0028 B4F92C20 		ldrsh	r2, [r4, #44]
+ 171 002c 1868     		ldr	r0, [r3]
+ 172 002e B4F92810 		ldrsh	r1, [r4, #40]
+ 173 0032 0023     		movs	r3, #0
+ 174 0034 0325     		movs	r5, #3
+ 175 0036 8DE82800 		stm	sp, {r3, r5}
+ 176 003a FFF7FEFF 		bl	makise_d_line
+ 177              	.LVL11:
   48:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 169              		.loc 1 48 0
- 170 003e 656B     		ldr	r5, [r4, #52]
- 171 0040 A38D     		ldrh	r3, [r4, #44]
- 172 0042 A26A     		ldr	r2, [r4, #40]
- 173 0044 0232     		adds	r2, r2, #2
- 174 0046 696D     		ldr	r1, [r5, #84]
- 175 0048 2068     		ldr	r0, [r4]
- 176 004a 0068     		ldr	r0, [r0]
- 177 004c EC6D     		ldr	r4, [r5, #92]
- 178              	.LVL12:
- 179 004e 0194     		str	r4, [sp, #4]
- 180 0050 034C     		ldr	r4, .L8
- 181 0052 0094     		str	r4, [sp]
- 182 0054 92B2     		uxth	r2, r2
- 183 0056 FFF7FEFF 		bl	makise_d_string
- 184              	.LVL13:
+ 178              		.loc 1 48 0
+ 179 003e 656B     		ldr	r5, [r4, #52]
+ 180 0040 2368     		ldr	r3, [r4]
+ 181 0042 A26A     		ldr	r2, [r4, #40]
+ 182 0044 696D     		ldr	r1, [r5, #84]
+ 183 0046 1868     		ldr	r0, [r3]
+ 184 0048 ED6D     		ldr	r5, [r5, #92]
+ 185 004a A38D     		ldrh	r3, [r4, #44]
+ 186 004c 044C     		ldr	r4, .L8
+ 187              	.LVL12:
+ 188 004e 0195     		str	r5, [sp, #4]
+ 189 0050 0232     		adds	r2, r2, #2
+ 190 0052 92B2     		uxth	r2, r2
+ 191 0054 0094     		str	r4, [sp]
+ 192 0056 FFF7FEFF 		bl	makise_d_string
+ 193              	.LVL13:
   52:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** uint8_t _m_button_predraw(MElement* b)
- 185              		.loc 1 52 0
- 186 005a 0120     		movs	r0, #1
- 187 005c 04B0     		add	sp, sp, #16
- 188              	.LCFI4:
- 189              		.cfi_def_cfa_offset 16
- 190              		@ sp needed
- 191 005e 70BD     		pop	{r4, r5, r6, pc}
- 192              	.L9:
- 193              		.align	2
- 194              	.L8:
- 195 0060 00000000 		.word	F_Arial12
- 196              		.cfi_endproc
- 197              	.LFE127:
- 199              		.section	.text.m_button_create,"ax",%progbits
- 200              		.align	1
- 201              		.global	m_button_create
- 202              		.syntax unified
- 203              		.thumb
- 204              		.thumb_func
- 205              		.fpu fpv4-sp-d16
- 207              	m_button_create:
- 208              	.LFB126:
+ 194              		.loc 1 52 0
+ 195 005a 0120     		movs	r0, #1
+ 196 005c 04B0     		add	sp, sp, #16
+ 197              	.LCFI5:
+ 198              		.cfi_def_cfa_offset 16
+ 199              		@ sp needed
+ 200 005e 70BD     		pop	{r4, r5, r6, pc}
+ 201              	.L9:
+ 202              		.align	2
+ 203              	.L8:
+ 204 0060 00000000 		.word	F_Arial24
+ 205              		.cfi_endproc
+ 206              	.LFE127:
+ 208              		.section	.text.m_button_create,"ax",%progbits
+ 209              		.align	1
+ 210              		.p2align 2,,3
+ 211              		.global	m_button_create
+ 212              		.syntax unified
+ 213              		.thumb
+ 214              		.thumb_func
+ 215              		.fpu fpv4-sp-d16
+ 217              	m_button_create:
+ 218              	.LFB126:
   13:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     MElement *e = &b->el;
- 209              		.loc 1 13 0
- 210              		.cfi_startproc
- 211              		@ args = 24, pretend = 0, frame = 0
- 212              		@ frame_needed = 0, uses_anonymous_args = 0
- 213              	.LVL14:
- 214 0000 70B5     		push	{r4, r5, r6, lr}
- 215              	.LCFI5:
- 216              		.cfi_def_cfa_offset 16
- 217              		.cfi_offset 4, -16
- 218              		.cfi_offset 5, -12
- 219              		.cfi_offset 6, -8
- 220              		.cfi_offset 14, -4
- 221 0002 0446     		mov	r4, r0
- 222 0004 0846     		mov	r0, r1
- 223              	.LVL15:
- 224 0006 1646     		mov	r6, r2
-ARM GAS  /tmp/cc5aQGlS.s 			page 6
+ 219              		.loc 1 13 0
+ 220              		.cfi_startproc
+ 221              		@ args = 24, pretend = 0, frame = 8
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccmjMA4M.s 			page 6
 
 
- 225 0008 1D46     		mov	r5, r3
- 226              	.LVL16:
+ 223              	.LVL14:
+ 224 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 225              	.LCFI6:
+ 226              		.cfi_def_cfa_offset 36
+ 227              		.cfi_offset 4, -36
+ 228              		.cfi_offset 5, -32
+ 229              		.cfi_offset 6, -28
+ 230              		.cfi_offset 7, -24
+ 231              		.cfi_offset 8, -20
+ 232              		.cfi_offset 9, -16
+ 233              		.cfi_offset 10, -12
+ 234              		.cfi_offset 11, -8
+ 235              		.cfi_offset 14, -4
+ 236 0004 0446     		mov	r4, r0
+ 237              	.LVL15:
+ 238 0006 83B0     		sub	sp, sp, #12
+ 239              	.LCFI7:
+ 240              		.cfi_def_cfa_offset 48
   15:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 227              		.loc 1 15 0
- 228 000a 0B68     		ldr	r3, [r1]
- 229              	.LVL17:
- 230 000c 6360     		str	r3, [r4, #4]
+ 241              		.loc 1 15 0
+ 242 0008 0868     		ldr	r0, [r1]
+ 243              	.LVL16:
+ 244 000a 6060     		str	r0, [r4, #4]
   17:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     
- 231              		.loc 1 17 0
- 232 000e A463     		str	r4, [r4, #56]
+ 245              		.loc 1 17 0
+ 246 000c A463     		str	r4, [r4, #56]
   19:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 233              		.loc 1 19 0
- 234 0010 211D     		adds	r1, r4, #4
- 235              	.LVL18:
- 236 0012 FFF7FEFF 		bl	makise_g_cont_add
- 237              	.LVL19:
-  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->predraw = &_m_button_predraw;
- 238              		.loc 1 21 0
- 239 0016 124B     		ldr	r3, .L12
- 240 0018 E363     		str	r3, [r4, #60]
-  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->update = 0;
- 241              		.loc 1 22 0
- 242 001a 124B     		ldr	r3, .L12+4
- 243 001c 2364     		str	r3, [r4, #64]
-  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->input = &_m_button_input;
- 244              		.loc 1 23 0
- 245 001e 0023     		movs	r3, #0
- 246 0020 6364     		str	r3, [r4, #68]
-  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->focus = &_m_button_focus;
- 247              		.loc 1 24 0
- 248 0022 114B     		ldr	r3, .L12+8
- 249 0024 A364     		str	r3, [r4, #72]
-  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->free = &_m_button_free;
- 250              		.loc 1 25 0
- 251 0026 114B     		ldr	r3, .L12+12
- 252 0028 E364     		str	r3, [r4, #76]
-  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 253              		.loc 1 26 0
- 254 002a 114B     		ldr	r3, .L12+16
- 255 002c 2365     		str	r3, [r4, #80]
-  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.y = y;
- 256              		.loc 1 28 0
- 257 002e E661     		str	r6, [r4, #28]
+ 247              		.loc 1 19 0
+ 248 000e 0846     		mov	r0, r1
+ 249 0010 211D     		adds	r1, r4, #4
+ 250              	.LVL17:
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     MElement *e = &b->el;
+ 251              		.loc 1 13 0
+ 252 0012 9346     		mov	fp, r2
+ 253 0014 0193     		str	r3, [sp, #4]
+ 254 0016 DDF830A0 		ldr	r10, [sp, #48]
+ 255 001a DDF83490 		ldr	r9, [sp, #52]
+ 256 001e DDF83880 		ldr	r8, [sp, #56]
+ 257 0022 0F9F     		ldr	r7, [sp, #60]
+ 258 0024 109E     		ldr	r6, [sp, #64]
+ 259 0026 119D     		ldr	r5, [sp, #68]
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
+ 260              		.loc 1 19 0
+ 261 0028 FFF7FEFF 		bl	makise_g_cont_add
+ 262              	.LVL18:
   29:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.width = w;
- 258              		.loc 1 29 0
- 259 0030 2562     		str	r5, [r4, #32]
-  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.height = h;
- 260              		.loc 1 30 0
- 261 0032 049B     		ldr	r3, [sp, #16]
- 262 0034 6362     		str	r3, [r4, #36]
-  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 263              		.loc 1 31 0
- 264 0036 059B     		ldr	r3, [sp, #20]
- 265 0038 A362     		str	r3, [r4, #40]
+ 263              		.loc 1 29 0
+ 264 002c 019B     		ldr	r3, [sp, #4]
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->predraw = &_m_button_predraw;
+ 265              		.loc 1 21 0
+ 266 002e DFF864E0 		ldr	lr, .L12+16
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->focus = &_m_button_focus;
+ 267              		.loc 1 24 0
+ 268 0032 1449     		ldr	r1, .L12
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.y = y;
+ 269              		.loc 1 28 0
+ 270 0034 C4F81CB0 		str	fp, [r4, #28]
+ARM GAS  /tmp/ccmjMA4M.s 			page 7
+
+
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->input = &_m_button_input;
+ 271              		.loc 1 23 0
+ 272 0038 4FF0000C 		mov	ip, #0
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.width = w;
+ 273              		.loc 1 29 0
+ 274 003c 2362     		str	r3, [r4, #32]
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
+ 275              		.loc 1 26 0
+ 276 003e 124A     		ldr	r2, .L12+4
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->update = 0;
+ 277              		.loc 1 22 0
+ 278 0040 1248     		ldr	r0, .L12+8
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->free = &_m_button_free;
+ 279              		.loc 1 25 0
+ 280 0042 DFF854B0 		ldr	fp, .L12+20
+ 281              	.LVL19:
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->focus = &_m_button_focus;
+ 282              		.loc 1 24 0
+ 283 0046 A164     		str	r1, [r4, #72]
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->id = makise_g_newid();
- 266              		.loc 1 33 0
- 267 003a 0123     		movs	r3, #1
-ARM GAS  /tmp/cc5aQGlS.s 			page 7
-
-
- 268 003c 2376     		strb	r3, [r4, #24]
+ 284              		.loc 1 33 0
+ 285 0048 0123     		movs	r3, #1
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.height = h;
+ 286              		.loc 1 30 0
+ 287 004a C4F824A0 		str	r10, [r4, #36]
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
+ 288              		.loc 1 31 0
+ 289 004e C4F82890 		str	r9, [r4, #40]
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->predraw = &_m_button_predraw;
+ 290              		.loc 1 21 0
+ 291 0052 C4F83CE0 		str	lr, [r4, #60]
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->update = 0;
+ 292              		.loc 1 22 0
+ 293 0056 2064     		str	r0, [r4, #64]
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->input = &_m_button_input;
+ 294              		.loc 1 23 0
+ 295 0058 C4F844C0 		str	ip, [r4, #68]
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->free = &_m_button_free;
+ 296              		.loc 1 25 0
+ 297 005c C4F84CB0 		str	fp, [r4, #76]
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
+ 298              		.loc 1 26 0
+ 299 0060 2265     		str	r2, [r4, #80]
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->id = makise_g_newid();
+ 300              		.loc 1 33 0
+ 301 0062 2376     		strb	r3, [r4, #24]
   34:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 269              		.loc 1 34 0
- 270 003e FFF7FEFF 		bl	makise_g_newid
- 271              	.LVL20:
- 272 0042 0146     		mov	r1, r0
- 273 0044 A060     		str	r0, [r4, #8]
-  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     b->bgcolor = bgcolor;
- 274              		.loc 1 36 0
- 275 0046 069B     		ldr	r3, [sp, #24]
- 276 0048 6365     		str	r3, [r4, #84]
-  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     b->fontcolor = fontcolor;
- 277              		.loc 1 37 0
- 278 004a 079B     		ldr	r3, [sp, #28]
- 279 004c A365     		str	r3, [r4, #88]
-  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     b->bordercolor = bordercolor;
- 280              		.loc 1 38 0
- 281 004e 089B     		ldr	r3, [sp, #32]
- 282 0050 E365     		str	r3, [r4, #92]
-  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
- 283              		.loc 1 39 0
- 284 0052 099B     		ldr	r3, [sp, #36]
- 285 0054 2366     		str	r3, [r4, #96]
+ 302              		.loc 1 34 0
+ 303 0064 FFF7FEFF 		bl	makise_g_newid
+ 304              	.LVL20:
+ 305 0068 0146     		mov	r1, r0
+ 306 006a A060     		str	r0, [r4, #8]
   41:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
- 286              		.loc 1 41 0
- 287 0056 0748     		ldr	r0, .L12+20
- 288 0058 FFF7FEFF 		bl	printf
- 289              	.LVL21:
- 290 005c 70BD     		pop	{r4, r5, r6, pc}
- 291              	.LVL22:
- 292              	.L13:
- 293 005e 00BF     		.align	2
- 294              	.L12:
- 295 0060 00000000 		.word	_m_button_draw
- 296 0064 00000000 		.word	_m_button_predraw
- 297 0068 00000000 		.word	_m_button_input
- 298 006c 00000000 		.word	_m_button_focus
- 299 0070 00000000 		.word	_m_button_free
- 300 0074 00000000 		.word	.LC0
- 301              		.cfi_endproc
- 302              	.LFE126:
- 304              		.section	.rodata.m_button_create.str1.4,"aMS",%progbits,1
- 305              		.align	2
- 306              	.LC0:
- 307 0000 42757474 		.ascii	"Button %d created\012\000"
- 307      6F6E2025 
- 307      64206372 
- 307      65617465 
- 307      640A00
- 308              		.text
- 309              	.Letext0:
- 310              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 311              		.file 3 "MakiseGUI/MakiseGUI/makise.h"
- 312              		.file 4 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 313              		.file 5 "/usr/arm-none-eabi/include/sys/lock.h"
- 314              		.file 6 "/usr/arm-none-eabi/include/sys/_types.h"
- 315              		.file 7 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
-ARM GAS  /tmp/cc5aQGlS.s 			page 8
+ 307              		.loc 1 41 0
+ 308 006c 0848     		ldr	r0, .L12+12
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     b->bgcolor = bgcolor;
+ 309              		.loc 1 36 0
+ARM GAS  /tmp/ccmjMA4M.s 			page 8
 
 
- 316              		.file 8 "/usr/arm-none-eabi/include/sys/reent.h"
- 317              		.file 9 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 318              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
- 319              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 320              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 321              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 322              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 323              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 324              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 325              		.file 17 "Inc/spi.h"
- 326              		.file 18 "Inc/tim.h"
- 327              		.file 19 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 328              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
- 329              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 330              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 331              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
- 332              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
- 333              		.file 25 "MakiseGUI/MakiseGUI/makise_primitives.h"
- 334              		.file 26 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/cc5aQGlS.s 			page 9
+ 310 006e C4F85480 		str	r8, [r4, #84]
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     b->fontcolor = fontcolor;
+ 311              		.loc 1 37 0
+ 312 0072 A765     		str	r7, [r4, #88]
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     b->bordercolor = bordercolor;
+ 313              		.loc 1 38 0
+ 314 0074 E665     		str	r6, [r4, #92]
+  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
+ 315              		.loc 1 39 0
+ 316 0076 2566     		str	r5, [r4, #96]
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
+ 317              		.loc 1 42 0
+ 318 0078 03B0     		add	sp, sp, #12
+ 319              	.LCFI8:
+ 320              		.cfi_def_cfa_offset 36
+ 321              		@ sp needed
+ 322 007a BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 323              	.LCFI9:
+ 324              		.cfi_restore 14
+ 325              		.cfi_restore 11
+ 326              		.cfi_restore 10
+ 327              		.cfi_restore 9
+ 328              		.cfi_restore 8
+ 329              		.cfi_restore 7
+ 330              		.cfi_restore 6
+ 331              		.cfi_restore 5
+ 332              		.cfi_restore 4
+ 333              		.cfi_def_cfa_offset 0
+ 334              	.LVL21:
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
+ 335              		.loc 1 41 0
+ 336 007e FFF7FEBF 		b	printf
+ 337              	.LVL22:
+ 338              	.L13:
+ 339 0082 00BF     		.align	2
+ 340              	.L12:
+ 341 0084 00000000 		.word	_m_button_input
+ 342 0088 00000000 		.word	_m_button_free
+ 343 008c 00000000 		.word	_m_button_predraw
+ 344 0090 00000000 		.word	.LC0
+ 345 0094 00000000 		.word	_m_button_draw
+ 346 0098 00000000 		.word	_m_button_focus
+ 347              		.cfi_endproc
+ 348              	.LFE126:
+ 350              		.section	.rodata.m_button_create.str1.4,"aMS",%progbits,1
+ 351              		.align	2
+ 352              	.LC0:
+ 353 0000 42757474 		.ascii	"Button %d created\012\000"
+ 353      6F6E2025 
+ 353      64206372 
+ 353      65617465 
+ 353      640A00
+ 354              		.text
+ 355              	.Letext0:
+ 356              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 357              		.file 3 "MakiseGUI/MakiseGUI/makise.h"
+ 358              		.file 4 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ARM GAS  /tmp/ccmjMA4M.s 			page 9
+
+
+ 359              		.file 5 "/usr/arm-none-eabi/include/sys/lock.h"
+ 360              		.file 6 "/usr/arm-none-eabi/include/sys/_types.h"
+ 361              		.file 7 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 362              		.file 8 "/usr/arm-none-eabi/include/sys/reent.h"
+ 363              		.file 9 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 364              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
+ 365              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 366              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 367              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 368              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 369              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 370              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 371              		.file 17 "Inc/spi.h"
+ 372              		.file 18 "Inc/tim.h"
+ 373              		.file 19 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 374              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
+ 375              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 376              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 377              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 378              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 379              		.file 25 "MakiseGUI/MakiseGUI/makise_primitives.h"
+ 380              		.file 26 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccmjMA4M.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_e_buttons.c
-     /tmp/cc5aQGlS.s:18     .text._m_button_predraw:0000000000000000 $t
-     /tmp/cc5aQGlS.s:25     .text._m_button_predraw:0000000000000000 _m_button_predraw
-     /tmp/cc5aQGlS.s:42     .text._m_button_input:0000000000000000 $t
-     /tmp/cc5aQGlS.s:49     .text._m_button_input:0000000000000000 _m_button_input
-     /tmp/cc5aQGlS.s:73     .text._m_button_focus:0000000000000000 $t
-     /tmp/cc5aQGlS.s:80     .text._m_button_focus:0000000000000000 _m_button_focus
-     /tmp/cc5aQGlS.s:95     .text._m_button_free:0000000000000000 $t
-     /tmp/cc5aQGlS.s:102    .text._m_button_free:0000000000000000 _m_button_free
-     /tmp/cc5aQGlS.s:117    .text._m_button_draw:0000000000000000 $t
-     /tmp/cc5aQGlS.s:124    .text._m_button_draw:0000000000000000 _m_button_draw
-     /tmp/cc5aQGlS.s:195    .text._m_button_draw:0000000000000060 $d
-     /tmp/cc5aQGlS.s:200    .text.m_button_create:0000000000000000 $t
-     /tmp/cc5aQGlS.s:207    .text.m_button_create:0000000000000000 m_button_create
-     /tmp/cc5aQGlS.s:295    .text.m_button_create:0000000000000060 $d
-     /tmp/cc5aQGlS.s:305    .rodata.m_button_create.str1.4:0000000000000000 $d
+     /tmp/ccmjMA4M.s:18     .text._m_button_predraw:0000000000000000 $t
+     /tmp/ccmjMA4M.s:26     .text._m_button_predraw:0000000000000000 _m_button_predraw
+     /tmp/ccmjMA4M.s:43     .text._m_button_input:0000000000000000 $t
+     /tmp/ccmjMA4M.s:51     .text._m_button_input:0000000000000000 _m_button_input
+     /tmp/ccmjMA4M.s:79     .text._m_button_focus:0000000000000000 $t
+     /tmp/ccmjMA4M.s:87     .text._m_button_focus:0000000000000000 _m_button_focus
+     /tmp/ccmjMA4M.s:102    .text._m_button_free:0000000000000000 $t
+     /tmp/ccmjMA4M.s:110    .text._m_button_free:0000000000000000 _m_button_free
+     /tmp/ccmjMA4M.s:125    .text._m_button_draw:0000000000000000 $t
+     /tmp/ccmjMA4M.s:133    .text._m_button_draw:0000000000000000 _m_button_draw
+     /tmp/ccmjMA4M.s:204    .text._m_button_draw:0000000000000060 $d
+     /tmp/ccmjMA4M.s:209    .text.m_button_create:0000000000000000 $t
+     /tmp/ccmjMA4M.s:217    .text.m_button_create:0000000000000000 m_button_create
+     /tmp/ccmjMA4M.s:341    .text.m_button_create:0000000000000084 $d
+     /tmp/ccmjMA4M.s:351    .rodata.m_button_create.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 makise_d_rect_filled
 makise_d_line
 makise_d_string
-F_Arial12
+F_Arial24
 makise_g_cont_add
 makise_g_newid
 printf

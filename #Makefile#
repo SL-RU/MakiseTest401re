@@ -13,7 +13,7 @@ TARGET = MakiseTest401re
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -O2
+OPT = -Ofas
 
 #######################################
 # pathes
@@ -48,6 +48,7 @@ C_SOURCES = \
   MakiseGUI/MakiseGUI/makise.c \
   MakiseGUI/MakiseGUI/makise_primitives.c \
   MakiseGUI/MakiseGUI/makise_text.c \
+  MakiseGUI/MakiseGUI/fonts/Arial12.c \
   MakiseGUI/MakiseGUI/fonts/Arial24.c \
   MakiseGUI/MakiseGUI/fonts/fonts.c \
   MakiseGUI/MakiseGUI/gui/makise_gui.c \

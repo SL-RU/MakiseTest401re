@@ -129,7 +129,7 @@ void _mt_d(MakiseGUI* gui)
     //makise_d_line(mgui->buffer, 120, 160, cos(ang) * 100 + 120, sin(ang) * 100 + 160, 1);
     makise_d_rect_filled(mgui->buffer, 170, 50, 50, 50, 1, 2);
 
-    makise_d_string(mgui->buffer, "keeek", 100, 30, &F_Arial12, 4);
+//    makise_d_string(mgui->buffer, "keek", 100, 30, &F_Arial12, 2);
     
     makise_g_host_call(host, M_G_CALL_DRAW);
 }
@@ -191,8 +191,11 @@ int main(void)
   WriteRegister(LSM303_CTRL7, 0x00);
   printf("acc %d\n", ReadRegister(LSM303_WHO_AM_I));
 
+//  printf("%d\n", Arial_12_SymbolTable[4]);
   mgui = mt_start();
   mgui->draw = &_mt_d;
+//  printf("%d\n", Arial_12_SymbolTable[2]);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */

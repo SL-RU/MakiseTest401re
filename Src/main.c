@@ -125,12 +125,11 @@ MakiseGUI* mgui;
 void _mt_d(MakiseGUI* gui)
 {
     makise_d_clear(mgui->buffer, 0);
-    //makise_d_circle_filled(mgui->buffer, 50, (HAL_GetTick() % 500)/2 + 50, 40, 1, 3);
+    makise_d_circle_filled(mgui->buffer, 50, (HAL_GetTick() % 500)/2 + 50, 40, 1, 3);
     //makise_d_line(mgui->buffer, 120, 160, cos(ang) * 100 + 120, sin(ang) * 100 + 160, 1);
     makise_d_rect_filled(mgui->buffer, 170, 50, 50, 50, 1, 2);
 
-//    makise_d_string(mgui->buffer, "keek", 100, 30, &F_Arial12, 2);
-    
+    //makise_d_string(mgui->buffer, "KEEEK", 100, 30, &F_Arial12, 2);    
     makise_g_host_call(host, M_G_CALL_DRAW);
 }
 #define kdat GPIOB, GPIO_PIN_5
@@ -157,7 +156,7 @@ void hc595(uint8_t val)
 
 int main(void)
 {
-
+    
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -182,13 +181,13 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   hc595(0);
-  uint8_t l = 0;
 
   //WriteRegister(LSM303_CTRL2, 0x00);
   //WriteRegister(LSM303_CTRL1, 0x57);
   WriteRegister(LSM303_CTRL5, 0b01110000);
   WriteRegister(LSM303_CTRL6, 0x20);
   WriteRegister(LSM303_CTRL7, 0x00);
+
   printf("acc %d\n", ReadRegister(LSM303_WHO_AM_I));
 
 //  printf("%d\n", Arial_12_SymbolTable[4]);

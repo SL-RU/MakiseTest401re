@@ -46,10 +46,9 @@ MakiseGUI* mt_start()
     memset(bu->buffer, 0, sz);
     printf("%lu\n", (uint32_t)(bu->buffer));
 
-    m_button_create(butt, host->host, 50, 50, 100, 70, t0, 1, 0, 1);
-
-    m_button_create(butt + 1, host->host, 50, 150, 100, 50, t1, 1, 0, 1);
-    m_button_create(butt + 2, host->host, 50, 250, 70, 50, t2, 0, 1, 0);
+    m_button_create(&butt[0], host->host, 50, 50, 100, 70, t0, 0, 2, 1);
+    m_button_create(&butt[1], host->host, 50, 150, 100, 50, t1, 1, 0, 1);
+    m_button_create(&butt[2], host->host, 50, 220, 70, 50, t2, 2, 1, 0);
     
     mGui = gu;
     ili9340_init(gu);

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccRPTmmq.s 			page 1
+ARM GAS  /tmp/ccfyqmN1.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"sd_diskio.c"
@@ -19,14 +19,15 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text.SD_initialize,"ax",%progbits
   18              		.align	1
-  19              		.global	SD_initialize
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  23              		.fpu fpv4-sp-d16
-  25              	SD_initialize:
-  26              	.LFB126:
-  27              		.file 1 "Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c"
+  19              		.p2align 2,,3
+  20              		.global	SD_initialize
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	SD_initialize:
+  27              	.LFB126:
+  28              		.file 1 "Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c"
    1:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /**
    2:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   ******************************************************************************
    3:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   * @file    sd_diskio.c
@@ -57,10 +58,10 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
   28:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /* Includes ------------------------------------------------------------------*/
   29:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** #include <string.h>
   30:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** #include "ff_gen_drv.h"
+ARM GAS  /tmp/ccfyqmN1.s 			page 2
+
+
   31:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** 
-ARM GAS  /tmp/ccRPTmmq.s 			page 2
-
-
   32:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /* Private typedef -----------------------------------------------------------*/
   33:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /* Private define ------------------------------------------------------------*/
   34:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /* Block Size in Bytes */
@@ -104,56 +105,55 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
   72:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   */
   73:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** DSTATUS SD_initialize(BYTE lun)
   74:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** {
-  28              		.loc 1 74 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              	.LVL0:
-  33 0000 08B5     		push	{r3, lr}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 3, -8
-  37              		.cfi_offset 14, -4
+  29              		.loc 1 74 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              	.LVL0:
+  34 0000 10B5     		push	{r4, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 4, -8
+  38              		.cfi_offset 14, -4
   75:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   Stat = STA_NOINIT;
-  38              		.loc 1 75 0
-  39 0002 0122     		movs	r2, #1
-  40 0004 064B     		ldr	r3, .L4
-ARM GAS  /tmp/ccRPTmmq.s 			page 3
+  39              		.loc 1 75 0
+  40 0002 064C     		ldr	r4, .L5
+ARM GAS  /tmp/ccfyqmN1.s 			page 3
 
 
-  41 0006 1A70     		strb	r2, [r3]
+  41 0004 0123     		movs	r3, #1
+  42 0006 2370     		strb	r3, [r4]
   76:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
   77:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   /* Configure the uSD device */
   78:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   if(BSP_SD_Init() == MSD_OK)
-  42              		.loc 1 78 0
-  43 0008 FFF7FEFF 		bl	BSP_SD_Init
-  44              	.LVL1:
-  45 000c 20B9     		cbnz	r0, .L2
+  43              		.loc 1 78 0
+  44 0008 FFF7FEFF 		bl	BSP_SD_Init
+  45              	.LVL1:
+  46 000c 18B9     		cbnz	r0, .L2
   79:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   {
   80:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     Stat &= ~STA_NOINIT;
-  46              		.loc 1 80 0
-  47 000e 044A     		ldr	r2, .L4
-  48 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  49 0012 03F0FE03 		and	r3, r3, #254
-  50 0016 1370     		strb	r3, [r2]
+  47              		.loc 1 80 0
+  48 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  49 0010 03F0FE03 		and	r3, r3, #254
+  50 0014 2370     		strb	r3, [r4]
   51              	.L2:
   81:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   }
   82:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** 
   83:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   return Stat;
   52              		.loc 1 83 0
-  53 0018 014B     		ldr	r3, .L4
-  54 001a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  53 0016 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
   84:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** }
-  55              		.loc 1 84 0
-  56 001c 08BD     		pop	{r3, pc}
-  57              	.L5:
-  58 001e 00BF     		.align	2
-  59              	.L4:
-  60 0020 00000000 		.word	.LANCHOR0
-  61              		.cfi_endproc
-  62              	.LFE126:
-  64              		.section	.text.SD_status,"ax",%progbits
-  65              		.align	1
+  54              		.loc 1 84 0
+  55 0018 10BD     		pop	{r4, pc}
+  56              	.L6:
+  57 001a 00BF     		.align	2
+  58              	.L5:
+  59 001c 00000000 		.word	.LANCHOR0
+  60              		.cfi_endproc
+  61              	.LFE126:
+  63              		.section	.text.SD_status,"ax",%progbits
+  64              		.align	1
+  65              		.p2align 2,,3
   66              		.global	SD_status
   67              		.syntax unified
   68              		.thumb
@@ -174,57 +174,56 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
   76              		@ args = 0, pretend = 0, frame = 0
   77              		@ frame_needed = 0, uses_anonymous_args = 0
   78              	.LVL2:
-  79 0000 08B5     		push	{r3, lr}
+  79 0000 10B5     		push	{r4, lr}
   80              	.LCFI1:
   81              		.cfi_def_cfa_offset 8
-  82              		.cfi_offset 3, -8
-ARM GAS  /tmp/ccRPTmmq.s 			page 4
+  82              		.cfi_offset 4, -8
+ARM GAS  /tmp/ccfyqmN1.s 			page 4
 
 
   83              		.cfi_offset 14, -4
   93:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   Stat = STA_NOINIT;
   84              		.loc 1 93 0
-  85 0002 0122     		movs	r2, #1
-  86 0004 064B     		ldr	r3, .L9
-  87 0006 1A70     		strb	r2, [r3]
+  85 0002 064C     		ldr	r4, .L10
+  86 0004 0123     		movs	r3, #1
+  87 0006 2370     		strb	r3, [r4]
   94:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** 
   95:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   if(BSP_SD_GetStatus() == MSD_OK)
   88              		.loc 1 95 0
   89 0008 FFF7FEFF 		bl	BSP_SD_GetStatus
   90              	.LVL3:
-  91 000c 20B9     		cbnz	r0, .L7
+  91 000c 18B9     		cbnz	r0, .L8
   96:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   {
   97:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     Stat &= ~STA_NOINIT;
   92              		.loc 1 97 0
-  93 000e 044A     		ldr	r2, .L9
-  94 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  95 0012 03F0FE03 		and	r3, r3, #254
-  96 0016 1370     		strb	r3, [r2]
-  97              	.L7:
+  93 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  94 0010 03F0FE03 		and	r3, r3, #254
+  95 0014 2370     		strb	r3, [r4]
+  96              	.L8:
   98:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   }
   99:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  100:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   return Stat;
-  98              		.loc 1 100 0
-  99 0018 014B     		ldr	r3, .L9
- 100 001a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  97              		.loc 1 100 0
+  98 0016 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
  101:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** }
- 101              		.loc 1 101 0
- 102 001c 08BD     		pop	{r3, pc}
+  99              		.loc 1 101 0
+ 100 0018 10BD     		pop	{r4, pc}
+ 101              	.L11:
+ 102 001a 00BF     		.align	2
  103              	.L10:
- 104 001e 00BF     		.align	2
- 105              	.L9:
- 106 0020 00000000 		.word	.LANCHOR0
- 107              		.cfi_endproc
- 108              	.LFE127:
- 110              		.section	.text.SD_read,"ax",%progbits
- 111              		.align	1
- 112              		.global	SD_read
- 113              		.syntax unified
- 114              		.thumb
- 115              		.thumb_func
- 116              		.fpu fpv4-sp-d16
- 118              	SD_read:
- 119              	.LFB128:
+ 104 001c 00000000 		.word	.LANCHOR0
+ 105              		.cfi_endproc
+ 106              	.LFE127:
+ 108              		.section	.text.SD_read,"ax",%progbits
+ 109              		.align	1
+ 110              		.p2align 2,,3
+ 111              		.global	SD_read
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv4-sp-d16
+ 117              	SD_read:
+ 118              	.LFB128:
  102:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** 
  103:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /**
  104:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   * @brief  Reads Sector(s)
@@ -236,37 +235,37 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  110:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   */
  111:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** DRESULT SD_read(BYTE lun, BYTE *buff, DWORD sector, UINT count)
  112:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** {
- 120              		.loc 1 112 0
- 121              		.cfi_startproc
-ARM GAS  /tmp/ccRPTmmq.s 			page 5
+ 119              		.loc 1 112 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccfyqmN1.s 			page 5
 
 
- 122              		@ args = 0, pretend = 0, frame = 0
- 123              		@ frame_needed = 0, uses_anonymous_args = 0
- 124              	.LVL4:
- 125 0000 00B5     		push	{lr}
- 126              	.LCFI2:
- 127              		.cfi_def_cfa_offset 4
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              	.LVL4:
+ 124 0000 10B5     		push	{r4, lr}
+ 125              	.LCFI2:
+ 126              		.cfi_def_cfa_offset 8
+ 127              		.cfi_offset 4, -8
  128              		.cfi_offset 14, -4
- 129 0002 83B0     		sub	sp, sp, #12
+ 129 0002 82B0     		sub	sp, sp, #8
  130              	.LCFI3:
  131              		.cfi_def_cfa_offset 16
- 132              	.LVL5:
  113:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   DRESULT res = RES_OK;
  114:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  115:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   if(BSP_SD_ReadBlocks((uint32_t*)buff, 
- 133              		.loc 1 115 0
- 134 0004 0193     		str	r3, [sp, #4]
- 135 0006 4FF40073 		mov	r3, #512
- 136              	.LVL6:
- 137 000a 0093     		str	r3, [sp]
- 138 000c 5202     		lsls	r2, r2, #9
- 139              	.LVL7:
- 140 000e 0023     		movs	r3, #0
- 141 0010 0846     		mov	r0, r1
- 142              	.LVL8:
- 143 0012 FFF7FEFF 		bl	BSP_SD_ReadBlocks
- 144              	.LVL9:
+ 132              		.loc 1 115 0
+ 133 0004 4FF40074 		mov	r4, #512
+ 134 0008 0193     		str	r3, [sp, #4]
+ 135 000a 5202     		lsls	r2, r2, #9
+ 136              	.LVL5:
+ 137 000c 0846     		mov	r0, r1
+ 138              	.LVL6:
+ 139 000e 0094     		str	r4, [sp]
+ 140 0010 0023     		movs	r3, #0
+ 141              	.LVL7:
+ 142 0012 FFF7FEFF 		bl	BSP_SD_ReadBlocks
+ 143              	.LVL8:
  116:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****                        (uint64_t) (sector * BLOCK_SIZE), 
  117:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****                        BLOCK_SIZE, 
  118:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****                        count) != MSD_OK)
@@ -276,20 +275,21 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  122:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  123:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   return res;
  124:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** }
- 145              		.loc 1 124 0
- 146 0016 0030     		adds	r0, r0, #0
- 147              	.LVL10:
- 148 0018 18BF     		it	ne
- 149 001a 0120     		movne	r0, #1
- 150 001c 03B0     		add	sp, sp, #12
- 151              	.LCFI4:
- 152              		.cfi_def_cfa_offset 4
- 153              		@ sp needed
- 154 001e 5DF804FB 		ldr	pc, [sp], #4
- 155              		.cfi_endproc
- 156              	.LFE128:
- 158              		.section	.text.SD_write,"ax",%progbits
- 159              		.align	1
+ 144              		.loc 1 124 0
+ 145 0016 0030     		adds	r0, r0, #0
+ 146              	.LVL9:
+ 147 0018 18BF     		it	ne
+ 148 001a 0120     		movne	r0, #1
+ 149 001c 02B0     		add	sp, sp, #8
+ 150              	.LCFI4:
+ 151              		.cfi_def_cfa_offset 8
+ 152              		@ sp needed
+ 153 001e 10BD     		pop	{r4, pc}
+ 154              		.cfi_endproc
+ 155              	.LFE128:
+ 157              		.section	.text.SD_write,"ax",%progbits
+ 158              		.align	1
+ 159              		.p2align 2,,3
  160              		.global	SD_write
  161              		.syntax unified
  162              		.thumb
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  166              	SD_write:
  167              	.LFB129:
  125:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** 
-ARM GAS  /tmp/ccRPTmmq.s 			page 6
+ARM GAS  /tmp/ccfyqmN1.s 			page 6
 
 
  126:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /**
@@ -316,30 +316,30 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  169              		.cfi_startproc
  170              		@ args = 0, pretend = 0, frame = 0
  171              		@ frame_needed = 0, uses_anonymous_args = 0
- 172              	.LVL11:
- 173 0000 00B5     		push	{lr}
+ 172              	.LVL10:
+ 173 0000 10B5     		push	{r4, lr}
  174              	.LCFI5:
- 175              		.cfi_def_cfa_offset 4
- 176              		.cfi_offset 14, -4
- 177 0002 83B0     		sub	sp, sp, #12
- 178              	.LCFI6:
- 179              		.cfi_def_cfa_offset 16
- 180              	.LVL12:
+ 175              		.cfi_def_cfa_offset 8
+ 176              		.cfi_offset 4, -8
+ 177              		.cfi_offset 14, -4
+ 178 0002 82B0     		sub	sp, sp, #8
+ 179              	.LCFI6:
+ 180              		.cfi_def_cfa_offset 16
  137:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   DRESULT res = RES_OK;
  138:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  139:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   if(BSP_SD_WriteBlocks((uint32_t*)buff, 
  181              		.loc 1 139 0
- 182 0004 0193     		str	r3, [sp, #4]
- 183 0006 4FF40073 		mov	r3, #512
- 184              	.LVL13:
- 185 000a 0093     		str	r3, [sp]
- 186 000c 5202     		lsls	r2, r2, #9
- 187              	.LVL14:
- 188 000e 0023     		movs	r3, #0
- 189 0010 0846     		mov	r0, r1
- 190              	.LVL15:
+ 182 0004 4FF40074 		mov	r4, #512
+ 183 0008 0193     		str	r3, [sp, #4]
+ 184 000a 5202     		lsls	r2, r2, #9
+ 185              	.LVL11:
+ 186 000c 0846     		mov	r0, r1
+ 187              	.LVL12:
+ 188 000e 0094     		str	r4, [sp]
+ 189 0010 0023     		movs	r3, #0
+ 190              	.LVL13:
  191 0012 FFF7FEFF 		bl	BSP_SD_WriteBlocks
- 192              	.LVL16:
+ 192              	.LVL14:
  140:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****                         (uint64_t)(sector * BLOCK_SIZE), 
  141:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****                         BLOCK_SIZE, count) != MSD_OK)
  142:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   {
@@ -350,28 +350,29 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  147:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** }
  193              		.loc 1 147 0
  194 0016 0030     		adds	r0, r0, #0
- 195              	.LVL17:
+ 195              	.LVL15:
  196 0018 18BF     		it	ne
  197 001a 0120     		movne	r0, #1
- 198 001c 03B0     		add	sp, sp, #12
+ 198 001c 02B0     		add	sp, sp, #8
  199              	.LCFI7:
- 200              		.cfi_def_cfa_offset 4
+ 200              		.cfi_def_cfa_offset 8
  201              		@ sp needed
- 202 001e 5DF804FB 		ldr	pc, [sp], #4
-ARM GAS  /tmp/ccRPTmmq.s 			page 7
+ 202 001e 10BD     		pop	{r4, pc}
+ARM GAS  /tmp/ccfyqmN1.s 			page 7
 
 
  203              		.cfi_endproc
  204              	.LFE129:
  206              		.section	.text.SD_ioctl,"ax",%progbits
  207              		.align	1
- 208              		.global	SD_ioctl
- 209              		.syntax unified
- 210              		.thumb
- 211              		.thumb_func
- 212              		.fpu fpv4-sp-d16
- 214              	SD_ioctl:
- 215              	.LFB130:
+ 208              		.p2align 2,,3
+ 209              		.global	SD_ioctl
+ 210              		.syntax unified
+ 211              		.thumb
+ 212              		.thumb_func
+ 213              		.fpu fpv4-sp-d16
+ 215              	SD_ioctl:
+ 216              	.LFB130:
  148:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** #endif /* _USE_WRITE == 1 */
  149:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** 
  150:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** /**
@@ -384,45 +385,51 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  157:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** #if _USE_IOCTL == 1
  158:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** DRESULT SD_ioctl(BYTE lun, BYTE cmd, void *buff)
  159:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** {
- 216              		.loc 1 159 0
- 217              		.cfi_startproc
- 218              		@ args = 0, pretend = 0, frame = 88
- 219              		@ frame_needed = 0, uses_anonymous_args = 0
- 220              	.LVL18:
+ 217              		.loc 1 159 0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 88
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              	.LVL16:
  160:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   DRESULT res = RES_ERROR;
  161:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   SD_CardInfo CardInfo;
  162:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  163:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   if (Stat & STA_NOINIT) return RES_NOTRDY;
- 221              		.loc 1 163 0
- 222 0000 144B     		ldr	r3, .L28
- 223 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 224 0004 13F0010F 		tst	r3, #1
- 225 0008 01D0     		beq	.L27
- 226 000a 0320     		movs	r0, #3
- 227              	.LVL19:
- 228 000c 7047     		bx	lr
- 229              	.LVL20:
- 230              	.L27:
+ 222              		.loc 1 163 0
+ 223 0000 144B     		ldr	r3, .L29
+ 224 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 225 0004 DB07     		lsls	r3, r3, #31
+ 226 0006 01D5     		bpl	.L28
+ 227 0008 0320     		movs	r0, #3
+ 228              	.LVL17:
+ 229 000a 7047     		bx	lr
+ 230              	.LVL18:
+ 231              	.L28:
  164:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  165:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   switch (cmd)
- 231              		.loc 1 165 0
- 232 000e 0329     		cmp	r1, #3
- 233 0010 03D8     		bhi	.L17
- 234 0012 DFE801F0 		tbb	[pc, r1]
- 235              	.L18:
- 236 0016 1D       		.byte	(.L23-.L18)/2
- 237 0017 04       		.byte	(.L19-.L18)/2
- 238 0018 13       		.byte	(.L20-.L18)/2
- 239 0019 18       		.byte	(.L21-.L18)/2
- 240              		.p2align 1
- 241              	.L17:
+ 232              		.loc 1 165 0
+ 233 000c 0329     		cmp	r1, #3
+ 234 000e 1ED8     		bhi	.L18
+ 235 0010 DFE801F0 		tbb	[pc, r1]
+ 236              	.L19:
+ 237 0014 02       		.byte	(.L24-.L19)/2
+ 238 0015 0E       		.byte	(.L20-.L19)/2
+ 239 0016 09       		.byte	(.L21-.L19)/2
+ 240 0017 04       		.byte	(.L22-.L19)/2
+ 241              		.p2align 1
+ 242              	.L24:
  166:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   {
+ARM GAS  /tmp/ccfyqmN1.s 			page 8
+
+
  167:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   /* Make sure that no pending write process */
-ARM GAS  /tmp/ccRPTmmq.s 			page 8
-
-
  168:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   case CTRL_SYNC :
  169:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     res = RES_OK;
+ 243              		.loc 1 169 0
+ 244 0018 0020     		movs	r0, #0
+ 245              	.LVL19:
+ 246 001a 7047     		bx	lr
+ 247              	.LVL20:
+ 248              	.L22:
  170:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
  171:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  172:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   /* Get number of sectors on the disk (DWORD) */
@@ -441,155 +448,146 @@ ARM GAS  /tmp/ccRPTmmq.s 			page 1
  185:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   /* Get erase block size in unit of sector (DWORD) */
  186:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   case GET_BLOCK_SIZE :
  187:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     *(DWORD*)buff = BLOCK_SIZE;
+ 249              		.loc 1 187 0
+ 250 001c 4FF40073 		mov	r3, #512
+ 251 0020 1360     		str	r3, [r2]
+ 160:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   SD_CardInfo CardInfo;
+ 252              		.loc 1 160 0
+ 253 0022 0120     		movs	r0, #1
+ 254              	.LVL21:
  188:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
+ 255              		.loc 1 188 0
+ 256 0024 7047     		bx	lr
+ 257              	.LVL22:
+ 258              	.L21:
+ 181:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     res = RES_OK;
+ 259              		.loc 1 181 0
+ 260 0026 4FF40073 		mov	r3, #512
+ 261 002a 1380     		strh	r3, [r2]	@ movhi
+ 262              	.LVL23:
+ 182:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
+ 263              		.loc 1 182 0
+ 264 002c 0020     		movs	r0, #0
+ 265              	.LVL24:
+ 183:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
+ 266              		.loc 1 183 0
+ 267 002e 7047     		bx	lr
+ 268              	.LVL25:
+ 269              	.L20:
+ 159:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   DRESULT res = RES_ERROR;
+ 270              		.loc 1 159 0
+ 271 0030 10B5     		push	{r4, lr}
+ 272              	.LCFI8:
+ARM GAS  /tmp/ccfyqmN1.s 			page 9
+
+
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 4, -8
+ 275              		.cfi_offset 14, -4
+ 276 0032 96B0     		sub	sp, sp, #88
+ 277              	.LCFI9:
+ 278              		.cfi_def_cfa_offset 96
+ 279              	.LBB4:
+ 280              	.LBB5:
+ 174:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     *(DWORD*)buff = CardInfo.CardCapacity / BLOCK_SIZE;
+ 281              		.loc 1 174 0
+ 282 0034 6846     		mov	r0, sp
+ 283              	.LVL26:
+ 284 0036 1446     		mov	r4, r2
+ 285              	.LVL27:
+ 286 0038 FFF7FEFF 		bl	BSP_SD_GetCardInfo
+ 287              	.LVL28:
+ 175:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     res = RES_OK;
+ 288              		.loc 1 175 0
+ 289 003c 129B     		ldr	r3, [sp, #72]
+ 290 003e 139A     		ldr	r2, [sp, #76]
+ 291 0040 5B0A     		lsrs	r3, r3, #9
+ 292 0042 43EAC253 		orr	r3, r3, r2, lsl #23
+ 293 0046 0020     		movs	r0, #0
+ 294 0048 2360     		str	r3, [r4]
+ 295              	.LVL29:
+ 296              	.LBE5:
+ 297              	.LBE4:
  189:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  190:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   default:
  191:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     res = RES_PARERR;
- 242              		.loc 1 191 0
- 243 001a 0420     		movs	r0, #4
- 244              	.LVL21:
- 245 001c 7047     		bx	lr
- 246              	.LVL22:
- 247              	.L19:
- 159:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   DRESULT res = RES_ERROR;
- 248              		.loc 1 159 0
- 249 001e 10B5     		push	{r4, lr}
- 250              	.LCFI8:
- 251              		.cfi_def_cfa_offset 8
- 252              		.cfi_offset 4, -8
- 253              		.cfi_offset 14, -4
- 254 0020 96B0     		sub	sp, sp, #88
- 255              	.LCFI9:
- 256              		.cfi_def_cfa_offset 96
- 257 0022 1446     		mov	r4, r2
- 174:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     *(DWORD*)buff = CardInfo.CardCapacity / BLOCK_SIZE;
- 258              		.loc 1 174 0
- 259 0024 6846     		mov	r0, sp
- 260              	.LVL23:
- 261 0026 FFF7FEFF 		bl	BSP_SD_GetCardInfo
- 262              	.LVL24:
- 175:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     res = RES_OK;
- 263              		.loc 1 175 0
- 264 002a 129B     		ldr	r3, [sp, #72]
- 265 002c 5B0A     		lsrs	r3, r3, #9
- 266 002e 139A     		ldr	r2, [sp, #76]
- 267 0030 43EAC253 		orr	r3, r3, r2, lsl #23
- 268 0034 2360     		str	r3, [r4]
- 269              	.LVL25:
- 176:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
- 270              		.loc 1 176 0
-ARM GAS  /tmp/ccRPTmmq.s 			page 9
-
-
- 271 0036 0020     		movs	r0, #0
  192:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   }
  193:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
  194:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   return res;
  195:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c **** }
- 272              		.loc 1 195 0
- 273 0038 16B0     		add	sp, sp, #88
- 274              	.LCFI10:
- 275              		.cfi_def_cfa_offset 8
- 276              		@ sp needed
- 277 003a 10BD     		pop	{r4, pc}
- 278              	.LVL26:
- 279              	.L20:
- 280              	.LCFI11:
- 281              		.cfi_def_cfa_offset 0
- 282              		.cfi_restore 4
- 283              		.cfi_restore 14
- 181:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     res = RES_OK;
- 284              		.loc 1 181 0
- 285 003c 4FF40073 		mov	r3, #512
- 286 0040 1380     		strh	r3, [r2]	@ movhi
- 287              	.LVL27:
- 182:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
- 288              		.loc 1 182 0
- 289 0042 0020     		movs	r0, #0
- 290              	.LVL28:
- 183:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
- 291              		.loc 1 183 0
- 292 0044 7047     		bx	lr
- 293              	.LVL29:
- 294              	.L21:
- 187:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
- 295              		.loc 1 187 0
- 296 0046 4FF40073 		mov	r3, #512
- 297 004a 1360     		str	r3, [r2]
- 160:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   SD_CardInfo CardInfo;
- 298              		.loc 1 160 0
- 299 004c 0120     		movs	r0, #1
- 300              	.LVL30:
- 188:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   
- 301              		.loc 1 188 0
- 302 004e 7047     		bx	lr
- 303              	.LVL31:
- 304              	.L23:
- 169:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****     break;
- 305              		.loc 1 169 0
- 306 0050 0020     		movs	r0, #0
- 307              	.LVL32:
- 308 0052 7047     		bx	lr
- 309              	.L29:
- 310              		.align	2
- 311              	.L28:
- 312 0054 00000000 		.word	.LANCHOR0
- 313              		.cfi_endproc
- 314              	.LFE130:
- 316              		.global	SD_Driver
- 317              		.section	.data.Stat,"aw",%progbits
-ARM GAS  /tmp/ccRPTmmq.s 			page 10
+ 298              		.loc 1 195 0
+ 299 004a 16B0     		add	sp, sp, #88
+ 300              	.LCFI10:
+ 301              		.cfi_def_cfa_offset 8
+ 302              		@ sp needed
+ 303 004c 10BD     		pop	{r4, pc}
+ 304              	.LVL30:
+ 305              	.L18:
+ 191:Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c ****   }
+ 306              		.loc 1 191 0
+ 307 004e 0420     		movs	r0, #4
+ 308              	.LVL31:
+ 309 0050 7047     		bx	lr
+ 310              	.L30:
+ 311 0052 00BF     		.align	2
+ 312              	.L29:
+ 313 0054 00000000 		.word	.LANCHOR0
+ 314              		.cfi_endproc
+ 315              	.LFE130:
+ 317              		.global	SD_Driver
+ 318              		.section	.data.Stat,"aw",%progbits
+ 319              		.set	.LANCHOR0,. + 0
+ 322              	Stat:
+ARM GAS  /tmp/ccfyqmN1.s 			page 10
 
 
- 318              		.set	.LANCHOR0,. + 0
- 321              	Stat:
- 322 0000 01       		.byte	1
- 323              		.section	.rodata.SD_Driver,"a",%progbits
- 324              		.align	2
- 327              	SD_Driver:
- 328 0000 00000000 		.word	SD_initialize
- 329 0004 00000000 		.word	SD_status
- 330 0008 00000000 		.word	SD_read
- 331 000c 00000000 		.word	SD_write
- 332 0010 00000000 		.word	SD_ioctl
- 333              		.text
- 334              	.Letext0:
- 335              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 336              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
- 337              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
- 338              		.file 5 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 339              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
- 340              		.file 7 "Middlewares/Third_Party/FatFs/src/integer.h"
- 341              		.file 8 "Middlewares/Third_Party/FatFs/src/diskio.h"
- 342              		.file 9 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 343              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
- 344              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 345              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
- 346              		.file 13 "Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"
- 347              		.file 14 "Inc/bsp_driver_sd.h"
-ARM GAS  /tmp/ccRPTmmq.s 			page 11
+ 323 0000 01       		.byte	1
+ 324              		.section	.rodata.SD_Driver,"a",%progbits
+ 325              		.align	2
+ 328              	SD_Driver:
+ 329 0000 00000000 		.word	SD_initialize
+ 330 0004 00000000 		.word	SD_status
+ 331 0008 00000000 		.word	SD_read
+ 332 000c 00000000 		.word	SD_write
+ 333 0010 00000000 		.word	SD_ioctl
+ 334              		.text
+ 335              	.Letext0:
+ 336              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 337              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
+ 338              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
+ 339              		.file 5 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 340              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
+ 341              		.file 7 "Middlewares/Third_Party/FatFs/src/integer.h"
+ 342              		.file 8 "Middlewares/Third_Party/FatFs/src/diskio.h"
+ 343              		.file 9 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 344              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
+ 345              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 346              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
+ 347              		.file 13 "Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"
+ 348              		.file 14 "Inc/bsp_driver_sd.h"
+ARM GAS  /tmp/ccfyqmN1.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sd_diskio.c
-     /tmp/ccRPTmmq.s:18     .text.SD_initialize:0000000000000000 $t
-     /tmp/ccRPTmmq.s:25     .text.SD_initialize:0000000000000000 SD_initialize
-     /tmp/ccRPTmmq.s:60     .text.SD_initialize:0000000000000020 $d
-     /tmp/ccRPTmmq.s:65     .text.SD_status:0000000000000000 $t
-     /tmp/ccRPTmmq.s:72     .text.SD_status:0000000000000000 SD_status
-     /tmp/ccRPTmmq.s:106    .text.SD_status:0000000000000020 $d
-     /tmp/ccRPTmmq.s:111    .text.SD_read:0000000000000000 $t
-     /tmp/ccRPTmmq.s:118    .text.SD_read:0000000000000000 SD_read
-     /tmp/ccRPTmmq.s:159    .text.SD_write:0000000000000000 $t
-     /tmp/ccRPTmmq.s:166    .text.SD_write:0000000000000000 SD_write
-     /tmp/ccRPTmmq.s:207    .text.SD_ioctl:0000000000000000 $t
-     /tmp/ccRPTmmq.s:214    .text.SD_ioctl:0000000000000000 SD_ioctl
-     /tmp/ccRPTmmq.s:236    .text.SD_ioctl:0000000000000016 $d
-     /tmp/ccRPTmmq.s:240    .text.SD_ioctl:000000000000001a $t
-     /tmp/ccRPTmmq.s:312    .text.SD_ioctl:0000000000000054 $d
-     /tmp/ccRPTmmq.s:327    .rodata.SD_Driver:0000000000000000 SD_Driver
-     /tmp/ccRPTmmq.s:321    .data.Stat:0000000000000000 Stat
-     /tmp/ccRPTmmq.s:324    .rodata.SD_Driver:0000000000000000 $d
+     /tmp/ccfyqmN1.s:18     .text.SD_initialize:0000000000000000 $t
+     /tmp/ccfyqmN1.s:26     .text.SD_initialize:0000000000000000 SD_initialize
+     /tmp/ccfyqmN1.s:59     .text.SD_initialize:000000000000001c $d
+     /tmp/ccfyqmN1.s:64     .text.SD_status:0000000000000000 $t
+     /tmp/ccfyqmN1.s:72     .text.SD_status:0000000000000000 SD_status
+     /tmp/ccfyqmN1.s:104    .text.SD_status:000000000000001c $d
+     /tmp/ccfyqmN1.s:109    .text.SD_read:0000000000000000 $t
+     /tmp/ccfyqmN1.s:117    .text.SD_read:0000000000000000 SD_read
+     /tmp/ccfyqmN1.s:158    .text.SD_write:0000000000000000 $t
+     /tmp/ccfyqmN1.s:166    .text.SD_write:0000000000000000 SD_write
+     /tmp/ccfyqmN1.s:207    .text.SD_ioctl:0000000000000000 $t
+     /tmp/ccfyqmN1.s:215    .text.SD_ioctl:0000000000000000 SD_ioctl
+     /tmp/ccfyqmN1.s:237    .text.SD_ioctl:0000000000000014 $d
+     /tmp/ccfyqmN1.s:241    .text.SD_ioctl:0000000000000018 $t
+     /tmp/ccfyqmN1.s:313    .text.SD_ioctl:0000000000000054 $d
+     /tmp/ccfyqmN1.s:328    .rodata.SD_Driver:0000000000000000 SD_Driver
+     /tmp/ccfyqmN1.s:322    .data.Stat:0000000000000000 Stat
+     /tmp/ccfyqmN1.s:325    .rodata.SD_Driver:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
