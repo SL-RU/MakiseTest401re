@@ -1,33 +1,31 @@
-ARM GAS  /tmp/ccmnJJkC.s 			page 1
+ARM GAS  /tmp/ccAdNtMu.s 			page 1
 
 
    1              		.cpu cortex-m4
    2              		.eabi_attribute 27, 1
    3              		.eabi_attribute 28, 1
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 2
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.file	"printf.c"
-  14              		.text
-  15              	.Ltext0:
-  16              		.cfi_sections	.debug_frame
-  17              		.section	.text._write,"ax",%progbits
-  18              		.align	1
-  19              		.p2align 2,,3
-  20              		.global	_write
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	_write:
-  27              	.LFB126:
-  28              		.file 1 "Src/printf.c"
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"printf.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text._write,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	_write
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_write:
+  25              	.LFB126:
+  26              		.file 1 "Src/printf.c"
    1:Src/printf.c  **** #include <stdio.h>
    2:Src/printf.c  **** #include "usart.h"
    3:Src/printf.c  **** /***************************************************************************/
@@ -35,68 +33,68 @@ ARM GAS  /tmp/ccmnJJkC.s 			page 1
    5:Src/printf.c  **** /* For GCC compiler revise _write() function for printf functionality */
    6:Src/printf.c  **** int _write(int file, char *ptr, int len)
    7:Src/printf.c  **** {
-  29              		.loc 1 7 0
-  30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 0
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33              	.LVL0:
-  34 0000 10B5     		push	{r4, lr}
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 4, -8
-  38              		.cfi_offset 14, -4
+  27              		.loc 1 7 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
    8:Src/printf.c  ****     file = file;
    9:Src/printf.c  ****     HAL_UART_Transmit(&huart6, (uint8_t*)ptr, len, 10);
-  39              		.loc 1 9 0
-  40 0002 0A23     		movs	r3, #10
+  37              		.loc 1 9 0
+  38 0002 0A23     		movs	r3, #10
    7:Src/printf.c  ****     file = file;
-  41              		.loc 1 7 0
-  42 0004 1446     		mov	r4, r2
-  43              		.loc 1 9 0
-  44 0006 0348     		ldr	r0, .L3
-  45              	.LVL1:
-  46 0008 92B2     		uxth	r2, r2
-  47              	.LVL2:
-  48 000a FFF7FEFF 		bl	HAL_UART_Transmit
-ARM GAS  /tmp/ccmnJJkC.s 			page 2
-
-
-  49              	.LVL3:
+  39              		.loc 1 7 0
+  40 0004 1446     		mov	r4, r2
+  41              		.loc 1 9 0
+  42 0006 0348     		ldr	r0, .L3
+  43              	.LVL1:
+  44 0008 92B2     		uxth	r2, r2
+  45              	.LVL2:
+  46 000a FFF7FEFF 		bl	HAL_UART_Transmit
+  47              	.LVL3:
   10:Src/printf.c  ****     return len;
+ARM GAS  /tmp/ccAdNtMu.s 			page 2
+
+
   11:Src/printf.c  **** }
-  50              		.loc 1 11 0
-  51 000e 2046     		mov	r0, r4
-  52 0010 10BD     		pop	{r4, pc}
-  53              	.LVL4:
-  54              	.L4:
-  55 0012 00BF     		.align	2
-  56              	.L3:
-  57 0014 00000000 		.word	huart6
-  58              		.cfi_endproc
-  59              	.LFE126:
-  61              		.text
-  62              	.Letext0:
-  63              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
-  64              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
-  65              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
-  66              		.file 5 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
-  67              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
-  68              		.file 7 "/usr/arm-none-eabi/include/sys/_stdint.h"
-  69              		.file 8 "Drivers/CMSIS/Include/core_cm4.h"
-  70              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
-  71              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
-  72              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
-  73              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
-  74              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
-  75              		.file 14 "Inc/usart.h"
-ARM GAS  /tmp/ccmnJJkC.s 			page 3
+  48              		.loc 1 11 0
+  49 000e 2046     		mov	r0, r4
+  50 0010 10BD     		pop	{r4, pc}
+  51              	.LVL4:
+  52              	.L4:
+  53 0012 00BF     		.align	2
+  54              	.L3:
+  55 0014 00000000 		.word	huart6
+  56              		.cfi_endproc
+  57              	.LFE126:
+  59              		.text
+  60              	.Letext0:
+  61              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+  62              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
+  63              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
+  64              		.file 5 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+  65              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
+  66              		.file 7 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  67              		.file 8 "Drivers/CMSIS/Include/core_cm4.h"
+  68              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  69              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+  70              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+  71              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+  72              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+  73              		.file 14 "Inc/usart.h"
+ARM GAS  /tmp/ccAdNtMu.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 printf.c
-     /tmp/ccmnJJkC.s:18     .text._write:0000000000000000 $t
-     /tmp/ccmnJJkC.s:26     .text._write:0000000000000000 _write
-     /tmp/ccmnJJkC.s:57     .text._write:0000000000000014 $d
+     /tmp/ccAdNtMu.s:16     .text._write:0000000000000000 $t
+     /tmp/ccAdNtMu.s:24     .text._write:0000000000000000 _write
+     /tmp/ccAdNtMu.s:55     .text._write:0000000000000014 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

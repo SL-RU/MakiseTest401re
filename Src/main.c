@@ -124,10 +124,11 @@ void lsm303_read()
 MakiseGUI* mgui;
 void _mt_d(MakiseGUI* gui)
 {
-    makise_d_clear(mgui->buffer, 0);
-    makise_d_circle_filled(mgui->buffer, 50, (HAL_GetTick() % 500)/2 + 50, 40, 1, 3);
-    //makise_d_line(mgui->buffer, 120, 160, cos(ang) * 100 + 120, sin(ang) * 100 + 160, 1);
-    makise_d_rect_filled(mgui->buffer, 170, 50, 50, 50, 1, 2);
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
+//    makise_d_clear(mgui->buffer, 0);
+    //makise_d_circle_filled(mgui->buffer, 50, (HAL_GetTick() % 500)/2 + 50, 40, 1, 3);
+    makise_d_line(mgui->buffer, 120, 160, cos(ang) * 100 + 120, sin(ang) * 100 + 160, 1);
+    //makise_d_rect_filled(mgui->buffer, 170, 50, 50, 50, 1, 2);
 
     //makise_d_string(mgui->buffer, "KEEEK", 100, 30, &F_Arial12, 2);    
     makise_g_host_call(host, M_G_CALL_DRAW);
@@ -143,7 +144,7 @@ void hc595(uint8_t val)
     for(uint8_t i = 0; i < 8; i++)
     {
 	HAL_GPIO_WritePin(kdat,   ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	printf("595 %d %d\n", i, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//	printf("595 %d %d\n", i, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(kclk,   GPIO_PIN_SET);
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(kclk,   GPIO_PIN_RESET);
@@ -156,7 +157,7 @@ void hc595(uint8_t val)
 
 int main(void)
 {
-    
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -190,6 +191,7 @@ int main(void)
 
   printf("acc %d\n", ReadRegister(LSM303_WHO_AM_I));
 
+
 //  printf("%d\n", Arial_12_SymbolTable[4]);
   mgui = mt_start();
   mgui->draw = &_mt_d;
@@ -201,9 +203,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//      lsm303_read();
+      lsm303_read();
 //      hc595(l+=0b00010000);
-//      HAL_Delay(100);
+      HAL_Delay(30);
       
       
   /* USER CODE END WHILE */
@@ -236,8 +238,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 96;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLN = 84;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 4;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -253,7 +255,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }

@@ -56,7 +56,7 @@ MakiseGUI* mt_start()
     printf("%d\n", (uint32_t)(sz));
 
     m_button_create(&butt[0], host->host, 50, 50, 100, 70, t0, 0, 2, 1);
-    m_button_create(&butt[1], host->host, 50, 150, 100, 50, t1, 1, 0, 1);
+    m_button_create(&butt[1], host->host, 50, 250, 100, 50, t1, 1, 0, 1);
     m_button_create(&butt[2], host->host, 50, 220, 70, 50, t2, 2, 1, 0);
 
     

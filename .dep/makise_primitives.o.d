@@ -62,7 +62,8 @@ build/makise_primitives.o: MakiseGUI/MakiseGUI/makise_primitives.c \
  /usr/arm-none-eabi/include/string.h \
  /usr/arm-none-eabi/include/sys/string.h \
  MakiseGUI/MakiseGUI/fonts/fonts.h MakiseGUI/MakiseGUI/makise_text.h \
- /usr/arm-none-eabi/include/math.h
+ /usr/arm-none-eabi/include/math.h \
+ /usr/arm-none-eabi/include/machine/fastmath.h
 
 MakiseGUI/MakiseGUI/makise_primitives.h:
 
@@ -211,3 +212,5 @@ MakiseGUI/MakiseGUI/fonts/fonts.h:
 MakiseGUI/MakiseGUI/makise_text.h:
 
 /usr/arm-none-eabi/include/math.h:
+
+/usr/arm-none-eabi/include/machine/fastmath.h:

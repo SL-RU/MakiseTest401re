@@ -1,33 +1,31 @@
-ARM GAS  /tmp/ccq7EGH5.s 			page 1
+ARM GAS  /tmp/ccH155Cr.s 			page 1
 
 
    1              		.cpu cortex-m4
    2              		.eabi_attribute 27, 1
    3              		.eabi_attribute 28, 1
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 2
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.file	"stm32f4xx_ll_sdmmc.c"
-  14              		.text
-  15              	.Ltext0:
-  16              		.cfi_sections	.debug_frame
-  17              		.section	.text.SDIO_Init,"ax",%progbits
-  18              		.align	1
-  19              		.p2align 2,,3
-  20              		.global	SDIO_Init
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	SDIO_Init:
-  27              	.LFB126:
-  28              		.file 1 "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c"
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f4xx_ll_sdmmc.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.SDIO_Init,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	SDIO_Init
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	SDIO_Init:
+  25              	.LFB126:
+  26              		.file 1 "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c"
    1:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
    2:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   ******************************************************************************
    3:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @file    stm32f4xx_ll_sdmmc.c
@@ -58,11 +56,11 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Full compliance with SD Memory Card Specifications Version 2.0
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Full compliance with SD I/O Card Specification Version 2.0: card support for two
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              different data bus modes: 1-bit (default) and 4-bit
-ARM GAS  /tmp/ccq7EGH5.s 			page 2
-
-
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Full support of the CE-ATA features (full compliance with CE-ATA digital protocol
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Rev1.1)
+ARM GAS  /tmp/ccH155Cr.s 			page 2
+
+
   33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Data transfer up to 48 MHz for the 8 bit mode
   34:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Data and command output enable signals to control external bidirectional drivers.
   35:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                  
@@ -118,11 +116,11 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****            (++) Command Wait
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****            (++) CPSM Status (Enable or Disable).
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
-ARM GAS  /tmp/ccq7EGH5.s 			page 3
-
-
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****           -@@- To check if the command is well received, read the SDIO_CMDRESP
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               register using the SDIO_GetCommandResponse().
+ARM GAS  /tmp/ccH155Cr.s 			page 3
+
+
   90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               The SDIO responses registers (SDIO_RESP1 to SDIO_RESP2), use the
   91:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               SDIO_GetResponse() function.
   92:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
@@ -178,11 +176,11 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * Redistribution and use in source and binary forms, with or without modification,
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * are permitted provided that the following conditions are met:
-ARM GAS  /tmp/ccq7EGH5.s 			page 4
-
-
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *   1. Redistributions of source code must retain the above copyright notice,
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *      this list of conditions and the following disclaimer.
+ARM GAS  /tmp/ccH155Cr.s 			page 4
+
+
  147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
  148:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *      this list of conditions and the following disclaimer in the documentation
  149:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *      and/or other materials provided with the distribution.
@@ -238,11 +236,11 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****  *
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** @verbatim    
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****  ===============================================================================
-ARM GAS  /tmp/ccq7EGH5.s 			page 5
-
-
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               ##### Initialization/de-initialization functions #####
  203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****  ===============================================================================
+ARM GAS  /tmp/ccH155Cr.s 			page 5
+
+
  204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****     [..]  This section provides functions allowing to:
  205:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****  
  206:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** @endverbatim
@@ -258,27 +256,27 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  216:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_Init(SDIO_TypeDef *SDIOx, SDIO_InitTypeDef Init)
  218:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
-  29              		.loc 1 218 0
-  30              		.cfi_startproc
-  31              		@ args = 28, pretend = 16, frame = 0
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33              		@ link register save eliminated.
-  34              	.LVL0:
-  35 0000 84B0     		sub	sp, sp, #16
-  36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 16
-  38 0002 70B4     		push	{r4, r5, r6}
-  39              	.LCFI1:
-  40              		.cfi_def_cfa_offset 28
-  41              		.cfi_offset 4, -28
-  42              		.cfi_offset 5, -24
-  43              		.cfi_offset 6, -20
-  44              	.LVL1:
-  45              		.loc 1 218 0
-  46 0004 04AC     		add	r4, sp, #16
-  47              	.LVL2:
-  48 0006 84E80E00 		stm	r4, {r1, r2, r3}
-  49              	.LVL3:
+  27              		.loc 1 218 0
+  28              		.cfi_startproc
+  29              		@ args = 28, pretend = 16, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  33 0000 84B0     		sub	sp, sp, #16
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36 0002 70B4     		push	{r4, r5, r6}
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 28
+  39              		.cfi_offset 4, -28
+  40              		.cfi_offset 5, -24
+  41              		.cfi_offset 6, -20
+  42              	.LVL1:
+  43              		.loc 1 218 0
+  44 0004 04AC     		add	r4, sp, #16
+  45              	.LVL2:
+  46 0006 84E80E00 		stm	r4, {r1, r2, r3}
+  47              	.LVL3:
  219:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   uint32_t tmpreg = 0U; 
  220:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  221:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
@@ -292,105 +290,105 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  230:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set SDIO configuration parameters */
  231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   tmpreg |= (Init.ClockEdge           |\
-  50              		.loc 1 231 0
-  51 000a 059E     		ldr	r6, [sp, #20]
+  48              		.loc 1 231 0
+  49 000a 059E     		ldr	r6, [sp, #20]
  232:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockBypass         |\
-  52              		.loc 1 232 0
-  53 000c 069A     		ldr	r2, [sp, #24]
+  50              		.loc 1 232 0
+  51 000c 069A     		ldr	r2, [sp, #24]
  233:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockPowerSave      |\
-ARM GAS  /tmp/ccq7EGH5.s 			page 6
+  52              		.loc 1 233 0
+  53 000e 079D     		ldr	r5, [sp, #28]
+ARM GAS  /tmp/ccH155Cr.s 			page 6
 
 
-  54              		.loc 1 233 0
-  55 000e 079D     		ldr	r5, [sp, #28]
  234:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.BusWide             |\
-  56              		.loc 1 234 0
-  57 0010 089C     		ldr	r4, [sp, #32]
+  54              		.loc 1 234 0
+  55 0010 089C     		ldr	r4, [sp, #32]
  231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockBypass         |\
-  58              		.loc 1 231 0
-  59 0012 0B46     		mov	r3, r1
-  60 0014 3343     		orrs	r3, r3, r6
+  56              		.loc 1 231 0
+  57 0012 0B46     		mov	r3, r1
+  58 0014 3343     		orrs	r3, r3, r6
  232:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockPowerSave      |\
-  61              		.loc 1 232 0
-  62 0016 1343     		orrs	r3, r3, r2
+  59              		.loc 1 232 0
+  60 0016 1343     		orrs	r3, r3, r2
  233:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.BusWide             |\
-  63              		.loc 1 233 0
-  64 0018 2B43     		orrs	r3, r3, r5
+  61              		.loc 1 233 0
+  62 0018 2B43     		orrs	r3, r3, r5
  235:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.HardwareFlowControl |\
  236:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockDiv
  237:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              ); 
  238:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  239:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Write to SDIO CLKCR */
  240:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   MODIFY_REG(SDIOx->CLKCR, CLKCR_CLEAR_MASK, tmpreg);  
-  65              		.loc 1 240 0
-  66 001a 4268     		ldr	r2, [r0, #4]
+  63              		.loc 1 240 0
+  64 001a 4268     		ldr	r2, [r0, #4]
  235:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.HardwareFlowControl |\
-  67              		.loc 1 235 0
-  68 001c 0999     		ldr	r1, [sp, #36]
+  65              		.loc 1 235 0
+  66 001c 0999     		ldr	r1, [sp, #36]
  234:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.HardwareFlowControl |\
-  69              		.loc 1 234 0
-  70 001e 2343     		orrs	r3, r3, r4
+  67              		.loc 1 234 0
+  68 001e 2343     		orrs	r3, r3, r4
  241:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  242:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK;
  243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
-  71              		.loc 1 243 0
-  72 0020 70BC     		pop	{r4, r5, r6}
-  73              	.LCFI2:
-  74              		.cfi_restore 6
-  75              		.cfi_restore 5
-  76              		.cfi_restore 4
-  77              		.cfi_def_cfa_offset 16
+  69              		.loc 1 243 0
+  70 0020 70BC     		pop	{r4, r5, r6}
+  71              	.LCFI2:
+  72              		.cfi_restore 6
+  73              		.cfi_restore 5
+  74              		.cfi_restore 4
+  75              		.cfi_def_cfa_offset 16
  240:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
-  78              		.loc 1 240 0
-  79 0022 22F4FD42 		bic	r2, r2, #32384
+  76              		.loc 1 240 0
+  77 0022 22F4FD42 		bic	r2, r2, #32384
  235:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockDiv
-  80              		.loc 1 235 0
-  81 0026 0B43     		orrs	r3, r3, r1
+  78              		.loc 1 235 0
+  79 0026 0B43     		orrs	r3, r3, r1
  240:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
-  82              		.loc 1 240 0
-  83 0028 22F07F02 		bic	r2, r2, #127
-  84 002c 1343     		orrs	r3, r3, r2
-  85 002e 4360     		str	r3, [r0, #4]
-  86              		.loc 1 243 0
-  87 0030 04B0     		add	sp, sp, #16
-  88              	.LCFI3:
-  89              		.cfi_def_cfa_offset 0
-  90 0032 0020     		movs	r0, #0
-  91              	.LVL4:
-  92 0034 7047     		bx	lr
-ARM GAS  /tmp/ccq7EGH5.s 			page 7
+  80              		.loc 1 240 0
+  81 0028 22F07F02 		bic	r2, r2, #127
+  82 002c 1343     		orrs	r3, r3, r2
+  83 002e 4360     		str	r3, [r0, #4]
+  84              		.loc 1 243 0
+  85 0030 04B0     		add	sp, sp, #16
+  86              	.LCFI3:
+  87              		.cfi_def_cfa_offset 0
+  88 0032 0020     		movs	r0, #0
+  89              	.LVL4:
+  90 0034 7047     		bx	lr
+  91              		.cfi_endproc
+  92              	.LFE126:
+ARM GAS  /tmp/ccH155Cr.s 			page 7
 
 
-  93              		.cfi_endproc
-  94              	.LFE126:
-  96 0036 00BF     		.section	.text.SDIO_ReadFIFO,"ax",%progbits
-  97              		.align	1
-  98              		.p2align 2,,3
-  99              		.global	SDIO_ReadFIFO
- 100              		.syntax unified
- 101              		.thumb
- 102              		.thumb_func
- 103              		.fpu fpv4-sp-d16
- 105              	SDIO_ReadFIFO:
- 106              	.LFB140:
- 107              		.cfi_startproc
- 108              		@ args = 0, pretend = 0, frame = 0
- 109              		@ frame_needed = 0, uses_anonymous_args = 0
- 110              		@ link register save eliminated.
- 111 0000 D0F88000 		ldr	r0, [r0, #128]
- 112 0004 7047     		bx	lr
- 113              		.cfi_endproc
- 114              	.LFE140:
- 116 0006 00BF     		.section	.text.SDIO_WriteFIFO,"ax",%progbits
- 117              		.align	1
- 118              		.p2align 2,,3
- 119              		.global	SDIO_WriteFIFO
- 120              		.syntax unified
- 121              		.thumb
- 122              		.thumb_func
- 123              		.fpu fpv4-sp-d16
- 125              	SDIO_WriteFIFO:
- 126              	.LFB128:
+  94 0036 00BF     		.section	.text.SDIO_ReadFIFO,"ax",%progbits
+  95              		.align	1
+  96              		.p2align 2,,3
+  97              		.global	SDIO_ReadFIFO
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv4-sp-d16
+ 103              	SDIO_ReadFIFO:
+ 104              	.LFB140:
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108              		@ link register save eliminated.
+ 109 0000 D0F88000 		ldr	r0, [r0, #128]
+ 110 0004 7047     		bx	lr
+ 111              		.cfi_endproc
+ 112              	.LFE140:
+ 114 0006 00BF     		.section	.text.SDIO_WriteFIFO,"ax",%progbits
+ 115              		.align	1
+ 116              		.p2align 2,,3
+ 117              		.global	SDIO_WriteFIFO
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv4-sp-d16
+ 123              	SDIO_WriteFIFO:
+ 124              	.LFB128:
  244:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  245:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  246:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @}
@@ -418,11 +416,11 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  268:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  269:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** uint32_t SDIO_ReadFIFO(SDIO_TypeDef *SDIOx)
  270:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
-ARM GAS  /tmp/ccq7EGH5.s 			page 8
-
-
  271:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Read data from Rx FIFO */ 
  272:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (SDIOx->FIFO);
+ARM GAS  /tmp/ccH155Cr.s 			page 8
+
+
  273:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
  274:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  275:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
@@ -433,36 +431,36 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  280:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  281:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_WriteFIFO(SDIO_TypeDef *SDIOx, uint32_t *pWriteData)
  282:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** { 
- 127              		.loc 1 282 0
- 128              		.cfi_startproc
- 129              		@ args = 0, pretend = 0, frame = 0
- 130              		@ frame_needed = 0, uses_anonymous_args = 0
- 131              		@ link register save eliminated.
- 132              	.LVL5:
+ 125              		.loc 1 282 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130              	.LVL5:
  283:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Write data to FIFO */ 
  284:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   SDIOx->FIFO = *pWriteData;
- 133              		.loc 1 284 0
- 134 0000 0B68     		ldr	r3, [r1]
- 135 0002 C0F88030 		str	r3, [r0, #128]
+ 131              		.loc 1 284 0
+ 132 0000 0B68     		ldr	r3, [r1]
+ 133 0002 C0F88030 		str	r3, [r0, #128]
  285:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  286:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK;
  287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 136              		.loc 1 287 0
- 137 0006 0020     		movs	r0, #0
- 138              	.LVL6:
- 139 0008 7047     		bx	lr
- 140              		.cfi_endproc
- 141              	.LFE128:
- 143 000a 00BF     		.section	.text.SDIO_PowerState_ON,"ax",%progbits
- 144              		.align	1
- 145              		.p2align 2,,3
- 146              		.global	SDIO_PowerState_ON
- 147              		.syntax unified
- 148              		.thumb
- 149              		.thumb_func
- 150              		.fpu fpv4-sp-d16
- 152              	SDIO_PowerState_ON:
- 153              	.LFB129:
+ 134              		.loc 1 287 0
+ 135 0006 0020     		movs	r0, #0
+ 136              	.LVL6:
+ 137 0008 7047     		bx	lr
+ 138              		.cfi_endproc
+ 139              	.LFE128:
+ 141 000a 00BF     		.section	.text.SDIO_PowerState_ON,"ax",%progbits
+ 142              		.align	1
+ 143              		.p2align 2,,3
+ 144              		.global	SDIO_PowerState_ON
+ 145              		.syntax unified
+ 146              		.thumb
+ 147              		.thumb_func
+ 148              		.fpu fpv4-sp-d16
+ 150              	SDIO_PowerState_ON:
+ 151              	.LFB129:
  288:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  289:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  290:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @}
@@ -478,11 +476,11 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****     [..]
  301:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****     This subsection provides a set of functions allowing to control the SDIO data 
  302:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****     transfers.
-ARM GAS  /tmp/ccq7EGH5.s 			page 9
-
-
  303:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  304:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** @endverbatim
+ARM GAS  /tmp/ccH155Cr.s 			page 9
+
+
  305:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @{
  306:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  307:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
@@ -493,36 +491,36 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_PowerState_ON(SDIO_TypeDef *SDIOx)
  314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {  
- 154              		.loc 1 314 0
- 155              		.cfi_startproc
- 156              		@ args = 0, pretend = 0, frame = 0
- 157              		@ frame_needed = 0, uses_anonymous_args = 0
- 158              		@ link register save eliminated.
- 159              	.LVL7:
+ 152              		.loc 1 314 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
+ 157              	.LVL7:
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set power state to ON */ 
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   SDIOx->POWER = SDIO_POWER_PWRCTRL;
- 160              		.loc 1 316 0
- 161 0000 0323     		movs	r3, #3
- 162 0002 0360     		str	r3, [r0]
+ 158              		.loc 1 316 0
+ 159 0000 0323     		movs	r3, #3
+ 160 0002 0360     		str	r3, [r0]
  317:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK; 
  319:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 163              		.loc 1 319 0
- 164 0004 0020     		movs	r0, #0
- 165              	.LVL8:
- 166 0006 7047     		bx	lr
- 167              		.cfi_endproc
- 168              	.LFE129:
- 170              		.section	.text.SDIO_PowerState_OFF,"ax",%progbits
- 171              		.align	1
- 172              		.p2align 2,,3
- 173              		.global	SDIO_PowerState_OFF
- 174              		.syntax unified
- 175              		.thumb
- 176              		.thumb_func
- 177              		.fpu fpv4-sp-d16
- 179              	SDIO_PowerState_OFF:
- 180              	.LFB130:
+ 161              		.loc 1 319 0
+ 162 0004 0020     		movs	r0, #0
+ 163              	.LVL8:
+ 164 0006 7047     		bx	lr
+ 165              		.cfi_endproc
+ 166              	.LFE129:
+ 168              		.section	.text.SDIO_PowerState_OFF,"ax",%progbits
+ 169              		.align	1
+ 170              		.p2align 2,,3
+ 171              		.global	SDIO_PowerState_OFF
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 175              		.fpu fpv4-sp-d16
+ 177              	SDIO_PowerState_OFF:
+ 178              	.LFB130:
  320:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  321:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  322:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Set SDIO Power state to OFF. 
@@ -531,39 +529,39 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  325:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  326:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_PowerState_OFF(SDIO_TypeDef *SDIOx)
  327:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 181              		.loc 1 327 0
- 182              		.cfi_startproc
- 183              		@ args = 0, pretend = 0, frame = 0
- 184              		@ frame_needed = 0, uses_anonymous_args = 0
- 185              		@ link register save eliminated.
- 186              	.LVL9:
+ 179              		.loc 1 327 0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 183              		@ link register save eliminated.
+ 184              	.LVL9:
  328:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set power state to OFF */
-ARM GAS  /tmp/ccq7EGH5.s 			page 10
-
-
  329:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   SDIOx->POWER = (uint32_t)0x00000000U;
- 187              		.loc 1 329 0
- 188 0000 0023     		movs	r3, #0
- 189 0002 0360     		str	r3, [r0]
+ 185              		.loc 1 329 0
+ARM GAS  /tmp/ccH155Cr.s 			page 10
+
+
+ 186 0000 0023     		movs	r3, #0
+ 187 0002 0360     		str	r3, [r0]
  330:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  331:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK;
  332:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 190              		.loc 1 332 0
- 191 0004 1846     		mov	r0, r3
- 192              	.LVL10:
- 193 0006 7047     		bx	lr
- 194              		.cfi_endproc
- 195              	.LFE130:
- 197              		.section	.text.SDIO_GetPowerState,"ax",%progbits
- 198              		.align	1
- 199              		.p2align 2,,3
- 200              		.global	SDIO_GetPowerState
- 201              		.syntax unified
- 202              		.thumb
- 203              		.thumb_func
- 204              		.fpu fpv4-sp-d16
- 206              	SDIO_GetPowerState:
- 207              	.LFB131:
+ 188              		.loc 1 332 0
+ 189 0004 1846     		mov	r0, r3
+ 190              	.LVL10:
+ 191 0006 7047     		bx	lr
+ 192              		.cfi_endproc
+ 193              	.LFE130:
+ 195              		.section	.text.SDIO_GetPowerState,"ax",%progbits
+ 196              		.align	1
+ 197              		.p2align 2,,3
+ 198              		.global	SDIO_GetPowerState
+ 199              		.syntax unified
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.fpu fpv4-sp-d16
+ 204              	SDIO_GetPowerState:
+ 205              	.LFB131:
  333:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  334:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  335:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Get SDIO Power state. 
@@ -576,35 +574,35 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** uint32_t SDIO_GetPowerState(SDIO_TypeDef *SDIOx)  
  344:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 208              		.loc 1 344 0
- 209              		.cfi_startproc
- 210              		@ args = 0, pretend = 0, frame = 0
- 211              		@ frame_needed = 0, uses_anonymous_args = 0
- 212              		@ link register save eliminated.
- 213              	.LVL11:
+ 206              		.loc 1 344 0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+ 211              	.LVL11:
  345:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (SDIOx->POWER & SDIO_POWER_PWRCTRL);
- 214              		.loc 1 345 0
- 215 0000 0068     		ldr	r0, [r0]
- 216              	.LVL12:
+ 212              		.loc 1 345 0
+ 213 0000 0068     		ldr	r0, [r0]
+ 214              	.LVL12:
  346:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 217              		.loc 1 346 0
- 218 0002 00F00300 		and	r0, r0, #3
- 219 0006 7047     		bx	lr
- 220              		.cfi_endproc
- 221              	.LFE131:
- 223              		.section	.text.SDIO_SendCommand,"ax",%progbits
- 224              		.align	1
- 225              		.p2align 2,,3
- 226              		.global	SDIO_SendCommand
- 227              		.syntax unified
- 228              		.thumb
-ARM GAS  /tmp/ccq7EGH5.s 			page 11
+ 215              		.loc 1 346 0
+ 216 0002 00F00300 		and	r0, r0, #3
+ 217 0006 7047     		bx	lr
+ 218              		.cfi_endproc
+ 219              	.LFE131:
+ 221              		.section	.text.SDIO_SendCommand,"ax",%progbits
+ 222              		.align	1
+ 223              		.p2align 2,,3
+ 224              		.global	SDIO_SendCommand
+ 225              		.syntax unified
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccH155Cr.s 			page 11
 
 
- 229              		.thumb_func
- 230              		.fpu fpv4-sp-d16
- 232              	SDIO_SendCommand:
- 233              	.LFB132:
+ 230              	SDIO_SendCommand:
+ 231              	.LFB132:
  347:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  348:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  349:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Configure the SDIO command path according to the specified parameters in
@@ -616,12 +614,12 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  355:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  356:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_SendCommand(SDIO_TypeDef *SDIOx, SDIO_CmdInitTypeDef *SDIO_CmdInitStruct)
  357:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 234              		.loc 1 357 0
- 235              		.cfi_startproc
- 236              		@ args = 0, pretend = 0, frame = 0
- 237              		@ frame_needed = 0, uses_anonymous_args = 0
- 238              		@ link register save eliminated.
- 239              	.LVL13:
+ 232              		.loc 1 357 0
+ 233              		.cfi_startproc
+ 234              		@ args = 0, pretend = 0, frame = 0
+ 235              		@ frame_needed = 0, uses_anonymous_args = 0
+ 236              		@ link register save eliminated.
+ 237              	.LVL13:
  358:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   uint32_t tmpreg = 0U;
  359:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  360:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
@@ -632,81 +630,81 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  365:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  366:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set the SDIO Argument value */
  367:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   SDIOx->ARG = SDIO_CmdInitStruct->Argument;
- 240              		.loc 1 367 0
- 241 0000 0B68     		ldr	r3, [r1]
+ 238              		.loc 1 367 0
+ 239 0000 0B68     		ldr	r3, [r1]
  357:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   uint32_t tmpreg = 0U;
- 242              		.loc 1 357 0
- 243 0002 30B4     		push	{r4, r5}
- 244              	.LCFI4:
- 245              		.cfi_def_cfa_offset 8
- 246              		.cfi_offset 4, -8
- 247              		.cfi_offset 5, -4
- 248              		.loc 1 367 0
- 249 0004 8360     		str	r3, [r0, #8]
- 250              	.LVL14:
+ 240              		.loc 1 357 0
+ 241 0002 30B4     		push	{r4, r5}
+ 242              	.LCFI4:
+ 243              		.cfi_def_cfa_offset 8
+ 244              		.cfi_offset 4, -8
+ 245              		.cfi_offset 5, -4
+ 246              		.loc 1 367 0
+ 247 0004 8360     		str	r3, [r0, #8]
+ 248              	.LVL14:
  368:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  369:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set SDIO command parameters */
  370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   tmpreg |= (uint32_t)(SDIO_CmdInitStruct->CmdIndex         |\
- 251              		.loc 1 370 0
- 252 0006 8D68     		ldr	r5, [r1, #8]
- 253 0008 4B68     		ldr	r3, [r1, #4]
+ 249              		.loc 1 370 0
+ 250 0006 8D68     		ldr	r5, [r1, #8]
+ 251 0008 4B68     		ldr	r3, [r1, #4]
  371:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->Response         |\
- 254              		.loc 1 371 0
- 255 000a CC68     		ldr	r4, [r1, #12]
+ 252              		.loc 1 371 0
+ 253 000a CC68     		ldr	r4, [r1, #12]
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->WaitForInterrupt |\
  373:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->CPSM);
  374:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  375:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Write to SDIO CMD register */
  376:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   MODIFY_REG(SDIOx->CMD, CMD_CLEAR_MASK, tmpreg); 
-ARM GAS  /tmp/ccq7EGH5.s 			page 12
+ 254              		.loc 1 376 0
+ 255 000c C268     		ldr	r2, [r0, #12]
+ARM GAS  /tmp/ccH155Cr.s 			page 12
 
 
- 256              		.loc 1 376 0
- 257 000c C268     		ldr	r2, [r0, #12]
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->WaitForInterrupt |\
- 258              		.loc 1 372 0
- 259 000e 0969     		ldr	r1, [r1, #16]
- 260              	.LVL15:
+ 256              		.loc 1 372 0
+ 257 000e 0969     		ldr	r1, [r1, #16]
+ 258              	.LVL15:
  370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->Response         |\
- 261              		.loc 1 370 0
- 262 0010 2B43     		orrs	r3, r3, r5
+ 259              		.loc 1 370 0
+ 260 0010 2B43     		orrs	r3, r3, r5
  371:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->Response         |\
- 263              		.loc 1 371 0
- 264 0012 2343     		orrs	r3, r3, r4
- 265              		.loc 1 376 0
- 266 0014 22F47F62 		bic	r2, r2, #4080
- 267 0018 22F00F02 		bic	r2, r2, #15
+ 261              		.loc 1 371 0
+ 262 0012 2343     		orrs	r3, r3, r4
+ 263              		.loc 1 376 0
+ 264 0014 22F47F62 		bic	r2, r2, #4080
+ 265 0018 22F00F02 		bic	r2, r2, #15
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->WaitForInterrupt |\
- 268              		.loc 1 372 0
- 269 001c 0B43     		orrs	r3, r3, r1
- 270              		.loc 1 376 0
- 271 001e 1343     		orrs	r3, r3, r2
- 272 0020 C360     		str	r3, [r0, #12]
+ 266              		.loc 1 372 0
+ 267 001c 0B43     		orrs	r3, r3, r1
+ 268              		.loc 1 376 0
+ 269 001e 1343     		orrs	r3, r3, r2
+ 270 0020 C360     		str	r3, [r0, #12]
  377:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  378:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK;  
  379:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 273              		.loc 1 379 0
- 274 0022 30BC     		pop	{r4, r5}
- 275              	.LCFI5:
- 276              		.cfi_restore 5
- 277              		.cfi_restore 4
- 278              		.cfi_def_cfa_offset 0
- 279              	.LVL16:
- 280 0024 0020     		movs	r0, #0
- 281              	.LVL17:
- 282 0026 7047     		bx	lr
- 283              		.cfi_endproc
- 284              	.LFE132:
- 286              		.section	.text.SDIO_GetCommandResponse,"ax",%progbits
- 287              		.align	1
- 288              		.p2align 2,,3
- 289              		.global	SDIO_GetCommandResponse
- 290              		.syntax unified
- 291              		.thumb
- 292              		.thumb_func
- 293              		.fpu fpv4-sp-d16
- 295              	SDIO_GetCommandResponse:
- 296              	.LFB133:
+ 271              		.loc 1 379 0
+ 272 0022 30BC     		pop	{r4, r5}
+ 273              	.LCFI5:
+ 274              		.cfi_restore 5
+ 275              		.cfi_restore 4
+ 276              		.cfi_def_cfa_offset 0
+ 277              	.LVL16:
+ 278 0024 0020     		movs	r0, #0
+ 279              	.LVL17:
+ 280 0026 7047     		bx	lr
+ 281              		.cfi_endproc
+ 282              	.LFE132:
+ 284              		.section	.text.SDIO_GetCommandResponse,"ax",%progbits
+ 285              		.align	1
+ 286              		.p2align 2,,3
+ 287              		.global	SDIO_GetCommandResponse
+ 288              		.syntax unified
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.fpu fpv4-sp-d16
+ 293              	SDIO_GetCommandResponse:
+ 294              	.LFB133:
  380:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  381:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  382:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Return the command index of last command for which response received
@@ -715,35 +713,35 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  385:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  386:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** uint8_t SDIO_GetCommandResponse(SDIO_TypeDef *SDIOx)
  387:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 297              		.loc 1 387 0
- 298              		.cfi_startproc
- 299              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccq7EGH5.s 			page 13
+ 295              		.loc 1 387 0
+ 296              		.cfi_startproc
+ 297              		@ args = 0, pretend = 0, frame = 0
+ 298              		@ frame_needed = 0, uses_anonymous_args = 0
+ 299              		@ link register save eliminated.
+ARM GAS  /tmp/ccH155Cr.s 			page 13
 
 
- 300              		@ frame_needed = 0, uses_anonymous_args = 0
- 301              		@ link register save eliminated.
- 302              	.LVL18:
+ 300              	.LVL18:
  388:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (uint8_t)(SDIOx->RESPCMD);
- 303              		.loc 1 388 0
- 304 0000 0069     		ldr	r0, [r0, #16]
- 305              	.LVL19:
+ 301              		.loc 1 388 0
+ 302 0000 0069     		ldr	r0, [r0, #16]
+ 303              	.LVL19:
  389:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 306              		.loc 1 389 0
- 307 0002 C0B2     		uxtb	r0, r0
- 308 0004 7047     		bx	lr
- 309              		.cfi_endproc
- 310              	.LFE133:
- 312 0006 00BF     		.section	.text.SDIO_GetResponse,"ax",%progbits
- 313              		.align	1
- 314              		.p2align 2,,3
- 315              		.global	SDIO_GetResponse
- 316              		.syntax unified
- 317              		.thumb
- 318              		.thumb_func
- 319              		.fpu fpv4-sp-d16
- 321              	SDIO_GetResponse:
- 322              	.LFB134:
+ 304              		.loc 1 389 0
+ 305 0002 C0B2     		uxtb	r0, r0
+ 306 0004 7047     		bx	lr
+ 307              		.cfi_endproc
+ 308              	.LFE133:
+ 310 0006 00BF     		.section	.text.SDIO_GetResponse,"ax",%progbits
+ 311              		.align	1
+ 312              		.p2align 2,,3
+ 313              		.global	SDIO_GetResponse
+ 314              		.syntax unified
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.fpu fpv4-sp-d16
+ 319              	SDIO_GetResponse:
+ 320              	.LFB134:
  390:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  391:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  392:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
@@ -758,12 +756,12 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  401:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  402:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** uint32_t SDIO_GetResponse(uint32_t SDIO_RESP)
  403:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 323              		.loc 1 403 0
- 324              		.cfi_startproc
- 325              		@ args = 0, pretend = 0, frame = 8
- 326              		@ frame_needed = 0, uses_anonymous_args = 0
- 327              		@ link register save eliminated.
- 328              	.LVL20:
+ 321              		.loc 1 403 0
+ 322              		.cfi_startproc
+ 323              		@ args = 0, pretend = 0, frame = 8
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325              		@ link register save eliminated.
+ 326              	.LVL20:
  404:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   __IO uint32_t tmp = 0U;
  405:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  406:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
@@ -771,53 +769,53 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  408:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  409:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Get the response */
  410:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   tmp = SDIO_RESP_ADDR + SDIO_RESP;
- 329              		.loc 1 410 0
- 330 0000 044B     		ldr	r3, .L13
+ 327              		.loc 1 410 0
+ 328 0000 044B     		ldr	r3, .L13
  403:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   __IO uint32_t tmp = 0U;
- 331              		.loc 1 403 0
- 332 0002 82B0     		sub	sp, sp, #8
- 333              	.LCFI6:
- 334              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccq7EGH5.s 			page 14
+ 329              		.loc 1 403 0
+ 330 0002 82B0     		sub	sp, sp, #8
+ 331              	.LCFI6:
+ 332              		.cfi_def_cfa_offset 8
+ 333              		.loc 1 410 0
+ 334 0004 0344     		add	r3, r3, r0
+ARM GAS  /tmp/ccH155Cr.s 			page 14
 
 
- 335              		.loc 1 410 0
- 336 0004 0344     		add	r3, r3, r0
  404:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   __IO uint32_t tmp = 0U;
- 337              		.loc 1 404 0
- 338 0006 0022     		movs	r2, #0
- 339 0008 0192     		str	r2, [sp, #4]
- 340              		.loc 1 410 0
- 341 000a 0193     		str	r3, [sp, #4]
+ 335              		.loc 1 404 0
+ 336 0006 0022     		movs	r2, #0
+ 337 0008 0192     		str	r2, [sp, #4]
+ 338              		.loc 1 410 0
+ 339 000a 0193     		str	r3, [sp, #4]
  411:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  412:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (*(__IO uint32_t *) tmp);
- 342              		.loc 1 412 0
- 343 000c 019B     		ldr	r3, [sp, #4]
- 344 000e 1868     		ldr	r0, [r3]
- 345              	.LVL21:
+ 340              		.loc 1 412 0
+ 341 000c 019B     		ldr	r3, [sp, #4]
+ 342 000e 1868     		ldr	r0, [r3]
+ 343              	.LVL21:
  413:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }  
- 346              		.loc 1 413 0
- 347 0010 02B0     		add	sp, sp, #8
- 348              	.LCFI7:
- 349              		.cfi_def_cfa_offset 0
- 350              		@ sp needed
- 351 0012 7047     		bx	lr
- 352              	.L14:
- 353              		.align	2
- 354              	.L13:
- 355 0014 142C0140 		.word	1073818644
- 356              		.cfi_endproc
- 357              	.LFE134:
- 359              		.section	.text.SDIO_DataConfig,"ax",%progbits
- 360              		.align	1
- 361              		.p2align 2,,3
- 362              		.global	SDIO_DataConfig
- 363              		.syntax unified
- 364              		.thumb
- 365              		.thumb_func
- 366              		.fpu fpv4-sp-d16
- 368              	SDIO_DataConfig:
- 369              	.LFB135:
+ 344              		.loc 1 413 0
+ 345 0010 02B0     		add	sp, sp, #8
+ 346              	.LCFI7:
+ 347              		.cfi_def_cfa_offset 0
+ 348              		@ sp needed
+ 349 0012 7047     		bx	lr
+ 350              	.L14:
+ 351              		.align	2
+ 352              	.L13:
+ 353 0014 142C0140 		.word	1073818644
+ 354              		.cfi_endproc
+ 355              	.LFE134:
+ 357              		.section	.text.SDIO_DataConfig,"ax",%progbits
+ 358              		.align	1
+ 359              		.p2align 2,,3
+ 360              		.global	SDIO_DataConfig
+ 361              		.syntax unified
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.fpu fpv4-sp-d16
+ 366              	SDIO_DataConfig:
+ 367              	.LFB135:
  414:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  415:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  416:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Configure the SDIO data path according to the specified 
@@ -829,20 +827,20 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  422:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  423:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_DataConfig(SDIO_TypeDef *SDIOx, SDIO_DataInitTypeDef* SDIO_DataInitStruct)
  424:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 370              		.loc 1 424 0
- 371              		.cfi_startproc
- 372              		@ args = 0, pretend = 0, frame = 0
- 373              		@ frame_needed = 0, uses_anonymous_args = 0
- 374              		@ link register save eliminated.
- 375              	.LVL22:
+ 368              		.loc 1 424 0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 373              	.LVL22:
  425:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   uint32_t tmpreg = 0U;
  426:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  427:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
-ARM GAS  /tmp/ccq7EGH5.s 			page 15
-
-
  428:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_DATA_LENGTH(SDIO_DataInitStruct->DataLength));
  429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_BLOCK_SIZE(SDIO_DataInitStruct->DataBlockSize));
+ARM GAS  /tmp/ccH155Cr.s 			page 15
+
+
  430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_TRANSFER_DIR(SDIO_DataInitStruct->TransferDir));
  431:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_TRANSFER_MODE(SDIO_DataInitStruct->TransferMode));
  432:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_DPSM(SDIO_DataInitStruct->DPSM));
@@ -855,81 +853,81 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  439:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  440:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set the SDIO data configuration parameters */
  441:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   tmpreg |= (uint32_t)(SDIO_DataInitStruct->DataBlockSize |\
- 376              		.loc 1 441 0
- 377 0000 0A1D     		adds	r2, r1, #4
+ 374              		.loc 1 441 0
+ 375 0000 0A1D     		adds	r2, r1, #4
  424:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   uint32_t tmpreg = 0U;
- 378              		.loc 1 424 0
- 379 0002 30B4     		push	{r4, r5}
- 380              	.LCFI8:
- 381              		.cfi_def_cfa_offset 8
- 382              		.cfi_offset 4, -8
- 383              		.cfi_offset 5, -4
- 384              		.loc 1 441 0
- 385 0004 2CCA     		ldm	r2, {r2, r3, r5}
+ 376              		.loc 1 424 0
+ 377 0002 30B4     		push	{r4, r5}
+ 378              	.LCFI8:
+ 379              		.cfi_def_cfa_offset 8
+ 380              		.cfi_offset 4, -8
+ 381              		.cfi_offset 5, -4
+ 382              		.loc 1 441 0
+ 383 0004 2CCA     		ldm	r2, {r2, r3, r5}
  435:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
- 386              		.loc 1 435 0
- 387 0006 0C68     		ldr	r4, [r1]
- 388 0008 4462     		str	r4, [r0, #36]
+ 384              		.loc 1 435 0
+ 385 0006 0C68     		ldr	r4, [r1]
+ 386 0008 4462     		str	r4, [r0, #36]
  442:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->TransferDir   |\
- 389              		.loc 1 442 0
- 390 000a 0C69     		ldr	r4, [r1, #16]
+ 387              		.loc 1 442 0
+ 388 000a 0C69     		ldr	r4, [r1, #16]
  438:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
- 391              		.loc 1 438 0
- 392 000c 8262     		str	r2, [r0, #40]
- 393              	.LVL23:
+ 389              		.loc 1 438 0
+ 390 000c 8262     		str	r2, [r0, #40]
+ 391              	.LVL23:
  443:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->TransferMode  |\
  444:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->DPSM);
  445:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  446:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Write to SDIO DCTRL */
  447:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   MODIFY_REG(SDIOx->DCTRL, DCTRL_CLEAR_MASK, tmpreg);
- 394              		.loc 1 447 0
- 395 000e C26A     		ldr	r2, [r0, #44]
+ 392              		.loc 1 447 0
+ 393 000e C26A     		ldr	r2, [r0, #44]
  443:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->TransferMode  |\
- 396              		.loc 1 443 0
- 397 0010 4969     		ldr	r1, [r1, #20]
- 398              	.LVL24:
+ 394              		.loc 1 443 0
+ 395 0010 4969     		ldr	r1, [r1, #20]
+ 396              	.LVL24:
  441:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->TransferDir   |\
- 399              		.loc 1 441 0
- 400 0012 2B43     		orrs	r3, r3, r5
+ 397              		.loc 1 441 0
+ 398 0012 2B43     		orrs	r3, r3, r5
  442:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->TransferMode  |\
- 401              		.loc 1 442 0
- 402 0014 2343     		orrs	r3, r3, r4
- 403              		.loc 1 447 0
- 404 0016 22F0F702 		bic	r2, r2, #247
+ 399              		.loc 1 442 0
+ 400 0014 2343     		orrs	r3, r3, r4
+ 401              		.loc 1 447 0
+ 402 0016 22F0F702 		bic	r2, r2, #247
  443:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_DataInitStruct->TransferMode  |\
- 405              		.loc 1 443 0
-ARM GAS  /tmp/ccq7EGH5.s 			page 16
+ 403              		.loc 1 443 0
+ 404 001a 0B43     		orrs	r3, r3, r1
+ 405              		.loc 1 447 0
+ARM GAS  /tmp/ccH155Cr.s 			page 16
 
 
- 406 001a 0B43     		orrs	r3, r3, r1
- 407              		.loc 1 447 0
- 408 001c 1343     		orrs	r3, r3, r2
- 409 001e C362     		str	r3, [r0, #44]
+ 406 001c 1343     		orrs	r3, r3, r2
+ 407 001e C362     		str	r3, [r0, #44]
  448:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  449:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK;
  450:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  451:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 410              		.loc 1 451 0
- 411 0020 30BC     		pop	{r4, r5}
- 412              	.LCFI9:
- 413              		.cfi_restore 5
- 414              		.cfi_restore 4
- 415              		.cfi_def_cfa_offset 0
- 416 0022 0020     		movs	r0, #0
- 417              	.LVL25:
- 418 0024 7047     		bx	lr
- 419              		.cfi_endproc
- 420              	.LFE135:
- 422 0026 00BF     		.section	.text.SDIO_GetDataCounter,"ax",%progbits
- 423              		.align	1
- 424              		.p2align 2,,3
- 425              		.global	SDIO_GetDataCounter
- 426              		.syntax unified
- 427              		.thumb
- 428              		.thumb_func
- 429              		.fpu fpv4-sp-d16
- 431              	SDIO_GetDataCounter:
- 432              	.LFB136:
+ 408              		.loc 1 451 0
+ 409 0020 30BC     		pop	{r4, r5}
+ 410              	.LCFI9:
+ 411              		.cfi_restore 5
+ 412              		.cfi_restore 4
+ 413              		.cfi_def_cfa_offset 0
+ 414 0022 0020     		movs	r0, #0
+ 415              	.LVL25:
+ 416 0024 7047     		bx	lr
+ 417              		.cfi_endproc
+ 418              	.LFE135:
+ 420 0026 00BF     		.section	.text.SDIO_GetDataCounter,"ax",%progbits
+ 421              		.align	1
+ 422              		.p2align 2,,3
+ 423              		.global	SDIO_GetDataCounter
+ 424              		.syntax unified
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.fpu fpv4-sp-d16
+ 429              	SDIO_GetDataCounter:
+ 430              	.LFB136:
  452:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  453:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  454:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Returns number of remaining data bytes to be transferred.
@@ -938,34 +936,34 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  458:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** uint32_t SDIO_GetDataCounter(SDIO_TypeDef *SDIOx)
  459:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 433              		.loc 1 459 0
- 434              		.cfi_startproc
- 435              		@ args = 0, pretend = 0, frame = 0
- 436              		@ frame_needed = 0, uses_anonymous_args = 0
- 437              		@ link register save eliminated.
- 438              	.LVL26:
+ 431              		.loc 1 459 0
+ 432              		.cfi_startproc
+ 433              		@ args = 0, pretend = 0, frame = 0
+ 434              		@ frame_needed = 0, uses_anonymous_args = 0
+ 435              		@ link register save eliminated.
+ 436              	.LVL26:
  460:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (SDIOx->DCOUNT);
- 439              		.loc 1 460 0
- 440 0000 006B     		ldr	r0, [r0, #48]
- 441              	.LVL27:
+ 437              		.loc 1 460 0
+ 438 0000 006B     		ldr	r0, [r0, #48]
+ 439              	.LVL27:
  461:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 442              		.loc 1 461 0
- 443 0002 7047     		bx	lr
- 444              		.cfi_endproc
- 445              	.LFE136:
- 447              		.section	.text.SDIO_GetFIFOCount,"ax",%progbits
- 448              		.align	1
- 449              		.p2align 2,,3
- 450              		.global	SDIO_GetFIFOCount
- 451              		.syntax unified
-ARM GAS  /tmp/ccq7EGH5.s 			page 17
+ 440              		.loc 1 461 0
+ 441 0002 7047     		bx	lr
+ 442              		.cfi_endproc
+ 443              	.LFE136:
+ 445              		.section	.text.SDIO_GetFIFOCount,"ax",%progbits
+ 446              		.align	1
+ 447              		.p2align 2,,3
+ 448              		.global	SDIO_GetFIFOCount
+ 449              		.syntax unified
+ 450              		.thumb
+ 451              		.thumb_func
+ARM GAS  /tmp/ccH155Cr.s 			page 17
 
 
- 452              		.thumb
- 453              		.thumb_func
- 454              		.fpu fpv4-sp-d16
- 456              	SDIO_GetFIFOCount:
- 457              	.LFB137:
+ 452              		.fpu fpv4-sp-d16
+ 454              	SDIO_GetFIFOCount:
+ 455              	.LFB137:
  462:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  463:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
  464:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @brief  Get the FIFO data
@@ -974,31 +972,31 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  467:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  468:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** uint32_t SDIO_GetFIFOCount(SDIO_TypeDef *SDIOx)
  469:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 458              		.loc 1 469 0
- 459              		.cfi_startproc
- 460              		@ args = 0, pretend = 0, frame = 0
- 461              		@ frame_needed = 0, uses_anonymous_args = 0
- 462              		@ link register save eliminated.
- 463              	.LVL28:
+ 456              		.loc 1 469 0
+ 457              		.cfi_startproc
+ 458              		@ args = 0, pretend = 0, frame = 0
+ 459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 460              		@ link register save eliminated.
+ 461              	.LVL28:
  470:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (SDIOx->FIFO);
- 464              		.loc 1 470 0
- 465 0000 D0F88000 		ldr	r0, [r0, #128]
- 466              	.LVL29:
+ 462              		.loc 1 470 0
+ 463 0000 D0F88000 		ldr	r0, [r0, #128]
+ 464              	.LVL29:
  471:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 467              		.loc 1 471 0
- 468 0004 7047     		bx	lr
- 469              		.cfi_endproc
- 470              	.LFE137:
- 472 0006 00BF     		.section	.text.SDIO_SetSDIOReadWaitMode,"ax",%progbits
- 473              		.align	1
- 474              		.p2align 2,,3
- 475              		.global	SDIO_SetSDIOReadWaitMode
- 476              		.syntax unified
- 477              		.thumb
- 478              		.thumb_func
- 479              		.fpu fpv4-sp-d16
- 481              	SDIO_SetSDIOReadWaitMode:
- 482              	.LFB138:
+ 465              		.loc 1 471 0
+ 466 0004 7047     		bx	lr
+ 467              		.cfi_endproc
+ 468              	.LFE137:
+ 470 0006 00BF     		.section	.text.SDIO_SetSDIOReadWaitMode,"ax",%progbits
+ 471              		.align	1
+ 472              		.p2align 2,,3
+ 473              		.global	SDIO_SetSDIOReadWaitMode
+ 474              		.syntax unified
+ 475              		.thumb
+ 476              		.thumb_func
+ 477              		.fpu fpv4-sp-d16
+ 479              	SDIO_SetSDIOReadWaitMode:
+ 480              	.LFB138:
  472:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  473:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  474:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** /**
@@ -1011,81 +1009,81 @@ ARM GAS  /tmp/ccq7EGH5.s 			page 1
  481:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   */
  482:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** HAL_StatusTypeDef SDIO_SetSDIOReadWaitMode(uint32_t SDIO_ReadWaitMode)
  483:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
- 483              		.loc 1 483 0
- 484              		.cfi_startproc
- 485              		@ args = 0, pretend = 0, frame = 0
- 486              		@ frame_needed = 0, uses_anonymous_args = 0
- 487              		@ link register save eliminated.
- 488              	.LVL30:
+ 481              		.loc 1 483 0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485              		@ link register save eliminated.
+ 486              	.LVL30:
  484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
-ARM GAS  /tmp/ccq7EGH5.s 			page 18
-
-
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_READWAIT_MODE(SDIO_ReadWaitMode));
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
+ARM GAS  /tmp/ccH155Cr.s 			page 18
+
+
  487:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *(__IO uint32_t *)DCTRL_RWMOD_BB = SDIO_ReadWaitMode;
- 489              		.loc 1 487 0
- 490 0000 014B     		ldr	r3, .L20
- 491 0002 1860     		str	r0, [r3]
+ 487              		.loc 1 487 0
+ 488 0000 014B     		ldr	r3, .L20
+ 489 0002 1860     		str	r0, [r3]
  488:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
  489:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return HAL_OK;  
  490:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
- 492              		.loc 1 490 0
- 493 0004 0020     		movs	r0, #0
- 494              	.LVL31:
- 495 0006 7047     		bx	lr
- 496              	.L21:
- 497              		.align	2
- 498              	.L20:
- 499 0008 A8852542 		.word	1109755304
- 500              		.cfi_endproc
- 501              	.LFE138:
- 503              		.text
- 504              	.Letext0:
- 505              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 506              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 507              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 508              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 509              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 510              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
- 511              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
- 512              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 513              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
- 514              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 515              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
-ARM GAS  /tmp/ccq7EGH5.s 			page 19
+ 490              		.loc 1 490 0
+ 491 0004 0020     		movs	r0, #0
+ 492              	.LVL31:
+ 493 0006 7047     		bx	lr
+ 494              	.L21:
+ 495              		.align	2
+ 496              	.L20:
+ 497 0008 A8852542 		.word	1109755304
+ 498              		.cfi_endproc
+ 499              	.LFE138:
+ 501              		.text
+ 502              	.Letext0:
+ 503              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 504              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 505              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 506              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 507              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 508              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 509              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 510              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 511              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 512              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 513              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
+ARM GAS  /tmp/ccH155Cr.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_ll_sdmmc.c
-     /tmp/ccq7EGH5.s:18     .text.SDIO_Init:0000000000000000 $t
-     /tmp/ccq7EGH5.s:26     .text.SDIO_Init:0000000000000000 SDIO_Init
-     /tmp/ccq7EGH5.s:97     .text.SDIO_ReadFIFO:0000000000000000 $t
-     /tmp/ccq7EGH5.s:105    .text.SDIO_ReadFIFO:0000000000000000 SDIO_ReadFIFO
-     /tmp/ccq7EGH5.s:117    .text.SDIO_WriteFIFO:0000000000000000 $t
-     /tmp/ccq7EGH5.s:125    .text.SDIO_WriteFIFO:0000000000000000 SDIO_WriteFIFO
-     /tmp/ccq7EGH5.s:144    .text.SDIO_PowerState_ON:0000000000000000 $t
-     /tmp/ccq7EGH5.s:152    .text.SDIO_PowerState_ON:0000000000000000 SDIO_PowerState_ON
-     /tmp/ccq7EGH5.s:171    .text.SDIO_PowerState_OFF:0000000000000000 $t
-     /tmp/ccq7EGH5.s:179    .text.SDIO_PowerState_OFF:0000000000000000 SDIO_PowerState_OFF
-     /tmp/ccq7EGH5.s:198    .text.SDIO_GetPowerState:0000000000000000 $t
-     /tmp/ccq7EGH5.s:206    .text.SDIO_GetPowerState:0000000000000000 SDIO_GetPowerState
-     /tmp/ccq7EGH5.s:224    .text.SDIO_SendCommand:0000000000000000 $t
-     /tmp/ccq7EGH5.s:232    .text.SDIO_SendCommand:0000000000000000 SDIO_SendCommand
-     /tmp/ccq7EGH5.s:287    .text.SDIO_GetCommandResponse:0000000000000000 $t
-     /tmp/ccq7EGH5.s:295    .text.SDIO_GetCommandResponse:0000000000000000 SDIO_GetCommandResponse
-     /tmp/ccq7EGH5.s:313    .text.SDIO_GetResponse:0000000000000000 $t
-     /tmp/ccq7EGH5.s:321    .text.SDIO_GetResponse:0000000000000000 SDIO_GetResponse
-     /tmp/ccq7EGH5.s:355    .text.SDIO_GetResponse:0000000000000014 $d
-     /tmp/ccq7EGH5.s:360    .text.SDIO_DataConfig:0000000000000000 $t
-     /tmp/ccq7EGH5.s:368    .text.SDIO_DataConfig:0000000000000000 SDIO_DataConfig
-     /tmp/ccq7EGH5.s:423    .text.SDIO_GetDataCounter:0000000000000000 $t
-     /tmp/ccq7EGH5.s:431    .text.SDIO_GetDataCounter:0000000000000000 SDIO_GetDataCounter
-     /tmp/ccq7EGH5.s:448    .text.SDIO_GetFIFOCount:0000000000000000 $t
-     /tmp/ccq7EGH5.s:456    .text.SDIO_GetFIFOCount:0000000000000000 SDIO_GetFIFOCount
-     /tmp/ccq7EGH5.s:473    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 $t
-     /tmp/ccq7EGH5.s:481    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 SDIO_SetSDIOReadWaitMode
-     /tmp/ccq7EGH5.s:499    .text.SDIO_SetSDIOReadWaitMode:0000000000000008 $d
+     /tmp/ccH155Cr.s:16     .text.SDIO_Init:0000000000000000 $t
+     /tmp/ccH155Cr.s:24     .text.SDIO_Init:0000000000000000 SDIO_Init
+     /tmp/ccH155Cr.s:95     .text.SDIO_ReadFIFO:0000000000000000 $t
+     /tmp/ccH155Cr.s:103    .text.SDIO_ReadFIFO:0000000000000000 SDIO_ReadFIFO
+     /tmp/ccH155Cr.s:115    .text.SDIO_WriteFIFO:0000000000000000 $t
+     /tmp/ccH155Cr.s:123    .text.SDIO_WriteFIFO:0000000000000000 SDIO_WriteFIFO
+     /tmp/ccH155Cr.s:142    .text.SDIO_PowerState_ON:0000000000000000 $t
+     /tmp/ccH155Cr.s:150    .text.SDIO_PowerState_ON:0000000000000000 SDIO_PowerState_ON
+     /tmp/ccH155Cr.s:169    .text.SDIO_PowerState_OFF:0000000000000000 $t
+     /tmp/ccH155Cr.s:177    .text.SDIO_PowerState_OFF:0000000000000000 SDIO_PowerState_OFF
+     /tmp/ccH155Cr.s:196    .text.SDIO_GetPowerState:0000000000000000 $t
+     /tmp/ccH155Cr.s:204    .text.SDIO_GetPowerState:0000000000000000 SDIO_GetPowerState
+     /tmp/ccH155Cr.s:222    .text.SDIO_SendCommand:0000000000000000 $t
+     /tmp/ccH155Cr.s:230    .text.SDIO_SendCommand:0000000000000000 SDIO_SendCommand
+     /tmp/ccH155Cr.s:285    .text.SDIO_GetCommandResponse:0000000000000000 $t
+     /tmp/ccH155Cr.s:293    .text.SDIO_GetCommandResponse:0000000000000000 SDIO_GetCommandResponse
+     /tmp/ccH155Cr.s:311    .text.SDIO_GetResponse:0000000000000000 $t
+     /tmp/ccH155Cr.s:319    .text.SDIO_GetResponse:0000000000000000 SDIO_GetResponse
+     /tmp/ccH155Cr.s:353    .text.SDIO_GetResponse:0000000000000014 $d
+     /tmp/ccH155Cr.s:358    .text.SDIO_DataConfig:0000000000000000 $t
+     /tmp/ccH155Cr.s:366    .text.SDIO_DataConfig:0000000000000000 SDIO_DataConfig
+     /tmp/ccH155Cr.s:421    .text.SDIO_GetDataCounter:0000000000000000 $t
+     /tmp/ccH155Cr.s:429    .text.SDIO_GetDataCounter:0000000000000000 SDIO_GetDataCounter
+     /tmp/ccH155Cr.s:446    .text.SDIO_GetFIFOCount:0000000000000000 $t
+     /tmp/ccH155Cr.s:454    .text.SDIO_GetFIFOCount:0000000000000000 SDIO_GetFIFOCount
+     /tmp/ccH155Cr.s:471    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 $t
+     /tmp/ccH155Cr.s:479    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 SDIO_SetSDIOReadWaitMode
+     /tmp/ccH155Cr.s:497    .text.SDIO_SetSDIOReadWaitMode:0000000000000008 $d
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

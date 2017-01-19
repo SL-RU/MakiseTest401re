@@ -62,7 +62,8 @@ build/ili9340.o: MakiseGUI/MakiseGUI/ILI9340C/ili9340.c \
  /usr/arm-none-eabi/include/sys/string.h MakiseGUI/MakiseGUI/makise.h \
  MakiseGUI/MakiseGUI/fonts/fonts.h MakiseGUI/MakiseGUI/makise_text.h \
  MakiseGUI/MakiseGUI/makise_primitives.h \
- /usr/arm-none-eabi/include/math.h
+ /usr/arm-none-eabi/include/math.h \
+ /usr/arm-none-eabi/include/machine/fastmath.h Inc/dma.h
 
 MakiseGUI/MakiseGUI/ILI9340C/ili9340.h:
 
@@ -213,3 +214,7 @@ MakiseGUI/MakiseGUI/makise_text.h:
 MakiseGUI/MakiseGUI/makise_primitives.h:
 
 /usr/arm-none-eabi/include/math.h:
+
+/usr/arm-none-eabi/include/machine/fastmath.h:
+
+Inc/dma.h:

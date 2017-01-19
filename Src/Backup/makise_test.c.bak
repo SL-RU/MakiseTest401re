@@ -21,34 +21,44 @@ void mt_predraw(MakiseGUI * g)
     makise_g_host_call(host, M_G_CALL_PREDRAW);
 }
 
-char t0[] = "lel";
-char t1[] = "fuu";
-char t2[] = "pid";
+char t0[] = "dsf";
+char t1[] = {208, 204, 255};
+char t2[] = "GAD";
+
+MakiseGUI    Gu;
+MakiseBuffer Bu;
+MakiseDriver Dr;
+MHost hs;
+MContainer co;
+uint32_t sb[7680/4] = {0};
+uint32_t bb[19200/4] = {0};
 MakiseGUI* mt_start()
 {
     //malloc structures
-    MakiseGUI * gu = malloc(sizeof(MakiseGUI));
-    MakiseBuffer * bu = malloc(sizeof(MakiseBuffer));
-    MakiseDriver * dr = malloc(sizeof(MakiseDriver));
-    host = malloc(sizeof(MHost));
-    host->host = malloc(sizeof(MContainer));
+    MakiseGUI    * gu = &Gu;//malloc(sizeof(MakiseGUI));
+    MakiseBuffer * bu = &Bu;//malloc(sizeof(MakiseBuffer));
+    MakiseDriver * dr = &Dr;//malloc(sizeof(MakiseDriver));
+    host = &hs;//malloc(sizeof(MHost));
+    host->host = &co;//malloc(sizeof(MContainer));
     host->host->gui = gu;
 
     //init driver structure
     ili9340_driver(dr);
     //malloc small buffer
-    dr->buffer = malloc(dr->size);
-    printf("%lu\n", (uint32_t)(dr->buffer));
+    dr->buffer = sb;//malloc(dr->size);
+    printf("%d\n", (uint32_t)(dr->size));
     //init gui struct
+
     uint32_t sz = makise_init(gu, dr, bu);
     //malloc big buffer
-    bu->buffer = malloc(sz);
+    bu->buffer = bb;//malloc(sz);
     memset(bu->buffer, 0, sz);
-    printf("%lu\n", (uint32_t)(bu->buffer));
+    printf("%d\n", (uint32_t)(sz));
 
     m_button_create(&butt[0], host->host, 50, 50, 100, 70, t0, 0, 2, 1);
-    m_button_create(&butt[1], host->host, 50, 150, 100, 50, t1, 1, 0, 1);
+    m_button_create(&butt[1], host->host, 50, 250, 100, 50, t1, 1, 0, 1);
     m_button_create(&butt[2], host->host, 50, 220, 70, 50, t2, 2, 1, 0);
+
     
     mGui = gu;
     ili9340_init(gu);

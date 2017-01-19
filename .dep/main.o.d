@@ -68,7 +68,8 @@ build/main.o: Src/main.c Inc/main.h \
  /usr/arm-none-eabi/include/sys/string.h MakiseGUI/MakiseGUI/makise.h \
  MakiseGUI/MakiseGUI/fonts/fonts.h MakiseGUI/MakiseGUI/makise_text.h \
  MakiseGUI/MakiseGUI/makise_primitives.h \
- /usr/arm-none-eabi/include/math.h Inc/makise_test.h \
+ /usr/arm-none-eabi/include/math.h \
+ /usr/arm-none-eabi/include/machine/fastmath.h Inc/makise_test.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_input.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
@@ -251,6 +252,8 @@ MakiseGUI/MakiseGUI/makise_text.h:
 MakiseGUI/MakiseGUI/makise_primitives.h:
 
 /usr/arm-none-eabi/include/math.h:
+
+/usr/arm-none-eabi/include/machine/fastmath.h:
 
 Inc/makise_test.h:
 

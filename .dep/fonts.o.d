@@ -62,7 +62,9 @@ build/fonts.o: MakiseGUI/MakiseGUI/fonts/fonts.c \
  Inc/gpio.h MakiseGUI/MakiseGUI/ILI9340C/ili9340_registers.h \
  MakiseGUI/MakiseGUI/makise.h MakiseGUI/MakiseGUI/makise_text.h \
  MakiseGUI/MakiseGUI/makise_primitives.h \
- /usr/arm-none-eabi/include/math.h MakiseGUI/MakiseGUI/fonts/fonts.h
+ /usr/arm-none-eabi/include/math.h \
+ /usr/arm-none-eabi/include/machine/fastmath.h \
+ MakiseGUI/MakiseGUI/fonts/fonts.h
 
 MakiseGUI/MakiseGUI/fonts/fonts.h:
 
@@ -211,5 +213,7 @@ MakiseGUI/MakiseGUI/makise_text.h:
 MakiseGUI/MakiseGUI/makise_primitives.h:
 
 /usr/arm-none-eabi/include/math.h:
+
+/usr/arm-none-eabi/include/machine/fastmath.h:
 
 MakiseGUI/MakiseGUI/fonts/fonts.h:
