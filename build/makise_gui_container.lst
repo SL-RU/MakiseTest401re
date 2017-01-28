@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccW6IcgV.s 			page 1
+ARM GAS  /tmp/cc26i54Y.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccW6IcgV.s 			page 1
   39              		.loc 1 16 0
   40 0006 C368     		ldr	r3, [r0, #12]
   41              	.LVL1:
-ARM GAS  /tmp/ccW6IcgV.s 			page 2
+ARM GAS  /tmp/cc26i54Y.s 			page 2
 
 
   17:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(m == 0) //if last accidently didn't setted.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccW6IcgV.s 			page 1
    8:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	cont->last = el;
   73              		.loc 1 8 0
   74 0028 8160     		str	r1, [r0, #8]
-ARM GAS  /tmp/ccW6IcgV.s 			page 3
+ARM GAS  /tmp/cc26i54Y.s 			page 3
 
 
    9:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	cont->focused = 0;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccW6IcgV.s 			page 1
  120              		.loc 1 44 0
  121              		.cfi_startproc
  122              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccW6IcgV.s 			page 4
+ARM GAS  /tmp/cc26i54Y.s 			page 4
 
 
  123              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -191,19 +191,33 @@ ARM GAS  /tmp/ccW6IcgV.s 			page 1
  128              		.loc 1 44 0
  129 0002 0346     		mov	r3, r0
  130              		.loc 1 45 0
- 131 0004 32B1     		cbz	r2, .L12
+ 131 0004 6AB1     		cbz	r2, .L12
  132              		.loc 1 45 0 is_stmt 0 discriminator 1
- 133 0006 5268     		ldr	r2, [r2, #4]
- 134 0008 22B1     		cbz	r2, .L12
+ 133 0006 5168     		ldr	r1, [r2, #4]
+ 134 0008 59B1     		cbz	r1, .L12
+  44:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(b->parent != 0 && b->parent->el != 0)
+ 135              		.loc 1 44 0 is_stmt 1
+ 136 000a 10B4     		push	{r4}
+ 137              	.LCFI0:
+ 138              		.cfi_def_cfa_offset 4
+ 139              		.cfi_offset 4, -4
   46:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
-  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_x = b->position.x + b->parent->el->position.x;
- 135              		.loc 1 47 0 is_stmt 1
- 136 000a 9169     		ldr	r1, [r2, #24]
- 137 000c 8269     		ldr	r2, [r0, #24]
- 138              	.LVL9:
- 139 000e 0A44     		add	r2, r2, r1
- 140 0010 9A62     		str	r2, [r3, #40]
-  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_x = b->position.x + b->parent->el->position.x;
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_x = b->position.x + b->parent->el->position.real_x;
+ 140              		.loc 1 47 0
+ 141 000c 8269     		ldr	r2, [r0, #24]
+ 142 000e 8C6A     		ldr	r4, [r1, #40]
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 143              		.loc 1 48 0
+ 144 0010 C86A     		ldr	r0, [r1, #44]
+ 145              	.LVL9:
+ 146 0012 D969     		ldr	r1, [r3, #28]
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 147              		.loc 1 47 0
+ 148 0014 2244     		add	r2, r2, r4
+ 149              		.loc 1 48 0
+ 150 0016 0144     		add	r1, r1, r0
+ 151 0018 D962     		str	r1, [r3, #44]
+ 152 001a 9A62     		str	r2, [r3, #40]
   49:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
   50:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     else
   51:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
@@ -211,405 +225,955 @@ ARM GAS  /tmp/ccW6IcgV.s 			page 1
   53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
   54:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
   55:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
- 141              		.loc 1 55 0
- 142 0012 7047     		bx	lr
- 143              	.LVL10:
- 144              	.L12:
- 145              	.LBB4:
- 146              	.LBB5:
-  53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
- 147              		.loc 1 53 0
- 148 0014 D969     		ldr	r1, [r3, #28]
+ 153              		.loc 1 55 0
+ 154 001c 5DF8044B 		ldr	r4, [sp], #4
+ 155              	.LCFI1:
+ 156              		.cfi_restore 4
+ 157              		.cfi_def_cfa_offset 0
+ 158 0020 7047     		bx	lr
+ 159              	.LVL10:
+ 160              	.L12:
+ 161              	.LBB4:
+ 162              	.LBB5:
   52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
- 149              		.loc 1 52 0
- 150 0016 9A69     		ldr	r2, [r3, #24]
+ 163              		.loc 1 52 0
+ 164 0022 9A69     		ldr	r2, [r3, #24]
+ARM GAS  /tmp/cc26i54Y.s 			page 5
+
+
   53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
- 151              		.loc 1 53 0
- 152 0018 D962     		str	r1, [r3, #44]
- 153              	.LVL11:
- 154 001a 9A62     		str	r2, [r3, #40]
- 155              	.LBE5:
- 156              	.LBE4:
- 157              		.loc 1 55 0
- 158 001c 7047     		bx	lr
- 159              		.cfi_endproc
- 160              	.LFE128:
- 162 001e 00BF     		.section	.text.makise_g_cont_call,"ax",%progbits
- 163              		.align	1
- 164              		.p2align 2,,3
- 165              		.global	makise_g_cont_call
-ARM GAS  /tmp/ccW6IcgV.s 			page 5
-
-
- 166              		.syntax unified
- 167              		.thumb
- 168              		.thumb_func
- 169              		.fpu fpv4-sp-d16
- 171              	makise_g_cont_call:
- 172              	.LFB129:
+ 165              		.loc 1 53 0
+ 166 0024 D969     		ldr	r1, [r3, #28]
+ 167              	.LVL11:
+ 168 0026 D962     		str	r1, [r3, #44]
+ 169 0028 9A62     		str	r2, [r3, #40]
+ 170              	.LBE5:
+ 171              	.LBE4:
+ 172              		.loc 1 55 0
+ 173 002a 7047     		bx	lr
+ 174              		.cfi_endproc
+ 175              	.LFE128:
+ 177              		.section	.text.makise_g_cont_call,"ax",%progbits
+ 178              		.align	1
+ 179              		.p2align 2,,3
+ 180              		.global	makise_g_cont_call
+ 181              		.syntax unified
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.fpu fpv4-sp-d16
+ 186              	makise_g_cont_call:
+ 187              	.LFB129:
   56:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** uint8_t makise_g_cont_call   (MContainer *cont, uint8_t type)
   57:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** {
- 173              		.loc 1 57 0
- 174              		.cfi_startproc
- 175              		@ args = 0, pretend = 0, frame = 0
- 176              		@ frame_needed = 0, uses_anonymous_args = 0
- 177              	.LVL12:
+ 188              		.loc 1 57 0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              	.LVL12:
   58:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
- 178              		.loc 1 58 0
- 179 0000 0028     		cmp	r0, #0
- 180 0002 2DD0     		beq	.L31
+ 193              		.loc 1 58 0
+ 194 0000 88B1     		cbz	r0, .L35
   57:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
- 181              		.loc 1 57 0
- 182 0004 70B5     		push	{r4, r5, r6, lr}
- 183              	.LCFI0:
- 184              		.cfi_def_cfa_offset 16
- 185              		.cfi_offset 4, -16
- 186              		.cfi_offset 5, -12
- 187              		.cfi_offset 6, -8
- 188              		.cfi_offset 14, -4
+ 195              		.loc 1 57 0
+ 196 0002 38B5     		push	{r3, r4, r5, lr}
+ 197              	.LCFI2:
+ 198              		.cfi_def_cfa_offset 16
+ 199              		.cfi_offset 3, -16
+ 200              		.cfi_offset 4, -12
+ 201              		.cfi_offset 5, -8
+ 202              		.cfi_offset 14, -4
   59:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
   60:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->first == 0)
- 189              		.loc 1 60 0
- 190 0006 8468     		ldr	r4, [r0, #8]
- 191 0008 002C     		cmp	r4, #0
- 192 000a 2BD0     		beq	.L32
- 193 000c 0646     		mov	r6, r0
+ 203              		.loc 1 60 0
+ 204 0004 8468     		ldr	r4, [r0, #8]
+ 205 0006 002C     		cmp	r4, #0
+ 206 0008 2BD0     		beq	.L36
   61:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
   62:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
   63:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->el != 0) //container itself
- 194              		.loc 1 63 0
- 195 000e 4068     		ldr	r0, [r0, #4]
- 196              	.LVL13:
- 197 0010 0D46     		mov	r5, r1
- 198 0012 28B1     		cbz	r0, .L22
+ 207              		.loc 1 63 0
+ 208 000a 4368     		ldr	r3, [r0, #4]
+ 209 000c 0D46     		mov	r5, r1
+ 210 000e 63B1     		cbz	r3, .L26
   64:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
   65:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(type == M_G_CALL_PREDRAW)
- 199              		.loc 1 65 0
- 200 0014 0229     		cmp	r1, #2
- 201 0016 27D0     		beq	.L56
- 202              	.L23:
+ 211              		.loc 1 65 0
+ARM GAS  /tmp/cc26i54Y.s 			page 6
+
+
+ 212 0010 0229     		cmp	r1, #2
+ 213 0012 28D0     		beq	.L59
+ 214              	.LVL13:
+ 215              	.L47:
   66:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    makise_g_cont_call_common_predraw(cont->el);
-  67:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	m_element_call(cont->el, type);
- 203              		.loc 1 67 0
- 204 0018 2946     		mov	r1, r5
- 205              	.LVL14:
- 206 001a FFF7FEFF 		bl	m_element_call
- 207              	.LVL15:
- 208 001e B468     		ldr	r4, [r6, #8]
- 209              	.L22:
- 210              	.LVL16:
-ARM GAS  /tmp/ccW6IcgV.s 			page 6
-
-
- 211 0020 022D     		cmp	r5, #2
- 212 0022 13D0     		beq	.L30
- 213              	.LVL17:
- 214              	.L27:
+  67:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** //	m_element_call(cont->el, type);
   68:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
   69:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     
   70:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     MElement *e = cont->first;
   71:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     uint8_t r = 0;
-  72:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     while(1)
+  72:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     while(e != 0)
   73:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
   74:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(type == M_G_CALL_PREDRAW)
   75:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    makise_g_cont_call_common_predraw(e);
   76:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	r = m_element_call(e, type);
- 215              		.loc 1 76 0
- 216 0024 2046     		mov	r0, r4
- 217 0026 2946     		mov	r1, r5
- 218 0028 FFF7FEFF 		bl	m_element_call
- 219              	.LVL18:
-  77:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(e->next == 0)
- 220              		.loc 1 77 0
- 221 002c E468     		ldr	r4, [r4, #12]
- 222              	.LVL19:
- 223 002e 002C     		cmp	r4, #0
- 224 0030 F8D1     		bne	.L27
- 225              	.L26:
-  78:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    break;
-  79:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	e = e->next;
-  80:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
-  81:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     return M_OK;
- 226              		.loc 1 81 0
- 227 0032 0120     		movs	r0, #1
- 228 0034 70BD     		pop	{r4, r5, r6, pc}
- 229              	.LVL20:
- 230              	.L57:
- 231              	.LBB14:
- 232              	.LBB15:
-  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_x = b->position.x + b->parent->el->position.x;
- 233              		.loc 1 47 0
- 234 0036 9A69     		ldr	r2, [r3, #24]
- 235 0038 A369     		ldr	r3, [r4, #24]
- 236 003a 1344     		add	r3, r3, r2
- 237 003c A362     		str	r3, [r4, #40]
- 238              	.L29:
- 239              	.LBE15:
- 240              	.LBE14:
-  76:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(e->next == 0)
- 241              		.loc 1 76 0
- 242 003e 2046     		mov	r0, r4
- 243 0040 0221     		movs	r1, #2
- 244 0042 FFF7FEFF 		bl	m_element_call
- 245              	.LVL21:
-  77:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    break;
- 246              		.loc 1 77 0
- 247 0046 E468     		ldr	r4, [r4, #12]
- 248              	.LVL22:
- 249 0048 002C     		cmp	r4, #0
- 250 004a F2D0     		beq	.L26
-ARM GAS  /tmp/ccW6IcgV.s 			page 7
-
-
- 251              	.L30:
- 252              	.LVL23:
- 253              	.LBB19:
- 254              	.LBB18:
-  45:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
- 255              		.loc 1 45 0
- 256 004c 2369     		ldr	r3, [r4, #16]
- 257 004e 13B1     		cbz	r3, .L28
- 258 0050 5B68     		ldr	r3, [r3, #4]
- 259 0052 002B     		cmp	r3, #0
- 260 0054 EFD1     		bne	.L57
- 261              	.L28:
- 262              	.LVL24:
- 263              	.LBB16:
- 264              	.LBB17:
-  52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
- 265              		.loc 1 52 0
- 266 0056 A269     		ldr	r2, [r4, #24]
-  53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
- 267              		.loc 1 53 0
- 268 0058 E369     		ldr	r3, [r4, #28]
-  52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
- 269              		.loc 1 52 0
- 270 005a A262     		str	r2, [r4, #40]
-  53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
- 271              		.loc 1 53 0
- 272 005c E362     		str	r3, [r4, #44]
- 273 005e EEE7     		b	.L29
- 274              	.LVL25:
- 275              	.L31:
- 276              	.LCFI1:
- 277              		.cfi_def_cfa_offset 0
- 278              		.cfi_restore 4
- 279              		.cfi_restore 5
- 280              		.cfi_restore 6
- 281              		.cfi_restore 14
- 282              	.LBE17:
- 283              	.LBE16:
- 284              	.LBE18:
- 285              	.LBE19:
+ 216              		.loc 1 76 0
+ 217 0014 2046     		mov	r0, r4
+ 218 0016 2946     		mov	r1, r5
+ 219 0018 FFF7FEFF 		bl	m_element_call
+ 220              	.LVL14:
+  77:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	e = e->next;
+ 221              		.loc 1 77 0
+ 222 001c E468     		ldr	r4, [r4, #12]
+ 223              	.LVL15:
+  72:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 224              		.loc 1 72 0
+ 225 001e 002C     		cmp	r4, #0
+ 226 0020 F8D1     		bne	.L47
+ 227              	.L31:
+  78:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+  79:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     return M_OK;
+ 228              		.loc 1 79 0
+ 229 0022 0120     		movs	r0, #1
+ 230 0024 38BD     		pop	{r3, r4, r5, pc}
+ 231              	.LVL16:
+ 232              	.L35:
+ 233              	.LCFI3:
+ 234              		.cfi_def_cfa_offset 0
+ 235              		.cfi_restore 3
+ 236              		.cfi_restore 4
+ 237              		.cfi_restore 5
+ 238              		.cfi_restore 14
   59:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->first == 0)
- 286              		.loc 1 59 0
- 287 0060 0320     		movs	r0, #3
- 288              	.LVL26:
- 289 0062 7047     		bx	lr
- 290              	.LVL27:
- 291              	.L32:
- 292              	.LCFI2:
- 293              		.cfi_def_cfa_offset 16
- 294              		.cfi_offset 4, -16
- 295              		.cfi_offset 5, -12
- 296              		.cfi_offset 6, -8
- 297              		.cfi_offset 14, -4
- 298 0064 0320     		movs	r0, #3
- 299              	.LVL28:
-  82:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
- 300              		.loc 1 82 0
-ARM GAS  /tmp/ccW6IcgV.s 			page 8
+ 239              		.loc 1 59 0
+ 240 0026 0320     		movs	r0, #3
+ 241              	.LVL17:
+ 242 0028 7047     		bx	lr
+ 243              	.LVL18:
+ 244              	.L26:
+ 245              	.LCFI4:
+ 246              		.cfi_def_cfa_offset 16
+ 247              		.cfi_offset 3, -16
+ 248              		.cfi_offset 4, -12
+ 249              		.cfi_offset 5, -8
+ 250              		.cfi_offset 14, -4
+ 251 002a 0229     		cmp	r1, #2
+ 252 002c F2D1     		bne	.L47
+ARM GAS  /tmp/cc26i54Y.s 			page 7
 
 
- 301 0066 70BD     		pop	{r4, r5, r6, pc}
- 302              	.LVL29:
- 303              	.L56:
- 304              	.LBB20:
- 305              	.LBB21:
+ 253 002e 10E0     		b	.L34
+ 254              	.LVL19:
+ 255              	.L60:
+ 256              	.LBB14:
+ 257              	.LBB15:
   45:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
- 306              		.loc 1 45 0
- 307 0068 0369     		ldr	r3, [r0, #16]
- 308 006a 33B1     		cbz	r3, .L24
- 309 006c 5B68     		ldr	r3, [r3, #4]
- 310 006e 23B1     		cbz	r3, .L24
-  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_x = b->position.x + b->parent->el->position.x;
- 311              		.loc 1 47 0
- 312 0070 9A69     		ldr	r2, [r3, #24]
- 313 0072 8369     		ldr	r3, [r0, #24]
- 314 0074 1344     		add	r3, r3, r2
- 315 0076 8362     		str	r3, [r0, #40]
- 316 0078 CEE7     		b	.L23
- 317              	.L24:
- 318              	.LVL30:
- 319              	.LBB22:
- 320              	.LBB23:
+ 258              		.loc 1 45 0
+ 259 0030 5B68     		ldr	r3, [r3, #4]
+ 260 0032 8BB1     		cbz	r3, .L32
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 261              		.loc 1 47 0
+ 262 0034 986A     		ldr	r0, [r3, #40]
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 263              		.loc 1 48 0
+ 264 0036 D96A     		ldr	r1, [r3, #44]
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 265              		.loc 1 47 0
+ 266 0038 A269     		ldr	r2, [r4, #24]
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 267              		.loc 1 48 0
+ 268 003a E369     		ldr	r3, [r4, #28]
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 269              		.loc 1 47 0
+ 270 003c 0244     		add	r2, r2, r0
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 271              		.loc 1 48 0
+ 272 003e 0B44     		add	r3, r3, r1
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 273              		.loc 1 47 0
+ 274 0040 A262     		str	r2, [r4, #40]
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 275              		.loc 1 48 0
+ 276 0042 E362     		str	r3, [r4, #44]
+ 277              	.L33:
+ 278              	.LBE15:
+ 279              	.LBE14:
+  76:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	e = e->next;
+ 280              		.loc 1 76 0
+ 281 0044 2046     		mov	r0, r4
+ 282 0046 0221     		movs	r1, #2
+ 283 0048 FFF7FEFF 		bl	m_element_call
+ 284              	.LVL20:
+  77:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 285              		.loc 1 77 0
+ 286 004c E468     		ldr	r4, [r4, #12]
+ 287              	.LVL21:
+  72:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 288              		.loc 1 72 0
+ 289 004e 002C     		cmp	r4, #0
+ 290 0050 E7D0     		beq	.L31
+ 291              	.LVL22:
+ 292              	.L34:
+ 293              	.LBB19:
+ 294              	.LBB18:
+  45:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 295              		.loc 1 45 0
+ 296 0052 2369     		ldr	r3, [r4, #16]
+ARM GAS  /tmp/cc26i54Y.s 			page 8
+
+
+ 297 0054 002B     		cmp	r3, #0
+ 298 0056 EBD1     		bne	.L60
+ 299              	.L32:
+ 300              	.LVL23:
+ 301              	.LBB16:
+ 302              	.LBB17:
   52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
- 321              		.loc 1 52 0
- 322 007a 8269     		ldr	r2, [r0, #24]
+ 303              		.loc 1 52 0
+ 304 0058 A269     		ldr	r2, [r4, #24]
   53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
- 323              		.loc 1 53 0
- 324 007c C369     		ldr	r3, [r0, #28]
+ 305              		.loc 1 53 0
+ 306 005a E369     		ldr	r3, [r4, #28]
   52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
- 325              		.loc 1 52 0
- 326 007e 8262     		str	r2, [r0, #40]
+ 307              		.loc 1 52 0
+ 308 005c A262     		str	r2, [r4, #40]
   53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
- 327              		.loc 1 53 0
- 328 0080 C362     		str	r3, [r0, #44]
- 329 0082 C9E7     		b	.L23
- 330              	.LBE23:
- 331              	.LBE22:
- 332              	.LBE21:
- 333              	.LBE20:
- 334              		.cfi_endproc
- 335              	.LFE129:
- 337              		.section	.text.makise_g_cont_input,"ax",%progbits
- 338              		.align	1
- 339              		.p2align 2,,3
- 340              		.global	makise_g_cont_input
- 341              		.syntax unified
- 342              		.thumb
- 343              		.thumb_func
- 344              		.fpu fpv4-sp-d16
- 346              	makise_g_cont_input:
- 347              	.LFB130:
-  83:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
-  84:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** MInputResultEnum makise_g_cont_input  (MContainer *cont, MInputData data)
-  85:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** {
- 348              		.loc 1 85 0
- 349              		.cfi_startproc
- 350              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  /tmp/ccW6IcgV.s 			page 9
+ 309              		.loc 1 53 0
+ 310 005e E362     		str	r3, [r4, #44]
+ 311 0060 F0E7     		b	.L33
+ 312              	.LVL24:
+ 313              	.L36:
+ 314              	.LBE17:
+ 315              	.LBE16:
+ 316              	.LBE18:
+ 317              	.LBE19:
+  59:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->first == 0)
+ 318              		.loc 1 59 0
+ 319 0062 0320     		movs	r0, #3
+ 320              	.LVL25:
+  80:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
+ 321              		.loc 1 80 0
+ 322 0064 38BD     		pop	{r3, r4, r5, pc}
+ 323              	.LVL26:
+ 324              	.L59:
+ 325              	.LBB20:
+ 326              	.LBB21:
+  45:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 327              		.loc 1 45 0
+ 328 0066 1A69     		ldr	r2, [r3, #16]
+ 329 0068 52B1     		cbz	r2, .L28
+ 330 006a 5268     		ldr	r2, [r2, #4]
+ 331 006c 42B1     		cbz	r2, .L28
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 332              		.loc 1 47 0
+ 333 006e 956A     		ldr	r5, [r2, #40]
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 334              		.loc 1 48 0
+ 335 0070 D06A     		ldr	r0, [r2, #44]
+ 336              	.LVL27:
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 337              		.loc 1 47 0
+ 338 0072 9969     		ldr	r1, [r3, #24]
+ 339              	.LVL28:
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 340              		.loc 1 48 0
+ 341 0074 DA69     		ldr	r2, [r3, #28]
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ARM GAS  /tmp/cc26i54Y.s 			page 9
 
 
- 351              		@ frame_needed = 0, uses_anonymous_args = 0
- 352              		@ link register save eliminated.
- 353              	.LVL31:
- 354 0000 30B4     		push	{r4, r5}
- 355              	.LCFI3:
- 356              		.cfi_def_cfa_offset 8
- 357              		.cfi_offset 4, -8
- 358              		.cfi_offset 5, -4
- 359 0002 84B0     		sub	sp, sp, #16
- 360              	.LCFI4:
- 361              		.cfi_def_cfa_offset 24
- 362              		.loc 1 85 0
- 363 0004 01AC     		add	r4, sp, #4
- 364 0006 84E80E00 		stm	r4, {r1, r2, r3}
-  86:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
- 365              		.loc 1 86 0
- 366 000a 40B1     		cbz	r0, .L60
-  87:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
-  88:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
-  89:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->focused != 0)
- 367              		.loc 1 89 0
- 368 000c 0069     		ldr	r0, [r0, #16]
- 369              	.LVL32:
- 370 000e 50B1     		cbz	r0, .L61
-  90:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return cont->focused->input(cont->focused, data);
- 371              		.loc 1 90 0
- 372 0010 94E80E00 		ldm	r4, {r1, r2, r3}
- 373 0014 456C     		ldr	r5, [r0, #68]
- 374 0016 AC46     		mov	ip, r5
-  91:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
-  92:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     return M_INPUT_NOT_HANDLED;
-  93:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
- 375              		.loc 1 93 0
- 376 0018 04B0     		add	sp, sp, #16
- 377              	.LCFI5:
- 378              		.cfi_remember_state
- 379              		.cfi_def_cfa_offset 8
- 380              		@ sp needed
- 381 001a 30BC     		pop	{r4, r5}
- 382              	.LCFI6:
- 383              		.cfi_restore 5
- 384              		.cfi_restore 4
- 385              		.cfi_def_cfa_offset 0
-  90:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return cont->focused->input(cont->focused, data);
- 386              		.loc 1 90 0
- 387 001c 6047     		bx	ip
- 388              	.LVL33:
- 389              	.L60:
- 390              	.LCFI7:
- 391              		.cfi_restore_state
-  87:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
- 392              		.loc 1 87 0
- 393 001e 0320     		movs	r0, #3
- 394              	.LVL34:
- 395              		.loc 1 93 0
- 396 0020 04B0     		add	sp, sp, #16
- 397              	.LCFI8:
-ARM GAS  /tmp/ccW6IcgV.s 			page 10
+ 342              		.loc 1 47 0
+ 343 0076 2944     		add	r1, r1, r5
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 344              		.loc 1 48 0
+ 345 0078 0244     		add	r2, r2, r0
+  47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
+ 346              		.loc 1 47 0
+ 347 007a 9962     		str	r1, [r3, #40]
+  48:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 348              		.loc 1 48 0
+ 349 007c DA62     		str	r2, [r3, #44]
+ 350 007e E8E7     		b	.L34
+ 351              	.LVL29:
+ 352              	.L28:
+ 353              	.LBB22:
+ 354              	.LBB23:
+  52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
+ 355              		.loc 1 52 0
+ 356 0080 9969     		ldr	r1, [r3, #24]
+ 357              	.LVL30:
+  53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 358              		.loc 1 53 0
+ 359 0082 DA69     		ldr	r2, [r3, #28]
+  52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
+ 360              		.loc 1 52 0
+ 361 0084 9962     		str	r1, [r3, #40]
+  53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 362              		.loc 1 53 0
+ 363 0086 DA62     		str	r2, [r3, #44]
+ 364 0088 E3E7     		b	.L34
+ 365              	.LBE23:
+ 366              	.LBE22:
+ 367              	.LBE21:
+ 368              	.LBE20:
+ 369              		.cfi_endproc
+ 370              	.LFE129:
+ 372 008a 00BF     		.section	.text.makise_g_cont_input,"ax",%progbits
+ 373              		.align	1
+ 374              		.p2align 2,,3
+ 375              		.global	makise_g_cont_input
+ 376              		.syntax unified
+ 377              		.thumb
+ 378              		.thumb_func
+ 379              		.fpu fpv4-sp-d16
+ 381              	makise_g_cont_input:
+ 382              	.LFB130:
+  81:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+  82:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** MInputResultEnum makise_g_cont_input  (MContainer *cont, MInputData data)
+  83:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** {
+ 383              		.loc 1 83 0
+ 384              		.cfi_startproc
+ 385              		@ args = 0, pretend = 0, frame = 16
+ 386              		@ frame_needed = 0, uses_anonymous_args = 0
+ 387              		@ link register save eliminated.
+ 388              	.LVL31:
+ 389 0000 30B4     		push	{r4, r5}
+ 390              	.LCFI5:
+ARM GAS  /tmp/cc26i54Y.s 			page 10
 
 
- 398              		.cfi_remember_state
- 399              		.cfi_def_cfa_offset 8
- 400              		@ sp needed
- 401 0022 30BC     		pop	{r4, r5}
- 402              	.LCFI9:
- 403              		.cfi_restore 5
- 404              		.cfi_restore 4
- 405              		.cfi_def_cfa_offset 0
- 406 0024 7047     		bx	lr
- 407              	.L61:
- 408              	.LCFI10:
- 409              		.cfi_restore_state
-  92:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
- 410              		.loc 1 92 0
- 411 0026 0120     		movs	r0, #1
- 412              		.loc 1 93 0
- 413 0028 04B0     		add	sp, sp, #16
- 414              	.LCFI11:
- 415              		.cfi_def_cfa_offset 8
- 416              		@ sp needed
- 417 002a 30BC     		pop	{r4, r5}
- 418              	.LCFI12:
+ 391              		.cfi_def_cfa_offset 8
+ 392              		.cfi_offset 4, -8
+ 393              		.cfi_offset 5, -4
+ 394 0002 84B0     		sub	sp, sp, #16
+ 395              	.LCFI6:
+ 396              		.cfi_def_cfa_offset 24
+ 397              		.loc 1 83 0
+ 398 0004 01AC     		add	r4, sp, #4
+ 399 0006 84E80E00 		stm	r4, {r1, r2, r3}
+  84:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
+ 400              		.loc 1 84 0
+ 401 000a 40B1     		cbz	r0, .L63
+  85:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
+  86:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+  87:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->focused != 0)
+ 402              		.loc 1 87 0
+ 403 000c 0069     		ldr	r0, [r0, #16]
+ 404              	.LVL32:
+ 405 000e 50B1     		cbz	r0, .L64
+  88:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return cont->focused->input(cont->focused, data);
+ 406              		.loc 1 88 0
+ 407 0010 94E80E00 		ldm	r4, {r1, r2, r3}
+ 408 0014 456C     		ldr	r5, [r0, #68]
+ 409 0016 AC46     		mov	ip, r5
+  89:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+  90:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     return M_INPUT_NOT_HANDLED;
+  91:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
+ 410              		.loc 1 91 0
+ 411 0018 04B0     		add	sp, sp, #16
+ 412              	.LCFI7:
+ 413              		.cfi_remember_state
+ 414              		.cfi_def_cfa_offset 8
+ 415              		@ sp needed
+ 416 001a 30BC     		pop	{r4, r5}
+ 417              	.LCFI8:
+ 418              		.cfi_restore 5
  419              		.cfi_restore 4
- 420              		.cfi_restore 5
- 421              		.cfi_def_cfa_offset 0
- 422 002c 7047     		bx	lr
- 423              		.cfi_endproc
- 424              	.LFE130:
- 426 002e 00BF     		.text
- 427              	.Letext0:
- 428              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
- 429              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 430              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
- 431              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 432              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
- 433              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
- 434              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 435              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
- 436              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 437              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
- 438              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 439              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 440              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 441              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 442              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 443              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 444              		.file 18 "Inc/spi.h"
- 445              		.file 19 "Inc/tim.h"
- 446              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 447              		.file 21 "MakiseGUI/MakiseGUI/makise_text.h"
- 448              		.file 22 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 449              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 450              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
-ARM GAS  /tmp/ccW6IcgV.s 			page 11
+ 420              		.cfi_def_cfa_offset 0
+  88:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return cont->focused->input(cont->focused, data);
+ 421              		.loc 1 88 0
+ 422 001c 6047     		bx	ip
+ 423              	.LVL33:
+ 424              	.L63:
+ 425              	.LCFI9:
+ 426              		.cfi_restore_state
+  85:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+ 427              		.loc 1 85 0
+ 428 001e 0320     		movs	r0, #3
+ 429              	.LVL34:
+ 430              		.loc 1 91 0
+ 431 0020 04B0     		add	sp, sp, #16
+ 432              	.LCFI10:
+ 433              		.cfi_remember_state
+ 434              		.cfi_def_cfa_offset 8
+ 435              		@ sp needed
+ 436 0022 30BC     		pop	{r4, r5}
+ 437              	.LCFI11:
+ARM GAS  /tmp/cc26i54Y.s 			page 11
+
+
+ 438              		.cfi_restore 5
+ 439              		.cfi_restore 4
+ 440              		.cfi_def_cfa_offset 0
+ 441 0024 7047     		bx	lr
+ 442              	.L64:
+ 443              	.LCFI12:
+ 444              		.cfi_restore_state
+  90:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
+ 445              		.loc 1 90 0
+ 446 0026 0120     		movs	r0, #1
+ 447              		.loc 1 91 0
+ 448 0028 04B0     		add	sp, sp, #16
+ 449              	.LCFI13:
+ 450              		.cfi_def_cfa_offset 8
+ 451              		@ sp needed
+ 452 002a 30BC     		pop	{r4, r5}
+ 453              	.LCFI14:
+ 454              		.cfi_restore 4
+ 455              		.cfi_restore 5
+ 456              		.cfi_def_cfa_offset 0
+ 457 002c 7047     		bx	lr
+ 458              		.cfi_endproc
+ 459              	.LFE130:
+ 461 002e 00BF     		.section	.text.makise_g_cont_focus_next,"ax",%progbits
+ 462              		.align	1
+ 463              		.p2align 2,,3
+ 464              		.global	makise_g_cont_focus_next
+ 465              		.syntax unified
+ 466              		.thumb
+ 467              		.thumb_func
+ 468              		.fpu fpv4-sp-d16
+ 470              	makise_g_cont_focus_next:
+ 471              	.LFB131:
+  92:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+  93:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** MFocusEnum makise_g_cont_focus_next(MContainer *cont)
+  94:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** {
+ 472              		.loc 1 94 0
+ 473              		.cfi_startproc
+ 474              		@ args = 0, pretend = 0, frame = 0
+ 475              		@ frame_needed = 0, uses_anonymous_args = 0
+ 476              	.LVL35:
+  95:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
+ 477              		.loc 1 95 0
+ 478 0000 F8B1     		cbz	r0, .L84
+  94:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
+ 479              		.loc 1 94 0
+ 480 0002 38B5     		push	{r3, r4, r5, lr}
+ 481              	.LCFI15:
+ 482              		.cfi_def_cfa_offset 16
+ 483              		.cfi_offset 3, -16
+ 484              		.cfi_offset 4, -12
+ 485              		.cfi_offset 5, -8
+ 486              		.cfi_offset 14, -4
+ 487 0004 0546     		mov	r5, r0
+  96:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
+  97:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+  98:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->focused != 0)
+ARM GAS  /tmp/cc26i54Y.s 			page 12
+
+
+ 488              		.loc 1 98 0
+ 489 0006 0069     		ldr	r0, [r0, #16]
+ 490              	.LVL36:
+ 491 0008 E8B1     		cbz	r0, .L68
+  99:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 100:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(cont->focused->focus != 0 && cont->focused->focus(cont->focused, M_G_FOCUS_NEXT) != M_G_FOCUS_O
+ 492              		.loc 1 100 0
+ 493 000a 836C     		ldr	r3, [r0, #72]
+ 494 000c 9BB1     		cbz	r3, .L70
+ 495              		.loc 1 100 0 is_stmt 0 discriminator 1
+ 496 000e 1021     		movs	r1, #16
+ 497 0010 9847     		blx	r3
+ 498              	.LVL37:
+ 499 0012 0128     		cmp	r0, #1
+ 500 0014 0FD0     		beq	.L70
+ 501              	.LBB24:
+ 101:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	{
+ 102:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    //if focused element didn't switched focus by itself or focus function pointer equals to zero,
+ 103:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    MElement *e = cont->focused->next;
+ 502              		.loc 1 103 0 is_stmt 1
+ 503 0016 2B69     		ldr	r3, [r5, #16]
+ 504 0018 DC68     		ldr	r4, [r3, #12]
+ 505              	.LVL38:
+ 104:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    while(e != 0)
+ 506              		.loc 1 104 0
+ 507 001a 14B9     		cbnz	r4, .L75
+ 508 001c 0DE0     		b	.L76
+ 509              	.L77:
+ 105:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 106:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		if(e->focus_prior != 0)
+ 107:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 108:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    if(makise_g_focus(e, M_G_FOCUS_GET_NEXT) == M_G_FOCUS_OK)
+ 109:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			return M_G_FOCUS_OK;
+ 110:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 111:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		e = e->next;
+ 510              		.loc 1 111 0
+ 511 001e E468     		ldr	r4, [r4, #12]
+ 512              	.LVL39:
+ 104:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    while(e != 0)
+ 513              		.loc 1 104 0
+ 514 0020 5CB1     		cbz	r4, .L76
+ 515              	.L75:
+ 106:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 516              		.loc 1 106 0
+ 517 0022 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
+ 518 0026 002B     		cmp	r3, #0
+ 519 0028 F9D0     		beq	.L77
+ 108:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			return M_G_FOCUS_OK;
+ 520              		.loc 1 108 0
+ 521 002a 1821     		movs	r1, #24
+ 522 002c 2046     		mov	r0, r4
+ 523 002e FFF7FEFF 		bl	makise_g_focus
+ 524              	.LVL40:
+ 525 0032 0128     		cmp	r0, #1
+ 526 0034 F3D1     		bne	.L77
+ 527              	.LVL41:
+ 528              	.L70:
+ARM GAS  /tmp/cc26i54Y.s 			page 13
+
+
+ 529              	.LBE24:
+ 112:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    }
+ 113:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+ 114:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    //if isn't no more elements requiring focus
+ 115:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    if(cont->el == 0) //if cont is host container
+ 116:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 117:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		e = cont->first;
+ 118:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		while(e != 0)
+ 119:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 120:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    if(e->focus_prior != 0)
+ 121:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    {
+ 122:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			if(makise_g_focus(e, M_G_FOCUS_GET_NEXT) == M_G_FOCUS_OK)
+ 123:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			    return M_G_FOCUS_OK;
+ 124:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    }
+ 125:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    e = e->next;
+ 126:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 127:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    }
+ 128:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    return M_G_FOCUS_NOT_NEEDED;
+ 129:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	}
+ 130:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	else
+ 131:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    return M_G_FOCUS_OK;
+ 530              		.loc 1 131 0
+ 531 0036 0120     		movs	r0, #1
+ 532 0038 38BD     		pop	{r3, r4, r5, pc}
+ 533              	.LVL42:
+ 534              	.L76:
+ 535              	.LBB25:
+ 115:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 536              		.loc 1 115 0
+ 537 003a 6B68     		ldr	r3, [r5, #4]
+ 538 003c A3B1     		cbz	r3, .L111
+ 539              	.LVL43:
+ 540              	.L73:
+ 128:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	}
+ 541              		.loc 1 128 0
+ 542 003e 0220     		movs	r0, #2
+ 543 0040 38BD     		pop	{r3, r4, r5, pc}
+ 544              	.LVL44:
+ 545              	.L84:
+ 546              	.LCFI16:
+ 547              		.cfi_def_cfa_offset 0
+ 548              		.cfi_restore 3
+ 549              		.cfi_restore 4
+ 550              		.cfi_restore 5
+ 551              		.cfi_restore 14
+ 552              	.LBE25:
+  96:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+ 553              		.loc 1 96 0
+ 554 0042 0320     		movs	r0, #3
+ 555              	.LVL45:
+ 556 0044 7047     		bx	lr
+ 557              	.LVL46:
+ 558              	.L68:
+ 559              	.LCFI17:
+ 560              		.cfi_def_cfa_offset 16
+ 561              		.cfi_offset 3, -16
+ 562              		.cfi_offset 4, -12
+ARM GAS  /tmp/cc26i54Y.s 			page 14
+
+
+ 563              		.cfi_offset 5, -8
+ 564              		.cfi_offset 14, -4
+ 565              	.LBB26:
+ 132:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 133:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     else
+ 134:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 135:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	MElement *e = cont->first;
+ 566              		.loc 1 135 0
+ 567 0046 AC68     		ldr	r4, [r5, #8]
+ 568              	.LVL47:
+ 136:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	while(e != 0)
+ 569              		.loc 1 136 0
+ 570 0048 1CB9     		cbnz	r4, .L82
+ 571 004a F8E7     		b	.L73
+ 572              	.L83:
+ 137:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	{
+ 138:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    if(e->focus_prior != 0)
+ 139:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 140:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		if(makise_g_focus(e, M_G_FOCUS_GET_NEXT) == M_G_FOCUS_OK)
+ 141:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 142:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** //		    makise_g_focus(e, M_G_FOCUS_NEXT);
+ 143:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    return M_G_FOCUS_OK;
+ 144:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 145:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    }
+ 146:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    e = e->next;
+ 573              		.loc 1 146 0
+ 574 004c E468     		ldr	r4, [r4, #12]
+ 575              	.LVL48:
+ 136:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	while(e != 0)
+ 576              		.loc 1 136 0
+ 577 004e 002C     		cmp	r4, #0
+ 578 0050 F5D0     		beq	.L73
+ 579              	.L82:
+ 138:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 580              		.loc 1 138 0
+ 581 0052 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
+ 582 0056 002B     		cmp	r3, #0
+ 583 0058 F8D0     		beq	.L83
+ 140:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 584              		.loc 1 140 0
+ 585 005a 1821     		movs	r1, #24
+ 586 005c 2046     		mov	r0, r4
+ 587 005e FFF7FEFF 		bl	makise_g_focus
+ 588              	.LVL49:
+ 589 0062 0128     		cmp	r0, #1
+ 590 0064 F2D1     		bne	.L83
+ 591 0066 E6E7     		b	.L70
+ 592              	.LVL50:
+ 593              	.L111:
+ 594              	.LBE26:
+ 595              	.LBB27:
+ 117:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		while(e != 0)
+ 596              		.loc 1 117 0
+ 597 0068 AC68     		ldr	r4, [r5, #8]
+ 598              	.LVL51:
+ 118:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 599              		.loc 1 118 0
+ARM GAS  /tmp/cc26i54Y.s 			page 15
+
+
+ 600 006a 1CB9     		cbnz	r4, .L79
+ 601 006c E7E7     		b	.L73
+ 602              	.L80:
+ 125:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 603              		.loc 1 125 0
+ 604 006e E468     		ldr	r4, [r4, #12]
+ 605              	.LVL52:
+ 118:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 606              		.loc 1 118 0
+ 607 0070 002C     		cmp	r4, #0
+ 608 0072 E4D0     		beq	.L73
+ 609              	.L79:
+ 120:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    {
+ 610              		.loc 1 120 0
+ 611 0074 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
+ 612 0078 002B     		cmp	r3, #0
+ 613 007a F8D0     		beq	.L80
+ 122:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			    return M_G_FOCUS_OK;
+ 614              		.loc 1 122 0
+ 615 007c 1821     		movs	r1, #24
+ 616 007e 2046     		mov	r0, r4
+ 617 0080 FFF7FEFF 		bl	makise_g_focus
+ 618              	.LVL53:
+ 619 0084 0128     		cmp	r0, #1
+ 620 0086 F2D1     		bne	.L80
+ 621 0088 D5E7     		b	.L70
+ 622              	.LBE27:
+ 623              		.cfi_endproc
+ 624              	.LFE131:
+ 626 008a 00BF     		.section	.text.makise_g_cont_focus_prev,"ax",%progbits
+ 627              		.align	1
+ 628              		.p2align 2,,3
+ 629              		.global	makise_g_cont_focus_prev
+ 630              		.syntax unified
+ 631              		.thumb
+ 632              		.thumb_func
+ 633              		.fpu fpv4-sp-d16
+ 635              	makise_g_cont_focus_prev:
+ 636              	.LFB132:
+ 147:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	}
+ 148:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_G_FOCUS_NOT_NEEDED;
+ 149:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 150:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** }
+ 151:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     
+ 152:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** MFocusEnum makise_g_cont_focus_prev(MContainer *cont)
+ 153:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** {
+ 637              		.loc 1 153 0
+ 638              		.cfi_startproc
+ 639              		@ args = 0, pretend = 0, frame = 0
+ 640              		@ frame_needed = 0, uses_anonymous_args = 0
+ 641              	.LVL54:
+ 154:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
+ 642              		.loc 1 154 0
+ 643 0000 F8B1     		cbz	r0, .L130
+ 153:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
+ 644              		.loc 1 153 0
+ 645 0002 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  /tmp/cc26i54Y.s 			page 16
+
+
+ 646              	.LCFI18:
+ 647              		.cfi_def_cfa_offset 16
+ 648              		.cfi_offset 3, -16
+ 649              		.cfi_offset 4, -12
+ 650              		.cfi_offset 5, -8
+ 651              		.cfi_offset 14, -4
+ 652 0004 0546     		mov	r5, r0
+ 155:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
+ 156:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+ 157:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->focused != 0)
+ 653              		.loc 1 157 0
+ 654 0006 0069     		ldr	r0, [r0, #16]
+ 655              	.LVL55:
+ 656 0008 E8B1     		cbz	r0, .L114
+ 158:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 159:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(cont->focused->focus != 0 && cont->focused->focus(cont->focused, M_G_FOCUS_PREV) != M_G_FOCUS_O
+ 657              		.loc 1 159 0
+ 658 000a 836C     		ldr	r3, [r0, #72]
+ 659 000c 9BB1     		cbz	r3, .L116
+ 660              		.loc 1 159 0 is_stmt 0 discriminator 1
+ 661 000e 2021     		movs	r1, #32
+ 662 0010 9847     		blx	r3
+ 663              	.LVL56:
+ 664 0012 0128     		cmp	r0, #1
+ 665 0014 0FD0     		beq	.L116
+ 666              	.LBB28:
+ 160:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	{
+ 161:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    //if focused element didn't switched focus by itself or focus function pointer equals to zero,
+ 162:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    MElement *e = cont->focused->prev;
+ 667              		.loc 1 162 0 is_stmt 1
+ 668 0016 2B69     		ldr	r3, [r5, #16]
+ 669 0018 9C68     		ldr	r4, [r3, #8]
+ 670              	.LVL57:
+ 163:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    while(e != 0)
+ 671              		.loc 1 163 0
+ 672 001a 14B9     		cbnz	r4, .L121
+ 673 001c 0DE0     		b	.L122
+ 674              	.L123:
+ 164:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 165:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		if(e->focus_prior != 0)
+ 166:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 167:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    if(makise_g_focus(e, M_G_FOCUS_GET_PREV) == M_G_FOCUS_OK)
+ 168:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    {
+ 169:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			return M_G_FOCUS_OK;
+ 170:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    }
+ 171:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 172:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		e = e->prev;
+ 675              		.loc 1 172 0
+ 676 001e A468     		ldr	r4, [r4, #8]
+ 677              	.LVL58:
+ 163:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    while(e != 0)
+ 678              		.loc 1 163 0
+ 679 0020 5CB1     		cbz	r4, .L122
+ 680              	.L121:
+ 165:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 681              		.loc 1 165 0
+ 682 0022 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
+ARM GAS  /tmp/cc26i54Y.s 			page 17
+
+
+ 683 0026 002B     		cmp	r3, #0
+ 684 0028 F9D0     		beq	.L123
+ 167:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    {
+ 685              		.loc 1 167 0
+ 686 002a 2821     		movs	r1, #40
+ 687 002c 2046     		mov	r0, r4
+ 688 002e FFF7FEFF 		bl	makise_g_focus
+ 689              	.LVL59:
+ 690 0032 0128     		cmp	r0, #1
+ 691 0034 F3D1     		bne	.L123
+ 692              	.LVL60:
+ 693              	.L116:
+ 694              	.LBE28:
+ 173:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    }
+ 174:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+ 175:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    //if isn't no more elements requiring focus
+ 176:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    if(cont->el == 0) //if cont is host container
+ 177:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 178:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		e = cont->last;
+ 179:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		while(e != 0)
+ 180:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 181:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    if(e->focus_prior != 0)
+ 182:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    {
+ 183:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			if(makise_g_focus(e, M_G_FOCUS_GET_PREV) == M_G_FOCUS_OK)
+ 184:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			    return M_G_FOCUS_OK;
+ 185:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    }
+ 186:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    e = e->prev;
+ 187:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 188:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    }
+ 189:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    return M_G_FOCUS_NOT_NEEDED;
+ 190:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	}
+ 191:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	else
+ 192:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    return M_G_FOCUS_OK;
+ 695              		.loc 1 192 0
+ 696 0036 0120     		movs	r0, #1
+ 697 0038 38BD     		pop	{r3, r4, r5, pc}
+ 698              	.LVL61:
+ 699              	.L122:
+ 700              	.LBB29:
+ 176:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 701              		.loc 1 176 0
+ 702 003a 6B68     		ldr	r3, [r5, #4]
+ 703 003c A3B1     		cbz	r3, .L157
+ 704              	.LVL62:
+ 705              	.L119:
+ 189:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	}
+ 706              		.loc 1 189 0
+ 707 003e 0220     		movs	r0, #2
+ 708 0040 38BD     		pop	{r3, r4, r5, pc}
+ 709              	.LVL63:
+ 710              	.L130:
+ 711              	.LCFI19:
+ 712              		.cfi_def_cfa_offset 0
+ 713              		.cfi_restore 3
+ 714              		.cfi_restore 4
+ 715              		.cfi_restore 5
+ 716              		.cfi_restore 14
+ARM GAS  /tmp/cc26i54Y.s 			page 18
+
+
+ 717              	.LBE29:
+ 155:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
+ 718              		.loc 1 155 0
+ 719 0042 0320     		movs	r0, #3
+ 720              	.LVL64:
+ 721 0044 7047     		bx	lr
+ 722              	.LVL65:
+ 723              	.L114:
+ 724              	.LCFI20:
+ 725              		.cfi_def_cfa_offset 16
+ 726              		.cfi_offset 3, -16
+ 727              		.cfi_offset 4, -12
+ 728              		.cfi_offset 5, -8
+ 729              		.cfi_offset 14, -4
+ 730              	.LBB30:
+ 193:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
+ 194:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     else
+ 195:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
+ 196:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	MElement *e = cont->last;
+ 731              		.loc 1 196 0
+ 732 0046 EC68     		ldr	r4, [r5, #12]
+ 733              	.LVL66:
+ 197:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	while(e != 0)
+ 734              		.loc 1 197 0
+ 735 0048 1CB9     		cbnz	r4, .L128
+ 736 004a F8E7     		b	.L119
+ 737              	.L129:
+ 198:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	{
+ 199:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    if(e->focus_prior != 0)
+ 200:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 201:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		if(makise_g_focus(e, M_G_FOCUS_GET_PREV) == M_G_FOCUS_OK)
+ 202:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 203:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** //		    makise_g_focus(e, M_G_FOCUS_PREV);
+ 204:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    return M_G_FOCUS_OK;
+ 205:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 206:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    }
+ 207:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    e = e->prev;
+ 738              		.loc 1 207 0
+ 739 004c A468     		ldr	r4, [r4, #8]
+ 740              	.LVL67:
+ 197:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	while(e != 0)
+ 741              		.loc 1 197 0
+ 742 004e 002C     		cmp	r4, #0
+ 743 0050 F5D0     		beq	.L119
+ 744              	.L128:
+ 199:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	    {
+ 745              		.loc 1 199 0
+ 746 0052 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
+ 747 0056 002B     		cmp	r3, #0
+ 748 0058 F8D0     		beq	.L129
+ 201:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 749              		.loc 1 201 0
+ 750 005a 2821     		movs	r1, #40
+ 751 005c 2046     		mov	r0, r4
+ 752 005e FFF7FEFF 		bl	makise_g_focus
+ 753              	.LVL68:
+ 754 0062 0128     		cmp	r0, #1
+ARM GAS  /tmp/cc26i54Y.s 			page 19
+
+
+ 755 0064 F2D1     		bne	.L129
+ 756 0066 E6E7     		b	.L116
+ 757              	.LVL69:
+ 758              	.L157:
+ 759              	.LBE30:
+ 760              	.LBB31:
+ 178:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		while(e != 0)
+ 761              		.loc 1 178 0
+ 762 0068 EC68     		ldr	r4, [r5, #12]
+ 763              	.LVL70:
+ 179:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 764              		.loc 1 179 0
+ 765 006a 1CB9     		cbnz	r4, .L125
+ 766 006c E7E7     		b	.L119
+ 767              	.L126:
+ 186:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		}
+ 768              		.loc 1 186 0
+ 769 006e A468     		ldr	r4, [r4, #8]
+ 770              	.LVL71:
+ 179:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
+ 771              		.loc 1 179 0
+ 772 0070 002C     		cmp	r4, #0
+ 773 0072 E4D0     		beq	.L119
+ 774              	.L125:
+ 181:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		    {
+ 775              		.loc 1 181 0
+ 776 0074 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
+ 777 0078 002B     		cmp	r3, #0
+ 778 007a F8D0     		beq	.L126
+ 183:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 			    return M_G_FOCUS_OK;
+ 779              		.loc 1 183 0
+ 780 007c 2821     		movs	r1, #40
+ 781 007e 2046     		mov	r0, r4
+ 782 0080 FFF7FEFF 		bl	makise_g_focus
+ 783              	.LVL72:
+ 784 0084 0128     		cmp	r0, #1
+ 785 0086 F2D1     		bne	.L126
+ 786 0088 D5E7     		b	.L116
+ 787              	.LBE31:
+ 788              		.cfi_endproc
+ 789              	.LFE132:
+ 791              		.comm	makise_color_palette,4,4
+ 792 008a 00BF     		.text
+ 793              	.Letext0:
+ 794              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 795              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 796              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 797              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 798              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 799              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 800              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 801              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 802              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 803              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 804              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 805              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 806              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ARM GAS  /tmp/cc26i54Y.s 			page 20
+
+
+ 807              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 808              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 809              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 810              		.file 18 "Inc/spi.h"
+ 811              		.file 19 "Inc/tim.h"
+ 812              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 813              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 814              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 815              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 816              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 817              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ARM GAS  /tmp/cc26i54Y.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_gui_container.c
-     /tmp/ccW6IcgV.s:16     .text.makise_g_cont_add:0000000000000000 $t
-     /tmp/ccW6IcgV.s:24     .text.makise_g_cont_add:0000000000000000 makise_g_cont_add
-     /tmp/ccW6IcgV.s:89     .text.makise_g_cont_rem:0000000000000000 $t
-     /tmp/ccW6IcgV.s:97     .text.makise_g_cont_rem:0000000000000000 makise_g_cont_rem
-     /tmp/ccW6IcgV.s:110    .text.makise_g_cont_call_common_predraw:0000000000000000 $t
-     /tmp/ccW6IcgV.s:118    .text.makise_g_cont_call_common_predraw:0000000000000000 makise_g_cont_call_common_predraw
-     /tmp/ccW6IcgV.s:163    .text.makise_g_cont_call:0000000000000000 $t
-     /tmp/ccW6IcgV.s:171    .text.makise_g_cont_call:0000000000000000 makise_g_cont_call
-     /tmp/ccW6IcgV.s:338    .text.makise_g_cont_input:0000000000000000 $t
-     /tmp/ccW6IcgV.s:346    .text.makise_g_cont_input:0000000000000000 makise_g_cont_input
+     /tmp/cc26i54Y.s:16     .text.makise_g_cont_add:0000000000000000 $t
+     /tmp/cc26i54Y.s:24     .text.makise_g_cont_add:0000000000000000 makise_g_cont_add
+     /tmp/cc26i54Y.s:89     .text.makise_g_cont_rem:0000000000000000 $t
+     /tmp/cc26i54Y.s:97     .text.makise_g_cont_rem:0000000000000000 makise_g_cont_rem
+     /tmp/cc26i54Y.s:110    .text.makise_g_cont_call_common_predraw:0000000000000000 $t
+     /tmp/cc26i54Y.s:118    .text.makise_g_cont_call_common_predraw:0000000000000000 makise_g_cont_call_common_predraw
+     /tmp/cc26i54Y.s:178    .text.makise_g_cont_call:0000000000000000 $t
+     /tmp/cc26i54Y.s:186    .text.makise_g_cont_call:0000000000000000 makise_g_cont_call
+     /tmp/cc26i54Y.s:373    .text.makise_g_cont_input:0000000000000000 $t
+     /tmp/cc26i54Y.s:381    .text.makise_g_cont_input:0000000000000000 makise_g_cont_input
+     /tmp/cc26i54Y.s:462    .text.makise_g_cont_focus_next:0000000000000000 $t
+     /tmp/cc26i54Y.s:470    .text.makise_g_cont_focus_next:0000000000000000 makise_g_cont_focus_next
+     /tmp/cc26i54Y.s:627    .text.makise_g_cont_focus_prev:0000000000000000 $t
+     /tmp/cc26i54Y.s:635    .text.makise_g_cont_focus_prev:0000000000000000 makise_g_cont_focus_prev
+                            *COM*:0000000000000004 makise_color_palette
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 m_element_call
+makise_g_focus

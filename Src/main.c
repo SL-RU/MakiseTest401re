@@ -58,6 +58,7 @@
 #include "makise_test.h"
 #include "makise_primitives.h"
 #include <math.h>
+#include <controls_595.h>
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -117,42 +118,31 @@ void lsm303_read()
     int16_t y = (int16_t)(r[3] << 8 | r[2]);
     int16_t z = (int16_t)(r[5] << 8 | r[4]);
     ang = atan2(y,x);
-    printf("c %04d %04d %04d %f\n", x, y, z, ang*180.0/M_PI);
+    //printf("c %04d %04d %04d %f\n", x, y, z, ang*180.0/M_PI);
 }
+
+
 
 
 MakiseGUI* mgui;
 void _mt_d(MakiseGUI* gui)
 {
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
+//    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
 //    makise_d_clear(mgui->buffer, 0);
     //makise_d_circle_filled(mgui->buffer, 50, (HAL_GetTick() % 500)/2 + 50, 40, 1, 3);
     makise_d_line(mgui->buffer, 120, 160, cos(ang) * 100 + 120, sin(ang) * 100 + 160, 1);
-    //makise_d_rect_filled(mgui->buffer, 170, 50, 50, 50, 1, 2);
-
+    for (uint32_t i = 0; i < 16; i++) {
+	
+	makise_d_rect_filled(mgui->buffer, i * 10, 0, 10, 10, i, i);
+    }
+    
+    
     //makise_d_string(mgui->buffer, "KEEEK", 100, 30, &F_Arial12, 2);    
     makise_g_host_call(host, M_G_CALL_DRAW);
 }
-#define kdat GPIOB, GPIO_PIN_5
-#define kclk GPIOB, GPIO_PIN_4
-#define klatch GPIOB, GPIO_PIN_3
-void hc595(uint8_t val)
-{
-    HAL_GPIO_WritePin(klatch, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(kclk,   GPIO_PIN_RESET);
-    
-    for(uint8_t i = 0; i < 8; i++)
-    {
-	HAL_GPIO_WritePin(kdat,   ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-//	printf("595 %d %d\n", i, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(kclk,   GPIO_PIN_SET);
-	HAL_Delay(1);
-	HAL_GPIO_WritePin(kclk,   GPIO_PIN_RESET);
-	HAL_Delay(1);
-    }
 
-    HAL_GPIO_WritePin(klatch,   GPIO_PIN_SET);
-}
+
+
 /* USER CODE END 0 */
 
 int main(void)
@@ -181,8 +171,8 @@ int main(void)
   MX_I2C1_Init();
 
   /* USER CODE BEGIN 2 */
-  hc595(0);
 
+  
   //WriteRegister(LSM303_CTRL2, 0x00);
   //WriteRegister(LSM303_CTRL1, 0x57);
   WriteRegister(LSM303_CTRL5, 0b01110000);
@@ -191,6 +181,8 @@ int main(void)
 
   printf("acc %d\n", ReadRegister(LSM303_WHO_AM_I));
 
+//  controls_595_init(buttons, 4, outs, 4, &but_h);
+  controls_595_update();
 
 //  printf("%d\n", Arial_12_SymbolTable[4]);
   mgui = mt_start();
@@ -201,12 +193,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint32_t c = 0;
   while (1)
   {
-      lsm303_read();
-//      hc595(l+=0b00010000);
-      HAL_Delay(30);
-      
+      c++;
+//      if(c%5 == 0)
+//	  lsm303_read();
+//      HAL_Delay(10);
+      controls_595_update();      
       
   /* USER CODE END WHILE */
 

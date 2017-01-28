@@ -1,0 +1,1494 @@
+ARM GAS  /tmp/ccjF9xBC.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"controls_595.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.controls_595_set,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	controls_595_set
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	controls_595_set:
+  25              	.LFB126:
+  26              		.file 1 "Controls/controls_595.c"
+   1:Controls/controls_595.c **** #include "controls_595.h"
+   2:Controls/controls_595.c **** 
+   3:Controls/controls_595.c **** controls_595_ButtonState *_controls_595_buttons;
+   4:Controls/controls_595.c **** controls_595_OutputState *_controls_595_outs;
+   5:Controls/controls_595.c **** uint8_t                   _controls_595_buttons_len;
+   6:Controls/controls_595.c **** uint8_t                   _controls_595_outs_len;
+   7:Controls/controls_595.c **** void                    (*_controls_595_buttons_handler)(
+   8:Controls/controls_595.c ****     uint32_t id,
+   9:Controls/controls_595.c ****     uint8_t event,
+  10:Controls/controls_595.c ****     uint32_t time);
+  11:Controls/controls_595.c **** 
+  12:Controls/controls_595.c **** void controls_595_set(uint32_t val)
+  13:Controls/controls_595.c **** {
+  27              		.loc 1 13 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 38B5     		push	{r3, r4, r5, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 3, -16
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+  14:Controls/controls_595.c ****     //HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_RESET);
+  15:Controls/controls_595.c ****     HAL_GPIO_WritePin(controls_595_klatch, GPIO_PIN_RESET);
+  39              		.loc 1 15 0
+  40 0002 0022     		movs	r2, #0
+  13:Controls/controls_595.c ****     //HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_RESET);
+  41              		.loc 1 13 0
+  42 0004 0546     		mov	r5, r0
+ARM GAS  /tmp/ccjF9xBC.s 			page 2
+
+
+  43              		.loc 1 15 0
+  44 0006 0821     		movs	r1, #8
+  45 0008 0F48     		ldr	r0, .L6
+  46              	.LVL1:
+  47 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  48              	.LVL2:
+  49 000e 0724     		movs	r4, #7
+  50              	.LVL3:
+  51              	.L2:
+  52              	.LBB3:
+  16:Controls/controls_595.c ****     
+  17:Controls/controls_595.c ****     for(int8_t i = controls_595_len - 1; i >= 0; i--)
+  18:Controls/controls_595.c ****     {
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_RESET);
+  53              		.loc 1 19 0 discriminator 3
+  54 0010 0022     		movs	r2, #0
+  55 0012 1021     		movs	r1, #16
+  56 0014 0C48     		ldr	r0, .L6
+  57 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  58              	.LVL4:
+  20:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  59              		.loc 1 20 0 discriminator 3
+  60 001a 25FA04F2 		lsr	r2, r5, r4
+  61 001e 02F00102 		and	r2, r2, #1
+  62 0022 2021     		movs	r1, #32
+  63 0024 0848     		ldr	r0, .L6
+  64 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  65              	.LVL5:
+  66 002a 013C     		subs	r4, r4, #1
+  67              	.LVL6:
+  21:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_SET);
+  68              		.loc 1 21 0 discriminator 3
+  69 002c 0122     		movs	r2, #1
+  70 002e 1021     		movs	r1, #16
+  71 0030 0548     		ldr	r0, .L6
+  72 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  73              	.LVL7:
+  17:Controls/controls_595.c ****     {
+  74              		.loc 1 17 0 discriminator 3
+  75 0036 631C     		adds	r3, r4, #1
+  76 0038 EAD1     		bne	.L2
+  77              	.LBE3:
+  22:Controls/controls_595.c ****     }
+  23:Controls/controls_595.c ****     HAL_GPIO_WritePin(controls_595_klatch,   GPIO_PIN_SET);
+  78              		.loc 1 23 0
+  79 003a 0122     		movs	r2, #1
+  80 003c 0821     		movs	r1, #8
+  81 003e 0248     		ldr	r0, .L6
+  24:Controls/controls_595.c **** }
+  82              		.loc 1 24 0
+  83 0040 BDE83840 		pop	{r3, r4, r5, lr}
+  84              	.LCFI1:
+  85              		.cfi_restore 14
+  86              		.cfi_restore 5
+  87              		.cfi_restore 4
+  88              		.cfi_restore 3
+  89              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/ccjF9xBC.s 			page 3
+
+
+  90              	.LVL8:
+  23:Controls/controls_595.c **** }
+  91              		.loc 1 23 0
+  92 0044 FFF7FEBF 		b	HAL_GPIO_WritePin
+  93              	.LVL9:
+  94              	.L7:
+  95              		.align	2
+  96              	.L6:
+  97 0048 00040240 		.word	1073873920
+  98              		.cfi_endproc
+  99              	.LFE126:
+ 101              		.section	.text.controls_595_init,"ax",%progbits
+ 102              		.align	1
+ 103              		.p2align 2,,3
+ 104              		.global	controls_595_init
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.fpu fpv4-sp-d16
+ 110              	controls_595_init:
+ 111              	.LFB127:
+  25:Controls/controls_595.c **** 
+  26:Controls/controls_595.c **** void controls_595_init(controls_595_ButtonState *buttons,
+  27:Controls/controls_595.c **** 		       uint8_t buttons_len,
+  28:Controls/controls_595.c **** 		       controls_595_OutputState *outs,
+  29:Controls/controls_595.c **** 		       uint8_t outs_len,
+  30:Controls/controls_595.c **** 		       void (*buttons_handler)(
+  31:Controls/controls_595.c **** 			   uint32_t id,
+  32:Controls/controls_595.c **** 			   uint8_t event,
+  33:Controls/controls_595.c **** 			   uint32_t time))
+  34:Controls/controls_595.c **** {
+ 112              		.loc 1 34 0
+ 113              		.cfi_startproc
+ 114              		@ args = 4, pretend = 0, frame = 40
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              	.LVL10:
+ 117 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 118              	.LCFI2:
+ 119              		.cfi_def_cfa_offset 36
+ 120              		.cfi_offset 4, -36
+ 121              		.cfi_offset 5, -32
+ 122              		.cfi_offset 6, -28
+ 123              		.cfi_offset 7, -24
+ 124              		.cfi_offset 8, -20
+ 125              		.cfi_offset 9, -16
+ 126              		.cfi_offset 10, -12
+ 127              		.cfi_offset 11, -8
+ 128              		.cfi_offset 14, -4
+  35:Controls/controls_595.c ****     _controls_595_buttons       = buttons;
+  36:Controls/controls_595.c ****     _controls_595_outs          = outs;
+  37:Controls/controls_595.c ****     _controls_595_buttons_len   = buttons_len;
+  38:Controls/controls_595.c ****     _controls_595_outs_len      = outs_len;
+ 129              		.loc 1 38 0
+ 130 0004 524E     		ldr	r6, .L26
+  36:Controls/controls_595.c ****     _controls_595_buttons_len   = buttons_len;
+ 131              		.loc 1 36 0
+ 132 0006 534C     		ldr	r4, .L26+4
+ARM GAS  /tmp/ccjF9xBC.s 			page 4
+
+
+ 133              		.loc 1 38 0
+ 134 0008 3370     		strb	r3, [r6]
+  37:Controls/controls_595.c ****     _controls_595_outs_len      = outs_len;
+ 135              		.loc 1 37 0
+ 136 000a 534B     		ldr	r3, .L26+8
+ 137              	.LVL11:
+  36:Controls/controls_595.c ****     _controls_595_buttons_len   = buttons_len;
+ 138              		.loc 1 36 0
+ 139 000c 2260     		str	r2, [r4]
+  34:Controls/controls_595.c ****     _controls_595_buttons       = buttons;
+ 140              		.loc 1 34 0
+ 141 000e 8BB0     		sub	sp, sp, #44
+ 142              	.LCFI3:
+ 143              		.cfi_def_cfa_offset 80
+  35:Controls/controls_595.c ****     _controls_595_outs          = outs;
+ 144              		.loc 1 35 0
+ 145 0010 524D     		ldr	r5, .L26+12
+  39:Controls/controls_595.c ****     _controls_595_buttons_handler = buttons_handler;
+ 146              		.loc 1 39 0
+ 147 0012 534C     		ldr	r4, .L26+16
+  37:Controls/controls_595.c ****     _controls_595_outs_len      = outs_len;
+ 148              		.loc 1 37 0
+ 149 0014 1970     		strb	r1, [r3]
+ 150 0016 4B1E     		subs	r3, r1, #1
+  34:Controls/controls_595.c ****     _controls_595_buttons       = buttons;
+ 151              		.loc 1 34 0
+ 152 0018 149A     		ldr	r2, [sp, #80]
+ 153              	.LVL12:
+ 154 001a 0393     		str	r3, [sp, #12]
+ 155              	.LBB13:
+  40:Controls/controls_595.c **** 
+  41:Controls/controls_595.c ****     controls_595_ButtonState b;
+  42:Controls/controls_595.c ****     //sort buttons by it's position
+  43:Controls/controls_595.c ****     for (uint8_t i = 0; i < buttons_len - 1; i++) {
+ 156              		.loc 1 43 0
+ 157 001c 0023     		movs	r3, #0
+ 158              	.LBE13:
+  34:Controls/controls_595.c ****     _controls_595_buttons       = buttons;
+ 159              		.loc 1 34 0
+ 160 001e 8146     		mov	r9, r0
+ 161 0020 0191     		str	r1, [sp, #4]
+  35:Controls/controls_595.c ****     _controls_595_outs          = outs;
+ 162              		.loc 1 35 0
+ 163 0022 2860     		str	r0, [r5]
+  39:Controls/controls_595.c **** 
+ 164              		.loc 1 39 0
+ 165 0024 2260     		str	r2, [r4]
+ 166              	.LVL13:
+ 167              	.LBB18:
+ 168              		.loc 1 43 0
+ 169 0026 0293     		str	r3, [sp, #8]
+ 170              	.LVL14:
+ 171              	.L9:
+ 172              		.loc 1 43 0 is_stmt 0 discriminator 1
+ 173 0028 029B     		ldr	r3, [sp, #8]
+ 174 002a 039A     		ldr	r2, [sp, #12]
+ 175 002c 9342     		cmp	r3, r2
+ARM GAS  /tmp/ccjF9xBC.s 			page 5
+
+
+ 176 002e 3ADA     		bge	.L25
+ 177              	.L14:
+ 178              	.LBB14:
+  44:Controls/controls_595.c **** 	b = buttons[i];
+  45:Controls/controls_595.c **** 	for (uint8_t j = i + 1; j < buttons_len; j++) {
+ 179              		.loc 1 45 0 is_stmt 1
+ 180 0030 0199     		ldr	r1, [sp, #4]
+ 181              	.LBE14:
+  44:Controls/controls_595.c **** 	b = buttons[i];
+ 182              		.loc 1 44 0
+ 183 0032 03EB430B 		add	fp, r3, r3, lsl #1
+ 184              	.LBB15:
+ 185              		.loc 1 45 0
+ 186 0036 0133     		adds	r3, r3, #1
+ 187 0038 DBB2     		uxtb	r3, r3
+ 188              	.LBE15:
+  44:Controls/controls_595.c **** 	b = buttons[i];
+ 189              		.loc 1 44 0
+ 190 003a 09EBCB0B 		add	fp, r9, fp, lsl #3
+ 191              	.LBB16:
+ 192              		.loc 1 45 0
+ 193 003e 0846     		mov	r0, r1
+ 194 0040 9842     		cmp	r0, r3
+ 195 0042 0293     		str	r3, [sp, #8]
+ 196              	.LVL15:
+ 197              	.LBE16:
+  44:Controls/controls_595.c **** 	b = buttons[i];
+ 198              		.loc 1 44 0
+ 199 0044 BBF80E20 		ldrh	r2, [fp, #14]
+ 200              	.LVL16:
+ 201              	.LBB17:
+ 202              		.loc 1 45 0
+ 203 0048 EED9     		bls	.L9
+ 204 004a 1C46     		mov	r4, r3
+ 205              	.LVL17:
+ 206              	.L12:
+  46:Controls/controls_595.c **** 	    if(b.pos > buttons[j].pos)
+ 207              		.loc 1 46 0
+ 208 004c 04EB4403 		add	r3, r4, r4, lsl #1
+ 209 0050 09EBC303 		add	r3, r9, r3, lsl #3
+  47:Controls/controls_595.c **** 	    {
+  48:Controls/controls_595.c **** 		b = buttons[j];
+ 210              		.loc 1 48 0
+ 211 0054 04AF     		add	r7, sp, #16
+  46:Controls/controls_595.c **** 	    if(b.pos > buttons[j].pos)
+ 212              		.loc 1 46 0
+ 213 0056 B3F80EA0 		ldrh	r10, [r3, #14]
+  45:Controls/controls_595.c **** 	    if(b.pos > buttons[j].pos)
+ 214              		.loc 1 45 0
+ 215 005a 0134     		adds	r4, r4, #1
+ 216              	.LVL18:
+  46:Controls/controls_595.c **** 	    if(b.pos > buttons[j].pos)
+ 217              		.loc 1 46 0
+ 218 005c 9245     		cmp	r10, r2
+  49:Controls/controls_595.c **** 		buttons[j] = buttons[i];
+ 219              		.loc 1 49 0
+ 220 005e 5E46     		mov	r6, fp
+ARM GAS  /tmp/ccjF9xBC.s 			page 6
+
+
+  50:Controls/controls_595.c **** 		buttons[i] = b;
+ 221              		.loc 1 50 0
+ 222 0060 BC46     		mov	ip, r7
+  48:Controls/controls_595.c **** 		buttons[j] = buttons[i];
+ 223              		.loc 1 48 0
+ 224 0062 1D46     		mov	r5, r3
+  49:Controls/controls_595.c **** 		buttons[j] = buttons[i];
+ 225              		.loc 1 49 0
+ 226 0064 9846     		mov	r8, r3
+ 227              		.loc 1 50 0
+ 228 0066 DE46     		mov	lr, fp
+  45:Controls/controls_595.c **** 	    if(b.pos > buttons[j].pos)
+ 229              		.loc 1 45 0
+ 230 0068 E4B2     		uxtb	r4, r4
+  46:Controls/controls_595.c **** 	    {
+ 231              		.loc 1 46 0
+ 232 006a 15D2     		bcs	.L11
+  48:Controls/controls_595.c **** 		buttons[j] = buttons[i];
+ 233              		.loc 1 48 0
+ 234 006c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 235              	.LVL19:
+ 236 006e 0FC7     		stmia	r7!, {r0, r1, r2, r3}
+ 237 0070 95E80300 		ldm	r5, {r0, r1}
+ 238 0074 87E80300 		stm	r7, {r0, r1}
+ 239              	.LVL20:
+  49:Controls/controls_595.c **** 		buttons[i] = b;
+ 240              		.loc 1 49 0
+ 241 0078 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 242 007a A8E80F00 		stmia	r8!, {r0, r1, r2, r3}
+ 243 007e 96E80300 		ldm	r6, {r0, r1}
+ 244 0082 85E80300 		stm	r5, {r0, r1}
+ 245              		.loc 1 50 0
+ 246 0086 BCE80F00 		ldmia	ip!, {r0, r1, r2, r3}
+ 247 008a AEE80F00 		stmia	lr!, {r0, r1, r2, r3}
+ 248 008e 97E80300 		ldm	r7, {r0, r1}
+ 249 0092 86E80300 		stm	r6, {r0, r1}
+ 250 0096 5246     		mov	r2, r10
+ 251              	.LVL21:
+ 252              	.L11:
+  45:Controls/controls_595.c **** 	    if(b.pos > buttons[j].pos)
+ 253              		.loc 1 45 0 discriminator 2
+ 254 0098 019B     		ldr	r3, [sp, #4]
+ 255 009a A342     		cmp	r3, r4
+ 256 009c D6D1     		bne	.L12
+ 257              	.LVL22:
+ 258              	.LBE17:
+  43:Controls/controls_595.c **** 	b = buttons[i];
+ 259              		.loc 1 43 0
+ 260 009e 029B     		ldr	r3, [sp, #8]
+ 261 00a0 039A     		ldr	r2, [sp, #12]
+ 262              	.LVL23:
+ 263 00a2 9342     		cmp	r3, r2
+ 264 00a4 C4DB     		blt	.L14
+ 265              	.LVL24:
+ 266              	.L25:
+ 267              	.LBE18:
+ 268              	.LBB19:
+ARM GAS  /tmp/ccjF9xBC.s 			page 7
+
+
+  51:Controls/controls_595.c **** 	    }
+  52:Controls/controls_595.c **** 	}
+  53:Controls/controls_595.c ****     }
+  54:Controls/controls_595.c ****     for(uint8_t i = 0; i < _controls_595_buttons_len; i++){
+ 269              		.loc 1 54 0 discriminator 1
+ 270 00a6 019B     		ldr	r3, [sp, #4]
+ 271 00a8 83B1     		cbz	r3, .L18
+  55:Controls/controls_595.c **** 	printf("%d %d\n", buttons[i].id, buttons[i].pos);
+ 272              		.loc 1 55 0 discriminator 3
+ 273 00aa 2E4D     		ldr	r5, .L26+20
+  54:Controls/controls_595.c **** 	printf("%d %d\n", buttons[i].id, buttons[i].pos);
+ 274              		.loc 1 54 0 discriminator 3
+ 275 00ac 0024     		movs	r4, #0
+ 276              	.LVL25:
+ 277              	.L17:
+ 278              		.loc 1 55 0 discriminator 3
+ 279 00ae 04EB4403 		add	r3, r4, r4, lsl #1
+ 280 00b2 09EBC303 		add	r3, r9, r3, lsl #3
+ 281 00b6 2846     		mov	r0, r5
+ 282 00b8 DA89     		ldrh	r2, [r3, #14]
+ 283 00ba 5968     		ldr	r1, [r3, #4]
+ 284 00bc FFF7FEFF 		bl	printf
+ 285              	.LVL26:
+  54:Controls/controls_595.c **** 	printf("%d %d\n", buttons[i].id, buttons[i].pos);
+ 286              		.loc 1 54 0 discriminator 3
+ 287 00c0 254B     		ldr	r3, .L26+8
+ 288 00c2 0134     		adds	r4, r4, #1
+ 289              	.LVL27:
+ 290 00c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 291 00c6 E4B2     		uxtb	r4, r4
+ 292              	.LVL28:
+ 293 00c8 A342     		cmp	r3, r4
+ 294 00ca F0D8     		bhi	.L17
+ 295              	.LVL29:
+ 296              	.L18:
+ 297              	.LBE19:
+ 298              	.LBB20:
+ 299              	.LBB21:
+  15:Controls/controls_595.c ****     
+ 300              		.loc 1 15 0
+ 301 00cc 2648     		ldr	r0, .L26+24
+ 302 00ce 0022     		movs	r2, #0
+ 303 00d0 0821     		movs	r1, #8
+ 304              	.LBB22:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 305              		.loc 1 19 0
+ 306 00d2 0546     		mov	r5, r0
+ 307              	.LBE22:
+  15:Controls/controls_595.c ****     
+ 308              		.loc 1 15 0
+ 309 00d4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 310              	.LVL30:
+ 311 00d8 0824     		movs	r4, #8
+ 312              	.LVL31:
+ 313              	.L16:
+ 314              	.LBB23:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ARM GAS  /tmp/ccjF9xBC.s 			page 8
+
+
+ 315              		.loc 1 19 0
+ 316 00da 0022     		movs	r2, #0
+ 317 00dc 1021     		movs	r1, #16
+ 318 00de 2846     		mov	r0, r5
+ 319 00e0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 320              	.LVL32:
+  20:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_SET);
+ 321              		.loc 1 20 0
+ 322 00e4 0022     		movs	r2, #0
+ 323 00e6 2021     		movs	r1, #32
+ 324 00e8 2846     		mov	r0, r5
+ 325 00ea FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 326              	.LVL33:
+  21:Controls/controls_595.c ****     }
+ 327              		.loc 1 21 0
+ 328 00ee 0122     		movs	r2, #1
+ 329 00f0 1021     		movs	r1, #16
+ 330 00f2 2846     		mov	r0, r5
+ 331 00f4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 332              	.LVL34:
+ 333 00f8 631E     		subs	r3, r4, #1
+  17:Controls/controls_595.c ****     {
+ 334              		.loc 1 17 0
+ 335 00fa 13F0FF04 		ands	r4, r3, #255
+ 336 00fe ECD1     		bne	.L16
+ 337              	.LBE23:
+  23:Controls/controls_595.c **** }
+ 338              		.loc 1 23 0
+ 339 0100 1948     		ldr	r0, .L26+24
+ 340 0102 0122     		movs	r2, #1
+ 341 0104 0821     		movs	r1, #8
+ 342              	.LBE21:
+ 343              	.LBE20:
+ 344              	.LBB25:
+ 345              	.LBB26:
+ 346              	.LBB27:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 347              		.loc 1 19 0
+ 348 0106 0546     		mov	r5, r0
+ 349              	.LBE27:
+ 350              	.LBE26:
+ 351              	.LBE25:
+ 352              	.LBB31:
+ 353              	.LBB24:
+  23:Controls/controls_595.c **** }
+ 354              		.loc 1 23 0
+ 355 0108 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 356              	.LVL35:
+ 357              	.LBE24:
+ 358              	.LBE31:
+ 359              	.LBB32:
+ 360              	.LBB29:
+  15:Controls/controls_595.c ****     
+ 361              		.loc 1 15 0
+ 362 010c 2246     		mov	r2, r4
+ 363 010e 0821     		movs	r1, #8
+ 364 0110 2846     		mov	r0, r5
+ARM GAS  /tmp/ccjF9xBC.s 			page 9
+
+
+ 365 0112 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 366              	.LVL36:
+ 367 0116 0824     		movs	r4, #8
+ 368              	.LVL37:
+ 369              	.L19:
+ 370              	.LBB28:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 371              		.loc 1 19 0
+ 372 0118 0022     		movs	r2, #0
+ 373 011a 1021     		movs	r1, #16
+ 374 011c 2846     		mov	r0, r5
+ 375 011e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 376              	.LVL38:
+  20:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_SET);
+ 377              		.loc 1 20 0
+ 378 0122 0022     		movs	r2, #0
+ 379 0124 2021     		movs	r1, #32
+ 380 0126 2846     		mov	r0, r5
+ 381 0128 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 382              	.LVL39:
+  21:Controls/controls_595.c ****     }
+ 383              		.loc 1 21 0
+ 384 012c 0122     		movs	r2, #1
+ 385 012e 1021     		movs	r1, #16
+ 386 0130 2846     		mov	r0, r5
+ 387 0132 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 388              	.LVL40:
+ 389 0136 631E     		subs	r3, r4, #1
+  17:Controls/controls_595.c ****     {
+ 390              		.loc 1 17 0
+ 391 0138 13F0FF04 		ands	r4, r3, #255
+ 392 013c ECD1     		bne	.L19
+ 393              	.LBE28:
+  23:Controls/controls_595.c **** }
+ 394              		.loc 1 23 0
+ 395 013e 0A48     		ldr	r0, .L26+24
+ 396 0140 0122     		movs	r2, #1
+ 397 0142 0821     		movs	r1, #8
+ 398              	.LBE29:
+ 399              	.LBE32:
+  56:Controls/controls_595.c ****     }
+  57:Controls/controls_595.c **** 
+  58:Controls/controls_595.c ****     controls_595_set(0);
+  59:Controls/controls_595.c ****     controls_595_set(0);
+  60:Controls/controls_595.c **** }
+ 400              		.loc 1 60 0
+ 401 0144 0BB0     		add	sp, sp, #44
+ 402              	.LCFI4:
+ 403              		.cfi_def_cfa_offset 36
+ 404              		@ sp needed
+ 405 0146 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 406              	.LCFI5:
+ 407              		.cfi_restore 14
+ 408              		.cfi_restore 11
+ 409              		.cfi_restore 10
+ 410              		.cfi_restore 9
+ 411              		.cfi_restore 8
+ARM GAS  /tmp/ccjF9xBC.s 			page 10
+
+
+ 412              		.cfi_restore 7
+ 413              		.cfi_restore 6
+ 414              		.cfi_restore 5
+ 415              		.cfi_restore 4
+ 416              		.cfi_def_cfa_offset 0
+ 417              	.LVL41:
+ 418              	.LBB33:
+ 419              	.LBB30:
+  23:Controls/controls_595.c **** }
+ 420              		.loc 1 23 0
+ 421 014a FFF7FEBF 		b	HAL_GPIO_WritePin
+ 422              	.LVL42:
+ 423              	.L27:
+ 424 014e 00BF     		.align	2
+ 425              	.L26:
+ 426 0150 00000000 		.word	_controls_595_outs_len
+ 427 0154 00000000 		.word	_controls_595_outs
+ 428 0158 00000000 		.word	_controls_595_buttons_len
+ 429 015c 00000000 		.word	_controls_595_buttons
+ 430 0160 00000000 		.word	_controls_595_buttons_handler
+ 431 0164 00000000 		.word	.LC0
+ 432 0168 00040240 		.word	1073873920
+ 433              	.LBE30:
+ 434              	.LBE33:
+ 435              		.cfi_endproc
+ 436              	.LFE127:
+ 438              		.section	.text._controls_595_handle_button,"ax",%progbits
+ 439              		.align	1
+ 440              		.p2align 2,,3
+ 441              		.global	_controls_595_handle_button
+ 442              		.syntax unified
+ 443              		.thumb
+ 444              		.thumb_func
+ 445              		.fpu fpv4-sp-d16
+ 447              	_controls_595_handle_button:
+ 448              	.LFB128:
+  61:Controls/controls_595.c **** 
+  62:Controls/controls_595.c **** void _controls_595_handle_button(controls_595_ButtonState *b)
+  63:Controls/controls_595.c **** {
+ 449              		.loc 1 63 0
+ 450              		.cfi_startproc
+ 451              		@ args = 0, pretend = 0, frame = 0
+ 452              		@ frame_needed = 0, uses_anonymous_args = 0
+ 453              	.LVL43:
+ 454 0000 10B5     		push	{r4, lr}
+ 455              	.LCFI6:
+ 456              		.cfi_def_cfa_offset 8
+ 457              		.cfi_offset 4, -8
+ 458              		.cfi_offset 14, -4
+ 459              		.loc 1 63 0
+ 460 0002 0446     		mov	r4, r0
+  64:Controls/controls_595.c ****     uint8_t s = HAL_GPIO_ReadPin(b->gpio, b->pin) ==
+ 461              		.loc 1 64 0
+ 462 0004 8189     		ldrh	r1, [r0, #12]
+ 463 0006 8068     		ldr	r0, [r0, #8]
+ 464              	.LVL44:
+ 465 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ARM GAS  /tmp/ccjF9xBC.s 			page 11
+
+
+ 466              	.LVL45:
+  65:Controls/controls_595.c **** 	(b->polarity_pressed ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 467              		.loc 1 65 0
+ 468 000c 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+  66:Controls/controls_595.c ****     uint32_t d;
+  67:Controls/controls_595.c ****     if(s) //if pressed
+ 469              		.loc 1 67 0
+ 470 000e 0033     		adds	r3, r3, #0
+ 471 0010 18BF     		it	ne
+ 472 0012 0123     		movne	r3, #1
+ 473 0014 8342     		cmp	r3, r0
+  68:Controls/controls_595.c ****     {
+  69:Controls/controls_595.c **** //	printf("b check %d %d\n", b->id, s);
+  70:Controls/controls_595.c **** 	if(!b->pressed) //if pressing started only now
+ 474              		.loc 1 70 0
+ 475 0016 637C     		ldrb	r3, [r4, #17]	@ zero_extendqisi2
+  67:Controls/controls_595.c ****     {
+ 476              		.loc 1 67 0
+ 477 0018 15D0     		beq	.L49
+  71:Controls/controls_595.c **** 	{
+  72:Controls/controls_595.c **** 	    b->pressed = 1;
+  73:Controls/controls_595.c **** 	    b->press_start_time = HAL_GetTick();
+  74:Controls/controls_595.c **** 	}
+  75:Controls/controls_595.c **** 	else //if it's pressing already
+  76:Controls/controls_595.c **** 	{
+  77:Controls/controls_595.c **** 	    d = HAL_GetTick() - b->press_start_time;
+  78:Controls/controls_595.c **** 	    if(d > CONTROLS_LongClickTime)
+  79:Controls/controls_595.c **** 	    {
+  80:Controls/controls_595.c **** 		if(_controls_595_buttons_handler != 0)
+  81:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_LONG_PRESSING, d);
+  82:Controls/controls_595.c **** 	    }
+  83:Controls/controls_595.c **** 	    else if(d > CONTROLS_ClickTime)
+  84:Controls/controls_595.c **** 		if(_controls_595_buttons_handler != 0)
+  85:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_PRESSING, d);
+  86:Controls/controls_595.c **** 	}
+  87:Controls/controls_595.c ****     }
+  88:Controls/controls_595.c ****     else if(b->pressed)
+ 478              		.loc 1 88 0
+ 479 001a 03B9     		cbnz	r3, .L50
+ 480              	.LVL46:
+ 481              	.L28:
+ 482 001c 10BD     		pop	{r4, pc}
+ 483              	.LVL47:
+ 484              	.L50:
+  89:Controls/controls_595.c ****     {
+  90:Controls/controls_595.c **** 	b->pressed = 0;
+ 485              		.loc 1 90 0
+ 486 001e 0023     		movs	r3, #0
+ 487 0020 6374     		strb	r3, [r4, #17]
+  91:Controls/controls_595.c **** 	d = HAL_GetTick() - b->press_start_time;
+ 488              		.loc 1 91 0
+ 489 0022 FFF7FEFF 		bl	HAL_GetTick
+ 490              	.LVL48:
+ 491 0026 6269     		ldr	r2, [r4, #20]
+ 492 0028 821A     		subs	r2, r0, r2
+ 493              	.LVL49:
+  92:Controls/controls_595.c **** 	if(d > CONTROLS_LongClickTime)
+ARM GAS  /tmp/ccjF9xBC.s 			page 12
+
+
+ 494              		.loc 1 92 0
+ 495 002a B2F5FA7F 		cmp	r2, #500
+ 496 002e 1BD8     		bhi	.L51
+  93:Controls/controls_595.c **** 	{
+  94:Controls/controls_595.c **** 	    if(_controls_595_buttons_handler != 0)
+  95:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_LONG_CLICK, d);
+  96:Controls/controls_595.c **** 	}
+  97:Controls/controls_595.c **** 	else if(d > CONTROLS_ClickTime)
+ 497              		.loc 1 97 0
+ 498 0030 1E2A     		cmp	r2, #30
+ 499 0032 F3D9     		bls	.L28
+  98:Controls/controls_595.c **** 	{
+  99:Controls/controls_595.c **** 	    if(_controls_595_buttons_handler != 0)
+ 500              		.loc 1 99 0
+ 501 0034 194B     		ldr	r3, .L53
+ 502 0036 1B68     		ldr	r3, [r3]
+ 503 0038 002B     		cmp	r3, #0
+ 504 003a EFD0     		beq	.L28
+ 100:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_CLICK, d);	    
+ 505              		.loc 1 100 0
+ 506 003c 6068     		ldr	r0, [r4, #4]
+ 507 003e 0121     		movs	r1, #1
+ 101:Controls/controls_595.c **** 	}
+ 102:Controls/controls_595.c ****     }
+ 103:Controls/controls_595.c **** }
+ 508              		.loc 1 103 0
+ 509 0040 BDE81040 		pop	{r4, lr}
+ 510              	.LCFI7:
+ 511              		.cfi_remember_state
+ 512              		.cfi_restore 14
+ 513              		.cfi_restore 4
+ 514              		.cfi_def_cfa_offset 0
+ 515              	.LVL50:
+ 100:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_CLICK, d);	    
+ 516              		.loc 1 100 0
+ 517 0044 1847     		bx	r3	@ indirect register sibling call
+ 518              	.LVL51:
+ 519              	.L49:
+ 520              	.LCFI8:
+ 521              		.cfi_restore_state
+  70:Controls/controls_595.c **** 	{
+ 522              		.loc 1 70 0
+ 523 0046 C3B1     		cbz	r3, .L52
+  77:Controls/controls_595.c **** 	    if(d > CONTROLS_LongClickTime)
+ 524              		.loc 1 77 0
+ 525 0048 FFF7FEFF 		bl	HAL_GetTick
+ 526              	.LVL52:
+ 527 004c 6269     		ldr	r2, [r4, #20]
+ 528 004e 821A     		subs	r2, r0, r2
+ 529              	.LVL53:
+  78:Controls/controls_595.c **** 	    {
+ 530              		.loc 1 78 0
+ 531 0050 B2F5FA7F 		cmp	r2, #500
+ 532 0054 17D9     		bls	.L32
+  80:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_LONG_PRESSING, d);
+ 533              		.loc 1 80 0
+ 534 0056 114B     		ldr	r3, .L53
+ARM GAS  /tmp/ccjF9xBC.s 			page 13
+
+
+ 535 0058 1B68     		ldr	r3, [r3]
+ 536 005a 002B     		cmp	r3, #0
+ 537 005c DED0     		beq	.L28
+  81:Controls/controls_595.c **** 	    }
+ 538              		.loc 1 81 0
+ 539 005e 6068     		ldr	r0, [r4, #4]
+ 540 0060 0821     		movs	r1, #8
+ 541              		.loc 1 103 0
+ 542 0062 BDE81040 		pop	{r4, lr}
+ 543              	.LCFI9:
+ 544              		.cfi_remember_state
+ 545              		.cfi_restore 14
+ 546              		.cfi_restore 4
+ 547              		.cfi_def_cfa_offset 0
+ 548              	.LVL54:
+  81:Controls/controls_595.c **** 	    }
+ 549              		.loc 1 81 0
+ 550 0066 1847     		bx	r3	@ indirect register sibling call
+ 551              	.LVL55:
+ 552              	.L51:
+ 553              	.LCFI10:
+ 554              		.cfi_restore_state
+  94:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_LONG_CLICK, d);
+ 555              		.loc 1 94 0
+ 556 0068 0C4B     		ldr	r3, .L53
+ 557 006a 1B68     		ldr	r3, [r3]
+ 558 006c 002B     		cmp	r3, #0
+ 559 006e D5D0     		beq	.L28
+  95:Controls/controls_595.c **** 	}
+ 560              		.loc 1 95 0
+ 561 0070 6068     		ldr	r0, [r4, #4]
+ 562 0072 0421     		movs	r1, #4
+ 563              		.loc 1 103 0
+ 564 0074 BDE81040 		pop	{r4, lr}
+ 565              	.LCFI11:
+ 566              		.cfi_remember_state
+ 567              		.cfi_restore 14
+ 568              		.cfi_restore 4
+ 569              		.cfi_def_cfa_offset 0
+ 570              	.LVL56:
+  95:Controls/controls_595.c **** 	}
+ 571              		.loc 1 95 0
+ 572 0078 1847     		bx	r3	@ indirect register sibling call
+ 573              	.LVL57:
+ 574              	.L52:
+ 575              	.LCFI12:
+ 576              		.cfi_restore_state
+  72:Controls/controls_595.c **** 	    b->press_start_time = HAL_GetTick();
+ 577              		.loc 1 72 0
+ 578 007a 0123     		movs	r3, #1
+ 579 007c 6374     		strb	r3, [r4, #17]
+  73:Controls/controls_595.c **** 	}
+ 580              		.loc 1 73 0
+ 581 007e FFF7FEFF 		bl	HAL_GetTick
+ 582              	.LVL58:
+ 583 0082 6061     		str	r0, [r4, #20]
+ 584 0084 10BD     		pop	{r4, pc}
+ARM GAS  /tmp/ccjF9xBC.s 			page 14
+
+
+ 585              	.LVL59:
+ 586              	.L32:
+  83:Controls/controls_595.c **** 		if(_controls_595_buttons_handler != 0)
+ 587              		.loc 1 83 0
+ 588 0086 1E2A     		cmp	r2, #30
+ 589 0088 C8D9     		bls	.L28
+  84:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_PRESSING, d);
+ 590              		.loc 1 84 0
+ 591 008a 044B     		ldr	r3, .L53
+ 592 008c 1B68     		ldr	r3, [r3]
+ 593 008e 002B     		cmp	r3, #0
+ 594 0090 C4D0     		beq	.L28
+  85:Controls/controls_595.c **** 	}
+ 595              		.loc 1 85 0
+ 596 0092 6068     		ldr	r0, [r4, #4]
+ 597 0094 0221     		movs	r1, #2
+ 598              		.loc 1 103 0
+ 599 0096 BDE81040 		pop	{r4, lr}
+ 600              	.LCFI13:
+ 601              		.cfi_restore 14
+ 602              		.cfi_restore 4
+ 603              		.cfi_def_cfa_offset 0
+ 604              	.LVL60:
+  85:Controls/controls_595.c **** 	}
+ 605              		.loc 1 85 0
+ 606 009a 1847     		bx	r3	@ indirect register sibling call
+ 607              	.LVL61:
+ 608              	.L54:
+ 609              		.align	2
+ 610              	.L53:
+ 611 009c 00000000 		.word	_controls_595_buttons_handler
+ 612              		.cfi_endproc
+ 613              	.LFE128:
+ 615              		.section	.text.controls_595_update,"ax",%progbits
+ 616              		.align	1
+ 617              		.p2align 2,,3
+ 618              		.global	controls_595_update
+ 619              		.syntax unified
+ 620              		.thumb
+ 621              		.thumb_func
+ 622              		.fpu fpv4-sp-d16
+ 624              	controls_595_update:
+ 625              	.LFB129:
+ 104:Controls/controls_595.c **** 
+ 105:Controls/controls_595.c **** void controls_595_update()
+ 106:Controls/controls_595.c **** {
+ 626              		.loc 1 106 0
+ 627              		.cfi_startproc
+ 628              		@ args = 0, pretend = 0, frame = 0
+ 629              		@ frame_needed = 0, uses_anonymous_args = 0
+ 630              	.LVL62:
+ 631 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 632              	.LCFI14:
+ 633              		.cfi_def_cfa_offset 40
+ 634              		.cfi_offset 3, -40
+ 635              		.cfi_offset 4, -36
+ 636              		.cfi_offset 5, -32
+ARM GAS  /tmp/ccjF9xBC.s 			page 15
+
+
+ 637              		.cfi_offset 6, -28
+ 638              		.cfi_offset 7, -24
+ 639              		.cfi_offset 8, -20
+ 640              		.cfi_offset 9, -16
+ 641              		.cfi_offset 10, -12
+ 642              		.cfi_offset 11, -8
+ 643              		.cfi_offset 14, -4
+ 644              	.LBB45:
+ 107:Controls/controls_595.c ****     uint32_t v = 0;
+ 108:Controls/controls_595.c **** 
+ 109:Controls/controls_595.c ****     //write outs values
+ 110:Controls/controls_595.c ****     for(uint8_t i = 0; i < _controls_595_outs_len; i++)
+ 645              		.loc 1 110 0
+ 646 0004 954B     		ldr	r3, .L118
+ 647 0006 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 648 0008 002C     		cmp	r4, #0
+ 649 000a 00F02581 		beq	.L81
+ 650 000e 944A     		ldr	r2, .L118+4
+ 651 0010 0023     		movs	r3, #0
+ 652 0012 1268     		ldr	r2, [r2]
+ 653 0014 9846     		mov	r8, r3
+ 111:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+ 112:Controls/controls_595.c **** 	    v = (_controls_595_outs[i].val) ? v | (1 << i) : v & ~(1 << i);
+ 654              		.loc 1 112 0
+ 655 0016 0125     		movs	r5, #1
+ 656 0018 05E0     		b	.L59
+ 657              	.LVL63:
+ 658              	.L57:
+ 659 001a 0133     		adds	r3, r3, #1
+ 660              	.LVL64:
+ 110:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+ 661              		.loc 1 110 0 discriminator 2
+ 662 001c D9B2     		uxtb	r1, r3
+ 663 001e 8C42     		cmp	r4, r1
+ 664 0020 02F10C02 		add	r2, r2, #12
+ 665 0024 14D9     		bls	.L56
+ 666              	.LVL65:
+ 667              	.L59:
+ 111:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+ 668              		.loc 1 111 0
+ 669 0026 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 670 0028 98B2     		uxth	r0, r3
+ 671 002a 0029     		cmp	r1, #0
+ 672 002c F5D0     		beq	.L57
+ 111:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+ 673              		.loc 1 111 0 is_stmt 0 discriminator 1
+ 674 002e 1189     		ldrh	r1, [r2, #8]
+ 675 0030 8142     		cmp	r1, r0
+ 676 0032 F2D1     		bne	.L57
+ 677              		.loc 1 112 0 is_stmt 1
+ 678 0034 917A     		ldrb	r1, [r2, #10]	@ zero_extendqisi2
+ 679 0036 05FA03F0 		lsl	r0, r5, r3
+ 680 003a 0029     		cmp	r1, #0
+ 681 003c 00F0E080 		beq	.L58
+ 682 0040 0133     		adds	r3, r3, #1
+ 683              	.LVL66:
+ 110:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+ARM GAS  /tmp/ccjF9xBC.s 			page 16
+
+
+ 684              		.loc 1 110 0 discriminator 1
+ 685 0042 D9B2     		uxtb	r1, r3
+ 686 0044 8C42     		cmp	r4, r1
+ 687              		.loc 1 112 0 discriminator 1
+ 688 0046 48EA0008 		orr	r8, r8, r0
+ 689              	.LVL67:
+ 690 004a 02F10C02 		add	r2, r2, #12
+ 110:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+ 691              		.loc 1 110 0 discriminator 1
+ 692 004e EAD8     		bhi	.L59
+ 693              	.LVL68:
+ 694              	.L56:
+ 695              	.LBE45:
+ 696              	.LBB46:
+ 113:Controls/controls_595.c **** 
+ 114:Controls/controls_595.c ****     uint8_t l = 0, j = 0;
+ 115:Controls/controls_595.c ****     for(uint8_t i = 0; i < _controls_595_buttons_len; i++){
+ 697              		.loc 1 115 0 discriminator 1
+ 698 0050 844B     		ldr	r3, .L118+8
+ 699 0052 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 700 0054 002A     		cmp	r2, #0
+ 701 0056 00F0DC80 		beq	.L61
+ 702 005a DFF81492 		ldr	r9, .L118+20
+ 703              	.LBB47:
+ 704              	.LBB48:
+  15:Controls/controls_595.c ****     
+ 705              		.loc 1 15 0
+ 706 005e 824F     		ldr	r7, .L118+12
+ 707              	.LBE48:
+ 708              	.LBE47:
+ 709              		.loc 1 115 0
+ 710 0060 0025     		movs	r5, #0
+ 711              	.LVL69:
+ 712              	.L77:
+ 116:Controls/controls_595.c ****  
+ 117:Controls/controls_595.c **** 	l = 0; //how many buttons with the same pos
+ 118:Controls/controls_595.c **** 	while(l + i < _controls_595_buttons_len &&
+ 713              		.loc 1 118 0
+ 714 0062 AA42     		cmp	r2, r5
+ 715 0064 40F3D180 		ble	.L82
+ 119:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 716              		.loc 1 119 0
+ 717 0068 2EB2     		sxth	r6, r5
+ 718 006a D9F80000 		ldr	r0, [r9]
+ 719 006e 06EB4603 		add	r3, r6, r6, lsl #1
+ 720 0072 00EBC303 		add	r3, r0, r3, lsl #3
+ 721 0076 0024     		movs	r4, #0
+ 722 0078 D989     		ldrh	r1, [r3, #14]
+ 723 007a 02E0     		b	.L63
+ 724              	.LVL70:
+ 725              	.L115:
+ 118:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 726              		.loc 1 118 0 discriminator 1
+ 727 007c DB89     		ldrh	r3, [r3, #14]
+ 728 007e 8B42     		cmp	r3, r1
+ 729 0080 09D1     		bne	.L62
+ 730              	.LVL71:
+ARM GAS  /tmp/ccjF9xBC.s 			page 17
+
+
+ 731              	.L63:
+ 120:Controls/controls_595.c **** 	    l++;
+ 732              		.loc 1 120 0
+ 733 0082 0134     		adds	r4, r4, #1
+ 734              	.LVL72:
+ 735 0084 E4B2     		uxtb	r4, r4
+ 736              	.LVL73:
+ 118:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 737              		.loc 1 118 0
+ 738 0086 04EB050A 		add	r10, r4, r5
+ 119:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 739              		.loc 1 119 0
+ 740 008a 0AEB4A03 		add	r3, r10, r10, lsl #1
+ 118:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 741              		.loc 1 118 0
+ 742 008e 5245     		cmp	r2, r10
+ 119:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 743              		.loc 1 119 0
+ 744 0090 00EBC303 		add	r3, r0, r3, lsl #3
+ 118:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 745              		.loc 1 118 0
+ 746 0094 F2DC     		bgt	.L115
+ 747              	.LVL74:
+ 748              	.L62:
+ 749 0096 511E     		subs	r1, r2, #1
+ 750 0098 C9B2     		uxtb	r1, r1
+ 751 009a D9F80030 		ldr	r3, [r9]
+ 752 009e 0131     		adds	r1, r1, #1
+ 753 00a0 01EB4101 		add	r1, r1, r1, lsl #1
+ 754              	.LBB51:
+ 121:Controls/controls_595.c **** 	
+ 122:Controls/controls_595.c **** 	//set only current pos up
+ 123:Controls/controls_595.c **** 	for(uint8_t k = 0; k < _controls_595_buttons_len; k++){
+ 124:Controls/controls_595.c **** 	    if(_controls_595_buttons[k].enabled)
+ 125:Controls/controls_595.c **** 	    {
+ 126:Controls/controls_595.c **** 		v = ((_controls_595_buttons[k].pos == _controls_595_buttons[i].pos) ==
+ 755              		.loc 1 126 0
+ 756 00a4 06EB4600 		add	r0, r6, r6, lsl #1
+ 757 00a8 1A46     		mov	r2, r3
+ 758 00aa 03EBC101 		add	r1, r3, r1, lsl #3
+ 759 00ae 03EBC000 		add	r0, r3, r0, lsl #3
+ 760              	.LVL75:
+ 761              	.L66:
+ 124:Controls/controls_595.c **** 	    {
+ 762              		.loc 1 124 0
+ 763 00b2 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 764 00b4 A3B1     		cbz	r3, .L64
+ 765              		.loc 1 126 0
+ 766 00b6 D389     		ldrh	r3, [r2, #14]
+ 767 00b8 B0F80EE0 		ldrh	lr, [r0, #14]
+ 127:Controls/controls_595.c **** 		     _controls_595_buttons[k].polarity_pressed) //check polarity
+ 768              		.loc 1 127 0
+ 769 00bc 92F810C0 		ldrb	ip, [r2, #16]	@ zero_extendqisi2
+ 126:Controls/controls_595.c **** 		     _controls_595_buttons[k].polarity_pressed) //check polarity
+ 770              		.loc 1 126 0
+ 771 00c0 AEEB030E 		sub	lr, lr, r3
+ 772 00c4 BEFA8EFE 		clz	lr, lr
+ARM GAS  /tmp/ccjF9xBC.s 			page 18
+
+
+ 773 00c8 4FEA5E1E 		lsr	lr, lr, #5
+ 128:Controls/controls_595.c **** 		    ? v | (1 << _controls_595_buttons[k].pos)
+ 129:Controls/controls_595.c **** 		    : v & ~(1 << _controls_595_buttons[k].pos);
+ 774              		.loc 1 129 0
+ 775 00cc E645     		cmp	lr, ip
+ 128:Controls/controls_595.c **** 		    ? v | (1 << _controls_595_buttons[k].pos)
+ 776              		.loc 1 128 0
+ 777 00ce 4FF0010E 		mov	lr, #1
+ 778 00d2 0EFA03F3 		lsl	r3, lr, r3
+ 779              		.loc 1 129 0
+ 780 00d6 0CBF     		ite	eq
+ 781 00d8 48EA0308 		orreq	r8, r8, r3
+ 782              	.LVL76:
+ 783 00dc 28EA0308 		bicne	r8, r8, r3
+ 784              	.L64:
+ 785              	.LVL77:
+ 786 00e0 1832     		adds	r2, r2, #24
+ 123:Controls/controls_595.c **** 	    if(_controls_595_buttons[k].enabled)
+ 787              		.loc 1 123 0 discriminator 2
+ 788 00e2 9142     		cmp	r1, r2
+ 789 00e4 E5D1     		bne	.L66
+ 790              	.LVL78:
+ 791              	.LBE51:
+ 792              	.LBB52:
+ 793              	.LBB50:
+  15:Controls/controls_595.c ****     
+ 794              		.loc 1 15 0
+ 795 00e6 0022     		movs	r2, #0
+ 796 00e8 0821     		movs	r1, #8
+ 797 00ea 3846     		mov	r0, r7
+ 798 00ec FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 799              	.LVL79:
+ 800 00f0 4FF0070B 		mov	fp, #7
+ 801              	.LVL80:
+ 802              	.L67:
+ 803              	.LBB49:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 804              		.loc 1 19 0
+ 805 00f4 0022     		movs	r2, #0
+ 806 00f6 1021     		movs	r1, #16
+ 807 00f8 3846     		mov	r0, r7
+ 808 00fa FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 809              	.LVL81:
+  20:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_SET);
+ 810              		.loc 1 20 0
+ 811 00fe 28FA0BF2 		lsr	r2, r8, fp
+ 812 0102 02F00102 		and	r2, r2, #1
+ 813 0106 2021     		movs	r1, #32
+ 814 0108 3846     		mov	r0, r7
+ 815 010a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 816              	.LVL82:
+ 817 010e 0BF1FF3B 		add	fp, fp, #-1
+ 818              	.LVL83:
+  21:Controls/controls_595.c ****     }
+ 819              		.loc 1 21 0
+ 820 0112 0122     		movs	r2, #1
+ 821 0114 1021     		movs	r1, #16
+ARM GAS  /tmp/ccjF9xBC.s 			page 19
+
+
+ 822 0116 3846     		mov	r0, r7
+ 823 0118 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 824              	.LVL84:
+  17:Controls/controls_595.c ****     {
+ 825              		.loc 1 17 0
+ 826 011c BBF1FF3F 		cmp	fp, #-1
+ 827 0120 E8D1     		bne	.L67
+ 828              	.LBE49:
+  23:Controls/controls_595.c **** }
+ 829              		.loc 1 23 0
+ 830 0122 0122     		movs	r2, #1
+ 831 0124 0821     		movs	r1, #8
+ 832 0126 3846     		mov	r0, r7
+ 833 0128 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 834              	.LVL85:
+ 835              	.LBE50:
+ 836              	.LBE52:
+ 130:Controls/controls_595.c **** 	    }
+ 131:Controls/controls_595.c **** 	}
+ 132:Controls/controls_595.c **** 	
+ 133:Controls/controls_595.c **** 	controls_595_set(v);
+ 134:Controls/controls_595.c **** 	
+ 135:Controls/controls_595.c **** 	for(j = 0; j < l; j++)
+ 837              		.loc 1 135 0
+ 838 012c 002C     		cmp	r4, #0
+ 839 012e 31D0     		beq	.L68
+ 840 0130 0135     		adds	r5, r5, #1
+ 841              	.LVL86:
+ 842 0132 013C     		subs	r4, r4, #1
+ 843 0134 55FA84F5 		uxtab	r5, r5, r4
+ 844 0138 05EB4505 		add	r5, r5, r5, lsl #1
+ 845 013c 06EB4606 		add	r6, r6, r6, lsl #1
+ 846 0140 ED00     		lsls	r5, r5, #3
+ 847 0142 F600     		lsls	r6, r6, #3
+ 848 0144 02E0     		b	.L76
+ 849              	.LVL87:
+ 850              	.L71:
+ 851 0146 1836     		adds	r6, r6, #24
+ 852              		.loc 1 135 0 is_stmt 0 discriminator 3
+ 853 0148 B542     		cmp	r5, r6
+ 854 014a 23D0     		beq	.L68
+ 855              	.L76:
+ 136:Controls/controls_595.c **** 	    _controls_595_handle_button(&_controls_595_buttons[i+j]);
+ 856              		.loc 1 136 0 is_stmt 1 discriminator 3
+ 857 014c D9F80040 		ldr	r4, [r9]
+ 858 0150 3444     		add	r4, r4, r6
+ 859              	.LVL88:
+ 860              	.LBB53:
+ 861              	.LBB54:
+  64:Controls/controls_595.c **** 	(b->polarity_pressed ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 862              		.loc 1 64 0 discriminator 3
+ 863 0152 A189     		ldrh	r1, [r4, #12]
+ 864 0154 A068     		ldr	r0, [r4, #8]
+ 865 0156 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 866              	.LVL89:
+  65:Controls/controls_595.c ****     uint32_t d;
+ 867              		.loc 1 65 0 discriminator 3
+ARM GAS  /tmp/ccjF9xBC.s 			page 20
+
+
+ 868 015a 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+  67:Controls/controls_595.c ****     {
+ 869              		.loc 1 67 0 discriminator 3
+ 870 015c 0033     		adds	r3, r3, #0
+ 871 015e 18BF     		it	ne
+ 872 0160 0123     		movne	r3, #1
+ 873 0162 8342     		cmp	r3, r0
+  70:Controls/controls_595.c **** 	{
+ 874              		.loc 1 70 0 discriminator 3
+ 875 0164 637C     		ldrb	r3, [r4, #17]	@ zero_extendqisi2
+  67:Controls/controls_595.c ****     {
+ 876              		.loc 1 67 0 discriminator 3
+ 877 0166 20D0     		beq	.L116
+  88:Controls/controls_595.c ****     {
+ 878              		.loc 1 88 0
+ 879 0168 002B     		cmp	r3, #0
+ 880 016a ECD0     		beq	.L71
+  90:Controls/controls_595.c **** 	d = HAL_GetTick() - b->press_start_time;
+ 881              		.loc 1 90 0
+ 882 016c 4FF00003 		mov	r3, #0
+ 883 0170 6374     		strb	r3, [r4, #17]
+  91:Controls/controls_595.c **** 	if(d > CONTROLS_LongClickTime)
+ 884              		.loc 1 91 0
+ 885 0172 FFF7FEFF 		bl	HAL_GetTick
+ 886              	.LVL90:
+ 887 0176 6269     		ldr	r2, [r4, #20]
+ 888 0178 821A     		subs	r2, r0, r2
+ 889              	.LVL91:
+  92:Controls/controls_595.c **** 	{
+ 890              		.loc 1 92 0
+ 891 017a B2F5FA7F 		cmp	r2, #500
+ 892 017e 24D9     		bls	.L75
+  94:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_LONG_CLICK, d);
+ 893              		.loc 1 94 0
+ 894 0180 3A4B     		ldr	r3, .L118+16
+ 895 0182 1B68     		ldr	r3, [r3]
+ 896 0184 002B     		cmp	r3, #0
+ 897 0186 DED0     		beq	.L71
+  95:Controls/controls_595.c **** 	}
+ 898              		.loc 1 95 0
+ 899 0188 6068     		ldr	r0, [r4, #4]
+ 900 018a 0421     		movs	r1, #4
+ 901 018c 1836     		adds	r6, r6, #24
+ 902 018e 9847     		blx	r3
+ 903              	.LVL92:
+ 904              	.LBE54:
+ 905              	.LBE53:
+ 135:Controls/controls_595.c **** 	    _controls_595_handle_button(&_controls_595_buttons[i+j]);
+ 906              		.loc 1 135 0
+ 907 0190 B542     		cmp	r5, r6
+ 908 0192 DBD1     		bne	.L76
+ 909              	.L68:
+ 115:Controls/controls_595.c ****  
+ 910              		.loc 1 115 0 discriminator 2
+ 911 0194 334B     		ldr	r3, .L118+8
+ 912 0196 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 137:Controls/controls_595.c **** 
+ARM GAS  /tmp/ccjF9xBC.s 			page 21
+
+
+ 138:Controls/controls_595.c **** //	printf("f %d %d\n", i, j);
+ 139:Controls/controls_595.c **** 	
+ 140:Controls/controls_595.c **** 	i += j - 1;
+ 913              		.loc 1 140 0 discriminator 2
+ 914 0198 5FFA8AF5 		uxtb	r5, r10
+ 915              	.LVL93:
+ 115:Controls/controls_595.c ****  
+ 916              		.loc 1 115 0 discriminator 2
+ 917 019c AA42     		cmp	r2, r5
+ 918 019e 3FF660AF 		bhi	.L77
+ 919              	.LBE46:
+ 141:Controls/controls_595.c ****     }
+ 142:Controls/controls_595.c ****     if(_controls_595_buttons_len == 0)
+ 920              		.loc 1 142 0
+ 921 01a2 002A     		cmp	r2, #0
+ 922 01a4 35D0     		beq	.L61
+ 923 01a6 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 924              	.LVL94:
+ 925              	.L116:
+ 926              	.LBB57:
+ 927              	.LBB56:
+ 928              	.LBB55:
+  70:Controls/controls_595.c **** 	{
+ 929              		.loc 1 70 0
+ 930 01aa C3B1     		cbz	r3, .L117
+  77:Controls/controls_595.c **** 	    if(d > CONTROLS_LongClickTime)
+ 931              		.loc 1 77 0
+ 932 01ac FFF7FEFF 		bl	HAL_GetTick
+ 933              	.LVL95:
+ 934 01b0 6269     		ldr	r2, [r4, #20]
+ 935 01b2 821A     		subs	r2, r0, r2
+ 936              	.LVL96:
+  78:Controls/controls_595.c **** 	    {
+ 937              		.loc 1 78 0
+ 938 01b4 B2F5FA7F 		cmp	r2, #500
+ 939 01b8 18D9     		bls	.L72
+  80:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_LONG_PRESSING, d);
+ 940              		.loc 1 80 0
+ 941 01ba 2C4B     		ldr	r3, .L118+16
+ 942 01bc 1B68     		ldr	r3, [r3]
+ 943 01be 002B     		cmp	r3, #0
+ 944 01c0 C1D0     		beq	.L71
+  81:Controls/controls_595.c **** 	    }
+ 945              		.loc 1 81 0
+ 946 01c2 6068     		ldr	r0, [r4, #4]
+ 947 01c4 0821     		movs	r1, #8
+ 948 01c6 9847     		blx	r3
+ 949              	.LVL97:
+ 950 01c8 BDE7     		b	.L71
+ 951              	.LVL98:
+ 952              	.L75:
+  97:Controls/controls_595.c **** 	{
+ 953              		.loc 1 97 0
+ 954 01ca 1E2A     		cmp	r2, #30
+ 955 01cc BBD9     		bls	.L71
+  99:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_CLICK, d);	    
+ 956              		.loc 1 99 0
+ARM GAS  /tmp/ccjF9xBC.s 			page 22
+
+
+ 957 01ce 274B     		ldr	r3, .L118+16
+ 958 01d0 1B68     		ldr	r3, [r3]
+ 959 01d2 002B     		cmp	r3, #0
+ 960 01d4 B7D0     		beq	.L71
+ 100:Controls/controls_595.c **** 	}
+ 961              		.loc 1 100 0
+ 962 01d6 6068     		ldr	r0, [r4, #4]
+ 963 01d8 0121     		movs	r1, #1
+ 964 01da 9847     		blx	r3
+ 965              	.LVL99:
+ 966 01dc B3E7     		b	.L71
+ 967              	.LVL100:
+ 968              	.L117:
+  72:Controls/controls_595.c **** 	    b->press_start_time = HAL_GetTick();
+ 969              		.loc 1 72 0
+ 970 01de 4FF00103 		mov	r3, #1
+ 971 01e2 6374     		strb	r3, [r4, #17]
+  73:Controls/controls_595.c **** 	}
+ 972              		.loc 1 73 0
+ 973 01e4 FFF7FEFF 		bl	HAL_GetTick
+ 974              	.LVL101:
+ 975 01e8 6061     		str	r0, [r4, #20]
+ 976 01ea ACE7     		b	.L71
+ 977              	.LVL102:
+ 978              	.L72:
+  83:Controls/controls_595.c **** 		if(_controls_595_buttons_handler != 0)
+ 979              		.loc 1 83 0
+ 980 01ec 1E2A     		cmp	r2, #30
+ 981 01ee AAD9     		bls	.L71
+  84:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_PRESSING, d);
+ 982              		.loc 1 84 0
+ 983 01f0 1E4B     		ldr	r3, .L118+16
+ 984 01f2 1B68     		ldr	r3, [r3]
+ 985 01f4 002B     		cmp	r3, #0
+ 986 01f6 A6D0     		beq	.L71
+  85:Controls/controls_595.c **** 	}
+ 987              		.loc 1 85 0
+ 988 01f8 6068     		ldr	r0, [r4, #4]
+ 989 01fa 0221     		movs	r1, #2
+ 990 01fc 9847     		blx	r3
+ 991              	.LVL103:
+ 992 01fe A2E7     		b	.L71
+ 993              	.LVL104:
+ 994              	.L58:
+ 995              	.LBE55:
+ 996              	.LBE56:
+ 997              	.LBE57:
+ 998              	.LBB58:
+ 112:Controls/controls_595.c **** 
+ 999              		.loc 1 112 0 discriminator 2
+ 1000 0200 05FA03F1 		lsl	r1, r5, r3
+ 1001 0204 28EA0108 		bic	r8, r8, r1
+ 1002              	.LVL105:
+ 1003 0208 07E7     		b	.L57
+ 1004              	.LVL106:
+ 1005              	.L82:
+ 1006              	.LBE58:
+ARM GAS  /tmp/ccjF9xBC.s 			page 23
+
+
+ 1007              	.LBB59:
+ 118:Controls/controls_595.c **** 	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+ 1008              		.loc 1 118 0
+ 1009 020a 0024     		movs	r4, #0
+ 1010 020c AA46     		mov	r10, r5
+ 1011 020e 2EB2     		sxth	r6, r5
+ 1012 0210 41E7     		b	.L62
+ 1013              	.LVL107:
+ 1014              	.L61:
+ 1015              	.LBE59:
+ 1016              	.LBB60:
+ 1017              	.LBB61:
+  15:Controls/controls_595.c ****     
+ 1018              		.loc 1 15 0
+ 1019 0212 1548     		ldr	r0, .L118+12
+ 1020 0214 0022     		movs	r2, #0
+ 1021 0216 0821     		movs	r1, #8
+ 1022              	.LBB62:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 1023              		.loc 1 19 0
+ 1024 0218 0546     		mov	r5, r0
+ 1025              	.LBE62:
+  15:Controls/controls_595.c ****     
+ 1026              		.loc 1 15 0
+ 1027 021a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1028              	.LVL108:
+ 1029 021e 0724     		movs	r4, #7
+ 1030              	.LVL109:
+ 1031              	.L80:
+ 1032              	.LBB63:
+  19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 1033              		.loc 1 19 0
+ 1034 0220 0022     		movs	r2, #0
+ 1035 0222 1021     		movs	r1, #16
+ 1036 0224 2846     		mov	r0, r5
+ 1037 0226 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1038              	.LVL110:
+  20:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_SET);
+ 1039              		.loc 1 20 0
+ 1040 022a 28FA04F2 		lsr	r2, r8, r4
+ 1041 022e 02F00102 		and	r2, r2, #1
+ 1042 0232 2021     		movs	r1, #32
+ 1043 0234 2846     		mov	r0, r5
+ 1044 0236 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1045              	.LVL111:
+ 1046 023a 013C     		subs	r4, r4, #1
+ 1047              	.LVL112:
+  21:Controls/controls_595.c ****     }
+ 1048              		.loc 1 21 0
+ 1049 023c 0122     		movs	r2, #1
+ 1050 023e 1021     		movs	r1, #16
+ 1051 0240 2846     		mov	r0, r5
+ 1052 0242 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1053              	.LVL113:
+  17:Controls/controls_595.c ****     {
+ 1054              		.loc 1 17 0
+ 1055 0246 631C     		adds	r3, r4, #1
+ARM GAS  /tmp/ccjF9xBC.s 			page 24
+
+
+ 1056 0248 EAD1     		bne	.L80
+ 1057              	.LBE63:
+  23:Controls/controls_595.c **** }
+ 1058              		.loc 1 23 0
+ 1059 024a 0122     		movs	r2, #1
+ 1060 024c 0821     		movs	r1, #8
+ 1061 024e 0648     		ldr	r0, .L118+12
+ 1062              	.LBE61:
+ 1063              	.LBE60:
+ 143:Controls/controls_595.c **** 	controls_595_set(v);
+ 144:Controls/controls_595.c **** }
+ 1064              		.loc 1 144 0
+ 1065 0250 BDE8F84F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1066              	.LCFI15:
+ 1067              		.cfi_remember_state
+ 1068              		.cfi_restore 14
+ 1069              		.cfi_restore 11
+ 1070              		.cfi_restore 10
+ 1071              		.cfi_restore 9
+ 1072              		.cfi_restore 8
+ 1073              		.cfi_restore 7
+ 1074              		.cfi_restore 6
+ 1075              		.cfi_restore 5
+ 1076              		.cfi_restore 4
+ 1077              		.cfi_restore 3
+ 1078              		.cfi_def_cfa_offset 0
+ 1079              	.LVL114:
+ 1080              	.LBB65:
+ 1081              	.LBB64:
+  23:Controls/controls_595.c **** }
+ 1082              		.loc 1 23 0
+ 1083 0254 FFF7FEBF 		b	HAL_GPIO_WritePin
+ 1084              	.LVL115:
+ 1085              	.L81:
+ 1086              	.LCFI16:
+ 1087              		.cfi_restore_state
+ 1088              	.LBE64:
+ 1089              	.LBE65:
+ 107:Controls/controls_595.c **** 
+ 1090              		.loc 1 107 0
+ 1091 0258 A046     		mov	r8, r4
+ 1092 025a F9E6     		b	.L56
+ 1093              	.L119:
+ 1094              		.align	2
+ 1095              	.L118:
+ 1096 025c 00000000 		.word	_controls_595_outs_len
+ 1097 0260 00000000 		.word	_controls_595_outs
+ 1098 0264 00000000 		.word	_controls_595_buttons_len
+ 1099 0268 00040240 		.word	1073873920
+ 1100 026c 00000000 		.word	_controls_595_buttons_handler
+ 1101 0270 00000000 		.word	_controls_595_buttons
+ 1102              		.cfi_endproc
+ 1103              	.LFE129:
+ 1105              		.comm	_controls_595_buttons_handler,4,4
+ 1106              		.comm	_controls_595_outs_len,1,1
+ 1107              		.comm	_controls_595_buttons_len,1,1
+ 1108              		.comm	_controls_595_outs,4,4
+ARM GAS  /tmp/ccjF9xBC.s 			page 25
+
+
+ 1109              		.comm	_controls_595_buttons,4,4
+ 1110              		.section	.rodata.controls_595_init.str1.4,"aMS",%progbits,1
+ 1111              		.align	2
+ 1112              	.LC0:
+ 1113 0000 25642025 		.ascii	"%d %d\012\000"
+ 1113      640A00
+ 1114              		.text
+ 1115              	.Letext0:
+ 1116              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1117              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1118              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1119              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 1120              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1121              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 1122              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 1123              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 1124              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 1125              		.file 11 "Controls/controls_595.h"
+ 1126              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1127              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1128              		.file 14 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccjF9xBC.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 controls_595.c
+     /tmp/ccjF9xBC.s:16     .text.controls_595_set:0000000000000000 $t
+     /tmp/ccjF9xBC.s:24     .text.controls_595_set:0000000000000000 controls_595_set
+     /tmp/ccjF9xBC.s:97     .text.controls_595_set:0000000000000048 $d
+     /tmp/ccjF9xBC.s:102    .text.controls_595_init:0000000000000000 $t
+     /tmp/ccjF9xBC.s:110    .text.controls_595_init:0000000000000000 controls_595_init
+     /tmp/ccjF9xBC.s:426    .text.controls_595_init:0000000000000150 $d
+                            *COM*:0000000000000001 _controls_595_outs_len
+                            *COM*:0000000000000004 _controls_595_outs
+                            *COM*:0000000000000001 _controls_595_buttons_len
+                            *COM*:0000000000000004 _controls_595_buttons
+                            *COM*:0000000000000004 _controls_595_buttons_handler
+     /tmp/ccjF9xBC.s:439    .text._controls_595_handle_button:0000000000000000 $t
+     /tmp/ccjF9xBC.s:447    .text._controls_595_handle_button:0000000000000000 _controls_595_handle_button
+     /tmp/ccjF9xBC.s:611    .text._controls_595_handle_button:000000000000009c $d
+     /tmp/ccjF9xBC.s:616    .text.controls_595_update:0000000000000000 $t
+     /tmp/ccjF9xBC.s:624    .text.controls_595_update:0000000000000000 controls_595_update
+     /tmp/ccjF9xBC.s:1096   .text.controls_595_update:000000000000025c $d
+     /tmp/ccjF9xBC.s:1111   .rodata.controls_595_init.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+printf
+HAL_GPIO_ReadPin
+HAL_GetTick

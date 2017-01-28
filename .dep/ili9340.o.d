@@ -57,7 +57,8 @@ build/ili9340.o: MakiseGUI/MakiseGUI/ILI9340C/ili9340.c \
  MakiseGUI/MakiseGUI/makise.h /usr/arm-none-eabi/include/stdlib.h \
  /usr/arm-none-eabi/include/machine/stdlib.h \
  MakiseGUI/MakiseGUI/makise_config.h \
- MakiseGUI/MakiseGUI/ILI9340C/ili9340.h MakiseGUI/MakiseGUI/makise_text.h \
+ MakiseGUI/MakiseGUI/ILI9340C/ili9340.h \
+ MakiseGUI/MakiseGUI/makise_colors.h MakiseGUI/MakiseGUI/makise_text.h \
  /usr/arm-none-eabi/include/string.h \
  /usr/arm-none-eabi/include/sys/string.h MakiseGUI/MakiseGUI/makise.h \
  MakiseGUI/MakiseGUI/fonts/fonts.h MakiseGUI/MakiseGUI/makise_text.h \
@@ -198,6 +199,8 @@ MakiseGUI/MakiseGUI/makise.h:
 MakiseGUI/MakiseGUI/makise_config.h:
 
 MakiseGUI/MakiseGUI/ILI9340C/ili9340.h:
+
+MakiseGUI/MakiseGUI/makise_colors.h:
 
 MakiseGUI/MakiseGUI/makise_text.h:
 

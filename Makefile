@@ -25,6 +25,7 @@ BUILD_DIR = build
 # source
 ######################################
 C_SOURCES = \
+  Controls/controls_595.c \
   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
@@ -46,6 +47,7 @@ C_SOURCES = \
   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c \
   MakiseGUI/MakiseGUI/makise.c \
+  MakiseGUI/MakiseGUI/makise_colors.c \
   MakiseGUI/MakiseGUI/makise_primitives.c \
   MakiseGUI/MakiseGUI/makise_text.c \
   MakiseGUI/MakiseGUI/fonts/Arial24.c \
@@ -53,7 +55,9 @@ C_SOURCES = \
   MakiseGUI/MakiseGUI/gui/makise_gui.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_container.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_elements.c \
+  MakiseGUI/MakiseGUI/gui/makise_gui_input.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c \
   MakiseGUI/MakiseGUI/ILI9340C/ili9340.c \
   Middlewares/Third_Party/FatFs/src/diskio.c \
   Middlewares/Third_Party/FatFs/src/ff.c \
@@ -97,7 +101,8 @@ AS_DEFS =
 C_DEFS = -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F401xE
 # includes for gcc
 AS_INCLUDES =
-C_INCLUDES = -IDrivers/CMSIS/Device/ST/STM32F4xx/Include
+C_INCLUDES = -IControls
+C_INCLUDES += -IDrivers/CMSIS/Device/ST/STM32F4xx/Include
 C_INCLUDES += -IDrivers/CMSIS/Include
 C_INCLUDES += -IDrivers/STM32F4xx_HAL_Driver/Inc
 C_INCLUDES += -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy
@@ -105,6 +110,8 @@ C_INCLUDES += -IInc
 C_INCLUDES += -IMakiseGUI/MakiseGUI
 C_INCLUDES += -IMakiseGUI/MakiseGUI/fonts
 C_INCLUDES += -IMakiseGUI/MakiseGUI/gui
+C_INCLUDES += -IMakiseGUI/MakiseGUI/gui/elements
+C_INCLUDES += -IMakiseGUI/MakiseGUI/gui/styles
 C_INCLUDES += -IMakiseGUI/MakiseGUI/ILI9340C
 C_INCLUDES += -IMiddlewares/Third_Party/FatFs/src
 C_INCLUDES += -IMiddlewares/Third_Party/FatFs/src/drivers

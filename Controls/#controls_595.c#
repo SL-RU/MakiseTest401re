@@ -1,0 +1,149 @@
+#include "controls_595.h"
+
+controls_595_ButtonState *_controls_595_buttons;
+controls_595_OutputState *_controls_595_outs;
+uint8_t                   _controls_595_buttons_len;
+uint8_t                   _controls_595_outs_len;
+void                    (*_controls_595_buttons_handler)(
+    uint32_t id,
+    uint8_t event,
+    uint32_t time);
+
+void controls_595_set(uint32_t val)
+{
+    HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(controls_595_klatch, GPIO_PIN_RESET);
+    
+    for(int8_t i = controls_595_len - 1; i >= 0; i--)
+    {
+	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_SET);
+	HAL_Delay(1);
+	printf("s %d %d\n", i, ((val >> i) & 1));
+    }
+
+    HAL_GPIO_WritePin(controls_595_klatch,   GPIO_PIN_SET);
+    HAL_Delay(1);
+}
+
+void controls_595_init(controls_595_ButtonState *buttons,
+		       uint8_t buttons_len,
+		       controls_595_OutputState *outs,
+		       uint8_t outs_len,
+		       void (*buttons_handler)(
+			   uint32_t id,
+			   uint8_t event,
+			   uint32_t time))
+{
+    _controls_595_buttons       = buttons;
+    _controls_595_outs          = outs;
+    _controls_595_buttons_len   = buttons_len;
+    _controls_595_outs_len      = outs_len;
+    _controls_595_buttons_handler = buttons_handler;
+
+    controls_595_ButtonState b;
+    //sort buttons by it's position
+    for (uint8_t i = 0; i < buttons_len - 1; i++) {
+	b = buttons[i];
+	for (uint8_t j = i + 1; j < buttons_len; j++) {
+	    if(b.pos > buttons[j].pos)
+	    {
+		b = buttons[j];
+		buttons[j] = buttons[i];
+		buttons[i] = b;
+	    }
+	}
+    }
+    for(uint8_t i = 0; i < _controls_595_buttons_len; i++){
+	printf("%d %d\n", buttons[i].id, buttons[i].pos);
+    }
+
+    controls_595_set(0);
+    controls_595_set(0);
+}
+
+void _controls_595_handle_button(controls_595_ButtonState *b)
+{
+    uint8_t s = HAL_GPIO_ReadPin(b->gpio, b->pin) ==
+	(b->polarity_pressed ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    uint32_t d;
+    if(s) //if pressed
+    {
+//	printf("b check %d %d\n", b->id, s);
+	if(!b->pressed) //if pressing started only now
+	{
+	    b->pressed = 1;
+	    b->press_start_time = HAL_GetTick();
+	}
+	else //if it's pressing already
+	{
+	    d = HAL_GetTick() - b->press_start_time;
+	    if(d > CONTROLS_LongClickTime)
+	    {
+		if(_controls_595_buttons_handler != 0)
+		    _controls_595_buttons_handler(b->id, CONTROLS_LONG_PRESSING, d);
+	    }
+	    else if(d > CONTROLS_ClickTime)
+		if(_controls_595_buttons_handler != 0)
+		    _controls_595_buttons_handler(b->id, CONTROLS_PRESSING, d);
+	}
+    }
+    else if(b->pressed)
+    {
+	b->pressed = 0;
+	d = HAL_GetTick() - b->press_start_time;
+	if(d > CONTROLS_LongClickTime)
+	{
+	    if(_controls_595_buttons_handler != 0)
+		_controls_595_buttons_handler(b->id, CONTROLS_LONG_CLICK, d);
+	}
+	else if(d > CONTROLS_ClickTime)
+	{
+	    if(_controls_595_buttons_handler != 0)
+		_controls_595_buttons_handler(b->id, CONTROLS_CLICK, d);	    
+	}
+    }
+}
+
+void controls_595_update()
+{
+    uint32_t v = 0;
+
+    //write outs values
+    for(uint8_t i = 0; i < _controls_595_outs_len; i++)
+	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
+	    v = (_controls_595_outs[i].val) ? v | (1 << i) : v & ~(1 << i);
+
+    uint8_t l = 0, j = 0;
+    for(uint8_t i = 0; i < _controls_595_buttons_len; i++){
+	
+	l = 0; //how many buttons with the same pos
+	while(l + i < _controls_595_buttons_len &&
+	      _controls_595_buttons[i + l].pos == _controls_595_buttons[i].pos)
+	    l++;
+	
+	//set only current pos up
+	for(uint8_t k = 0; k < _controls_595_buttons_len; k++){
+	    if(_controls_595_buttons[k].enabled)
+	    {
+		v = ((_controls_595_buttons[k].pos == _controls_595_buttons[i].pos) ==
+		     _controls_595_buttons[k].polarity_pressed) //check polarity
+		    ? v | (1 << _controls_595_buttons[k].pos)
+		    : v & ~(1 << _controls_595_buttons[k].pos);
+	    }
+	}
+	
+	controls_595_set(v);
+	
+	for(j = 0; j < l; j++)
+	    _controls_595_handle_button(&_controls_595_buttons[i+j]);
+
+//	printf("f %d %d\n", i, j);
+	
+	i += j - 1;
+    }
+    if(_controls_595_buttons_len == 0)
+	controls_595_set(v);
+}

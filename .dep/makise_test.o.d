@@ -57,7 +57,8 @@ build/makise_test.o: Src/makise_test.c Inc/makise_test.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/tim.h \
  Inc/gpio.h MakiseGUI/MakiseGUI/ILI9340C/ili9340_registers.h \
- MakiseGUI/MakiseGUI/makise_text.h /usr/arm-none-eabi/include/string.h \
+ MakiseGUI/MakiseGUI/makise_colors.h MakiseGUI/MakiseGUI/makise_text.h \
+ /usr/arm-none-eabi/include/string.h \
  /usr/arm-none-eabi/include/sys/string.h MakiseGUI/MakiseGUI/makise.h \
  MakiseGUI/MakiseGUI/fonts/fonts.h MakiseGUI/MakiseGUI/makise_text.h \
  MakiseGUI/MakiseGUI/makise_primitives.h \
@@ -66,8 +67,12 @@ build/makise_test.o: Src/makise_test.c Inc/makise_test.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_input.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
+ MakiseGUI/MakiseGUI/gui/makise_gui_container.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_elements.h \
- MakiseGUI/MakiseGUI/gui/makise_gui_container.h Inc/spi.h Inc/gpio.h
+ MakiseGUI/MakiseGUI/gui/elements/makise_e.h \
+ MakiseGUI/MakiseGUI/gui/makise_gui_elements.h \
+ MakiseGUI/MakiseGUI/gui/makise_gui_container.h Inc/spi.h Inc/gpio.h \
+ Controls/controls_595.h Controls/controls.h
 
 Inc/makise_test.h:
 
@@ -203,6 +208,8 @@ Inc/gpio.h:
 
 MakiseGUI/MakiseGUI/ILI9340C/ili9340_registers.h:
 
+MakiseGUI/MakiseGUI/makise_colors.h:
+
 MakiseGUI/MakiseGUI/makise_text.h:
 
 /usr/arm-none-eabi/include/string.h:
@@ -227,6 +234,12 @@ MakiseGUI/MakiseGUI/gui/makise_gui_input.h:
 
 MakiseGUI/MakiseGUI/gui/makise_gui.h:
 
+MakiseGUI/MakiseGUI/gui/makise_gui_container.h:
+
+MakiseGUI/MakiseGUI/gui/makise_gui_elements.h:
+
+MakiseGUI/MakiseGUI/gui/elements/makise_e.h:
+
 MakiseGUI/MakiseGUI/gui/makise_gui_elements.h:
 
 MakiseGUI/MakiseGUI/gui/makise_gui_container.h:
@@ -234,3 +247,7 @@ MakiseGUI/MakiseGUI/gui/makise_gui_container.h:
 Inc/spi.h:
 
 Inc/gpio.h:
+
+Controls/controls_595.h:
+
+Controls/controls.h:

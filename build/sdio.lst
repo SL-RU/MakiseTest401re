@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccsmEiYA.s 			page 1
+ARM GAS  /tmp/ccsZh2pq.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
   30:Src/sdio.c    ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
   31:Src/sdio.c    ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
   32:Src/sdio.c    ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
-ARM GAS  /tmp/ccsmEiYA.s 			page 2
+ARM GAS  /tmp/ccsZh2pq.s 			page 2
 
 
   33:Src/sdio.c    ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
   43 000c 5A60     		str	r2, [r3, #4]
   64:Src/sdio.c    ****   hsd.Init.ClockPowerSave = SDIO_CLOCK_POWER_SAVE_DISABLE;
   44              		.loc 1 64 0
-ARM GAS  /tmp/ccsmEiYA.s 			page 3
+ARM GAS  /tmp/ccsZh2pq.s 			page 3
 
 
   45 000e 9A60     		str	r2, [r3, #8]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
   89              		.cfi_offset 5, -16
   90              		.cfi_offset 6, -12
   91              		.cfi_offset 7, -8
-ARM GAS  /tmp/ccsmEiYA.s 			page 4
+ARM GAS  /tmp/ccsZh2pq.s 			page 4
 
 
   92              		.cfi_offset 14, -4
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
   92:Src/sdio.c    ****                           |GPIO_PIN_12;
  121              		.loc 1 92 0
  122 002c 4FF4F853 		mov	r3, #7936
-ARM GAS  /tmp/ccsmEiYA.s 			page 5
+ARM GAS  /tmp/ccsZh2pq.s 			page 5
 
 
   94:Src/sdio.c    ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
  157              		.loc 1 100 0
  158 0052 0193     		str	r3, [sp, #4]
  159              		.loc 1 105 0
-ARM GAS  /tmp/ccsmEiYA.s 			page 6
+ARM GAS  /tmp/ccsZh2pq.s 			page 6
 
 
  160 0054 FFF7FEFF 		bl	HAL_GPIO_Init
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
  117:Src/sdio.c    ****   {
  118:Src/sdio.c    ****   /* USER CODE BEGIN SDIO_MspDeInit 0 */
  119:Src/sdio.c    **** 
-ARM GAS  /tmp/ccsmEiYA.s 			page 7
+ARM GAS  /tmp/ccsZh2pq.s 			page 7
 
 
  120:Src/sdio.c    ****   /* USER CODE END SDIO_MspDeInit 0 */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
  235 0034 00080240 		.word	1073874944
  236 0038 000C0240 		.word	1073875968
  237              		.cfi_endproc
-ARM GAS  /tmp/ccsmEiYA.s 			page 8
+ARM GAS  /tmp/ccsZh2pq.s 			page 8
 
 
  238              	.LFE128:
@@ -441,21 +441,21 @@ ARM GAS  /tmp/ccsmEiYA.s 			page 1
  256              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
  257              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
  258              		.file 16 "Inc/sdio.h"
-ARM GAS  /tmp/ccsmEiYA.s 			page 9
+ARM GAS  /tmp/ccsZh2pq.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sdio.c
-     /tmp/ccsmEiYA.s:16     .text.MX_SDIO_SD_Init:0000000000000000 $t
-     /tmp/ccsmEiYA.s:24     .text.MX_SDIO_SD_Init:0000000000000000 MX_SDIO_SD_Init
-     /tmp/ccsmEiYA.s:56     .text.MX_SDIO_SD_Init:0000000000000018 $d
+     /tmp/ccsZh2pq.s:16     .text.MX_SDIO_SD_Init:0000000000000000 $t
+     /tmp/ccsZh2pq.s:24     .text.MX_SDIO_SD_Init:0000000000000000 MX_SDIO_SD_Init
+     /tmp/ccsZh2pq.s:56     .text.MX_SDIO_SD_Init:0000000000000018 $d
                             *COM*:0000000000000060 hsd
-     /tmp/ccsmEiYA.s:62     .text.HAL_SD_MspInit:0000000000000000 $t
-     /tmp/ccsmEiYA.s:70     .text.HAL_SD_MspInit:0000000000000000 HAL_SD_MspInit
-     /tmp/ccsmEiYA.s:171    .text.HAL_SD_MspInit:000000000000005c $d
-     /tmp/ccsmEiYA.s:178    .text.HAL_SD_MspDeInit:0000000000000000 $t
-     /tmp/ccsmEiYA.s:186    .text.HAL_SD_MspDeInit:0000000000000000 HAL_SD_MspDeInit
-     /tmp/ccsmEiYA.s:233    .text.HAL_SD_MspDeInit:000000000000002c $d
+     /tmp/ccsZh2pq.s:62     .text.HAL_SD_MspInit:0000000000000000 $t
+     /tmp/ccsZh2pq.s:70     .text.HAL_SD_MspInit:0000000000000000 HAL_SD_MspInit
+     /tmp/ccsZh2pq.s:171    .text.HAL_SD_MspInit:000000000000005c $d
+     /tmp/ccsZh2pq.s:178    .text.HAL_SD_MspDeInit:0000000000000000 $t
+     /tmp/ccsZh2pq.s:186    .text.HAL_SD_MspDeInit:0000000000000000 HAL_SD_MspDeInit
+     /tmp/ccsZh2pq.s:233    .text.HAL_SD_MspDeInit:000000000000002c $d
                             *COM*:0000000000000058 SDCardInfo
                      .debug_frame:0000000000000010 $d
 

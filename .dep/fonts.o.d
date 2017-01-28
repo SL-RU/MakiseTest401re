@@ -60,7 +60,8 @@ build/fonts.o: MakiseGUI/MakiseGUI/fonts/fonts.c \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/tim.h \
  Inc/gpio.h MakiseGUI/MakiseGUI/ILI9340C/ili9340_registers.h \
- MakiseGUI/MakiseGUI/makise.h MakiseGUI/MakiseGUI/makise_text.h \
+ MakiseGUI/MakiseGUI/makise.h MakiseGUI/MakiseGUI/makise_colors.h \
+ MakiseGUI/MakiseGUI/makise_text.h \
  MakiseGUI/MakiseGUI/makise_primitives.h \
  /usr/arm-none-eabi/include/math.h \
  /usr/arm-none-eabi/include/machine/fastmath.h \
@@ -207,6 +208,8 @@ Inc/gpio.h:
 MakiseGUI/MakiseGUI/ILI9340C/ili9340_registers.h:
 
 MakiseGUI/MakiseGUI/makise.h:
+
+MakiseGUI/MakiseGUI/makise_colors.h:
 
 MakiseGUI/MakiseGUI/makise_text.h:
 

@@ -51,10 +51,6 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define k_bu1_Pin GPIO_PIN_0
-#define k_bu1_GPIO_Port GPIOC
-#define k_bu2_Pin GPIO_PIN_1
-#define k_bu2_GPIO_Port GPIOC
 #define k_wkup_Pin GPIO_PIN_0
 #define k_wkup_GPIO_Port GPIOA
 #define l_dc_Pin GPIO_PIN_4

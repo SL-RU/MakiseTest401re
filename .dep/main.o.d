@@ -63,8 +63,8 @@ build/main.o: Src/main.c Inc/main.h \
  MakiseGUI/MakiseGUI/ILI9340C/ili9340_registers.h \
  MakiseGUI/MakiseGUI/makise.h /usr/arm-none-eabi/include/stdlib.h \
  /usr/arm-none-eabi/include/machine/stdlib.h \
- MakiseGUI/MakiseGUI/makise_config.h MakiseGUI/MakiseGUI/makise_text.h \
- /usr/arm-none-eabi/include/string.h \
+ MakiseGUI/MakiseGUI/makise_config.h MakiseGUI/MakiseGUI/makise_colors.h \
+ MakiseGUI/MakiseGUI/makise_text.h /usr/arm-none-eabi/include/string.h \
  /usr/arm-none-eabi/include/sys/string.h MakiseGUI/MakiseGUI/makise.h \
  MakiseGUI/MakiseGUI/fonts/fonts.h MakiseGUI/MakiseGUI/makise_text.h \
  MakiseGUI/MakiseGUI/makise_primitives.h \
@@ -73,9 +73,13 @@ build/main.o: Src/main.c Inc/main.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_input.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
+ MakiseGUI/MakiseGUI/gui/makise_gui_container.h \
+ MakiseGUI/MakiseGUI/gui/makise_gui_elements.h \
+ MakiseGUI/MakiseGUI/gui/elements/makise_e.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_elements.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_container.h Inc/spi.h Inc/gpio.h \
- MakiseGUI/MakiseGUI/makise_primitives.h
+ MakiseGUI/MakiseGUI/makise_primitives.h Controls/controls_595.h \
+ Controls/controls.h
 
 Inc/main.h:
 
@@ -237,6 +241,8 @@ MakiseGUI/MakiseGUI/makise.h:
 
 MakiseGUI/MakiseGUI/makise_config.h:
 
+MakiseGUI/MakiseGUI/makise_colors.h:
+
 MakiseGUI/MakiseGUI/makise_text.h:
 
 /usr/arm-none-eabi/include/string.h:
@@ -263,6 +269,12 @@ MakiseGUI/MakiseGUI/gui/makise_gui_input.h:
 
 MakiseGUI/MakiseGUI/gui/makise_gui.h:
 
+MakiseGUI/MakiseGUI/gui/makise_gui_container.h:
+
+MakiseGUI/MakiseGUI/gui/makise_gui_elements.h:
+
+MakiseGUI/MakiseGUI/gui/elements/makise_e.h:
+
 MakiseGUI/MakiseGUI/gui/makise_gui_elements.h:
 
 MakiseGUI/MakiseGUI/gui/makise_gui_container.h:
@@ -272,3 +284,7 @@ Inc/spi.h:
 Inc/gpio.h:
 
 MakiseGUI/MakiseGUI/makise_primitives.h:
+
+Controls/controls_595.h:
+
+Controls/controls.h:

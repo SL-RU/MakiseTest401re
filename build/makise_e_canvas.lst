@@ -1,0 +1,908 @@
+ARM GAS  /tmp/cctrGi8K.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"makise_e_canvas.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text._m_canvas_free,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	_m_canvas_free
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_m_canvas_free:
+  25              	.LFB131:
+  26              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c"
+   1:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** #include "makise_e.h"
+   2:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+   3:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_draw   (MElement* b);
+   4:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_predraw(MElement* b);
+   5:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MInputResultEnum _m_canvas_input  (MElement* b, MInputData data);
+   6:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MFocusEnum _m_canvas_focus  (MElement* b, MFocusEnum act);
+   7:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_free   (MElement* b);
+   8:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  10:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** void m_canvas_create(MCanvas* b, MContainer *c,
+  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		     int32_t x, int32_t y, uint32_t w, uint32_t h,
+  12:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		     uint32_t bgcolor, uint32_t bordercolor)
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** {
+  14:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     MElement *e = &b->el;
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->gui = c->gui;
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->data = b;
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     makise_g_cont_add(c, e);
+  20:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->draw = &_m_canvas_draw;
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->predraw = &_m_canvas_predraw;
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->update = 0;
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->input = &_m_canvas_input;
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->focus = &_m_canvas_focus;
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->free = &_m_canvas_free;
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.x = x;
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.y = y;
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.width = w;
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.height = h;
+  32:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ARM GAS  /tmp/cctrGi8K.s 			page 2
+
+
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->enabled = 1;
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->id = makise_g_newid();
+  35:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->focus_prior = 1;
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->bgcolor = bgcolor;
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->bordercolor = bordercolor;
+  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->cont.gui = c->gui;
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->cont.el  = e;
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     printf("Button %d created\n", e->id);
+  44:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  47:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  48:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_draw   (MElement* b)
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** {
+  50:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     makise_d_rect_filled(b->gui->buffer,
+  51:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 b->position.real_x,
+  52:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 b->position.real_y,
+  53:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 b->position.width,
+  54:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 b->position.height,
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 ((MCanvas*)b->data)->bordercolor,
+  56:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 ((MCanvas*)b->data)->bgcolor);
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->state)
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_d_rect(b->gui->buffer,
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_x+2,
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_y+2,
+  62:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.width-4,
+  63:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.height-4,
+  64:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      ((MCanvas*)b->data)->bordercolor);
+  65:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	    
+  66:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+  68:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     makise_d_line(b->gui->buffer,
+  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		  b->position.real_x,
+  70:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		  b->position.real_y,
+  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		  0, 0, 2);
+  72:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     //printf("Canvas %d dr\n", b->id);
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     return makise_g_cont_call(&((MCanvas*)b->data)->cont, M_G_CALL_DRAW);
+  75:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** //    return M_OK;
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+  77:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_predraw(MElement* b)
+  78:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** {
+  79:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+  80:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     return makise_g_cont_call(&((MCanvas*)b->data)->cont, M_G_CALL_PREDRAW);
+  81:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MInputResultEnum _m_canvas_input  (MElement* b, MInputData data)
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** {
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused == 0)
+  85:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&(((MCanvas*)b->data)->cont));
+  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused != 0)
+  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return m_element_input(((MCanvas*)b->data)->cont.focused, data);
+  88:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     return M_INPUT_NOT_HANDLED;
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+ARM GAS  /tmp/cctrGi8K.s 			page 3
+
+
+  90:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MFocusEnum _m_canvas_focus  (MElement* b, MFocusEnum act)
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** {
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     switch (act) {
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_GET:
+  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->state = 1;
+  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&((MCanvas*)b->data)->cont);
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+  98:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_GET_NEXT:
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->state = 1;
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&((MCanvas*)b->data)->cont);
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_GET_PREV:
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->state = 1;
+ 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_prev(&((MCanvas*)b->data)->cont);
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_LEAVE:
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->state = 0;
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_focus(((MCanvas*)b->data)->cont.focused, M_G_FOCUS_LEAVE);
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->cont.focused = 0;
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 113:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_NEXT:
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return makise_g_cont_focus_next(&(((MCanvas*)b->data)->cont));
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_PREV:
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return makise_g_cont_focus_prev(&(((MCanvas*)b->data)->cont));
+ 119:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     }
+ 121:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     return M_G_FOCUS_NOT_NEEDED;
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+ 124:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_free   (MElement* b)
+ 125:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** {
+  27              		.loc 1 125 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  33              	.LVL1:
+ 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+  34              		.loc 1 126 0
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE131:
+  39 0002 00BF     		.section	.text._m_canvas_draw,"ax",%progbits
+  40              		.align	1
+  41              		.p2align 2,,3
+  42              		.global	_m_canvas_draw
+  43              		.syntax unified
+  44              		.thumb
+  45              		.thumb_func
+  46              		.fpu fpv4-sp-d16
+  48              	_m_canvas_draw:
+ARM GAS  /tmp/cctrGi8K.s 			page 4
+
+
+  49              	.LFB127:
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     makise_d_rect_filled(b->gui->buffer,
+  50              		.loc 1 49 0
+  51              		.cfi_startproc
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54              	.LVL2:
+  55 0000 70B5     		push	{r4, r5, r6, lr}
+  56              	.LCFI0:
+  57              		.cfi_def_cfa_offset 16
+  58              		.cfi_offset 4, -16
+  59              		.cfi_offset 5, -12
+  60              		.cfi_offset 6, -8
+  61              		.cfi_offset 14, -4
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 ((MCanvas*)b->data)->bgcolor);
+  62              		.loc 1 55 0
+  63 0002 456B     		ldr	r5, [r0, #52]
+  50:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 b->position.real_x,
+  64              		.loc 1 50 0
+  65 0004 0368     		ldr	r3, [r0]
+  66 0006 EA6E     		ldr	r2, [r5, #108]
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     makise_d_rect_filled(b->gui->buffer,
+  67              		.loc 1 49 0
+  68 0008 0446     		mov	r4, r0
+  69 000a 84B0     		sub	sp, sp, #16
+  70              	.LCFI1:
+  71              		.cfi_def_cfa_offset 32
+  50:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 			 b->position.real_x,
+  72              		.loc 1 50 0
+  73 000c 1868     		ldr	r0, [r3]
+  74              	.LVL3:
+  75 000e 238C     		ldrh	r3, [r4, #32]
+  76 0010 0292     		str	r2, [sp, #8]
+  77 0012 2E6F     		ldr	r6, [r5, #112]
+  78 0014 A58C     		ldrh	r5, [r4, #36]
+  79 0016 B4F92C20 		ldrsh	r2, [r4, #44]
+  80 001a B4F92810 		ldrsh	r1, [r4, #40]
+  81 001e 8DE86000 		stm	sp, {r5, r6}
+  82 0022 FFF7FEFF 		bl	makise_d_rect_filled
+  83              	.LVL4:
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_d_rect(b->gui->buffer,
+  84              		.loc 1 58 0
+  85 0026 656B     		ldr	r5, [r4, #52]
+  86 0028 95F87430 		ldrb	r3, [r5, #116]	@ zero_extendqisi2
+  87 002c 93B1     		cbz	r3, .L3
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_x+2,
+  88              		.loc 1 59 0
+  89 002e 2068     		ldr	r0, [r4]
+  90 0030 666A     		ldr	r6, [r4, #36]
+  91 0032 236A     		ldr	r3, [r4, #32]
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.width-4,
+  92              		.loc 1 61 0
+  93 0034 E26A     		ldr	r2, [r4, #44]
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_y+2,
+  94              		.loc 1 60 0
+  95 0036 A16A     		ldr	r1, [r4, #40]
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_x+2,
+ARM GAS  /tmp/cctrGi8K.s 			page 5
+
+
+  96              		.loc 1 59 0
+  97 0038 2D6F     		ldr	r5, [r5, #112]
+  98 003a 0068     		ldr	r0, [r0]
+  99 003c 0195     		str	r5, [sp, #4]
+ 100 003e 351F     		subs	r5, r6, #4
+ 101 0040 ADB2     		uxth	r5, r5
+ 102 0042 043B     		subs	r3, r3, #4
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.width-4,
+ 103              		.loc 1 61 0
+ 104 0044 0232     		adds	r2, r2, #2
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_y+2,
+ 105              		.loc 1 60 0
+ 106 0046 0231     		adds	r1, r1, #2
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		      b->position.real_x+2,
+ 107              		.loc 1 59 0
+ 108 0048 0095     		str	r5, [sp]
+ 109 004a 9BB2     		uxth	r3, r3
+ 110 004c 12B2     		sxth	r2, r2
+ 111 004e 09B2     		sxth	r1, r1
+ 112 0050 FFF7FEFF 		bl	makise_d_rect
+ 113              	.LVL5:
+ 114              	.L3:
+  68:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 		  b->position.real_x,
+ 115              		.loc 1 68 0
+ 116 0054 2368     		ldr	r3, [r4]
+ 117 0056 B4F92810 		ldrsh	r1, [r4, #40]
+ 118 005a 1868     		ldr	r0, [r3]
+ 119 005c B4F92C20 		ldrsh	r2, [r4, #44]
+ 120 0060 0023     		movs	r3, #0
+ 121 0062 0225     		movs	r5, #2
+ 122 0064 8DE82800 		stm	sp, {r3, r5}
+ 123 0068 FFF7FEFF 		bl	makise_d_line
+ 124              	.LVL6:
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** //    return M_OK;
+ 125              		.loc 1 74 0
+ 126 006c 606B     		ldr	r0, [r4, #52]
+ 127 006e 0121     		movs	r1, #1
+ 128 0070 5430     		adds	r0, r0, #84
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_predraw(MElement* b)
+ 129              		.loc 1 76 0
+ 130 0072 04B0     		add	sp, sp, #16
+ 131              	.LCFI2:
+ 132              		.cfi_def_cfa_offset 16
+ 133              		@ sp needed
+ 134 0074 BDE87040 		pop	{r4, r5, r6, lr}
+ 135              	.LCFI3:
+ 136              		.cfi_restore 14
+ 137              		.cfi_restore 6
+ 138              		.cfi_restore 5
+ 139              		.cfi_restore 4
+ 140              		.cfi_def_cfa_offset 0
+ 141              	.LVL7:
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** //    return M_OK;
+ 142              		.loc 1 74 0
+ 143 0078 FFF7FEBF 		b	makise_g_cont_call
+ 144              	.LVL8:
+ 145              		.cfi_endproc
+ARM GAS  /tmp/cctrGi8K.s 			page 6
+
+
+ 146              	.LFE127:
+ 148              		.section	.text._m_canvas_predraw,"ax",%progbits
+ 149              		.align	1
+ 150              		.p2align 2,,3
+ 151              		.global	_m_canvas_predraw
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.fpu fpv4-sp-d16
+ 157              	_m_canvas_predraw:
+ 158              	.LFB128:
+  78:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+ 159              		.loc 1 78 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 164              	.LVL9:
+  80:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+ 165              		.loc 1 80 0
+ 166 0000 406B     		ldr	r0, [r0, #52]
+ 167              	.LVL10:
+ 168 0002 0221     		movs	r1, #2
+ 169 0004 5430     		adds	r0, r0, #84
+ 170 0006 FFF7FEBF 		b	makise_g_cont_call
+ 171              	.LVL11:
+ 172              		.cfi_endproc
+ 173              	.LFE128:
+ 175 000a 00BF     		.section	.text._m_canvas_input,"ax",%progbits
+ 176              		.align	1
+ 177              		.p2align 2,,3
+ 178              		.global	_m_canvas_input
+ 179              		.syntax unified
+ 180              		.thumb
+ 181              		.thumb_func
+ 182              		.fpu fpv4-sp-d16
+ 184              	_m_canvas_input:
+ 185              	.LFB129:
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused == 0)
+ 186              		.loc 1 83 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 16
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              	.LVL12:
+ 191 0000 70B5     		push	{r4, r5, r6, lr}
+ 192              	.LCFI4:
+ 193              		.cfi_def_cfa_offset 16
+ 194              		.cfi_offset 4, -16
+ 195              		.cfi_offset 5, -12
+ 196              		.cfi_offset 6, -8
+ 197              		.cfi_offset 14, -4
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&(((MCanvas*)b->data)->cont));
+ 198              		.loc 1 84 0
+ 199 0002 466B     		ldr	r6, [r0, #52]
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused == 0)
+ 200              		.loc 1 83 0
+ 201 0004 84B0     		sub	sp, sp, #16
+ARM GAS  /tmp/cctrGi8K.s 			page 7
+
+
+ 202              	.LCFI5:
+ 203              		.cfi_def_cfa_offset 32
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&(((MCanvas*)b->data)->cont));
+ 204              		.loc 1 84 0
+ 205 0006 756E     		ldr	r5, [r6, #100]
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused == 0)
+ 206              		.loc 1 83 0
+ 207 0008 01AC     		add	r4, sp, #4
+ 208 000a 84E80E00 		stm	r4, {r1, r2, r3}
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&(((MCanvas*)b->data)->cont));
+ 209              		.loc 1 84 0
+ 210 000e 3DB1     		cbz	r5, .L14
+ 211              	.LVL13:
+ 212              	.L11:
+  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     return M_INPUT_NOT_HANDLED;
+ 213              		.loc 1 87 0
+ 214 0010 94E80E00 		ldm	r4, {r1, r2, r3}
+ 215 0014 2846     		mov	r0, r5
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MFocusEnum _m_canvas_focus  (MElement* b, MFocusEnum act)
+ 216              		.loc 1 89 0
+ 217 0016 04B0     		add	sp, sp, #16
+ 218              	.LCFI6:
+ 219              		.cfi_remember_state
+ 220              		.cfi_def_cfa_offset 16
+ 221              		@ sp needed
+ 222 0018 BDE87040 		pop	{r4, r5, r6, lr}
+ 223              	.LCFI7:
+ 224              		.cfi_restore 14
+ 225              		.cfi_restore 6
+ 226              		.cfi_restore 5
+ 227              		.cfi_restore 4
+ 228              		.cfi_def_cfa_offset 0
+  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     return M_INPUT_NOT_HANDLED;
+ 229              		.loc 1 87 0
+ 230 001c FFF7FEBF 		b	m_element_input
+ 231              	.LVL14:
+ 232              	.L14:
+ 233              	.LCFI8:
+ 234              		.cfi_restore_state
+ 235 0020 0546     		mov	r5, r0
+  85:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused != 0)
+ 236              		.loc 1 85 0
+ 237 0022 06F15400 		add	r0, r6, #84
+ 238              	.LVL15:
+ 239 0026 FFF7FEFF 		bl	makise_g_cont_focus_next
+ 240              	.LVL16:
+  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return m_element_input(((MCanvas*)b->data)->cont.focused, data);
+ 241              		.loc 1 86 0
+ 242 002a 6B6B     		ldr	r3, [r5, #52]
+ 243 002c 5D6E     		ldr	r5, [r3, #100]
+ 244              	.LVL17:
+ 245 002e 002D     		cmp	r5, #0
+ 246 0030 EED1     		bne	.L11
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MFocusEnum _m_canvas_focus  (MElement* b, MFocusEnum act)
+ 247              		.loc 1 89 0
+ 248 0032 0120     		movs	r0, #1
+ 249 0034 04B0     		add	sp, sp, #16
+ARM GAS  /tmp/cctrGi8K.s 			page 8
+
+
+ 250              	.LCFI9:
+ 251              		.cfi_def_cfa_offset 16
+ 252              		@ sp needed
+ 253 0036 70BD     		pop	{r4, r5, r6, pc}
+ 254              		.cfi_endproc
+ 255              	.LFE129:
+ 257              		.section	.text._m_canvas_focus,"ax",%progbits
+ 258              		.align	1
+ 259              		.p2align 2,,3
+ 260              		.global	_m_canvas_focus
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.fpu fpv4-sp-d16
+ 266              	_m_canvas_focus:
+ 267              	.LFB130:
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     switch (act) {
+ 268              		.loc 1 91 0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 0
+ 271              		@ frame_needed = 0, uses_anonymous_args = 0
+ 272              	.LVL18:
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_GET:
+ 273              		.loc 1 92 0
+ 274 0000 0439     		subs	r1, r1, #4
+ 275              	.LVL19:
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     switch (act) {
+ 276              		.loc 1 91 0
+ 277 0002 38B5     		push	{r3, r4, r5, lr}
+ 278              	.LCFI10:
+ 279              		.cfi_def_cfa_offset 16
+ 280              		.cfi_offset 3, -16
+ 281              		.cfi_offset 4, -12
+ 282              		.cfi_offset 5, -8
+ 283              		.cfi_offset 14, -4
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     switch (act) {
+ 284              		.loc 1 91 0
+ 285 0004 0546     		mov	r5, r0
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_GET:
+ 286              		.loc 1 92 0
+ 287 0006 2429     		cmp	r1, #36
+ 288 0008 41D8     		bhi	.L24
+ 289 000a DFE801F0 		tbb	[pc, r1]
+ 290              	.L18:
+ 291 000e 29       		.byte	(.L17-.L18)/2
+ 292 000f 40       		.byte	(.L24-.L18)/2
+ 293 0010 40       		.byte	(.L24-.L18)/2
+ 294 0011 40       		.byte	(.L24-.L18)/2
+ 295 0012 13       		.byte	(.L21-.L18)/2
+ 296 0013 40       		.byte	(.L24-.L18)/2
+ 297 0014 40       		.byte	(.L24-.L18)/2
+ 298 0015 40       		.byte	(.L24-.L18)/2
+ 299 0016 40       		.byte	(.L24-.L18)/2
+ 300 0017 40       		.byte	(.L24-.L18)/2
+ 301 0018 40       		.byte	(.L24-.L18)/2
+ 302 0019 40       		.byte	(.L24-.L18)/2
+ 303 001a 1D       		.byte	(.L20-.L18)/2
+ARM GAS  /tmp/cctrGi8K.s 			page 9
+
+
+ 304 001b 40       		.byte	(.L24-.L18)/2
+ 305 001c 40       		.byte	(.L24-.L18)/2
+ 306 001d 40       		.byte	(.L24-.L18)/2
+ 307 001e 40       		.byte	(.L24-.L18)/2
+ 308 001f 40       		.byte	(.L24-.L18)/2
+ 309 0020 40       		.byte	(.L24-.L18)/2
+ 310 0021 40       		.byte	(.L24-.L18)/2
+ 311 0022 13       		.byte	(.L21-.L18)/2
+ 312 0023 40       		.byte	(.L24-.L18)/2
+ 313 0024 40       		.byte	(.L24-.L18)/2
+ 314 0025 40       		.byte	(.L24-.L18)/2
+ 315 0026 40       		.byte	(.L24-.L18)/2
+ 316 0027 40       		.byte	(.L24-.L18)/2
+ 317 0028 40       		.byte	(.L24-.L18)/2
+ 318 0029 40       		.byte	(.L24-.L18)/2
+ 319 002a 23       		.byte	(.L22-.L18)/2
+ 320 002b 40       		.byte	(.L24-.L18)/2
+ 321 002c 40       		.byte	(.L24-.L18)/2
+ 322 002d 40       		.byte	(.L24-.L18)/2
+ 323 002e 40       		.byte	(.L24-.L18)/2
+ 324 002f 40       		.byte	(.L24-.L18)/2
+ 325 0030 40       		.byte	(.L24-.L18)/2
+ 326 0031 40       		.byte	(.L24-.L18)/2
+ 327 0032 36       		.byte	(.L23-.L18)/2
+ 328 0033 00       		.p2align 1
+ 329              	.L21:
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_next(&((MCanvas*)b->data)->cont);
+ 330              		.loc 1 99 0
+ 331 0034 436B     		ldr	r3, [r0, #52]
+ 332 0036 0124     		movs	r4, #1
+ 333 0038 83F87440 		strb	r4, [r3, #116]
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 334              		.loc 1 100 0
+ 335 003c 406B     		ldr	r0, [r0, #52]
+ 336              	.LVL20:
+ 337 003e 5430     		adds	r0, r0, #84
+ 338 0040 FFF7FEFF 		bl	makise_g_cont_focus_next
+ 339              	.LVL21:
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 340              		.loc 1 101 0
+ 341 0044 2046     		mov	r0, r4
+ 342 0046 38BD     		pop	{r3, r4, r5, pc}
+ 343              	.LVL22:
+ 344              	.L20:
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 345              		.loc 1 115 0
+ 346 0048 406B     		ldr	r0, [r0, #52]
+ 347              	.LVL23:
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_free   (MElement* b)
+ 348              		.loc 1 123 0
+ 349 004a BDE83840 		pop	{r3, r4, r5, lr}
+ 350              	.LCFI11:
+ 351              		.cfi_remember_state
+ 352              		.cfi_restore 14
+ 353              		.cfi_restore 5
+ 354              		.cfi_restore 4
+ 355              		.cfi_restore 3
+ARM GAS  /tmp/cctrGi8K.s 			page 10
+
+
+ 356              		.cfi_def_cfa_offset 0
+ 357              	.LVL24:
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 358              		.loc 1 115 0
+ 359 004e 5430     		adds	r0, r0, #84
+ 360 0050 FFF7FEBF 		b	makise_g_cont_focus_next
+ 361              	.LVL25:
+ 362              	.L22:
+ 363              	.LCFI12:
+ 364              		.cfi_restore_state
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 365              		.loc 1 118 0
+ 366 0054 406B     		ldr	r0, [r0, #52]
+ 367              	.LVL26:
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_free   (MElement* b)
+ 368              		.loc 1 123 0
+ 369 0056 BDE83840 		pop	{r3, r4, r5, lr}
+ 370              	.LCFI13:
+ 371              		.cfi_remember_state
+ 372              		.cfi_restore 14
+ 373              		.cfi_restore 5
+ 374              		.cfi_restore 4
+ 375              		.cfi_restore 3
+ 376              		.cfi_def_cfa_offset 0
+ 377              	.LVL27:
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 378              		.loc 1 118 0
+ 379 005a 5430     		adds	r0, r0, #84
+ 380 005c FFF7FEBF 		b	makise_g_cont_focus_prev
+ 381              	.LVL28:
+ 382              	.L17:
+ 383              	.LCFI14:
+ 384              		.cfi_restore_state
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_focus(((MCanvas*)b->data)->cont.focused, M_G_FOCUS_LEAVE);
+ 385              		.loc 1 109 0
+ 386 0060 436B     		ldr	r3, [r0, #52]
+ 387 0062 0024     		movs	r4, #0
+ 388 0064 83F87440 		strb	r4, [r3, #116]
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->cont.focused = 0;
+ 389              		.loc 1 110 0
+ 390 0068 436B     		ldr	r3, [r0, #52]
+ 391 006a 0421     		movs	r1, #4
+ 392 006c 586E     		ldr	r0, [r3, #100]
+ 393              	.LVL29:
+ 394 006e FFF7FEFF 		bl	makise_g_focus
+ 395              	.LVL30:
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 396              		.loc 1 111 0
+ 397 0072 6B6B     		ldr	r3, [r5, #52]
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 398              		.loc 1 112 0
+ 399 0074 0120     		movs	r0, #1
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 400              		.loc 1 111 0
+ 401 0076 5C66     		str	r4, [r3, #100]
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 402              		.loc 1 112 0
+ARM GAS  /tmp/cctrGi8K.s 			page 11
+
+
+ 403 0078 38BD     		pop	{r3, r4, r5, pc}
+ 404              	.LVL31:
+ 405              	.L23:
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	makise_g_cont_focus_prev(&((MCanvas*)b->data)->cont);
+ 406              		.loc 1 104 0
+ 407 007a 436B     		ldr	r3, [r0, #52]
+ 408 007c 0124     		movs	r4, #1
+ 409 007e 83F87440 		strb	r4, [r3, #116]
+ 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
+ 410              		.loc 1 105 0
+ 411 0082 406B     		ldr	r0, [r0, #52]
+ 412              	.LVL32:
+ 413 0084 5430     		adds	r0, r0, #84
+ 414 0086 FFF7FEFF 		bl	makise_g_cont_focus_prev
+ 415              	.LVL33:
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
+ 416              		.loc 1 106 0
+ 417 008a 2046     		mov	r0, r4
+ 418 008c 38BD     		pop	{r3, r4, r5, pc}
+ 419              	.LVL34:
+ 420              	.L24:
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** }
+ 421              		.loc 1 122 0
+ 422 008e 0220     		movs	r0, #2
+ 423              	.LVL35:
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** uint8_t _m_canvas_free   (MElement* b)
+ 424              		.loc 1 123 0
+ 425 0090 38BD     		pop	{r3, r4, r5, pc}
+ 426              		.cfi_endproc
+ 427              	.LFE130:
+ 429 0092 00BF     		.section	.text.m_canvas_create,"ax",%progbits
+ 430              		.align	1
+ 431              		.p2align 2,,3
+ 432              		.global	m_canvas_create
+ 433              		.syntax unified
+ 434              		.thumb
+ 435              		.thumb_func
+ 436              		.fpu fpv4-sp-d16
+ 438              	m_canvas_create:
+ 439              	.LFB126:
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     MElement *e = &b->el;
+ 440              		.loc 1 13 0
+ 441              		.cfi_startproc
+ 442              		@ args = 16, pretend = 0, frame = 8
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444              	.LVL36:
+ 445 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 446              	.LCFI15:
+ 447              		.cfi_def_cfa_offset 36
+ 448              		.cfi_offset 4, -36
+ 449              		.cfi_offset 5, -32
+ 450              		.cfi_offset 6, -28
+ 451              		.cfi_offset 7, -24
+ 452              		.cfi_offset 8, -20
+ 453              		.cfi_offset 9, -16
+ 454              		.cfi_offset 10, -12
+ 455              		.cfi_offset 11, -8
+ARM GAS  /tmp/cctrGi8K.s 			page 12
+
+
+ 456              		.cfi_offset 14, -4
+ 457 0004 0446     		mov	r4, r0
+ 458 0006 83B0     		sub	sp, sp, #12
+ 459              	.LCFI16:
+ 460              		.cfi_def_cfa_offset 48
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     MElement *e = &b->el;
+ 461              		.loc 1 13 0
+ 462 0008 0D46     		mov	r5, r1
+  14:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->gui = c->gui;
+ 463              		.loc 1 14 0
+ 464 000a 061D     		adds	r6, r0, #4
+ 465              	.LVL37:
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 466              		.loc 1 15 0
+ 467 000c 0968     		ldr	r1, [r1]
+ 468              	.LVL38:
+ 469 000e 4160     		str	r1, [r0, #4]
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+ 470              		.loc 1 17 0
+ 471 0010 A063     		str	r0, [r4, #56]
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 472              		.loc 1 19 0
+ 473 0012 3146     		mov	r1, r6
+ 474 0014 2846     		mov	r0, r5
+ 475              	.LVL39:
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     MElement *e = &b->el;
+ 476              		.loc 1 13 0
+ 477 0016 0192     		str	r2, [sp, #4]
+ 478 0018 0093     		str	r3, [sp]
+ 479 001a DDF830B0 		ldr	fp, [sp, #48]
+ 480 001e DDF834A0 		ldr	r10, [sp, #52]
+ 481 0022 DDF83890 		ldr	r9, [sp, #56]
+ 482 0026 DDF83C80 		ldr	r8, [sp, #60]
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 483              		.loc 1 19 0
+ 484 002a FFF7FEFF 		bl	makise_g_cont_add
+ 485              	.LVL40:
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.y = y;
+ 486              		.loc 1 28 0
+ 487 002e 019A     		ldr	r2, [sp, #4]
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.width = w;
+ 488              		.loc 1 29 0
+ 489 0030 009B     		ldr	r3, [sp]
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->update = 0;
+ 490              		.loc 1 22 0
+ 491 0032 1549     		ldr	r1, .L28
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.y = y;
+ 492              		.loc 1 28 0
+ 493 0034 E261     		str	r2, [r4, #28]
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->id = makise_g_newid();
+ 494              		.loc 1 33 0
+ 495 0036 0127     		movs	r7, #1
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->input = &_m_canvas_input;
+ 496              		.loc 1 23 0
+ 497 0038 4FF0000E 		mov	lr, #0
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.width = w;
+ 498              		.loc 1 29 0
+ARM GAS  /tmp/cctrGi8K.s 			page 13
+
+
+ 499 003c 2362     		str	r3, [r4, #32]
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->focus = &_m_canvas_focus;
+ 500              		.loc 1 24 0
+ 501 003e DFF85CC0 		ldr	ip, .L28+20
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->free = &_m_canvas_free;
+ 502              		.loc 1 25 0
+ 503 0042 124A     		ldr	r2, .L28+4
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 504              		.loc 1 26 0
+ 505 0044 124B     		ldr	r3, .L28+8
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->predraw = &_m_canvas_predraw;
+ 506              		.loc 1 21 0
+ 507 0046 1348     		ldr	r0, .L28+12
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->update = 0;
+ 508              		.loc 1 22 0
+ 509 0048 2164     		str	r1, [r4, #64]
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 510              		.loc 1 26 0
+ 511 004a 2365     		str	r3, [r4, #80]
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.height = h;
+ 512              		.loc 1 30 0
+ 513 004c C4F824B0 		str	fp, [r4, #36]
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 514              		.loc 1 31 0
+ 515 0050 C4F828A0 		str	r10, [r4, #40]
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->predraw = &_m_canvas_predraw;
+ 516              		.loc 1 21 0
+ 517 0054 E063     		str	r0, [r4, #60]
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->input = &_m_canvas_input;
+ 518              		.loc 1 23 0
+ 519 0056 C4F844E0 		str	lr, [r4, #68]
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->focus = &_m_canvas_focus;
+ 520              		.loc 1 24 0
+ 521 005a C4F848C0 		str	ip, [r4, #72]
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->free = &_m_canvas_free;
+ 522              		.loc 1 25 0
+ 523 005e E264     		str	r2, [r4, #76]
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->id = makise_g_newid();
+ 524              		.loc 1 33 0
+ 525 0060 2776     		strb	r7, [r4, #24]
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->focus_prior = 1;
+ 526              		.loc 1 34 0
+ 527 0062 FFF7FEFF 		bl	makise_g_newid
+ 528              	.LVL41:
+  35:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     
+ 529              		.loc 1 35 0
+ 530 0066 84F83470 		strb	r7, [r4, #52]
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->cont.el  = e;
+ 531              		.loc 1 40 0
+ 532 006a 2B68     		ldr	r3, [r5]
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->focus_prior = 1;
+ 533              		.loc 1 34 0
+ 534 006c A060     		str	r0, [r4, #8]
+ 535 006e 0146     		mov	r1, r0
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 536              		.loc 1 43 0
+ 537 0070 0948     		ldr	r0, .L28+16
+ARM GAS  /tmp/cctrGi8K.s 			page 14
+
+
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->cont.el  = e;
+ 538              		.loc 1 40 0
+ 539 0072 6365     		str	r3, [r4, #84]
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 540              		.loc 1 41 0
+ 541 0074 A665     		str	r6, [r4, #88]
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->bordercolor = bordercolor;
+ 542              		.loc 1 37 0
+ 543 0076 C4F86C90 		str	r9, [r4, #108]
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 544              		.loc 1 38 0
+ 545 007a C4F87080 		str	r8, [r4, #112]
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 546              		.loc 1 45 0
+ 547 007e 03B0     		add	sp, sp, #12
+ 548              	.LCFI17:
+ 549              		.cfi_def_cfa_offset 36
+ 550              	.LVL42:
+ 551              		@ sp needed
+ 552 0080 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 553              	.LCFI18:
+ 554              		.cfi_restore 14
+ 555              		.cfi_restore 11
+ 556              		.cfi_restore 10
+ 557              		.cfi_restore 9
+ 558              		.cfi_restore 8
+ 559              		.cfi_restore 7
+ 560              		.cfi_restore 6
+ 561              		.cfi_restore 5
+ 562              		.cfi_restore 4
+ 563              		.cfi_def_cfa_offset 0
+ 564              	.LVL43:
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
+ 565              		.loc 1 43 0
+ 566 0084 FFF7FEBF 		b	printf
+ 567              	.LVL44:
+ 568              	.L29:
+ 569              		.align	2
+ 570              	.L28:
+ 571 0088 00000000 		.word	_m_canvas_predraw
+ 572 008c 00000000 		.word	_m_canvas_focus
+ 573 0090 00000000 		.word	_m_canvas_free
+ 574 0094 00000000 		.word	_m_canvas_draw
+ 575 0098 00000000 		.word	.LC0
+ 576 009c 00000000 		.word	_m_canvas_input
+ 577              		.cfi_endproc
+ 578              	.LFE126:
+ 580              		.comm	makise_color_palette,4,4
+ 581              		.section	.rodata.m_canvas_create.str1.4,"aMS",%progbits,1
+ 582              		.align	2
+ 583              	.LC0:
+ 584 0000 42757474 		.ascii	"Button %d created\012\000"
+ 584      6F6E2025 
+ 584      64206372 
+ 584      65617465 
+ 584      640A00
+ 585              		.text
+ARM GAS  /tmp/cctrGi8K.s 			page 15
+
+
+ 586              	.Letext0:
+ 587              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 588              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 589              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 590              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 591              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 592              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 593              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 594              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 595              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 596              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 597              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 598              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 599              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 600              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 601              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 602              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 603              		.file 18 "Inc/spi.h"
+ 604              		.file 19 "Inc/tim.h"
+ 605              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 606              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 607              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 608              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 609              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 610              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 611              		.file 26 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 612              		.file 27 "MakiseGUI/MakiseGUI/makise_primitives.h"
+ 613              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/cctrGi8K.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise_e_canvas.c
+     /tmp/cctrGi8K.s:16     .text._m_canvas_free:0000000000000000 $t
+     /tmp/cctrGi8K.s:24     .text._m_canvas_free:0000000000000000 _m_canvas_free
+     /tmp/cctrGi8K.s:40     .text._m_canvas_draw:0000000000000000 $t
+     /tmp/cctrGi8K.s:48     .text._m_canvas_draw:0000000000000000 _m_canvas_draw
+     /tmp/cctrGi8K.s:149    .text._m_canvas_predraw:0000000000000000 $t
+     /tmp/cctrGi8K.s:157    .text._m_canvas_predraw:0000000000000000 _m_canvas_predraw
+     /tmp/cctrGi8K.s:176    .text._m_canvas_input:0000000000000000 $t
+     /tmp/cctrGi8K.s:184    .text._m_canvas_input:0000000000000000 _m_canvas_input
+     /tmp/cctrGi8K.s:258    .text._m_canvas_focus:0000000000000000 $t
+     /tmp/cctrGi8K.s:266    .text._m_canvas_focus:0000000000000000 _m_canvas_focus
+     /tmp/cctrGi8K.s:291    .text._m_canvas_focus:000000000000000e $d
+     /tmp/cctrGi8K.s:430    .text.m_canvas_create:0000000000000000 $t
+     /tmp/cctrGi8K.s:438    .text.m_canvas_create:0000000000000000 m_canvas_create
+     /tmp/cctrGi8K.s:571    .text.m_canvas_create:0000000000000088 $d
+                            *COM*:0000000000000004 makise_color_palette
+     /tmp/cctrGi8K.s:582    .rodata.m_canvas_create.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+     /tmp/cctrGi8K.s:328    .text._m_canvas_focus:0000000000000033 $d
+     /tmp/cctrGi8K.s:328    .text._m_canvas_focus:0000000000000034 $t
+
+UNDEFINED SYMBOLS
+makise_d_rect_filled
+makise_d_rect
+makise_d_line
+makise_g_cont_call
+m_element_input
+makise_g_cont_focus_next
+makise_g_cont_focus_prev
+makise_g_focus
+makise_g_cont_add
+makise_g_newid
+printf

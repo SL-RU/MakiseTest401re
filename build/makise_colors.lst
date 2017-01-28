@@ -1,0 +1,156 @@
+ARM GAS  /tmp/cc0h0ekh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"makise_colors.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.makise_color_get,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	makise_color_get
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	makise_color_get:
+  25              	.LFB126:
+  26              		.file 1 "MakiseGUI/MakiseGUI/makise_colors.c"
+   1:MakiseGUI/MakiseGUI/makise_colors.c **** #include "makise_colors.h"
+   2:MakiseGUI/MakiseGUI/makise_colors.c **** 
+   3:MakiseGUI/MakiseGUI/makise_colors.c **** 
+   4:MakiseGUI/MakiseGUI/makise_colors.c **** #if MAKISEGUI_BUFFER_DEPTH != MAKISEGUI_DRIVER_DEPTH
+   5:MakiseGUI/MakiseGUI/makise_colors.c **** #if MAKISEGUI_DRIVER_DEPTH == 16
+   6:MakiseGUI/MakiseGUI/makise_colors.c **** uint32_t _makise_color_palette_default[] = {
+   7:MakiseGUI/MakiseGUI/makise_colors.c ****     //BRG 565
+   8:MakiseGUI/MakiseGUI/makise_colors.c ****     0x0000, //Black   
+   9:MakiseGUI/MakiseGUI/makise_colors.c ****     0xffff, //White   
+  10:MakiseGUI/MakiseGUI/makise_colors.c ****     0x07c0, //Red     
+  11:MakiseGUI/MakiseGUI/makise_colors.c ****     0x001f, //Green   
+  12:MakiseGUI/MakiseGUI/makise_colors.c ****     0xf800, //Blue    
+  13:MakiseGUI/MakiseGUI/makise_colors.c ****     0x07ff, //Yellow    
+  14:MakiseGUI/MakiseGUI/makise_colors.c ****     0xffc0, //Magenta 
+  15:MakiseGUI/MakiseGUI/makise_colors.c ****     0xf83f, //Cyan    
+  16:MakiseGUI/MakiseGUI/makise_colors.c ****     0x003f, //Lime    
+  17:MakiseGUI/MakiseGUI/makise_colors.c ****     0b0000100001000010, //Gray    
+  18:MakiseGUI/MakiseGUI/makise_colors.c ****     0x02c0, //Maroon  
+  19:MakiseGUI/MakiseGUI/makise_colors.c ****     0x5800, //Navy
+  20:MakiseGUI/MakiseGUI/makise_colors.c ****     0x781f, //Teal     
+  21:MakiseGUI/MakiseGUI/makise_colors.c ****     0x03df, //Olive    
+  22:MakiseGUI/MakiseGUI/makise_colors.c ****     0x0017, //DarkGreen
+  23:MakiseGUI/MakiseGUI/makise_colors.c ****     0x1400, //Brawn        
+  24:MakiseGUI/MakiseGUI/makise_colors.c **** };
+  25:MakiseGUI/MakiseGUI/makise_colors.c **** #endif
+  26:MakiseGUI/MakiseGUI/makise_colors.c **** 
+  27:MakiseGUI/MakiseGUI/makise_colors.c **** uint32_t *makise_color_palette = _makise_color_palette_default;
+  28:MakiseGUI/MakiseGUI/makise_colors.c **** #endif
+  29:MakiseGUI/MakiseGUI/makise_colors.c **** 
+  30:MakiseGUI/MakiseGUI/makise_colors.c **** inline uint32_t makise_color_get(uint32_t c)
+  31:MakiseGUI/MakiseGUI/makise_colors.c **** {
+  27              		.loc 1 31 0
+ARM GAS  /tmp/cc0h0ekh.s 			page 2
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  32:MakiseGUI/MakiseGUI/makise_colors.c ****     #if MAKISEGUI_BUFFER_DEPTH == MAKISEGUI_DRIVER_DEPTH
+  33:MakiseGUI/MakiseGUI/makise_colors.c **** 
+  34:MakiseGUI/MakiseGUI/makise_colors.c ****     return c;
+  35:MakiseGUI/MakiseGUI/makise_colors.c **** 
+  36:MakiseGUI/MakiseGUI/makise_colors.c ****     #elif MAKISEGUI_BUFFER_DEPTH != MAKISEGUI_DRIVER_DEPTH
+  37:MakiseGUI/MakiseGUI/makise_colors.c **** 
+  38:MakiseGUI/MakiseGUI/makise_colors.c ****     return makise_color_palette[c];
+  33              		.loc 1 38 0
+  34 0000 024B     		ldr	r3, .L2
+  35 0002 1B68     		ldr	r3, [r3]
+  39:MakiseGUI/MakiseGUI/makise_colors.c ****     
+  40:MakiseGUI/MakiseGUI/makise_colors.c ****     #endif
+  41:MakiseGUI/MakiseGUI/makise_colors.c **** }
+  36              		.loc 1 41 0
+  37 0004 53F82000 		ldr	r0, [r3, r0, lsl #2]
+  38              	.LVL1:
+  39 0008 7047     		bx	lr
+  40              	.L3:
+  41 000a 00BF     		.align	2
+  42              	.L2:
+  43 000c 00000000 		.word	.LANCHOR0
+  44              		.cfi_endproc
+  45              	.LFE126:
+  47              		.global	_makise_color_palette_default
+  48              		.global	makise_color_palette
+  49              		.section	.data._makise_color_palette_default,"aw",%progbits
+  50              		.align	2
+  53              	_makise_color_palette_default:
+  54 0000 00000000 		.word	0
+  55 0004 FFFF0000 		.word	65535
+  56 0008 C0070000 		.word	1984
+  57 000c 1F000000 		.word	31
+  58 0010 00F80000 		.word	63488
+  59 0014 FF070000 		.word	2047
+  60 0018 C0FF0000 		.word	65472
+  61 001c 3FF80000 		.word	63551
+  62 0020 3F000000 		.word	63
+  63 0024 42080000 		.word	2114
+  64 0028 C0020000 		.word	704
+  65 002c 00580000 		.word	22528
+  66 0030 1F780000 		.word	30751
+  67 0034 DF030000 		.word	991
+  68 0038 17000000 		.word	23
+  69 003c 00140000 		.word	5120
+  70              		.section	.data.makise_color_palette,"aw",%progbits
+  71              		.align	2
+  72              		.set	.LANCHOR0,. + 0
+  75              	makise_color_palette:
+  76 0000 00000000 		.word	_makise_color_palette_default
+  77              		.text
+  78              	.Letext0:
+  79              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ARM GAS  /tmp/cc0h0ekh.s 			page 3
+
+
+  80              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  81              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+  82              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  83              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+  84              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+  85              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+  86              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+  87              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+  88              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+  89              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+  90              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+  91              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+  92              		.file 15 "Inc/spi.h"
+  93              		.file 16 "Inc/tim.h"
+  94              		.file 17 "MakiseGUI/MakiseGUI/makise_text.h"
+  95              		.file 18 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+  96              		.file 19 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+  97              		.file 20 "MakiseGUI/MakiseGUI/makise_colors.h"
+ARM GAS  /tmp/cc0h0ekh.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise_colors.c
+     /tmp/cc0h0ekh.s:16     .text.makise_color_get:0000000000000000 $t
+     /tmp/cc0h0ekh.s:24     .text.makise_color_get:0000000000000000 makise_color_get
+     /tmp/cc0h0ekh.s:43     .text.makise_color_get:000000000000000c $d
+     /tmp/cc0h0ekh.s:53     .data._makise_color_palette_default:0000000000000000 _makise_color_palette_default
+     /tmp/cc0h0ekh.s:75     .data.makise_color_palette:0000000000000000 makise_color_palette
+     /tmp/cc0h0ekh.s:50     .data._makise_color_palette_default:0000000000000000 $d
+     /tmp/cc0h0ekh.s:71     .data.makise_color_palette:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS
