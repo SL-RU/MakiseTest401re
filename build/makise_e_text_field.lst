@@ -1,0 +1,383 @@
+ARM GAS  /tmp/ccDnY1d5.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"makise_e_text_field.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text._m_textfield_draw,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	_m_textfield_draw
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_m_textfield_draw:
+  25              	.LFB127:
+  26              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c"
+   1:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** #include "makise_e.h"
+   2:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+   3:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** uint8_t _m_textfield_draw   (MElement* b);
+   4:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+   5:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** void m_create_text_field(MTextField* b, MContainer *c,
+   6:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			 int32_t x, int32_t y, uint32_t w, uint32_t h,
+   7:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			 char* text,
+   8:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			 MakiseStyle *style)
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** {
+  10:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MElement *e = &b->el;
+  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->gui = c->gui;
+  12:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->data = b;
+  14:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     makise_g_cont_add(c, e);
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->draw = &_m_textfield_draw;
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->predraw = 0;
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->update = 0;
+  20:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->input = 0;
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->focus = 0;
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->free =  0;
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 	
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.x = x;
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.y = y;
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.width = w;
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.height = h;
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->enabled = 1;
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->id = makise_g_newid();
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->focus_prior = 0;
+  32:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+ARM GAS  /tmp/ccDnY1d5.s 			page 2
+
+
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     b->text = text;
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+  35:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     b->style = style;
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     printf("Text field %d created\n", e->id);
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** }
+  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** uint8_t _m_textfield_draw   (MElement* b)
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** {
+  27              		.loc 1 41 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MakiseStyleTheme *th = &((MTextField*)b->data)->style->normal;
+  39              		.loc 1 42 0
+  40 0002 426B     		ldr	r2, [r0, #52]
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+  44:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     _m_e_helper_draw_box(b->gui->buffer, &b->position, th);
+  41              		.loc 1 44 0
+  42 0004 0368     		ldr	r3, [r0]
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MakiseStyleTheme *th = &((MTextField*)b->data)->style->normal;
+  43              		.loc 1 42 0
+  44 0006 956D     		ldr	r5, [r2, #88]
+  45              	.LVL1:
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MakiseStyleTheme *th = &((MTextField*)b->data)->style->normal;
+  46              		.loc 1 41 0
+  47 0008 0446     		mov	r4, r0
+  48 000a 86B0     		sub	sp, sp, #24
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 40
+  51              		.loc 1 44 0
+  52 000c 00F11801 		add	r1, r0, #24
+  53 0010 05F11C02 		add	r2, r5, #28
+  54              	.LVL2:
+  55 0014 1868     		ldr	r0, [r3]
+  56              	.LVL3:
+  57 0016 FFF7FEFF 		bl	_m_e_helper_draw_box
+  58              	.LVL4:
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     makise_d_string_frame(b->gui->buffer,
+  47:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  ((MTextField*)b->data)->text, MDTextAll,
+  59              		.loc 1 47 0
+  60 001a 636B     		ldr	r3, [r4, #52]
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  ((MTextField*)b->data)->text, MDTextAll,
+  61              		.loc 1 46 0
+  62 001c 2268     		ldr	r2, [r4]
+  63 001e 2E6A     		ldr	r6, [r5, #32]
+  48:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  b->position.real_x + 2,// + b->position.width / 2,
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  b->position.real_y,// + b->position.height / 2,
+ARM GAS  /tmp/ccDnY1d5.s 			page 3
+
+
+  50:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  b->position.width - 4,
+  51:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  b->position.height,
+  52:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** //		    MDTextPlacement_LeftUp,
+  53:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  ((MTextField*)b->data)->style->font,
+  64              		.loc 1 53 0
+  65 0020 9D6D     		ldr	r5, [r3, #88]
+  66              	.LVL5:
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  ((MTextField*)b->data)->text, MDTextAll,
+  67              		.loc 1 46 0
+  68 0022 596D     		ldr	r1, [r3, #84]
+  69 0024 1068     		ldr	r0, [r2]
+  70 0026 226A     		ldr	r2, [r4, #32]
+  71 0028 0596     		str	r6, [sp, #20]
+  72 002a 2E89     		ldrh	r6, [r5, #8]
+  73 002c A36A     		ldr	r3, [r4, #40]
+  74 002e 0496     		str	r6, [sp, #16]
+  75 0030 043A     		subs	r2, r2, #4
+  76 0032 6E68     		ldr	r6, [r5, #4]
+  77 0034 A58C     		ldrh	r5, [r4, #36]
+  78 0036 A48D     		ldrh	r4, [r4, #44]
+  79              	.LVL6:
+  80 0038 0094     		str	r4, [sp]
+  81 003a 92B2     		uxth	r2, r2
+  82 003c 0233     		adds	r3, r3, #2
+  83 003e 0192     		str	r2, [sp, #4]
+  84 0040 0396     		str	r6, [sp, #12]
+  85 0042 9BB2     		uxth	r3, r3
+  86 0044 0295     		str	r5, [sp, #8]
+  87 0046 4FF0FF32 		mov	r2, #-1
+  88 004a FFF7FEFF 		bl	makise_d_string_frame
+  89              	.LVL7:
+  54:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  ((MTextField*)b->data)->style->font_line_spacing,
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 			  th->font_col);
+  56:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     return M_OK;
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** }
+  90              		.loc 1 58 0
+  91 004e 0120     		movs	r0, #1
+  92 0050 06B0     		add	sp, sp, #24
+  93              	.LCFI2:
+  94              		.cfi_def_cfa_offset 16
+  95              		@ sp needed
+  96 0052 70BD     		pop	{r4, r5, r6, pc}
+  97              		.cfi_endproc
+  98              	.LFE127:
+ 100              		.section	.text.m_create_text_field,"ax",%progbits
+ 101              		.align	1
+ 102              		.p2align 2,,3
+ 103              		.global	m_create_text_field
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.fpu fpv4-sp-d16
+ 109              	m_create_text_field:
+ 110              	.LFB126:
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MElement *e = &b->el;
+ 111              		.loc 1 9 0
+ARM GAS  /tmp/ccDnY1d5.s 			page 4
+
+
+ 112              		.cfi_startproc
+ 113              		@ args = 16, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              	.LVL8:
+ 116 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 117              	.LCFI3:
+ 118              		.cfi_def_cfa_offset 40
+ 119              		.cfi_offset 3, -40
+ 120              		.cfi_offset 4, -36
+ 121              		.cfi_offset 5, -32
+ 122              		.cfi_offset 6, -28
+ 123              		.cfi_offset 7, -24
+ 124              		.cfi_offset 8, -20
+ 125              		.cfi_offset 9, -16
+ 126              		.cfi_offset 10, -12
+ 127              		.cfi_offset 11, -8
+ 128              		.cfi_offset 14, -4
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MElement *e = &b->el;
+ 129              		.loc 1 9 0
+ 130 0004 0446     		mov	r4, r0
+ 131              	.LVL9:
+  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+ 132              		.loc 1 11 0
+ 133 0006 0868     		ldr	r0, [r1]
+ 134              	.LVL10:
+ 135 0008 6060     		str	r0, [r4, #4]
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+ 136              		.loc 1 13 0
+ 137 000a A463     		str	r4, [r4, #56]
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+ 138              		.loc 1 15 0
+ 139 000c 0846     		mov	r0, r1
+ 140 000e 211D     		adds	r1, r4, #4
+ 141              	.LVL11:
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->update = 0;
+ 142              		.loc 1 18 0
+ 143 0010 0025     		movs	r5, #0
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     MElement *e = &b->el;
+ 144              		.loc 1 9 0
+ 145 0012 9346     		mov	fp, r2
+ 146 0014 9A46     		mov	r10, r3
+ 147 0016 DDF82890 		ldr	r9, [sp, #40]
+ 148 001a DDF82C80 		ldr	r8, [sp, #44]
+ 149 001e 0C9F     		ldr	r7, [sp, #48]
+ 150 0020 0D9E     		ldr	r6, [sp, #52]
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+ 151              		.loc 1 15 0
+ 152 0022 FFF7FEFF 		bl	makise_g_cont_add
+ 153              	.LVL12:
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->predraw = 0;
+ 154              		.loc 1 17 0
+ 155 0026 0F49     		ldr	r1, .L5
+ 156 0028 E163     		str	r1, [r4, #60]
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->id = makise_g_newid();
+ 157              		.loc 1 29 0
+ 158 002a 0122     		movs	r2, #1
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.y = y;
+ARM GAS  /tmp/ccDnY1d5.s 			page 5
+
+
+ 159              		.loc 1 24 0
+ 160 002c C4F81CB0 		str	fp, [r4, #28]
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.width = w;
+ 161              		.loc 1 25 0
+ 162 0030 C4F820A0 		str	r10, [r4, #32]
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->position.height = h;
+ 163              		.loc 1 26 0
+ 164 0034 C4F82490 		str	r9, [r4, #36]
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+ 165              		.loc 1 27 0
+ 166 0038 C4F82880 		str	r8, [r4, #40]
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->id = makise_g_newid();
+ 167              		.loc 1 29 0
+ 168 003c 2276     		strb	r2, [r4, #24]
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->update = 0;
+ 169              		.loc 1 18 0
+ 170 003e 2564     		str	r5, [r4, #64]
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->input = 0;
+ 171              		.loc 1 19 0
+ 172 0040 6564     		str	r5, [r4, #68]
+  20:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->focus = 0;
+ 173              		.loc 1 20 0
+ 174 0042 A564     		str	r5, [r4, #72]
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->free =  0;
+ 175              		.loc 1 21 0
+ 176 0044 E564     		str	r5, [r4, #76]
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 	
+ 177              		.loc 1 22 0
+ 178 0046 2565     		str	r5, [r4, #80]
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->focus_prior = 0;
+ 179              		.loc 1 30 0
+ 180 0048 FFF7FEFF 		bl	makise_g_newid
+ 181              	.LVL13:
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+ 182              		.loc 1 31 0
+ 183 004c 84F83450 		strb	r5, [r4, #52]
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     e->focus_prior = 0;
+ 184              		.loc 1 30 0
+ 185 0050 A060     		str	r0, [r4, #8]
+ 186 0052 0146     		mov	r1, r0
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+ 187              		.loc 1 33 0
+ 188 0054 6765     		str	r7, [r4, #84]
+  35:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c ****     
+ 189              		.loc 1 35 0
+ 190 0056 A665     		str	r6, [r4, #88]
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** }
+ 191              		.loc 1 37 0
+ 192 0058 0348     		ldr	r0, .L5+4
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** 
+ 193              		.loc 1 38 0
+ 194 005a BDE8F84F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 195              	.LCFI4:
+ 196              		.cfi_restore 14
+ 197              		.cfi_restore 11
+ 198              		.cfi_restore 10
+ 199              		.cfi_restore 9
+ARM GAS  /tmp/ccDnY1d5.s 			page 6
+
+
+ 200              		.cfi_restore 8
+ 201              		.cfi_restore 7
+ 202              		.cfi_restore 6
+ 203              		.cfi_restore 5
+ 204              		.cfi_restore 4
+ 205              		.cfi_restore 3
+ 206              		.cfi_def_cfa_offset 0
+ 207              	.LVL14:
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c **** }
+ 208              		.loc 1 37 0
+ 209 005e FFF7FEBF 		b	printf
+ 210              	.LVL15:
+ 211              	.L6:
+ 212 0062 00BF     		.align	2
+ 213              	.L5:
+ 214 0064 00000000 		.word	_m_textfield_draw
+ 215 0068 00000000 		.word	.LC0
+ 216              		.cfi_endproc
+ 217              	.LFE126:
+ 219              		.comm	makise_color_palette,4,4
+ 220              		.section	.rodata.m_create_text_field.str1.4,"aMS",%progbits,1
+ 221              		.align	2
+ 222              	.LC0:
+ 223 0000 54657874 		.ascii	"Text field %d created\012\000"
+ 223      20666965 
+ 223      6C642025 
+ 223      64206372 
+ 223      65617465 
+ 224              		.text
+ 225              	.Letext0:
+ 226              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 227              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 228              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 229              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 230              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 231              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 232              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 233              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 234              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 235              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 236              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 237              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 238              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 239              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 240              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 241              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 242              		.file 18 "Inc/spi.h"
+ 243              		.file 19 "Inc/tim.h"
+ 244              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 245              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 246              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 247              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 248              		.file 24 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
+ 249              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 250              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 251              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 252              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccDnY1d5.s 			page 7
+
+
+ARM GAS  /tmp/ccDnY1d5.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise_e_text_field.c
+     /tmp/ccDnY1d5.s:16     .text._m_textfield_draw:0000000000000000 $t
+     /tmp/ccDnY1d5.s:24     .text._m_textfield_draw:0000000000000000 _m_textfield_draw
+     /tmp/ccDnY1d5.s:101    .text.m_create_text_field:0000000000000000 $t
+     /tmp/ccDnY1d5.s:109    .text.m_create_text_field:0000000000000000 m_create_text_field
+     /tmp/ccDnY1d5.s:214    .text.m_create_text_field:0000000000000064 $d
+                            *COM*:0000000000000004 makise_color_palette
+     /tmp/ccDnY1d5.s:221    .rodata.m_create_text_field.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+_m_e_helper_draw_box
+makise_d_string_frame
+makise_g_cont_add
+makise_g_newid
+printf

@@ -50,14 +50,21 @@ C_SOURCES = \
   MakiseGUI/MakiseGUI/makise_colors.c \
   MakiseGUI/MakiseGUI/makise_primitives.c \
   MakiseGUI/MakiseGUI/makise_text.c \
+  MakiseGUI/MakiseGUI/fonts/Arial12.c \
+  MakiseGUI/MakiseGUI/fonts/Arial15.c \
+  MakiseGUI/MakiseGUI/fonts/Arial16.c \
   MakiseGUI/MakiseGUI/fonts/Arial24.c \
   MakiseGUI/MakiseGUI/fonts/fonts.c \
   MakiseGUI/MakiseGUI/gui/makise_gui.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_container.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_elements.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_input.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c \
   MakiseGUI/MakiseGUI/ILI9340C/ili9340.c \
   Middlewares/Third_Party/FatFs/src/diskio.c \
   Middlewares/Third_Party/FatFs/src/ff.c \

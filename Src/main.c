@@ -135,7 +135,9 @@ void _mt_d(MakiseGUI* gui)
 	
 	makise_d_rect_filled(mgui->buffer, i * 10, 0, 10, 10, i, i);
     }
-    
+
+//    makise_d_string_frame(mgui->buffer, sample_string, MDTextAll, 20, 20, 200, 100, &F_Arial15, 3, MC_White);
+//    makise_d_rect(mgui->buffer, 20, 20, 200, 100, MC_Green);
     
     //makise_d_string(mgui->buffer, "KEEEK", 100, 30, &F_Arial12, 2);    
     makise_g_host_call(host, M_G_CALL_DRAW);

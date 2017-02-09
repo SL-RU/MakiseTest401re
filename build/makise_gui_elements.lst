@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccz3HeCc.s 			page 1
+ARM GAS  /tmp/ccVfRsrA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -41,191 +41,202 @@ ARM GAS  /tmp/ccz3HeCc.s 			page 1
   34 0000 38B1     		cbz	r0, .L5
    6:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return M_ZERO_POINTER;
    7:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
-   8:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_DRAW)
+   8:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_DRAW && el->draw != 0)
   35              		.loc 1 8 0
   36 0002 0129     		cmp	r1, #1
-  37 0004 07D0     		beq	.L8
+  37 0004 07D0     		beq	.L13
    9:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return el->draw(el);
-  10:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_PREDRAW)
+  10:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_PREDRAW && el->predraw != 0)
   38              		.loc 1 10 0
   39 0006 0229     		cmp	r1, #2
-  40 0008 07D0     		beq	.L9
+  40 0008 09D0     		beq	.L14
   11:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return el->predraw(el);
-  12:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_UPDATE)
+  12:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_UPDATE && el->update != 0)
   41              		.loc 1 12 0
   42 000a 0329     		cmp	r1, #3
-  43 000c 07D0     		beq	.L10
+  43 000c 0BD0     		beq	.L15
+  44              	.L9:
   13:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return el->update(el);
   14:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
+ARM GAS  /tmp/ccVfRsrA.s 			page 2
+
+
   15:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     return M_ERROR;
-ARM GAS  /tmp/ccz3HeCc.s 			page 2
-
-
-  44              		.loc 1 15 0
-  45 000e 0220     		movs	r0, #2
-  46              	.LVL1:
+  45              		.loc 1 15 0
+  46 000e 0220     		movs	r0, #2
+  47              	.LVL1:
   16:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** }
-  47              		.loc 1 16 0
-  48 0010 7047     		bx	lr
-  49              	.LVL2:
-  50              	.L5:
+  48              		.loc 1 16 0
+  49 0010 7047     		bx	lr
+  50              	.LVL2:
+  51              	.L5:
    6:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
-  51              		.loc 1 6 0
-  52 0012 0320     		movs	r0, #3
-  53              	.LVL3:
-  54 0014 7047     		bx	lr
-  55              	.LVL4:
-  56              	.L8:
-   9:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_PREDRAW)
-  57              		.loc 1 9 0
-  58 0016 836B     		ldr	r3, [r0, #56]
-  59 0018 1847     		bx	r3
-  60              	.LVL5:
-  61              	.L9:
-  11:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(type == M_G_CALL_UPDATE)
-  62              		.loc 1 11 0
-  63 001a C36B     		ldr	r3, [r0, #60]
-  64 001c 1847     		bx	r3
-  65              	.LVL6:
-  66              	.L10:
+  52              		.loc 1 6 0
+  53 0012 0320     		movs	r0, #3
+  54              	.LVL3:
+  55 0014 7047     		bx	lr
+  56              	.LVL4:
+  57              	.L13:
+   8:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return el->draw(el);
+  58              		.loc 1 8 0 discriminator 1
+  59 0016 836B     		ldr	r3, [r0, #56]
+  60 0018 002B     		cmp	r3, #0
+  61 001a F8D0     		beq	.L9
+  62              	.L10:
   13:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
-  67              		.loc 1 13 0
-  68 001e 036C     		ldr	r3, [r0, #64]
-  69 0020 1847     		bx	r3
-  70              	.LVL7:
-  71              		.cfi_endproc
-  72              	.LFE126:
-  74              		.section	.text.m_element_input,"ax",%progbits
-  75              		.align	1
-  76              		.p2align 2,,3
-  77              		.global	m_element_input
-  78              		.syntax unified
-  79              		.thumb
-  80              		.thumb_func
-  81              		.fpu fpv4-sp-d16
-  83              	m_element_input:
-  84              	.LFB127:
+  63              		.loc 1 13 0
+  64 001c 1847     		bx	r3
+  65              	.LVL5:
+  66              	.L14:
+  10:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return el->predraw(el);
+  67              		.loc 1 10 0 discriminator 1
+  68 001e C36B     		ldr	r3, [r0, #60]
+  69 0020 002B     		cmp	r3, #0
+  70 0022 F4D0     		beq	.L9
+  13:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
+  71              		.loc 1 13 0
+  72 0024 1847     		bx	r3
+  73              	.LVL6:
+  74              	.L15:
+  12:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return el->update(el);
+  75              		.loc 1 12 0 discriminator 1
+  76 0026 036C     		ldr	r3, [r0, #64]
+  77 0028 002B     		cmp	r3, #0
+  78 002a F7D1     		bne	.L10
+  79 002c EFE7     		b	.L9
+  80              		.cfi_endproc
+  81              	.LFE126:
+  83 002e 00BF     		.section	.text.m_element_input,"ax",%progbits
+  84              		.align	1
+  85              		.p2align 2,,3
+  86              		.global	m_element_input
+  87              		.syntax unified
+  88              		.thumb
+  89              		.thumb_func
+  90              		.fpu fpv4-sp-d16
+  92              	m_element_input:
+  93              	.LFB127:
   17:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
   18:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** uint8_t m_element_input(MElement* el, MInputData data)
+ARM GAS  /tmp/ccVfRsrA.s 			page 3
+
+
   19:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** {
-  85              		.loc 1 19 0
-  86              		.cfi_startproc
-  87              		@ args = 0, pretend = 0, frame = 16
-  88              		@ frame_needed = 0, uses_anonymous_args = 0
-  89              	.LVL8:
-  90 0000 30B5     		push	{r4, r5, lr}
-  91              	.LCFI0:
-  92              		.cfi_def_cfa_offset 12
-  93              		.cfi_offset 4, -12
-  94              		.cfi_offset 5, -8
-ARM GAS  /tmp/ccz3HeCc.s 			page 3
-
-
-  95              		.cfi_offset 14, -4
-  96 0002 85B0     		sub	sp, sp, #20
-  97              	.LCFI1:
-  98              		.cfi_def_cfa_offset 32
-  99              		.loc 1 19 0
- 100 0004 01AC     		add	r4, sp, #4
- 101 0006 84E80E00 		stm	r4, {r1, r2, r3}
+  94              		.loc 1 19 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 16
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              	.LVL7:
+  99 0000 30B5     		push	{r4, r5, lr}
+ 100              	.LCFI0:
+ 101              		.cfi_def_cfa_offset 12
+ 102              		.cfi_offset 4, -12
+ 103              		.cfi_offset 5, -8
+ 104              		.cfi_offset 14, -4
+ 105 0002 85B0     		sub	sp, sp, #20
+ 106              	.LCFI1:
+ 107              		.cfi_def_cfa_offset 32
+ 108              		.loc 1 19 0
+ 109 0004 01AC     		add	r4, sp, #4
+ 110 0006 84E80E00 		stm	r4, {r1, r2, r3}
   20:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(el == 0)
- 102              		.loc 1 20 0
- 103 000a 38B1     		cbz	r0, .L13
+ 111              		.loc 1 20 0
+ 112 000a 38B1     		cbz	r0, .L18
   21:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	return M_ZERO_POINTER;
   22:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
   23:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     if(el->input != 0)
- 104              		.loc 1 23 0
- 105 000c 456C     		ldr	r5, [r0, #68]
- 106 000e 45B1     		cbz	r5, .L14
+ 113              		.loc 1 23 0
+ 114 000c 456C     		ldr	r5, [r0, #68]
+ 115 000e 45B1     		cbz	r5, .L19
   24:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     {
   25:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 	el->input(el, data);
- 107              		.loc 1 25 0
- 108 0010 94E80E00 		ldm	r4, {r1, r2, r3}
- 109 0014 A847     		blx	r5
- 110              	.LVL9:
+ 116              		.loc 1 25 0
+ 117 0010 94E80E00 		ldm	r4, {r1, r2, r3}
+ 118 0014 A847     		blx	r5
+ 119              	.LVL8:
   26:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     }
   27:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     
   28:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c ****     return 0;
- 111              		.loc 1 28 0
- 112 0016 0020     		movs	r0, #0
+ 120              		.loc 1 28 0
+ 121 0016 0020     		movs	r0, #0
   29:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** }
- 113              		.loc 1 29 0
- 114 0018 05B0     		add	sp, sp, #20
- 115              	.LCFI2:
- 116              		.cfi_remember_state
- 117              		.cfi_def_cfa_offset 12
- 118              		@ sp needed
- 119 001a 30BD     		pop	{r4, r5, pc}
- 120              	.LVL10:
- 121              	.L13:
- 122              	.LCFI3:
- 123              		.cfi_restore_state
+ 122              		.loc 1 29 0
+ 123 0018 05B0     		add	sp, sp, #20
+ 124              	.LCFI2:
+ 125              		.cfi_remember_state
+ 126              		.cfi_def_cfa_offset 12
+ 127              		@ sp needed
+ 128 001a 30BD     		pop	{r4, r5, pc}
+ 129              	.LVL9:
+ 130              	.L18:
+ 131              	.LCFI3:
+ 132              		.cfi_restore_state
   21:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** 
- 124              		.loc 1 21 0
- 125 001c 0320     		movs	r0, #3
- 126              	.LVL11:
- 127              		.loc 1 29 0
- 128 001e 05B0     		add	sp, sp, #20
- 129              	.LCFI4:
- 130              		.cfi_remember_state
- 131              		.cfi_def_cfa_offset 12
- 132              		@ sp needed
- 133 0020 30BD     		pop	{r4, r5, pc}
- 134              	.LVL12:
- 135              	.L14:
- 136              	.LCFI5:
- 137              		.cfi_restore_state
+ 133              		.loc 1 21 0
+ 134 001c 0320     		movs	r0, #3
+ 135              	.LVL10:
+ 136              		.loc 1 29 0
+ 137 001e 05B0     		add	sp, sp, #20
+ 138              	.LCFI4:
+ARM GAS  /tmp/ccVfRsrA.s 			page 4
+
+
+ 139              		.cfi_remember_state
+ 140              		.cfi_def_cfa_offset 12
+ 141              		@ sp needed
+ 142 0020 30BD     		pop	{r4, r5, pc}
+ 143              	.LVL11:
+ 144              	.L19:
+ 145              	.LCFI5:
+ 146              		.cfi_restore_state
   28:MakiseGUI/MakiseGUI/gui/makise_gui_elements.c **** }
- 138              		.loc 1 28 0
- 139 0022 2846     		mov	r0, r5
-ARM GAS  /tmp/ccz3HeCc.s 			page 4
-
-
- 140              	.LVL13:
- 141              		.loc 1 29 0
- 142 0024 05B0     		add	sp, sp, #20
- 143              	.LCFI6:
- 144              		.cfi_def_cfa_offset 12
- 145              		@ sp needed
- 146 0026 30BD     		pop	{r4, r5, pc}
- 147              		.cfi_endproc
- 148              	.LFE127:
- 150              		.comm	makise_color_palette,4,4
- 151              		.text
- 152              	.Letext0:
- 153              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
- 154              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 155              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
- 156              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 157              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
- 158              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
- 159              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 160              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
- 161              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 162              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
- 163              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 164              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 165              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 166              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 167              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 168              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 169              		.file 18 "Inc/spi.h"
- 170              		.file 19 "Inc/tim.h"
- 171              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 172              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
- 173              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
- 174              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 175              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 176              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
-ARM GAS  /tmp/ccz3HeCc.s 			page 5
+ 147              		.loc 1 28 0
+ 148 0022 2846     		mov	r0, r5
+ 149              	.LVL12:
+ 150              		.loc 1 29 0
+ 151 0024 05B0     		add	sp, sp, #20
+ 152              	.LCFI6:
+ 153              		.cfi_def_cfa_offset 12
+ 154              		@ sp needed
+ 155 0026 30BD     		pop	{r4, r5, pc}
+ 156              		.cfi_endproc
+ 157              	.LFE127:
+ 159              		.comm	makise_color_palette,4,4
+ 160              		.text
+ 161              	.Letext0:
+ 162              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 163              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 164              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 165              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 166              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 167              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 168              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 169              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 170              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 171              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 172              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 173              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 174              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 175              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 176              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 177              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 178              		.file 18 "Inc/spi.h"
+ 179              		.file 19 "Inc/tim.h"
+ 180              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 181              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 182              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 183              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 184              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 185              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ARM GAS  /tmp/ccVfRsrA.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_gui_elements.c
-     /tmp/ccz3HeCc.s:16     .text.m_element_call:0000000000000000 $t
-     /tmp/ccz3HeCc.s:24     .text.m_element_call:0000000000000000 m_element_call
-     /tmp/ccz3HeCc.s:75     .text.m_element_input:0000000000000000 $t
-     /tmp/ccz3HeCc.s:83     .text.m_element_input:0000000000000000 m_element_input
+     /tmp/ccVfRsrA.s:16     .text.m_element_call:0000000000000000 $t
+     /tmp/ccVfRsrA.s:24     .text.m_element_call:0000000000000000 m_element_call
+     /tmp/ccVfRsrA.s:84     .text.m_element_input:0000000000000000 $t
+     /tmp/ccVfRsrA.s:92     .text.m_element_input:0000000000000000 m_element_input
                             *COM*:0000000000000004 makise_color_palette
                      .debug_frame:0000000000000010 $d
 

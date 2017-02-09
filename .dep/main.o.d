@@ -71,6 +71,7 @@ build/main.o: Src/main.c Inc/main.h \
  /usr/arm-none-eabi/include/math.h \
  /usr/arm-none-eabi/include/machine/fastmath.h Inc/makise_test.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
+ MakiseGUI/MakiseGUI/gui/styles/makise_style.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_input.h \
  MakiseGUI/MakiseGUI/gui/makise_gui.h \
  MakiseGUI/MakiseGUI/gui/makise_gui_container.h \
@@ -264,6 +265,8 @@ MakiseGUI/MakiseGUI/makise_primitives.h:
 Inc/makise_test.h:
 
 MakiseGUI/MakiseGUI/gui/makise_gui.h:
+
+MakiseGUI/MakiseGUI/gui/styles/makise_style.h:
 
 MakiseGUI/MakiseGUI/gui/makise_gui_input.h:
 
