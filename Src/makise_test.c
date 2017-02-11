@@ -51,9 +51,9 @@ controls_595_OutputState outs[] = {
     {1, 8, 3, 1},
 };
 void but_h(
-			   uint32_t id,
-			   uint8_t event,
-			   uint32_t time)
+    uint32_t id,
+    uint8_t event,
+    uint32_t time)
 {
     if(event & CONTROLS_ALL_CLICK)
     {
@@ -66,26 +66,34 @@ void but_h(
 	/* if(id == 2) */
 	/*     butt[2].el.position.x --; */
 
-	    //m_element_focus(&(butt[1].el), M_G_FOCUS_GET);
+	//m_element_focus(&(butt[1].el), M_G_FOCUS_GET);
 //	    makise_g_focus(&(butt[1].el), M_G_FOCUS_GET);
 	if(id == 12)
 	    makise_g_cont_focus_prev(host->host);
 	if(id == 11)
 	    makise_g_cont_focus_next(host->host);
-	if(id == 3)
-	    makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0});
-	if(id == 1)
-	    makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_CLICK, time, 0});
-	if(id == 4)
-	    makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0});
-	if(id == 2) 
-	    makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0});
+	if(id == 3 &&
+	   makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0})
+	   == M_INPUT_NOT_HANDLED)
+	    makise_g_cont_focus_prev(host->host);
+	if(id == 1 &&
+	   makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_CLICK, time, 0})
+	   == M_INPUT_NOT_HANDLED)
+	    makise_g_cont_focus_next(host->host);
+	if(id == 4 &&
+	   makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0})
+	   == M_INPUT_NOT_HANDLED)
+	    makise_g_cont_focus_next(host->host);
+	if(id == 2 &&
+	   makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0})
+	   == M_INPUT_NOT_HANDLED)
+	    makise_g_cont_focus_prev(host->host);
 	if(id == 13)
 	    makise_g_host_input(host, (MInputData){M_KEY_OK, M_INPUT_CLICK, time, 0});
 
     }
 //	    makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
-	//m_element_focus(&(butt[0].el), M_G_FOCUS_GET);
+    //m_element_focus(&(butt[0].el), M_G_FOCUS_GET);
 //	if(id == 13)
 //	    makise_g_focus(&(butt[2].el), M_G_FOCUS_GET);
 //	    m_element_focus(&(butt[2].el), M_G_FOCUS_GET);

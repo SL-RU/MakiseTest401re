@@ -29,7 +29,7 @@ MakiseStyle canvas_style =
     //bg       font     border   double_border
     {MC_Gray, MC_Gray, MC_Gray,    0},  //unactive
     {MC_Black, MC_White, MC_White, 0},  //normal
-    {MC_Green, MC_Red, MC_White,   0},  //focused
+    {MC_Navy, MC_White, MC_White,   0},  //focused
     {MC_Black, MC_White, MC_White, 0},  //active
 };
 MakiseStyle lable_style =
@@ -40,8 +40,8 @@ MakiseStyle lable_style =
     //bg       font     border   double_border
     {MC_Gray, MC_Gray, MC_Gray, 0},  //unactive
     {MC_Black, MC_White, MC_Black, 0},//normal
-    {MC_White, MC_Blue, MC_White, 0}, //focused
-    {MC_Black, MC_Gray, MC_Black, 0}, //active
+    {MC_Blue, MC_White, MC_Blue, 0}, //focused
+    {MC_Black, MC_Green, MC_Black, 0}, //active
 };
 MakiseStyle text_style =
 {
@@ -79,27 +79,39 @@ MSList_Item l_dest[1024] = {{0}};
 uint32_t s_i = 0;
 void b_add(MButton *b)
 {
-    l_dest[s_i].id = s_i;
-    l_dest[s_i].text = list[0].selected->text;
-    m_slist_add(&list[1], &l_dest[s_i]);
-    s_i ++;
+    for (uint32_t i = 0; i < 10; i++) {
+	if(l_source[i].value)
+	{
+	    l_dest[s_i].id = s_i;
+	    l_dest[s_i].text = l_source[i].text;
+	    m_slist_add(&list[1], &l_dest[s_i]);
+	    s_i ++;
+	    return;
+	}
+    }
 }
 void b_rem(MButton *b)
 {
-    if(list[1].selected)
-	m_slist_remove(&list[1], list[1].selected);
+    MSList_Item *i = list[1].items, *n = 0;
+    while (i != 0) {
+	n = i->next;
+	      
+	if(i->value)
+	    m_slist_remove(&list[1], i);
+	i = n;
+    }
 }
 void l_add(MSList *l, MSList_Item *i)
 {
-    l_dest[s_i].id = s_i;
-    l_dest[s_i].text = i->text;
-    m_slist_add(&list[1], &l_dest[s_i]);
-    s_i ++;
+    /* l_dest[s_i].id = s_i; */
+    /* l_dest[s_i].text = i->text; */
+    /* m_slist_add(&list[1], &l_dest[s_i]); */
+    /* s_i ++; */
 }
 void l_rem(MSList *l, MSList_Item *i)
 {
-    if(list[1].selected)
-	m_slist_remove(l, i);
+    /* if(list[1].selected) */
+    /* 	m_slist_remove(l, i); */
 }
 void l_onselection(MSList *l, MSList_Item *i)
 {
@@ -107,9 +119,9 @@ void l_onselection(MSList *l, MSList_Item *i)
 
 void at_list_init(MakiseGUI *gui, MHost *host)
 {
-    m_create_slist(&list[0], host->host, 3, 10, 156, 145, "lol", &l_onselection, &l_add, &canvas_style, &lable_style);
+    m_create_slist(&list[0], host->host, 3, 10, 156, 145, "lol", &l_onselection, &l_add, MSList_RadioButton, &canvas_style, &lable_style);
 
-    m_create_slist(&list[1], host->host, 160, 10, 156, 145, "lol", &l_onselection, &l_rem, &canvas_style, &lable_style);
+    m_create_slist(&list[1], host->host, 160, 10, 156, 145, 0, &l_onselection, &l_rem, MSList_Checkbox, &canvas_style, &lable_style);
 
     m_create_button(&butt[0], host->host, 10, 163, 100, 35, t_add, &b_add, 0, 0, &button_style);
     m_create_button(&butt[1], host->host, 115, 163, 100, 35, t_remove, &b_rem, 0, 0, &button_style);
