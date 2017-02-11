@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccD13F3t.s 			page 1
+ARM GAS  /tmp/ccGp54it.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccD13F3t.s 			page 1
   30:MakiseGUI/MakiseGUI/makise_colors.c **** inline uint32_t makise_color_get(uint32_t c)
   31:MakiseGUI/MakiseGUI/makise_colors.c **** {
   27              		.loc 1 31 0
-ARM GAS  /tmp/ccD13F3t.s 			page 2
+ARM GAS  /tmp/ccGp54it.s 			page 2
 
 
   28              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccD13F3t.s 			page 1
   77              		.text
   78              	.Letext0:
   79              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
-ARM GAS  /tmp/ccD13F3t.s 			page 3
+ARM GAS  /tmp/ccGp54it.s 			page 3
 
 
   80              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
@@ -139,18 +139,18 @@ ARM GAS  /tmp/ccD13F3t.s 			page 1
   95              		.file 18 "MakiseGUI/MakiseGUI/fonts/fonts.h"
   96              		.file 19 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
   97              		.file 20 "MakiseGUI/MakiseGUI/makise_colors.h"
-ARM GAS  /tmp/ccD13F3t.s 			page 4
+ARM GAS  /tmp/ccGp54it.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_colors.c
-     /tmp/ccD13F3t.s:16     .text.makise_color_get:0000000000000000 $t
-     /tmp/ccD13F3t.s:24     .text.makise_color_get:0000000000000000 makise_color_get
-     /tmp/ccD13F3t.s:43     .text.makise_color_get:000000000000000c $d
-     /tmp/ccD13F3t.s:53     .data._makise_color_palette_default:0000000000000000 _makise_color_palette_default
-     /tmp/ccD13F3t.s:75     .data.makise_color_palette:0000000000000000 makise_color_palette
-     /tmp/ccD13F3t.s:50     .data._makise_color_palette_default:0000000000000000 $d
-     /tmp/ccD13F3t.s:71     .data.makise_color_palette:0000000000000000 $d
+     /tmp/ccGp54it.s:16     .text.makise_color_get:0000000000000000 $t
+     /tmp/ccGp54it.s:24     .text.makise_color_get:0000000000000000 makise_color_get
+     /tmp/ccGp54it.s:43     .text.makise_color_get:000000000000000c $d
+     /tmp/ccGp54it.s:53     .data._makise_color_palette_default:0000000000000000 _makise_color_palette_default
+     /tmp/ccGp54it.s:75     .data.makise_color_palette:0000000000000000 makise_color_palette
+     /tmp/ccGp54it.s:50     .data._makise_color_palette_default:0000000000000000 $d
+     /tmp/ccGp54it.s:71     .data.makise_color_palette:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

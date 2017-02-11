@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccoRb5m6.s 			page 1
+ARM GAS  /tmp/ccKnuYQm.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
   49              		.global	makise_g_host_call
   50              		.syntax unified
   51              		.thumb
-ARM GAS  /tmp/ccoRb5m6.s 			page 2
+ARM GAS  /tmp/ccKnuYQm.s 			page 2
 
 
   52              		.thumb_func
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
   99 000a 94E80E00 		ldm	r4, {r1, r2, r3}
  100 000e 0068     		ldr	r0, [r0]
  101              	.LVL4:
-ARM GAS  /tmp/ccoRb5m6.s 			page 3
+ARM GAS  /tmp/ccKnuYQm.s 			page 3
 
 
   19:MakiseGUI/MakiseGUI/gui/makise_gui.c **** }
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
  148 000a 08D0     		beq	.L40
  149              	.LVL7:
  150              	.L10:
-ARM GAS  /tmp/ccoRb5m6.s 			page 4
+ARM GAS  /tmp/ccKnuYQm.s 			page 4
 
 
   27:MakiseGUI/MakiseGUI/gui/makise_gui.c ****     {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
  165 001a 0320     		movs	r0, #3
  166 001c 70BD     		pop	{r4, r5, r6, pc}
  167              	.LVL10:
-ARM GAS  /tmp/ccoRb5m6.s 			page 5
+ARM GAS  /tmp/ccKnuYQm.s 			page 5
 
 
  168              	.L40:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
  210              		.loc 1 65 0
  211 0050 BDE87040 		pop	{r4, r5, r6, lr}
  212              	.LCFI5:
-ARM GAS  /tmp/ccoRb5m6.s 			page 6
+ARM GAS  /tmp/ccKnuYQm.s 			page 6
 
 
  213              		.cfi_remember_state
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
  264              		@ frame_needed = 0, uses_anonymous_args = 0
  265              		@ link register save eliminated.
  266 0000 10B1     		cbz	r0, .L44
-ARM GAS  /tmp/ccoRb5m6.s 			page 7
+ARM GAS  /tmp/ccKnuYQm.s 			page 7
 
 
  267 0002 0068     		ldr	r0, [r0]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
  308              		.section	.bss._makise_new_id,"aw",%nobits
  309              		.align	2
  310              		.set	.LANCHOR0,. + 0
-ARM GAS  /tmp/ccoRb5m6.s 			page 8
+ARM GAS  /tmp/ccKnuYQm.s 			page 8
 
 
  313              	_makise_new_id:
@@ -449,27 +449,27 @@ ARM GAS  /tmp/ccoRb5m6.s 			page 1
  338              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
  339              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
  340              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
-ARM GAS  /tmp/ccoRb5m6.s 			page 9
+ARM GAS  /tmp/ccKnuYQm.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_gui.c
-     /tmp/ccoRb5m6.s:16     .text.makise_g_newid:0000000000000000 $t
-     /tmp/ccoRb5m6.s:24     .text.makise_g_newid:0000000000000000 makise_g_newid
-     /tmp/ccoRb5m6.s:42     .text.makise_g_newid:000000000000000c $d
-     /tmp/ccoRb5m6.s:47     .text.makise_g_host_call:0000000000000000 $t
-     /tmp/ccoRb5m6.s:55     .text.makise_g_host_call:0000000000000000 makise_g_host_call
-     /tmp/ccoRb5m6.s:72     .text.makise_g_host_input:0000000000000000 $t
-     /tmp/ccoRb5m6.s:80     .text.makise_g_host_input:0000000000000000 makise_g_host_input
-     /tmp/ccoRb5m6.s:118    .text.makise_g_focus:0000000000000000 $t
-     /tmp/ccoRb5m6.s:126    .text.makise_g_focus:0000000000000000 makise_g_focus
-     /tmp/ccoRb5m6.s:252    .text.makise_g_host_focus_next:0000000000000000 $t
-     /tmp/ccoRb5m6.s:260    .text.makise_g_host_focus_next:0000000000000000 makise_g_host_focus_next
-     /tmp/ccoRb5m6.s:276    .text.makise_g_host_focus_prev:0000000000000000 $t
-     /tmp/ccoRb5m6.s:284    .text.makise_g_host_focus_prev:0000000000000000 makise_g_host_focus_prev
-     /tmp/ccoRb5m6.s:313    .bss._makise_new_id:0000000000000000 _makise_new_id
+     /tmp/ccKnuYQm.s:16     .text.makise_g_newid:0000000000000000 $t
+     /tmp/ccKnuYQm.s:24     .text.makise_g_newid:0000000000000000 makise_g_newid
+     /tmp/ccKnuYQm.s:42     .text.makise_g_newid:000000000000000c $d
+     /tmp/ccKnuYQm.s:47     .text.makise_g_host_call:0000000000000000 $t
+     /tmp/ccKnuYQm.s:55     .text.makise_g_host_call:0000000000000000 makise_g_host_call
+     /tmp/ccKnuYQm.s:72     .text.makise_g_host_input:0000000000000000 $t
+     /tmp/ccKnuYQm.s:80     .text.makise_g_host_input:0000000000000000 makise_g_host_input
+     /tmp/ccKnuYQm.s:118    .text.makise_g_focus:0000000000000000 $t
+     /tmp/ccKnuYQm.s:126    .text.makise_g_focus:0000000000000000 makise_g_focus
+     /tmp/ccKnuYQm.s:252    .text.makise_g_host_focus_next:0000000000000000 $t
+     /tmp/ccKnuYQm.s:260    .text.makise_g_host_focus_next:0000000000000000 makise_g_host_focus_next
+     /tmp/ccKnuYQm.s:276    .text.makise_g_host_focus_prev:0000000000000000 $t
+     /tmp/ccKnuYQm.s:284    .text.makise_g_host_focus_prev:0000000000000000 makise_g_host_focus_prev
+     /tmp/ccKnuYQm.s:313    .bss._makise_new_id:0000000000000000 _makise_new_id
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccoRb5m6.s:309    .bss._makise_new_id:0000000000000000 $d
+     /tmp/ccKnuYQm.s:309    .bss._makise_new_id:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

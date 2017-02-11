@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccMRVnz6.s 			page 1
+ARM GAS  /tmp/cc8VjzQE.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
   30:MakiseGUI/MakiseGUI/makise_text.c **** void makise_d_char(MakiseBuffer *b, uint16_t ch, uint16_t x, uint16_t y, const MakiseFont *font, ui
   31:MakiseGUI/MakiseGUI/makise_text.c **** {
   27              		.loc 1 31 0
-ARM GAS  /tmp/ccMRVnz6.s 			page 2
+ARM GAS  /tmp/cc8VjzQE.s 			page 2
 
 
   28              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
   72              	.LBB10:
   73              	.LBB11:
    8:MakiseGUI/MakiseGUI/makise_text.c ****     for(rawIndex = 0; rawIndex < font->height; rawIndex++)
-ARM GAS  /tmp/ccMRVnz6.s 			page 3
+ARM GAS  /tmp/cc8VjzQE.s 			page 3
 
 
   74              		.loc 1 8 0 discriminator 2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  120              		.loc 1 22 0
  121 004c 03EB0908 		add	r8, r3, r9
   17:MakiseGUI/MakiseGUI/makise_text.c **** 		ptrByte++;
-ARM GAS  /tmp/ccMRVnz6.s 			page 4
+ARM GAS  /tmp/cc8VjzQE.s 			page 4
 
 
  122              		.loc 1 17 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
   12:MakiseGUI/MakiseGUI/makise_text.c **** 	{
  165              		.loc 1 12 0
  166 0086 BD42     		cmp	r5, r7
-ARM GAS  /tmp/ccMRVnz6.s 			page 5
+ARM GAS  /tmp/cc8VjzQE.s 			page 5
 
 
  167 0088 E9D1     		bne	.L9
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  210 00ae F4E7     		b	.L1
  211              	.LBE15:
  212              	.LBE19:
-ARM GAS  /tmp/ccMRVnz6.s 			page 6
+ARM GAS  /tmp/cc8VjzQE.s 			page 6
 
 
  213              		.cfi_endproc
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  258 001a 00F0CB80 		beq	.L101
   54:MakiseGUI/MakiseGUI/makise_text.c ****     {
   55:MakiseGUI/MakiseGUI/makise_text.c **** 	width = makise_d_string_width(s, len, font);
-ARM GAS  /tmp/ccMRVnz6.s 			page 7
+ARM GAS  /tmp/cc8VjzQE.s 			page 7
 
 
   56:MakiseGUI/MakiseGUI/makise_text.c **** 	x -= width / 2;
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  294 0044 9342     		cmp	r3, r2
  295              		.loc 1 72 0
  296 0046 8F88     		ldrh	r7, [r1, #4]
-ARM GAS  /tmp/ccMRVnz6.s 			page 8
+ARM GAS  /tmp/cc8VjzQE.s 			page 8
 
 
  297 0048 8ABF     		itet	hi
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  340 0072 0025     		movs	r5, #0
   22:MakiseGUI/MakiseGUI/makise_text.c **** 	    }
  341              		.loc 1 22 0
-ARM GAS  /tmp/ccMRVnz6.s 			page 9
+ARM GAS  /tmp/cc8VjzQE.s 			page 9
 
 
  342 0074 03EB0908 		add	r8, r3, r9
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  384 00aa FFF7FEFF 		bl	makise_pset
  385              	.LVL37:
   12:MakiseGUI/MakiseGUI/makise_text.c **** 	{
-ARM GAS  /tmp/ccMRVnz6.s 			page 10
+ARM GAS  /tmp/cc8VjzQE.s 			page 10
 
 
  386              		.loc 1 12 0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  432              	.LVL46:
  433              	.L24:
   77:MakiseGUI/MakiseGUI/makise_text.c **** 	i++;
-ARM GAS  /tmp/ccMRVnz6.s 			page 11
+ARM GAS  /tmp/cc8VjzQE.s 			page 11
 
 
   78:MakiseGUI/MakiseGUI/makise_text.c ****     }
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
   89:MakiseGUI/MakiseGUI/makise_text.c **** 
   90:MakiseGUI/MakiseGUI/makise_text.c **** 	// Symbol width
   91:MakiseGUI/MakiseGUI/makise_text.c **** 	if (ch > font->num_char) ch = 0;
-ARM GAS  /tmp/ccMRVnz6.s 			page 12
+ARM GAS  /tmp/cc8VjzQE.s 			page 12
 
 
  477              		.loc 1 91 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
   86:MakiseGUI/MakiseGUI/makise_text.c **** 	ch = s[i];
  522              		.loc 1 86 0
  523 0142 002A     		cmp	r2, #0
-ARM GAS  /tmp/ccMRVnz6.s 			page 13
+ARM GAS  /tmp/cc8VjzQE.s 			page 13
 
 
  524 0144 7DD0     		beq	.L66
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  573              	.LBE37:
   52:MakiseGUI/MakiseGUI/makise_text.c ****     } else if(place == MDTextPlacement_CenterUp )
  574              		.loc 1 52 0
-ARM GAS  /tmp/ccMRVnz6.s 			page 14
+ARM GAS  /tmp/cc8VjzQE.s 			page 14
 
 
  575 0186 109C     		ldr	r4, [sp, #64]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  624 01bc 3BD0     		beq	.L70
  625 01be 1098     		ldr	r0, [sp, #64]
  626              	.LVL84:
-ARM GAS  /tmp/ccMRVnz6.s 			page 15
+ARM GAS  /tmp/cc8VjzQE.s 			page 15
 
 
  627 01c0 109D     		ldr	r5, [sp, #64]
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  675              	.LVL96:
  676 01fc 11E7     		b	.L34
  677              	.LVL97:
-ARM GAS  /tmp/ccMRVnz6.s 			page 16
+ARM GAS  /tmp/cc8VjzQE.s 			page 16
 
 
  678              	.L45:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  731              	.LVL108:
  732 0234 7CE7     		b	.L44
  733              	.LVL109:
-ARM GAS  /tmp/ccMRVnz6.s 			page 17
+ARM GAS  /tmp/cc8VjzQE.s 			page 17
 
 
  734              	.L70:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  789              		@ frame_needed = 0, uses_anonymous_args = 0
  790              	.LVL119:
   86:MakiseGUI/MakiseGUI/makise_text.c **** 	ch = s[i];
-ARM GAS  /tmp/ccMRVnz6.s 			page 18
+ARM GAS  /tmp/cc8VjzQE.s 			page 18
 
 
  791              		.loc 1 86 0
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  839              	.LVL128:
  840 0036 1844     		add	r0, r0, r3
  841              	.LVL129:
-ARM GAS  /tmp/ccMRVnz6.s 			page 19
+ARM GAS  /tmp/cc8VjzQE.s 			page 19
 
 
   86:MakiseGUI/MakiseGUI/makise_text.c **** 	ch = s[i];
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
   84:MakiseGUI/MakiseGUI/makise_text.c ****     
  887              		.loc 1 84 0 is_stmt 1
  888 0058 0846     		mov	r0, r1
-ARM GAS  /tmp/ccMRVnz6.s 			page 20
+ARM GAS  /tmp/cc8VjzQE.s 			page 20
 
 
  889              	.LVL141:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  102:MakiseGUI/MakiseGUI/makise_text.c ****     uint32_t width, i = 0;
  937              		.loc 1 102 0
  938 0010 BDF85450 		ldrh	r5, [sp, #84]
-ARM GAS  /tmp/ccMRVnz6.s 			page 21
+ARM GAS  /tmp/cc8VjzQE.s 			page 21
 
 
  939 0014 BDF85860 		ldrh	r6, [sp, #88]
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  971              	.L150:
  110:MakiseGUI/MakiseGUI/makise_text.c **** 	{
  972              		.loc 1 110 0
-ARM GAS  /tmp/ccMRVnz6.s 			page 22
+ARM GAS  /tmp/cc8VjzQE.s 			page 22
 
 
  973 0042 0A2C     		cmp	r4, #10
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  1013 006e 0399     		ldr	r1, [sp, #12]
  1014 0070 D318     		adds	r3, r2, r3
  1015 0072 1944     		add	r1, r1, r3
-ARM GAS  /tmp/ccMRVnz6.s 			page 23
+ARM GAS  /tmp/cc8VjzQE.s 			page 23
 
 
  131:MakiseGUI/MakiseGUI/makise_text.c **** 		if(yt + font->height > y + h)
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  1060              	.L148:
   22:MakiseGUI/MakiseGUI/makise_text.c **** 	    }
  1061              		.loc 1 22 0
-ARM GAS  /tmp/ccMRVnz6.s 			page 24
+ARM GAS  /tmp/cc8VjzQE.s 			page 24
 
 
  1062 00a2 019B     		ldr	r3, [sp, #4]
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  1104 00d8 5846     		mov	r0, fp
   12:MakiseGUI/MakiseGUI/makise_text.c **** 	{
  1105              		.loc 1 12 0
-ARM GAS  /tmp/ccMRVnz6.s 			page 25
+ARM GAS  /tmp/cc8VjzQE.s 			page 25
 
 
  1106 00da 0135     		adds	r5, r5, #1
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  1152              	.LVL173:
  1153              	.L132:
  137:MakiseGUI/MakiseGUI/makise_text.c **** 	}
-ARM GAS  /tmp/ccMRVnz6.s 			page 26
+ARM GAS  /tmp/cc8VjzQE.s 			page 26
 
 
  138:MakiseGUI/MakiseGUI/makise_text.c **** 	i++;
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  1200              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  1201              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  1202              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
-ARM GAS  /tmp/ccMRVnz6.s 			page 27
+ARM GAS  /tmp/cc8VjzQE.s 			page 27
 
 
  1203              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
@@ -1568,19 +1568,19 @@ ARM GAS  /tmp/ccMRVnz6.s 			page 1
  1207              		.file 19 "MakiseGUI/MakiseGUI/makise_colors.h"
  1208              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
  1209              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
-ARM GAS  /tmp/ccMRVnz6.s 			page 28
+ARM GAS  /tmp/cc8VjzQE.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_text.c
-     /tmp/ccMRVnz6.s:16     .text.makise_d_char:0000000000000000 $t
-     /tmp/ccMRVnz6.s:24     .text.makise_d_char:0000000000000000 makise_d_char
-     /tmp/ccMRVnz6.s:217    .text.makise_d_string:0000000000000000 $t
-     /tmp/ccMRVnz6.s:225    .text.makise_d_string:0000000000000000 makise_d_string
-     /tmp/ccMRVnz6.s:776    .text.makise_d_string_width:0000000000000000 $t
-     /tmp/ccMRVnz6.s:784    .text.makise_d_string_width:0000000000000000 makise_d_string_width
-     /tmp/ccMRVnz6.s:901    .text.makise_d_string_frame:0000000000000000 $t
-     /tmp/ccMRVnz6.s:909    .text.makise_d_string_frame:0000000000000000 makise_d_string_frame
+     /tmp/cc8VjzQE.s:16     .text.makise_d_char:0000000000000000 $t
+     /tmp/cc8VjzQE.s:24     .text.makise_d_char:0000000000000000 makise_d_char
+     /tmp/cc8VjzQE.s:217    .text.makise_d_string:0000000000000000 $t
+     /tmp/cc8VjzQE.s:225    .text.makise_d_string:0000000000000000 makise_d_string
+     /tmp/cc8VjzQE.s:776    .text.makise_d_string_width:0000000000000000 $t
+     /tmp/cc8VjzQE.s:784    .text.makise_d_string_width:0000000000000000 makise_d_string_width
+     /tmp/cc8VjzQE.s:901    .text.makise_d_string_frame:0000000000000000 $t
+     /tmp/cc8VjzQE.s:909    .text.makise_d_string_frame:0000000000000000 makise_d_string_frame
                             *COM*:0000000000000004 makise_color_palette
                      .debug_frame:0000000000000010 $d
 

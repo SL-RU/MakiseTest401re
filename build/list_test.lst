@@ -1,0 +1,1035 @@
+ARM GAS  /tmp/ccRDYGOm.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"list_test.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.l_onselection,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	l_onselection
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	l_onselection:
+  25              	.LFB130:
+  26              		.file 1 "apps/list_test.c"
+   1:apps/list_test.c **** #include "list_test.h"
+   2:apps/list_test.c **** 
+   3:apps/list_test.c **** MButton butt[4];
+   4:apps/list_test.c **** MCanvas canv[2];
+   5:apps/list_test.c **** MLable  labls[2];
+   6:apps/list_test.c **** MTextField tf[2];
+   7:apps/list_test.c **** MSList   list[2];
+   8:apps/list_test.c **** 
+   9:apps/list_test.c **** 
+  10:apps/list_test.c **** char* sample_string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
+  11:apps/list_test.c **** 
+  12:apps/list_test.c **** 
+  13:apps/list_test.c **** MakiseStyle button_style =
+  14:apps/list_test.c **** {
+  15:apps/list_test.c ****     MC_White,
+  16:apps/list_test.c ****     &F_Arial24,
+  17:apps/list_test.c ****     0,
+  18:apps/list_test.c ****     //bg       font     border   double_border
+  19:apps/list_test.c ****     {MC_Black, MC_Gray, MC_Gray, 0},  //unactive
+  20:apps/list_test.c ****     {MC_Black, MC_White, MC_White, 0},//normal
+  21:apps/list_test.c ****     {MC_White, MC_Black, MC_White, 0}, //focused
+  22:apps/list_test.c ****     {MC_Green, MC_White, MC_White, 0}, //active
+  23:apps/list_test.c **** };
+  24:apps/list_test.c **** MakiseStyle canvas_style =
+  25:apps/list_test.c **** {
+  26:apps/list_test.c ****     MC_White,
+  27:apps/list_test.c ****     &F_Arial24,
+  28:apps/list_test.c ****     0,
+  29:apps/list_test.c ****     //bg       font     border   double_border
+  30:apps/list_test.c ****     {MC_Gray, MC_Gray, MC_Gray,    0},  //unactive
+  31:apps/list_test.c ****     {MC_Black, MC_White, MC_White, 0},  //normal
+  32:apps/list_test.c ****     {MC_Green, MC_Red, MC_White,   0},  //focused
+ARM GAS  /tmp/ccRDYGOm.s 			page 2
+
+
+  33:apps/list_test.c ****     {MC_Black, MC_White, MC_White, 0},  //active
+  34:apps/list_test.c **** };
+  35:apps/list_test.c **** MakiseStyle lable_style =
+  36:apps/list_test.c **** {
+  37:apps/list_test.c ****     MC_White,
+  38:apps/list_test.c ****     &F_Arial15,
+  39:apps/list_test.c ****     0,
+  40:apps/list_test.c ****     //bg       font     border   double_border
+  41:apps/list_test.c ****     {MC_Gray, MC_Gray, MC_Gray, 0},  //unactive
+  42:apps/list_test.c ****     {MC_Black, MC_White, MC_Black, 0},//normal
+  43:apps/list_test.c ****     {MC_White, MC_Blue, MC_White, 0}, //focused
+  44:apps/list_test.c ****     {MC_Black, MC_Gray, MC_Black, 0}, //active
+  45:apps/list_test.c **** };
+  46:apps/list_test.c **** MakiseStyle text_style =
+  47:apps/list_test.c **** {
+  48:apps/list_test.c ****     MC_White,
+  49:apps/list_test.c ****     &F_Arial15,
+  50:apps/list_test.c ****     3,
+  51:apps/list_test.c ****     //bg       font     border   double_border
+  52:apps/list_test.c ****     {MC_Black, MC_White, MC_Gray, 0},  //unactive
+  53:apps/list_test.c ****     {MC_Black, MC_White, MC_Green, 0},  //unactive
+  54:apps/list_test.c ****     {0, 0, 0, 0}, //focused
+  55:apps/list_test.c ****     {0, 0, 0, 0}, //active
+  56:apps/list_test.c **** };
+  57:apps/list_test.c **** 
+  58:apps/list_test.c **** char *t_ok = "OK",
+  59:apps/list_test.c ****     *t_canc = "Cancel",
+  60:apps/list_test.c ****     *t_add = "Add",
+  61:apps/list_test.c ****     *t_remove = "Remove";
+  62:apps/list_test.c **** 
+  63:apps/list_test.c **** 
+  64:apps/list_test.c **** char *t_list[] = {
+  65:apps/list_test.c ****     "Hello",
+  66:apps/list_test.c ****     "Тест",//({210, 229, 241, 242, 0}),
+  67:apps/list_test.c ****     "string",
+  68:apps/list_test.c ****     "method",
+  69:apps/list_test.c ****     "Русские буквы?",
+  70:apps/list_test.c ****     "GPS",
+  71:apps/list_test.c ****     "SD card",
+  72:apps/list_test.c ****     "Camera",
+  73:apps/list_test.c ****     "insert",
+  74:apps/list_test.c ****     "ВАУ!"
+  75:apps/list_test.c **** };
+  76:apps/list_test.c **** MSList_Item l_source[10] = {{0}};
+  77:apps/list_test.c **** MSList_Item l_dest[1024] = {{0}};
+  78:apps/list_test.c **** 
+  79:apps/list_test.c **** uint32_t s_i = 0;
+  80:apps/list_test.c **** void b_add(MButton *b)
+  81:apps/list_test.c **** {
+  82:apps/list_test.c ****     l_dest[s_i].id = s_i;
+  83:apps/list_test.c ****     l_dest[s_i].text = list[0].selected->text;
+  84:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+  85:apps/list_test.c ****     s_i ++;
+  86:apps/list_test.c **** }
+  87:apps/list_test.c **** void b_rem(MButton *b)
+  88:apps/list_test.c **** {
+  89:apps/list_test.c ****     if(list[1].selected)
+ARM GAS  /tmp/ccRDYGOm.s 			page 3
+
+
+  90:apps/list_test.c **** 	m_slist_remove(&list[1], list[1].selected);
+  91:apps/list_test.c **** }
+  92:apps/list_test.c **** void l_add(MSList *l, MSList_Item *i)
+  93:apps/list_test.c **** {
+  94:apps/list_test.c ****     l_dest[s_i].id = s_i;
+  95:apps/list_test.c ****     l_dest[s_i].text = i->text;
+  96:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+  97:apps/list_test.c ****     s_i ++;
+  98:apps/list_test.c **** }
+  99:apps/list_test.c **** void l_rem(MSList *l, MSList_Item *i)
+ 100:apps/list_test.c **** {
+ 101:apps/list_test.c ****     if(list[1].selected)
+ 102:apps/list_test.c **** 	m_slist_remove(l, i);
+ 103:apps/list_test.c **** }
+ 104:apps/list_test.c **** void l_onselection(MSList *l, MSList_Item *i)
+ 105:apps/list_test.c **** {
+  27              		.loc 1 105 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE130:
+  37 0002 00BF     		.section	.text.b_add,"ax",%progbits
+  38              		.align	1
+  39              		.p2align 2,,3
+  40              		.global	b_add
+  41              		.syntax unified
+  42              		.thumb
+  43              		.thumb_func
+  44              		.fpu fpv4-sp-d16
+  46              	b_add:
+  47              	.LFB126:
+  81:apps/list_test.c ****     l_dest[s_i].id = s_i;
+  48              		.loc 1 81 0
+  49              		.cfi_startproc
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              	.LVL1:
+  81:apps/list_test.c ****     l_dest[s_i].id = s_i;
+  53              		.loc 1 81 0
+  54 0000 38B5     		push	{r3, r4, r5, lr}
+  55              	.LCFI0:
+  56              		.cfi_def_cfa_offset 16
+  57              		.cfi_offset 3, -16
+  58              		.cfi_offset 4, -12
+  59              		.cfi_offset 5, -8
+  60              		.cfi_offset 14, -4
+  82:apps/list_test.c ****     l_dest[s_i].text = list[0].selected->text;
+  61              		.loc 1 82 0
+  62 0002 0A4C     		ldr	r4, .L4
+  83:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+  63              		.loc 1 83 0
+  64 0004 0A48     		ldr	r0, .L4+4
+  65              	.LVL2:
+ARM GAS  /tmp/ccRDYGOm.s 			page 4
+
+
+  82:apps/list_test.c ****     l_dest[s_i].text = list[0].selected->text;
+  66              		.loc 1 82 0
+  67 0006 2268     		ldr	r2, [r4]
+  68 0008 0A4B     		ldr	r3, .L4+8
+  83:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+  69              		.loc 1 83 0
+  70 000a 416E     		ldr	r1, [r0, #100]
+  82:apps/list_test.c ****     l_dest[s_i].text = list[0].selected->text;
+  71              		.loc 1 82 0
+  72 000c 02EB8205 		add	r5, r2, r2, lsl #2
+  73 0010 03EB8503 		add	r3, r3, r5, lsl #2
+  83:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+  74              		.loc 1 83 0
+  75 0014 CD68     		ldr	r5, [r1, #12]
+  76 0016 DD60     		str	r5, [r3, #12]
+  82:apps/list_test.c ****     l_dest[s_i].text = list[0].selected->text;
+  77              		.loc 1 82 0
+  78 0018 9A60     		str	r2, [r3, #8]
+  84:apps/list_test.c ****     s_i ++;
+  79              		.loc 1 84 0
+  80 001a 1946     		mov	r1, r3
+  81 001c 7C30     		adds	r0, r0, #124
+  82 001e FFF7FEFF 		bl	m_slist_add
+  83              	.LVL3:
+  85:apps/list_test.c **** }
+  84              		.loc 1 85 0
+  85 0022 2368     		ldr	r3, [r4]
+  86 0024 0133     		adds	r3, r3, #1
+  87 0026 2360     		str	r3, [r4]
+  88 0028 38BD     		pop	{r3, r4, r5, pc}
+  89              	.L5:
+  90 002a 00BF     		.align	2
+  91              	.L4:
+  92 002c 00000000 		.word	.LANCHOR0
+  93 0030 00000000 		.word	list
+  94 0034 00000000 		.word	.LANCHOR1
+  95              		.cfi_endproc
+  96              	.LFE126:
+  98              		.section	.text.l_add,"ax",%progbits
+  99              		.align	1
+ 100              		.p2align 2,,3
+ 101              		.global	l_add
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 105              		.fpu fpv4-sp-d16
+ 107              	l_add:
+ 108              	.LFB128:
+  93:apps/list_test.c ****     l_dest[s_i].id = s_i;
+ 109              		.loc 1 93 0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113              	.LVL4:
+ 114 0000 38B5     		push	{r3, r4, r5, lr}
+ 115              	.LCFI1:
+ 116              		.cfi_def_cfa_offset 16
+ARM GAS  /tmp/ccRDYGOm.s 			page 5
+
+
+ 117              		.cfi_offset 3, -16
+ 118              		.cfi_offset 4, -12
+ 119              		.cfi_offset 5, -8
+ 120              		.cfi_offset 14, -4
+  94:apps/list_test.c ****     l_dest[s_i].text = i->text;
+ 121              		.loc 1 94 0
+ 122 0002 094C     		ldr	r4, .L8
+ 123 0004 094B     		ldr	r3, .L8+4
+ 124 0006 2268     		ldr	r2, [r4]
+  95:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+ 125              		.loc 1 95 0
+ 126 0008 CD68     		ldr	r5, [r1, #12]
+  96:apps/list_test.c ****     s_i ++;
+ 127              		.loc 1 96 0
+ 128 000a 0948     		ldr	r0, .L8+8
+ 129              	.LVL5:
+  94:apps/list_test.c ****     l_dest[s_i].text = i->text;
+ 130              		.loc 1 94 0
+ 131 000c 02EB8201 		add	r1, r2, r2, lsl #2
+ 132              	.LVL6:
+ 133 0010 03EB8103 		add	r3, r3, r1, lsl #2
+  96:apps/list_test.c ****     s_i ++;
+ 134              		.loc 1 96 0
+ 135 0014 1946     		mov	r1, r3
+  95:apps/list_test.c ****     m_slist_add(&list[1], &l_dest[s_i]);
+ 136              		.loc 1 95 0
+ 137 0016 DD60     		str	r5, [r3, #12]
+  94:apps/list_test.c ****     l_dest[s_i].text = i->text;
+ 138              		.loc 1 94 0
+ 139 0018 9A60     		str	r2, [r3, #8]
+  96:apps/list_test.c ****     s_i ++;
+ 140              		.loc 1 96 0
+ 141 001a FFF7FEFF 		bl	m_slist_add
+ 142              	.LVL7:
+  97:apps/list_test.c **** }
+ 143              		.loc 1 97 0
+ 144 001e 2368     		ldr	r3, [r4]
+ 145 0020 0133     		adds	r3, r3, #1
+ 146 0022 2360     		str	r3, [r4]
+ 147 0024 38BD     		pop	{r3, r4, r5, pc}
+ 148              	.L9:
+ 149 0026 00BF     		.align	2
+ 150              	.L8:
+ 151 0028 00000000 		.word	.LANCHOR0
+ 152 002c 00000000 		.word	.LANCHOR1
+ 153 0030 7C000000 		.word	list+124
+ 154              		.cfi_endproc
+ 155              	.LFE128:
+ 157              		.section	.text.b_rem,"ax",%progbits
+ 158              		.align	1
+ 159              		.p2align 2,,3
+ 160              		.global	b_rem
+ 161              		.syntax unified
+ 162              		.thumb
+ 163              		.thumb_func
+ 164              		.fpu fpv4-sp-d16
+ 166              	b_rem:
+ARM GAS  /tmp/ccRDYGOm.s 			page 6
+
+
+ 167              	.LFB127:
+  88:apps/list_test.c ****     if(list[1].selected)
+ 168              		.loc 1 88 0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+ 173              	.LVL8:
+  89:apps/list_test.c **** 	m_slist_remove(&list[1], list[1].selected);
+ 174              		.loc 1 89 0
+ 175 0000 0348     		ldr	r0, .L13
+ 176              	.LVL9:
+ 177 0002 D0F8E010 		ldr	r1, [r0, #224]
+ 178 0006 11B1     		cbz	r1, .L10
+  90:apps/list_test.c **** }
+ 179              		.loc 1 90 0
+ 180 0008 7C30     		adds	r0, r0, #124
+ 181 000a FFF7FEBF 		b	m_slist_remove
+ 182              	.LVL10:
+ 183              	.L10:
+ 184 000e 7047     		bx	lr
+ 185              	.L14:
+ 186              		.align	2
+ 187              	.L13:
+ 188 0010 00000000 		.word	list
+ 189              		.cfi_endproc
+ 190              	.LFE127:
+ 192              		.section	.text.l_rem,"ax",%progbits
+ 193              		.align	1
+ 194              		.p2align 2,,3
+ 195              		.global	l_rem
+ 196              		.syntax unified
+ 197              		.thumb
+ 198              		.thumb_func
+ 199              		.fpu fpv4-sp-d16
+ 201              	l_rem:
+ 202              	.LFB129:
+ 100:apps/list_test.c ****     if(list[1].selected)
+ 203              		.loc 1 100 0
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207              		@ link register save eliminated.
+ 208              	.LVL11:
+ 101:apps/list_test.c **** 	m_slist_remove(l, i);
+ 209              		.loc 1 101 0
+ 210 0000 034B     		ldr	r3, .L17
+ 211 0002 D3F8E030 		ldr	r3, [r3, #224]
+ 212 0006 0BB1     		cbz	r3, .L15
+ 102:apps/list_test.c **** }
+ 213              		.loc 1 102 0
+ 214 0008 FFF7FEBF 		b	m_slist_remove
+ 215              	.LVL12:
+ 216              	.L15:
+ 217 000c 7047     		bx	lr
+ 218              	.L18:
+ 219 000e 00BF     		.align	2
+ARM GAS  /tmp/ccRDYGOm.s 			page 7
+
+
+ 220              	.L17:
+ 221 0010 00000000 		.word	list
+ 222              		.cfi_endproc
+ 223              	.LFE129:
+ 225              		.section	.text.at_list_init,"ax",%progbits
+ 226              		.align	1
+ 227              		.p2align 2,,3
+ 228              		.global	at_list_init
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 232              		.fpu fpv4-sp-d16
+ 234              	at_list_init:
+ 235              	.LFB131:
+ 106:apps/list_test.c **** }
+ 107:apps/list_test.c **** 
+ 108:apps/list_test.c **** void at_list_init(MakiseGUI *gui, MHost *host)
+ 109:apps/list_test.c **** {
+ 236              		.loc 1 109 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 8
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              	.LVL13:
+ 241 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 242              	.LCFI2:
+ 243              		.cfi_def_cfa_offset 36
+ 244              		.cfi_offset 4, -36
+ 245              		.cfi_offset 5, -32
+ 246              		.cfi_offset 6, -28
+ 247              		.cfi_offset 7, -24
+ 248              		.cfi_offset 8, -20
+ 249              		.cfi_offset 9, -16
+ 250              		.cfi_offset 10, -12
+ 251              		.cfi_offset 11, -8
+ 252              		.cfi_offset 14, -4
+ 110:apps/list_test.c ****     m_create_slist(&list[0], host->host, 3, 10, 156, 145, "lol", &l_onselection, &l_add, &canvas_st
+ 253              		.loc 1 110 0
+ 254 0004 4A4D     		ldr	r5, .L21
+ 255 0006 DFF85CA1 		ldr	r10, .L21+52
+ 256 000a DFF85C91 		ldr	r9, .L21+56
+ 257 000e 494E     		ldr	r6, .L21+4
+ 258 0010 DFF858B1 		ldr	fp, .L21+60
+ 259 0014 484B     		ldr	r3, .L21+8
+ 109:apps/list_test.c ****     m_create_slist(&list[0], host->host, 3, 10, 156, 145, "lol", &l_onselection, &l_add, &canvas_st
+ 260              		.loc 1 109 0
+ 261 0016 8BB0     		sub	sp, sp, #44
+ 262              	.LCFI3:
+ 263              		.cfi_def_cfa_offset 80
+ 109:apps/list_test.c ****     m_create_slist(&list[0], host->host, 3, 10, 156, 145, "lol", &l_onselection, &l_add, &canvas_st
+ 264              		.loc 1 109 0
+ 265 0018 0F46     		mov	r7, r1
+ 266              		.loc 1 110 0
+ 267 001a 4FF09108 		mov	r8, #145
+ 268 001e 9C24     		movs	r4, #156
+ 269 0020 0968     		ldr	r1, [r1]
+ 270              	.LVL14:
+ 271 0022 0696     		str	r6, [sp, #24]
+ARM GAS  /tmp/ccRDYGOm.s 			page 8
+
+
+ 272 0024 8DE81007 		stm	sp, {r4, r8, r9, r10}
+ 273 0028 2846     		mov	r0, r5
+ 274              	.LVL15:
+ 275 002a CDF814B0 		str	fp, [sp, #20]
+ 276 002e 0493     		str	r3, [sp, #16]
+ 277 0030 0322     		movs	r2, #3
+ 278 0032 0A23     		movs	r3, #10
+ 279 0034 FFF7FEFF 		bl	m_create_slist
+ 280              	.LVL16:
+ 111:apps/list_test.c **** 
+ 112:apps/list_test.c ****     m_create_slist(&list[1], host->host, 160, 10, 156, 145, "lol", &l_onselection, &l_rem, &canvas_
+ 281              		.loc 1 112 0
+ 282 0038 3968     		ldr	r1, [r7]
+ 283 003a 404B     		ldr	r3, .L21+12
+ 284 003c 0696     		str	r6, [sp, #24]
+ 285 003e 05F17C06 		add	r6, r5, #124
+ 286 0042 8DE81007 		stm	sp, {r4, r8, r9, r10}
+ 287 0046 CDF814B0 		str	fp, [sp, #20]
+ 288 004a 3046     		mov	r0, r6
+ 289 004c 0493     		str	r3, [sp, #16]
+ 290 004e A022     		movs	r2, #160
+ 291 0050 0A23     		movs	r3, #10
+ 292 0052 FFF7FEFF 		bl	m_create_slist
+ 293              	.LVL17:
+ 113:apps/list_test.c **** 
+ 114:apps/list_test.c ****     m_create_button(&butt[0], host->host, 10, 163, 100, 35, t_add, &b_add, 0, 0, &button_style);
+ 294              		.loc 1 114 0
+ 295 0056 3A4B     		ldr	r3, .L21+16
+ 296 0058 DFF81491 		ldr	r9, .L21+64
+ 297 005c 1A68     		ldr	r2, [r3]
+ 298 005e DFF814B1 		ldr	fp, .L21+68
+ 299 0062 384B     		ldr	r3, .L21+20
+ 300 0064 3968     		ldr	r1, [r7]
+ 301 0066 0292     		str	r2, [sp, #8]
+ 302 0068 0024     		movs	r4, #0
+ 303 006a 4FF02308 		mov	r8, #35
+ 304 006e 4FF0640A 		mov	r10, #100
+ 305 0072 4846     		mov	r0, r9
+ 306 0074 0393     		str	r3, [sp, #12]
+ 307 0076 CDF818B0 		str	fp, [sp, #24]
+ 308 007a 0594     		str	r4, [sp, #20]
+ 309 007c 0494     		str	r4, [sp, #16]
+ 310 007e CDF80480 		str	r8, [sp, #4]
+ 311 0082 CDF800A0 		str	r10, [sp]
+ 312 0086 A323     		movs	r3, #163
+ 313 0088 0A22     		movs	r2, #10
+ 314 008a FFF7FEFF 		bl	m_create_button
+ 315              	.LVL18:
+ 115:apps/list_test.c ****     m_create_button(&butt[1], host->host, 115, 163, 100, 35, t_remove, &b_rem, 0, 0, &button_style)
+ 316              		.loc 1 115 0
+ 317 008e 2E4B     		ldr	r3, .L21+24
+ 318 0090 3968     		ldr	r1, [r7]
+ 319 0092 1A68     		ldr	r2, [r3]
+ 320 0094 2D4B     		ldr	r3, .L21+28
+ 321 0096 0292     		str	r2, [sp, #8]
+ 322 0098 09F16C00 		add	r0, r9, #108
+ 323 009c 0393     		str	r3, [sp, #12]
+ARM GAS  /tmp/ccRDYGOm.s 			page 9
+
+
+ 324 009e CDF818B0 		str	fp, [sp, #24]
+ 325 00a2 0594     		str	r4, [sp, #20]
+ 326 00a4 0494     		str	r4, [sp, #16]
+ 327 00a6 CDF80480 		str	r8, [sp, #4]
+ 328 00aa CDF800A0 		str	r10, [sp]
+ 329 00ae A323     		movs	r3, #163
+ 330 00b0 7322     		movs	r2, #115
+ 331 00b2 FFF7FEFF 		bl	m_create_button
+ 332              	.LVL19:
+ 116:apps/list_test.c **** 
+ 117:apps/list_test.c ****     m_create_text_field(&tf[0], host->host, 5, 200, 310, 35, sample_string, &text_style);
+ 333              		.loc 1 117 0
+ 334 00b6 264B     		ldr	r3, .L21+32
+ 335 00b8 264A     		ldr	r2, .L21+36
+ 336 00ba 1868     		ldr	r0, [r3]
+ 337 00bc 3968     		ldr	r1, [r7]
+ 338 00be 0290     		str	r0, [sp, #8]
+ 339 00c0 4FF49B73 		mov	r3, #310
+ 340 00c4 0392     		str	r2, [sp, #12]
+ 341 00c6 0093     		str	r3, [sp]
+ 342 00c8 CDF80480 		str	r8, [sp, #4]
+ 343 00cc C823     		movs	r3, #200
+ 344 00ce 0522     		movs	r2, #5
+ 345 00d0 2148     		ldr	r0, .L21+40
+ 346 00d2 FFF7FEFF 		bl	m_create_text_field
+ 347              	.LVL20:
+ 348              	.LBB2:
+ 118:apps/list_test.c **** 
+ 119:apps/list_test.c **** 
+ 120:apps/list_test.c ****     for (uint32_t i = 0; i < 10; i++) {
+ 121:apps/list_test.c **** 	l_source[i].text = t_list[i];
+ 349              		.loc 1 121 0
+ 350 00d6 214A     		ldr	r2, .L21+44
+ 351 00d8 214B     		ldr	r3, .L21+48
+ 352 00da 5168     		ldr	r1, [r2, #4]
+ 353 00dc 0991     		str	r1, [sp, #36]
+ 354 00de D168     		ldr	r1, [r2, #12]
+ 355 00e0 9964     		str	r1, [r3, #72]
+ 356 00e2 1169     		ldr	r1, [r2, #16]
+ 357 00e4 D965     		str	r1, [r3, #92]
+ 358 00e6 5169     		ldr	r1, [r2, #20]
+ 359 00e8 1768     		ldr	r7, [r2]
+ 360              	.LVL21:
+ 361 00ea 1967     		str	r1, [r3, #112]
+ 362 00ec 9169     		ldr	r1, [r2, #24]
+ 363 00ee 9068     		ldr	r0, [r2, #8]
+ 364 00f0 C3F88410 		str	r1, [r3, #132]
+ 365 00f4 DF60     		str	r7, [r3, #12]
+ 366              	.LVL22:
+ 367 00f6 D169     		ldr	r1, [r2, #28]
+ 368 00f8 176A     		ldr	r7, [r2, #32]
+ 369 00fa 526A     		ldr	r2, [r2, #36]
+ 370 00fc C3F8C020 		str	r2, [r3, #192]
+ 371 0100 099A     		ldr	r2, [sp, #36]
+ 372 0102 C3F89810 		str	r1, [r3, #152]
+ 373 0106 1A62     		str	r2, [r3, #32]
+ 374              	.LVL23:
+ARM GAS  /tmp/ccRDYGOm.s 			page 10
+
+
+ 375              	.LBE2:
+ 122:apps/list_test.c ****     }
+ 123:apps/list_test.c ****     m_slist_set_array(list, l_source, 10);
+ 376              		.loc 1 123 0
+ 377 0108 1946     		mov	r1, r3
+ 378              	.LBB3:
+ 121:apps/list_test.c ****     }
+ 379              		.loc 1 121 0
+ 380 010a 5863     		str	r0, [r3, #52]
+ 381              	.LVL24:
+ 382              	.LBE3:
+ 383              		.loc 1 123 0
+ 384 010c 0A22     		movs	r2, #10
+ 385 010e 2846     		mov	r0, r5
+ 386              	.LBB4:
+ 121:apps/list_test.c ****     }
+ 387              		.loc 1 121 0
+ 388 0110 C3F8AC70 		str	r7, [r3, #172]
+ 389              	.LVL25:
+ 390              	.LBE4:
+ 391              		.loc 1 123 0
+ 392 0114 FFF7FEFF 		bl	m_slist_set_array
+ 393              	.LVL26:
+ 124:apps/list_test.c ****     m_slist_set_list(&list[1], 0);
+ 394              		.loc 1 124 0
+ 395 0118 2146     		mov	r1, r4
+ 396 011a 3046     		mov	r0, r6
+ 397 011c FFF7FEFF 		bl	m_slist_set_list
+ 398              	.LVL27:
+ 125:apps/list_test.c **** 
+ 126:apps/list_test.c ****     makise_g_focus(&list[0].el, M_G_FOCUS_GET);
+ 399              		.loc 1 126 0
+ 400 0120 281D     		adds	r0, r5, #4
+ 401 0122 0821     		movs	r1, #8
+ 127:apps/list_test.c **** }
+ 402              		.loc 1 127 0
+ 403 0124 0BB0     		add	sp, sp, #44
+ 404              	.LCFI4:
+ 405              		.cfi_def_cfa_offset 36
+ 406              		@ sp needed
+ 407 0126 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 408              	.LCFI5:
+ 409              		.cfi_restore 14
+ 410              		.cfi_restore 11
+ 411              		.cfi_restore 10
+ 412              		.cfi_restore 9
+ 413              		.cfi_restore 8
+ 414              		.cfi_restore 7
+ 415              		.cfi_restore 6
+ 416              		.cfi_restore 5
+ 417              		.cfi_restore 4
+ 418              		.cfi_def_cfa_offset 0
+ 126:apps/list_test.c **** }
+ 419              		.loc 1 126 0
+ 420 012a FFF7FEBF 		b	makise_g_focus
+ 421              	.LVL28:
+ 422              	.L22:
+ARM GAS  /tmp/ccRDYGOm.s 			page 11
+
+
+ 423 012e 00BF     		.align	2
+ 424              	.L21:
+ 425 0130 00000000 		.word	list
+ 426 0134 00000000 		.word	.LANCHOR2
+ 427 0138 00000000 		.word	l_add
+ 428 013c 00000000 		.word	l_rem
+ 429 0140 00000000 		.word	.LANCHOR5
+ 430 0144 00000000 		.word	b_add
+ 431 0148 00000000 		.word	.LANCHOR6
+ 432 014c 00000000 		.word	b_rem
+ 433 0150 00000000 		.word	.LANCHOR8
+ 434 0154 00000000 		.word	.LANCHOR7
+ 435 0158 00000000 		.word	tf
+ 436 015c 00000000 		.word	.LANCHOR10
+ 437 0160 00000000 		.word	.LANCHOR9
+ 438 0164 00000000 		.word	l_onselection
+ 439 0168 00000000 		.word	.LC0
+ 440 016c 00000000 		.word	.LANCHOR3
+ 441 0170 00000000 		.word	butt
+ 442 0174 00000000 		.word	.LANCHOR4
+ 443              		.cfi_endproc
+ 444              	.LFE131:
+ 446              		.global	s_i
+ 447              		.global	l_dest
+ 448              		.global	l_source
+ 449              		.global	t_list
+ 450              		.global	t_remove
+ 451              		.global	t_add
+ 452              		.global	t_canc
+ 453              		.global	t_ok
+ 454              		.global	text_style
+ 455              		.global	lable_style
+ 456              		.global	canvas_style
+ 457              		.global	button_style
+ 458              		.global	sample_string
+ 459              		.comm	list,248,4
+ 460              		.comm	tf,184,4
+ 461              		.comm	labls,184,4
+ 462              		.comm	canv,232,4
+ 463              		.comm	butt,432,4
+ 464              		.comm	makise_color_palette,4,4
+ 465              		.section	.bss.l_dest,"aw",%nobits
+ 466              		.align	2
+ 467              		.set	.LANCHOR1,. + 0
+ 470              	l_dest:
+ 471 0000 00000000 		.space	20480
+ 471      00000000 
+ 471      00000000 
+ 471      00000000 
+ 471      00000000 
+ 472              		.section	.bss.l_source,"aw",%nobits
+ 473              		.align	2
+ 474              		.set	.LANCHOR9,. + 0
+ 477              	l_source:
+ 478 0000 00000000 		.space	200
+ 478      00000000 
+ 478      00000000 
+ARM GAS  /tmp/ccRDYGOm.s 			page 12
+
+
+ 478      00000000 
+ 478      00000000 
+ 479              		.section	.bss.s_i,"aw",%nobits
+ 480              		.align	2
+ 481              		.set	.LANCHOR0,. + 0
+ 484              	s_i:
+ 485 0000 00000000 		.space	4
+ 486              		.section	.data.button_style,"aw",%progbits
+ 487              		.align	2
+ 488              		.set	.LANCHOR4,. + 0
+ 491              	button_style:
+ 492 0000 01000000 		.word	1
+ 493 0004 00000000 		.word	F_Arial24
+ 494 0008 00000000 		.word	0
+ 495 000c 00000000 		.word	0
+ 496 0010 09000000 		.word	9
+ 497 0014 09000000 		.word	9
+ 498 0018 0000     		.short	0
+ 499 001a 0000     		.space	2
+ 500 001c 00000000 		.word	0
+ 501 0020 01000000 		.word	1
+ 502 0024 01000000 		.word	1
+ 503 0028 0000     		.short	0
+ 504 002a 0000     		.space	2
+ 505 002c 01000000 		.word	1
+ 506 0030 00000000 		.word	0
+ 507 0034 01000000 		.word	1
+ 508 0038 0000     		.short	0
+ 509 003a 0000     		.space	2
+ 510 003c 03000000 		.word	3
+ 511 0040 01000000 		.word	1
+ 512 0044 01000000 		.word	1
+ 513 0048 0000     		.short	0
+ 514 004a 0000     		.space	2
+ 515              		.section	.data.canvas_style,"aw",%progbits
+ 516              		.align	2
+ 517              		.set	.LANCHOR3,. + 0
+ 520              	canvas_style:
+ 521 0000 01000000 		.word	1
+ 522 0004 00000000 		.word	F_Arial24
+ 523 0008 00000000 		.word	0
+ 524 000c 09000000 		.word	9
+ 525 0010 09000000 		.word	9
+ 526 0014 09000000 		.word	9
+ 527 0018 0000     		.short	0
+ 528 001a 0000     		.space	2
+ 529 001c 00000000 		.word	0
+ 530 0020 01000000 		.word	1
+ 531 0024 01000000 		.word	1
+ 532 0028 0000     		.short	0
+ 533 002a 0000     		.space	2
+ 534 002c 03000000 		.word	3
+ 535 0030 02000000 		.word	2
+ 536 0034 01000000 		.word	1
+ 537 0038 0000     		.short	0
+ 538 003a 0000     		.space	2
+ 539 003c 00000000 		.word	0
+ARM GAS  /tmp/ccRDYGOm.s 			page 13
+
+
+ 540 0040 01000000 		.word	1
+ 541 0044 01000000 		.word	1
+ 542 0048 0000     		.short	0
+ 543 004a 0000     		.space	2
+ 544              		.section	.data.lable_style,"aw",%progbits
+ 545              		.align	2
+ 546              		.set	.LANCHOR2,. + 0
+ 549              	lable_style:
+ 550 0000 01000000 		.word	1
+ 551 0004 00000000 		.word	F_Arial15
+ 552 0008 00000000 		.word	0
+ 553 000c 09000000 		.word	9
+ 554 0010 09000000 		.word	9
+ 555 0014 09000000 		.word	9
+ 556 0018 0000     		.short	0
+ 557 001a 0000     		.space	2
+ 558 001c 00000000 		.word	0
+ 559 0020 01000000 		.word	1
+ 560 0024 00000000 		.word	0
+ 561 0028 0000     		.short	0
+ 562 002a 0000     		.space	2
+ 563 002c 01000000 		.word	1
+ 564 0030 04000000 		.word	4
+ 565 0034 01000000 		.word	1
+ 566 0038 0000     		.short	0
+ 567 003a 0000     		.space	2
+ 568 003c 00000000 		.word	0
+ 569 0040 09000000 		.word	9
+ 570 0044 00000000 		.word	0
+ 571 0048 0000     		.short	0
+ 572 004a 0000     		.space	2
+ 573              		.section	.data.sample_string,"aw",%progbits
+ 574              		.align	2
+ 575              		.set	.LANCHOR8,. + 0
+ 578              	sample_string:
+ 579 0000 6C000000 		.word	.LC15
+ 580              		.section	.data.t_add,"aw",%progbits
+ 581              		.align	2
+ 582              		.set	.LANCHOR5,. + 0
+ 585              	t_add:
+ 586 0000 5C000000 		.word	.LC12
+ 587              		.section	.data.t_canc,"aw",%progbits
+ 588              		.align	2
+ 591              	t_canc:
+ 592 0000 60000000 		.word	.LC13
+ 593              		.section	.data.t_list,"aw",%progbits
+ 594              		.align	2
+ 595              		.set	.LANCHOR10,. + 0
+ 598              	t_list:
+ 599 0000 00000000 		.word	.LC1
+ 600 0004 08000000 		.word	.LC2
+ 601 0008 10000000 		.word	.LC3
+ 602 000c 18000000 		.word	.LC4
+ 603 0010 20000000 		.word	.LC5
+ 604 0014 30000000 		.word	.LC6
+ 605 0018 34000000 		.word	.LC7
+ 606 001c 3C000000 		.word	.LC8
+ARM GAS  /tmp/ccRDYGOm.s 			page 14
+
+
+ 607 0020 44000000 		.word	.LC9
+ 608 0024 4C000000 		.word	.LC10
+ 609              		.section	.data.t_ok,"aw",%progbits
+ 610              		.align	2
+ 613              	t_ok:
+ 614 0000 68000000 		.word	.LC14
+ 615              		.section	.data.t_remove,"aw",%progbits
+ 616              		.align	2
+ 617              		.set	.LANCHOR6,. + 0
+ 620              	t_remove:
+ 621 0000 54000000 		.word	.LC11
+ 622              		.section	.data.text_style,"aw",%progbits
+ 623              		.align	2
+ 624              		.set	.LANCHOR7,. + 0
+ 627              	text_style:
+ 628 0000 01000000 		.word	1
+ 629 0004 00000000 		.word	F_Arial15
+ 630 0008 03000000 		.word	3
+ 631 000c 00000000 		.word	0
+ 632 0010 01000000 		.word	1
+ 633 0014 09000000 		.word	9
+ 634 0018 0000     		.short	0
+ 635 001a 0000     		.space	2
+ 636 001c 00000000 		.word	0
+ 637 0020 01000000 		.word	1
+ 638 0024 03000000 		.word	3
+ 639 0028 0000     		.short	0
+ 640 002a 0000     		.space	2
+ 641 002c 00000000 		.word	0
+ 642 0030 00000000 		.word	0
+ 643 0034 00000000 		.word	0
+ 644 0038 0000     		.short	0
+ 645 003a 0000     		.space	2
+ 646 003c 00000000 		.word	0
+ 647 0040 00000000 		.word	0
+ 648 0044 00000000 		.word	0
+ 649 0048 0000     		.short	0
+ 650 004a 0000     		.space	2
+ 651              		.section	.rodata.at_list_init.str1.4,"aMS",%progbits,1
+ 652              		.align	2
+ 653              	.LC0:
+ 654 0000 6C6F6C00 		.ascii	"lol\000"
+ 655              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 656              		.align	2
+ 657              	.LC1:
+ 658 0000 48656C6C 		.ascii	"Hello\000"
+ 658      6F00
+ 659 0006 0000     		.space	2
+ 660              	.LC2:
+ 661 0008 D2E5F1F2 		.ascii	"\322\345\361\362\000"
+ 661      00
+ 662 000d 000000   		.space	3
+ 663              	.LC3:
+ 664 0010 73747269 		.ascii	"string\000"
+ 664      6E6700
+ 665 0017 00       		.space	1
+ 666              	.LC4:
+ARM GAS  /tmp/ccRDYGOm.s 			page 15
+
+
+ 667 0018 6D657468 		.ascii	"method\000"
+ 667      6F6400
+ 668 001f 00       		.space	1
+ 669              	.LC5:
+ 670 0020 D0F3F1F1 		.ascii	"\320\363\361\361\352\350\345 \341\363\352\342\373?\000"
+ 670      EAE8E520 
+ 670      E1F3EAE2 
+ 670      FB3F00
+ 671 002f 00       		.space	1
+ 672              	.LC6:
+ 673 0030 47505300 		.ascii	"GPS\000"
+ 674              	.LC7:
+ 675 0034 53442063 		.ascii	"SD card\000"
+ 675      61726400 
+ 676              	.LC8:
+ 677 003c 43616D65 		.ascii	"Camera\000"
+ 677      726100
+ 678 0043 00       		.space	1
+ 679              	.LC9:
+ 680 0044 696E7365 		.ascii	"insert\000"
+ 680      727400
+ 681 004b 00       		.space	1
+ 682              	.LC10:
+ 683 004c C2C0D321 		.ascii	"\302\300\323!\000"
+ 683      00
+ 684 0051 000000   		.space	3
+ 685              	.LC11:
+ 686 0054 52656D6F 		.ascii	"Remove\000"
+ 686      766500
+ 687 005b 00       		.space	1
+ 688              	.LC12:
+ 689 005c 41646400 		.ascii	"Add\000"
+ 690              	.LC13:
+ 691 0060 43616E63 		.ascii	"Cancel\000"
+ 691      656C00
+ 692 0067 00       		.space	1
+ 693              	.LC14:
+ 694 0068 4F4B00   		.ascii	"OK\000"
+ 695 006b 00       		.space	1
+ 696              	.LC15:
+ 697 006c 4C6F7265 		.ascii	"Lorem ipsum dolor sit amet, consectetur adipiscing "
+ 697      6D206970 
+ 697      73756D20 
+ 697      646F6C6F 
+ 697      72207369 
+ 698 009f 656C6974 		.ascii	"elit, sed do eiusmod tempor incididunt ut labore et"
+ 698      2C207365 
+ 698      6420646F 
+ 698      20656975 
+ 698      736D6F64 
+ 699 00d2 20646F6C 		.ascii	" dolore magna aliqua. Ut enim ad minim veniam, quis"
+ 699      6F726520 
+ 699      6D61676E 
+ 699      6120616C 
+ 699      69717561 
+ 700 0105 206E6F73 		.ascii	" nostrud exercitation ullamco laboris nisi ut aliqu"
+ 700      74727564 
+ARM GAS  /tmp/ccRDYGOm.s 			page 16
+
+
+ 700      20657865 
+ 700      72636974 
+ 700      6174696F 
+ 701 0138 69702065 		.ascii	"ip ex ea commodo consequat. Duis aute irure dolor i"
+ 701      78206561 
+ 701      20636F6D 
+ 701      6D6F646F 
+ 701      20636F6E 
+ 702 016b 6E207265 		.ascii	"n reprehenderit in voluptate velit esse cillum dolo"
+ 702      70726568 
+ 702      656E6465 
+ 702      72697420 
+ 702      696E2076 
+ 703 019e 72652065 		.ascii	"re eu fugiat nulla pariatur. Excepteur sint occaeca"
+ 703      75206675 
+ 703      67696174 
+ 703      206E756C 
+ 703      6C612070 
+ 704 01d1 74206375 		.ascii	"t cupidatat non proident, sunt in culpa qui officia"
+ 704      70696461 
+ 704      74617420 
+ 704      6E6F6E20 
+ 704      70726F69 
+ 705 0204 20646573 		.ascii	" deserunt mollit anim id est laborum.\000"
+ 705      6572756E 
+ 705      74206D6F 
+ 705      6C6C6974 
+ 705      20616E69 
+ 706              		.text
+ 707              	.Letext0:
+ 708              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
+ 709              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 710              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
+ 711              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
+ 712              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 713              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
+ 714              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 715              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 716              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 717              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 718              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 719              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 720              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 721              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 722              		.file 16 "Inc/spi.h"
+ 723              		.file 17 "Inc/tim.h"
+ 724              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 725              		.file 19 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 726              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
+ 727              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 728              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 729              		.file 23 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
+ 730              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 731              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 732              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 733              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 734              		.file 28 "Inc/makise_test.h"
+ARM GAS  /tmp/ccRDYGOm.s 			page 17
+
+
+ARM GAS  /tmp/ccRDYGOm.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 list_test.c
+     /tmp/ccRDYGOm.s:16     .text.l_onselection:0000000000000000 $t
+     /tmp/ccRDYGOm.s:24     .text.l_onselection:0000000000000000 l_onselection
+     /tmp/ccRDYGOm.s:38     .text.b_add:0000000000000000 $t
+     /tmp/ccRDYGOm.s:46     .text.b_add:0000000000000000 b_add
+     /tmp/ccRDYGOm.s:92     .text.b_add:000000000000002c $d
+                            *COM*:00000000000000f8 list
+     /tmp/ccRDYGOm.s:99     .text.l_add:0000000000000000 $t
+     /tmp/ccRDYGOm.s:107    .text.l_add:0000000000000000 l_add
+     /tmp/ccRDYGOm.s:151    .text.l_add:0000000000000028 $d
+     /tmp/ccRDYGOm.s:158    .text.b_rem:0000000000000000 $t
+     /tmp/ccRDYGOm.s:166    .text.b_rem:0000000000000000 b_rem
+     /tmp/ccRDYGOm.s:188    .text.b_rem:0000000000000010 $d
+     /tmp/ccRDYGOm.s:193    .text.l_rem:0000000000000000 $t
+     /tmp/ccRDYGOm.s:201    .text.l_rem:0000000000000000 l_rem
+     /tmp/ccRDYGOm.s:221    .text.l_rem:0000000000000010 $d
+     /tmp/ccRDYGOm.s:226    .text.at_list_init:0000000000000000 $t
+     /tmp/ccRDYGOm.s:234    .text.at_list_init:0000000000000000 at_list_init
+     /tmp/ccRDYGOm.s:425    .text.at_list_init:0000000000000130 $d
+                            *COM*:00000000000000b8 tf
+                            *COM*:00000000000001b0 butt
+     /tmp/ccRDYGOm.s:484    .bss.s_i:0000000000000000 s_i
+     /tmp/ccRDYGOm.s:470    .bss.l_dest:0000000000000000 l_dest
+     /tmp/ccRDYGOm.s:477    .bss.l_source:0000000000000000 l_source
+     /tmp/ccRDYGOm.s:598    .data.t_list:0000000000000000 t_list
+     /tmp/ccRDYGOm.s:620    .data.t_remove:0000000000000000 t_remove
+     /tmp/ccRDYGOm.s:585    .data.t_add:0000000000000000 t_add
+     /tmp/ccRDYGOm.s:591    .data.t_canc:0000000000000000 t_canc
+     /tmp/ccRDYGOm.s:613    .data.t_ok:0000000000000000 t_ok
+     /tmp/ccRDYGOm.s:627    .data.text_style:0000000000000000 text_style
+     /tmp/ccRDYGOm.s:549    .data.lable_style:0000000000000000 lable_style
+     /tmp/ccRDYGOm.s:520    .data.canvas_style:0000000000000000 canvas_style
+     /tmp/ccRDYGOm.s:491    .data.button_style:0000000000000000 button_style
+     /tmp/ccRDYGOm.s:578    .data.sample_string:0000000000000000 sample_string
+                            *COM*:00000000000000b8 labls
+                            *COM*:00000000000000e8 canv
+                            *COM*:0000000000000004 makise_color_palette
+     /tmp/ccRDYGOm.s:466    .bss.l_dest:0000000000000000 $d
+     /tmp/ccRDYGOm.s:473    .bss.l_source:0000000000000000 $d
+     /tmp/ccRDYGOm.s:480    .bss.s_i:0000000000000000 $d
+     /tmp/ccRDYGOm.s:487    .data.button_style:0000000000000000 $d
+     /tmp/ccRDYGOm.s:516    .data.canvas_style:0000000000000000 $d
+     /tmp/ccRDYGOm.s:545    .data.lable_style:0000000000000000 $d
+     /tmp/ccRDYGOm.s:574    .data.sample_string:0000000000000000 $d
+     /tmp/ccRDYGOm.s:581    .data.t_add:0000000000000000 $d
+     /tmp/ccRDYGOm.s:588    .data.t_canc:0000000000000000 $d
+     /tmp/ccRDYGOm.s:594    .data.t_list:0000000000000000 $d
+     /tmp/ccRDYGOm.s:610    .data.t_ok:0000000000000000 $d
+     /tmp/ccRDYGOm.s:616    .data.t_remove:0000000000000000 $d
+     /tmp/ccRDYGOm.s:623    .data.text_style:0000000000000000 $d
+     /tmp/ccRDYGOm.s:652    .rodata.at_list_init.str1.4:0000000000000000 $d
+     /tmp/ccRDYGOm.s:656    .rodata.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+m_slist_add
+ARM GAS  /tmp/ccRDYGOm.s 			page 19
+
+
+m_slist_remove
+m_create_slist
+m_create_button
+m_create_text_field
+m_slist_set_array
+m_slist_set_list
+makise_g_focus
+F_Arial24
+F_Arial15

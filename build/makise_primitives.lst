@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccuR1pmD.s 			page 1
+ARM GAS  /tmp/ccbGy7uW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
   31:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x >= b->width || y >= b->height || c == MC_Transparent)
   32:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
   33:MakiseGUI/MakiseGUI/makise_primitives.c ****     if(x < 0)
-ARM GAS  /tmp/ccuR1pmD.s 			page 2
+ARM GAS  /tmp/ccbGy7uW.s 			page 2
 
 
   34:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
   88:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
   89:MakiseGUI/MakiseGUI/makise_primitives.c **** 	w = w + x;
   90:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x = 0;
-ARM GAS  /tmp/ccuR1pmD.s 			page 3
+ARM GAS  /tmp/ccbGy7uW.s 			page 3
 
 
   91:MakiseGUI/MakiseGUI/makise_primitives.c ****     }
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
   37              		.cfi_offset 7, -24
   38              		.cfi_offset 8, -20
   39              		.cfi_offset 9, -16
-ARM GAS  /tmp/ccuR1pmD.s 			page 4
+ARM GAS  /tmp/ccbGy7uW.s 			page 4
 
 
   40              		.cfi_offset 10, -12
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
   75 0026 029A     		ldr	r2, [sp, #8]
   76 0028 121B     		subs	r2, r2, r4
   77 002a 92B2     		uxth	r2, r2
-ARM GAS  /tmp/ccuR1pmD.s 			page 5
+ARM GAS  /tmp/ccbGy7uW.s 			page 5
 
 
   78 002c 3B46     		mov	r3, r7
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  124 0078 2DB2     		sxth	r5, r5
  125 007a 0691     		str	r1, [sp, #24]
  126 007c 0793     		str	r3, [sp, #28]
-ARM GAS  /tmp/ccuR1pmD.s 			page 6
+ARM GAS  /tmp/ccbGy7uW.s 			page 6
 
 
  127              	.LVL9:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  159              		.loc 1 158 0
  160 00a8 12B2     		sxth	r2, r2
  161 00aa 0592     		str	r2, [sp, #20]
-ARM GAS  /tmp/ccuR1pmD.s 			page 7
+ARM GAS  /tmp/ccbGy7uW.s 			page 7
 
 
  162              	.LVL13:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  209 0102 03EB0609 		add	r9, r3, r6
  210 0106 04EB020A 		add	r10, r4, r2
  211 010a 1FFA8AFA 		uxth	r10, r10
-ARM GAS  /tmp/ccuR1pmD.s 			page 8
+ARM GAS  /tmp/ccbGy7uW.s 			page 8
 
 
  212 010e 1FFA89F9 		uxth	r9, r9
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  163:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_pset(b, xc + x, yc + y, c);
  259              		.loc 1 163 0
  260 0160 2DB2     		sxth	r5, r5
-ARM GAS  /tmp/ccuR1pmD.s 			page 9
+ARM GAS  /tmp/ccbGy7uW.s 			page 9
 
 
  261              	.LVL25:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  309 0012 9DB3     		cbz	r5, .L11
  310 0014 827A     		ldrb	r2, [r0, #10]	@ zero_extendqisi2
   16:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
-ARM GAS  /tmp/ccuR1pmD.s 			page 10
+ARM GAS  /tmp/ccbGy7uW.s 			page 10
 
 
  311              		.loc 1 16 0 is_stmt 0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  352              	.LVL36:
   16:MakiseGUI/MakiseGUI/makise_primitives.c ****     {
  353              		.loc 1 16 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 11
+ARM GAS  /tmp/ccbGy7uW.s 			page 11
 
 
  354 0046 18D0     		beq	.L12
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  395              	.LVL43:
  396 0078 DBB2     		uxtb	r3, r3
  397              	.LVL44:
-ARM GAS  /tmp/ccuR1pmD.s 			page 12
+ARM GAS  /tmp/ccbGy7uW.s 			page 12
 
 
  398              	.L12:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  448              		.loc 1 27 0
  449 000a 5DF8044B 		ldr	r4, [sp], #4
  450              	.LCFI6:
-ARM GAS  /tmp/ccuR1pmD.s 			page 13
+ARM GAS  /tmp/ccbGy7uW.s 			page 13
 
 
  451              		.cfi_remember_state
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  502              		.cfi_restore 4
  503              		.cfi_def_cfa_offset 0
  504              	.LVL51:
-ARM GAS  /tmp/ccuR1pmD.s 			page 14
+ARM GAS  /tmp/ccbGy7uW.s 			page 14
 
 
  505 000e FFF7FEBF 		b	makise_d_circle.part.0
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  205:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
  206:MakiseGUI/MakiseGUI/makise_primitives.c **** 	x++;
  207:MakiseGUI/MakiseGUI/makise_primitives.c **** 	ddF_x += 2;
-ARM GAS  /tmp/ccuR1pmD.s 			page 15
+ARM GAS  /tmp/ccbGy7uW.s 			page 15
 
 
  208:MakiseGUI/MakiseGUI/makise_primitives.c **** 	f += ddF_x;
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  554 000a DDF844B0 		ldr	fp, [sp, #68]
  555 000e BDF94060 		ldrsh	r6, [sp, #64]
  556              		.loc 1 237 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 16
+ARM GAS  /tmp/ccbGy7uW.s 			page 16
 
 
  557 0012 A345     		cmp	fp, r4
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  592              		.loc 1 255 0
  593 004c B042     		cmp	r0, r6
  594 004e A8BF     		it	ge
-ARM GAS  /tmp/ccuR1pmD.s 			page 17
+ARM GAS  /tmp/ccbGy7uW.s 			page 17
 
 
  595 0050 3046     		movge	r0, r6
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  634 008e 3246     		mov	r2, r6
  635 0090 3746     		mov	r7, r6
  636 0092 08EA0B08 		and	r8, r8, fp
-ARM GAS  /tmp/ccuR1pmD.s 			page 18
+ARM GAS  /tmp/ccbGy7uW.s 			page 18
 
 
  637              	.LVL62:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  272:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    makise_pset(b, j, y1, c);
  680              		.loc 1 272 0
  681 00ce B9F80810 		ldrh	r1, [r9, #8]
-ARM GAS  /tmp/ccuR1pmD.s 			page 19
+ARM GAS  /tmp/ccbGy7uW.s 			page 19
 
 
  682 00d2 98FBF1F3 		sdiv	r3, r8, r1
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  279:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
  726              		.loc 1 279 0
  727 011e F4D9     		bls	.L83
-ARM GAS  /tmp/ccuR1pmD.s 			page 20
+ARM GAS  /tmp/ccbGy7uW.s 			page 20
 
 
  728              	.LVL74:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  759              		.cfi_def_cfa_offset 36
  760              		@ sp needed
  761 013e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
-ARM GAS  /tmp/ccuR1pmD.s 			page 21
+ARM GAS  /tmp/ccbGy7uW.s 			page 21
 
 
  762              	.LVL79:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  803              		.loc 1 295 0
  804 0172 B242     		cmp	r2, r6
  253:MakiseGUI/MakiseGUI/makise_primitives.c ****     y0 =  y0 < b->height-1 ? y0 : b->height - 1;
-ARM GAS  /tmp/ccuR1pmD.s 			page 22
+ARM GAS  /tmp/ccbGy7uW.s 			page 22
 
 
  805              		.loc 1 253 0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  846              		.loc 1 301 0
  847 01a2 039A     		ldr	r2, [sp, #12]
  848 01a4 9542     		cmp	r5, r2
-ARM GAS  /tmp/ccuR1pmD.s 			page 23
+ARM GAS  /tmp/ccbGy7uW.s 			page 23
 
 
  849 01a6 C8BF     		it	gt
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  895              	.LVL95:
  896 01e4 6D10     		asrs	r5, r5, #1
  897 01e6 6D42     		negs	r5, r5
-ARM GAS  /tmp/ccuR1pmD.s 			page 24
+ARM GAS  /tmp/ccbGy7uW.s 			page 24
 
 
  898 01e8 1346     		mov	r3, r2
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  951              		.cfi_offset 9, -8
  952              		.cfi_offset 14, -4
  953 0004 0C46     		mov	r4, r1
-ARM GAS  /tmp/ccuR1pmD.s 			page 25
+ARM GAS  /tmp/ccbGy7uW.s 			page 25
 
 
   31:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  997 003a 4B1E     		subs	r3, r1, #1
  998              	.LVL104:
  999 003c 1B1B     		subs	r3, r3, r4
-ARM GAS  /tmp/ccuR1pmD.s 			page 26
+ARM GAS  /tmp/ccbGy7uW.s 			page 26
 
 
  1000 003e 9BB2     		uxth	r3, r3
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1047 0086 2A46     		mov	r2, r5
  1048 0088 3046     		mov	r0, r6
  1049 008a 8DE88001 		stm	sp, {r7, r8}
-ARM GAS  /tmp/ccuR1pmD.s 			page 27
+ARM GAS  /tmp/ccbGy7uW.s 			page 27
 
 
  1050 008e FFF7FEFF 		bl	makise_d_line
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1099              		.cfi_restore_state
   42:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    return;
  1100              		.loc 1 42 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 28
+ARM GAS  /tmp/ccbGy7uW.s 			page 28
 
 
  1101 00b6 C5F1000E 		rsb	lr, r5, #0
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1152              		.cfi_offset 11, -8
  1153              		.cfi_offset 14, -4
  1154 0004 85B0     		sub	sp, sp, #20
-ARM GAS  /tmp/ccuR1pmD.s 			page 29
+ARM GAS  /tmp/ccbGy7uW.s 			page 29
 
 
  1155              	.LCFI27:
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1200              	.L109:
  101:MakiseGUI/MakiseGUI/makise_primitives.c **** 	h = b->height - y - 1;
  1201              		.loc 1 101 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 30
+ARM GAS  /tmp/ccbGy7uW.s 			page 30
 
 
  1202 0048 3219     		adds	r2, r6, r4
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1242              		.loc 1 117 0
  1243 007e 1BB2     		sxth	r3, r3
  1244 0080 4A46     		mov	r2, r9
-ARM GAS  /tmp/ccuR1pmD.s 			page 31
+ARM GAS  /tmp/ccbGy7uW.s 			page 31
 
 
  1245              	.LVL134:
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1292 00da 04F10104 		add	r4, r4, #1
  1293              	.LBE14:
  128:MakiseGUI/MakiseGUI/makise_primitives.c ****     for (int i = y+1; i < h + y; i++) {
-ARM GAS  /tmp/ccuR1pmD.s 			page 32
+ARM GAS  /tmp/ccbGy7uW.s 			page 32
 
 
  1294              		.loc 1 128 0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1342              		.cfi_restore_state
   80:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
  1343              		.loc 1 80 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 33
+ARM GAS  /tmp/ccbGy7uW.s 			page 33
 
 
  1344 011a 0E96     		str	r6, [sp, #56]
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1391              		.loc 1 96 0
  1392 0140 4E44     		add	r6, r6, r9
  1393 0142 4FF00009 		mov	r9, #0
-ARM GAS  /tmp/ccuR1pmD.s 			page 34
+ARM GAS  /tmp/ccbGy7uW.s 			page 34
 
 
  1394 0146 B6B2     		uxth	r6, r6
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1445 0020 9C46     		mov	ip, r3
  189:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc + r, c);
  1446              		.loc 1 189 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 35
+ARM GAS  /tmp/ccbGy7uW.s 			page 35
 
 
  1447 0022 CE1A     		subs	r6, r1, r3
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  190:MakiseGUI/MakiseGUI/makise_primitives.c ****     makise_pset(b, xc, yc - r, c);
  1488              		.loc 1 190 0
  1489 006a 089F     		ldr	r7, [sp, #32]
-ARM GAS  /tmp/ccuR1pmD.s 			page 36
+ARM GAS  /tmp/ccbGy7uW.s 			page 36
 
 
  1490 006c DDF810A0 		ldr	r10, [sp, #16]
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1537              		.loc 1 195 0
  1538 00c8 0023     		movs	r3, #0
  1539 00ca 0593     		str	r3, [sp, #20]
-ARM GAS  /tmp/ccuR1pmD.s 			page 37
+ARM GAS  /tmp/ccbGy7uW.s 			page 37
 
 
  1540 00cc 5F46     		mov	r7, fp
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1583 0102 089B     		ldr	r3, [sp, #32]
  1584 0104 9845     		cmp	r8, r3
  1585 0106 25D0     		beq	.L130
-ARM GAS  /tmp/ccuR1pmD.s 			page 38
+ARM GAS  /tmp/ccbGy7uW.s 			page 38
 
 
  1586 0108 049B     		ldr	r3, [sp, #16]
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1636 0174 2244     		add	r2, r2, r4
  1637 0176 12B2     		sxth	r2, r2
  1638 0178 079B     		ldr	r3, [sp, #28]
-ARM GAS  /tmp/ccuR1pmD.s 			page 39
+ARM GAS  /tmp/ccbGy7uW.s 			page 39
 
 
  1639 017a 0193     		str	r3, [sp, #4]
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1689 01e4 5146     		mov	r1, r10
  1690 01e6 3B46     		mov	r3, r7
  1691 01e8 2846     		mov	r0, r5
-ARM GAS  /tmp/ccuR1pmD.s 			page 40
+ARM GAS  /tmp/ccbGy7uW.s 			page 40
 
 
  1692 01ea FFF7FEFF 		bl	makise_pset
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1741 024e 2246     		mov	r2, r4
  1742 0250 3B46     		mov	r3, r7
  1743 0252 2846     		mov	r0, r5
-ARM GAS  /tmp/ccuR1pmD.s 			page 41
+ARM GAS  /tmp/ccbGy7uW.s 			page 41
 
 
  1744 0254 FFF7FEFF 		bl	makise_pset
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1793              		.cfi_restore 8
  1794              		.cfi_restore 7
  1795              		.cfi_restore 6
-ARM GAS  /tmp/ccuR1pmD.s 			page 42
+ARM GAS  /tmp/ccbGy7uW.s 			page 42
 
 
  1796              		.cfi_restore 5
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1847              		.loc 1 306 0 discriminator 2
  1848 0016 8BB0     		sub	sp, sp, #44
  1849              	.LCFI40:
-ARM GAS  /tmp/ccuR1pmD.s 			page 43
+ARM GAS  /tmp/ccbGy7uW.s 			page 43
 
 
  1850              		.cfi_def_cfa_offset 80
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1894 0036 C0F2E680 		blt	.L184
  1895              	.L140:
  241:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
-ARM GAS  /tmp/ccuR1pmD.s 			page 44
+ARM GAS  /tmp/ccbGy7uW.s 			page 44
 
 
  1896              		.loc 1 241 0
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1942 007e 0EF1FF33 		add	r3, lr, #-1
  259:MakiseGUI/MakiseGUI/makise_primitives.c ****     
  1943              		.loc 1 259 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 45
+ARM GAS  /tmp/ccbGy7uW.s 			page 45
 
 
  1944 0082 002E     		cmp	r6, #0
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  1988              		.loc 1 266 0
  1989 00c4 9942     		cmp	r1, r3
  268:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
-ARM GAS  /tmp/ccuR1pmD.s 			page 46
+ARM GAS  /tmp/ccbGy7uW.s 			page 46
 
 
  1990              		.loc 1 268 0
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2036              		.loc 1 279 0
  2037 0114 AC42     		cmp	r4, r5
  278:MakiseGUI/MakiseGUI/makise_primitives.c **** 	while(j <= x1 && x1 - j >= 32/b->pixeldepth)
-ARM GAS  /tmp/ccuR1pmD.s 			page 47
+ARM GAS  /tmp/ccbGy7uW.s 			page 47
 
 
  2038              		.loc 1 278 0
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2084              		.loc 1 288 0
  2085 0158 0134     		adds	r4, r4, #1
  2086              	.LVL220:
-ARM GAS  /tmp/ccuR1pmD.s 			page 48
+ARM GAS  /tmp/ccbGy7uW.s 			page 48
 
 
  287:MakiseGUI/MakiseGUI/makise_primitives.c **** 	    j++;
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2133 0180 099D     		ldr	r5, [sp, #36]
  2134              	.LVL226:
  253:MakiseGUI/MakiseGUI/makise_primitives.c ****     y0 =  y0 < b->height-1 ? y0 : b->height - 1;
-ARM GAS  /tmp/ccuR1pmD.s 			page 49
+ARM GAS  /tmp/ccbGy7uW.s 			page 49
 
 
  2135              		.loc 1 253 0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  301:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if (e2 < dy) { err += dx; y0 += sy; }
  2176              		.loc 1 301 0
  2177 01b6 5B42     		negs	r3, r3
-ARM GAS  /tmp/ccuR1pmD.s 			page 50
+ARM GAS  /tmp/ccbGy7uW.s 			page 50
 
 
  2178              	.LVL229:
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2222              	.LVL235:
  2223 01f2 049A     		ldr	r2, [sp, #16]
  2224 01f4 1FFA89F8 		uxth	r8, r9
-ARM GAS  /tmp/ccuR1pmD.s 			page 51
+ARM GAS  /tmp/ccbGy7uW.s 			page 51
 
 
  2225 01f8 1344     		add	r3, r3, r2
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2274              		.cfi_offset 4, -36
  2275              		.cfi_offset 5, -32
  2276              		.cfi_offset 6, -28
-ARM GAS  /tmp/ccuR1pmD.s 			page 52
+ARM GAS  /tmp/ccbGy7uW.s 			page 52
 
 
  2277              		.cfi_offset 7, -24
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2329              		.cfi_def_cfa_offset 68
  2330              		.cfi_offset 80, -68
  2331              		.cfi_offset 81, -64
-ARM GAS  /tmp/ccuR1pmD.s 			page 53
+ARM GAS  /tmp/ccbGy7uW.s 			page 53
 
 
  2332              		.cfi_offset 82, -60
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2378 0058 FFF7FEFF 		bl	__aeabi_d2f
  2379              	.LVL250:
  328:MakiseGUI/MakiseGUI/makise_primitives.c ****     float lx, ly, cx, cy;
-ARM GAS  /tmp/ccuR1pmD.s 			page 54
+ARM GAS  /tmp/ccbGy7uW.s 			page 54
 
 
  329:MakiseGUI/MakiseGUI/makise_primitives.c **** 
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2423 00ae DDF87CA0 		ldr	r10, [sp, #124]
  2424              	.LVL254:
  2425 00b2 0996     		str	r6, [sp, #36]
-ARM GAS  /tmp/ccuR1pmD.s 			page 55
+ARM GAS  /tmp/ccbGy7uW.s 			page 55
 
 
  2426              	.LBE59:
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2472              	.L196:
  241:MakiseGUI/MakiseGUI/makise_primitives.c **** 	return;
  2473              		.loc 1 241 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 56
+ARM GAS  /tmp/ccbGy7uW.s 			page 56
 
 
  2474 0106 BBF806E0 		ldrh	lr, [fp, #6]
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2520              		.loc 1 252 0
  2521 0158 0EF1FF33 		add	r3, lr, #-1
  2522              	.LVL262:
-ARM GAS  /tmp/ccuR1pmD.s 			page 57
+ARM GAS  /tmp/ccbGy7uW.s 			page 57
 
 
  259:MakiseGUI/MakiseGUI/makise_primitives.c ****     
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2567 019a 08FA06FC 		lsl	ip, r8, r6
  266:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
  2568              		.loc 1 266 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 58
+ARM GAS  /tmp/ccbGy7uW.s 			page 58
 
 
  2569 019e 9842     		cmp	r0, r3
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2615 01ea 01FB0EF1 		mul	r1, r1, lr
  279:MakiseGUI/MakiseGUI/makise_primitives.c **** 	{
  2616              		.loc 1 279 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 59
+ARM GAS  /tmp/ccbGy7uW.s 			page 59
 
 
  2617 01ee AC42     		cmp	r4, r5
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2663 0230 5846     		mov	r0, fp
  288:MakiseGUI/MakiseGUI/makise_primitives.c **** 	}
  2664              		.loc 1 288 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 60
+ARM GAS  /tmp/ccbGy7uW.s 			page 60
 
 
  2665 0232 0134     		adds	r4, r4, #1
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2710              		.cfi_restore 80
  2711              		.cfi_restore 81
  2712              		.cfi_def_cfa_offset 36
-ARM GAS  /tmp/ccuR1pmD.s 			page 61
+ARM GAS  /tmp/ccbGy7uW.s 			page 61
 
 
  2713 025e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2754 028e 0291     		str	r1, [sp, #8]
  294:MakiseGUI/MakiseGUI/makise_primitives.c ****     int err = (dx>dy ? dx : -dy)/2, e2;
  2755              		.loc 1 294 0
-ARM GAS  /tmp/ccuR1pmD.s 			page 62
+ARM GAS  /tmp/ccbGy7uW.s 			page 62
 
 
  2756 0290 0690     		str	r0, [sp, #24]
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2799 02c6 069A     		ldr	r2, [sp, #24]
  2800 02c8 BABF     		itte	lt
  2801 02ca A7B2     		uxthlt	r7, r4
-ARM GAS  /tmp/ccuR1pmD.s 			page 63
+ARM GAS  /tmp/ccbGy7uW.s 			page 63
 
 
  301:MakiseGUI/MakiseGUI/makise_primitives.c **** 	if (e2 < dy) { err += dx; y0 += sy; }
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2849              	.LBE67:
  2850              	.LBE72:
  323:MakiseGUI/MakiseGUI/makise_primitives.c **** 	makise_d_polyline(b, points, count, c);
-ARM GAS  /tmp/ccuR1pmD.s 			page 64
+ARM GAS  /tmp/ccbGy7uW.s 			page 64
 
 
  2851              		.loc 1 323 0 discriminator 2
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2900 0354 4645     		cmp	r6, r8
  2901 0356 07F10407 		add	r7, r7, #4
  2902 035a ECD1     		bne	.L195
-ARM GAS  /tmp/ccuR1pmD.s 			page 65
+ARM GAS  /tmp/ccbGy7uW.s 			page 65
 
 
  2903 035c 5E46     		mov	r6, fp
@@ -3895,31 +3895,31 @@ ARM GAS  /tmp/ccuR1pmD.s 			page 1
  2954              		.file 22 "MakiseGUI/MakiseGUI/makise_primitives.h"
  2955              		.file 23 "/usr/arm-none-eabi/include/math.h"
  2956              		.file 24 "/usr/arm-none-eabi/include/string.h"
-ARM GAS  /tmp/ccuR1pmD.s 			page 66
+ARM GAS  /tmp/ccbGy7uW.s 			page 66
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_primitives.c
-     /tmp/ccuR1pmD.s:16     .text.makise_d_circle.part.0:0000000000000000 $t
-     /tmp/ccuR1pmD.s:23     .text.makise_d_circle.part.0:0000000000000000 makise_d_circle.part.0
-     /tmp/ccuR1pmD.s:276    .text.makise_d_clear:0000000000000000 $t
-     /tmp/ccuR1pmD.s:284    .text.makise_d_clear:0000000000000000 makise_d_clear
-     /tmp/ccuR1pmD.s:424    .text.makise_d_point:0000000000000000 $t
-     /tmp/ccuR1pmD.s:432    .text.makise_d_point:0000000000000000 makise_d_point
-     /tmp/ccuR1pmD.s:470    .text.makise_d_circle:0000000000000000 $t
-     /tmp/ccuR1pmD.s:478    .text.makise_d_circle:0000000000000000 makise_d_circle
-     /tmp/ccuR1pmD.s:521    .text.makise_d_line:0000000000000000 $t
-     /tmp/ccuR1pmD.s:529    .text.makise_d_line:0000000000000000 makise_d_line
-     /tmp/ccuR1pmD.s:928    .text.makise_d_rect:0000000000000000 $t
-     /tmp/ccuR1pmD.s:936    .text.makise_d_rect:0000000000000000 makise_d_rect
-     /tmp/ccuR1pmD.s:1127   .text.makise_d_rect_filled:0000000000000000 $t
-     /tmp/ccuR1pmD.s:1135   .text.makise_d_rect_filled:0000000000000000 makise_d_rect_filled
-     /tmp/ccuR1pmD.s:1403   .text.makise_d_circle_filled:0000000000000000 $t
-     /tmp/ccuR1pmD.s:1411   .text.makise_d_circle_filled:0000000000000000 makise_d_circle_filled
-     /tmp/ccuR1pmD.s:1810   .text.makise_d_polyline:0000000000000000 $t
-     /tmp/ccuR1pmD.s:1818   .text.makise_d_polyline:0000000000000000 makise_d_polyline
-     /tmp/ccuR1pmD.s:2300   .text.makise_dex_polyline:0000000000000000 $t
-     /tmp/ccuR1pmD.s:2308   .text.makise_dex_polyline:0000000000000000 makise_dex_polyline
+     /tmp/ccbGy7uW.s:16     .text.makise_d_circle.part.0:0000000000000000 $t
+     /tmp/ccbGy7uW.s:23     .text.makise_d_circle.part.0:0000000000000000 makise_d_circle.part.0
+     /tmp/ccbGy7uW.s:276    .text.makise_d_clear:0000000000000000 $t
+     /tmp/ccbGy7uW.s:284    .text.makise_d_clear:0000000000000000 makise_d_clear
+     /tmp/ccbGy7uW.s:424    .text.makise_d_point:0000000000000000 $t
+     /tmp/ccbGy7uW.s:432    .text.makise_d_point:0000000000000000 makise_d_point
+     /tmp/ccbGy7uW.s:470    .text.makise_d_circle:0000000000000000 $t
+     /tmp/ccbGy7uW.s:478    .text.makise_d_circle:0000000000000000 makise_d_circle
+     /tmp/ccbGy7uW.s:521    .text.makise_d_line:0000000000000000 $t
+     /tmp/ccbGy7uW.s:529    .text.makise_d_line:0000000000000000 makise_d_line
+     /tmp/ccbGy7uW.s:928    .text.makise_d_rect:0000000000000000 $t
+     /tmp/ccbGy7uW.s:936    .text.makise_d_rect:0000000000000000 makise_d_rect
+     /tmp/ccbGy7uW.s:1127   .text.makise_d_rect_filled:0000000000000000 $t
+     /tmp/ccbGy7uW.s:1135   .text.makise_d_rect_filled:0000000000000000 makise_d_rect_filled
+     /tmp/ccbGy7uW.s:1403   .text.makise_d_circle_filled:0000000000000000 $t
+     /tmp/ccbGy7uW.s:1411   .text.makise_d_circle_filled:0000000000000000 makise_d_circle_filled
+     /tmp/ccbGy7uW.s:1810   .text.makise_d_polyline:0000000000000000 $t
+     /tmp/ccbGy7uW.s:1818   .text.makise_d_polyline:0000000000000000 makise_d_polyline
+     /tmp/ccbGy7uW.s:2300   .text.makise_dex_polyline:0000000000000000 $t
+     /tmp/ccbGy7uW.s:2308   .text.makise_dex_polyline:0000000000000000 makise_dex_polyline
                             *COM*:0000000000000004 makise_color_palette
                      .debug_frame:0000000000000010 $d
 

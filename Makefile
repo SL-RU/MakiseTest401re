@@ -25,67 +25,68 @@ BUILD_DIR = build
 # source
 ######################################
 C_SOURCES = \
-  Controls/controls_595.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sd.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
-  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
+  Src/makise_test.c \
+  Src/main.c \
+  Src/dma.c \
+  Src/stm32f4xx_it.c \
+  Src/usart.c \
+  Src/i2c.c \
+  Src/sdio.c \
+  Src/fatfs.c \
+  Src/system_stm32f4xx.c \
+  Src/spi.c \
+  Src/tim.c \
+  Src/printf.c \
+  Src/gpio.c \
+  Src/stm32f4xx_hal_msp.c \
+  Src/bsp_driver_sd.c \
   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c \
-  MakiseGUI/MakiseGUI/makise.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sd.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c \
+  Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
   MakiseGUI/MakiseGUI/makise_colors.c \
-  MakiseGUI/MakiseGUI/makise_primitives.c \
   MakiseGUI/MakiseGUI/makise_text.c \
-  MakiseGUI/MakiseGUI/fonts/Arial12.c \
-  MakiseGUI/MakiseGUI/fonts/Arial15.c \
-  MakiseGUI/MakiseGUI/fonts/Arial16.c \
-  MakiseGUI/MakiseGUI/fonts/Arial24.c \
+  MakiseGUI/MakiseGUI/makise_primitives.c \
+  MakiseGUI/MakiseGUI/makise.c \
+  MakiseGUI/MakiseGUI/ILI9340C/ili9340.c \
   MakiseGUI/MakiseGUI/fonts/fonts.c \
+  MakiseGUI/MakiseGUI/fonts/Arial12.c \
+  MakiseGUI/MakiseGUI/fonts/Arial24.c \
+  MakiseGUI/MakiseGUI/fonts/Arial16.c \
+  MakiseGUI/MakiseGUI/fonts/Arial15.c \
   MakiseGUI/MakiseGUI/gui/makise_gui.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_container.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_elements.c \
   MakiseGUI/MakiseGUI/gui/makise_gui_input.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c \
+  MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c \
   MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c \
-  MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c \
-  MakiseGUI/MakiseGUI/gui/elements/makise_e_text_field.c \
-  MakiseGUI/MakiseGUI/ILI9340C/ili9340.c \
-  Middlewares/Third_Party/FatFs/src/diskio.c \
+  Controls/controls_595.c \
+  apps/list_test.c \
   Middlewares/Third_Party/FatFs/src/ff.c \
   Middlewares/Third_Party/FatFs/src/ff_gen_drv.c \
+  Middlewares/Third_Party/FatFs/src/diskio.c \
   Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c \
-  Middlewares/Third_Party/FatFs/src/option/syscall.c \
-  Src/bsp_driver_sd.c \
-  Src/dma.c \
-  Src/fatfs.c \
-  Src/gpio.c \
-  Src/i2c.c \
-  Src/main.c \
-  Src/makise_test.c \
-  Src/printf.c \
-  Src/sdio.c \
-  Src/spi.c \
-  Src/stm32f4xx_hal_msp.c \
-  Src/stm32f4xx_it.c \
-  Src/system_stm32f4xx.c \
-  Src/tim.c \
-  Src/usart.c  
+  Middlewares/Third_Party/FatFs/src/option/syscall.c  
 ASM_SOURCES = \
   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
 
@@ -108,18 +109,19 @@ AS_DEFS =
 C_DEFS = -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F401xE
 # includes for gcc
 AS_INCLUDES =
-C_INCLUDES = -IControls
-C_INCLUDES += -IDrivers/CMSIS/Device/ST/STM32F4xx/Include
-C_INCLUDES += -IDrivers/CMSIS/Include
-C_INCLUDES += -IDrivers/STM32F4xx_HAL_Driver/Inc
+C_INCLUDES = -IDrivers/STM32F4xx_HAL_Driver/Inc
 C_INCLUDES += -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy
-C_INCLUDES += -IInc
+C_INCLUDES += -IDrivers/CMSIS/Include
+C_INCLUDES += -IDrivers/CMSIS/Device/ST/STM32F4xx/Include
 C_INCLUDES += -IMakiseGUI/MakiseGUI
+C_INCLUDES += -IMakiseGUI/MakiseGUI/ILI9340C
 C_INCLUDES += -IMakiseGUI/MakiseGUI/fonts
 C_INCLUDES += -IMakiseGUI/MakiseGUI/gui
 C_INCLUDES += -IMakiseGUI/MakiseGUI/gui/elements
 C_INCLUDES += -IMakiseGUI/MakiseGUI/gui/styles
-C_INCLUDES += -IMakiseGUI/MakiseGUI/ILI9340C
+C_INCLUDES += -IInc
+C_INCLUDES += -IControls
+C_INCLUDES += -Iapps
 C_INCLUDES += -IMiddlewares/Third_Party/FatFs/src
 C_INCLUDES += -IMiddlewares/Third_Party/FatFs/src/drivers
 # compile gcc flags

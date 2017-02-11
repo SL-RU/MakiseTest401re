@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc0X4ldT.s 			page 1
+ARM GAS  /tmp/ccXFkoHt.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->position.height = h;
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->enabled = 1;
-ARM GAS  /tmp/cc0X4ldT.s 			page 2
+ARM GAS  /tmp/ccXFkoHt.s 			page 2
 
 
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     e->id = makise_g_newid();
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
   87:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     {
   88:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 	e->click(e);
   89:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 	e->state = 2;
-ARM GAS  /tmp/cc0X4ldT.s 			page 3
+ARM GAS  /tmp/ccXFkoHt.s 			page 3
 
 
   90:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 	return M_INPUT_HANDLED;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
   64 001e 0123     		movs	r3, #1
   65 0020 80F86830 		strb	r3, [r0, #104]
   66              	.L4:
-ARM GAS  /tmp/cc0X4ldT.s 			page 4
+ARM GAS  /tmp/ccXFkoHt.s 			page 4
 
 
  105:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
   99              		.loc 1 117 0
  100 004a 14BF     		ite	ne
  101 004c 0120     		movne	r0, #1
-ARM GAS  /tmp/cc0X4ldT.s 			page 5
+ARM GAS  /tmp/ccXFkoHt.s 			page 5
 
 
  102 004e 0220     		moveq	r0, #2
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  152 0020 2846     		mov	r0, r5
  153 0022 B047     		blx	r6
  154              	.LVL11:
-ARM GAS  /tmp/cc0X4ldT.s 			page 6
+ARM GAS  /tmp/ccXFkoHt.s 			page 6
 
 
  155 0024 30B1     		cbz	r0, .L19
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  199              	.L26:
  200 004e 00BF     		.align	2
  201              	.L25:
-ARM GAS  /tmp/cc0X4ldT.s 			page 7
+ARM GAS  /tmp/ccXFkoHt.s 			page 7
 
 
  202 0050 00000000 		.word	.LC0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  249 001a 2C35     		addeq	r5, r5, #44
  250              	.LVL16:
   61:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     }
-ARM GAS  /tmp/cc0X4ldT.s 			page 8
+ARM GAS  /tmp/ccXFkoHt.s 			page 8
 
 
  251              		.loc 1 61 0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  293 0056 92B2     		uxth	r2, r2
  294 0058 04EB6303 		add	r3, r4, r3, asr #1
  295 005c 0124     		movs	r4, #1
-ARM GAS  /tmp/cc0X4ldT.s 			page 9
+ARM GAS  /tmp/ccXFkoHt.s 			page 9
 
 
  296 005e 0092     		str	r2, [sp]
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  349              		.cfi_offset 14, -4
   14:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c ****     MElement *e = &b->el;
  350              		.loc 1 14 0
-ARM GAS  /tmp/cc0X4ldT.s 			page 10
+ARM GAS  /tmp/ccXFkoHt.s 			page 10
 
 
  351 0004 0446     		mov	r4, r0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  388              		.loc 1 30 0
  389 002a A362     		str	r3, [r4, #40]
   18:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** 
-ARM GAS  /tmp/cc0X4ldT.s 			page 11
+ARM GAS  /tmp/ccXFkoHt.s 			page 11
 
 
  390              		.loc 1 18 0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  428              		.loc 1 45 0
  429 0068 FFF7FEFF 		bl	makise_g_cont_add
  430              	.LVL32:
-ARM GAS  /tmp/cc0X4ldT.s 			page 12
+ARM GAS  /tmp/ccXFkoHt.s 			page 12
 
 
   47:MakiseGUI/MakiseGUI/gui/elements/makise_e_buttons.c **** }
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  475              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
  476              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
  477              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
-ARM GAS  /tmp/cc0X4ldT.s 			page 13
+ARM GAS  /tmp/ccXFkoHt.s 			page 13
 
 
  478              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
@@ -743,24 +743,24 @@ ARM GAS  /tmp/cc0X4ldT.s 			page 1
  497              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
  498              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
  499              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/cc0X4ldT.s 			page 14
+ARM GAS  /tmp/ccXFkoHt.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_e_buttons.c
-     /tmp/cc0X4ldT.s:16     .text._m_button_focus:0000000000000000 $t
-     /tmp/cc0X4ldT.s:24     .text._m_button_focus:0000000000000000 _m_button_focus
-     /tmp/cc0X4ldT.s:108    .text._m_button_input:0000000000000000 $t
-     /tmp/cc0X4ldT.s:116    .text._m_button_input:0000000000000000 _m_button_input
-     /tmp/cc0X4ldT.s:202    .text._m_button_input:0000000000000050 $d
-     /tmp/cc0X4ldT.s:207    .text._m_button_draw:0000000000000000 $t
-     /tmp/cc0X4ldT.s:215    .text._m_button_draw:0000000000000000 _m_button_draw
-     /tmp/cc0X4ldT.s:322    .text.m_create_button:0000000000000000 $t
-     /tmp/cc0X4ldT.s:330    .text.m_create_button:0000000000000000 m_create_button
-     /tmp/cc0X4ldT.s:455    .text.m_create_button:0000000000000078 $d
+     /tmp/ccXFkoHt.s:16     .text._m_button_focus:0000000000000000 $t
+     /tmp/ccXFkoHt.s:24     .text._m_button_focus:0000000000000000 _m_button_focus
+     /tmp/ccXFkoHt.s:108    .text._m_button_input:0000000000000000 $t
+     /tmp/ccXFkoHt.s:116    .text._m_button_input:0000000000000000 _m_button_input
+     /tmp/ccXFkoHt.s:202    .text._m_button_input:0000000000000050 $d
+     /tmp/ccXFkoHt.s:207    .text._m_button_draw:0000000000000000 $t
+     /tmp/ccXFkoHt.s:215    .text._m_button_draw:0000000000000000 _m_button_draw
+     /tmp/ccXFkoHt.s:322    .text.m_create_button:0000000000000000 $t
+     /tmp/ccXFkoHt.s:330    .text.m_create_button:0000000000000000 m_create_button
+     /tmp/ccXFkoHt.s:455    .text.m_create_button:0000000000000078 $d
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/cc0X4ldT.s:464    .rodata._m_button_input.str1.4:0000000000000000 $d
-     /tmp/cc0X4ldT.s:468    .rodata.m_create_button.str1.4:0000000000000000 $d
+     /tmp/ccXFkoHt.s:464    .rodata._m_button_input.str1.4:0000000000000000 $d
+     /tmp/ccXFkoHt.s:468    .rodata.m_create_button.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

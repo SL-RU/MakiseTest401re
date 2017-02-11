@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfdyB3t.s 			page 1
+ARM GAS  /tmp/cceCIiMe.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   *
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   * Redistribution and use in source and binary forms, with or without modification,
-ARM GAS  /tmp/ccfdyB3t.s 			page 2
+ARM GAS  /tmp/cceCIiMe.s 			page 2
 
 
   33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   * are permitted provided that the following conditions are met:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   * @{
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   */
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c **** 
-ARM GAS  /tmp/ccfdyB3t.s 			page 3
+ARM GAS  /tmp/cceCIiMe.s 			page 3
 
 
   90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  128:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   {
  129:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NOT_SUPPORTED;
  130:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     status = HAL_ERROR;
-ARM GAS  /tmp/ccfdyB3t.s 			page 4
+ARM GAS  /tmp/cceCIiMe.s 			page 4
 
 
  131:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
   63 0020 70BC     		pop	{r4, r5, r6}
   64              	.LCFI1:
   65              		.cfi_remember_state
-ARM GAS  /tmp/ccfdyB3t.s 			page 5
+ARM GAS  /tmp/cceCIiMe.s 			page 5
 
 
   66              		.cfi_restore 6
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  191:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     return HAL_ERROR;
  192:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   }
  193:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   
-ARM GAS  /tmp/ccfdyB3t.s 			page 6
+ARM GAS  /tmp/cceCIiMe.s 			page 6
 
 
  194:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   /* Process locked */
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  248:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   * @param  Address:    The new address
  249:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   * @param  memory:     the memory to be changed, This parameter can be one of 
  250:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   *                     the following values:
-ARM GAS  /tmp/ccfdyB3t.s 			page 7
+ARM GAS  /tmp/cceCIiMe.s 			page 7
 
 
  251:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   *                      MEMORY0 /
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
   91              	.LBE6:
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****       
   92              		.loc 1 146 0
-ARM GAS  /tmp/ccfdyB3t.s 			page 8
+ARM GAS  /tmp/cceCIiMe.s 			page 8
 
 
   93 0036 2B61     		str	r3, [r5, #16]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  127              	.LVL11:
  161:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c **** 
  128              		.loc 1 161 0
-ARM GAS  /tmp/ccfdyB3t.s 			page 9
+ARM GAS  /tmp/cceCIiMe.s 			page 9
 
 
  129 0058 70BC     		pop	{r4, r5, r6}
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  178              		.loc 1 188 0 discriminator 2
  179 0010 C56C     		ldr	r5, [r0, #76]
  180 0012 9DB1     		cbz	r5, .L15
-ARM GAS  /tmp/ccfdyB3t.s 			page 10
+ARM GAS  /tmp/cceCIiMe.s 			page 10
 
 
  195:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****   
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  224              		.cfi_remember_state
  225              		.cfi_restore 4
  226              		.cfi_restore 5
-ARM GAS  /tmp/ccfdyB3t.s 			page 11
+ARM GAS  /tmp/cceCIiMe.s 			page 11
 
 
  227              		.cfi_restore 6
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  274 004e 0120     		movs	r0, #1
  275              	.LVL28:
  242:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c **** 
-ARM GAS  /tmp/ccfdyB3t.s 			page 12
+ARM GAS  /tmp/cceCIiMe.s 			page 12
 
 
  276              		.loc 1 242 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  318              		.loc 1 307 0
  319 0076 E960     		streq	r1, [r5, #12]
  320              		.loc 1 316 0
-ARM GAS  /tmp/ccfdyB3t.s 			page 13
+ARM GAS  /tmp/cceCIiMe.s 			page 13
 
 
  321 0078 EA60     		strne	r2, [r5, #12]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  363 00b2 00F0D780 		beq	.L39
  217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_DME_FLAG_INDEX(hdma));
  364              		.loc 1 217 0 is_stmt 0 discriminator 61
-ARM GAS  /tmp/ccfdyB3t.s 			page 14
+ARM GAS  /tmp/cceCIiMe.s 			page 14
 
 
  365 00b6 A04A     		ldr	r2, .L119+16
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  406 00f8 026C     		ldr	r2, [r0, #64]
  222:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     hdma->Instance->FCR |= DMA_IT_FE;
  407              		.loc 1 222 0
-ARM GAS  /tmp/ccfdyB3t.s 			page 15
+ARM GAS  /tmp/cceCIiMe.s 			page 15
 
 
  408 00fa 43F01603 		orr	r3, r3, #22
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  451              		.loc 1 217 0
  452 0142 4FF00074 		mov	r4, #33554432
  218:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_FE_FLAG_INDEX(hdma));
-ARM GAS  /tmp/ccfdyB3t.s 			page 16
+ARM GAS  /tmp/cceCIiMe.s 			page 16
 
 
  453              		.loc 1 218 0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  216:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_TE_FLAG_INDEX(hdma));
  496              		.loc 1 216 0 is_stmt 1
  497 0182 4FF08061 		mov	r1, #67108864
-ARM GAS  /tmp/ccfdyB3t.s 			page 17
+ARM GAS  /tmp/cceCIiMe.s 			page 17
 
 
  498              	.LVL45:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  537 01bc 00F09E80 		beq	.L74
  219:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c **** 
  538              		.loc 1 219 0 discriminator 122
-ARM GAS  /tmp/ccfdyB3t.s 			page 18
+ARM GAS  /tmp/cceCIiMe.s 			page 18
 
 
  539 01c0 1833     		adds	r3, r3, #24
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  583              		.loc 1 217 0 discriminator 200
  584 0200 9542     		cmp	r5, r2
  216:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_TE_FLAG_INDEX(hdma));
-ARM GAS  /tmp/ccfdyB3t.s 			page 19
+ARM GAS  /tmp/cceCIiMe.s 			page 19
 
 
  585              		.loc 1 216 0 discriminator 200
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  626 0240 9360     		str	r3, [r2, #8]
  627 0242 58E7     		b	.L59
  628              	.LVL50:
-ARM GAS  /tmp/ccfdyB3t.s 			page 20
+ARM GAS  /tmp/cceCIiMe.s 			page 20
 
 
  629              	.L20:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_DME_FLAG_INDEX(hdma));
  669              		.loc 1 217 0
  670 0264 324B     		ldr	r3, .L119+8
-ARM GAS  /tmp/ccfdyB3t.s 			page 21
+ARM GAS  /tmp/cceCIiMe.s 			page 21
 
 
  218:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_FE_FLAG_INDEX(hdma));
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  711 028a 2F4B     		ldr	r3, .L119+32
  712 028c 2021     		movs	r1, #32
  713              	.LVL63:
-ARM GAS  /tmp/ccfdyB3t.s 			page 22
+ARM GAS  /tmp/cceCIiMe.s 			page 22
 
 
  216:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_TE_FLAG_INDEX(hdma));
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  753              		.loc 1 219 0
  754 02b8 4022     		movs	r2, #64
  217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_DME_FLAG_INDEX(hdma));
-ARM GAS  /tmp/ccfdyB3t.s 			page 23
+ARM GAS  /tmp/cceCIiMe.s 			page 23
 
 
  755              		.loc 1 217 0
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c ****     __HAL_DMA_CLEAR_FLAG (hdma, __HAL_DMA_GET_DME_FLAG_INDEX(hdma));
  800              		.loc 1 217 0
  801 02f0 4FF40072 		mov	r2, #512
-ARM GAS  /tmp/ccfdyB3t.s 			page 24
+ARM GAS  /tmp/cceCIiMe.s 			page 24
 
 
  802 02f4 9A60     		str	r2, [r3, #8]
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  848 0338 28640240 		.word	1073898536
  849 033c 40640240 		.word	1073898560
  850 0340 70640240 		.word	1073898608
-ARM GAS  /tmp/ccfdyB3t.s 			page 25
+ARM GAS  /tmp/cceCIiMe.s 			page 25
 
 
  851 0344 58600240 		.word	1073897560
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  893              		.loc 1 215 0
  894 0390 104B     		ldr	r3, .L121+4
  895 0392 4FF40012 		mov	r2, #2097152
-ARM GAS  /tmp/ccfdyB3t.s 			page 26
+ARM GAS  /tmp/cceCIiMe.s 			page 26
 
 
  896              	.LVL91:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  942 03d0 00640240 		.word	1073898496
  943 03d4 00600240 		.word	1073897472
  944 03d8 01008000 		.word	8388609
-ARM GAS  /tmp/ccfdyB3t.s 			page 27
+ARM GAS  /tmp/cceCIiMe.s 			page 27
 
 
  945              		.cfi_endproc
@@ -1618,25 +1618,25 @@ ARM GAS  /tmp/ccfdyB3t.s 			page 1
  995              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
  996              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
  997              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
-ARM GAS  /tmp/ccfdyB3t.s 			page 28
+ARM GAS  /tmp/cceCIiMe.s 			page 28
 
 
  998              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  999              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h"
-ARM GAS  /tmp/ccfdyB3t.s 			page 29
+ARM GAS  /tmp/cceCIiMe.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_dma_ex.c
-     /tmp/ccfdyB3t.s:16     .text.HAL_DMAEx_MultiBufferStart:0000000000000000 $t
-     /tmp/ccfdyB3t.s:24     .text.HAL_DMAEx_MultiBufferStart:0000000000000000 HAL_DMAEx_MultiBufferStart
-     /tmp/ccfdyB3t.s:145    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000000 $t
-     /tmp/ccfdyB3t.s:153    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000000 HAL_DMAEx_MultiBufferStart_IT
-     /tmp/ccfdyB3t.s:844    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000328 $d
-     /tmp/ccfdyB3t.s:862    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000364 $t
-     /tmp/ccfdyB3t.s:942    .text.HAL_DMAEx_MultiBufferStart_IT:00000000000003d0 $d
-     /tmp/ccfdyB3t.s:949    .text.HAL_DMAEx_ChangeMemory:0000000000000000 $t
-     /tmp/ccfdyB3t.s:957    .text.HAL_DMAEx_ChangeMemory:0000000000000000 HAL_DMAEx_ChangeMemory
+     /tmp/cceCIiMe.s:16     .text.HAL_DMAEx_MultiBufferStart:0000000000000000 $t
+     /tmp/cceCIiMe.s:24     .text.HAL_DMAEx_MultiBufferStart:0000000000000000 HAL_DMAEx_MultiBufferStart
+     /tmp/cceCIiMe.s:145    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000000 $t
+     /tmp/cceCIiMe.s:153    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000000 HAL_DMAEx_MultiBufferStart_IT
+     /tmp/cceCIiMe.s:844    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000328 $d
+     /tmp/cceCIiMe.s:862    .text.HAL_DMAEx_MultiBufferStart_IT:0000000000000364 $t
+     /tmp/cceCIiMe.s:942    .text.HAL_DMAEx_MultiBufferStart_IT:00000000000003d0 $d
+     /tmp/cceCIiMe.s:949    .text.HAL_DMAEx_ChangeMemory:0000000000000000 $t
+     /tmp/cceCIiMe.s:957    .text.HAL_DMAEx_ChangeMemory:0000000000000000 HAL_DMAEx_ChangeMemory
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

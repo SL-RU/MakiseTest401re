@@ -23,17 +23,10 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 	ili9340_spi_txcplt(mGui->driver);
 }
 
-MButton butt[4];
-MCanvas canv[2];
-MLable  labls[2];
-MTextField tf[2];
-MSList   list[2];
-
-MSList_Item l_itms[222] = {{0}};
 
 void mt_predraw(MakiseGUI * g)
 {
-    canv[0].el.position.x = (canv[0].el.position.x+1) %150;
+//    canv[0].el.position.x = (canv[0].el.position.x+1) %150;
     makise_g_host_call(host, M_G_CALL_PREDRAW);
 
 }
@@ -73,11 +66,11 @@ void but_h(
 	/* if(id == 2) */
 	/*     butt[2].el.position.x --; */
 
-	if(id == 11)
 	    //m_element_focus(&(butt[1].el), M_G_FOCUS_GET);
 //	    makise_g_focus(&(butt[1].el), M_G_FOCUS_GET);
-	    makise_g_cont_focus_prev(host->host);
 	if(id == 12)
+	    makise_g_cont_focus_prev(host->host);
+	if(id == 11)
 	    makise_g_cont_focus_next(host->host);
 	if(id == 3)
 	    makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0});
@@ -87,7 +80,7 @@ void but_h(
 	    makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0});
 	if(id == 2) 
 	    makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0});
-	if(id == 14)
+	if(id == 13)
 	    makise_g_host_input(host, (MInputData){M_KEY_OK, M_INPUT_CLICK, time, 0});
 
     }
@@ -110,73 +103,6 @@ void but_h(
 //	printf("click %d\n", id);
     }
 }
-
-
-char t0[] = "dsf";
-char t1[] = "CANC    ";//{208, 204, 255};
-char t2[] = "OK";
-char* sample_string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-
-MakiseStyle button_style =
-{
-    MC_White,
-    &F_Arial24,
-    0,
-    //bg       font     border   double_border
-    {MC_Black, MC_Gray, MC_Gray, 0},  //unactive
-    {MC_Black, MC_White, MC_White, 0},//normal
-    {MC_White, MC_Black, MC_White, 0}, //focused
-    {MC_Green, MC_White, MC_White, 0}, //active
-};
-MakiseStyle canvas_style =
-{
-    MC_White,
-    &F_Arial24,
-    0,
-    //bg       font     border   double_border
-    {MC_Gray, MC_Gray, MC_Gray,    0},  //unactive
-    {MC_Black, MC_White, MC_White, 0},  //normal
-    {MC_Green, MC_Red, MC_White,   0},  //focused
-    {MC_Black, MC_White, MC_White, 0},  //active
-};
-MakiseStyle lable_style =
-{
-    MC_White,
-    &F_Arial15,
-    0,
-    //bg       font     border   double_border
-    {MC_Gray, MC_Gray, MC_Gray, 0},  //unactive
-    {MC_Black, MC_White, MC_Black, 0},//normal
-    {MC_White, MC_Blue, MC_White, 0}, //focused
-    {0, 0, 0, 0}, //active
-};
-MakiseStyle text_style =
-{
-    MC_White,
-    &F_Arial15,
-    3,
-    //bg       font     border   double_border
-    {MC_Black, MC_White, MC_Gray, 0},  //unactive
-    {MC_Black, MC_White, MC_Green, 0},  //unactive
-    {0, 0, 0, 0}, //focused
-    {0, 0, 0, 0}, //active
-};
-
-
-void b_ok_cl(MButton *b)
-{
-    snprintf(t1, 8, "%dlol\n", list[0].selected->id);
-}
-void b_ca_cl(MButton *b)
-{
-    list[0].selected = &l_itms[0];
-}
-void onselection(MSList *l, MSList_Item selected)
-{
-    tf[0].text = selected.text;
-}
-
 
 uint32_t bb[9600] = {0};
 MakiseGUI* mt_start()
@@ -202,22 +128,9 @@ MakiseGUI* mt_start()
     memset(bu->buffer, 0, sz);
     printf("%d\n", (uint32_t)(sz));
 
-//    m_create_canvas(&canv[0], host->host, 20, 100, 200, 60, &canvas_style);
-    
-//    m_create_button(&butt[0], &(canv[0].cont), 10, 10,  100, 30, t0, 0, 0, 0, &button_style);
-    m_create_button(&butt[1], host->host, 240, 190, 80, 40, t1, &b_ca_cl, 0, 0, &button_style);
-    m_create_button(&butt[2], host->host, 240, 150, 80, 40, t2, &b_ok_cl, 0, 0, &button_style);
-//    m_create_button(&butt[3], &(canv[0].cont), 50, 70, 50,  20, t2, 0, 0, 0, &button_style);
 
-    m_create_lable(&labls[0], host->host, 5, 150, 50, 28, t2, &lable_style);
-    m_create_text_field(&tf[0], host->host, 55, 150, 180, 100, sample_string, &text_style);
-    m_create_slist(&list[0], host->host, 10, 10, 200, 138, "lol", &onselection, 0, &canvas_style, &lable_style);
-
-    for (uint32_t i = 0; i < 222; i++) {
-	l_itms[i].text = sample_string + i*2;
-    }
+    at_list_init(gu, host);
     
-    m_slist_set_array(&list[0], l_itms, 222);
     
     mGui = gu;
     ili9340_init(gu);
@@ -225,7 +138,7 @@ MakiseGUI* mt_start()
 
     mGui->predraw = &mt_predraw;
 
-    makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
+    //makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
     controls_595_init(buttons, 8, outs, 4, &but_h);
    
     return mGui;

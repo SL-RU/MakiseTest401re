@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccTI7nri.s 			page 1
+ARM GAS  /tmp/ccHjeIQO.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
   57 0040 8001     		.short	384
   58 0042 8C01     		.short	396
   59 0044 9801     		.short	408
-ARM GAS  /tmp/ccTI7nri.s 			page 2
+ARM GAS  /tmp/ccHjeIQO.s 			page 2
 
 
   60 0046 A401     		.short	420
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  114 00b2 3804     		.short	1080
  115 00b4 4404     		.short	1092
  116 00b6 5004     		.short	1104
-ARM GAS  /tmp/ccTI7nri.s 			page 3
+ARM GAS  /tmp/ccHjeIQO.s 			page 3
 
 
  117 00b8 5C04     		.short	1116
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  171 0124 1407     		.short	1812
  172 0126 2007     		.short	1824
  173 0128 2C07     		.short	1836
-ARM GAS  /tmp/ccTI7nri.s 			page 4
+ARM GAS  /tmp/ccHjeIQO.s 			page 4
 
 
  174 012a 3807     		.short	1848
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  228 0196 CC09     		.short	2508
  229 0198 D809     		.short	2520
  230 019a E409     		.short	2532
-ARM GAS  /tmp/ccTI7nri.s 			page 5
+ARM GAS  /tmp/ccHjeIQO.s 			page 5
 
 
  231 019c F009     		.short	2544
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  287 0021 00       		.byte	0
  288 0022 00       		.byte	0
  289 0023 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 6
+ARM GAS  /tmp/ccHjeIQO.s 			page 6
 
 
  290 0024 00       		.byte	0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  344 005a 00       		.byte	0
  345 005b 00       		.byte	0
  346 005c 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 7
+ARM GAS  /tmp/ccHjeIQO.s 			page 7
 
 
  347 005d 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  401 0093 00       		.byte	0
  402 0094 00       		.byte	0
  403 0095 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 8
+ARM GAS  /tmp/ccHjeIQO.s 			page 8
 
 
  404 0096 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  458 00cc 00       		.byte	0
  459 00cd 00       		.byte	0
  460 00ce 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 9
+ARM GAS  /tmp/ccHjeIQO.s 			page 9
 
 
  461 00cf 04       		.byte	4
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  515 0105 06       		.byte	6
  516 0106 00       		.byte	0
  517 0107 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 10
+ARM GAS  /tmp/ccHjeIQO.s 			page 10
 
 
  518 0108 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  572 013e 00       		.byte	0
  573 013f 00       		.byte	0
  574 0140 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 11
+ARM GAS  /tmp/ccHjeIQO.s 			page 11
 
 
  575 0141 01       		.byte	1
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  629 0177 06       		.byte	6
  630 0178 09       		.byte	9
  631 0179 08       		.byte	8
-ARM GAS  /tmp/ccTI7nri.s 			page 12
+ARM GAS  /tmp/ccHjeIQO.s 			page 12
 
 
  632 017a 04       		.byte	4
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  686 01b0 00       		.byte	0
  687 01b1 00       		.byte	0
  688 01b2 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 13
+ARM GAS  /tmp/ccHjeIQO.s 			page 13
 
 
  689 01b3 1F       		.byte	31
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  743 01e9 21       		.byte	33
  744 01ea 00       		.byte	0
  745 01eb 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 14
+ARM GAS  /tmp/ccHjeIQO.s 			page 14
 
 
  746 01ec 00       		.byte	0
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  800 0222 55       		.byte	85
  801 0223 55       		.byte	85
  802 0224 49       		.byte	73
-ARM GAS  /tmp/ccTI7nri.s 			page 15
+ARM GAS  /tmp/ccHjeIQO.s 			page 15
 
 
  803 0225 49       		.byte	73
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  857 025b 1F       		.byte	31
  858 025c 21       		.byte	33
  859 025d 21       		.byte	33
-ARM GAS  /tmp/ccTI7nri.s 			page 16
+ARM GAS  /tmp/ccHjeIQO.s 			page 16
 
 
  860 025e 1F       		.byte	31
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  914 0294 00       		.byte	0
  915 0295 00       		.byte	0
  916 0296 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 17
+ARM GAS  /tmp/ccHjeIQO.s 			page 17
 
 
  917 0297 00       		.byte	0
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  971 02cd 1F       		.byte	31
  972 02ce 00       		.byte	0
  973 02cf 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 18
+ARM GAS  /tmp/ccHjeIQO.s 			page 18
 
 
  974 02d0 00       		.byte	0
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1028 0306 00       		.byte	0
  1029 0307 00       		.byte	0
  1030 0308 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 19
+ARM GAS  /tmp/ccHjeIQO.s 			page 19
 
 
  1031 0309 00       		.byte	0
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1085 033f 08       		.byte	8
  1086 0340 08       		.byte	8
  1087 0341 0E       		.byte	14
-ARM GAS  /tmp/ccTI7nri.s 			page 20
+ARM GAS  /tmp/ccHjeIQO.s 			page 20
 
 
  1088 0342 09       		.byte	9
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1142 0378 00       		.byte	0
  1143 0379 00       		.byte	0
  1144 037a 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 21
+ARM GAS  /tmp/ccHjeIQO.s 			page 21
 
 
  1145 037b 01       		.byte	1
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1199 03b1 49       		.byte	73
  1200 03b2 00       		.byte	0
  1201 03b3 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 22
+ARM GAS  /tmp/ccHjeIQO.s 			page 22
 
 
  1202 03b4 00       		.byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1256 03ea 01       		.byte	1
  1257 03eb 01       		.byte	1
  1258 03ec 01       		.byte	1
-ARM GAS  /tmp/ccTI7nri.s 			page 23
+ARM GAS  /tmp/ccHjeIQO.s 			page 23
 
 
  1259 03ed 01       		.byte	1
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1313 0423 00       		.byte	0
  1314 0424 00       		.byte	0
  1315 0425 15       		.byte	21
-ARM GAS  /tmp/ccTI7nri.s 			page 24
+ARM GAS  /tmp/ccHjeIQO.s 			page 24
 
 
  1316 0426 15       		.byte	21
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1370 045c 00       		.byte	0
  1371 045d 00       		.byte	0
  1372 045e 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 25
+ARM GAS  /tmp/ccHjeIQO.s 			page 25
 
 
  1373 045f 01       		.byte	1
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1427 0495 34       		.byte	52
  1428 0496 00       		.byte	0
  1429 0497 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 26
+ARM GAS  /tmp/ccHjeIQO.s 			page 26
 
 
  1430 0498 04       		.byte	4
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1484 04ce 00       		.byte	0
  1485 04cf 00       		.byte	0
  1486 04d0 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 27
+ARM GAS  /tmp/ccHjeIQO.s 			page 27
 
 
  1487 04d1 49       		.byte	73
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1541 0507 00       		.byte	0
  1542 0508 6A       		.byte	106
  1543 0509 01       		.byte	1
-ARM GAS  /tmp/ccTI7nri.s 			page 28
+ARM GAS  /tmp/ccHjeIQO.s 			page 28
 
 
  1544 050a 92       		.byte	-110
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1598 0540 04       		.byte	4
  1599 0541 02       		.byte	2
  1600 0542 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 29
+ARM GAS  /tmp/ccHjeIQO.s 			page 29
 
 
  1601 0543 11       		.byte	17
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1655 0579 00       		.byte	0
  1656 057a 00       		.byte	0
  1657 057b 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 30
+ARM GAS  /tmp/ccHjeIQO.s 			page 30
 
 
  1658 057c 00       		.byte	0
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1712 05b2 00       		.byte	0
  1713 05b3 1F       		.byte	31
  1714 05b4 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 31
+ARM GAS  /tmp/ccHjeIQO.s 			page 31
 
 
  1715 05b5 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1769 05eb 01       		.byte	1
  1770 05ec 00       		.byte	0
  1771 05ed 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 32
+ARM GAS  /tmp/ccHjeIQO.s 			page 32
 
 
  1772 05ee 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1826 0624 00       		.byte	0
  1827 0625 00       		.byte	0
  1828 0626 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 33
+ARM GAS  /tmp/ccHjeIQO.s 			page 33
 
 
  1829 0627 07       		.byte	7
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1883 065d 04       		.byte	4
  1884 065e 04       		.byte	4
  1885 065f 03       		.byte	3
-ARM GAS  /tmp/ccTI7nri.s 			page 34
+ARM GAS  /tmp/ccHjeIQO.s 			page 34
 
 
  1886 0660 00       		.byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1940 0696 05       		.byte	5
  1941 0697 09       		.byte	9
  1942 0698 0A       		.byte	10
-ARM GAS  /tmp/ccTI7nri.s 			page 35
+ARM GAS  /tmp/ccHjeIQO.s 			page 35
 
 
  1943 0699 04       		.byte	4
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  1997 06cf 00       		.byte	0
  1998 06d0 00       		.byte	0
  1999 06d1 0F       		.byte	15
-ARM GAS  /tmp/ccTI7nri.s 			page 36
+ARM GAS  /tmp/ccHjeIQO.s 			page 36
 
 
  2000 06d2 08       		.byte	8
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2054 0708 00       		.byte	0
  2055 0709 00       		.byte	0
  2056 070a 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 37
+ARM GAS  /tmp/ccHjeIQO.s 			page 37
 
 
  2057 070b 00       		.byte	0
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2111 0741 0F       		.byte	15
  2112 0742 01       		.byte	1
  2113 0743 01       		.byte	1
-ARM GAS  /tmp/ccTI7nri.s 			page 38
+ARM GAS  /tmp/ccHjeIQO.s 			page 38
 
 
  2114 0744 00       		.byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2168 077a D1       		.byte	-47
  2169 077b 01       		.byte	1
  2170 077c 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 39
+ARM GAS  /tmp/ccHjeIQO.s 			page 39
 
 
  2171 077d 00       		.byte	0
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2225 07b3 00       		.byte	0
  2226 07b4 00       		.byte	0
  2227 07b5 0E       		.byte	14
-ARM GAS  /tmp/ccTI7nri.s 			page 40
+ARM GAS  /tmp/ccHjeIQO.s 			page 40
 
 
  2228 07b6 01       		.byte	1
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2282 07ec 00       		.byte	0
  2283 07ed 00       		.byte	0
  2284 07ee 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 41
+ARM GAS  /tmp/ccHjeIQO.s 			page 41
 
 
  2285 07ef 0F       		.byte	15
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2339 0825 06       		.byte	6
  2340 0826 00       		.byte	0
  2341 0827 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 42
+ARM GAS  /tmp/ccHjeIQO.s 			page 42
 
 
  2342 0828 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2396 085e 55       		.byte	85
  2397 085f 55       		.byte	85
  2398 0860 49       		.byte	73
-ARM GAS  /tmp/ccTI7nri.s 			page 43
+ARM GAS  /tmp/ccHjeIQO.s 			page 43
 
 
  2399 0861 49       		.byte	73
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2453 0897 1E       		.byte	30
  2454 0898 21       		.byte	33
  2455 0899 01       		.byte	1
-ARM GAS  /tmp/ccTI7nri.s 			page 44
+ARM GAS  /tmp/ccHjeIQO.s 			page 44
 
 
  2456 089a 01       		.byte	1
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2510 08d0 00       		.byte	0
  2511 08d1 00       		.byte	0
  2512 08d2 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 45
+ARM GAS  /tmp/ccHjeIQO.s 			page 45
 
 
  2513 08d3 21       		.byte	33
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2567 0909 1C       		.byte	28
  2568 090a 00       		.byte	0
  2569 090b 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 46
+ARM GAS  /tmp/ccHjeIQO.s 			page 46
 
 
  2570 090c 00       		.byte	0
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2624 0942 3E       		.byte	62
  2625 0943 26       		.byte	38
  2626 0944 22       		.byte	34
-ARM GAS  /tmp/ccTI7nri.s 			page 47
+ARM GAS  /tmp/ccHjeIQO.s 			page 47
 
 
  2627 0945 21       		.byte	33
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2681 097b 00       		.byte	0
  2682 097c 00       		.byte	0
  2683 097d 0E       		.byte	14
-ARM GAS  /tmp/ccTI7nri.s 			page 48
+ARM GAS  /tmp/ccHjeIQO.s 			page 48
 
 
  2684 097e 0A       		.byte	10
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2738 09b4 00       		.byte	0
  2739 09b5 00       		.byte	0
  2740 09b6 0A       		.byte	10
-ARM GAS  /tmp/ccTI7nri.s 			page 49
+ARM GAS  /tmp/ccHjeIQO.s 			page 49
 
 
  2741 09b7 0E       		.byte	14
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2795 09ed 09       		.byte	9
  2796 09ee 00       		.byte	0
  2797 09ef 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 50
+ARM GAS  /tmp/ccHjeIQO.s 			page 50
 
 
  2798 09f0 00       		.byte	0
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2852 0a26 02       		.byte	2
  2853 0a27 02       		.byte	2
  2854 0a28 02       		.byte	2
-ARM GAS  /tmp/ccTI7nri.s 			page 51
+ARM GAS  /tmp/ccHjeIQO.s 			page 51
 
 
  2855 0a29 02       		.byte	2
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2909 0a5f 00       		.byte	0
  2910 0a60 00       		.byte	0
  2911 0a61 09       		.byte	9
-ARM GAS  /tmp/ccTI7nri.s 			page 52
+ARM GAS  /tmp/ccHjeIQO.s 			page 52
 
 
  2912 0a62 09       		.byte	9
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  2966 0a98 00       		.byte	0
  2967 0a99 00       		.byte	0
  2968 0a9a 00       		.byte	0
-ARM GAS  /tmp/ccTI7nri.s 			page 53
+ARM GAS  /tmp/ccHjeIQO.s 			page 53
 
 
  2969 0a9b 00       		.byte	0
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  3025 0006 06       		.byte	6
  3026 0007 01       		.byte	1
  3027 0008 02       		.byte	2
-ARM GAS  /tmp/ccTI7nri.s 			page 54
+ARM GAS  /tmp/ccHjeIQO.s 			page 54
 
 
  3028 0009 02       		.byte	2
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  3082 003f 05       		.byte	5
  3083 0040 02       		.byte	2
  3084 0041 04       		.byte	4
-ARM GAS  /tmp/ccTI7nri.s 			page 55
+ARM GAS  /tmp/ccHjeIQO.s 			page 55
 
 
  3085 0042 04       		.byte	4
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  3139 0078 02       		.byte	2
  3140 0079 09       		.byte	9
  3141 007a 07       		.byte	7
-ARM GAS  /tmp/ccTI7nri.s 			page 56
+ARM GAS  /tmp/ccHjeIQO.s 			page 56
 
 
  3142 007b 02       		.byte	2
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  3196 00b1 06       		.byte	6
  3197 00b2 05       		.byte	5
  3198 00b3 05       		.byte	5
-ARM GAS  /tmp/ccTI7nri.s 			page 57
+ARM GAS  /tmp/ccHjeIQO.s 			page 57
 
 
  3199 00b4 05       		.byte	5
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  3255 0014 0100     		.short	1
  3256 0016 0000     		.space	2
  3257              		.text
-ARM GAS  /tmp/ccTI7nri.s 			page 58
+ARM GAS  /tmp/ccHjeIQO.s 			page 58
 
 
  3258              	.Letext0:
@@ -3442,19 +3442,19 @@ ARM GAS  /tmp/ccTI7nri.s 			page 1
  3276              		.file 18 "MakiseGUI/MakiseGUI/makise_text.h"
  3277              		.file 19 "MakiseGUI/MakiseGUI/fonts/fonts.h"
  3278              		.file 20 "MakiseGUI/MakiseGUI/fonts/Arial12.c"
-ARM GAS  /tmp/ccTI7nri.s 			page 59
+ARM GAS  /tmp/ccHjeIQO.s 			page 59
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Arial12.c
-     /tmp/ccTI7nri.s:3247   .rodata.F_Arial12:0000000000000000 F_Arial12
-     /tmp/ccTI7nri.s:24     .rodata.Arial_12_OffsetTable:0000000000000000 Arial_12_OffsetTable
-     /tmp/ccTI7nri.s:3018   .rodata.Arial_12_WidthTable:0000000000000000 Arial_12_WidthTable
-     /tmp/ccTI7nri.s:253    .rodata.Arial_12_SymbolTable:0000000000000000 Arial_12_SymbolTable
+     /tmp/ccHjeIQO.s:3247   .rodata.F_Arial12:0000000000000000 F_Arial12
+     /tmp/ccHjeIQO.s:24     .rodata.Arial_12_OffsetTable:0000000000000000 Arial_12_OffsetTable
+     /tmp/ccHjeIQO.s:3018   .rodata.Arial_12_WidthTable:0000000000000000 Arial_12_WidthTable
+     /tmp/ccHjeIQO.s:253    .rodata.Arial_12_SymbolTable:0000000000000000 Arial_12_SymbolTable
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccTI7nri.s:21     .rodata.Arial_12_OffsetTable:0000000000000000 $d
-     /tmp/ccTI7nri.s:250    .rodata.Arial_12_SymbolTable:0000000000000000 $d
-     /tmp/ccTI7nri.s:3015   .rodata.Arial_12_WidthTable:0000000000000000 $d
-     /tmp/ccTI7nri.s:3244   .rodata.F_Arial12:0000000000000000 $d
+     /tmp/ccHjeIQO.s:21     .rodata.Arial_12_OffsetTable:0000000000000000 $d
+     /tmp/ccHjeIQO.s:250    .rodata.Arial_12_SymbolTable:0000000000000000 $d
+     /tmp/ccHjeIQO.s:3015   .rodata.Arial_12_WidthTable:0000000000000000 $d
+     /tmp/ccHjeIQO.s:3244   .rodata.F_Arial12:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUwdLIa.s 			page 1
+ARM GAS  /tmp/ccTkIj2n.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
   26:Src/main.c    ****   *    this license. 
   27:Src/main.c    ****   *
   28:Src/main.c    ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
-ARM GAS  /tmp/ccUwdLIa.s 			page 2
+ARM GAS  /tmp/ccTkIj2n.s 			page 2
 
 
   29:Src/main.c    ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
   83:Src/main.c    **** #define      LSM303_CTRL2              0x21  
   84:Src/main.c    **** #define      LSM303_CTRL3              0x22  
   85:Src/main.c    **** #define      LSM303_CTRL4              0x23  
-ARM GAS  /tmp/ccUwdLIa.s 			page 3
+ARM GAS  /tmp/ccTkIj2n.s 			page 3
 
 
   86:Src/main.c    **** #define      LSM303_CTRL5              0x24  
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
   41              		.cfi_offset 6, -12
   42              		.cfi_offset 7, -8
   43              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccUwdLIa.s 			page 4
+ARM GAS  /tmp/ccTkIj2n.s 			page 4
 
 
   44 0002 2DED028B 		vpush.64	{d8}
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
   93              	.LVL8:
   94 0068 0022     		movs	r2, #0
   95 006a 184B     		ldr	r3, .L6+16
-ARM GAS  /tmp/ccUwdLIa.s 			page 5
+ARM GAS  /tmp/ccTkIj2n.s 			page 5
 
 
   96 006c FFF7FEFF 		bl	__aeabi_dadd
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  138 00a8 094B     		ldr	r3, .L6+20
  139 00aa 1868     		ldr	r0, [r3]
  140 00ac 0121     		movs	r1, #1
-ARM GAS  /tmp/ccUwdLIa.s 			page 6
+ARM GAS  /tmp/ccTkIj2n.s 			page 6
 
 
  144:Src/main.c    **** }
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  194              		.cfi_offset 4, -16
  195              		.cfi_offset 5, -12
  196              		.cfi_offset 6, -8
-ARM GAS  /tmp/ccUwdLIa.s 			page 7
+ARM GAS  /tmp/ccTkIj2n.s 			page 7
 
 
  197              		.cfi_offset 14, -4
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  240              	.L10:
  241 003c 00000000 		.word	hi2c1
  242              		.cfi_endproc
-ARM GAS  /tmp/ccUwdLIa.s 			page 8
+ARM GAS  /tmp/ccTkIj2n.s 			page 8
 
 
  243              	.LFE126:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  294              	.LFE127:
  296              		.global	__aeabi_i2d
  297              		.global	__aeabi_d2f
-ARM GAS  /tmp/ccUwdLIa.s 			page 9
+ARM GAS  /tmp/ccTkIj2n.s 			page 9
 
 
  298              		.section	.text.lsm303_read,"ax",%progbits
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  115:Src/main.c    **** 
  345              		.loc 1 115 0
  346 0024 06AA     		add	r2, sp, #24
-ARM GAS  /tmp/ccUwdLIa.s 			page 10
+ARM GAS  /tmp/ccTkIj2n.s 			page 10
 
 
  347 0026 0095     		str	r5, [sp]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  394              	.LFE128:
  396              		.section	.text.SystemClock_Config,"ax",%progbits
  397              		.align	1
-ARM GAS  /tmp/ccUwdLIa.s 			page 11
+ARM GAS  /tmp/ccTkIj2n.s 			page 11
 
 
  398              		.p2align 2,,3
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  191:Src/main.c    ****   mgui->draw = &_mt_d;
  192:Src/main.c    **** //  printf("%d\n", Arial_12_SymbolTable[2]);
  193:Src/main.c    ****   
-ARM GAS  /tmp/ccUwdLIa.s 			page 12
+ARM GAS  /tmp/ccTkIj2n.s 			page 12
 
 
  194:Src/main.c    ****   /* USER CODE END 2 */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  428              	.LBE15:
  429              	.LBB16:
  227:Src/main.c    **** 
-ARM GAS  /tmp/ccUwdLIa.s 			page 13
+ARM GAS  /tmp/ccTkIj2n.s 			page 13
 
 
  228:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  467              	.LBB19:
  228:Src/main.c    **** 
  468              		.loc 1 228 0
-ARM GAS  /tmp/ccUwdLIa.s 			page 14
+ARM GAS  /tmp/ccTkIj2n.s 			page 14
 
 
  469 0046 029F     		ldr	r7, [sp, #8]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  499              		.loc 1 247 0
  500 0068 0F26     		movs	r6, #15
  501              		.loc 1 254 0
-ARM GAS  /tmp/ccUwdLIa.s 			page 15
+ARM GAS  /tmp/ccTkIj2n.s 			page 15
 
 
  502 006a 03A8     		add	r0, sp, #12
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  537 009e FFF7FEFF 		bl	HAL_NVIC_SetPriority
  538              	.LVL39:
  269:Src/main.c    **** }
-ARM GAS  /tmp/ccUwdLIa.s 			page 16
+ARM GAS  /tmp/ccTkIj2n.s 			page 16
 
 
  539              		.loc 1 269 0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  591 000a 2426     		movs	r6, #36
  592              	.LBE22:
  593              	.LBE26:
-ARM GAS  /tmp/ccUwdLIa.s 			page 17
+ARM GAS  /tmp/ccTkIj2n.s 			page 17
 
 
  163:Src/main.c    **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  636 003c 8DF80C60 		strb	r6, [sp, #12]
  637 0040 8DF80D50 		strb	r5, [sp, #13]
  638              	.LBE24:
-ARM GAS  /tmp/ccUwdLIa.s 			page 18
+ARM GAS  /tmp/ccTkIj2n.s 			page 18
 
 
  639              	.LBE28:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  687 006e 8DF80C50 		strb	r5, [sp, #12]
  688 0072 0024     		movs	r4, #0
  689 0074 8DF80D40 		strb	r4, [sp, #13]
-ARM GAS  /tmp/ccUwdLIa.s 			page 19
+ARM GAS  /tmp/ccTkIj2n.s 			page 19
 
 
  103:Src/main.c    **** }
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  737              		.thumb
  738              		.thumb_func
  739              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccUwdLIa.s 			page 20
+ARM GAS  /tmp/ccTkIj2n.s 			page 20
 
 
  741              	Error_Handler:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  785              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
  786              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  787              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
-ARM GAS  /tmp/ccUwdLIa.s 			page 21
+ARM GAS  /tmp/ccTkIj2n.s 			page 21
 
 
  788              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
@@ -1230,36 +1230,36 @@ ARM GAS  /tmp/ccUwdLIa.s 			page 1
  814              		.file 46 "Controls/controls_595.h"
  815              		.file 47 "MakiseGUI/MakiseGUI/makise_primitives.h"
  816              		.file 48 "/usr/arm-none-eabi/include/math.h"
-ARM GAS  /tmp/ccUwdLIa.s 			page 22
+ARM GAS  /tmp/ccTkIj2n.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccUwdLIa.s:20     .text._mt_d:0000000000000000 $t
-     /tmp/ccUwdLIa.s:28     .text._mt_d:0000000000000000 _mt_d
-     /tmp/ccUwdLIa.s:166    .text._mt_d:00000000000000bc $d
+     /tmp/ccTkIj2n.s:20     .text._mt_d:0000000000000000 $t
+     /tmp/ccTkIj2n.s:28     .text._mt_d:0000000000000000 _mt_d
+     /tmp/ccTkIj2n.s:166    .text._mt_d:00000000000000bc $d
                             *COM*:0000000000000004 mgui
-     /tmp/ccUwdLIa.s:176    .text.ReadRegister:0000000000000000 $t
-     /tmp/ccUwdLIa.s:184    .text.ReadRegister:0000000000000000 ReadRegister
-     /tmp/ccUwdLIa.s:241    .text.ReadRegister:000000000000003c $d
-     /tmp/ccUwdLIa.s:246    .text.WriteRegister:0000000000000000 $t
-     /tmp/ccUwdLIa.s:254    .text.WriteRegister:0000000000000000 WriteRegister
-     /tmp/ccUwdLIa.s:292    .text.WriteRegister:0000000000000024 $d
-     /tmp/ccUwdLIa.s:299    .text.lsm303_read:0000000000000000 $t
-     /tmp/ccUwdLIa.s:307    .text.lsm303_read:0000000000000000 lsm303_read
-     /tmp/ccUwdLIa.s:391    .text.lsm303_read:0000000000000074 $d
-     /tmp/ccUwdLIa.s:397    .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccUwdLIa.s:405    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccUwdLIa.s:548    .text.SystemClock_Config:00000000000000a8 $d
-     /tmp/ccUwdLIa.s:555    .text.startup.main:0000000000000000 $t
-     /tmp/ccUwdLIa.s:563    .text.startup.main:0000000000000000 main
-     /tmp/ccUwdLIa.s:725    .text.startup.main:00000000000000a0 $d
-     /tmp/ccUwdLIa.s:733    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccUwdLIa.s:741    .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccUwdLIa.s:762    .bss.ang:0000000000000000 ang
+     /tmp/ccTkIj2n.s:176    .text.ReadRegister:0000000000000000 $t
+     /tmp/ccTkIj2n.s:184    .text.ReadRegister:0000000000000000 ReadRegister
+     /tmp/ccTkIj2n.s:241    .text.ReadRegister:000000000000003c $d
+     /tmp/ccTkIj2n.s:246    .text.WriteRegister:0000000000000000 $t
+     /tmp/ccTkIj2n.s:254    .text.WriteRegister:0000000000000000 WriteRegister
+     /tmp/ccTkIj2n.s:292    .text.WriteRegister:0000000000000024 $d
+     /tmp/ccTkIj2n.s:299    .text.lsm303_read:0000000000000000 $t
+     /tmp/ccTkIj2n.s:307    .text.lsm303_read:0000000000000000 lsm303_read
+     /tmp/ccTkIj2n.s:391    .text.lsm303_read:0000000000000074 $d
+     /tmp/ccTkIj2n.s:397    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccTkIj2n.s:405    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccTkIj2n.s:548    .text.SystemClock_Config:00000000000000a8 $d
+     /tmp/ccTkIj2n.s:555    .text.startup.main:0000000000000000 $t
+     /tmp/ccTkIj2n.s:563    .text.startup.main:0000000000000000 main
+     /tmp/ccTkIj2n.s:725    .text.startup.main:00000000000000a0 $d
+     /tmp/ccTkIj2n.s:733    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccTkIj2n.s:741    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccTkIj2n.s:762    .bss.ang:0000000000000000 ang
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccUwdLIa.s:758    .bss.ang:0000000000000000 $d
-     /tmp/ccUwdLIa.s:765    .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccTkIj2n.s:758    .bss.ang:0000000000000000 $d
+     /tmp/ccTkIj2n.s:765    .rodata.main.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
@@ -1290,7 +1290,7 @@ HAL_Init
 MX_GPIO_Init
 MX_DMA_Init
 MX_SDIO_SD_Init
-ARM GAS  /tmp/ccUwdLIa.s 			page 23
+ARM GAS  /tmp/ccTkIj2n.s 			page 23
 
 
 MX_SPI1_Init

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccbq1EWD.s 			page 1
+ARM GAS  /tmp/ccVh7BoE.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -24,7 +24,7 @@ ARM GAS  /tmp/ccbq1EWD.s 			page 1
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
   24              	_m_slist_focus:
-  25              	.LFB129:
+  25              	.LFB133:
   26              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c"
    1:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** #include "makise_e.h"
    2:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
@@ -35,8 +35,8 @@ ARM GAS  /tmp/ccbq1EWD.s 			page 1
    7:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_create_slist(MSList* b, MContainer *c,
    8:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    int32_t x, int32_t y, uint32_t w, uint32_t h,
    9:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    char* text,
-  10:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    void (*onselection)(MSList *l, MSList_Item selected),
-  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    void (*click)(MSList *l, MSList_Item selected),
+  10:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    void (*onselection)(MSList *l, MSList_Item *selected),
+  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    void (*click)(MSList *l, MSList_Item *selected),
   12:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    MakiseStyle *style,
   13:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    MakiseStyle *item_style)
   14:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccbq1EWD.s 			page 1
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.y = y;
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.width = w;
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.height = h;
-ARM GAS  /tmp/ccbq1EWD.s 			page 2
+ARM GAS  /tmp/ccVh7BoE.s 			page 2
 
 
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
@@ -110,180 +110,318 @@ ARM GAS  /tmp/ccbq1EWD.s 			page 1
   79:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(ec == 0)
   80:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_ERROR;
   81:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
-  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->is_array)
-  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
-  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	len = l->len;
-  85:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     len = l->len;
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->is_array)
+  85:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
   86:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	i = l->selected->id;
-  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(ec >= len)
-  88:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
-  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    start = 0;
-ARM GAS  /tmp/ccbq1EWD.s 			page 3
+  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+  88:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ARM GAS  /tmp/ccVh7BoE.s 			page 3
 
 
-  90:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    end = len;
-  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
-  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	else if ((i >= (ec / 2)) && ((len - i) > (ec - 1) / 2))
-  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
-  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    start = i - (ec / 2);
-  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    end = start + ec;
-  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
-  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	else if ((i > (ec / 2) && (len - i) <= (ec - 1) / 2))
-  98:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
-  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    end = len;
- 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    start = len - ec;
- 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
- 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	else if (i < (ec / 2) && (len - i) > (ec - 1) / 2)
- 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    start = 0;
- 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    end = ec;
- 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
- 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	for (i = start; i < end; i++)
- 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci = &l->items[i];
- 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
- 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
- 113:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
- 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		cuid = i;
- 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    makise_d_rect_filled(b->gui->buffer,
- 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
- 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 c_th->border_c, c_th->bg_color);
- 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    makise_d_string_frame(b->gui->buffer, ci->text, MDTextAll,
- 119:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
- 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  y,
- 121:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  w - 2, eh,
- 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font,
- 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font_line_spacing,
- 124:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  c_th->font_col);
- 125:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    y += eh + 1;
- 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+  90:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	//count index in stack of selected item.
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ci = l->items;
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	uint32_t ti = 0;
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	i = UINT32_MAX;
+  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	while (ci != 0)
+  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
+  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+  98:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		cuid = i = ti;
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		break;
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci = ci->next;
+ 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ti ++;
+ 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(i == UINT32_MAX)
+ 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    //if we didn't found it
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return M_ERROR;
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     //compute start index of element to display & the last
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(ec >= len)
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	start = 0;
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = len;
+ 113:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else if ((i >= (ec / 2)) && ((len - i) > (ec - 1) / 2))
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	start = i - (ec / 2);
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = start + ec;
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 119:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else if ((i > (ec / 2) && (len - i) <= (ec - 1) / 2))
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 121:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = len;
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	start = len - ec;
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 124:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else if (i < (ec / 2) && (len - i) > (ec - 1) / 2)
+ 125:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	start = 0;
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = ec;
  128:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     h = b->position.height - 2;
- 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     sh = h / len;
- 131:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(sh < 5)
- 132:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	y = cuid * (h + sh - 5) / len;
- 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 5;
- 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else
- 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	y = cuid * (h) / len;
- 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     y += b->position.real_y + 1;
- 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     makise_d_line(b->gui->buffer,
- 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
- 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
- 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->border_c);
- 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     makise_d_line(b->gui->buffer,
- 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
- 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y + sh,
-ARM GAS  /tmp/ccbq1EWD.s 			page 4
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->is_array)
+ 131:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 132:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	for (i = start; i < end; i++)
+ 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci = &l->items[i];
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
+ 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		cuid = i;
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    makise_d_rect_filled(b->gui->buffer,
+ 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 c_th->border_c, c_th->bg_color);
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    makise_d_string_frame(b->gui->buffer, ci->text, MDTextAll,
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  y,
+ 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  w - 2, eh,
+ 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font,
+ARM GAS  /tmp/ccVh7BoE.s 			page 4
 
 
- 147:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->font_col);
- 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     makise_d_line(b->gui->buffer,
- 149:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y,
- 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y + sh,
- 151:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->font_col);
- 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     return M_OK;
- 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
- 154:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 155:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_add(MSList *l, MSList_Item *item); //add one item to the list at the end. Only if NOT 
- 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_clear(MSList *l); //clear all pointers
- 157:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_remove(MSList *l, MSList_Item *item); //remove item from linked list. Only if NOT is_a
- 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_array(MSList *l, MSList_Item *array, uint32_t len)
- 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
- 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = array;
- 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = len;
- 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->selected = array;
- 163:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->is_array = 1;
- 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *lst = 0;
- 165:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     for (uint32_t i = 0; i < len; i++)
- 166:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 167:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].prev = lst;
- 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].next = ((i + 1) < len) ? &array[i+1] : 0;
- 169:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 170:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].id = i;
- 171:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 172:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	lst = &array[i];
- 173:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
- 175:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_list(MSList *l, MSList_Item *first); //set linked list as new data source.
- 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 177:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** MFocusEnum _m_slist_focus   (MElement* b,  MFocusEnum act)
- 178:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
-  27              		.loc 1 178 0
+ 147:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font_line_spacing,
+ 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  c_th->font_col);
+ 149:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    y += eh + 1;
+ 151:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else
+ 154:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 155:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ci = l->selected;
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	while (i != start) {
+ 157:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    i --;
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci = ci->prev;
+ 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	for (i = start; i < end; i++)
+ 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
+ 163:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    makise_d_rect_filled(b->gui->buffer,
+ 165:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 166:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 c_th->border_c, c_th->bg_color);
+ 167:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    makise_d_string_frame(b->gui->buffer, ci->text, MDTextAll,
+ 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
+ 169:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  y,
+ 170:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  w - 2, eh,
+ 171:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font,
+ 172:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font_line_spacing,
+ 173:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  c_th->font_col);
+ 174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 175:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    y += eh + 1;
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci = ci->next;
+ 177:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 178:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     h = b->position.height - 2;
+ 180:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     sh = h / len;
+ 181:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(sh < 5)
+ 182:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 183:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	y = cuid * (h + sh - 5) / len;
+ 184:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 5;
+ 185:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 186:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     else
+ 187:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	y = cuid * (h) / len;
+ 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     y += b->position.real_y + 1;
+ 189:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     makise_d_line(b->gui->buffer,
+ 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
+ 192:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
+ 193:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->border_c);
+ 194:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     makise_d_line(b->gui->buffer,
+ 195:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
+ 196:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y + sh,
+ 197:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->font_col);
+ 198:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     makise_d_line(b->gui->buffer,
+ 199:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y,
+ 200:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y + sh,
+ 201:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->font_col);
+ 202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     return M_OK;
+ 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ARM GAS  /tmp/ccVh7BoE.s 			page 5
+
+
+ 204:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 205:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_add(MSList *l, MSList_Item *item)
+ 206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+ 207:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->is_array)
+ 208:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 209:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->items == 0) //add first item
+ 210:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 211:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
+ 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
+ 213:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->items = item;
+ 214:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->len = 1;
+ 215:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = item;
+ 216:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 217:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 218:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *it = l->items;
+ 219:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     while (it->next) {
+ 220:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	it = it->next;
+ 221:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 222:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     it->next = item;
+ 223:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next = 0;
+ 224:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev = it;
+ 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len ++;
+ 226:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 227:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_clear(MSList *l)
+ 228:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+ 229:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 230:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_remove(MSList *l, MSList_Item *item)
+ 231:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+ 232:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l == 0 || item == 0 || l->items == 0)
+ 233:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 234:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->items == item) //if first element
+ 235:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 236:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(item->next == 0)
+ 237:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 238:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->items = 0;
+ 239:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->len = 0;
+ 240:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->selected = 0;
+ 241:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return;
+ 242:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 243:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->items = l->items->next;
+ 244:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->items->prev = 0;
+ 245:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
+ 246:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
+ 247:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = l->items;
+ 248:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->len --;
+ 249:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 250:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 251:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(item->next == 0) //if last element
+ 252:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 253:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(item->prev == 0) //WTF
+ 254:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return;
+ 255:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->len --;
+ 256:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(item == l->selected)
+ 257:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->selected = item->prev;
+ 258:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev->next = 0;
+ 259:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
+ 260:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ARM GAS  /tmp/ccVh7BoE.s 			page 6
+
+
+ 261:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 262:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(item->prev == 0) //WTF???
+ 263:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 264:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(item == l->selected)
+ 265:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = item->prev;
+ 266:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next->prev = item->prev;
+ 267:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev->next = item->next;
+ 268:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev = 0;
+ 269:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next = 0;
+ 270:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len --;
+ 271:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 272:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_array(MSList *l, MSList_Item *array, uint32_t len)
+ 273:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+ 274:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = array;
+ 275:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = len;
+ 276:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->selected = array;
+ 277:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->is_array = 1;
+ 278:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *lst = 0;
+ 279:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     for (uint32_t i = 0; i < len; i++)
+ 280:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 281:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].prev = lst;
+ 282:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].next = ((i + 1) < len) ? &array[i+1] : 0;
+ 283:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 284:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].id = i;
+ 285:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 286:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	lst = &array[i];
+ 287:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 288:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 289:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_list(MSList *l, MSList_Item *first)
+ 290:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+ 291:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = first;
+ 292:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->selected = first;
+ 293:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->is_array = 0;
+ 294:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = (first != 0);
+ 295:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(first != 0)
+ 296:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 297:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	MSList_Item *lst = first;
+ 298:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	while (lst->next != 0)
+ 299:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 300:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->len ++;
+ 301:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    lst = lst->next;
+ 302:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 303:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 304:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 305:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 306:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** MFocusEnum _m_slist_focus   (MElement* b,  MFocusEnum act)
+ 307:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+  27              		.loc 1 307 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
   32              	.LVL0:
- 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *e = ((MSList*)b->data);
- 180:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(act & M_G_FOCUS_GET)
-  33              		.loc 1 180 0
+ 308:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *e = ((MSList*)b->data);
+ 309:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(act & M_G_FOCUS_GET)
+  33              		.loc 1 309 0
   34 0000 11F00802 		ands	r2, r1, #8
- 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *e = ((MSList*)b->data);
-  35              		.loc 1 179 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 7
+
+
+ 308:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *e = ((MSList*)b->data);
+  35              		.loc 1 308 0
   36 0004 436B     		ldr	r3, [r0, #52]
   37              	.LVL1:
-  38              		.loc 1 180 0
+  38              		.loc 1 309 0
   39 0006 05D0     		beq	.L2
- 181:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 182:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	((MSList*)b->data)->state = 1;
-  40              		.loc 1 182 0
+ 310:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 311:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	((MSList*)b->data)->state = 1;
+  40              		.loc 1 311 0
   41 0008 0122     		movs	r2, #1
   42 000a 9A67     		str	r2, [r3, #120]
   43              	.L3:
- 183:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 184:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(act == M_G_FOCUS_LEAVE)
- 185:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
-ARM GAS  /tmp/ccbq1EWD.s 			page 5
-
-
- 186:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	((MSList*)b->data)->state = 0;
- 187:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 189:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     return (act == M_G_FOCUS_PREV || act == M_G_FOCUS_NEXT)
- 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	? M_G_FOCUS_NOT_NEEDED
- 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	: M_G_FOCUS_OK;
-  44              		.loc 1 191 0
+ 312:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 313:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(act == M_G_FOCUS_LEAVE)
+ 314:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 315:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	((MSList*)b->data)->state = 0;
+ 316:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 317:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 318:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     return (act == M_G_FOCUS_PREV || act == M_G_FOCUS_NEXT)
+ 319:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	? M_G_FOCUS_NOT_NEEDED
+ 320:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	: M_G_FOCUS_OK;
+  44              		.loc 1 320 0
   45 000c 2029     		cmp	r1, #32
   46 000e 06D1     		bne	.L8
   47 0010 0220     		movs	r0, #2
   48              	.LVL2:
- 192:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 193:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
-  49              		.loc 1 193 0
+ 321:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 322:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+  49              		.loc 1 322 0
   50 0012 7047     		bx	lr
   51              	.LVL3:
   52              	.L2:
- 184:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
-  53              		.loc 1 184 0
+ 313:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+  53              		.loc 1 313 0
   54 0014 0429     		cmp	r1, #4
   55 0016 F9D1     		bne	.L3
- 186:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
-  56              		.loc 1 186 0
+ 315:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+  56              		.loc 1 315 0
   57 0018 9A67     		str	r2, [r3, #120]
- 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
-  58              		.loc 1 191 0
+ 320:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+  58              		.loc 1 320 0
   59 001a 0120     		movs	r0, #1
   60              	.LVL4:
   61 001c 7047     		bx	lr
   62              	.LVL5:
   63              	.L8:
- 189:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	? M_G_FOCUS_NOT_NEEDED
-  64              		.loc 1 189 0
+ 318:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	? M_G_FOCUS_NOT_NEEDED
+  64              		.loc 1 318 0
   65 001e 1029     		cmp	r1, #16
- 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
-  66              		.loc 1 191 0
+ 320:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+  66              		.loc 1 320 0
   67 0020 0CBF     		ite	eq
   68 0022 0220     		moveq	r0, #2
   69              	.LVL6:
   70 0024 0120     		movne	r0, #1
   71 0026 7047     		bx	lr
   72              		.cfi_endproc
-  73              	.LFE129:
+ARM GAS  /tmp/ccVh7BoE.s 			page 8
+
+
+  73              	.LFE133:
   75              		.section	.text._m_slist_input,"ax",%progbits
   76              		.align	1
   77              		.p2align 2,,3
@@ -293,14 +431,11 @@ ARM GAS  /tmp/ccbq1EWD.s 			page 1
   81              		.thumb_func
   82              		.fpu fpv4-sp-d16
   84              	_m_slist_input:
-  85              	.LFB130:
- 194:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** MInputResultEnum _m_slist_input  (MElement* b, MInputData data)
- 195:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
-  86              		.loc 1 195 0
+  85              	.LFB134:
+ 323:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** MInputResultEnum _m_slist_input  (MElement* b, MInputData data)
+ 324:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** {
+  86              		.loc 1 324 0
   87              		.cfi_startproc
-ARM GAS  /tmp/ccbq1EWD.s 			page 6
-
-
   88              		@ args = 0, pretend = 0, frame = 16
   89              		@ frame_needed = 0, uses_anonymous_args = 0
   90              	.LVL7:
@@ -312,1265 +447,2034 @@ ARM GAS  /tmp/ccbq1EWD.s 			page 1
   96              		.cfi_offset 6, -12
   97              		.cfi_offset 7, -8
   98              		.cfi_offset 14, -4
-  99 0002 87B0     		sub	sp, sp, #28
+  99 0002 85B0     		sub	sp, sp, #20
  100              	.LCFI1:
- 101              		.cfi_def_cfa_offset 48
- 102              		.loc 1 195 0
- 103 0004 06AC     		add	r4, sp, #24
+ 101              		.cfi_def_cfa_offset 40
+ 102              		.loc 1 324 0
+ 103 0004 04AC     		add	r4, sp, #16
  104 0006 04E90E00 		stmdb	r4, {r1, r2, r3}
- 196:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *e = ((MSList*)b->data);
- 105              		.loc 1 196 0
+ 325:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *e = ((MSList*)b->data);
+ 105              		.loc 1 325 0
  106 000a 446B     		ldr	r4, [r0, #52]
- 107 000c 9DF80C00 		ldrb	r0, [sp, #12]	@ zero_extendqisi2
+ 107 000c 9DF80400 		ldrb	r0, [sp, #4]	@ zero_extendqisi2
  108              	.LVL8:
- 197:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 198:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(e->items == 0)
- 109              		.loc 1 198 0
- 110 0010 A16D     		ldr	r1, [r4, #88]
- 111 0012 31B1     		cbz	r1, .L13
- 199:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_NOT_HANDLED;
- 200:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(e->selected == 0)
- 112              		.loc 1 200 0
- 113 0014 636E     		ldr	r3, [r4, #100]
- 114 0016 002B     		cmp	r3, #0
- 115 0018 34D0     		beq	.L37
- 116              	.L12:
- 201:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	e->selected = e->items;
- 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 204:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 205:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(data.event == M_INPUT_CLICK)
- 117              		.loc 1 205 0
- 118 001a 9DF80D20 		ldrb	r2, [sp, #13]	@ zero_extendqisi2
- 119 001e 012A     		cmp	r2, #1
- 120 0020 02D0     		beq	.L38
- 121              	.L13:
- 199:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_NOT_HANDLED;
- 122              		.loc 1 199 0
- 123 0022 0120     		movs	r0, #1
- 124              	.LVL9:
- 206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 207:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(data.key == M_KEY_DOWN)
- 208:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 209:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(e->is_array)
- 210:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
- 211:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		MSList_Item *n = 0;
- 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		for (uint32_t i = 0; i < e->len; i++)
- 213:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 214:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->items[i].id = i;
-ARM GAS  /tmp/ccbq1EWD.s 			page 7
+ 326:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 327:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(e->items == 0)
+ 109              		.loc 1 327 0
+ 110 0010 A26D     		ldr	r2, [r4, #88]
+ 111 0012 2AB1     		cbz	r2, .L13
+ 328:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_NOT_HANDLED;
+ 329:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(e->selected == 0)
+ 112              		.loc 1 329 0
+ 113 0014 616E     		ldr	r1, [r4, #100]
+ 114 0016 F1B1     		cbz	r1, .L42
+ 115              	.L12:
+ 330:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 331:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	e->selected = e->items;
+ 332:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 333:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 334:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(data.event == M_INPUT_CLICK)
+ 116              		.loc 1 334 0
+ 117 0018 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
+ 118 001c 012B     		cmp	r3, #1
+ 119 001e 02D0     		beq	.L43
+ARM GAS  /tmp/ccVh7BoE.s 			page 9
 
 
- 215:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id + 1))
- 216:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
- 217:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 			n = &e->items[i];
- 218:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    }
- 219:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		}
- 220:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		if(n != 0)
- 221:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
- 222:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
- 223:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->items;
- 224:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
- 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	} else if(data.key == M_KEY_UP)
- 226:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 227:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(e->is_array)
- 228:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
- 229:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		MSList_Item *n = 0;
- 230:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		for (uint32_t i = 0; i < e->len; i++)
- 231:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 232:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->items[i].id = i;
- 233:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id - 1))
- 234:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
- 235:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 			n = &e->items[i];
- 236:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    }
- 237:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		}
- 238:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		if(n != 0)
- 239:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
- 240:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
- 241:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = &e->items[e->len - 1];
- 242:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
- 243:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
- 244:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 245:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	e->onselection(e, *e->selected);
- 246:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_HANDLED;
- 247:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 248:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 249:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     return M_INPUT_NOT_HANDLED;
- 250:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 251:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
- 125              		.loc 1 251 0
- 126 0024 07B0     		add	sp, sp, #28
- 127              	.LCFI2:
- 128              		.cfi_remember_state
- 129              		.cfi_def_cfa_offset 20
- 130              		@ sp needed
- 131 0026 F0BD     		pop	{r4, r5, r6, r7, pc}
- 132              	.LVL10:
- 133              	.L38:
- 134              	.LCFI3:
- 135              		.cfi_restore_state
- 207:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 136              		.loc 1 207 0
- 137 0028 0528     		cmp	r0, #5
- 138 002a 2ED0     		beq	.L39
- 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 139              		.loc 1 225 0
- 140 002c 0428     		cmp	r0, #4
- 141 002e 0CD0     		beq	.L40
- 142              	.LVL11:
-ARM GAS  /tmp/ccbq1EWD.s 			page 8
+ 120              	.L13:
+ 328:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_NOT_HANDLED;
+ 121              		.loc 1 328 0
+ 122 0020 0120     		movs	r0, #1
+ 123              	.LVL9:
+ 335:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 336:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(data.key == M_KEY_DOWN)
+ 337:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 338:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(e->is_array)
+ 339:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 340:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		MSList_Item *n = 0;
+ 341:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		for (uint32_t i = 0; i < e->len; i++)
+ 342:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 343:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->items[i].id = i;
+ 344:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id + 1))
+ 345:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
+ 346:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 			n = &e->items[i];
+ 347:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    }
+ 348:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		}
+ 349:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		if(n != 0)
+ 350:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
+ 351:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
+ 352:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->items;
+ 353:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    } else
+ 354:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 355:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		if(e->selected->next != 0)
+ 356:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->selected->next;
+ 357:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
+ 358:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->items;
+ 359:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
+ 360:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	} else if(data.key == M_KEY_UP)
+ 361:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 362:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(e->is_array)
+ 363:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 364:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		MSList_Item *n = 0;
+ 365:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		for (uint32_t i = 0; i < e->len; i++)
+ 366:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 367:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->items[i].id = i;
+ 368:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id - 1))
+ 369:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
+ 370:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 			n = &e->items[i];
+ 371:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    }
+ 372:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		}
+ 373:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		if(n != 0)
+ 374:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
+ 375:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
+ 376:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = &e->items[e->len - 1];
+ 377:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
+ 378:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    else
+ 379:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 380:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		if(e->selected->prev != 0)
+ 381:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->selected->prev;
+ 382:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
+ 383:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 384:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    MSList_Item *n = e->items;
+ 385:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    while (n->next != 0)
+ 386:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
+ARM GAS  /tmp/ccVh7BoE.s 			page 10
 
 
- 143              	.L15:
- 245:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_HANDLED;
- 144              		.loc 1 245 0
- 145 0030 03F10C02 		add	r2, r3, #12
- 146 0034 92E80300 		ldm	r2, {r0, r1}
- 147 0038 8DE80300 		stm	sp, {r0, r1}
- 148 003c 2046     		mov	r0, r4
- 149 003e 0ECB     		ldm	r3, {r1, r2, r3}
- 150 0040 A46E     		ldr	r4, [r4, #104]
- 151              	.LVL12:
- 152 0042 A047     		blx	r4
- 153              	.LVL13:
- 246:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 154              		.loc 1 246 0
- 155 0044 0020     		movs	r0, #0
- 156              		.loc 1 251 0
- 157 0046 07B0     		add	sp, sp, #28
- 158              	.LCFI4:
- 159              		.cfi_remember_state
- 160              		.cfi_def_cfa_offset 20
- 161              		@ sp needed
- 162 0048 F0BD     		pop	{r4, r5, r6, r7, pc}
- 163              	.LVL14:
- 164              	.L40:
- 165              	.LCFI5:
- 166              		.cfi_restore_state
- 227:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
- 167              		.loc 1 227 0
- 168 004a 94F85C20 		ldrb	r2, [r4, #92]	@ zero_extendqisi2
- 169 004e 002A     		cmp	r2, #0
- 170 0050 EED0     		beq	.L15
- 171              	.LVL15:
- 172              	.LBB2:
- 173              	.LBB3:
- 230:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 174              		.loc 1 230 0 discriminator 1
- 175 0052 276E     		ldr	r7, [r4, #96]
- 176 0054 002F     		cmp	r7, #0
- 177 0056 33D0     		beq	.L21
- 230:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 178              		.loc 1 230 0 is_stmt 0
- 179 0058 0022     		movs	r2, #0
- 180 005a 1646     		mov	r6, r2
- 181 005c 0846     		mov	r0, r1
- 182              	.LVL16:
- 183              	.L19:
- 232:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id - 1))
- 184              		.loc 1 232 0 is_stmt 1
- 185 005e 8260     		str	r2, [r0, #8]
- 233:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
- 186              		.loc 1 233 0
- 187 0060 9D68     		ldr	r5, [r3, #8]
- 188 0062 013D     		subs	r5, r5, #1
- 189 0064 9542     		cmp	r5, r2
- 190 0066 08BF     		it	eq
- 191 0068 0646     		moveq	r6, r0
- 192              	.LVL17:
-ARM GAS  /tmp/ccbq1EWD.s 			page 9
+ 387:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 			n = n->next;
+ 388:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    }
+ 389:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
+ 390:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		}
+ 391:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
+ 392:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	} else if(data.key == M_KEY_OK)
+ 393:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 394:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(e->selected != 0 && e->click != 0)
+ 395:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		e->click(e, e->selected);
+ 396:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 397:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 398:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 399:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	e->onselection(e, e->selected);
+ 400:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_HANDLED;
+ 401:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 402:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 403:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     return M_INPUT_NOT_HANDLED;
+ 404:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 405:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 124              		.loc 1 405 0
+ 125 0022 05B0     		add	sp, sp, #20
+ 126              	.LCFI2:
+ 127              		.cfi_remember_state
+ 128              		.cfi_def_cfa_offset 20
+ 129              		@ sp needed
+ 130 0024 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 131              	.LVL10:
+ 132              	.L43:
+ 133              	.LCFI3:
+ 134              		.cfi_restore_state
+ 336:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 135              		.loc 1 336 0
+ 136 0026 0528     		cmp	r0, #5
+ 137 0028 18D0     		beq	.L44
+ 360:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 138              		.loc 1 360 0
+ 139 002a 0428     		cmp	r0, #4
+ 140 002c 07D0     		beq	.L45
+ 392:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 141              		.loc 1 392 0
+ 142 002e 0128     		cmp	r0, #1
+ 143 0030 49D0     		beq	.L46
+ 144              	.LVL11:
+ 145              	.L18:
+ 399:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_INPUT_HANDLED;
+ 146              		.loc 1 399 0
+ 147 0032 2046     		mov	r0, r4
+ 148 0034 A36E     		ldr	r3, [r4, #104]
+ 149 0036 9847     		blx	r3
+ 150              	.LVL12:
+ 400:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 151              		.loc 1 400 0
+ 152 0038 0020     		movs	r0, #0
+ 153              		.loc 1 405 0
+ 154 003a 05B0     		add	sp, sp, #20
+ 155              	.LCFI4:
+ 156              		.cfi_remember_state
+ARM GAS  /tmp/ccVh7BoE.s 			page 11
 
 
- 230:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 193              		.loc 1 230 0
- 194 006a 0132     		adds	r2, r2, #1
- 195              	.LVL18:
- 196 006c BA42     		cmp	r2, r7
- 197 006e 00F11400 		add	r0, r0, #20
- 198 0072 F4D1     		bne	.L19
- 199              	.LBE3:
- 238:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
- 200              		.loc 1 238 0
- 201 0074 F6B9     		cbnz	r6, .L20
- 202 0076 02EB8203 		add	r3, r2, r2, lsl #2
- 203 007a 9B00     		lsls	r3, r3, #2
- 204 007c 143B     		subs	r3, r3, #20
- 205              	.LVL19:
- 206              	.L18:
- 241:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
- 207              		.loc 1 241 0
- 208 007e 0B44     		add	r3, r3, r1
- 209 0080 6366     		str	r3, [r4, #100]
- 210 0082 D5E7     		b	.L15
- 211              	.LVL20:
- 212              	.L37:
- 213              	.LBE2:
- 202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
- 214              		.loc 1 202 0
- 215 0084 6166     		str	r1, [r4, #100]
- 216 0086 0B46     		mov	r3, r1
- 217 0088 C7E7     		b	.L12
- 218              	.L39:
- 209:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
- 219              		.loc 1 209 0
- 220 008a 94F85C20 		ldrb	r2, [r4, #92]	@ zero_extendqisi2
- 221 008e 002A     		cmp	r2, #0
- 222 0090 CED0     		beq	.L15
- 223              	.LVL21:
- 224              	.LBB5:
- 225              	.LBB6:
- 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 226              		.loc 1 212 0 discriminator 1
- 227 0092 276E     		ldr	r7, [r4, #96]
- 228 0094 8FB1     		cbz	r7, .L16
- 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 229              		.loc 1 212 0 is_stmt 0
- 230 0096 0022     		movs	r2, #0
- 231 0098 1646     		mov	r6, r2
- 232 009a 0846     		mov	r0, r1
+ 157              		.cfi_def_cfa_offset 20
+ 158              		@ sp needed
+ 159 003c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 160              	.LVL13:
+ 161              	.L45:
+ 162              	.LCFI5:
+ 163              		.cfi_restore_state
+ 362:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 164              		.loc 1 362 0
+ 165 003e 94F85C30 		ldrb	r3, [r4, #92]	@ zero_extendqisi2
+ 166 0042 3BBB     		cbnz	r3, .L47
+ 380:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->selected->prev;
+ 167              		.loc 1 380 0
+ 168 0044 0968     		ldr	r1, [r1]
+ 169 0046 19BB     		cbnz	r1, .L41
+ 170 0048 1146     		mov	r1, r2
+ 171 004a 00E0     		b	.L26
+ 172              	.LVL14:
+ 173              	.L28:
+ 174              	.LBB2:
+ 175 004c 1946     		mov	r1, r3
+ 176              	.LVL15:
+ 177              	.L26:
+ 385:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
+ 178              		.loc 1 385 0
+ 179 004e 4B68     		ldr	r3, [r1, #4]
+ 180 0050 002B     		cmp	r3, #0
+ 181 0052 FBD1     		bne	.L28
+ 182 0054 1CE0     		b	.L41
+ 183              	.LVL16:
+ 184              	.L42:
+ 185              	.LBE2:
+ 331:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 186              		.loc 1 331 0
+ 187 0056 6266     		str	r2, [r4, #100]
+ 188 0058 1146     		mov	r1, r2
+ 189 005a DDE7     		b	.L12
+ 190              	.L44:
+ 338:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 191              		.loc 1 338 0
+ 192 005c 94F85C30 		ldrb	r3, [r4, #92]	@ zero_extendqisi2
+ 193 0060 A3B1     		cbz	r3, .L15
+ 194              	.LVL17:
+ 195              	.LBB3:
+ 196              	.LBB4:
+ 341:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 197              		.loc 1 341 0 discriminator 1
+ 198 0062 276E     		ldr	r7, [r4, #96]
+ 199 0064 002F     		cmp	r7, #0
+ 200 0066 35D0     		beq	.L19
+ 341:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 201              		.loc 1 341 0 is_stmt 0
+ 202 0068 0023     		movs	r3, #0
+ 203 006a 1E46     		mov	r6, r3
+ 204 006c 1046     		mov	r0, r2
+ 205              	.LVL18:
+ 206              	.L17:
+ARM GAS  /tmp/ccVh7BoE.s 			page 12
+
+
+ 343:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id + 1))
+ 207              		.loc 1 343 0 is_stmt 1
+ 208 006e 8360     		str	r3, [r0, #8]
+ 344:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
+ 209              		.loc 1 344 0
+ 210 0070 8D68     		ldr	r5, [r1, #8]
+ 211 0072 0135     		adds	r5, r5, #1
+ 212 0074 9D42     		cmp	r5, r3
+ 213 0076 08BF     		it	eq
+ 214 0078 0646     		moveq	r6, r0
+ 215              	.LVL19:
+ 341:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 216              		.loc 1 341 0
+ 217 007a 0133     		adds	r3, r3, #1
+ 218              	.LVL20:
+ 219 007c BB42     		cmp	r3, r7
+ 220 007e 00F11400 		add	r0, r0, #20
+ 221 0082 F4D1     		bne	.L17
+ 222              	.LBE4:
+ 349:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
+ 223              		.loc 1 349 0
+ 224 0084 36B3     		cbz	r6, .L19
+ 225              	.LVL21:
+ 226              	.L24:
+ 227              	.LBE3:
+ 228              	.LBB5:
+ 374:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
+ 229              		.loc 1 374 0
+ 230 0086 6666     		str	r6, [r4, #100]
+ 231 0088 3146     		mov	r1, r6
+ 232 008a D2E7     		b	.L18
  233              	.LVL22:
- 234              	.L17:
- 214:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id + 1))
- 235              		.loc 1 214 0 is_stmt 1
- 236 009c 8260     		str	r2, [r0, #8]
- 215:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
- 237              		.loc 1 215 0
- 238 009e 9D68     		ldr	r5, [r3, #8]
- 239 00a0 0135     		adds	r5, r5, #1
- 240 00a2 9542     		cmp	r5, r2
-ARM GAS  /tmp/ccbq1EWD.s 			page 10
+ 234              	.L15:
+ 235              	.LBE5:
+ 355:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = e->selected->next;
+ 236              		.loc 1 355 0
+ 237 008c 4968     		ldr	r1, [r1, #4]
+ 238 008e 09B3     		cbz	r1, .L19
+ 239              	.L41:
+ 240              	.LBB8:
+ 389:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		}
+ 241              		.loc 1 389 0
+ 242 0090 6166     		str	r1, [r4, #100]
+ 243 0092 CEE7     		b	.L18
+ 244              	.L47:
+ 245              	.LVL23:
+ 246              	.LBE8:
+ 247              	.LBB9:
+ 248              	.LBB6:
+ 365:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 249              		.loc 1 365 0 discriminator 1
+ 250 0094 276E     		ldr	r7, [r4, #96]
+ 251 0096 07B3     		cbz	r7, .L27
+ 365:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 252              		.loc 1 365 0 is_stmt 0
+ 253 0098 0023     		movs	r3, #0
+ 254 009a 1E46     		mov	r6, r3
+ARM GAS  /tmp/ccVh7BoE.s 			page 13
 
 
- 241 00a4 08BF     		it	eq
- 242 00a6 0646     		moveq	r6, r0
- 243              	.LVL23:
- 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 244              		.loc 1 212 0
- 245 00a8 0132     		adds	r2, r2, #1
- 246              	.LVL24:
- 247 00aa BA42     		cmp	r2, r7
- 248 00ac 00F11400 		add	r0, r0, #20
- 249 00b0 F4D1     		bne	.L17
- 250              	.LBE6:
- 220:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
- 251              		.loc 1 220 0
- 252 00b2 16B1     		cbz	r6, .L16
- 253              	.LVL25:
- 254              	.L20:
- 255              	.LBE5:
- 256              	.LBB7:
- 239:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		else
- 257              		.loc 1 239 0
- 258 00b4 6666     		str	r6, [r4, #100]
- 259 00b6 3346     		mov	r3, r6
- 260 00b8 BAE7     		b	.L15
- 261              	.L16:
- 262              	.LBE7:
- 263              	.LBB8:
- 223:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
- 264              		.loc 1 223 0
- 265 00ba 6166     		str	r1, [r4, #100]
- 266 00bc 0B46     		mov	r3, r1
- 267 00be B7E7     		b	.L15
- 268              	.LVL26:
- 269              	.L21:
- 270              	.LBE8:
- 271              	.LBB9:
- 272              	.LBB4:
- 230:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
- 273              		.loc 1 230 0
- 274 00c0 6FF01303 		mvn	r3, #19
- 275 00c4 DBE7     		b	.L18
- 276              	.LBE4:
- 277              	.LBE9:
- 278              		.cfi_endproc
- 279              	.LFE130:
- 281 00c6 00BF     		.section	.text._m_slist_draw,"ax",%progbits
- 282              		.align	1
- 283              		.p2align 2,,3
- 284              		.global	_m_slist_draw
- 285              		.syntax unified
- 286              		.thumb
- 287              		.thumb_func
- 288              		.fpu fpv4-sp-d16
- 290              	_m_slist_draw:
- 291              	.LFB127:
+ 255 009c 1046     		mov	r0, r2
+ 256              	.LVL24:
+ 257              	.L23:
+ 367:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    if(i == (e->selected->id - 1))
+ 258              		.loc 1 367 0 is_stmt 1
+ 259 009e 8360     		str	r3, [r0, #8]
+ 368:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    {
+ 260              		.loc 1 368 0
+ 261 00a0 8D68     		ldr	r5, [r1, #8]
+ 262 00a2 013D     		subs	r5, r5, #1
+ 263 00a4 9D42     		cmp	r5, r3
+ 264 00a6 08BF     		it	eq
+ 265 00a8 0646     		moveq	r6, r0
+ 266              	.LVL25:
+ 365:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 267              		.loc 1 365 0
+ 268 00aa 0133     		adds	r3, r3, #1
+ 269              	.LVL26:
+ 270 00ac BB42     		cmp	r3, r7
+ 271 00ae 00F11400 		add	r0, r0, #20
+ 272 00b2 F4D1     		bne	.L23
+ 273              	.LBE6:
+ 373:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->selected = n;
+ 274              		.loc 1 373 0
+ 275 00b4 002E     		cmp	r6, #0
+ 276 00b6 E6D1     		bne	.L24
+ 277 00b8 03EB8303 		add	r3, r3, r3, lsl #2
+ 278              	.LVL27:
+ 279 00bc 9900     		lsls	r1, r3, #2
+ 280 00be 1439     		subs	r1, r1, #20
+ 281              	.LVL28:
+ 282              	.L22:
+ 376:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
+ 283              		.loc 1 376 0
+ 284 00c0 1144     		add	r1, r1, r2
+ 285 00c2 6166     		str	r1, [r4, #100]
+ 286 00c4 B5E7     		b	.L18
+ 287              	.LVL29:
+ 288              	.L46:
+ 289              	.LBE9:
+ 394:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		e->click(e, e->selected);
+ 290              		.loc 1 394 0 discriminator 1
+ 291 00c6 E36E     		ldr	r3, [r4, #108]
+ 292 00c8 002B     		cmp	r3, #0
+ 293 00ca B2D0     		beq	.L18
+ 395:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 294              		.loc 1 395 0
+ 295 00cc 2046     		mov	r0, r4
+ 296              	.LVL30:
+ 297 00ce 9847     		blx	r3
+ 298              	.LVL31:
+ 299 00d0 616E     		ldr	r1, [r4, #100]
+ 300 00d2 AEE7     		b	.L18
+ 301              	.L19:
+ 358:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    }
+ 302              		.loc 1 358 0
+ 303 00d4 6266     		str	r2, [r4, #100]
+ARM GAS  /tmp/ccVh7BoE.s 			page 14
+
+
+ 304 00d6 1146     		mov	r1, r2
+ 305 00d8 ABE7     		b	.L18
+ 306              	.LVL32:
+ 307              	.L27:
+ 308              	.LBB10:
+ 309              	.LBB7:
+ 365:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
+ 310              		.loc 1 365 0
+ 311 00da 6FF01301 		mvn	r1, #19
+ 312 00de EFE7     		b	.L22
+ 313              	.LBE7:
+ 314              	.LBE10:
+ 315              		.cfi_endproc
+ 316              	.LFE134:
+ 318              		.section	.text._m_slist_draw,"ax",%progbits
+ 319              		.align	1
+ 320              		.p2align 2,,3
+ 321              		.global	_m_slist_draw
+ 322              		.syntax unified
+ 323              		.thumb
+ 324              		.thumb_func
+ 325              		.fpu fpv4-sp-d16
+ 327              	_m_slist_draw:
+ 328              	.LFB127:
   55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *l = (MSList*)b->data;
- 292              		.loc 1 55 0
- 293              		.cfi_startproc
-ARM GAS  /tmp/ccbq1EWD.s 			page 11
-
-
- 294              		@ args = 0, pretend = 0, frame = 56
- 295              		@ frame_needed = 0, uses_anonymous_args = 0
- 296              	.LVL27:
- 297 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 298              	.LCFI6:
- 299              		.cfi_def_cfa_offset 36
- 300              		.cfi_offset 4, -36
- 301              		.cfi_offset 5, -32
- 302              		.cfi_offset 6, -28
- 303              		.cfi_offset 7, -24
- 304              		.cfi_offset 8, -20
- 305              		.cfi_offset 9, -16
- 306              		.cfi_offset 10, -12
- 307              		.cfi_offset 11, -8
- 308              		.cfi_offset 14, -4
+ 329              		.loc 1 55 0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 56
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333              	.LVL33:
+ 334 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 335              	.LCFI6:
+ 336              		.cfi_def_cfa_offset 36
+ 337              		.cfi_offset 4, -36
+ 338              		.cfi_offset 5, -32
+ 339              		.cfi_offset 6, -28
+ 340              		.cfi_offset 7, -24
+ 341              		.cfi_offset 8, -20
+ 342              		.cfi_offset 9, -16
+ 343              		.cfi_offset 10, -12
+ 344              		.cfi_offset 11, -8
+ 345              		.cfi_offset 14, -4
   56:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *th = l->state ? &l->style->focused : &l->style->normal;
- 309              		.loc 1 56 0
- 310 0004 466B     		ldr	r6, [r0, #52]
- 311              	.LVL28:
-  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
- 312              		.loc 1 57 0
- 313 0006 B36F     		ldr	r3, [r6, #120]
-  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *l = (MSList*)b->data;
- 314              		.loc 1 55 0
- 315 0008 95B0     		sub	sp, sp, #84
- 316              	.LCFI7:
- 317              		.cfi_def_cfa_offset 120
-  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *l = (MSList*)b->data;
- 318              		.loc 1 55 0
- 319 000a 0546     		mov	r5, r0
-  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
- 320              		.loc 1 57 0
- 321 000c FBB1     		cbz	r3, .L42
-  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
- 322              		.loc 1 57 0 is_stmt 0 discriminator 1
- 323 000e 336F     		ldr	r3, [r6, #112]
-  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
- 324              		.loc 1 58 0 is_stmt 1 discriminator 1
- 325 0010 776F     		ldr	r7, [r6, #116]
-  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
- 326              		.loc 1 57 0 discriminator 1
- 327 0012 2C33     		adds	r3, r3, #44
- 328 0014 0893     		str	r3, [sp, #32]
- 329              	.LVL29:
-  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
- 330              		.loc 1 58 0 discriminator 1
- 331 0016 07F12C03 		add	r3, r7, #44
- 332              	.LVL30:
- 333 001a 0F93     		str	r3, [sp, #60]
- 334              	.L43:
- 335              	.LVL31:
-  63:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 336              		.loc 1 63 0 discriminator 4
- 337 001c 2B68     		ldr	r3, [r5]
- 338 001e 089A     		ldr	r2, [sp, #32]
- 339 0020 1868     		ldr	r0, [r3]
- 340              	.LVL32:
-ARM GAS  /tmp/ccbq1EWD.s 			page 12
-
-
- 341 0022 05F11801 		add	r1, r5, #24
- 342 0026 FFF7FEFF 		bl	_m_e_helper_draw_box
- 343              	.LVL33:
-  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ec = h / (eh + 1), //count of elements on the screen
- 344              		.loc 1 71 0 discriminator 4
- 345 002a 736F     		ldr	r3, [r6, #116]
-  70:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	eh = l->item_style->font->height + l->item_style->font_line_spacing + 3,
- 346              		.loc 1 70 0 discriminator 4
- 347 002c 686A     		ldr	r0, [r5, #36]
+ 346              		.loc 1 56 0
+ 347 0004 476B     		ldr	r7, [r0, #52]
  348              	.LVL34:
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
+ 349              		.loc 1 57 0
+ 350 0006 BB6F     		ldr	r3, [r7, #120]
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *l = (MSList*)b->data;
+ 351              		.loc 1 55 0
+ 352 0008 95B0     		sub	sp, sp, #84
+ 353              	.LCFI7:
+ 354              		.cfi_def_cfa_offset 120
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList *l = (MSList*)b->data;
+ 355              		.loc 1 55 0
+ 356 000a 0646     		mov	r6, r0
+ARM GAS  /tmp/ccVh7BoE.s 			page 15
+
+
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
+ 357              		.loc 1 57 0
+ 358 000c FBB1     		cbz	r3, .L49
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
+ 359              		.loc 1 57 0 is_stmt 0 discriminator 1
+ 360 000e 3B6F     		ldr	r3, [r7, #112]
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
+ 361              		.loc 1 58 0 is_stmt 1 discriminator 1
+ 362 0010 7D6F     		ldr	r5, [r7, #116]
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
+ 363              		.loc 1 57 0 discriminator 1
+ 364 0012 2C33     		adds	r3, r3, #44
+ 365 0014 0B93     		str	r3, [sp, #44]
+ 366              	.LVL35:
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
+ 367              		.loc 1 58 0 discriminator 1
+ 368 0016 05F12C03 		add	r3, r5, #44
+ 369              	.LVL36:
+ 370 001a 0C93     		str	r3, [sp, #48]
+ 371              	.L50:
+ 372              	.LVL37:
+  63:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 373              		.loc 1 63 0 discriminator 4
+ 374 001c 3368     		ldr	r3, [r6]
+ 375 001e 0B9A     		ldr	r2, [sp, #44]
+ 376 0020 1868     		ldr	r0, [r3]
+ 377              	.LVL38:
+ 378 0022 06F11801 		add	r1, r6, #24
+ 379 0026 FFF7FEFF 		bl	_m_e_helper_draw_box
+ 380              	.LVL39:
   71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ec = h / (eh + 1), //count of elements on the screen
- 349              		.loc 1 71 0 discriminator 4
- 350 002e 5A68     		ldr	r2, [r3, #4]
- 351 0030 9B68     		ldr	r3, [r3, #8]
- 352 0032 B2F80680 		ldrh	r8, [r2, #6]
- 353 0036 9844     		add	r8, r8, r3
- 354              	.LVL35:
-  72:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 0,   //scroll line height
- 355              		.loc 1 72 0 discriminator 4
- 356 0038 08F10403 		add	r3, r8, #4
+ 381              		.loc 1 71 0 discriminator 4
+ 382 002a 7B6F     		ldr	r3, [r7, #116]
   70:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	eh = l->item_style->font->height + l->item_style->font_line_spacing + 3,
- 357              		.loc 1 70 0 discriminator 4
- 358 003c 021F     		subs	r2, r0, #4
- 359              	.LVL36:
+ 383              		.loc 1 70 0 discriminator 4
+ 384 002c 706A     		ldr	r0, [r6, #36]
+ 385              	.LVL40:
+  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ec = h / (eh + 1), //count of elements on the screen
+ 386              		.loc 1 71 0 discriminator 4
+ 387 002e 5A68     		ldr	r2, [r3, #4]
+ 388 0030 9B68     		ldr	r3, [r3, #8]
+ 389 0032 B2F806A0 		ldrh	r10, [r2, #6]
+ 390 0036 9A44     		add	r10, r10, r3
+ 391              	.LVL41:
   72:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 0,   //scroll line height
- 360              		.loc 1 72 0 discriminator 4
- 361 003e B2FBF3F3 		udiv	r3, r2, r3
- 362 0042 0793     		str	r3, [sp, #28]
- 363              	.LVL37:
+ 392              		.loc 1 72 0 discriminator 4
+ 393 0038 0AF10403 		add	r3, r10, #4
+  70:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	eh = l->item_style->font->height + l->item_style->font_line_spacing + 3,
+ 394              		.loc 1 70 0 discriminator 4
+ 395 003c 021F     		subs	r2, r0, #4
+ 396              	.LVL42:
+  72:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 0,   //scroll line height
+ 397              		.loc 1 72 0 discriminator 4
+ 398 003e B2FBF3F3 		udiv	r3, r2, r3
+ 399 0042 0793     		str	r3, [sp, #28]
+ 400              	.LVL43:
   79:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_ERROR;
- 364              		.loc 1 79 0 discriminator 4
- 365 0044 5BB9     		cbnz	r3, .L70
+ARM GAS  /tmp/ccVh7BoE.s 			page 16
+
+
+ 401              		.loc 1 79 0 discriminator 4
+ 402 0044 5BB9     		cbnz	r3, .L114
+ 403              	.LVL44:
+ 404              	.L92:
   80:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 366              		.loc 1 80 0
- 367 0046 0220     		movs	r0, #2
- 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 368              		.loc 1 153 0
- 369 0048 15B0     		add	sp, sp, #84
- 370              	.LCFI8:
- 371              		.cfi_remember_state
- 372              		.cfi_def_cfa_offset 36
- 373              		@ sp needed
- 374 004a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 375              	.LVL38:
- 376              	.L42:
- 377              	.LCFI9:
- 378              		.cfi_restore_state
+ 405              		.loc 1 80 0
+ 406 0046 0220     		movs	r0, #2
+ 407              	.LVL45:
+ 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 408              		.loc 1 203 0
+ 409 0048 15B0     		add	sp, sp, #84
+ 410              	.LCFI8:
+ 411              		.cfi_remember_state
+ 412              		.cfi_def_cfa_offset 36
+ 413              		@ sp needed
+ 414 004a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 415              	.LVL46:
+ 416              	.L49:
+ 417              	.LCFI9:
+ 418              		.cfi_restore_state
   57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
- 379              		.loc 1 57 0 discriminator 2
- 380 004e 336F     		ldr	r3, [r6, #112]
+ 419              		.loc 1 57 0 discriminator 2
+ 420 004e 3B6F     		ldr	r3, [r7, #112]
   58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
- 381              		.loc 1 58 0 discriminator 2
- 382 0050 776F     		ldr	r7, [r6, #116]
+ 421              		.loc 1 58 0 discriminator 2
+ 422 0050 7D6F     		ldr	r5, [r7, #116]
   57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
- 383              		.loc 1 57 0 discriminator 2
- 384 0052 1C33     		adds	r3, r3, #28
- 385 0054 0893     		str	r3, [sp, #32]
-ARM GAS  /tmp/ccbq1EWD.s 			page 13
-
-
- 386              	.LVL39:
+ 423              		.loc 1 57 0 discriminator 2
+ 424 0052 1C33     		adds	r3, r3, #28
+ 425 0054 0B93     		str	r3, [sp, #44]
+ 426              	.LVL47:
   58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
- 387              		.loc 1 58 0 discriminator 2
- 388 0056 07F13C03 		add	r3, r7, #60
- 389              	.LVL40:
- 390 005a 0F93     		str	r3, [sp, #60]
- 391 005c DEE7     		b	.L43
- 392              	.LVL41:
- 393              	.L70:
-  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     uint32_t
- 394              		.loc 1 67 0
- 395 005e 298D     		ldrh	r1, [r5, #40]
- 396 0060 0A91     		str	r1, [sp, #40]
- 397 0062 8C1C     		adds	r4, r1, #2
+ 427              		.loc 1 58 0 discriminator 2
+ 428 0056 05F13C03 		add	r3, r5, #60
+ 429              	.LVL48:
+ 430 005a 0C93     		str	r3, [sp, #48]
+ 431 005c DEE7     		b	.L50
+ 432              	.LVL49:
+ 433              	.L114:
   66:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	x = b->position.real_x + 2;
- 398              		.loc 1 66 0
- 399 0064 EA6A     		ldr	r2, [r5, #44]
- 400              	.LVL42:
-  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	h = b->position.height - 4,
- 401              		.loc 1 69 0
- 402 0066 296A     		ldr	r1, [r5, #32]
-  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 403              		.loc 1 82 0
- 404 0068 96F85C30 		ldrb	r3, [r6, #92]	@ zero_extendqisi2
- 405              	.LVL43:
+ 434              		.loc 1 66 0
+ 435 005e D6F82CC0 		ldr	ip, [r6, #44]
   67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     uint32_t
- 406              		.loc 1 67 0
- 407 006c A4B2     		uxth	r4, r4
- 408 006e 1294     		str	r4, [sp, #72]
-  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	h = b->position.height - 4,
- 409              		.loc 1 69 0
- 410 0070 A1F1050A 		sub	r10, r1, #5
+ 436              		.loc 1 67 0
+ 437 0062 B6F828B0 		ldrh	fp, [r6, #40]
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 438              		.loc 1 82 0
+ 439 0066 3A6E     		ldr	r2, [r7, #96]
+ 440              	.LVL50:
+ 441 0068 1092     		str	r2, [sp, #64]
+ 442              	.LVL51:
   66:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	x = b->position.real_x + 2;
- 411              		.loc 1 66 0
- 412 0074 94B2     		uxth	r4, r2
-  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 413              		.loc 1 82 0
- 414 0076 002B     		cmp	r3, #0
- 415 0078 4DD1     		bne	.L45
- 416 007a 1FFA8AF1 		uxth	r1, r10
- 417 007e 0991     		str	r1, [sp, #36]
-  75:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 418              		.loc 1 75 0
- 419 0080 1093     		str	r3, [sp, #64]
-  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	len = 0;  //count of items
- 420              		.loc 1 74 0
- 421 0082 1193     		str	r3, [sp, #68]
- 422 0084 1946     		mov	r1, r3
- 423              	.LVL44:
- 424              	.L46:
- 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     sh = h / len;
- 425              		.loc 1 129 0
- 426 0086 A0F1020E 		sub	lr, r0, #2
- 427              	.LVL45:
- 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(sh < 5)
- 428              		.loc 1 130 0
- 429 008a BEFBF1F6 		udiv	r6, lr, r1
-ARM GAS  /tmp/ccbq1EWD.s 			page 14
+ 443              		.loc 1 66 0
+ 444 006a 1FFA8CF1 		uxth	r1, ip
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     uint32_t
+ 445              		.loc 1 67 0
+ 446 006e 0BF10202 		add	r2, fp, #2
+ARM GAS  /tmp/ccVh7BoE.s 			page 17
 
 
- 430              	.LVL46:
- 131:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 431              		.loc 1 131 0
- 432 008e 042E     		cmp	r6, #4
- 433 0090 61D8     		bhi	.L54
- 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 5;
- 434              		.loc 1 133 0
- 435 0092 A0F1070E 		sub	lr, r0, #7
- 436              	.LVL47:
- 437 0096 119B     		ldr	r3, [sp, #68]
- 438 0098 B644     		add	lr, lr, r6
- 439 009a 03FB0EFE 		mul	lr, r3, lr
- 440 009e 0526     		movs	r6, #5
- 441              	.LVL48:
- 442 00a0 BEFBF1FE 		udiv	lr, lr, r1
- 443 00a4 0FFA8EFE 		sxth	lr, lr
- 444              	.LVL49:
- 445              	.L55:
- 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
- 446              		.loc 1 141 0
- 447 00a8 0999     		ldr	r1, [sp, #36]
- 448 00aa 129B     		ldr	r3, [sp, #72]
- 449 00ac 0B44     		add	r3, r3, r1
- 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
- 450              		.loc 1 140 0
- 451 00ae 2968     		ldr	r1, [r5]
- 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->border_c);
- 452              		.loc 1 142 0
- 453 00b0 04F1FF3C 		add	ip, r4, #-1
- 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
- 454              		.loc 1 141 0
- 455 00b4 9FB2     		uxth	r7, r3
- 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->border_c);
- 456              		.loc 1 142 0
- 457 00b6 8444     		add	ip, ip, r0
- 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
- 458              		.loc 1 140 0
- 459 00b8 0868     		ldr	r0, [r1]
- 460              	.LVL50:
- 461 00ba 0899     		ldr	r1, [sp, #32]
- 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
- 462              		.loc 1 141 0
- 463 00bc 7B1E     		subs	r3, r7, #1
- 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
- 464              		.loc 1 140 0
- 465 00be 0FFA8CFC 		sxth	ip, ip
- 466 00c2 8968     		ldr	r1, [r1, #8]
- 467 00c4 0191     		str	r1, [sp, #4]
- 468 00c6 1BB2     		sxth	r3, r3
- 469 00c8 CDF800C0 		str	ip, [sp]
- 470 00cc 1946     		mov	r1, r3
- 471 00ce 12B2     		sxth	r2, r2
- 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 472              		.loc 1 138 0
- 473 00d0 0134     		adds	r4, r4, #1
- 474 00d2 7444     		add	r4, r4, lr
- 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
-ARM GAS  /tmp/ccbq1EWD.s 			page 15
-
-
- 475              		.loc 1 140 0
- 476 00d4 FFF7FEFF 		bl	makise_d_line
- 477              	.LVL51:
- 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
- 478              		.loc 1 144 0
- 479 00d8 089B     		ldr	r3, [sp, #32]
- 480 00da 2A68     		ldr	r2, [r5]
- 481 00dc 5B68     		ldr	r3, [r3, #4]
- 482 00de 1068     		ldr	r0, [r2]
- 483 00e0 0193     		str	r3, [sp, #4]
- 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 484              		.loc 1 138 0
- 485 00e2 A4B2     		uxth	r4, r4
- 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->font_col);
- 486              		.loc 1 146 0
- 487 00e4 2644     		add	r6, r6, r4
- 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
- 488              		.loc 1 144 0
- 489 00e6 3BB2     		sxth	r3, r7
- 490 00e8 36B2     		sxth	r6, r6
- 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 491              		.loc 1 138 0
- 492 00ea 24B2     		sxth	r4, r4
- 493              	.LVL52:
- 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
- 494              		.loc 1 144 0
- 495 00ec 2246     		mov	r2, r4
- 496 00ee 1946     		mov	r1, r3
- 497 00f0 0096     		str	r6, [sp]
- 498 00f2 FFF7FEFF 		bl	makise_d_line
- 499              	.LVL53:
- 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y,
- 500              		.loc 1 148 0
- 501 00f6 2B68     		ldr	r3, [r5]
- 502 00f8 0899     		ldr	r1, [sp, #32]
- 503 00fa 1868     		ldr	r0, [r3]
- 504 00fc 4968     		ldr	r1, [r1, #4]
- 505 00fe 0191     		str	r1, [sp, #4]
- 149:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y + sh,
- 506              		.loc 1 149 0
- 507 0100 7B1C     		adds	r3, r7, #1
- 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y,
- 508              		.loc 1 148 0
- 509 0102 1BB2     		sxth	r3, r3
- 510 0104 0096     		str	r6, [sp]
- 511 0106 2246     		mov	r2, r4
- 512 0108 1946     		mov	r1, r3
- 513 010a FFF7FEFF 		bl	makise_d_line
- 514              	.LVL54:
- 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
- 515              		.loc 1 152 0
- 516 010e 0120     		movs	r0, #1
- 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 517              		.loc 1 153 0
- 518 0110 15B0     		add	sp, sp, #84
- 519              	.LCFI10:
- 520              		.cfi_remember_state
-ARM GAS  /tmp/ccbq1EWD.s 			page 16
-
-
- 521              		.cfi_def_cfa_offset 36
- 522              		@ sp needed
- 523 0112 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 524              	.LVL55:
- 525              	.L45:
- 526              	.LCFI11:
- 527              		.cfi_restore_state
-  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 528              		.loc 1 84 0
- 529 0116 336E     		ldr	r3, [r6, #96]
- 530 0118 1946     		mov	r1, r3
- 531              	.LVL56:
-  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(ec >= len)
- 532              		.loc 1 86 0
- 533 011a 736E     		ldr	r3, [r6, #100]
- 534 011c 1393     		str	r3, [sp, #76]
- 535              	.LVL57:
-  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 536              		.loc 1 87 0
- 537 011e 079B     		ldr	r3, [sp, #28]
- 538 0120 1091     		str	r1, [sp, #64]
- 539 0122 8B42     		cmp	r3, r1
- 540 0124 21D2     		bcs	.L61
-  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(ec >= len)
- 541              		.loc 1 86 0
- 542 0126 139B     		ldr	r3, [sp, #76]
- 543 0128 D3F80890 		ldr	r9, [r3, #8]
-  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 544              		.loc 1 92 0
- 545 012c 079B     		ldr	r3, [sp, #28]
- 546 012e 4FEA530B 		lsr	fp, r3, #1
- 547 0132 D945     		cmp	r9, fp
- 548 0134 C0F08B80 		bcc	.L65
-  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 549              		.loc 1 92 0 is_stmt 0 discriminator 1
- 550 0138 A1EB090E 		sub	lr, r1, r9
- 551 013c 03F1FF3C 		add	ip, r3, #-1
- 552 0140 BEEB5C0F 		cmp	lr, ip, lsr #1
- 553 0144 1946     		mov	r1, r3
- 554              	.LVL58:
- 555 0146 40F29480 		bls	.L49
-  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    end = start + ec;
- 556              		.loc 1 94 0 is_stmt 1
- 557 014a A9EB0B09 		sub	r9, r9, fp
- 558              	.LVL59:
-  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
- 559              		.loc 1 95 0
- 560 014e 4944     		add	r1, r1, r9
- 561 0150 0791     		str	r1, [sp, #28]
- 562              	.LVL60:
- 563 0152 0B46     		mov	r3, r1
- 564 0154 0DE0     		b	.L47
- 565              	.LVL61:
- 566              	.L54:
- 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     y += b->position.real_y + 1;
- 567              		.loc 1 137 0
- 568 0156 119B     		ldr	r3, [sp, #68]
-ARM GAS  /tmp/ccbq1EWD.s 			page 17
-
-
- 569 0158 B6B2     		uxth	r6, r6
- 570              	.LVL62:
- 571 015a 0EFB03FE 		mul	lr, lr, r3
- 572              	.LVL63:
- 573 015e 109B     		ldr	r3, [sp, #64]
- 574 0160 BEFBF3FE 		udiv	lr, lr, r3
- 575 0164 0FFA8EFE 		sxth	lr, lr
- 576              	.LVL64:
- 577 0168 9EE7     		b	.L55
- 578              	.LVL65:
- 579              	.L61:
- 580 016a 0B46     		mov	r3, r1
- 581 016c 0791     		str	r1, [sp, #28]
- 582              	.LVL66:
-  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    end = len;
- 583              		.loc 1 89 0
- 584 016e 4FF00009 		mov	r9, #0
- 585              	.LVL67:
- 586              	.L47:
- 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 587              		.loc 1 108 0
- 588 0172 9945     		cmp	r9, r3
- 589 0174 76D2     		bcs	.L69
- 590              	.LVL68:
- 591              	.L50:
- 592 0176 0A9A     		ldr	r2, [sp, #40]
- 593 0178 1FFA8AF3 		uxth	r3, r10
- 594 017c 0332     		adds	r2, r2, #3
-  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ec = h / (eh + 1), //count of elements on the screen
- 595              		.loc 1 71 0
- 596 017e 08F10308 		add	r8, r8, #3
- 597              	.LVL69:
- 598 0182 1FFA88F8 		uxth	r8, r8
- 599              	.LVL70:
- 600 0186 991E     		subs	r1, r3, #2
- 601 0188 0993     		str	r3, [sp, #36]
- 602 018a 93B2     		uxth	r3, r2
- 603 018c 08F10100 		add	r0, r8, #1
- 604              	.LVL71:
- 605 0190 0C93     		str	r3, [sp, #48]
+ 447 0072 92B2     		uxth	r2, r2
   59:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	*c_th = 0;
- 606              		.loc 1 59 0
- 607 0192 07F11C03 		add	r3, r7, #28
- 608 0196 0A93     		str	r3, [sp, #40]
- 609 0198 83B2     		uxth	r3, r0
- 610 019a 0B93     		str	r3, [sp, #44]
- 611 019c 8BB2     		uxth	r3, r1
- 612 019e 0D93     		str	r3, [sp, #52]
-  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ec = h / (eh + 1), //count of elements on the screen
- 613              		.loc 1 71 0
- 614 01a0 0023     		movs	r3, #0
- 615 01a2 2A46     		mov	r2, r5
+ 448              		.loc 1 59 0
+ 449 0074 1C35     		adds	r5, r5, #28
+ 450              	.LVL52:
+  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	h = b->position.height - 4,
+ 451              		.loc 1 69 0
+ 452 0076 336A     		ldr	r3, [r6, #32]
+ 453              	.LVL53:
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 454              		.loc 1 84 0
+ 455 0078 97F85C90 		ldrb	r9, [r7, #92]	@ zero_extendqisi2
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	*c_th = 0;
+ 456              		.loc 1 59 0
+ 457 007c 0995     		str	r5, [sp, #36]
   66:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	x = b->position.real_x + 2;
- 616              		.loc 1 66 0
- 617 01a4 0234     		adds	r4, r4, #2
- 618 01a6 09EB890B 		add	fp, r9, r9, lsl #2
+ 458              		.loc 1 66 0
+ 459 007e 8C1C     		adds	r4, r1, #2
+ 460 0080 24B2     		sxth	r4, r4
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     uint32_t
+ 461              		.loc 1 67 0
+ 462 0082 15B2     		sxth	r5, r2
+ 463              	.LVL54:
+ 464 0084 1392     		str	r2, [sp, #76]
   71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	ec = h / (eh + 1), //count of elements on the screen
-ARM GAS  /tmp/ccbq1EWD.s 			page 18
-
-
- 619              		.loc 1 71 0
- 620 01aa 1193     		str	r3, [sp, #68]
- 621 01ac BDF94830 		ldrsh	r3, [sp, #72]
- 622 01b0 0E93     		str	r3, [sp, #56]
- 623 01b2 B246     		mov	r10, r6
- 624 01b4 4546     		mov	r5, r8
- 625              	.LVL72:
+ 465              		.loc 1 71 0
+ 466 0086 0AF1030A 		add	r10, r10, #3
+ 467              	.LVL55:
   66:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	x = b->position.real_x + 2;
- 626              		.loc 1 66 0
- 627 01b6 24B2     		sxth	r4, r4
- 628 01b8 4FEA8B0B 		lsl	fp, fp, #2
- 629 01bc 4E46     		mov	r6, r9
- 630              	.LVL73:
- 631 01be 139B     		ldr	r3, [sp, #76]
- 632 01c0 9046     		mov	r8, r2
- 633 01c2 01E0     		b	.L53
- 634              	.LVL74:
- 635              	.L71:
- 636 01c4 DAF86430 		ldr	r3, [r10, #100]
- 637              	.LVL75:
- 638              	.L53:
- 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
- 639              		.loc 1 110 0
- 640 01c8 DAF85870 		ldr	r7, [r10, #88]
- 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
- 641              		.loc 1 112 0
- 642 01cc DDF82890 		ldr	r9, [sp, #40]
- 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
- 643              		.loc 1 115 0
- 644 01d0 D8F80020 		ldr	r2, [r8]
- 645 01d4 0E99     		ldr	r1, [sp, #56]
- 646 01d6 1068     		ldr	r0, [r2]
- 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
- 647              		.loc 1 110 0
- 648 01d8 5F44     		add	r7, r7, fp
- 649              	.LVL76:
- 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
- 650              		.loc 1 112 0
- 651 01da 9F42     		cmp	r7, r3
- 652 01dc 08BF     		it	eq
- 653 01de DDF83C90 		ldreq	r9, [sp, #60]
- 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
- 654              		.loc 1 111 0
- 655 01e2 BE60     		str	r6, [r7, #8]
- 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
- 656              		.loc 1 115 0
- 657 01e4 D9F80030 		ldr	r3, [r9]
- 658 01e8 0293     		str	r3, [sp, #8]
- 659 01ea D9F80830 		ldr	r3, [r9, #8]
- 660 01ee 0193     		str	r3, [sp, #4]
- 661 01f0 2246     		mov	r2, r4
- 662 01f2 099B     		ldr	r3, [sp, #36]
- 663 01f4 0095     		str	r5, [sp]
- 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
- 664              		.loc 1 112 0
- 665 01f6 08BF     		it	eq
- 666 01f8 1196     		streq	r6, [sp, #68]
-ARM GAS  /tmp/ccbq1EWD.s 			page 19
+ 468              		.loc 1 66 0
+ 469 008a 1194     		str	r4, [sp, #68]
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     uint32_t
+ 470              		.loc 1 67 0
+ 471 008c 0A95     		str	r5, [sp, #40]
+  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	h = b->position.height - 4,
+ 472              		.loc 1 69 0
+ 473 008e A3F1050E 		sub	lr, r3, #5
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 474              		.loc 1 84 0
+ 475 0092 B9F1000F 		cmp	r9, #0
+ 476 0096 40F0C680 		bne	.L115
+ 477              	.LBB11:
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	uint32_t ti = 0;
+ 478              		.loc 1 91 0
+ 479 009a BB6D     		ldr	r3, [r7, #88]
+ 480              	.LVL56:
+  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 481              		.loc 1 94 0
+ 482 009c 002B     		cmp	r3, #0
+ 483 009e D2D0     		beq	.L92
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 484              		.loc 1 96 0
+ 485 00a0 7D6E     		ldr	r5, [r7, #100]
+ 486 00a2 AB42     		cmp	r3, r5
+ 487 00a4 00F07C81 		beq	.L55
+ 488 00a8 4A46     		mov	r2, r9
+ 489              	.LVL57:
+ARM GAS  /tmp/ccVh7BoE.s 			page 18
 
 
- 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
- 667              		.loc 1 115 0
- 668 01fa FFF7FEFF 		bl	makise_d_rect_filled
- 669              	.LVL77:
- 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
- 670              		.loc 1 118 0
- 671 01fe D8F80000 		ldr	r0, [r8]
- 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font_line_spacing,
- 672              		.loc 1 122 0
- 673 0202 DAF87430 		ldr	r3, [r10, #116]
- 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
- 674              		.loc 1 118 0
- 675 0206 D9F80420 		ldr	r2, [r9, #4]
- 676 020a F968     		ldr	r1, [r7, #12]
- 677 020c 0068     		ldr	r0, [r0]
- 678 020e 0592     		str	r2, [sp, #20]
- 679 0210 1A89     		ldrh	r2, [r3, #8]
- 680 0212 0492     		str	r2, [sp, #16]
- 681 0214 5B68     		ldr	r3, [r3, #4]
- 682 0216 0393     		str	r3, [sp, #12]
- 683 0218 A4B2     		uxth	r4, r4
- 684 021a 0D9B     		ldr	r3, [sp, #52]
- 685 021c 0094     		str	r4, [sp]
- 686 021e 0193     		str	r3, [sp, #4]
- 687 0220 0295     		str	r5, [sp, #8]
- 688 0222 0C9B     		ldr	r3, [sp, #48]
- 689 0224 4FF0FF32 		mov	r2, #-1
- 690 0228 FFF7FEFF 		bl	makise_d_string_frame
- 691              	.LVL78:
- 692 022c 0B9B     		ldr	r3, [sp, #44]
- 693 022e 1C44     		add	r4, r4, r3
- 694              	.LVL79:
- 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 695              		.loc 1 108 0
- 696 0230 079B     		ldr	r3, [sp, #28]
- 697 0232 0136     		adds	r6, r6, #1
- 698              	.LVL80:
- 699 0234 9E42     		cmp	r6, r3
- 700 0236 0BF1140B 		add	fp, fp, #20
- 701 023a 24B2     		sxth	r4, r4
- 702              	.LVL81:
- 703 023c C2D1     		bne	.L71
- 704 023e D8F82C20 		ldr	r2, [r8, #44]
- 705 0242 D8F82400 		ldr	r0, [r8, #36]
- 706 0246 1099     		ldr	r1, [sp, #64]
- 707 0248 4546     		mov	r5, r8
- 708 024a 94B2     		uxth	r4, r2
- 709              	.LVL82:
- 710 024c 1BE7     		b	.L46
- 711              	.LVL83:
- 712              	.L65:
- 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 713              		.loc 1 102 0 discriminator 1
- 714 024e 079B     		ldr	r3, [sp, #28]
- 715 0250 A1EB0909 		sub	r9, r1, r9
- 716 0254 03F1FF3E 		add	lr, r3, #-1
- 717 0258 B9EB5E0F 		cmp	r9, lr, lsr #1
-ARM GAS  /tmp/ccbq1EWD.s 			page 20
+ 490              	.L58:
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ti ++;
+ 491              		.loc 1 101 0
+ 492 00aa 5B68     		ldr	r3, [r3, #4]
+ 493              	.LVL58:
+ 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 494              		.loc 1 102 0
+ 495 00ac 0132     		adds	r2, r2, #1
+ 496              	.LVL59:
+  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 497              		.loc 1 94 0
+ 498 00ae 002B     		cmp	r3, #0
+ 499 00b0 C9D0     		beq	.L92
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
+ 500              		.loc 1 96 0
+ 501 00b2 AB42     		cmp	r3, r5
+ 502 00b4 F9D1     		bne	.L58
+ 503 00b6 1194     		str	r4, [sp, #68]
+ 504              	.LVL60:
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    //if we didn't found it
+ 505              		.loc 1 104 0
+ 506 00b8 541C     		adds	r4, r2, #1
+ 507 00ba C4D0     		beq	.L92
+ 508              	.LBE11:
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 509              		.loc 1 109 0
+ 510 00bc 079D     		ldr	r5, [sp, #28]
+ 511 00be 1292     		str	r2, [sp, #72]
+ 512 00c0 A846     		mov	r8, r5
+ 513 00c2 109D     		ldr	r5, [sp, #64]
+ 514 00c4 A845     		cmp	r8, r5
+ 515 00c6 28BF     		it	cs
+ 516 00c8 0795     		strcs	r5, [sp, #28]
+ 517              	.LVL61:
+ 518 00ca C0F0B580 		bcc	.L54
+ 519              	.LVL62:
+ 520              	.L109:
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = len;
+ 521              		.loc 1 111 0
+ 522 00ce 4FF00008 		mov	r8, #0
+ 523              	.LVL63:
+ 524              	.L69:
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    i --;
+ 525              		.loc 1 156 0
+ 526 00d2 4245     		cmp	r2, r8
+ 527 00d4 00F06F81 		beq	.L116
+ 528              	.LVL64:
+ 529              	.L86:
+ 530 00d8 119C     		ldr	r4, [sp, #68]
+ 531 00da 1D46     		mov	r5, r3
+ 532              	.L75:
+ 533              	.LVL65:
+ 157:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci = ci->prev;
+ 534              		.loc 1 157 0
+ 535 00dc 013A     		subs	r2, r2, #1
+ 536              	.LVL66:
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    i --;
+ARM GAS  /tmp/ccVh7BoE.s 			page 19
 
 
- 718 025c 02D9     		bls	.L69
- 719 025e 4FF00009 		mov	r9, #0
- 720 0262 88E7     		b	.L50
- 721              	.LVL84:
- 722              	.L69:
- 723 0264 1FFA8AF3 		uxth	r3, r10
- 724 0268 0993     		str	r3, [sp, #36]
+ 537              		.loc 1 156 0
+ 538 00de 4245     		cmp	r2, r8
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 539              		.loc 1 158 0
+ 540 00e0 2D68     		ldr	r5, [r5]
+ 541              	.LVL67:
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    i --;
+ 542              		.loc 1 156 0
+ 543 00e2 FBD1     		bne	.L75
+ 544 00e4 079A     		ldr	r2, [sp, #28]
+ 545              	.LVL68:
+ 546 00e6 1194     		str	r4, [sp, #68]
+ 547 00e8 A946     		mov	r9, r5
+ 548              	.LVL69:
+ 549              	.L61:
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 550              		.loc 1 160 0 discriminator 2
+ 551 00ea 9045     		cmp	r8, r2
+ 552 00ec 80F05481 		bcs	.L110
+ 553 00f0 1FFA8EF2 		uxth	r2, lr
+ 554 00f4 1FFA8AFA 		uxth	r10, r10
+ 555              	.LVL70:
+ 556 00f8 1046     		mov	r0, r2
+ 557              	.LVL71:
+ 558 00fa 0BF10301 		add	r1, fp, #3
+ 559 00fe 0892     		str	r2, [sp, #32]
+ 560 0100 0238     		subs	r0, r0, #2
+ 561 0102 0AF10102 		add	r2, r10, #1
+ 562 0106 89B2     		uxth	r1, r1
+ 563 0108 1FFA82FB 		uxth	fp, r2
+ 564 010c 1D46     		mov	r5, r3
+ 565 010e 82B2     		uxth	r2, r0
+ 566 0110 3346     		mov	r3, r6
+ 567 0112 0D91     		str	r1, [sp, #52]
+ 568 0114 5646     		mov	r6, r10
+ 569              	.LVL72:
+ 570 0116 0E92     		str	r2, [sp, #56]
+ 571 0118 BA46     		mov	r10, r7
+ 572 011a 119C     		ldr	r4, [sp, #68]
+ 573 011c 4F46     		mov	r7, r9
+ 574              	.LVL73:
+ 575 011e 9946     		mov	r9, r3
+ 576              	.LVL74:
+ 577 0120 01E0     		b	.L79
+ 578              	.LVL75:
+ 579              	.L117:
+ 580 0122 DAF86450 		ldr	r5, [r10, #100]
+ 581              	.LVL76:
+ 582              	.L79:
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 583              		.loc 1 162 0
+ 584 0126 0C9A     		ldr	r2, [sp, #48]
+ 585 0128 099B     		ldr	r3, [sp, #36]
+ 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 586              		.loc 1 164 0
+ 587 012a 0A99     		ldr	r1, [sp, #40]
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ARM GAS  /tmp/ccVh7BoE.s 			page 20
+
+
+ 588              		.loc 1 162 0
+ 589 012c AF42     		cmp	r7, r5
+ 590 012e 08BF     		it	eq
+ 591 0130 1346     		moveq	r3, r2
+ 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 592              		.loc 1 164 0
+ 593 0132 D9F80020 		ldr	r2, [r9]
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 594              		.loc 1 162 0
+ 595 0136 1D46     		mov	r5, r3
+ 596              	.LVL77:
+ 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 597              		.loc 1 164 0
+ 598 0138 1B68     		ldr	r3, [r3]
+ 599              	.LVL78:
+ 600 013a 1068     		ldr	r0, [r2]
+ 601 013c 0293     		str	r3, [sp, #8]
+ 602 013e AB68     		ldr	r3, [r5, #8]
+ 603 0140 0193     		str	r3, [sp, #4]
+ 604 0142 2246     		mov	r2, r4
+ 605 0144 089B     		ldr	r3, [sp, #32]
+ 606 0146 0096     		str	r6, [sp]
+ 607 0148 FFF7FEFF 		bl	makise_d_rect_filled
+ 608              	.LVL79:
+ 167:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
+ 609              		.loc 1 167 0
+ 610 014c D9F80010 		ldr	r1, [r9]
+ 171:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font_line_spacing,
+ 611              		.loc 1 171 0
+ 612 0150 DAF87430 		ldr	r3, [r10, #116]
+ 167:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
+ 613              		.loc 1 167 0
+ 614 0154 6A68     		ldr	r2, [r5, #4]
+ 615 0156 0868     		ldr	r0, [r1]
+ 616 0158 F968     		ldr	r1, [r7, #12]
+ 617 015a 0592     		str	r2, [sp, #20]
+ 618 015c 1A89     		ldrh	r2, [r3, #8]
+ 619 015e 0492     		str	r2, [sp, #16]
+ 620 0160 5B68     		ldr	r3, [r3, #4]
+ 621 0162 0393     		str	r3, [sp, #12]
+ 622 0164 A4B2     		uxth	r4, r4
+ 623 0166 0E9B     		ldr	r3, [sp, #56]
+ 624 0168 0094     		str	r4, [sp]
+ 625 016a 0193     		str	r3, [sp, #4]
+ 626 016c 0296     		str	r6, [sp, #8]
+ 627 016e 0D9B     		ldr	r3, [sp, #52]
+ 628 0170 4FF0FF32 		mov	r2, #-1
+ 629 0174 FFF7FEFF 		bl	makise_d_string_frame
+ 630              	.LVL80:
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 631              		.loc 1 160 0
+ 632 0178 079B     		ldr	r3, [sp, #28]
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 633              		.loc 1 176 0
+ 634 017a 7F68     		ldr	r7, [r7, #4]
+ 635              	.LVL81:
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ARM GAS  /tmp/ccVh7BoE.s 			page 21
+
+
+ 636              		.loc 1 160 0
+ 637 017c 08F10108 		add	r8, r8, #1
+ 638              	.LVL82:
+ 639 0180 5C44     		add	r4, r4, fp
+ 640              	.LVL83:
+ 641 0182 9845     		cmp	r8, r3
+ 642 0184 24B2     		sxth	r4, r4
+ 643              	.LVL84:
+ 644 0186 CCD1     		bne	.L117
+ 645 0188 D9F82CC0 		ldr	ip, [r9, #44]
+ 646 018c D9F82400 		ldr	r0, [r9, #36]
+ 647 0190 4E46     		mov	r6, r9
+ 648 0192 1FFA8CF1 		uxth	r1, ip
+ 649              	.LVL85:
+ 650              	.L71:
+ 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     sh = h / len;
+ 651              		.loc 1 179 0
+ 652 0196 831E     		subs	r3, r0, #2
+ 653              	.LVL86:
+ 180:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(sh < 5)
+ 654              		.loc 1 180 0
+ 655 0198 109D     		ldr	r5, [sp, #64]
+ 656 019a B3FBF5F4 		udiv	r4, r3, r5
+ 657              	.LVL87:
+ 181:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 658              		.loc 1 181 0
+ 659 019e 042C     		cmp	r4, #4
+ 660 01a0 69D8     		bhi	.L80
+ 183:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	sh = 5;
+ 661              		.loc 1 183 0
+ 662 01a2 C71F     		subs	r7, r0, #7
+ 663 01a4 129B     		ldr	r3, [sp, #72]
+ 664              	.LVL88:
+ 665 01a6 2744     		add	r7, r7, r4
+ 666 01a8 03FB07F3 		mul	r3, r3, r7
+ 667 01ac 0524     		movs	r4, #5
+ 668              	.LVL89:
+ 669 01ae B3FBF5F7 		udiv	r7, r3, r5
+ 670 01b2 3FB2     		sxth	r7, r7
+ 671              	.LVL90:
+ 672              	.L81:
+ 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
+ 673              		.loc 1 191 0
+ 674 01b4 089D     		ldr	r5, [sp, #32]
+ 675 01b6 139B     		ldr	r3, [sp, #76]
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
+ 676              		.loc 1 190 0
+ 677 01b8 3268     		ldr	r2, [r6]
+ 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
+ 678              		.loc 1 191 0
+ 679 01ba 2B44     		add	r3, r3, r5
+ 192:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->border_c);
+ 680              		.loc 1 192 0
+ 681 01bc 01F1FF3E 		add	lr, r1, #-1
+ 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
+ 682              		.loc 1 191 0
+ 683 01c0 9DB2     		uxth	r5, r3
+ARM GAS  /tmp/ccVh7BoE.s 			page 22
+
+
+ 192:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->border_c);
+ 684              		.loc 1 192 0
+ 685 01c2 8644     		add	lr, lr, r0
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
+ 686              		.loc 1 190 0
+ 687 01c4 1068     		ldr	r0, [r2]
+ 688              	.LVL91:
+ 689 01c6 0B9A     		ldr	r2, [sp, #44]
+ 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y + b->position.height - 1,
+ 690              		.loc 1 191 0
+ 691 01c8 6B1E     		subs	r3, r5, #1
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
+ 692              		.loc 1 190 0
+ 693 01ca 0FFA8EFE 		sxth	lr, lr
+ 694 01ce 9268     		ldr	r2, [r2, #8]
+ 695 01d0 0192     		str	r2, [sp, #4]
+ 696 01d2 1BB2     		sxth	r3, r3
+ 697 01d4 0FFA8CF2 		sxth	r2, ip
+ 698 01d8 CDF800E0 		str	lr, [sp]
+ 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 699              		.loc 1 188 0
+ 700 01dc 01F10108 		add	r8, r1, #1
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
+ 701              		.loc 1 190 0
+ 702 01e0 1946     		mov	r1, r3
+ 703 01e2 FFF7FEFF 		bl	makise_d_line
+ 704              	.LVL92:
+ 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 705              		.loc 1 188 0
+ 706 01e6 4744     		add	r7, r7, r8
+ 707              	.LVL93:
+ 194:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
+ 708              		.loc 1 194 0
+ 709 01e8 0B9B     		ldr	r3, [sp, #44]
+ 710 01ea 3268     		ldr	r2, [r6]
+ 711 01ec 5B68     		ldr	r3, [r3, #4]
+ 712 01ee 1068     		ldr	r0, [r2]
+ 713 01f0 0193     		str	r3, [sp, #4]
+ 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 714              		.loc 1 188 0
+ 715 01f2 BFB2     		uxth	r7, r7
+ 196:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  th->font_col);
+ 716              		.loc 1 196 0
+ 717 01f4 3C44     		add	r4, r4, r7
+ 194:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
+ 718              		.loc 1 194 0
+ 719 01f6 2BB2     		sxth	r3, r5
+ 720 01f8 24B2     		sxth	r4, r4
+ 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
+ 721              		.loc 1 188 0
+ 722 01fa 3FB2     		sxth	r7, r7
+ 723              	.LVL94:
+ 194:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w    , y,
+ 724              		.loc 1 194 0
+ 725 01fc 3A46     		mov	r2, r7
+ 726 01fe 1946     		mov	r1, r3
+ 727 0200 0094     		str	r4, [sp]
+ARM GAS  /tmp/ccVh7BoE.s 			page 23
+
+
+ 728 0202 FFF7FEFF 		bl	makise_d_line
+ 729              	.LVL95:
+ 198:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y,
+ 730              		.loc 1 198 0
+ 731 0206 3368     		ldr	r3, [r6]
+ 732 0208 0B9A     		ldr	r2, [sp, #44]
+ 733 020a 1868     		ldr	r0, [r3]
+ 734 020c 5168     		ldr	r1, [r2, #4]
+ 735 020e 0191     		str	r1, [sp, #4]
+ 199:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y + sh,
+ 736              		.loc 1 199 0
+ 737 0210 6B1C     		adds	r3, r5, #1
+ 198:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w + 1, y,
+ 738              		.loc 1 198 0
+ 739 0212 1BB2     		sxth	r3, r3
+ 740 0214 0094     		str	r4, [sp]
+ 741 0216 3A46     		mov	r2, r7
+ 742 0218 1946     		mov	r1, r3
+ 743 021a FFF7FEFF 		bl	makise_d_line
+ 744              	.LVL96:
+ 202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 745              		.loc 1 202 0
+ 746 021e 0120     		movs	r0, #1
+ 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 747              		.loc 1 203 0
+ 748 0220 15B0     		add	sp, sp, #84
+ 749              	.LCFI10:
+ 750              		.cfi_remember_state
+ 751              		.cfi_def_cfa_offset 36
+ 752              		@ sp needed
+ 753 0222 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 754              	.LVL97:
+ 755              	.L115:
+ 756              	.LCFI11:
+ 757              		.cfi_restore_state
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 758              		.loc 1 109 0
+ 759 0226 079D     		ldr	r5, [sp, #28]
+  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 760              		.loc 1 86 0
+ 761 0228 7B6E     		ldr	r3, [r7, #100]
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 762              		.loc 1 109 0
+ 763 022a A846     		mov	r8, r5
+ 764 022c 109D     		ldr	r5, [sp, #64]
+  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 765              		.loc 1 86 0
+ 766 022e 9A68     		ldr	r2, [r3, #8]
+ 767              	.LVL98:
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 768              		.loc 1 109 0
+ 769 0230 A845     		cmp	r8, r5
+ 770 0232 3BD2     		bcs	.L90
   74:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	len = 0;  //count of items
- 725              		.loc 1 74 0
- 726 026a 0023     		movs	r3, #0
- 727 026c 1193     		str	r3, [sp, #68]
- 728 026e 1099     		ldr	r1, [sp, #64]
- 729 0270 09E7     		b	.L46
- 730              	.LVL85:
- 731              	.L49:
-  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
- 732              		.loc 1 97 0
- 733 0272 D945     		cmp	r9, fp
- 734 0274 F6D9     		bls	.L69
- 735              	.LVL86:
- 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
- 736              		.loc 1 100 0
- 737 0276 1099     		ldr	r1, [sp, #64]
- 738 0278 079B     		ldr	r3, [sp, #28]
- 739 027a 0791     		str	r1, [sp, #28]
- 740              	.LVL87:
- 741 027c A1EB0309 		sub	r9, r1, r3
- 742              	.LVL88:
- 743 0280 0B46     		mov	r3, r1
- 744 0282 76E7     		b	.L47
- 745              		.cfi_endproc
- 746              	.LFE127:
- 748              		.section	.text.m_create_slist,"ax",%progbits
- 749              		.align	1
- 750              		.p2align 2,,3
- 751              		.global	m_create_slist
- 752              		.syntax unified
- 753              		.thumb
- 754              		.thumb_func
- 755              		.fpu fpv4-sp-d16
- 757              	m_create_slist:
- 758              	.LFB126:
+ 771              		.loc 1 74 0
+ 772 0234 0025     		movs	r5, #0
+ 773 0236 1295     		str	r5, [sp, #72]
+ARM GAS  /tmp/ccVh7BoE.s 			page 24
+
+
+ 774              	.LVL99:
+ 775              	.L54:
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 776              		.loc 1 114 0
+ 777 0238 079D     		ldr	r5, [sp, #28]
+ 778 023a 4FEA5508 		lsr	r8, r5, #1
+ 779 023e 9045     		cmp	r8, r2
+ 780 0240 22D9     		bls	.L118
+ 781              	.LVL100:
+ 782              	.L66:
+ 124:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 783              		.loc 1 124 0 discriminator 1
+ 784 0242 109D     		ldr	r5, [sp, #64]
+ 785 0244 AC1A     		subs	r4, r5, r2
+ 786 0246 079D     		ldr	r5, [sp, #28]
+ 787 0248 05F1FF38 		add	r8, r5, #-1
+ 788 024c B4EB580F 		cmp	r4, r8, lsr #1
+ 789 0250 06D9     		bls	.L68
+ 790              	.LVL101:
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 791              		.loc 1 130 0
+ 792 0252 B9F1000F 		cmp	r9, #0
+ 793 0256 3FF43AAF 		beq	.L109
+ 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = ec;
+ 794              		.loc 1 126 0
+ 795 025a 4FF00008 		mov	r8, #0
+ 796 025e 2DE0     		b	.L70
+ 797              	.LVL102:
+ 798              	.L68:
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 799              		.loc 1 130 0
+ 800 0260 B9F1000F 		cmp	r9, #0
+ 801 0264 40F09880 		bne	.L110
+ 802              	.LVL103:
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    i --;
+ 803              		.loc 1 156 0
+ 804 0268 002A     		cmp	r2, #0
+ 805 026a 00F09580 		beq	.L110
+ 806 026e C846     		mov	r8, r9
+ 807 0270 CDF81C90 		str	r9, [sp, #28]
+ 808 0274 30E7     		b	.L86
+ 809              	.LVL104:
+ 810              	.L80:
+ 187:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     y += b->position.real_y + 1;
+ 811              		.loc 1 187 0
+ 812 0276 129F     		ldr	r7, [sp, #72]
+ 813 0278 A4B2     		uxth	r4, r4
+ 814              	.LVL105:
+ 815 027a 03FB07F7 		mul	r7, r3, r7
+ 816 027e 109B     		ldr	r3, [sp, #64]
+ 817              	.LVL106:
+ 818 0280 B7FBF3F7 		udiv	r7, r7, r3
+ 819 0284 3FB2     		sxth	r7, r7
+ 820              	.LVL107:
+ 821 0286 95E7     		b	.L81
+ 822              	.LVL108:
+ 823              	.L118:
+ARM GAS  /tmp/ccVh7BoE.s 			page 25
+
+
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 824              		.loc 1 114 0 discriminator 1
+ 825 0288 109D     		ldr	r5, [sp, #64]
+ 826 028a AC1A     		subs	r4, r5, r2
+ 827 028c 079D     		ldr	r5, [sp, #28]
+ 828 028e 013D     		subs	r5, r5, #1
+ 829 0290 B4EB550F 		cmp	r4, r5, lsr #1
+ 830 0294 77D8     		bhi	.L88
+ 119:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 831              		.loc 1 119 0
+ 832 0296 9045     		cmp	r8, r2
+ 833 0298 E2D2     		bcs	.L68
+ 834              	.LVL109:
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 835              		.loc 1 122 0
+ 836 029a 109C     		ldr	r4, [sp, #64]
+ 837 029c 079D     		ldr	r5, [sp, #28]
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 838              		.loc 1 82 0
+ 839 029e 0794     		str	r4, [sp, #28]
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 840              		.loc 1 122 0
+ 841 02a0 A4EB0508 		sub	r8, r4, r5
+ 842              	.LVL110:
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 843              		.loc 1 130 0
+ 844 02a4 B9F1000F 		cmp	r9, #0
+ 845 02a8 05D1     		bne	.L53
+ 846 02aa 12E7     		b	.L69
+ 847              	.LVL111:
+ 848              	.L90:
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	len = 0;  //count of items
+ 849              		.loc 1 74 0
+ 850 02ac 0022     		movs	r2, #0
+ 851              	.LVL112:
+ 852 02ae 1292     		str	r2, [sp, #72]
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = len;
+ 853              		.loc 1 111 0
+ 854 02b0 9046     		mov	r8, r2
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 855              		.loc 1 109 0
+ 856 02b2 109A     		ldr	r2, [sp, #64]
+ 857 02b4 0792     		str	r2, [sp, #28]
+ 858              	.LVL113:
+ 859              	.L53:
+ 132:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 860              		.loc 1 132 0 discriminator 1
+ 861 02b6 079A     		ldr	r2, [sp, #28]
+ 862 02b8 9045     		cmp	r8, r2
+ 863 02ba 6DD2     		bcs	.L110
+ 864              	.LVL114:
+ 865              	.L70:
+ 866 02bc 1FFA8AF5 		uxth	r5, r10
+ 867 02c0 1FFA8EF2 		uxth	r2, lr
+ 868 02c4 0BF10300 		add	r0, fp, #3
+ 869              	.LVL115:
+ 870 02c8 691C     		adds	r1, r5, #1
+ARM GAS  /tmp/ccVh7BoE.s 			page 26
+
+
+ 871 02ca 0892     		str	r2, [sp, #32]
+ 872 02cc 023A     		subs	r2, r2, #2
+ 873 02ce 08EB880B 		add	fp, r8, r8, lsl #2
+ 874 02d2 80B2     		uxth	r0, r0
+ 875 02d4 89B2     		uxth	r1, r1
+ 876 02d6 92B2     		uxth	r2, r2
+ 877 02d8 B246     		mov	r10, r6
+ 878              	.LVL116:
+ 879 02da 0E90     		str	r0, [sp, #56]
+ 880 02dc 2E46     		mov	r6, r5
+ 881              	.LVL117:
+ 882 02de 0D91     		str	r1, [sp, #52]
+ 883 02e0 0F92     		str	r2, [sp, #60]
+ 884 02e2 4FEA8B0B 		lsl	fp, fp, #2
+ 885 02e6 119C     		ldr	r4, [sp, #68]
+ 886 02e8 4546     		mov	r5, r8
+ 887 02ea 00E0     		b	.L74
+ 888              	.LVL118:
+ 889              	.L73:
+ 890 02ec 7B6E     		ldr	r3, [r7, #100]
+ 891              	.LVL119:
+ 892              	.L74:
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
+ 893              		.loc 1 134 0
+ 894 02ee BA6D     		ldr	r2, [r7, #88]
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
+ 895              		.loc 1 136 0
+ 896 02f0 DDF82480 		ldr	r8, [sp, #36]
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 897              		.loc 1 139 0
+ 898 02f4 0A99     		ldr	r1, [sp, #40]
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
+ 899              		.loc 1 134 0
+ 900 02f6 02EB0B09 		add	r9, r2, fp
+ 901              	.LVL120:
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
+ 902              		.loc 1 136 0
+ 903 02fa 9945     		cmp	r9, r3
+ 904 02fc 08BF     		it	eq
+ 905 02fe DDF83080 		ldreq	r8, [sp, #48]
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 906              		.loc 1 139 0
+ 907 0302 DAF80020 		ldr	r2, [r10]
+ 908 0306 D8F80030 		ldr	r3, [r8]
+ 909 030a 1068     		ldr	r0, [r2]
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
+ 910              		.loc 1 135 0
+ 911 030c C9F80850 		str	r5, [r9, #8]
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				 x, y, w, eh,
+ 912              		.loc 1 139 0
+ 913 0310 0293     		str	r3, [sp, #8]
+ 914 0312 D8F80830 		ldr	r3, [r8, #8]
+ 915 0316 0193     		str	r3, [sp, #4]
+ 916 0318 2246     		mov	r2, r4
+ 917 031a 089B     		ldr	r3, [sp, #32]
+ 918 031c 0096     		str	r6, [sp]
+ 919 031e 08BF     		it	eq
+ARM GAS  /tmp/ccVh7BoE.s 			page 27
+
+
+ 920 0320 1295     		streq	r5, [sp, #72]
+ 921 0322 FFF7FEFF 		bl	makise_d_rect_filled
+ 922              	.LVL121:
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
+ 923              		.loc 1 142 0
+ 924 0326 DAF80000 		ldr	r0, [r10]
+ 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  l->item_style->font_line_spacing,
+ 925              		.loc 1 146 0
+ 926 032a 7B6F     		ldr	r3, [r7, #116]
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 				  x + 1,
+ 927              		.loc 1 142 0
+ 928 032c D8F80420 		ldr	r2, [r8, #4]
+ 929 0330 D9F80C10 		ldr	r1, [r9, #12]
+ 930 0334 0068     		ldr	r0, [r0]
+ 931 0336 0592     		str	r2, [sp, #20]
+ 932 0338 1A89     		ldrh	r2, [r3, #8]
+ 933 033a 0492     		str	r2, [sp, #16]
+ 934 033c 5B68     		ldr	r3, [r3, #4]
+ 935 033e 0393     		str	r3, [sp, #12]
+ 936 0340 A4B2     		uxth	r4, r4
+ 937 0342 0F9B     		ldr	r3, [sp, #60]
+ 938 0344 0094     		str	r4, [sp]
+ 939 0346 0193     		str	r3, [sp, #4]
+ 940 0348 0296     		str	r6, [sp, #8]
+ 941 034a 0E9B     		ldr	r3, [sp, #56]
+ 942 034c 4FF0FF32 		mov	r2, #-1
+ 943 0350 FFF7FEFF 		bl	makise_d_string_frame
+ 944              	.LVL122:
+ 945 0354 0D9B     		ldr	r3, [sp, #52]
+ 946 0356 1C44     		add	r4, r4, r3
+ 947              	.LVL123:
+ 132:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 948              		.loc 1 132 0
+ 949 0358 079B     		ldr	r3, [sp, #28]
+ 950 035a 0135     		adds	r5, r5, #1
+ 951              	.LVL124:
+ 952 035c 9D42     		cmp	r5, r3
+ 953 035e 0BF1140B 		add	fp, fp, #20
+ 954 0362 24B2     		sxth	r4, r4
+ 955              	.LVL125:
+ 956 0364 C2D1     		bne	.L73
+ 957 0366 DAF82CC0 		ldr	ip, [r10, #44]
+ 958 036a DAF82400 		ldr	r0, [r10, #36]
+ 959 036e 5646     		mov	r6, r10
+ 960 0370 1FFA8CF1 		uxth	r1, ip
+ 961 0374 0FE7     		b	.L71
+ 962              	.LVL126:
+ 963              	.L85:
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 964              		.loc 1 114 0
+ 965 0376 079A     		ldr	r2, [sp, #28]
+ 966 0378 013A     		subs	r2, r2, #1
+ 967 037a B5EB520F 		cmp	r5, r2, lsr #1
+ 968 037e 0BD9     		bls	.L110
+ 969 0380 DDF84880 		ldr	r8, [sp, #72]
+ 970 0384 4246     		mov	r2, r8
+ 971              	.LVL127:
+ARM GAS  /tmp/ccVh7BoE.s 			page 28
+
+
+ 972              	.L88:
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 973              		.loc 1 117 0
+ 974 0386 079D     		ldr	r5, [sp, #28]
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	end = start + ec;
+ 975              		.loc 1 116 0
+ 976 0388 A2EB0808 		sub	r8, r2, r8
+ 977              	.LVL128:
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 978              		.loc 1 117 0
+ 979 038c 4544     		add	r5, r5, r8
+ 980 038e 0795     		str	r5, [sp, #28]
+ 981              	.LVL129:
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 982              		.loc 1 130 0
+ 983 0390 B9F1000F 		cmp	r9, #0
+ 984 0394 8FD1     		bne	.L53
+ 985 0396 9CE6     		b	.L69
+ 986              	.LVL130:
+ 987              	.L110:
+ 988 0398 1FFA8EF3 		uxth	r3, lr
+ 989 039c 0893     		str	r3, [sp, #32]
+ 990 039e FAE6     		b	.L71
+ 991              	.LVL131:
+ 992              	.L55:
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 993              		.loc 1 109 0
+ 994 03a0 079A     		ldr	r2, [sp, #28]
+ 995 03a2 109D     		ldr	r5, [sp, #64]
+ 996 03a4 AA42     		cmp	r2, r5
+ 997 03a6 09D2     		bcs	.L119
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 998              		.loc 1 114 0
+ 999 03a8 5208     		lsrs	r2, r2, #1
+ 1000 03aa 1292     		str	r2, [sp, #72]
+ 1001 03ac E3D0     		beq	.L85
+ 1002 03ae 4A46     		mov	r2, r9
+ 1003              	.LBB12:
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	i = UINT32_MAX;
+ 1004              		.loc 1 92 0
+ 1005 03b0 CDF84890 		str	r9, [sp, #72]
+ 1006 03b4 45E7     		b	.L66
+ 1007              	.LVL132:
+ 1008              	.L116:
+ 1009              	.LBE12:
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    i --;
+ 1010              		.loc 1 156 0
+ 1011 03b6 9946     		mov	r9, r3
+ 1012 03b8 079A     		ldr	r2, [sp, #28]
+ 1013              	.LVL133:
+ 1014 03ba 96E6     		b	.L61
+ 1015              	.LVL134:
+ 1016              	.L119:
+ 1017 03bc 109A     		ldr	r2, [sp, #64]
+ 1018              	.LBB13:
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	i = UINT32_MAX;
+ 1019              		.loc 1 92 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 29
+
+
+ 1020 03be CDF84890 		str	r9, [sp, #72]
+ 1021 03c2 C846     		mov	r8, r9
+ 1022              	.LBE13:
+ 1023 03c4 0792     		str	r2, [sp, #28]
+ 1024              	.LVL135:
+ 1025 03c6 9946     		mov	r9, r3
+ 1026 03c8 8FE6     		b	.L61
+ 1027              		.cfi_endproc
+ 1028              	.LFE127:
+ 1030 03ca 00BF     		.section	.text.m_create_slist,"ax",%progbits
+ 1031              		.align	1
+ 1032              		.p2align 2,,3
+ 1033              		.global	m_create_slist
+ 1034              		.syntax unified
+ 1035              		.thumb
+ 1036              		.thumb_func
+ 1037              		.fpu fpv4-sp-d16
+ 1039              	m_create_slist:
+ 1040              	.LFB126:
   14:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MElement *e = &b->el;
- 759              		.loc 1 14 0
- 760              		.cfi_startproc
- 761              		@ args = 28, pretend = 0, frame = 8
- 762              		@ frame_needed = 0, uses_anonymous_args = 0
- 763              	.LVL89:
- 764 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 765              	.LCFI12:
- 766              		.cfi_def_cfa_offset 36
- 767              		.cfi_offset 4, -36
- 768              		.cfi_offset 5, -32
- 769              		.cfi_offset 6, -28
- 770              		.cfi_offset 7, -24
- 771              		.cfi_offset 8, -20
- 772              		.cfi_offset 9, -16
-ARM GAS  /tmp/ccbq1EWD.s 			page 21
-
-
- 773              		.cfi_offset 10, -12
- 774              		.cfi_offset 11, -8
- 775              		.cfi_offset 14, -4
- 776 0004 0446     		mov	r4, r0
- 777              	.LVL90:
- 778 0006 83B0     		sub	sp, sp, #12
- 779              	.LCFI13:
- 780              		.cfi_def_cfa_offset 48
+ 1041              		.loc 1 14 0
+ 1042              		.cfi_startproc
+ 1043              		@ args = 28, pretend = 0, frame = 8
+ 1044              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1045              	.LVL136:
+ 1046 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1047              	.LCFI12:
+ 1048              		.cfi_def_cfa_offset 36
+ 1049              		.cfi_offset 4, -36
+ 1050              		.cfi_offset 5, -32
+ 1051              		.cfi_offset 6, -28
+ 1052              		.cfi_offset 7, -24
+ 1053              		.cfi_offset 8, -20
+ 1054              		.cfi_offset 9, -16
+ 1055              		.cfi_offset 10, -12
+ 1056              		.cfi_offset 11, -8
+ 1057              		.cfi_offset 14, -4
+ 1058 0004 0446     		mov	r4, r0
+ 1059              	.LVL137:
+ 1060 0006 83B0     		sub	sp, sp, #12
+ 1061              	.LCFI13:
+ 1062              		.cfi_def_cfa_offset 48
   16:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 781              		.loc 1 16 0
- 782 0008 0868     		ldr	r0, [r1]
- 783              	.LVL91:
- 784 000a 6060     		str	r0, [r4, #4]
+ 1063              		.loc 1 16 0
+ 1064 0008 0868     		ldr	r0, [r1]
+ 1065              	.LVL138:
+ 1066 000a 6060     		str	r0, [r4, #4]
   14:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MElement *e = &b->el;
- 785              		.loc 1 14 0
- 786 000c 9846     		mov	r8, r3
+ 1067              		.loc 1 14 0
+ 1068 000c 9846     		mov	r8, r3
   20:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 787              		.loc 1 20 0
- 788 000e 0846     		mov	r0, r1
+ 1069              		.loc 1 20 0
+ 1070 000e 0846     		mov	r0, r1
   14:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MElement *e = &b->el;
- 789              		.loc 1 14 0
- 790 0010 0F9B     		ldr	r3, [sp, #60]
- 791              	.LVL92:
+ 1071              		.loc 1 14 0
+ 1072 0010 0F9B     		ldr	r3, [sp, #60]
+ 1073              	.LVL139:
+ARM GAS  /tmp/ccVh7BoE.s 			page 30
+
+
   18:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 792              		.loc 1 18 0
- 793 0012 A463     		str	r4, [r4, #56]
+ 1074              		.loc 1 18 0
+ 1075 0012 A463     		str	r4, [r4, #56]
   20:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 794              		.loc 1 20 0
- 795 0014 211D     		adds	r1, r4, #4
- 796              	.LVL93:
+ 1076              		.loc 1 20 0
+ 1077 0014 211D     		adds	r1, r4, #4
+ 1078              	.LVL140:
   14:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MElement *e = &b->el;
- 797              		.loc 1 14 0
- 798 0016 0193     		str	r3, [sp, #4]
- 799 0018 0092     		str	r2, [sp]
- 800 001a DDF830B0 		ldr	fp, [sp, #48]
- 801 001e DDF834A0 		ldr	r10, [sp, #52]
- 802 0022 DDF83890 		ldr	r9, [sp, #56]
- 803 0026 109F     		ldr	r7, [sp, #64]
- 804 0028 119E     		ldr	r6, [sp, #68]
- 805 002a 129D     		ldr	r5, [sp, #72]
+ 1079              		.loc 1 14 0
+ 1080 0016 0193     		str	r3, [sp, #4]
+ 1081 0018 0092     		str	r2, [sp]
+ 1082 001a DDF830B0 		ldr	fp, [sp, #48]
+ 1083 001e DDF834A0 		ldr	r10, [sp, #52]
+ 1084 0022 DDF83890 		ldr	r9, [sp, #56]
+ 1085 0026 109F     		ldr	r7, [sp, #64]
+ 1086 0028 119E     		ldr	r6, [sp, #68]
+ 1087 002a 129D     		ldr	r5, [sp, #72]
   20:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 806              		.loc 1 20 0
- 807 002c FFF7FEFF 		bl	makise_g_cont_add
- 808              	.LVL94:
+ 1088              		.loc 1 20 0
+ 1089 002c FFF7FEFF 		bl	makise_g_cont_add
+ 1090              	.LVL141:
   29:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.y = y;
- 809              		.loc 1 29 0
- 810 0030 009A     		ldr	r2, [sp]
+ 1091              		.loc 1 29 0
+ 1092 0030 009A     		ldr	r2, [sp]
   22:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->predraw = 0;
- 811              		.loc 1 22 0
- 812 0032 DFF86CE0 		ldr	lr, .L74+12
+ 1093              		.loc 1 22 0
+ 1094 0032 DFF86CE0 		ldr	lr, .L122+12
   29:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.y = y;
- 813              		.loc 1 29 0
- 814 0036 E261     		str	r2, [r4, #28]
+ 1095              		.loc 1 29 0
+ 1096 0036 E261     		str	r2, [r4, #28]
   23:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->update = 0;
- 815              		.loc 1 23 0
- 816 0038 0021     		movs	r1, #0
+ 1097              		.loc 1 23 0
+ 1098 0038 0021     		movs	r1, #0
   26:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->free =  0;
-ARM GAS  /tmp/ccbq1EWD.s 			page 22
-
-
- 817              		.loc 1 26 0
- 818 003a 164A     		ldr	r2, .L74
+ 1099              		.loc 1 26 0
+ 1100 003a 164A     		ldr	r2, .L122
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.width = w;
- 819              		.loc 1 30 0
- 820 003c C4F82080 		str	r8, [r4, #32]
+ 1101              		.loc 1 30 0
+ 1102 003c C4F82080 		str	r8, [r4, #32]
   25:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->focus = &_m_slist_focus;
- 821              		.loc 1 25 0
- 822 0040 1548     		ldr	r0, .L74+4
+ 1103              		.loc 1 25 0
+ 1104 0040 1548     		ldr	r0, .L122+4
   23:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->update = 0;
- 823              		.loc 1 23 0
- 824 0042 2164     		str	r1, [r4, #64]
+ 1105              		.loc 1 23 0
+ 1106 0042 2164     		str	r1, [r4, #64]
   34:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->id = makise_g_newid();
- 825              		.loc 1 34 0
- 826 0044 4FF00108 		mov	r8, #1
- 827              	.LVL95:
+ 1107              		.loc 1 34 0
+ 1108 0044 4FF00108 		mov	r8, #1
+ 1109              	.LVL142:
   24:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->input = &_m_slist_input;
- 828              		.loc 1 24 0
- 829 0048 6164     		str	r1, [r4, #68]
+ 1110              		.loc 1 24 0
+ 1111 0048 6164     		str	r1, [r4, #68]
   27:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 830              		.loc 1 27 0
- 831 004a 2165     		str	r1, [r4, #80]
+ 1112              		.loc 1 27 0
+ 1113 004a 2165     		str	r1, [r4, #80]
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.height = h;
- 832              		.loc 1 31 0
- 833 004c C4F824B0 		str	fp, [r4, #36]
+ 1114              		.loc 1 31 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 31
+
+
+ 1115 004c C4F824B0 		str	fp, [r4, #36]
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 834              		.loc 1 32 0
- 835 0050 C4F828A0 		str	r10, [r4, #40]
+ 1116              		.loc 1 32 0
+ 1117 0050 C4F828A0 		str	r10, [r4, #40]
   22:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->predraw = 0;
- 836              		.loc 1 22 0
- 837 0054 C4F83CE0 		str	lr, [r4, #60]
+ 1118              		.loc 1 22 0
+ 1119 0054 C4F83CE0 		str	lr, [r4, #60]
   25:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->focus = &_m_slist_focus;
- 838              		.loc 1 25 0
- 839 0058 A064     		str	r0, [r4, #72]
+ 1120              		.loc 1 25 0
+ 1121 0058 A064     		str	r0, [r4, #72]
   26:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->free =  0;
- 840              		.loc 1 26 0
- 841 005a E264     		str	r2, [r4, #76]
+ 1122              		.loc 1 26 0
+ 1123 005a E264     		str	r2, [r4, #76]
   34:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->id = makise_g_newid();
- 842              		.loc 1 34 0
- 843 005c 84F81880 		strb	r8, [r4, #24]
+ 1124              		.loc 1 34 0
+ 1125 005c 84F81880 		strb	r8, [r4, #24]
   27:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 844              		.loc 1 27 0
- 845 0060 0091     		str	r1, [sp]
- 846              	.LVL96:
+ 1126              		.loc 1 27 0
+ 1127 0060 0091     		str	r1, [sp]
+ 1128              	.LVL143:
   35:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->focus_prior = 1;
- 847              		.loc 1 35 0
- 848 0062 FFF7FEFF 		bl	makise_g_newid
- 849              	.LVL97:
+ 1129              		.loc 1 35 0
+ 1130 0062 FFF7FEFF 		bl	makise_g_newid
+ 1131              	.LVL144:
   43:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->is_array = 0;
- 850              		.loc 1 43 0
- 851 0066 0099     		ldr	r1, [sp]
+ 1132              		.loc 1 43 0
+ 1133 0066 0099     		ldr	r1, [sp]
   40:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->click = click;
- 852              		.loc 1 40 0
- 853 0068 019B     		ldr	r3, [sp, #4]
+ 1134              		.loc 1 40 0
+ 1135 0068 019B     		ldr	r3, [sp, #4]
   43:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->is_array = 0;
- 854              		.loc 1 43 0
- 855 006a A165     		str	r1, [r4, #88]
+ 1136              		.loc 1 43 0
+ 1137 006a A165     		str	r1, [r4, #88]
   44:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->len = 0;
-ARM GAS  /tmp/ccbq1EWD.s 			page 23
-
-
- 856              		.loc 1 44 0
- 857 006c 84F85C10 		strb	r1, [r4, #92]
+ 1138              		.loc 1 44 0
+ 1139 006c 84F85C10 		strb	r1, [r4, #92]
   45:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->selected = 0;
- 858              		.loc 1 45 0
- 859 0070 2166     		str	r1, [r4, #96]
+ 1140              		.loc 1 45 0
+ 1141 0070 2166     		str	r1, [r4, #96]
   46:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 860              		.loc 1 46 0
- 861 0072 6166     		str	r1, [r4, #100]
+ 1142              		.loc 1 46 0
+ 1143 0072 6166     		str	r1, [r4, #100]
   35:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->focus_prior = 1;
- 862              		.loc 1 35 0
- 863 0074 A060     		str	r0, [r4, #8]
+ 1144              		.loc 1 35 0
+ 1145 0074 A060     		str	r0, [r4, #8]
   51:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
- 864              		.loc 1 51 0
- 865 0076 0146     		mov	r1, r0
- 866 0078 0848     		ldr	r0, .L74+8
+ 1146              		.loc 1 51 0
+ 1147 0076 0146     		mov	r1, r0
+ 1148 0078 0848     		ldr	r0, .L122+8
   38:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 867              		.loc 1 38 0
- 868 007a C4F85490 		str	r9, [r4, #84]
+ 1149              		.loc 1 38 0
+ 1150 007a C4F85490 		str	r9, [r4, #84]
   36:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 869              		.loc 1 36 0
- 870 007e 84F83480 		strb	r8, [r4, #52]
+ 1151              		.loc 1 36 0
+ 1152 007e 84F83480 		strb	r8, [r4, #52]
   40:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->click = click;
- 871              		.loc 1 40 0
- 872 0082 A366     		str	r3, [r4, #104]
+ 1153              		.loc 1 40 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 32
+
+
+ 1154 0082 A366     		str	r3, [r4, #104]
   41:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 873              		.loc 1 41 0
- 874 0084 E766     		str	r7, [r4, #108]
+ 1155              		.loc 1 41 0
+ 1156 0084 E766     		str	r7, [r4, #108]
   48:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     b->item_style = item_style;
- 875              		.loc 1 48 0
- 876 0086 2667     		str	r6, [r4, #112]
+ 1157              		.loc 1 48 0
+ 1158 0086 2667     		str	r6, [r4, #112]
   49:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
- 877              		.loc 1 49 0
- 878 0088 6567     		str	r5, [r4, #116]
+ 1159              		.loc 1 49 0
+ 1160 0088 6567     		str	r5, [r4, #116]
   52:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 879              		.loc 1 52 0
- 880 008a 03B0     		add	sp, sp, #12
- 881              	.LCFI14:
- 882              		.cfi_def_cfa_offset 36
- 883              		@ sp needed
- 884 008c BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 885              	.LCFI15:
- 886              		.cfi_restore 14
- 887              		.cfi_restore 11
- 888              		.cfi_restore 10
- 889              		.cfi_restore 9
- 890              		.cfi_restore 8
- 891              		.cfi_restore 7
- 892              		.cfi_restore 6
- 893              		.cfi_restore 5
- 894              		.cfi_restore 4
- 895              		.cfi_def_cfa_offset 0
- 896              	.LVL98:
+ 1161              		.loc 1 52 0
+ 1162 008a 03B0     		add	sp, sp, #12
+ 1163              	.LCFI14:
+ 1164              		.cfi_def_cfa_offset 36
+ 1165              		@ sp needed
+ 1166 008c BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1167              	.LCFI15:
+ 1168              		.cfi_restore 14
+ 1169              		.cfi_restore 11
+ 1170              		.cfi_restore 10
+ 1171              		.cfi_restore 9
+ 1172              		.cfi_restore 8
+ 1173              		.cfi_restore 7
+ 1174              		.cfi_restore 6
+ 1175              		.cfi_restore 5
+ 1176              		.cfi_restore 4
+ 1177              		.cfi_def_cfa_offset 0
+ 1178              	.LVL145:
   51:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
- 897              		.loc 1 51 0
- 898 0090 FFF7FEBF 		b	printf
- 899              	.LVL99:
- 900              	.L75:
-ARM GAS  /tmp/ccbq1EWD.s 			page 24
+ 1179              		.loc 1 51 0
+ 1180 0090 FFF7FEBF 		b	printf
+ 1181              	.LVL146:
+ 1182              	.L123:
+ 1183              		.align	2
+ 1184              	.L122:
+ 1185 0094 00000000 		.word	_m_slist_focus
+ 1186 0098 00000000 		.word	_m_slist_input
+ 1187 009c 00000000 		.word	.LC0
+ 1188 00a0 00000000 		.word	_m_slist_draw
+ 1189              		.cfi_endproc
+ 1190              	.LFE126:
+ 1192              		.section	.text.m_slist_add,"ax",%progbits
+ 1193              		.align	1
+ 1194              		.p2align 2,,3
+ 1195              		.global	m_slist_add
+ 1196              		.syntax unified
+ 1197              		.thumb
+ 1198              		.thumb_func
+ 1199              		.fpu fpv4-sp-d16
+ 1201              	m_slist_add:
+ 1202              	.LFB128:
+ 206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->is_array)
+ 1203              		.loc 1 206 0
+ 1204              		.cfi_startproc
+ 1205              		@ args = 0, pretend = 0, frame = 0
+ 1206              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 33
 
 
- 901              		.align	2
- 902              	.L74:
- 903 0094 00000000 		.word	_m_slist_focus
- 904 0098 00000000 		.word	_m_slist_input
- 905 009c 00000000 		.word	.LC0
- 906 00a0 00000000 		.word	_m_slist_draw
- 907              		.cfi_endproc
- 908              	.LFE126:
- 910              		.section	.text.m_slist_set_array,"ax",%progbits
- 911              		.align	1
- 912              		.p2align 2,,3
- 913              		.global	m_slist_set_array
- 914              		.syntax unified
- 915              		.thumb
- 916              		.thumb_func
- 917              		.fpu fpv4-sp-d16
- 919              	m_slist_set_array:
- 920              	.LFB128:
- 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = array;
- 921              		.loc 1 159 0
- 922              		.cfi_startproc
- 923              		@ args = 0, pretend = 0, frame = 0
- 924              		@ frame_needed = 0, uses_anonymous_args = 0
- 925              		@ link register save eliminated.
- 926              	.LVL100:
- 163:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *lst = 0;
- 927              		.loc 1 163 0
- 928 0000 0123     		movs	r3, #1
- 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = len;
- 929              		.loc 1 160 0
- 930 0002 8165     		str	r1, [r0, #88]
- 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->is_array = 1;
- 931              		.loc 1 162 0
- 932 0004 4166     		str	r1, [r0, #100]
- 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->selected = array;
- 933              		.loc 1 161 0
- 934 0006 0266     		str	r2, [r0, #96]
- 163:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *lst = 0;
- 935              		.loc 1 163 0
- 936 0008 80F85C30 		strb	r3, [r0, #92]
- 937              	.LVL101:
- 938              	.LBB10:
- 165:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 939              		.loc 1 165 0
- 940 000c D2B1     		cbz	r2, .L88
- 941 000e 0020     		movs	r0, #0
- 942              	.LVL102:
- 943              	.LBE10:
- 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = array;
- 944              		.loc 1 159 0
- 945 0010 70B4     		push	{r4, r5, r6}
- 946              	.LCFI16:
- 947              		.cfi_def_cfa_offset 12
- 948              		.cfi_offset 4, -12
- 949              		.cfi_offset 5, -8
- 950              		.cfi_offset 6, -4
- 951 0012 0B46     		mov	r3, r1
-ARM GAS  /tmp/ccbq1EWD.s 			page 25
+ 1207              		@ link register save eliminated.
+ 1208              	.LVL147:
+ 207:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1209              		.loc 1 207 0
+ 1210 0000 90F85C30 		ldrb	r3, [r0, #92]	@ zero_extendqisi2
+ 1211 0004 7BB9     		cbnz	r3, .L132
+ 209:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1212              		.loc 1 209 0
+ 1213 0006 826D     		ldr	r2, [r0, #88]
+ 1214 0008 72B1     		cbz	r2, .L133
+ 206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->is_array)
+ 1215              		.loc 1 206 0
+ 1216 000a 10B4     		push	{r4}
+ 1217              	.LCFI16:
+ 1218              		.cfi_def_cfa_offset 4
+ 1219              		.cfi_offset 4, -4
+ 1220 000c 00E0     		b	.L127
+ 1221              	.LVL148:
+ 1222              	.L128:
+ 1223 000e 1A46     		mov	r2, r3
+ 1224              	.LVL149:
+ 1225              	.L127:
+ 219:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	it = it->next;
+ 1226              		.loc 1 219 0
+ 1227 0010 5368     		ldr	r3, [r2, #4]
+ 1228 0012 002B     		cmp	r3, #0
+ 1229 0014 FBD1     		bne	.L128
+ 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1230              		.loc 1 225 0
+ 1231 0016 046E     		ldr	r4, [r0, #96]
+ 222:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next = 0;
+ 1232              		.loc 1 222 0
+ 1233 0018 5160     		str	r1, [r2, #4]
+ 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1234              		.loc 1 225 0
+ 1235 001a 0134     		adds	r4, r4, #1
+ 224:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len ++;
+ 1236              		.loc 1 224 0
+ 1237 001c 81E80C00 		stm	r1, {r2, r3}
+ 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1238              		.loc 1 225 0
+ 1239 0020 0466     		str	r4, [r0, #96]
+ 226:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_clear(MSList *l)
+ 1240              		.loc 1 226 0
+ 1241 0022 5DF8044B 		ldr	r4, [sp], #4
+ 1242              	.LCFI17:
+ 1243              		.cfi_restore 4
+ 1244              		.cfi_def_cfa_offset 0
+ 1245              	.LVL150:
+ 1246              	.L132:
+ 1247 0026 7047     		bx	lr
+ 1248              	.L133:
+ 214:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = item;
+ 1249              		.loc 1 214 0
+ 1250 0028 0123     		movs	r3, #1
+ 211:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
+ 1251              		.loc 1 211 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 34
 
 
- 952              	.LBB11:
- 165:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
- 953              		.loc 1 165 0
- 954 0014 0546     		mov	r5, r0
- 955 0016 05E0     		b	.L79
- 956              	.LVL103:
- 957              	.L89:
- 170:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 958              		.loc 1 170 0 discriminator 1
- 959 0018 43F80C0C 		str	r0, [r3, #-12]
- 960              	.LVL104:
- 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 961              		.loc 1 168 0 discriminator 1
- 962 001c 43F8103C 		str	r3, [r3, #-16]
- 963 0020 3546     		mov	r5, r6
- 964 0022 2046     		mov	r0, r4
- 965              	.LVL105:
- 966              	.L79:
- 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 967              		.loc 1 168 0 is_stmt 0
- 968 0024 441C     		adds	r4, r0, #1
- 969 0026 A242     		cmp	r2, r4
- 167:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].next = ((i + 1) < len) ? &array[i+1] : 0;
- 970              		.loc 1 167 0 is_stmt 1
- 971 0028 1E46     		mov	r6, r3
- 972 002a 43F8145B 		str	r5, [r3], #20
- 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 973              		.loc 1 168 0
- 974 002e F3D1     		bne	.L89
- 975 0030 02EB8202 		add	r2, r2, r2, lsl #2
- 976              	.LVL106:
- 977              	.LBE11:
- 174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_list(MSList *l, MSList_Item *first); //set linked list as new data source.
- 978              		.loc 1 174 0
- 979 0034 70BC     		pop	{r4, r5, r6}
- 980              	.LCFI17:
- 981              		.cfi_restore 6
- 982              		.cfi_restore 5
- 983              		.cfi_restore 4
- 984              		.cfi_def_cfa_offset 0
- 985              	.LVL107:
- 986 0036 01EB8202 		add	r2, r1, r2, lsl #2
- 987 003a A2F11403 		sub	r3, r2, #20
- 988              	.LVL108:
- 989              	.LBB12:
- 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 990              		.loc 1 168 0
- 991 003e 0022     		movs	r2, #0
- 170:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
- 992              		.loc 1 170 0
- 993 0040 9860     		str	r0, [r3, #8]
- 994              	.LVL109:
- 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
- 995              		.loc 1 168 0
- 996 0042 5A60     		str	r2, [r3, #4]
- 997              	.LVL110:
- 998              	.L88:
-ARM GAS  /tmp/ccbq1EWD.s 			page 26
+ 1252 002a 0A60     		str	r2, [r1]
+ 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->items = item;
+ 1253              		.loc 1 212 0
+ 1254 002c 4A60     		str	r2, [r1, #4]
+ 213:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->len = 1;
+ 1255              		.loc 1 213 0
+ 1256 002e 8165     		str	r1, [r0, #88]
+ 215:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1257              		.loc 1 215 0
+ 1258 0030 4166     		str	r1, [r0, #100]
+ 214:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = item;
+ 1259              		.loc 1 214 0
+ 1260 0032 0366     		str	r3, [r0, #96]
+ 216:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 1261              		.loc 1 216 0
+ 1262 0034 7047     		bx	lr
+ 1263              		.cfi_endproc
+ 1264              	.LFE128:
+ 1266 0036 00BF     		.section	.text.m_slist_clear,"ax",%progbits
+ 1267              		.align	1
+ 1268              		.p2align 2,,3
+ 1269              		.global	m_slist_clear
+ 1270              		.syntax unified
+ 1271              		.thumb
+ 1272              		.thumb_func
+ 1273              		.fpu fpv4-sp-d16
+ 1275              	m_slist_clear:
+ 1276              	.LFB129:
+ 228:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1277              		.loc 1 228 0
+ 1278              		.cfi_startproc
+ 1279              		@ args = 0, pretend = 0, frame = 0
+ 1280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1281              		@ link register save eliminated.
+ 1282              	.LVL151:
+ 1283 0000 7047     		bx	lr
+ 1284              		.cfi_endproc
+ 1285              	.LFE129:
+ 1287 0002 00BF     		.section	.text.m_slist_remove,"ax",%progbits
+ 1288              		.align	1
+ 1289              		.p2align 2,,3
+ 1290              		.global	m_slist_remove
+ 1291              		.syntax unified
+ 1292              		.thumb
+ 1293              		.thumb_func
+ 1294              		.fpu fpv4-sp-d16
+ 1296              	m_slist_remove:
+ 1297              	.LFB130:
+ 231:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l == 0 || item == 0 || l->items == 0)
+ 1298              		.loc 1 231 0
+ 1299              		.cfi_startproc
+ 1300              		@ args = 0, pretend = 0, frame = 0
+ 1301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1302              		@ link register save eliminated.
+ 1303              	.LVL152:
+ 232:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1304              		.loc 1 232 0
+ARM GAS  /tmp/ccVh7BoE.s 			page 35
 
 
- 999              	.LBE12:
- 174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_list(MSList *l, MSList_Item *first); //set linked list as new data source.
- 1000              		.loc 1 174 0
- 1001 0044 7047     		bx	lr
- 1002              		.cfi_endproc
- 1003              	.LFE128:
- 1005              		.comm	makise_color_palette,4,4
- 1006 0046 00BF     		.section	.rodata.m_create_slist.str1.4,"aMS",%progbits,1
- 1007              		.align	2
- 1008              	.LC0:
- 1009 0000 536C6973 		.ascii	"Slist %d created\012\000"
- 1009      74202564 
- 1009      20637265 
- 1009      61746564 
- 1009      0A00
- 1010              		.text
- 1011              	.Letext0:
- 1012              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
- 1013              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 1014              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
- 1015              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 1016              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
- 1017              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
- 1018              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 1019              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
- 1020              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 1021              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
- 1022              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 1023              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 1024              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1025              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1026              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 1027              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 1028              		.file 18 "Inc/spi.h"
- 1029              		.file 19 "Inc/tim.h"
- 1030              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 1031              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
- 1032              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
- 1033              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 1034              		.file 24 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
- 1035              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 1036              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
- 1037              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
- 1038              		.file 28 "MakiseGUI/MakiseGUI/makise_primitives.h"
- 1039              		.file 29 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/ccbq1EWD.s 			page 27
+ 1305 0000 B8B1     		cbz	r0, .L161
+ 232:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1306              		.loc 1 232 0 is_stmt 0 discriminator 1
+ 1307 0002 B1B1     		cbz	r1, .L161
+ 232:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1308              		.loc 1 232 0 discriminator 2
+ 1309 0004 836D     		ldr	r3, [r0, #88]
+ 1310 0006 A3B1     		cbz	r3, .L161
+ 234:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1311              		.loc 1 234 0 is_stmt 1
+ 1312 0008 9942     		cmp	r1, r3
+ 231:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l == 0 || item == 0 || l->items == 0)
+ 1313              		.loc 1 231 0
+ 1314 000a 30B4     		push	{r4, r5}
+ 1315              	.LCFI18:
+ 1316              		.cfi_def_cfa_offset 8
+ 1317              		.cfi_offset 4, -8
+ 1318              		.cfi_offset 5, -4
+ 236:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 1319              		.loc 1 236 0
+ 1320 000c 4B68     		ldr	r3, [r1, #4]
+ 234:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1321              		.loc 1 234 0
+ 1322 000e 11D0     		beq	.L162
+ 253:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return;
+ 1323              		.loc 1 253 0
+ 1324 0010 0A68     		ldr	r2, [r1]
+ 251:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1325              		.loc 1 251 0
+ 1326 0012 D3B1     		cbz	r3, .L163
+ 262:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1327              		.loc 1 262 0
+ 1328 0014 62B1     		cbz	r2, .L135
+ 264:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = item->prev;
+ 1329              		.loc 1 264 0
+ 1330 0016 446E     		ldr	r4, [r0, #100]
+ 1331 0018 A142     		cmp	r1, r4
+ 265:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next->prev = item->prev;
+ 1332              		.loc 1 265 0
+ 1333 001a 08BF     		it	eq
+ 1334 001c 4266     		streq	r2, [r0, #100]
+ 266:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev->next = item->next;
+ 1335              		.loc 1 266 0
+ 1336 001e 1A60     		str	r2, [r3]
+ 270:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1337              		.loc 1 270 0
+ 1338 0020 026E     		ldr	r2, [r0, #96]
+ 267:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev = 0;
+ 1339              		.loc 1 267 0
+ 1340 0022 0D68     		ldr	r5, [r1]
+ 268:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next = 0;
+ 1341              		.loc 1 268 0
+ 1342 0024 0024     		movs	r4, #0
+ 270:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1343              		.loc 1 270 0
+ 1344 0026 013A     		subs	r2, r2, #1
+ 267:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev = 0;
+ARM GAS  /tmp/ccVh7BoE.s 			page 36
+
+
+ 1345              		.loc 1 267 0
+ 1346 0028 6B60     		str	r3, [r5, #4]
+ 268:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next = 0;
+ 1347              		.loc 1 268 0
+ 1348 002a 0C60     		str	r4, [r1]
+ 269:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len --;
+ 1349              		.loc 1 269 0
+ 1350 002c 4C60     		str	r4, [r1, #4]
+ 270:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** }
+ 1351              		.loc 1 270 0
+ 1352 002e 0266     		str	r2, [r0, #96]
+ 1353              	.L135:
+ 271:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_array(MSList *l, MSList_Item *array, uint32_t len)
+ 1354              		.loc 1 271 0
+ 1355 0030 30BC     		pop	{r4, r5}
+ 1356              	.LCFI19:
+ 1357              		.cfi_restore 5
+ 1358              		.cfi_restore 4
+ 1359              		.cfi_def_cfa_offset 0
+ 1360              	.L161:
+ 1361 0032 7047     		bx	lr
+ 1362              	.L162:
+ 1363              	.LCFI20:
+ 1364              		.cfi_def_cfa_offset 8
+ 1365              		.cfi_offset 4, -8
+ 1366              		.cfi_offset 5, -4
+ 236:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 1367              		.loc 1 236 0
+ 1368 0034 BBB1     		cbz	r3, .L164
+ 248:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1369              		.loc 1 248 0
+ 1370 0036 026E     		ldr	r2, [r0, #96]
+ 243:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->items->prev = 0;
+ 1371              		.loc 1 243 0
+ 1372 0038 8365     		str	r3, [r0, #88]
+ 244:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
+ 1373              		.loc 1 244 0
+ 1374 003a 0024     		movs	r4, #0
+ 248:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1375              		.loc 1 248 0
+ 1376 003c 013A     		subs	r2, r2, #1
+ 244:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
+ 1377              		.loc 1 244 0
+ 1378 003e 1C60     		str	r4, [r3]
+ 245:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
+ 1379              		.loc 1 245 0
+ 1380 0040 4C60     		str	r4, [r1, #4]
+ 246:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->selected = l->items;
+ 1381              		.loc 1 246 0
+ 1382 0042 0C60     		str	r4, [r1]
+ 247:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	l->len --;
+ 1383              		.loc 1 247 0
+ 1384 0044 4366     		str	r3, [r0, #100]
+ 248:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1385              		.loc 1 248 0
+ 1386 0046 0266     		str	r2, [r0, #96]
+ 249:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ARM GAS  /tmp/ccVh7BoE.s 			page 37
+
+
+ 1387              		.loc 1 249 0
+ 1388 0048 F2E7     		b	.L135
+ 1389              	.L163:
+ 253:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return;
+ 1390              		.loc 1 253 0
+ 1391 004a 002A     		cmp	r2, #0
+ 1392 004c F0D0     		beq	.L135
+ 255:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(item == l->selected)
+ 1393              		.loc 1 255 0
+ 1394 004e 036E     		ldr	r3, [r0, #96]
+ 256:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->selected = item->prev;
+ 1395              		.loc 1 256 0
+ 1396 0050 446E     		ldr	r4, [r0, #100]
+ 255:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	if(item == l->selected)
+ 1397              		.loc 1 255 0
+ 1398 0052 013B     		subs	r3, r3, #1
+ 1399 0054 0366     		str	r3, [r0, #96]
+ 256:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->selected = item->prev;
+ 1400              		.loc 1 256 0
+ 1401 0056 A142     		cmp	r1, r4
+ 258:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
+ 1402              		.loc 1 258 0
+ 1403 0058 4FF00003 		mov	r3, #0
+ 257:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev->next = 0;
+ 1404              		.loc 1 257 0
+ 1405 005c 08BF     		it	eq
+ 1406 005e 4266     		streq	r2, [r0, #100]
+ 258:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
+ 1407              		.loc 1 258 0
+ 1408 0060 5360     		str	r3, [r2, #4]
+ 259:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return;
+ 1409              		.loc 1 259 0
+ 1410 0062 0B60     		str	r3, [r1]
+ 260:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
+ 1411              		.loc 1 260 0
+ 1412 0064 E4E7     		b	.L135
+ 1413              	.L164:
+ 238:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->len = 0;
+ 1414              		.loc 1 238 0
+ 1415 0066 8365     		str	r3, [r0, #88]
+ 239:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->selected = 0;
+ 1416              		.loc 1 239 0
+ 1417 0068 0366     		str	r3, [r0, #96]
+ 240:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return;
+ 1418              		.loc 1 240 0
+ 1419 006a 4366     		str	r3, [r0, #100]
+ 241:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	}
+ 1420              		.loc 1 241 0
+ 1421 006c E0E7     		b	.L135
+ 1422              		.cfi_endproc
+ 1423              	.LFE130:
+ 1425 006e 00BF     		.section	.text.m_slist_set_array,"ax",%progbits
+ 1426              		.align	1
+ 1427              		.p2align 2,,3
+ 1428              		.global	m_slist_set_array
+ 1429              		.syntax unified
+ 1430              		.thumb
+ARM GAS  /tmp/ccVh7BoE.s 			page 38
+
+
+ 1431              		.thumb_func
+ 1432              		.fpu fpv4-sp-d16
+ 1434              	m_slist_set_array:
+ 1435              	.LFB131:
+ 273:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = array;
+ 1436              		.loc 1 273 0
+ 1437              		.cfi_startproc
+ 1438              		@ args = 0, pretend = 0, frame = 0
+ 1439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1440              		@ link register save eliminated.
+ 1441              	.LVL153:
+ 277:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *lst = 0;
+ 1442              		.loc 1 277 0
+ 1443 0000 0123     		movs	r3, #1
+ 274:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = len;
+ 1444              		.loc 1 274 0
+ 1445 0002 8165     		str	r1, [r0, #88]
+ 276:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->is_array = 1;
+ 1446              		.loc 1 276 0
+ 1447 0004 4166     		str	r1, [r0, #100]
+ 275:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->selected = array;
+ 1448              		.loc 1 275 0
+ 1449 0006 0266     		str	r2, [r0, #96]
+ 277:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MSList_Item *lst = 0;
+ 1450              		.loc 1 277 0
+ 1451 0008 80F85C30 		strb	r3, [r0, #92]
+ 1452              	.LVL154:
+ 1453              	.LBB14:
+ 279:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1454              		.loc 1 279 0
+ 1455 000c D2B1     		cbz	r2, .L177
+ 1456 000e 0020     		movs	r0, #0
+ 1457              	.LVL155:
+ 1458              	.LBE14:
+ 273:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = array;
+ 1459              		.loc 1 273 0
+ 1460 0010 70B4     		push	{r4, r5, r6}
+ 1461              	.LCFI21:
+ 1462              		.cfi_def_cfa_offset 12
+ 1463              		.cfi_offset 4, -12
+ 1464              		.cfi_offset 5, -8
+ 1465              		.cfi_offset 6, -4
+ 1466 0012 0B46     		mov	r3, r1
+ 1467              	.LBB15:
+ 279:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1468              		.loc 1 279 0
+ 1469 0014 0546     		mov	r5, r0
+ 1470 0016 05E0     		b	.L168
+ 1471              	.LVL156:
+ 1472              	.L178:
+ 284:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 1473              		.loc 1 284 0 discriminator 1
+ 1474 0018 43F80C0C 		str	r0, [r3, #-12]
+ 1475              	.LVL157:
+ 282:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 1476              		.loc 1 282 0 discriminator 1
+ 1477 001c 43F8103C 		str	r3, [r3, #-16]
+ARM GAS  /tmp/ccVh7BoE.s 			page 39
+
+
+ 1478 0020 3546     		mov	r5, r6
+ 1479 0022 2046     		mov	r0, r4
+ 1480              	.LVL158:
+ 1481              	.L168:
+ 282:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 1482              		.loc 1 282 0 is_stmt 0
+ 1483 0024 441C     		adds	r4, r0, #1
+ 1484 0026 A242     		cmp	r2, r4
+ 281:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	array[i].next = ((i + 1) < len) ? &array[i+1] : 0;
+ 1485              		.loc 1 281 0 is_stmt 1
+ 1486 0028 1E46     		mov	r6, r3
+ 1487 002a 43F8145B 		str	r5, [r3], #20
+ 282:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 1488              		.loc 1 282 0
+ 1489 002e F3D1     		bne	.L178
+ 1490 0030 02EB8202 		add	r2, r2, r2, lsl #2
+ 1491              	.LVL159:
+ 1492              	.LBE15:
+ 288:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_list(MSList *l, MSList_Item *first)
+ 1493              		.loc 1 288 0
+ 1494 0034 70BC     		pop	{r4, r5, r6}
+ 1495              	.LCFI22:
+ 1496              		.cfi_restore 6
+ 1497              		.cfi_restore 5
+ 1498              		.cfi_restore 4
+ 1499              		.cfi_def_cfa_offset 0
+ 1500              	.LVL160:
+ 1501 0036 01EB8202 		add	r2, r1, r2, lsl #2
+ 1502 003a A2F11403 		sub	r3, r2, #20
+ 1503              	.LVL161:
+ 1504              	.LBB16:
+ 282:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 1505              		.loc 1 282 0
+ 1506 003e 0022     		movs	r2, #0
+ 284:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	
+ 1507              		.loc 1 284 0
+ 1508 0040 9860     		str	r0, [r3, #8]
+ 1509              	.LVL162:
+ 282:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
+ 1510              		.loc 1 282 0
+ 1511 0042 5A60     		str	r2, [r3, #4]
+ 1512              	.LVL163:
+ 1513              	.L177:
+ 1514              	.LBE16:
+ 288:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_set_list(MSList *l, MSList_Item *first)
+ 1515              		.loc 1 288 0
+ 1516 0044 7047     		bx	lr
+ 1517              		.cfi_endproc
+ 1518              	.LFE131:
+ 1520 0046 00BF     		.section	.text.m_slist_set_list,"ax",%progbits
+ 1521              		.align	1
+ 1522              		.p2align 2,,3
+ 1523              		.global	m_slist_set_list
+ 1524              		.syntax unified
+ 1525              		.thumb
+ 1526              		.thumb_func
+ 1527              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccVh7BoE.s 			page 40
+
+
+ 1529              	m_slist_set_list:
+ 1530              	.LFB132:
+ 290:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->items = first;
+ 1531              		.loc 1 290 0
+ 1532              		.cfi_startproc
+ 1533              		@ args = 0, pretend = 0, frame = 0
+ 1534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1535              		@ link register save eliminated.
+ 1536              	.LVL164:
+ 294:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(first != 0)
+ 1537              		.loc 1 294 0
+ 1538 0000 0029     		cmp	r1, #0
+ 293:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = (first != 0);
+ 1539              		.loc 1 293 0
+ 1540 0002 4FF00002 		mov	r2, #0
+ 294:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(first != 0)
+ 1541              		.loc 1 294 0
+ 1542 0006 14BF     		ite	ne
+ 1543 0008 0123     		movne	r3, #1
+ 1544 000a 1346     		moveq	r3, r2
+ 291:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->selected = first;
+ 1545              		.loc 1 291 0
+ 1546 000c 8165     		str	r1, [r0, #88]
+ 292:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->is_array = 0;
+ 1547              		.loc 1 292 0
+ 1548 000e 4166     		str	r1, [r0, #100]
+ 293:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     l->len = (first != 0);
+ 1549              		.loc 1 293 0
+ 1550 0010 80F85C20 		strb	r2, [r0, #92]
+ 294:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(first != 0)
+ 1551              		.loc 1 294 0
+ 1552 0014 0366     		str	r3, [r0, #96]
+ 295:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
+ 1553              		.loc 1 295 0
+ 1554 0016 07D0     		beq	.L179
+ 1555              	.LVL165:
+ 1556              	.LBB17:
+ 298:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 1557              		.loc 1 298 0
+ 1558 0018 4B68     		ldr	r3, [r1, #4]
+ 1559 001a 2BB1     		cbz	r3, .L179
+ 1560 001c 0122     		movs	r2, #1
+ 1561              	.LVL166:
+ 1562              	.L182:
+ 1563 001e 5B68     		ldr	r3, [r3, #4]
+ 300:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    lst = lst->next;
+ 1564              		.loc 1 300 0
+ 1565 0020 0132     		adds	r2, r2, #1
+ 1566              	.LVL167:
+ 298:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
+ 1567              		.loc 1 298 0
+ 1568 0022 002B     		cmp	r3, #0
+ 1569 0024 FBD1     		bne	.L182
+ 1570 0026 0266     		str	r2, [r0, #96]
+ 1571              	.L179:
+ 1572 0028 7047     		bx	lr
+ 1573              	.LBE17:
+ARM GAS  /tmp/ccVh7BoE.s 			page 41
+
+
+ 1574              		.cfi_endproc
+ 1575              	.LFE132:
+ 1577              		.comm	makise_color_palette,4,4
+ 1578 002a 00BF     		.section	.rodata.m_create_slist.str1.4,"aMS",%progbits,1
+ 1579              		.align	2
+ 1580              	.LC0:
+ 1581 0000 536C6973 		.ascii	"Slist %d created\012\000"
+ 1581      74202564 
+ 1581      20637265 
+ 1581      61746564 
+ 1581      0A00
+ 1582              		.text
+ 1583              	.Letext0:
+ 1584              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 1585              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 1586              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 1587              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1588              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 1589              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 1590              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 1591              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 1592              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1593              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 1594              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 1595              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1596              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1597              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1598              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1599              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 1600              		.file 18 "Inc/spi.h"
+ 1601              		.file 19 "Inc/tim.h"
+ 1602              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 1603              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 1604              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 1605              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 1606              		.file 24 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
+ 1607              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 1608              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 1609              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 1610              		.file 28 "MakiseGUI/MakiseGUI/makise_primitives.h"
+ 1611              		.file 29 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccVh7BoE.s 			page 42
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_e_slist.c
-     /tmp/ccbq1EWD.s:16     .text._m_slist_focus:0000000000000000 $t
-     /tmp/ccbq1EWD.s:24     .text._m_slist_focus:0000000000000000 _m_slist_focus
-     /tmp/ccbq1EWD.s:76     .text._m_slist_input:0000000000000000 $t
-     /tmp/ccbq1EWD.s:84     .text._m_slist_input:0000000000000000 _m_slist_input
-     /tmp/ccbq1EWD.s:282    .text._m_slist_draw:0000000000000000 $t
-     /tmp/ccbq1EWD.s:290    .text._m_slist_draw:0000000000000000 _m_slist_draw
-     /tmp/ccbq1EWD.s:749    .text.m_create_slist:0000000000000000 $t
-     /tmp/ccbq1EWD.s:757    .text.m_create_slist:0000000000000000 m_create_slist
-     /tmp/ccbq1EWD.s:903    .text.m_create_slist:0000000000000094 $d
-     /tmp/ccbq1EWD.s:911    .text.m_slist_set_array:0000000000000000 $t
-     /tmp/ccbq1EWD.s:919    .text.m_slist_set_array:0000000000000000 m_slist_set_array
+     /tmp/ccVh7BoE.s:16     .text._m_slist_focus:0000000000000000 $t
+     /tmp/ccVh7BoE.s:24     .text._m_slist_focus:0000000000000000 _m_slist_focus
+     /tmp/ccVh7BoE.s:76     .text._m_slist_input:0000000000000000 $t
+     /tmp/ccVh7BoE.s:84     .text._m_slist_input:0000000000000000 _m_slist_input
+     /tmp/ccVh7BoE.s:319    .text._m_slist_draw:0000000000000000 $t
+     /tmp/ccVh7BoE.s:327    .text._m_slist_draw:0000000000000000 _m_slist_draw
+     /tmp/ccVh7BoE.s:1031   .text.m_create_slist:0000000000000000 $t
+     /tmp/ccVh7BoE.s:1039   .text.m_create_slist:0000000000000000 m_create_slist
+     /tmp/ccVh7BoE.s:1185   .text.m_create_slist:0000000000000094 $d
+     /tmp/ccVh7BoE.s:1193   .text.m_slist_add:0000000000000000 $t
+     /tmp/ccVh7BoE.s:1201   .text.m_slist_add:0000000000000000 m_slist_add
+     /tmp/ccVh7BoE.s:1267   .text.m_slist_clear:0000000000000000 $t
+     /tmp/ccVh7BoE.s:1275   .text.m_slist_clear:0000000000000000 m_slist_clear
+     /tmp/ccVh7BoE.s:1288   .text.m_slist_remove:0000000000000000 $t
+     /tmp/ccVh7BoE.s:1296   .text.m_slist_remove:0000000000000000 m_slist_remove
+     /tmp/ccVh7BoE.s:1426   .text.m_slist_set_array:0000000000000000 $t
+     /tmp/ccVh7BoE.s:1434   .text.m_slist_set_array:0000000000000000 m_slist_set_array
+     /tmp/ccVh7BoE.s:1521   .text.m_slist_set_list:0000000000000000 $t
+     /tmp/ccVh7BoE.s:1529   .text.m_slist_set_list:0000000000000000 m_slist_set_list
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccbq1EWD.s:1007   .rodata.m_create_slist.str1.4:0000000000000000 $d
+     /tmp/ccVh7BoE.s:1579   .rodata.m_create_slist.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 _m_e_helper_draw_box
-makise_d_line
 makise_d_rect_filled
 makise_d_string_frame
+makise_d_line
 makise_g_cont_add
 makise_g_newid
 printf
