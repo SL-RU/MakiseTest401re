@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc93mRmu.s 			page 1
+ARM GAS  /tmp/cc7yGLOR.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
   39              		.loc 1 16 0
   40 0006 C368     		ldr	r3, [r0, #12]
   41              	.LVL1:
-ARM GAS  /tmp/cc93mRmu.s 			page 2
+ARM GAS  /tmp/cc7yGLOR.s 			page 2
 
 
   17:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(m == 0) //if last accidently didn't setted.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
    8:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	cont->last = el;
   73              		.loc 1 8 0
   74 0028 8160     		str	r1, [r0, #8]
-ARM GAS  /tmp/cc93mRmu.s 			page 3
+ARM GAS  /tmp/cc7yGLOR.s 			page 3
 
 
    9:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	cont->focused = 0;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  120              		.loc 1 44 0
  121              		.cfi_startproc
  122              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc93mRmu.s 			page 4
+ARM GAS  /tmp/cc7yGLOR.s 			page 4
 
 
  123              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
   52:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y;
  163              		.loc 1 52 0
  164 0022 9A69     		ldr	r2, [r3, #24]
-ARM GAS  /tmp/cc93mRmu.s 			page 5
+ARM GAS  /tmp/cc7yGLOR.s 			page 5
 
 
   53:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     }
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
   64:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
   65:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	if(type == M_G_CALL_PREDRAW)
  211              		.loc 1 65 0
-ARM GAS  /tmp/cc93mRmu.s 			page 6
+ARM GAS  /tmp/cc7yGLOR.s 			page 6
 
 
  212 0010 0229     		cmp	r1, #2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  250              		.cfi_offset 14, -4
  251 002a 0229     		cmp	r1, #2
  252 002c F2D1     		bne	.L47
-ARM GAS  /tmp/cc93mRmu.s 			page 7
+ARM GAS  /tmp/cc7yGLOR.s 			page 7
 
 
  253 002e 10E0     		b	.L34
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
   45:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     {
  295              		.loc 1 45 0
  296 0052 2369     		ldr	r3, [r4, #16]
-ARM GAS  /tmp/cc93mRmu.s 			page 8
+ARM GAS  /tmp/cc7yGLOR.s 			page 8
 
 
  297 0054 002B     		cmp	r3, #0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  340              		.loc 1 48 0
  341 0074 DA69     		ldr	r2, [r3, #28]
   47:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	b->position.real_y = b->position.y + b->parent->el->position.real_y;
-ARM GAS  /tmp/cc93mRmu.s 			page 9
+ARM GAS  /tmp/cc7yGLOR.s 			page 9
 
 
  342              		.loc 1 47 0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  388              	.LVL31:
  389 0000 30B4     		push	{r4, r5}
  390              	.LCFI5:
-ARM GAS  /tmp/cc93mRmu.s 			page 10
+ARM GAS  /tmp/cc7yGLOR.s 			page 10
 
 
  391              		.cfi_def_cfa_offset 8
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  435              		@ sp needed
  436 0022 30BC     		pop	{r4, r5}
  437              	.LCFI11:
-ARM GAS  /tmp/cc93mRmu.s 			page 11
+ARM GAS  /tmp/cc7yGLOR.s 			page 11
 
 
  438              		.cfi_restore 5
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
   96:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 	return M_ZERO_POINTER;
   97:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 
   98:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont->focused != 0)
-ARM GAS  /tmp/cc93mRmu.s 			page 12
+ARM GAS  /tmp/cc7yGLOR.s 			page 12
 
 
  488              		.loc 1 98 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  526 0034 F3D1     		bne	.L77
  527              	.LVL41:
  528              	.L70:
-ARM GAS  /tmp/cc93mRmu.s 			page 13
+ARM GAS  /tmp/cc7yGLOR.s 			page 13
 
 
  529              	.LBE24:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  560              		.cfi_def_cfa_offset 16
  561              		.cfi_offset 3, -16
  562              		.cfi_offset 4, -12
-ARM GAS  /tmp/cc93mRmu.s 			page 14
+ARM GAS  /tmp/cc7yGLOR.s 			page 14
 
 
  563              		.cfi_offset 5, -8
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  598              	.LVL51:
  118:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
  599              		.loc 1 118 0
-ARM GAS  /tmp/cc93mRmu.s 			page 15
+ARM GAS  /tmp/cc7yGLOR.s 			page 15
 
 
  600 006a 1CB9     		cbnz	r4, .L79
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  153:MakiseGUI/MakiseGUI/gui/makise_gui_container.c ****     if(cont == 0)
  644              		.loc 1 153 0
  645 0002 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  /tmp/cc93mRmu.s 			page 16
+ARM GAS  /tmp/cc7yGLOR.s 			page 16
 
 
  646              	.LCFI18:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  165:MakiseGUI/MakiseGUI/gui/makise_gui_container.c **** 		{
  681              		.loc 1 165 0
  682 0022 94F83030 		ldrb	r3, [r4, #48]	@ zero_extendqisi2
-ARM GAS  /tmp/cc93mRmu.s 			page 17
+ARM GAS  /tmp/cc7yGLOR.s 			page 17
 
 
  683 0026 002B     		cmp	r3, #0
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  714              		.cfi_restore 4
  715              		.cfi_restore 5
  716              		.cfi_restore 14
-ARM GAS  /tmp/cc93mRmu.s 			page 18
+ARM GAS  /tmp/cc7yGLOR.s 			page 18
 
 
  717              	.LBE29:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  752 005e FFF7FEFF 		bl	makise_g_focus
  753              	.LVL68:
  754 0062 0128     		cmp	r0, #1
-ARM GAS  /tmp/cc93mRmu.s 			page 19
+ARM GAS  /tmp/cc7yGLOR.s 			page 19
 
 
  755 0064 F2D1     		bne	.L129
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  804              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
  805              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
  806              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
-ARM GAS  /tmp/cc93mRmu.s 			page 20
+ARM GAS  /tmp/cc7yGLOR.s 			page 20
 
 
  807              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
@@ -1152,25 +1152,25 @@ ARM GAS  /tmp/cc93mRmu.s 			page 1
  815              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
  816              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
  817              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
-ARM GAS  /tmp/cc93mRmu.s 			page 21
+ARM GAS  /tmp/cc7yGLOR.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_gui_container.c
-     /tmp/cc93mRmu.s:16     .text.makise_g_cont_add:0000000000000000 $t
-     /tmp/cc93mRmu.s:24     .text.makise_g_cont_add:0000000000000000 makise_g_cont_add
-     /tmp/cc93mRmu.s:89     .text.makise_g_cont_rem:0000000000000000 $t
-     /tmp/cc93mRmu.s:97     .text.makise_g_cont_rem:0000000000000000 makise_g_cont_rem
-     /tmp/cc93mRmu.s:110    .text.makise_g_cont_call_common_predraw:0000000000000000 $t
-     /tmp/cc93mRmu.s:118    .text.makise_g_cont_call_common_predraw:0000000000000000 makise_g_cont_call_common_predraw
-     /tmp/cc93mRmu.s:178    .text.makise_g_cont_call:0000000000000000 $t
-     /tmp/cc93mRmu.s:186    .text.makise_g_cont_call:0000000000000000 makise_g_cont_call
-     /tmp/cc93mRmu.s:373    .text.makise_g_cont_input:0000000000000000 $t
-     /tmp/cc93mRmu.s:381    .text.makise_g_cont_input:0000000000000000 makise_g_cont_input
-     /tmp/cc93mRmu.s:462    .text.makise_g_cont_focus_next:0000000000000000 $t
-     /tmp/cc93mRmu.s:470    .text.makise_g_cont_focus_next:0000000000000000 makise_g_cont_focus_next
-     /tmp/cc93mRmu.s:627    .text.makise_g_cont_focus_prev:0000000000000000 $t
-     /tmp/cc93mRmu.s:635    .text.makise_g_cont_focus_prev:0000000000000000 makise_g_cont_focus_prev
+     /tmp/cc7yGLOR.s:16     .text.makise_g_cont_add:0000000000000000 $t
+     /tmp/cc7yGLOR.s:24     .text.makise_g_cont_add:0000000000000000 makise_g_cont_add
+     /tmp/cc7yGLOR.s:89     .text.makise_g_cont_rem:0000000000000000 $t
+     /tmp/cc7yGLOR.s:97     .text.makise_g_cont_rem:0000000000000000 makise_g_cont_rem
+     /tmp/cc7yGLOR.s:110    .text.makise_g_cont_call_common_predraw:0000000000000000 $t
+     /tmp/cc7yGLOR.s:118    .text.makise_g_cont_call_common_predraw:0000000000000000 makise_g_cont_call_common_predraw
+     /tmp/cc7yGLOR.s:178    .text.makise_g_cont_call:0000000000000000 $t
+     /tmp/cc7yGLOR.s:186    .text.makise_g_cont_call:0000000000000000 makise_g_cont_call
+     /tmp/cc7yGLOR.s:373    .text.makise_g_cont_input:0000000000000000 $t
+     /tmp/cc7yGLOR.s:381    .text.makise_g_cont_input:0000000000000000 makise_g_cont_input
+     /tmp/cc7yGLOR.s:462    .text.makise_g_cont_focus_next:0000000000000000 $t
+     /tmp/cc7yGLOR.s:470    .text.makise_g_cont_focus_next:0000000000000000 makise_g_cont_focus_next
+     /tmp/cc7yGLOR.s:627    .text.makise_g_cont_focus_prev:0000000000000000 $t
+     /tmp/cc7yGLOR.s:635    .text.makise_g_cont_focus_prev:0000000000000000 makise_g_cont_focus_prev
                             *COM*:0000000000000004 makise_color_palette
                      .debug_frame:0000000000000010 $d
 

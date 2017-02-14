@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccMfscLG.s 			page 1
+ARM GAS  /tmp/cctnYOgc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccMfscLG.s 			page 2
+ARM GAS  /tmp/cctnYOgc.s 			page 2
 
 
   31              		@ link register save eliminated.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
   58              		.loc 1 57 0
   59              		.cfi_startproc
   60              		@ args = 0, pretend = 0, frame = 112
-ARM GAS  /tmp/ccMfscLG.s 			page 3
+ARM GAS  /tmp/cctnYOgc.s 			page 3
 
 
   61              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
   79:Src/makise_test.c **** 	if(id == 1 &&
   92              		.loc 1 79 0
   93 0020 0128     		cmp	r0, #1
-ARM GAS  /tmp/ccMfscLG.s 			page 4
+ARM GAS  /tmp/cctnYOgc.s 			page 4
 
 
   94 0022 00F0A680 		beq	.L34
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  109:Src/makise_test.c **** 	if(id == 2) 
  119              		.loc 1 109 0
  120 0048 022C     		cmp	r4, #2
-ARM GAS  /tmp/ccMfscLG.s 			page 5
+ARM GAS  /tmp/cctnYOgc.s 			page 5
 
 
  121 004a 01D0     		beq	.L39
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  168 007e 574B     		ldr	r3, .L41
  169 0080 0E96     		str	r6, [sp, #56]
  170 0082 0022     		movs	r2, #0
-ARM GAS  /tmp/ccMfscLG.s 			page 6
+ARM GAS  /tmp/cctnYOgc.s 			page 6
 
 
  171              	.LVL11:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  220 00da 1796     		str	r6, [sp, #92]
  221 00dc 8DF85810 		strb	r1, [sp, #88]
  222 00e0 8DF85920 		strb	r2, [sp, #89]
-ARM GAS  /tmp/ccMfscLG.s 			page 7
+ARM GAS  /tmp/cctnYOgc.s 			page 7
 
 
  223 00e4 16AB     		add	r3, sp, #88
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  274 014a 0DEB0103 		add	r3, sp, r1
  275 014e 3868     		ldr	r0, [r7]
  276              	.LVL26:
-ARM GAS  /tmp/ccMfscLG.s 			page 8
+ARM GAS  /tmp/cctnYOgc.s 			page 8
 
 
  277 0150 0ECB     		ldm	r3, {r1, r2, r3}
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  325 019e 49E7     		b	.L5
  326              	.LVL38:
  327              	.L20:
-ARM GAS  /tmp/ccMfscLG.s 			page 9
+ARM GAS  /tmp/cctnYOgc.s 			page 9
 
 
   88:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  380              	.LFB126:
   16:Src/makise_test.c ****     if(hspi == &ILI9340_SPI)
  381              		.loc 1 16 0
-ARM GAS  /tmp/ccMfscLG.s 			page 10
+ARM GAS  /tmp/cctnYOgc.s 			page 10
 
 
  382              		.cfi_startproc
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  433 000a 1B68     		ldr	r3, [r3]
  434 000c 5868     		ldr	r0, [r3, #4]
  435              	.LVL49:
-ARM GAS  /tmp/ccMfscLG.s 			page 11
+ARM GAS  /tmp/cctnYOgc.s 			page 11
 
 
  436 000e FFF7FEBF 		b	ili9340_spi_txcplt
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  476 0008 214B     		ldr	r3, .L55+8
  122:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
  477              		.loc 1 122 0
-ARM GAS  /tmp/ccMfscLG.s 			page 12
+ARM GAS  /tmp/cctnYOgc.s 			page 12
 
 
  478 000a 224E     		ldr	r6, .L55+12
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  515              	.LVL54:
  516 0038 0546     		mov	r5, r0
  517              	.LVL55:
-ARM GAS  /tmp/ccMfscLG.s 			page 13
+ARM GAS  /tmp/cctnYOgc.s 			page 13
 
 
  134:Src/makise_test.c ****     //malloc big buffer
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  148:Src/makise_test.c **** 
  149:Src/makise_test.c ****     //makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
  150:Src/makise_test.c ****     controls_595_init(buttons, 8, outs, 4, &but_h);
-ARM GAS  /tmp/ccMfscLG.s 			page 14
+ARM GAS  /tmp/cctnYOgc.s 			page 14
 
 
  555              		.loc 1 150 0
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  606              		.section	.bss.bb,"aw",%nobits
  607              		.align	2
  608              		.set	.LANCHOR1,. + 0
-ARM GAS  /tmp/ccMfscLG.s 			page 15
+ARM GAS  /tmp/cctnYOgc.s 			page 15
 
 
  611              	bb:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  661 0056 0400     		.short	4
  662 0058 00       		.byte	0
  663 0059 00       		.byte	0
-ARM GAS  /tmp/ccMfscLG.s 			page 16
+ARM GAS  /tmp/cctnYOgc.s 			page 16
 
 
  664 005a 0000     		.space	2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  720 0010 06000000 		.word	6
  721 0014 0100     		.short	1
  722 0016 00       		.byte	0
-ARM GAS  /tmp/ccMfscLG.s 			page 17
+ARM GAS  /tmp/cctnYOgc.s 			page 17
 
 
  723 0017 00       		.space	1
@@ -1007,43 +1007,43 @@ ARM GAS  /tmp/ccMfscLG.s 			page 1
  766              		.file 26 "Inc/makise_test.h"
  767              		.file 27 "Controls/controls_595.h"
  768              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/ccMfscLG.s 			page 18
+ARM GAS  /tmp/cctnYOgc.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_test.c
-     /tmp/ccMfscLG.s:16     .text.mt_predraw:0000000000000000 $t
-     /tmp/ccMfscLG.s:24     .text.mt_predraw:0000000000000000 mt_predraw
-     /tmp/ccMfscLG.s:43     .text.mt_predraw:000000000000000c $d
+     /tmp/cctnYOgc.s:16     .text.mt_predraw:0000000000000000 $t
+     /tmp/cctnYOgc.s:24     .text.mt_predraw:0000000000000000 mt_predraw
+     /tmp/cctnYOgc.s:43     .text.mt_predraw:000000000000000c $d
                             *COM*:0000000000000004 host
-     /tmp/ccMfscLG.s:48     .text.but_h:0000000000000000 $t
-     /tmp/ccMfscLG.s:56     .text.but_h:0000000000000000 but_h
-     /tmp/ccMfscLG.s:366    .text.but_h:00000000000001dc $d
-     /tmp/ccMfscLG.s:371    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 $t
-     /tmp/ccMfscLG.s:379    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 HAL_SPI_TxHalfCpltCallback
-     /tmp/ccMfscLG.s:403    .text.HAL_SPI_TxHalfCpltCallback:0000000000000014 $d
+     /tmp/cctnYOgc.s:48     .text.but_h:0000000000000000 $t
+     /tmp/cctnYOgc.s:56     .text.but_h:0000000000000000 but_h
+     /tmp/cctnYOgc.s:366    .text.but_h:00000000000001dc $d
+     /tmp/cctnYOgc.s:371    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/cctnYOgc.s:379    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 HAL_SPI_TxHalfCpltCallback
+     /tmp/cctnYOgc.s:403    .text.HAL_SPI_TxHalfCpltCallback:0000000000000014 $d
                             *COM*:0000000000000004 mGui
-     /tmp/ccMfscLG.s:409    .text.HAL_SPI_TxCpltCallback:0000000000000000 $t
-     /tmp/ccMfscLG.s:417    .text.HAL_SPI_TxCpltCallback:0000000000000000 HAL_SPI_TxCpltCallback
-     /tmp/ccMfscLG.s:441    .text.HAL_SPI_TxCpltCallback:0000000000000014 $d
-     /tmp/ccMfscLG.s:447    .text.mt_start:0000000000000000 $t
-     /tmp/ccMfscLG.s:455    .text.mt_start:0000000000000000 mt_start
-     /tmp/ccMfscLG.s:577    .text.mt_start:0000000000000088 $d
+     /tmp/cctnYOgc.s:409    .text.HAL_SPI_TxCpltCallback:0000000000000000 $t
+     /tmp/cctnYOgc.s:417    .text.HAL_SPI_TxCpltCallback:0000000000000000 HAL_SPI_TxCpltCallback
+     /tmp/cctnYOgc.s:441    .text.HAL_SPI_TxCpltCallback:0000000000000014 $d
+     /tmp/cctnYOgc.s:447    .text.mt_start:0000000000000000 $t
+     /tmp/cctnYOgc.s:455    .text.mt_start:0000000000000000 mt_start
+     /tmp/cctnYOgc.s:577    .text.mt_start:0000000000000088 $d
                             *COM*:0000000000000030 Dr
                             *COM*:000000000000007c hs
                             *COM*:0000000000000018 co
                             *COM*:0000000000000014 Gu
                             *COM*:0000000000000014 Bu
-     /tmp/ccMfscLG.s:611    .bss.bb:0000000000000000 bb
-     /tmp/ccMfscLG.s:711    .data.outs:0000000000000000 outs
-     /tmp/ccMfscLG.s:625    .data.buttons:0000000000000000 buttons
-     /tmp/ccMfscLG.s:618    .bss.sb:0000000000000000 sb
+     /tmp/cctnYOgc.s:611    .bss.bb:0000000000000000 bb
+     /tmp/cctnYOgc.s:711    .data.outs:0000000000000000 outs
+     /tmp/cctnYOgc.s:625    .data.buttons:0000000000000000 buttons
+     /tmp/cctnYOgc.s:618    .bss.sb:0000000000000000 sb
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccMfscLG.s:607    .bss.bb:0000000000000000 $d
-     /tmp/ccMfscLG.s:614    .bss.sb:0000000000000000 $d
-     /tmp/ccMfscLG.s:621    .data.buttons:0000000000000000 $d
-     /tmp/ccMfscLG.s:707    .data.outs:0000000000000000 $d
-     /tmp/ccMfscLG.s:737    .rodata.mt_start.str1.4:0000000000000000 $d
+     /tmp/cctnYOgc.s:607    .bss.bb:0000000000000000 $d
+     /tmp/cctnYOgc.s:614    .bss.sb:0000000000000000 $d
+     /tmp/cctnYOgc.s:621    .data.buttons:0000000000000000 $d
+     /tmp/cctnYOgc.s:707    .data.outs:0000000000000000 $d
+     /tmp/cctnYOgc.s:737    .rodata.mt_start.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

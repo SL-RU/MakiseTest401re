@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccyhr3we.s 			page 1
+ARM GAS  /tmp/ccRTSlah.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccyhr3we.s 			page 1
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c ****     e->id = makise_g_newid();
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c ****     e->focus_prior = 0;
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c ****     
-ARM GAS  /tmp/ccyhr3we.s 			page 2
+ARM GAS  /tmp/ccRTSlah.s 			page 2
 
 
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c ****     b->text = text;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccyhr3we.s 			page 1
   63 0020 596D     		ldr	r1, [r3, #84]
   64 0022 0068     		ldr	r0, [r0]
   65 0024 0392     		str	r2, [sp, #12]
-ARM GAS  /tmp/ccyhr3we.s 			page 3
+ARM GAS  /tmp/ccRTSlah.s 			page 3
 
 
   66 0026 9A6D     		ldr	r2, [r3, #88]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccyhr3we.s 			page 1
  113              		.cfi_offset 7, -24
  114              		.cfi_offset 8, -20
  115              		.cfi_offset 9, -16
-ARM GAS  /tmp/ccyhr3we.s 			page 4
+ARM GAS  /tmp/ccRTSlah.s 			page 4
 
 
  116              		.cfi_offset 10, -12
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccyhr3we.s 			page 1
   29:MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c ****     e->id = makise_g_newid();
  157              		.loc 1 29 0
  158 003c 2276     		strb	r2, [r4, #24]
-ARM GAS  /tmp/ccyhr3we.s 			page 5
+ARM GAS  /tmp/ccRTSlah.s 			page 5
 
 
   18:MakiseGUI/MakiseGUI/gui/elements/makise_e_lable.c ****     e->update = 0;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccyhr3we.s 			page 1
  200              	.LVL14:
  201              	.L6:
  202 0062 00BF     		.align	2
-ARM GAS  /tmp/ccyhr3we.s 			page 6
+ARM GAS  /tmp/ccRTSlah.s 			page 6
 
 
  203              	.L5:
@@ -344,18 +344,18 @@ ARM GAS  /tmp/ccyhr3we.s 			page 1
  240              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
  241              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
  242              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/ccyhr3we.s 			page 7
+ARM GAS  /tmp/ccRTSlah.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_e_lable.c
-     /tmp/ccyhr3we.s:16     .text._m_lable_draw:0000000000000000 $t
-     /tmp/ccyhr3we.s:24     .text._m_lable_draw:0000000000000000 _m_lable_draw
-     /tmp/ccyhr3we.s:91     .text.m_create_lable:0000000000000000 $t
-     /tmp/ccyhr3we.s:99     .text.m_create_lable:0000000000000000 m_create_lable
-     /tmp/ccyhr3we.s:204    .text.m_create_lable:0000000000000064 $d
+     /tmp/ccRTSlah.s:16     .text._m_lable_draw:0000000000000000 $t
+     /tmp/ccRTSlah.s:24     .text._m_lable_draw:0000000000000000 _m_lable_draw
+     /tmp/ccRTSlah.s:91     .text.m_create_lable:0000000000000000 $t
+     /tmp/ccRTSlah.s:99     .text.m_create_lable:0000000000000000 m_create_lable
+     /tmp/ccRTSlah.s:204    .text.m_create_lable:0000000000000064 $d
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccyhr3we.s:211    .rodata.m_create_lable.str1.4:0000000000000000 $d
+     /tmp/ccRTSlah.s:211    .rodata.m_create_lable.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

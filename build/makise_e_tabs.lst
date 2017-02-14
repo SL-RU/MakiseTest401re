@@ -1,0 +1,1077 @@
+ARM GAS  /tmp/ccaNrjSP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"makise_e_tabs.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text._m_tabs_draw,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	_m_tabs_draw
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_m_tabs_draw:
+  25              	.LFB127:
+  26              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c"
+   1:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** #include "makise_e.h"
+   2:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+   3:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** uint8_t _m_tabs_draw   (MElement* b);
+   4:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** uint8_t _m_tabs_predraw(MElement* b);
+   5:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** MInputResultEnum _m_tabs_input  (MElement* b, MInputData data);
+   6:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** MFocusEnum _m_tabs_focus  (MElement* b, MFocusEnum act);
+   7:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+   8:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** void _m_tabs_init_tabs(MTabs* b);
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  10:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** void m_create_tabs(MTabs* b, MContainer *c,
+  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 		   int32_t x, int32_t y, uint32_t w, uint32_t h,
+  12:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 		   MTabs_Tab *tabs,
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 		   uint32_t len,
+  14:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 		   MTabs_Type type,
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 		   MakiseStyle *style)
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** {
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MElement *e = &b->el;
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->gui = c->gui;
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  20:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->data = b;
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     makise_g_cont_add(c, e);
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->draw = &_m_tabs_draw;
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->predraw = &_m_tabs_predraw;
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->update = 0;
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->input = &_m_tabs_input;
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->focus = &_m_tabs_focus;
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->free = 0;
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.x = x;
+  32:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.y = y;
+ARM GAS  /tmp/ccaNrjSP.s 			page 2
+
+
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.width = w;
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.height = h;
+  35:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->enabled = 1;
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->id = makise_g_newid();
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->focus_prior = 1;
+  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->style = style;
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->tabs = tabs;
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->len = len;
+  44:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->type = type;
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->selected = 0;
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  47:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     _m_tabs_init_tabs(b);
+  48:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     printf("Tabs %d created\n", e->id);
+  50:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  51:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** }
+  52:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  53:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  54:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** uint8_t _m_tabs_draw   (MElement* b)
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** {
+  27              		.loc 1 55 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  56:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MakiseStyleTheme *th = 0;
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(((MTabs*)b->data)->state == 0)
+  37              		.loc 1 58 0
+  38 0002 436B     		ldr	r3, [r0, #52]
+  39 0004 93F86520 		ldrb	r2, [r3, #101]	@ zero_extendqisi2
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MakiseStyleTheme *th = 0;
+  40              		.loc 1 55 0
+  41 0008 0446     		mov	r4, r0
+  42              		.loc 1 58 0
+  43 000a DAB9     		cbnz	r2, .L2
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	th = &((MTabs*)b->data)->style->normal;
+  44              		.loc 1 59 0
+  45 000c 5A6D     		ldr	r2, [r3, #84]
+  46 000e 1C32     		adds	r2, r2, #28
+  47              	.LVL1:
+  48              	.L3:
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     else if(((MTabs*)b->data)->state == 1)
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	th = &((MTabs*)b->data)->style->focused;
+  62:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  63:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     _m_e_helper_draw_box(b->gui->buffer, &b->position, th);
+  49              		.loc 1 63 0
+  50 0010 2368     		ldr	r3, [r4]
+  51 0012 04F11801 		add	r1, r4, #24
+ARM GAS  /tmp/ccaNrjSP.s 			page 3
+
+
+  52 0016 1868     		ldr	r0, [r3]
+  53              	.LVL2:
+  54 0018 FFF7FEFF 		bl	_m_e_helper_draw_box
+  55              	.LVL3:
+  64:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  65:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MTabs *t = ((MTabs*)b->data);
+  56              		.loc 1 65 0
+  57 001c 626B     		ldr	r2, [r4, #52]
+  58              	.LVL4:
+  66:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->len == 0 || t->tabs == 0)
+  59              		.loc 1 67 0
+  60 001e D06D     		ldr	r0, [r2, #92]
+  61 0020 B0B1     		cbz	r0, .L4
+  62              		.loc 1 67 0 is_stmt 0 discriminator 1
+  63 0022 916D     		ldr	r1, [r2, #88]
+  64 0024 A1B1     		cbz	r1, .L4
+  68:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_OK;
+  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	
+  70:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->selected >= t->len)
+  65              		.loc 1 70 0 is_stmt 1
+  66 0026 136E     		ldr	r3, [r2, #96]
+  67 0028 9842     		cmp	r0, r3
+  68 002a 8BBF     		itete	hi
+  69 002c C3EBC303 		rsbhi	r3, r3, r3, lsl #3
+  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+  70              		.loc 1 71 0
+  71 0030 0020     		movls	r0, #0
+  72 0032 9800     		lslhi	r0, r3, #2
+  73 0034 1066     		strls	r0, [r2, #96]
+  72:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     return makise_g_cont_call(&t->tabs[t->selected].cont, M_G_CALL_DRAW);
+  74              		.loc 1 73 0
+  75 0036 0844     		add	r0, r0, r1
+  76 0038 0430     		adds	r0, r0, #4
+  77 003a 0121     		movs	r1, #1
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** //    return M_OK;
+  75:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** }
+  78              		.loc 1 75 0
+  79 003c BDE81040 		pop	{r4, lr}
+  80              	.LCFI1:
+  81              		.cfi_remember_state
+  82              		.cfi_restore 14
+  83              		.cfi_restore 4
+  84              		.cfi_def_cfa_offset 0
+  85              	.LVL5:
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** //    return M_OK;
+  86              		.loc 1 73 0
+  87 0040 FFF7FEBF 		b	makise_g_cont_call
+  88              	.LVL6:
+  89              	.L2:
+  90              	.LCFI2:
+  91              		.cfi_restore_state
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	th = &((MTabs*)b->data)->style->focused;
+  92              		.loc 1 60 0
+  93 0044 012A     		cmp	r2, #1
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ARM GAS  /tmp/ccaNrjSP.s 			page 4
+
+
+  94              		.loc 1 61 0
+  95 0046 0ABF     		itet	eq
+  96 0048 5A6D     		ldreq	r2, [r3, #84]
+  56:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  97              		.loc 1 56 0
+  98 004a 0022     		movne	r2, #0
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  99              		.loc 1 61 0
+ 100 004c 2C32     		addeq	r2, r2, #44
+ 101              	.LVL7:
+ 102 004e DFE7     		b	.L3
+ 103              	.LVL8:
+ 104              	.L4:
+ 105              		.loc 1 75 0
+ 106 0050 0120     		movs	r0, #1
+ 107 0052 10BD     		pop	{r4, pc}
+ 108              		.cfi_endproc
+ 109              	.LFE127:
+ 111              		.section	.text._m_tabs_predraw,"ax",%progbits
+ 112              		.align	1
+ 113              		.p2align 2,,3
+ 114              		.global	_m_tabs_predraw
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.fpu fpv4-sp-d16
+ 120              	_m_tabs_predraw:
+ 121              	.LFB128:
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** uint8_t _m_tabs_predraw(MElement* b)
+  77:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** {
+ 122              		.loc 1 77 0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126              		@ link register save eliminated.
+ 127              	.LVL9:
+  78:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MTabs *t = ((MTabs*)b->data);
+ 128              		.loc 1 78 0
+ 129 0000 426B     		ldr	r2, [r0, #52]
+ 130              	.LVL10:
+  79:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  80:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->len == 0 || t->tabs == 0)
+ 131              		.loc 1 80 0
+ 132 0002 D06D     		ldr	r0, [r2, #92]
+ 133              	.LVL11:
+ 134 0004 70B1     		cbz	r0, .L15
+ 135              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 136 0006 916D     		ldr	r1, [r2, #88]
+ 137 0008 61B1     		cbz	r1, .L15
+  81:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_OK;
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->selected >= t->len)
+ 138              		.loc 1 83 0 is_stmt 1
+ 139 000a 136E     		ldr	r3, [r2, #96]
+ 140 000c 9842     		cmp	r0, r3
+ 141 000e 8BBF     		itete	hi
+ 142 0010 C3EBC303 		rsbhi	r3, r3, r3, lsl #3
+ARM GAS  /tmp/ccaNrjSP.s 			page 5
+
+
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+ 143              		.loc 1 84 0
+ 144 0014 0020     		movls	r0, #0
+ 145 0016 9800     		lslhi	r0, r3, #2
+ 146 0018 1066     		strls	r0, [r2, #96]
+  85:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     return makise_g_cont_call(&t->tabs[t->selected].cont, M_G_CALL_PREDRAW);
+ 147              		.loc 1 86 0
+ 148 001a 0844     		add	r0, r0, r1
+ 149 001c 0430     		adds	r0, r0, #4
+ 150 001e 0221     		movs	r1, #2
+ 151 0020 FFF7FEBF 		b	makise_g_cont_call
+ 152              	.LVL12:
+ 153              	.L15:
+  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** }
+ 154              		.loc 1 87 0
+ 155 0024 0120     		movs	r0, #1
+ 156 0026 7047     		bx	lr
+ 157              		.cfi_endproc
+ 158              	.LFE128:
+ 160              		.section	.text._m_tabs_input,"ax",%progbits
+ 161              		.align	1
+ 162              		.p2align 2,,3
+ 163              		.global	_m_tabs_input
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 167              		.fpu fpv4-sp-d16
+ 169              	_m_tabs_input:
+ 170              	.LFB129:
+  88:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** MInputResultEnum _m_tabs_input  (MElement* b, MInputData data)
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** {
+ 171              		.loc 1 89 0
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 16
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175              	.LVL13:
+ 176 0000 70B5     		push	{r4, r5, r6, lr}
+ 177              	.LCFI3:
+ 178              		.cfi_def_cfa_offset 16
+ 179              		.cfi_offset 4, -16
+ 180              		.cfi_offset 5, -12
+ 181              		.cfi_offset 6, -8
+ 182              		.cfi_offset 14, -4
+  90:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MTabs *t = ((MTabs*)b->data);
+ 183              		.loc 1 91 0
+ 184 0002 456B     		ldr	r5, [r0, #52]
+ 185              	.LVL14:
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 186              		.loc 1 89 0
+ 187 0004 84B0     		sub	sp, sp, #16
+ 188              	.LCFI4:
+ 189              		.cfi_def_cfa_offset 32
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->len == 0 || t->tabs == 0)
+ 190              		.loc 1 93 0
+ARM GAS  /tmp/ccaNrjSP.s 			page 6
+
+
+ 191 0006 EE6D     		ldr	r6, [r5, #92]
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 192              		.loc 1 89 0
+ 193 0008 01AC     		add	r4, sp, #4
+ 194 000a 84E80E00 		stm	r4, {r1, r2, r3}
+ 195              		.loc 1 93 0
+ 196 000e 1EB3     		cbz	r6, .L24
+ 197              		.loc 1 93 0 is_stmt 0 discriminator 1
+ 198 0010 AB6D     		ldr	r3, [r5, #88]
+ 199 0012 0BB3     		cbz	r3, .L24
+  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_OK;
+  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->selected >= t->len)
+ 200              		.loc 1 96 0 is_stmt 1
+ 201 0014 286E     		ldr	r0, [r5, #96]
+ 202              	.LVL15:
+  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+  98:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->state == 2) //for tab selection
+ 203              		.loc 1 99 0
+ 204 0016 95F86520 		ldrb	r2, [r5, #101]	@ zero_extendqisi2
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+ 205              		.loc 1 96 0
+ 206 001a 8642     		cmp	r6, r0
+  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+ 207              		.loc 1 97 0
+ 208 001c 9CBF     		itt	ls
+ 209 001e 0020     		movls	r0, #0
+ 210 0020 2866     		strls	r0, [r5, #96]
+ 211              		.loc 1 99 0
+ 212 0022 022A     		cmp	r2, #2
+ 213 0024 18D0     		beq	.L24
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_INPUT_NOT_HANDLED;
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->tabs[t->selected].cont.focused == 0)
+ 214              		.loc 1 102 0
+ 215 0026 C0EBC000 		rsb	r0, r0, r0, lsl #3
+ 216 002a 03EB8003 		add	r3, r3, r0, lsl #2
+ 217 002e 5869     		ldr	r0, [r3, #20]
+ 218 0030 30B1     		cbz	r0, .L38
+ 219              	.L27:
+ 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****        makise_g_cont_focus_next(&t->tabs[t->selected].cont);
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->tabs[t->selected].cont.focused != 0)
+ 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return m_element_input(t->tabs[t->selected].cont.focused, data);
+ 220              		.loc 1 105 0
+ 221 0032 94E80E00 		ldm	r4, {r1, r2, r3}
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     return M_INPUT_NOT_HANDLED;
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** }
+ 222              		.loc 1 107 0
+ 223 0036 04B0     		add	sp, sp, #16
+ 224              	.LCFI5:
+ 225              		.cfi_remember_state
+ 226              		.cfi_def_cfa_offset 16
+ 227              		@ sp needed
+ 228 0038 BDE87040 		pop	{r4, r5, r6, lr}
+ 229              	.LCFI6:
+ 230              		.cfi_restore 14
+ARM GAS  /tmp/ccaNrjSP.s 			page 7
+
+
+ 231              		.cfi_restore 6
+ 232              		.cfi_restore 5
+ 233              		.cfi_restore 4
+ 234              		.cfi_def_cfa_offset 0
+ 235              	.LVL16:
+ 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     return M_INPUT_NOT_HANDLED;
+ 236              		.loc 1 105 0
+ 237 003c FFF7FEBF 		b	m_element_input
+ 238              	.LVL17:
+ 239              	.L38:
+ 240              	.LCFI7:
+ 241              		.cfi_restore_state
+ 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****        makise_g_cont_focus_next(&t->tabs[t->selected].cont);
+ 242              		.loc 1 103 0
+ 243 0040 181D     		adds	r0, r3, #4
+ 244 0042 FFF7FEFF 		bl	makise_g_cont_focus_next
+ 245              	.LVL18:
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return m_element_input(t->tabs[t->selected].cont.focused, data);
+ 246              		.loc 1 104 0
+ 247 0046 2B6E     		ldr	r3, [r5, #96]
+ 248 0048 AA6D     		ldr	r2, [r5, #88]
+ 249 004a C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 250 004e 02EB8303 		add	r3, r2, r3, lsl #2
+ 251 0052 5869     		ldr	r0, [r3, #20]
+ 252 0054 0028     		cmp	r0, #0
+ 253 0056 ECD1     		bne	.L27
+ 254              	.L24:
+ 255              		.loc 1 107 0
+ 256 0058 0120     		movs	r0, #1
+ 257 005a 04B0     		add	sp, sp, #16
+ 258              	.LCFI8:
+ 259              		.cfi_def_cfa_offset 16
+ 260              		@ sp needed
+ 261 005c 70BD     		pop	{r4, r5, r6, pc}
+ 262              		.cfi_endproc
+ 263              	.LFE129:
+ 265 005e 00BF     		.section	.text._m_tabs_focus,"ax",%progbits
+ 266              		.align	1
+ 267              		.p2align 2,,3
+ 268              		.global	_m_tabs_focus
+ 269              		.syntax unified
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.fpu fpv4-sp-d16
+ 274              	_m_tabs_focus:
+ 275              	.LFB130:
+ 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** MFocusEnum _m_tabs_focus  (MElement* b, MFocusEnum act)
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** {
+ 276              		.loc 1 109 0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 0
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280              	.LVL19:
+ 281 0000 38B5     		push	{r3, r4, r5, lr}
+ 282              	.LCFI9:
+ 283              		.cfi_def_cfa_offset 16
+ 284              		.cfi_offset 3, -16
+ARM GAS  /tmp/ccaNrjSP.s 			page 8
+
+
+ 285              		.cfi_offset 4, -12
+ 286              		.cfi_offset 5, -8
+ 287              		.cfi_offset 14, -4
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MTabs *t = ((MTabs*)b->data);
+ 288              		.loc 1 110 0
+ 289 0002 446B     		ldr	r4, [r0, #52]
+ 290              	.LVL20:
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->len == 0 || t->tabs == 0)
+ 291              		.loc 1 112 0
+ 292 0004 E36D     		ldr	r3, [r4, #92]
+ 293 0006 0BB9     		cbnz	r3, .L59
+ 294              	.LVL21:
+ 295              	.L51:
+ 113:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_NOT_NEEDED;
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->selected >= t->len)
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(t->state == 2) //for tab selection
+ 119:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_NOT_NEEDED;
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 121:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     switch (act) {
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_GET:
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->state = 1;
+ 124:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_cont_focus_next(&t->tabs[t->selected].cont);
+ 125:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_GET_NEXT:
+ 128:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->state = 1;
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_cont_focus_next(&t->tabs[t->selected].cont);
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 131:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 132:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_GET_PREV:
+ 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->state = 1;
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_cont_focus_prev(&t->tabs[t->selected].cont);
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_LEAVE:
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->state = 0;
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_focus(t->tabs[t->selected].cont.focused, M_G_FOCUS_LEAVE);
+ 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->tabs[t->selected].cont.focused = 0;
+ 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_NEXT:
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return makise_g_cont_focus_next(&t->tabs[t->selected].cont);
+ 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_PREV:
+ 147:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return makise_g_cont_focus_prev(&t->tabs[t->selected].cont);
+ 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 149:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     }
+ 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 151:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     return M_G_FOCUS_NOT_NEEDED;
+ 296              		.loc 1 151 0
+ 297 0008 0220     		movs	r0, #2
+ 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** }
+ 298              		.loc 1 152 0
+ARM GAS  /tmp/ccaNrjSP.s 			page 9
+
+
+ 299 000a 38BD     		pop	{r3, r4, r5, pc}
+ 300              	.LVL22:
+ 301              	.L59:
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_NOT_NEEDED;
+ 302              		.loc 1 112 0 discriminator 1
+ 303 000c A06D     		ldr	r0, [r4, #88]
+ 304              	.LVL23:
+ 305 000e 0028     		cmp	r0, #0
+ 306 0010 FAD0     		beq	.L51
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->selected = 0;
+ 307              		.loc 1 115 0
+ 308 0012 226E     		ldr	r2, [r4, #96]
+ 309 0014 9342     		cmp	r3, r2
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_NOT_NEEDED;
+ 310              		.loc 1 118 0
+ 311 0016 94F86530 		ldrb	r3, [r4, #101]	@ zero_extendqisi2
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 312              		.loc 1 116 0
+ 313 001a 9CBF     		itt	ls
+ 314 001c 0022     		movls	r2, #0
+ 315 001e 2266     		strls	r2, [r4, #96]
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_NOT_NEEDED;
+ 316              		.loc 1 118 0
+ 317 0020 022B     		cmp	r3, #2
+ 318 0022 F1D0     		beq	.L51
+ 121:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     case M_G_FOCUS_GET:
+ 319              		.loc 1 121 0
+ 320 0024 0439     		subs	r1, r1, #4
+ 321              	.LVL24:
+ 322 0026 2429     		cmp	r1, #36
+ 323 0028 EED8     		bhi	.L51
+ 324 002a 01A3     		adr	r3, .L45
+ 325 002c 53F821F0 		ldr	pc, [r3, r1, lsl #2]
+ 326              		.p2align 2
+ 327              	.L45:
+ 328 0030 07010000 		.word	.L44+1
+ 329 0034 09000000 		.word	.L51+1
+ 330 0038 09000000 		.word	.L51+1
+ 331 003c 09000000 		.word	.L51+1
+ 332 0040 C5000000 		.word	.L48+1
+ 333 0044 09000000 		.word	.L51+1
+ 334 0048 09000000 		.word	.L51+1
+ 335 004c 09000000 		.word	.L51+1
+ 336 0050 09000000 		.word	.L51+1
+ 337 0054 09000000 		.word	.L51+1
+ 338 0058 09000000 		.word	.L51+1
+ 339 005c 09000000 		.word	.L51+1
+ 340 0060 DD000000 		.word	.L47+1
+ 341 0064 09000000 		.word	.L51+1
+ 342 0068 09000000 		.word	.L51+1
+ 343 006c 09000000 		.word	.L51+1
+ 344 0070 09000000 		.word	.L51+1
+ 345 0074 09000000 		.word	.L51+1
+ 346 0078 09000000 		.word	.L51+1
+ 347 007c 09000000 		.word	.L51+1
+ 348 0080 C5000000 		.word	.L48+1
+ 349 0084 09000000 		.word	.L51+1
+ARM GAS  /tmp/ccaNrjSP.s 			page 10
+
+
+ 350 0088 09000000 		.word	.L51+1
+ 351 008c 09000000 		.word	.L51+1
+ 352 0090 09000000 		.word	.L51+1
+ 353 0094 09000000 		.word	.L51+1
+ 354 0098 09000000 		.word	.L51+1
+ 355 009c 09000000 		.word	.L51+1
+ 356 00a0 2F010000 		.word	.L49+1
+ 357 00a4 09000000 		.word	.L51+1
+ 358 00a8 09000000 		.word	.L51+1
+ 359 00ac 09000000 		.word	.L51+1
+ 360 00b0 09000000 		.word	.L51+1
+ 361 00b4 09000000 		.word	.L51+1
+ 362 00b8 09000000 		.word	.L51+1
+ 363 00bc 09000000 		.word	.L51+1
+ 364 00c0 EF000000 		.word	.L50+1
+ 365              		.p2align 1
+ 366              	.L48:
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 367              		.loc 1 129 0
+ 368 00c4 C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 369 00c8 00EB8200 		add	r0, r0, r2, lsl #2
+ 128:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_cont_focus_next(&t->tabs[t->selected].cont);
+ 370              		.loc 1 128 0
+ 371 00cc 0125     		movs	r5, #1
+ 372 00ce 84F86550 		strb	r5, [r4, #101]
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 373              		.loc 1 129 0
+ 374 00d2 0430     		adds	r0, r0, #4
+ 375 00d4 FFF7FEFF 		bl	makise_g_cont_focus_next
+ 376              	.LVL25:
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 377              		.loc 1 130 0
+ 378 00d8 2846     		mov	r0, r5
+ 379 00da 38BD     		pop	{r3, r4, r5, pc}
+ 380              	.LVL26:
+ 381              	.L47:
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 382              		.loc 1 144 0
+ 383 00dc C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 384 00e0 00EB8200 		add	r0, r0, r2, lsl #2
+ 385 00e4 0430     		adds	r0, r0, #4
+ 386              		.loc 1 152 0
+ 387 00e6 BDE83840 		pop	{r3, r4, r5, lr}
+ 388              	.LCFI10:
+ 389              		.cfi_remember_state
+ 390              		.cfi_restore 14
+ 391              		.cfi_restore 5
+ 392              		.cfi_restore 4
+ 393              		.cfi_restore 3
+ 394              		.cfi_def_cfa_offset 0
+ 395              	.LVL27:
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 396              		.loc 1 144 0
+ 397 00ea FFF7FEBF 		b	makise_g_cont_focus_next
+ 398              	.LVL28:
+ 399              	.L50:
+ 400              	.LCFI11:
+ARM GAS  /tmp/ccaNrjSP.s 			page 11
+
+
+ 401              		.cfi_restore_state
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 402              		.loc 1 134 0
+ 403 00ee C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 404 00f2 00EB8200 		add	r0, r0, r2, lsl #2
+ 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_cont_focus_prev(&t->tabs[t->selected].cont);
+ 405              		.loc 1 133 0
+ 406 00f6 0125     		movs	r5, #1
+ 407 00f8 84F86550 		strb	r5, [r4, #101]
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 408              		.loc 1 134 0
+ 409 00fc 0430     		adds	r0, r0, #4
+ 410 00fe FFF7FEFF 		bl	makise_g_cont_focus_prev
+ 411              	.LVL29:
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 412              		.loc 1 135 0
+ 413 0102 2846     		mov	r0, r5
+ 414 0104 38BD     		pop	{r3, r4, r5, pc}
+ 415              	.LVL30:
+ 416              	.L44:
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->tabs[t->selected].cont.focused = 0;
+ 417              		.loc 1 139 0
+ 418 0106 C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 419 010a 00EB8202 		add	r2, r0, r2, lsl #2
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	makise_g_focus(t->tabs[t->selected].cont.focused, M_G_FOCUS_LEAVE);
+ 420              		.loc 1 138 0
+ 421 010e 0025     		movs	r5, #0
+ 422 0110 84F86550 		strb	r5, [r4, #101]
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	t->tabs[t->selected].cont.focused = 0;
+ 423              		.loc 1 139 0
+ 424 0114 5069     		ldr	r0, [r2, #20]
+ 425 0116 0421     		movs	r1, #4
+ 426 0118 FFF7FEFF 		bl	makise_g_focus
+ 427              	.LVL31:
+ 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 428              		.loc 1 140 0
+ 429 011c 236E     		ldr	r3, [r4, #96]
+ 430 011e A26D     		ldr	r2, [r4, #88]
+ 431 0120 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 432 0124 02EB8303 		add	r3, r2, r3, lsl #2
+ 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 433              		.loc 1 141 0
+ 434 0128 0120     		movs	r0, #1
+ 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return M_G_FOCUS_OK;
+ 435              		.loc 1 140 0
+ 436 012a 5D61     		str	r5, [r3, #20]
+ 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 437              		.loc 1 141 0
+ 438 012c 38BD     		pop	{r3, r4, r5, pc}
+ 439              	.LVL32:
+ 440              	.L49:
+ 147:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 441              		.loc 1 147 0
+ 442 012e C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 443 0132 00EB8200 		add	r0, r0, r2, lsl #2
+ 444 0136 0430     		adds	r0, r0, #4
+ 445              		.loc 1 152 0
+ARM GAS  /tmp/ccaNrjSP.s 			page 12
+
+
+ 446 0138 BDE83840 		pop	{r3, r4, r5, lr}
+ 447              	.LCFI12:
+ 448              		.cfi_restore 14
+ 449              		.cfi_restore 5
+ 450              		.cfi_restore 4
+ 451              		.cfi_restore 3
+ 452              		.cfi_def_cfa_offset 0
+ 453              	.LVL33:
+ 147:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	break;
+ 454              		.loc 1 147 0
+ 455 013c FFF7FEBF 		b	makise_g_cont_focus_prev
+ 456              	.LVL34:
+ 457              		.cfi_endproc
+ 458              	.LFE130:
+ 460              		.section	.text.m_create_tabs,"ax",%progbits
+ 461              		.align	1
+ 462              		.p2align 2,,3
+ 463              		.global	m_create_tabs
+ 464              		.syntax unified
+ 465              		.thumb
+ 466              		.thumb_func
+ 467              		.fpu fpv4-sp-d16
+ 469              	m_create_tabs:
+ 470              	.LFB126:
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MElement *e = &b->el;
+ 471              		.loc 1 16 0
+ 472              		.cfi_startproc
+ 473              		@ args = 24, pretend = 0, frame = 8
+ 474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 475              	.LVL35:
+ 476 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 477              	.LCFI13:
+ 478              		.cfi_def_cfa_offset 36
+ 479              		.cfi_offset 4, -36
+ 480              		.cfi_offset 5, -32
+ 481              		.cfi_offset 6, -28
+ 482              		.cfi_offset 7, -24
+ 483              		.cfi_offset 8, -20
+ 484              		.cfi_offset 9, -16
+ 485              		.cfi_offset 10, -12
+ 486              		.cfi_offset 11, -8
+ 487              		.cfi_offset 14, -4
+ 488 0004 0546     		mov	r5, r0
+ 489 0006 83B0     		sub	sp, sp, #12
+ 490              	.LCFI14:
+ 491              		.cfi_def_cfa_offset 48
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 492              		.loc 1 18 0
+ 493 0008 0868     		ldr	r0, [r1]
+ 494              	.LVL36:
+ 495 000a 6860     		str	r0, [r5, #4]
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->gui = c->gui;
+ 496              		.loc 1 17 0
+ 497 000c 2F1D     		adds	r7, r5, #4
+ 498              	.LVL37:
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 499              		.loc 1 22 0
+ARM GAS  /tmp/ccaNrjSP.s 			page 13
+
+
+ 500 000e 0846     		mov	r0, r1
+  20:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 501              		.loc 1 20 0
+ 502 0010 AD63     		str	r5, [r5, #56]
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 503              		.loc 1 22 0
+ 504 0012 3946     		mov	r1, r7
+ 505              	.LVL38:
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     MElement *e = &b->el;
+ 506              		.loc 1 16 0
+ 507 0014 DDF830B0 		ldr	fp, [sp, #48]
+ 508 0018 0192     		str	r2, [sp, #4]
+ 509 001a 0093     		str	r3, [sp]
+ 510 001c DDF834A0 		ldr	r10, [sp, #52]
+ 511 0020 0E9C     		ldr	r4, [sp, #56]
+ 512 0022 0F9E     		ldr	r6, [sp, #60]
+ 513 0024 9DF84080 		ldrb	r8, [sp, #64]	@ zero_extendqisi2
+ 514 0028 DDF84490 		ldr	r9, [sp, #68]
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 515              		.loc 1 22 0
+ 516 002c FFF7FEFF 		bl	makise_g_cont_add
+ 517              	.LVL39:
+  32:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.width = w;
+ 518              		.loc 1 32 0
+ 519 0030 009B     		ldr	r3, [sp]
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.y = y;
+ 520              		.loc 1 31 0
+ 521 0032 019A     		ldr	r2, [sp, #4]
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->predraw = &_m_tabs_predraw;
+ 522              		.loc 1 24 0
+ 523 0034 DFF884E0 		ldr	lr, .L66+16
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->update = 0;
+ 524              		.loc 1 25 0
+ 525 0038 1C48     		ldr	r0, .L66
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.y = y;
+ 526              		.loc 1 31 0
+ 527 003a EA61     		str	r2, [r5, #28]
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->input = &_m_tabs_input;
+ 528              		.loc 1 26 0
+ 529 003c 0021     		movs	r1, #0
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->focus = &_m_tabs_focus;
+ 530              		.loc 1 27 0
+ 531 003e 1C4A     		ldr	r2, .L66+4
+  32:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.width = w;
+ 532              		.loc 1 32 0
+ 533 0040 2B62     		str	r3, [r5, #32]
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->position.height = h;
+ 534              		.loc 1 33 0
+ 535 0042 C5F824B0 		str	fp, [r5, #36]
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->free = 0;
+ 536              		.loc 1 28 0
+ 537 0046 1B4B     		ldr	r3, .L66+8
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->input = &_m_tabs_input;
+ 538              		.loc 1 26 0
+ 539 0048 6964     		str	r1, [r5, #68]
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->id = makise_g_newid();
+ 540              		.loc 1 36 0
+ARM GAS  /tmp/ccaNrjSP.s 			page 14
+
+
+ 541 004a 4FF0010B 		mov	fp, #1
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 542              		.loc 1 29 0
+ 543 004e 2965     		str	r1, [r5, #80]
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 544              		.loc 1 34 0
+ 545 0050 C5F828A0 		str	r10, [r5, #40]
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->predraw = &_m_tabs_predraw;
+ 546              		.loc 1 24 0
+ 547 0054 C5F83CE0 		str	lr, [r5, #60]
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->update = 0;
+ 548              		.loc 1 25 0
+ 549 0058 2864     		str	r0, [r5, #64]
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->focus = &_m_tabs_focus;
+ 550              		.loc 1 27 0
+ 551 005a AA64     		str	r2, [r5, #72]
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->free = 0;
+ 552              		.loc 1 28 0
+ 553 005c EB64     		str	r3, [r5, #76]
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->id = makise_g_newid();
+ 554              		.loc 1 36 0
+ 555 005e 85F818B0 		strb	fp, [r5, #24]
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 556              		.loc 1 29 0
+ 557 0062 0091     		str	r1, [sp]
+ 558              	.LVL40:
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->focus_prior = 1;
+ 559              		.loc 1 37 0
+ 560 0064 FFF7FEFF 		bl	makise_g_newid
+ 561              	.LVL41:
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 562              		.loc 1 45 0
+ 563 0068 0099     		ldr	r1, [sp]
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 564              		.loc 1 40 0
+ 565 006a C5F85490 		str	r9, [r5, #84]
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     
+ 566              		.loc 1 38 0
+ 567 006e 85F834B0 		strb	fp, [r5, #52]
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->len = len;
+ 568              		.loc 1 42 0
+ 569 0072 AC65     		str	r4, [r5, #88]
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->type = type;
+ 570              		.loc 1 43 0
+ 571 0074 EE65     		str	r6, [r5, #92]
+  44:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     b->selected = 0;
+ 572              		.loc 1 44 0
+ 573 0076 85F86480 		strb	r8, [r5, #100]
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 574              		.loc 1 45 0
+ 575 007a 2966     		str	r1, [r5, #96]
+ 576              	.LVL42:
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     e->focus_prior = 1;
+ 577              		.loc 1 37 0
+ 578 007c A860     		str	r0, [r5, #8]
+ 579              	.LBB5:
+ 580              	.LBB6:
+ARM GAS  /tmp/ccaNrjSP.s 			page 15
+
+
+ 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 154:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** void _m_tabs_init_tabs(MTabs* b)
+ 155:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** {
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(b->tabs == 0)
+ 581              		.loc 1 156 0
+ 582 007e 6CB1     		cbz	r4, .L62
+ 583              	.LBB7:
+ 157:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return;
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     for (uint32_t i; i < b->len; i++) {
+ 584              		.loc 1 158 0
+ 585 0080 66B1     		cbz	r6, .L62
+ 586 0082 C6EBC606 		rsb	r6, r6, r6, lsl #3
+ 587 0086 6A68     		ldr	r2, [r5, #4]
+ 588 0088 04EB8606 		add	r6, r4, r6, lsl #2
+ 589              	.L63:
+ 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.gui = b->el.gui;
+ 590              		.loc 1 159 0
+ 591 008c 6260     		str	r2, [r4, #4]
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.el = &b->el;
+ 592              		.loc 1 160 0
+ 593 008e A760     		str	r7, [r4, #8]
+ 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.first = 0;
+ 594              		.loc 1 161 0
+ 595 0090 E160     		str	r1, [r4, #12]
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.last = 0;
+ 596              		.loc 1 162 0
+ 597 0092 2161     		str	r1, [r4, #16]
+ 163:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.focused = 0;
+ 598              		.loc 1 163 0
+ 599 0094 6161     		str	r1, [r4, #20]
+ 600              	.LVL43:
+ 601 0096 1C34     		adds	r4, r4, #28
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.gui = b->el.gui;
+ 602              		.loc 1 158 0
+ 603 0098 B442     		cmp	r4, r6
+ 604 009a F7D1     		bne	.L63
+ 605              	.L62:
+ 606              	.LVL44:
+ 607              	.LBE7:
+ 608              	.LBE6:
+ 609              	.LBE5:
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 610              		.loc 1 49 0
+ 611 009c 0146     		mov	r1, r0
+ 612 009e 0648     		ldr	r0, .L66+12
+  51:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 613              		.loc 1 51 0
+ 614 00a0 03B0     		add	sp, sp, #12
+ 615              	.LCFI15:
+ 616              		.cfi_def_cfa_offset 36
+ 617              		@ sp needed
+ 618 00a2 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 619              	.LCFI16:
+ 620              		.cfi_restore 14
+ 621              		.cfi_restore 11
+ 622              		.cfi_restore 10
+ 623              		.cfi_restore 9
+ARM GAS  /tmp/ccaNrjSP.s 			page 16
+
+
+ 624              		.cfi_restore 8
+ 625              		.cfi_restore 7
+ 626              		.cfi_restore 6
+ 627              		.cfi_restore 5
+ 628              		.cfi_restore 4
+ 629              		.cfi_def_cfa_offset 0
+ 630              	.LVL45:
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 
+ 631              		.loc 1 49 0
+ 632 00a6 FFF7FEBF 		b	printf
+ 633              	.LVL46:
+ 634              	.L67:
+ 635 00aa 00BF     		.align	2
+ 636              	.L66:
+ 637 00ac 00000000 		.word	_m_tabs_predraw
+ 638 00b0 00000000 		.word	_m_tabs_input
+ 639 00b4 00000000 		.word	_m_tabs_focus
+ 640 00b8 00000000 		.word	.LC0
+ 641 00bc 00000000 		.word	_m_tabs_draw
+ 642              		.cfi_endproc
+ 643              	.LFE126:
+ 645              		.section	.text._m_tabs_init_tabs,"ax",%progbits
+ 646              		.align	1
+ 647              		.p2align 2,,3
+ 648              		.global	_m_tabs_init_tabs
+ 649              		.syntax unified
+ 650              		.thumb
+ 651              		.thumb_func
+ 652              		.fpu fpv4-sp-d16
+ 654              	_m_tabs_init_tabs:
+ 655              	.LFB131:
+ 155:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(b->tabs == 0)
+ 656              		.loc 1 155 0
+ 657              		.cfi_startproc
+ 658              		@ args = 0, pretend = 0, frame = 0
+ 659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 660              		@ link register save eliminated.
+ 661              	.LVL47:
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	return;
+ 662              		.loc 1 156 0
+ 663 0000 836D     		ldr	r3, [r0, #88]
+ 664 0002 9BB1     		cbz	r3, .L77
+ 665              	.LBB8:
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.gui = b->el.gui;
+ 666              		.loc 1 158 0 discriminator 1
+ 667 0004 C16D     		ldr	r1, [r0, #92]
+ 668 0006 89B1     		cbz	r1, .L77
+ 669              	.LBE8:
+ 155:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     if(b->tabs == 0)
+ 670              		.loc 1 155 0
+ 671 0008 10B4     		push	{r4}
+ 672              	.LCFI17:
+ 673              		.cfi_def_cfa_offset 4
+ 674              		.cfi_offset 4, -4
+ 675 000a C1EBC101 		rsb	r1, r1, r1, lsl #3
+ 676 000e 50F8044F 		ldr	r4, [r0, #4]!
+ 677              	.LVL48:
+ARM GAS  /tmp/ccaNrjSP.s 			page 17
+
+
+ 678 0012 03EB8101 		add	r1, r3, r1, lsl #2
+ 679              	.LBB9:
+ 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.last = 0;
+ 680              		.loc 1 161 0
+ 681 0016 0022     		movs	r2, #0
+ 682              	.L71:
+ 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.el = &b->el;
+ 683              		.loc 1 159 0 discriminator 2
+ 684 0018 5C60     		str	r4, [r3, #4]
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.first = 0;
+ 685              		.loc 1 160 0 discriminator 2
+ 686 001a 9860     		str	r0, [r3, #8]
+ 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.last = 0;
+ 687              		.loc 1 161 0 discriminator 2
+ 688 001c DA60     		str	r2, [r3, #12]
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.focused = 0;
+ 689              		.loc 1 162 0 discriminator 2
+ 690 001e 1A61     		str	r2, [r3, #16]
+ 691              		.loc 1 163 0 discriminator 2
+ 692 0020 5A61     		str	r2, [r3, #20]
+ 693              	.LVL49:
+ 694 0022 1C33     		adds	r3, r3, #28
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** 	b->tabs[i].cont.gui = b->el.gui;
+ 695              		.loc 1 158 0 discriminator 2
+ 696 0024 8B42     		cmp	r3, r1
+ 697 0026 F7D1     		bne	.L71
+ 698              	.LBE9:
+ 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c ****     }
+ 165:MakiseGUI/MakiseGUI/gui/elements/makise_e_tabs.c **** }
+ 699              		.loc 1 165 0
+ 700 0028 5DF8044B 		ldr	r4, [sp], #4
+ 701              	.LCFI18:
+ 702              		.cfi_restore 4
+ 703              		.cfi_def_cfa_offset 0
+ 704              	.LVL50:
+ 705              	.L77:
+ 706 002c 7047     		bx	lr
+ 707              		.cfi_endproc
+ 708              	.LFE131:
+ 710              		.comm	makise_color_palette,4,4
+ 711 002e 00BF     		.section	.rodata.m_create_tabs.str1.4,"aMS",%progbits,1
+ 712              		.align	2
+ 713              	.LC0:
+ 714 0000 54616273 		.ascii	"Tabs %d created\012\000"
+ 714      20256420 
+ 714      63726561 
+ 714      7465640A 
+ 714      00
+ 715              		.text
+ 716              	.Letext0:
+ 717              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 718              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 719              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 720              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 721              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 722              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 723              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ARM GAS  /tmp/ccaNrjSP.s 			page 18
+
+
+ 724              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 725              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 726              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 727              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 728              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 729              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 730              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 731              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 732              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 733              		.file 18 "Inc/spi.h"
+ 734              		.file 19 "Inc/tim.h"
+ 735              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 736              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 737              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 738              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 739              		.file 24 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
+ 740              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 741              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 742              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 743              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccaNrjSP.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise_e_tabs.c
+     /tmp/ccaNrjSP.s:16     .text._m_tabs_draw:0000000000000000 $t
+     /tmp/ccaNrjSP.s:24     .text._m_tabs_draw:0000000000000000 _m_tabs_draw
+     /tmp/ccaNrjSP.s:112    .text._m_tabs_predraw:0000000000000000 $t
+     /tmp/ccaNrjSP.s:120    .text._m_tabs_predraw:0000000000000000 _m_tabs_predraw
+     /tmp/ccaNrjSP.s:161    .text._m_tabs_input:0000000000000000 $t
+     /tmp/ccaNrjSP.s:169    .text._m_tabs_input:0000000000000000 _m_tabs_input
+     /tmp/ccaNrjSP.s:266    .text._m_tabs_focus:0000000000000000 $t
+     /tmp/ccaNrjSP.s:274    .text._m_tabs_focus:0000000000000000 _m_tabs_focus
+     /tmp/ccaNrjSP.s:328    .text._m_tabs_focus:0000000000000030 $d
+     /tmp/ccaNrjSP.s:365    .text._m_tabs_focus:00000000000000c4 $t
+     /tmp/ccaNrjSP.s:461    .text.m_create_tabs:0000000000000000 $t
+     /tmp/ccaNrjSP.s:469    .text.m_create_tabs:0000000000000000 m_create_tabs
+     /tmp/ccaNrjSP.s:637    .text.m_create_tabs:00000000000000ac $d
+     /tmp/ccaNrjSP.s:646    .text._m_tabs_init_tabs:0000000000000000 $t
+     /tmp/ccaNrjSP.s:654    .text._m_tabs_init_tabs:0000000000000000 _m_tabs_init_tabs
+                            *COM*:0000000000000004 makise_color_palette
+     /tmp/ccaNrjSP.s:712    .rodata.m_create_tabs.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+_m_e_helper_draw_box
+makise_g_cont_call
+m_element_input
+makise_g_cont_focus_next
+makise_g_cont_focus_prev
+makise_g_focus
+makise_g_cont_add
+makise_g_newid
+printf

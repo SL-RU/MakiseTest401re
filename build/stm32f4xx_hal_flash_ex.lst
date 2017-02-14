@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc8oatOj.s 			page 1
+ARM GAS  /tmp/cca1v0aG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       (#) FLASH Memory Erase functions: 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****            (++) Lock and Unlock the FLASH interface using HAL_FLASH_Unlock() and 
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****                 HAL_FLASH_Lock() functions
-ARM GAS  /tmp/cc8oatOj.s 			page 2
+ARM GAS  /tmp/cca1v0aG.s 			page 2
 
 
   33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****            (++) Erase function: Erase sector, erase all sectors
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /** @defgroup FLASHEx FLASHEx
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @brief FLASH HAL Extension module driver
-ARM GAS  /tmp/cc8oatOj.s 			page 3
+ARM GAS  /tmp/cca1v0aG.s 			page 3
 
 
   90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @{
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** extern HAL_StatusTypeDef         FLASH_WaitForLastOperation(uint32_t Timeout);
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /**
-ARM GAS  /tmp/cc8oatOj.s 			page 4
+ARM GAS  /tmp/cca1v0aG.s 			page 4
 
 
  147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @}
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  185:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Process Locked */
  186:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   __HAL_LOCK(&pFlash);
   43              		.loc 1 186 0
-ARM GAS  /tmp/cc8oatOj.s 			page 5
+ARM GAS  /tmp/cca1v0aG.s 			page 5
 
 
   44 0004 564D     		ldr	r5, .L29
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  236:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
  237:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  238:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Process Unlocked */
-ARM GAS  /tmp/cc8oatOj.s 			page 6
+ARM GAS  /tmp/cca1v0aG.s 			page 6
 
 
  239:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   __HAL_UNLOCK(&pFlash);
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  247:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         contains the configuration information for the erasing.
  248:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * 
  249:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval HAL Status
-ARM GAS  /tmp/cc8oatOj.s 			page 7
+ARM GAS  /tmp/cca1v0aG.s 			page 7
 
 
  250:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  304:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** HAL_StatusTypeDef HAL_FLASHEx_OBProgram(FLASH_OBProgramInitTypeDef *pOBInit)
  305:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {
  306:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_ERROR;
-ARM GAS  /tmp/cc8oatOj.s 			page 8
+ARM GAS  /tmp/cca1v0aG.s 			page 8
 
 
  307:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  361:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval None
  362:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
  363:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** void HAL_FLASHEx_OBGetConfig(FLASH_OBProgramInitTypeDef *pOBInit)
-ARM GAS  /tmp/cc8oatOj.s 			page 9
+ARM GAS  /tmp/cca1v0aG.s 			page 9
 
 
  364:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  418:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       /*Disable of Write protection on the selected Sector*/
  419:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** #if defined(STM32F401xC) || defined(STM32F401xE) || defined(STM32F410Tx) || defined(STM32F410Cx) ||
  420:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     defined(STM32F411xE) || defined(STM32F446xx) || defined(STM32F412Zx) || defined(STM32F412Vx) ||
-ARM GAS  /tmp/cc8oatOj.s 			page 10
+ARM GAS  /tmp/cca1v0aG.s 			page 10
 
 
  421:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     defined(STM32F412Cx) || defined(STM32F413xx) || defined(STM32F423xx)
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  475:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @note   This function can be used only for STM32F42xxx/STM32F43xxx/STM32F401xx/STM32F411xx/STM3
  476:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         STM32F469xx/STM32F479xx/STM32F412xx/STM32F413xx devices.
  477:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * 
-ARM GAS  /tmp/cc8oatOj.s 			page 11
+ARM GAS  /tmp/cca1v0aG.s 			page 11
 
 
  478:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval HAL Status
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  532:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx */
  533:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  534:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /**
-ARM GAS  /tmp/cc8oatOj.s 			page 12
+ARM GAS  /tmp/cca1v0aG.s 			page 12
 
 
  535:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @}
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  589:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @param  Sector: FLASH sector to erase
  590:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         The value of this parameter depend on device used within the same series      
  591:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @param  VoltageRange: The device voltage range which defines the erase parallelism.  
-ARM GAS  /tmp/cc8oatOj.s 			page 13
+ARM GAS  /tmp/cca1v0aG.s 			page 13
 
 
  592:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *          This parameter can be one of the following values:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  646:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         it is not possible to program or erase the flash sector i if CortexM4  
  647:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         debug features are connected or boot code is executed in RAM, even if nWRPi = 1 
  648:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @note   Active value of nWRPi bits is inverted when PCROP mode is active (SPRMOD =1).   
-ARM GAS  /tmp/cc8oatOj.s 			page 14
+ARM GAS  /tmp/cca1v0aG.s 			page 14
 
 
  649:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * 
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  703:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       if(status == HAL_OK)
  704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       { 
  705:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****         *(__IO uint16_t*)OPTCR1_BYTE2_ADDRESS &= (~(WRPSector>>12U));  
-ARM GAS  /tmp/cc8oatOj.s 			page 15
+ARM GAS  /tmp/cca1v0aG.s 			page 15
 
 
  706:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       }
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  760:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****        }
  761:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     }
  762:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     else 
-ARM GAS  /tmp/cc8oatOj.s 			page 16
+ARM GAS  /tmp/cca1v0aG.s 			page 16
 
 
  763:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     {
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  817:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @brief  Enable the read/write protection (PCROP) of the desired 
  818:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         sectors of Bank 1 and/or Bank 2.
  819:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @note   This function can be used only for STM32F42xxx/43xxx devices.
-ARM GAS  /tmp/cc8oatOj.s 			page 17
+ARM GAS  /tmp/cca1v0aG.s 			page 17
 
 
  820:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @param  SectorBank1 Specifies the sector(s) to be read/write protected or unprotected for bank1
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  874:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
  875:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  876:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   return status;
-ARM GAS  /tmp/cc8oatOj.s 			page 18
+ARM GAS  /tmp/cca1v0aG.s 			page 18
 
 
  877:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** }
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  931:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       
  932:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       if(status == HAL_OK)
  933:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       { 
-ARM GAS  /tmp/cc8oatOj.s 			page 19
+ARM GAS  /tmp/cca1v0aG.s 			page 19
 
 
  934:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****         /*Write protection done on sectors of BANK2*/
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  988:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *          This parameter can be one of the following values:
  989:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg FLASH_VOLTAGE_RANGE_1: when the device voltage range is 1.8V to 2.1V, 
  990:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *                                  the operation will be done by byte (8-bit) 
-ARM GAS  /tmp/cc8oatOj.s 			page 20
+ARM GAS  /tmp/cca1v0aG.s 			page 20
 
 
  991:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg FLASH_VOLTAGE_RANGE_2: when the device voltage range is 2.1V to 2.7V,
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  104              	.LVL9:
 1027:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   FLASH->CR |= tmp_psize;
  105              		.loc 1 1027 0
-ARM GAS  /tmp/cc8oatOj.s 			page 21
+ARM GAS  /tmp/cca1v0aG.s 			page 21
 
 
  106 0060 2169     		ldr	r1, [r4, #16]
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
   44:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   45:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   46:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/cc8oatOj.s 			page 22
+ARM GAS  /tmp/cca1v0aG.s 			page 22
 
 
   47:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  101:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get IPSR Register
  102:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the IPSR Register.
  103:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               IPSR Register value
-ARM GAS  /tmp/cc8oatOj.s 			page 23
+ARM GAS  /tmp/cca1v0aG.s 			page 23
 
 
  104:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  158:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer
  159:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer (PSP).
  160:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
-ARM GAS  /tmp/cc8oatOj.s 			page 24
+ARM GAS  /tmp/cca1v0aG.s 			page 24
 
 
  161:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  215:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
  216:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  217:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/cc8oatOj.s 			page 25
+ARM GAS  /tmp/cca1v0aG.s 			page 25
 
 
  218:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  272:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
  273:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  274:Drivers/CMSIS/Include/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_BASEPRI_MAX(uint32_t value)
-ARM GAS  /tmp/cc8oatOj.s 			page 26
+ARM GAS  /tmp/cca1v0aG.s 			page 26
 
 
  275:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  329:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  330:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  331:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set FPSCR
-ARM GAS  /tmp/cc8oatOj.s 			page 27
+ARM GAS  /tmp/cca1v0aG.s 			page 27
 
 
  332:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Floating Point Status/Control register.
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  386:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  387:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  388:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /tmp/cc8oatOj.s 			page 28
+ARM GAS  /tmp/cca1v0aG.s 			page 28
 
 
  389:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  443:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  444:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  445:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Reverse byte order (32 bit)
-ARM GAS  /tmp/cc8oatOj.s 			page 29
+ARM GAS  /tmp/cca1v0aG.s 			page 29
 
 
  446:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the byte order in integer value.
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  500:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to rotate
  501:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Number of Bits to rotate
  502:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Rotated value
-ARM GAS  /tmp/cc8oatOj.s 			page 30
+ARM GAS  /tmp/cca1v0aG.s 			page 30
 
 
  503:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  140 0082 1343     		orrs	r3, r3, r2
  141 0084 2361     		str	r3, [r4, #16]
 1030:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   FLASH->CR |= FLASH_CR_STRT;
-ARM GAS  /tmp/cc8oatOj.s 			page 31
+ARM GAS  /tmp/cca1v0aG.s 			page 31
 
 
  142              		.loc 1 1030 0
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  188              	.LBB48:
  189              	.LBB49:
  978:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   FLASH->CR |= FLASH_CR_MER;
-ARM GAS  /tmp/cc8oatOj.s 			page 32
+ARM GAS  /tmp/cca1v0aG.s 			page 32
 
 
  190              		.loc 1 978 0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1032:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
 1033:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /**
 1034:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @brief  Enable the write protection of the desired bank 1 sectors
-ARM GAS  /tmp/cc8oatOj.s 			page 33
+ARM GAS  /tmp/cca1v0aG.s 			page 33
 
 
 1035:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1089:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   
 1090:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Check the parameters */
 1091:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   assert_param(IS_OB_WRP_SECTOR(WRPSector));
-ARM GAS  /tmp/cc8oatOj.s 			page 34
+ARM GAS  /tmp/cca1v0aG.s 			page 34
 
 
 1092:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   assert_param(IS_FLASH_BANK(Banks));
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
 1147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** static HAL_StatusTypeDef FLASH_OB_DisablePCROP(uint32_t Sector)
 1148:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {  
-ARM GAS  /tmp/cc8oatOj.s 			page 35
+ARM GAS  /tmp/cca1v0aG.s 			page 35
 
 
 1149:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg OB_IWDG_HW: Hardware IWDG selected
 1204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @param  Stop: Reset event when entering STOP mode.
 1205:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *          This parameter  can be one of the following values:
-ARM GAS  /tmp/cc8oatOj.s 			page 36
+ARM GAS  /tmp/cca1v0aG.s 			page 36
 
 
 1206:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg OB_STOP_NO_RST: No reset generated when entering in STOP
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** }
 1261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
 1262:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /**
-ARM GAS  /tmp/cc8oatOj.s 			page 37
+ARM GAS  /tmp/cca1v0aG.s 			page 37
 
 
 1263:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @brief  Return the FLASH User Option Byte value.
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1317:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *           - OB_BOR_OFF   : Supply voltage ranges from 1.62 to 2.1 V  
 1318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
 1319:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** static uint8_t FLASH_OB_GetBOR(void)
-ARM GAS  /tmp/cc8oatOj.s 			page 38
+ARM GAS  /tmp/cca1v0aG.s 			page 38
 
 
 1320:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1346:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     __HAL_FLASH_DATA_CACHE_DISABLE();
  263              		.loc 1 1346 0
  264 012c 1A68     		ldr	r2, [r3]
-ARM GAS  /tmp/cc8oatOj.s 			page 39
+ARM GAS  /tmp/cca1v0aG.s 			page 39
 
 
  265 012e 22F48062 		bic	r2, r2, #1024
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  311              		.thumb
  312              		.thumb_func
  313              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/cc8oatOj.s 			page 40
+ARM GAS  /tmp/cca1v0aG.s 			page 40
 
 
  315              	HAL_FLASHEx_Erase_IT:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  356 0026 1476     		strb	r4, [r2, #24]
  271:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
  357              		.loc 1 271 0 discriminator 2
-ARM GAS  /tmp/cc8oatOj.s 			page 41
+ARM GAS  /tmp/cca1v0aG.s 			page 41
 
 
  358 0028 2ED0     		beq	.L43
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  399 0056 1869     		ldr	r0, [r3, #16]
  400 0058 0243     		orrs	r2, r2, r0
  401              	.LVL34:
-ARM GAS  /tmp/cc8oatOj.s 			page 42
+ARM GAS  /tmp/cca1v0aG.s 			page 42
 
 
  402 005a 1A61     		str	r2, [r3, #16]
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  450              	.LVL38:
  451              	.L43:
  452              	.LCFI3:
-ARM GAS  /tmp/cc8oatOj.s 			page 43
+ARM GAS  /tmp/cca1v0aG.s 			page 43
 
 
  453              		.cfi_restore_state
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  497              	.LBE74:
  295:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  498              		.loc 1 295 0
-ARM GAS  /tmp/cc8oatOj.s 			page 44
+ARM GAS  /tmp/cca1v0aG.s 			page 44
 
 
  499 00b2 30BC     		pop	{r4, r5}
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  551              	.LVL46:
  552 0000 70B5     		push	{r4, r5, r6, lr}
  553              	.LCFI6:
-ARM GAS  /tmp/cc8oatOj.s 			page 45
+ARM GAS  /tmp/cca1v0aG.s 			page 45
 
 
  554              		.cfi_def_cfa_offset 16
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1099:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
  597              		.loc 1 1099 0
  598 002c 254A     		ldr	r2, .L77+4
-ARM GAS  /tmp/cc8oatOj.s 			page 46
+ARM GAS  /tmp/cca1v0aG.s 			page 46
 
 
  599 002e 2368     		ldr	r3, [r4]
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  645 0056 0020     		movs	r0, #0
  646              	.L56:
  647              	.LVL55:
-ARM GAS  /tmp/cc8oatOj.s 			page 47
+ARM GAS  /tmp/cca1v0aG.s 			page 47
 
 
  351:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  690 007a 3343     		orrs	r3, r3, r6
  691 007c 1370     		strb	r3, [r2]
  692              	.L71:
-ARM GAS  /tmp/cc8oatOj.s 			page 48
+ARM GAS  /tmp/cca1v0aG.s 			page 48
 
 
  693 007e 2368     		ldr	r3, [r4]
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  738 009c D0D5     		bpl	.L54
  739 009e E0E7     		b	.L74
  740              	.LVL72:
-ARM GAS  /tmp/cc8oatOj.s 			page 49
+ARM GAS  /tmp/cca1v0aG.s 			page 49
 
 
  741              	.L72:
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  793              	.LFB129:
  364:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   pOBInit->OptionType = OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_BOR;
  794              		.loc 1 364 0
-ARM GAS  /tmp/cc8oatOj.s 			page 50
+ARM GAS  /tmp/cca1v0aG.s 			page 50
 
 
  795              		.cfi_startproc
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  840 0018 552B     		cmp	r3, #85
  841 001a 14BF     		ite	ne
  842 001c AA23     		movne	r3, #170
-ARM GAS  /tmp/cc8oatOj.s 			page 51
+ARM GAS  /tmp/cca1v0aG.s 			page 51
 
 
  843 001e 5523     		moveq	r3, #85
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  893              	HAL_FLASHEx_AdvOBProgram:
  894              	.LFB130:
  393:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_ERROR;
-ARM GAS  /tmp/cc8oatOj.s 			page 52
+ARM GAS  /tmp/cca1v0aG.s 			page 52
 
 
  895              		.loc 1 393 0
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  940              	.LVL84:
  941              	.L86:
  942              	.LBE118:
-ARM GAS  /tmp/cc8oatOj.s 			page 53
+ARM GAS  /tmp/cca1v0aG.s 			page 53
 
 
  943              	.LBE117:
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  993              		.thumb_func
  994              		.fpu fpv4-sp-d16
  996              	HAL_FLASHEx_AdvOBGetConfig:
-ARM GAS  /tmp/cc8oatOj.s 			page 54
+ARM GAS  /tmp/cca1v0aG.s 			page 54
 
 
  997              	.LFB131:
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  1047 0010 173C0240 		.word	1073888279
  1048              		.cfi_endproc
  1049              	.LFE132:
-ARM GAS  /tmp/cc8oatOj.s 			page 55
+ARM GAS  /tmp/cca1v0aG.s 			page 55
 
 
  1051              		.section	.text.HAL_FLASHEx_OB_DeSelectPCROP,"ax",%progbits
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  1102              		.loc 1 1008 0
  1103 0000 39B1     		cbz	r1, .L106
 1012:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
-ARM GAS  /tmp/cc8oatOj.s 			page 56
+ARM GAS  /tmp/cca1v0aG.s 			page 56
 
 
  1104              		.loc 1 1012 0
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
 1030:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** }
  1152              		.loc 1 1030 0
  1153 0040 1A69     		ldr	r2, [r3, #16]
-ARM GAS  /tmp/cc8oatOj.s 			page 57
+ARM GAS  /tmp/cca1v0aG.s 			page 57
 
 
  1154 0042 42F48032 		orr	r2, r2, #65536
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  1204 0022 42F40072 		orr	r2, r2, #512
  1205 0026 1A60     		str	r2, [r3]
  1206              	.L113:
-ARM GAS  /tmp/cc8oatOj.s 			page 58
+ARM GAS  /tmp/cca1v0aG.s 			page 58
 
 
 1343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
@@ -3471,41 +3471,41 @@ ARM GAS  /tmp/cc8oatOj.s 			page 1
  1252              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  1253              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h"
  1254              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h"
-ARM GAS  /tmp/cc8oatOj.s 			page 59
+ARM GAS  /tmp/cca1v0aG.s 			page 59
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_flash_ex.c
-     /tmp/cc8oatOj.s:16     .text.HAL_FLASHEx_Erase:0000000000000000 $t
-     /tmp/cc8oatOj.s:24     .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
-     /tmp/cc8oatOj.s:301    .text.HAL_FLASHEx_Erase:0000000000000160 $d
-     /tmp/cc8oatOj.s:307    .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
-     /tmp/cc8oatOj.s:315    .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
-     /tmp/cc8oatOj.s:529    .text.HAL_FLASHEx_Erase_IT:00000000000000c4 $d
-     /tmp/cc8oatOj.s:537    .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
-     /tmp/cc8oatOj.s:545    .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
-     /tmp/cc8oatOj.s:774    .text.HAL_FLASHEx_OBProgram:00000000000000c0 $d
-     /tmp/cc8oatOj.s:784    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
-     /tmp/cc8oatOj.s:792    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
-     /tmp/cc8oatOj.s:878    .text.HAL_FLASHEx_OBGetConfig:0000000000000038 $d
-     /tmp/cc8oatOj.s:885    .text.HAL_FLASHEx_AdvOBProgram:0000000000000000 $t
-     /tmp/cc8oatOj.s:893    .text.HAL_FLASHEx_AdvOBProgram:0000000000000000 HAL_FLASHEx_AdvOBProgram
-     /tmp/cc8oatOj.s:981    .text.HAL_FLASHEx_AdvOBProgram:0000000000000044 $d
-     /tmp/cc8oatOj.s:988    .text.HAL_FLASHEx_AdvOBGetConfig:0000000000000000 $t
-     /tmp/cc8oatOj.s:996    .text.HAL_FLASHEx_AdvOBGetConfig:0000000000000000 HAL_FLASHEx_AdvOBGetConfig
-     /tmp/cc8oatOj.s:1012   .text.HAL_FLASHEx_AdvOBGetConfig:0000000000000008 $d
-     /tmp/cc8oatOj.s:1017   .text.HAL_FLASHEx_OB_SelectPCROP:0000000000000000 $t
-     /tmp/cc8oatOj.s:1025   .text.HAL_FLASHEx_OB_SelectPCROP:0000000000000000 HAL_FLASHEx_OB_SelectPCROP
-     /tmp/cc8oatOj.s:1047   .text.HAL_FLASHEx_OB_SelectPCROP:0000000000000010 $d
-     /tmp/cc8oatOj.s:1052   .text.HAL_FLASHEx_OB_DeSelectPCROP:0000000000000000 $t
-     /tmp/cc8oatOj.s:1060   .text.HAL_FLASHEx_OB_DeSelectPCROP:0000000000000000 HAL_FLASHEx_OB_DeSelectPCROP
-     /tmp/cc8oatOj.s:1081   .text.HAL_FLASHEx_OB_DeSelectPCROP:0000000000000010 $d
-     /tmp/cc8oatOj.s:1086   .text.FLASH_Erase_Sector:0000000000000000 $t
-     /tmp/cc8oatOj.s:1094   .text.FLASH_Erase_Sector:0000000000000000 FLASH_Erase_Sector
-     /tmp/cc8oatOj.s:1166   .text.FLASH_Erase_Sector:0000000000000050 $d
-     /tmp/cc8oatOj.s:1171   .text.FLASH_FlushCaches:0000000000000000 $t
-     /tmp/cc8oatOj.s:1179   .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
-     /tmp/cc8oatOj.s:1234   .text.FLASH_FlushCaches:0000000000000054 $d
+     /tmp/cca1v0aG.s:16     .text.HAL_FLASHEx_Erase:0000000000000000 $t
+     /tmp/cca1v0aG.s:24     .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
+     /tmp/cca1v0aG.s:301    .text.HAL_FLASHEx_Erase:0000000000000160 $d
+     /tmp/cca1v0aG.s:307    .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
+     /tmp/cca1v0aG.s:315    .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
+     /tmp/cca1v0aG.s:529    .text.HAL_FLASHEx_Erase_IT:00000000000000c4 $d
+     /tmp/cca1v0aG.s:537    .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
+     /tmp/cca1v0aG.s:545    .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
+     /tmp/cca1v0aG.s:774    .text.HAL_FLASHEx_OBProgram:00000000000000c0 $d
+     /tmp/cca1v0aG.s:784    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
+     /tmp/cca1v0aG.s:792    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
+     /tmp/cca1v0aG.s:878    .text.HAL_FLASHEx_OBGetConfig:0000000000000038 $d
+     /tmp/cca1v0aG.s:885    .text.HAL_FLASHEx_AdvOBProgram:0000000000000000 $t
+     /tmp/cca1v0aG.s:893    .text.HAL_FLASHEx_AdvOBProgram:0000000000000000 HAL_FLASHEx_AdvOBProgram
+     /tmp/cca1v0aG.s:981    .text.HAL_FLASHEx_AdvOBProgram:0000000000000044 $d
+     /tmp/cca1v0aG.s:988    .text.HAL_FLASHEx_AdvOBGetConfig:0000000000000000 $t
+     /tmp/cca1v0aG.s:996    .text.HAL_FLASHEx_AdvOBGetConfig:0000000000000000 HAL_FLASHEx_AdvOBGetConfig
+     /tmp/cca1v0aG.s:1012   .text.HAL_FLASHEx_AdvOBGetConfig:0000000000000008 $d
+     /tmp/cca1v0aG.s:1017   .text.HAL_FLASHEx_OB_SelectPCROP:0000000000000000 $t
+     /tmp/cca1v0aG.s:1025   .text.HAL_FLASHEx_OB_SelectPCROP:0000000000000000 HAL_FLASHEx_OB_SelectPCROP
+     /tmp/cca1v0aG.s:1047   .text.HAL_FLASHEx_OB_SelectPCROP:0000000000000010 $d
+     /tmp/cca1v0aG.s:1052   .text.HAL_FLASHEx_OB_DeSelectPCROP:0000000000000000 $t
+     /tmp/cca1v0aG.s:1060   .text.HAL_FLASHEx_OB_DeSelectPCROP:0000000000000000 HAL_FLASHEx_OB_DeSelectPCROP
+     /tmp/cca1v0aG.s:1081   .text.HAL_FLASHEx_OB_DeSelectPCROP:0000000000000010 $d
+     /tmp/cca1v0aG.s:1086   .text.FLASH_Erase_Sector:0000000000000000 $t
+     /tmp/cca1v0aG.s:1094   .text.FLASH_Erase_Sector:0000000000000000 FLASH_Erase_Sector
+     /tmp/cca1v0aG.s:1166   .text.FLASH_Erase_Sector:0000000000000050 $d
+     /tmp/cca1v0aG.s:1171   .text.FLASH_FlushCaches:0000000000000000 $t
+     /tmp/cca1v0aG.s:1179   .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
+     /tmp/cca1v0aG.s:1234   .text.FLASH_FlushCaches:0000000000000054 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

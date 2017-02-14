@@ -201,7 +201,7 @@ int main(void)
       c++;
 //      if(c%5 == 0)
 //	  lsm303_read();
-//      HAL_Delay(10);
+      HAL_Delay(10);
       controls_595_update();      
       
   /* USER CODE END WHILE */

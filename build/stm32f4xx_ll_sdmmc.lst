@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccaHL4Uw.s 			page 1
+ARM GAS  /tmp/ccpM0gbo.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              different data bus modes: 1-bit (default) and 4-bit
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Full support of the CE-ATA features (full compliance with CE-ATA digital protocol
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Rev1.1)
-ARM GAS  /tmp/ccaHL4Uw.s 			page 2
+ARM GAS  /tmp/ccpM0gbo.s 			page 2
 
 
   33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****          (+) Data transfer up to 48 MHz for the 8 bit mode
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****           -@@- To check if the command is well received, read the SDIO_CMDRESP
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               register using the SDIO_GetCommandResponse().
-ARM GAS  /tmp/ccaHL4Uw.s 			page 3
+ARM GAS  /tmp/ccpM0gbo.s 			page 3
 
 
   90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               The SDIO responses registers (SDIO_RESP1 to SDIO_RESP2), use the
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * are permitted provided that the following conditions are met:
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *   1. Redistributions of source code must retain the above copyright notice,
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *      this list of conditions and the following disclaimer.
-ARM GAS  /tmp/ccaHL4Uw.s 			page 4
+ARM GAS  /tmp/ccpM0gbo.s 			page 4
 
 
  147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****  ===============================================================================
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****               ##### Initialization/de-initialization functions #####
  203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****  ===============================================================================
-ARM GAS  /tmp/ccaHL4Uw.s 			page 5
+ARM GAS  /tmp/ccpM0gbo.s 			page 5
 
 
  204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****     [..]  This section provides functions allowing to:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  233:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.ClockPowerSave      |\
   52              		.loc 1 233 0
   53 000e 079D     		ldr	r5, [sp, #28]
-ARM GAS  /tmp/ccaHL4Uw.s 			page 6
+ARM GAS  /tmp/ccpM0gbo.s 			page 6
 
 
  234:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****              Init.BusWide             |\
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
   90 0034 7047     		bx	lr
   91              		.cfi_endproc
   92              	.LFE126:
-ARM GAS  /tmp/ccaHL4Uw.s 			page 7
+ARM GAS  /tmp/ccpM0gbo.s 			page 7
 
 
   94 0036 00BF     		.section	.text.SDIO_ReadFIFO,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  270:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** {
  271:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Read data from Rx FIFO */ 
  272:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   return (SDIOx->FIFO);
-ARM GAS  /tmp/ccaHL4Uw.s 			page 8
+ARM GAS  /tmp/ccpM0gbo.s 			page 8
 
 
  273:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** }
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  302:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****     transfers.
  303:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** 
  304:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c **** @endverbatim
-ARM GAS  /tmp/ccaHL4Uw.s 			page 9
+ARM GAS  /tmp/ccpM0gbo.s 			page 9
 
 
  305:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   * @{
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  328:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Set power state to OFF */
  329:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   SDIOx->POWER = (uint32_t)0x00000000U;
  185              		.loc 1 329 0
-ARM GAS  /tmp/ccaHL4Uw.s 			page 10
+ARM GAS  /tmp/ccpM0gbo.s 			page 10
 
 
  186 0000 0023     		movs	r3, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  226              		.thumb
  227              		.thumb_func
  228              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccaHL4Uw.s 			page 11
+ARM GAS  /tmp/ccpM0gbo.s 			page 11
 
 
  230              	SDIO_SendCommand:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  376:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   MODIFY_REG(SDIOx->CMD, CMD_CLEAR_MASK, tmpreg); 
  254              		.loc 1 376 0
  255 000c C268     		ldr	r2, [r0, #12]
-ARM GAS  /tmp/ccaHL4Uw.s 			page 12
+ARM GAS  /tmp/ccpM0gbo.s 			page 12
 
 
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****                        SDIO_CmdInitStruct->WaitForInterrupt |\
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  297              		@ args = 0, pretend = 0, frame = 0
  298              		@ frame_needed = 0, uses_anonymous_args = 0
  299              		@ link register save eliminated.
-ARM GAS  /tmp/ccaHL4Uw.s 			page 13
+ARM GAS  /tmp/ccpM0gbo.s 			page 13
 
 
  300              	.LVL18:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  332              		.cfi_def_cfa_offset 8
  333              		.loc 1 410 0
  334 0004 0344     		add	r3, r3, r0
-ARM GAS  /tmp/ccaHL4Uw.s 			page 14
+ARM GAS  /tmp/ccpM0gbo.s 			page 14
 
 
  404:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   __IO uint32_t tmp = 0U;
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  427:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
  428:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_DATA_LENGTH(SDIO_DataInitStruct->DataLength));
  429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_BLOCK_SIZE(SDIO_DataInitStruct->DataBlockSize));
-ARM GAS  /tmp/ccaHL4Uw.s 			page 15
+ARM GAS  /tmp/ccpM0gbo.s 			page 15
 
 
  430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_TRANSFER_DIR(SDIO_DataInitStruct->TransferDir));
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  403              		.loc 1 443 0
  404 001a 0B43     		orrs	r3, r3, r1
  405              		.loc 1 447 0
-ARM GAS  /tmp/ccaHL4Uw.s 			page 16
+ARM GAS  /tmp/ccpM0gbo.s 			page 16
 
 
  406 001c 1343     		orrs	r3, r3, r2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  449              		.syntax unified
  450              		.thumb
  451              		.thumb_func
-ARM GAS  /tmp/ccaHL4Uw.s 			page 17
+ARM GAS  /tmp/ccpM0gbo.s 			page 17
 
 
  452              		.fpu fpv4-sp-d16
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   /* Check the parameters */
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   assert_param(IS_SDIO_READWAIT_MODE(SDIO_ReadWaitMode));
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   
-ARM GAS  /tmp/ccaHL4Uw.s 			page 18
+ARM GAS  /tmp/ccpM0gbo.s 			page 18
 
 
  487:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c ****   *(__IO uint32_t *)DCTRL_RWMOD_BB = SDIO_ReadWaitMode;
@@ -1051,39 +1051,39 @@ ARM GAS  /tmp/ccaHL4Uw.s 			page 1
  511              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
  512              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  513              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
-ARM GAS  /tmp/ccaHL4Uw.s 			page 19
+ARM GAS  /tmp/ccpM0gbo.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_ll_sdmmc.c
-     /tmp/ccaHL4Uw.s:16     .text.SDIO_Init:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:24     .text.SDIO_Init:0000000000000000 SDIO_Init
-     /tmp/ccaHL4Uw.s:95     .text.SDIO_ReadFIFO:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:103    .text.SDIO_ReadFIFO:0000000000000000 SDIO_ReadFIFO
-     /tmp/ccaHL4Uw.s:115    .text.SDIO_WriteFIFO:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:123    .text.SDIO_WriteFIFO:0000000000000000 SDIO_WriteFIFO
-     /tmp/ccaHL4Uw.s:142    .text.SDIO_PowerState_ON:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:150    .text.SDIO_PowerState_ON:0000000000000000 SDIO_PowerState_ON
-     /tmp/ccaHL4Uw.s:169    .text.SDIO_PowerState_OFF:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:177    .text.SDIO_PowerState_OFF:0000000000000000 SDIO_PowerState_OFF
-     /tmp/ccaHL4Uw.s:196    .text.SDIO_GetPowerState:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:204    .text.SDIO_GetPowerState:0000000000000000 SDIO_GetPowerState
-     /tmp/ccaHL4Uw.s:222    .text.SDIO_SendCommand:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:230    .text.SDIO_SendCommand:0000000000000000 SDIO_SendCommand
-     /tmp/ccaHL4Uw.s:285    .text.SDIO_GetCommandResponse:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:293    .text.SDIO_GetCommandResponse:0000000000000000 SDIO_GetCommandResponse
-     /tmp/ccaHL4Uw.s:311    .text.SDIO_GetResponse:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:319    .text.SDIO_GetResponse:0000000000000000 SDIO_GetResponse
-     /tmp/ccaHL4Uw.s:353    .text.SDIO_GetResponse:0000000000000014 $d
-     /tmp/ccaHL4Uw.s:358    .text.SDIO_DataConfig:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:366    .text.SDIO_DataConfig:0000000000000000 SDIO_DataConfig
-     /tmp/ccaHL4Uw.s:421    .text.SDIO_GetDataCounter:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:429    .text.SDIO_GetDataCounter:0000000000000000 SDIO_GetDataCounter
-     /tmp/ccaHL4Uw.s:446    .text.SDIO_GetFIFOCount:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:454    .text.SDIO_GetFIFOCount:0000000000000000 SDIO_GetFIFOCount
-     /tmp/ccaHL4Uw.s:471    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 $t
-     /tmp/ccaHL4Uw.s:479    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 SDIO_SetSDIOReadWaitMode
-     /tmp/ccaHL4Uw.s:497    .text.SDIO_SetSDIOReadWaitMode:0000000000000008 $d
+     /tmp/ccpM0gbo.s:16     .text.SDIO_Init:0000000000000000 $t
+     /tmp/ccpM0gbo.s:24     .text.SDIO_Init:0000000000000000 SDIO_Init
+     /tmp/ccpM0gbo.s:95     .text.SDIO_ReadFIFO:0000000000000000 $t
+     /tmp/ccpM0gbo.s:103    .text.SDIO_ReadFIFO:0000000000000000 SDIO_ReadFIFO
+     /tmp/ccpM0gbo.s:115    .text.SDIO_WriteFIFO:0000000000000000 $t
+     /tmp/ccpM0gbo.s:123    .text.SDIO_WriteFIFO:0000000000000000 SDIO_WriteFIFO
+     /tmp/ccpM0gbo.s:142    .text.SDIO_PowerState_ON:0000000000000000 $t
+     /tmp/ccpM0gbo.s:150    .text.SDIO_PowerState_ON:0000000000000000 SDIO_PowerState_ON
+     /tmp/ccpM0gbo.s:169    .text.SDIO_PowerState_OFF:0000000000000000 $t
+     /tmp/ccpM0gbo.s:177    .text.SDIO_PowerState_OFF:0000000000000000 SDIO_PowerState_OFF
+     /tmp/ccpM0gbo.s:196    .text.SDIO_GetPowerState:0000000000000000 $t
+     /tmp/ccpM0gbo.s:204    .text.SDIO_GetPowerState:0000000000000000 SDIO_GetPowerState
+     /tmp/ccpM0gbo.s:222    .text.SDIO_SendCommand:0000000000000000 $t
+     /tmp/ccpM0gbo.s:230    .text.SDIO_SendCommand:0000000000000000 SDIO_SendCommand
+     /tmp/ccpM0gbo.s:285    .text.SDIO_GetCommandResponse:0000000000000000 $t
+     /tmp/ccpM0gbo.s:293    .text.SDIO_GetCommandResponse:0000000000000000 SDIO_GetCommandResponse
+     /tmp/ccpM0gbo.s:311    .text.SDIO_GetResponse:0000000000000000 $t
+     /tmp/ccpM0gbo.s:319    .text.SDIO_GetResponse:0000000000000000 SDIO_GetResponse
+     /tmp/ccpM0gbo.s:353    .text.SDIO_GetResponse:0000000000000014 $d
+     /tmp/ccpM0gbo.s:358    .text.SDIO_DataConfig:0000000000000000 $t
+     /tmp/ccpM0gbo.s:366    .text.SDIO_DataConfig:0000000000000000 SDIO_DataConfig
+     /tmp/ccpM0gbo.s:421    .text.SDIO_GetDataCounter:0000000000000000 $t
+     /tmp/ccpM0gbo.s:429    .text.SDIO_GetDataCounter:0000000000000000 SDIO_GetDataCounter
+     /tmp/ccpM0gbo.s:446    .text.SDIO_GetFIFOCount:0000000000000000 $t
+     /tmp/ccpM0gbo.s:454    .text.SDIO_GetFIFOCount:0000000000000000 SDIO_GetFIFOCount
+     /tmp/ccpM0gbo.s:471    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 $t
+     /tmp/ccpM0gbo.s:479    .text.SDIO_SetSDIOReadWaitMode:0000000000000000 SDIO_SetSDIOReadWaitMode
+     /tmp/ccpM0gbo.s:497    .text.SDIO_SetSDIOReadWaitMode:0000000000000008 $d
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

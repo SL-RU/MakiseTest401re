@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccQgqRSV.s 			page 1
+ARM GAS  /tmp/ccybIw25.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
   26:Src/main.c    ****   *    this license. 
   27:Src/main.c    ****   *
   28:Src/main.c    ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
-ARM GAS  /tmp/ccQgqRSV.s 			page 2
+ARM GAS  /tmp/ccybIw25.s 			page 2
 
 
   29:Src/main.c    ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
   83:Src/main.c    **** #define      LSM303_CTRL2              0x21  
   84:Src/main.c    **** #define      LSM303_CTRL3              0x22  
   85:Src/main.c    **** #define      LSM303_CTRL4              0x23  
-ARM GAS  /tmp/ccQgqRSV.s 			page 3
+ARM GAS  /tmp/ccybIw25.s 			page 3
 
 
   86:Src/main.c    **** #define      LSM303_CTRL5              0x24  
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
   41              		.cfi_offset 6, -12
   42              		.cfi_offset 7, -8
   43              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccQgqRSV.s 			page 4
+ARM GAS  /tmp/ccybIw25.s 			page 4
 
 
   44 0002 2DED028B 		vpush.64	{d8}
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
   93              	.LVL8:
   94 0068 0022     		movs	r2, #0
   95 006a 184B     		ldr	r3, .L6+16
-ARM GAS  /tmp/ccQgqRSV.s 			page 5
+ARM GAS  /tmp/ccybIw25.s 			page 5
 
 
   96 006c FFF7FEFF 		bl	__aeabi_dadd
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  138 00a8 094B     		ldr	r3, .L6+20
  139 00aa 1868     		ldr	r0, [r3]
  140 00ac 0121     		movs	r1, #1
-ARM GAS  /tmp/ccQgqRSV.s 			page 6
+ARM GAS  /tmp/ccybIw25.s 			page 6
 
 
  144:Src/main.c    **** }
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  194              		.cfi_offset 4, -16
  195              		.cfi_offset 5, -12
  196              		.cfi_offset 6, -8
-ARM GAS  /tmp/ccQgqRSV.s 			page 7
+ARM GAS  /tmp/ccybIw25.s 			page 7
 
 
  197              		.cfi_offset 14, -4
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  240              	.L10:
  241 003c 00000000 		.word	hi2c1
  242              		.cfi_endproc
-ARM GAS  /tmp/ccQgqRSV.s 			page 8
+ARM GAS  /tmp/ccybIw25.s 			page 8
 
 
  243              	.LFE126:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  294              	.LFE127:
  296              		.global	__aeabi_i2d
  297              		.global	__aeabi_d2f
-ARM GAS  /tmp/ccQgqRSV.s 			page 9
+ARM GAS  /tmp/ccybIw25.s 			page 9
 
 
  298              		.section	.text.lsm303_read,"ax",%progbits
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  115:Src/main.c    **** 
  345              		.loc 1 115 0
  346 0024 06AA     		add	r2, sp, #24
-ARM GAS  /tmp/ccQgqRSV.s 			page 10
+ARM GAS  /tmp/ccybIw25.s 			page 10
 
 
  347 0026 0095     		str	r5, [sp]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  394              	.LFE128:
  396              		.section	.text.SystemClock_Config,"ax",%progbits
  397              		.align	1
-ARM GAS  /tmp/ccQgqRSV.s 			page 11
+ARM GAS  /tmp/ccybIw25.s 			page 11
 
 
  398              		.p2align 2,,3
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  191:Src/main.c    ****   mgui->draw = &_mt_d;
  192:Src/main.c    **** //  printf("%d\n", Arial_12_SymbolTable[2]);
  193:Src/main.c    ****   
-ARM GAS  /tmp/ccQgqRSV.s 			page 12
+ARM GAS  /tmp/ccybIw25.s 			page 12
 
 
  194:Src/main.c    ****   /* USER CODE END 2 */
@@ -671,7 +671,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  201:Src/main.c    ****       c++;
  202:Src/main.c    **** //      if(c%5 == 0)
  203:Src/main.c    **** //	  lsm303_read();
- 204:Src/main.c    **** //      HAL_Delay(10);
+ 204:Src/main.c    ****       HAL_Delay(10);
  205:Src/main.c    ****       controls_595_update();      
  206:Src/main.c    ****       
  207:Src/main.c    ****   /* USER CODE END WHILE */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  428              	.LBE15:
  429              	.LBB16:
  227:Src/main.c    **** 
-ARM GAS  /tmp/ccQgqRSV.s 			page 13
+ARM GAS  /tmp/ccybIw25.s 			page 13
 
 
  228:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  467              	.LBB19:
  228:Src/main.c    **** 
  468              		.loc 1 228 0
-ARM GAS  /tmp/ccQgqRSV.s 			page 14
+ARM GAS  /tmp/ccybIw25.s 			page 14
 
 
  469 0046 029F     		ldr	r7, [sp, #8]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  499              		.loc 1 247 0
  500 0068 0F26     		movs	r6, #15
  501              		.loc 1 254 0
-ARM GAS  /tmp/ccQgqRSV.s 			page 15
+ARM GAS  /tmp/ccybIw25.s 			page 15
 
 
  502 006a 03A8     		add	r0, sp, #12
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  537 009e FFF7FEFF 		bl	HAL_NVIC_SetPriority
  538              	.LVL39:
  269:Src/main.c    **** }
-ARM GAS  /tmp/ccQgqRSV.s 			page 16
+ARM GAS  /tmp/ccybIw25.s 			page 16
 
 
  539              		.loc 1 269 0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  591 000a 2426     		movs	r6, #36
  592              	.LBE22:
  593              	.LBE26:
-ARM GAS  /tmp/ccQgqRSV.s 			page 17
+ARM GAS  /tmp/ccybIw25.s 			page 17
 
 
  163:Src/main.c    **** 
@@ -1012,13 +1012,13 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  631 0034 0094     		str	r4, [sp]
  632 0036 0223     		movs	r3, #2
  633 0038 3A21     		movs	r1, #58
- 634 003a 1948     		ldr	r0, .L33
+ 634 003a 1B48     		ldr	r0, .L33
  102:Src/main.c    ****     HAL_I2C_Master_Transmit(&hi2c1, 0x3a, d, 2, 100);
  635              		.loc 1 102 0
  636 003c 8DF80C60 		strb	r6, [sp, #12]
  637 0040 8DF80D50 		strb	r5, [sp, #13]
  638              	.LBE24:
-ARM GAS  /tmp/ccQgqRSV.s 			page 18
+ARM GAS  /tmp/ccybIw25.s 			page 18
 
 
  639              	.LBE28:
@@ -1046,7 +1046,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  658 004e 03AA     		add	r2, sp, #12
  659 0050 0223     		movs	r3, #2
  660 0052 3A21     		movs	r1, #58
- 661 0054 1248     		ldr	r0, .L33
+ 661 0054 1448     		ldr	r0, .L33
  102:Src/main.c    ****     HAL_I2C_Master_Transmit(&hi2c1, 0x3a, d, 2, 100);
  662              		.loc 1 102 0
  663 0056 8DF80D50 		strb	r5, [sp, #13]
@@ -1072,13 +1072,13 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  682 0066 0223     		movs	r3, #2
  683 0068 3A21     		movs	r1, #58
  684 006a 0094     		str	r4, [sp]
- 685 006c 0C48     		ldr	r0, .L33
+ 685 006c 0E48     		ldr	r0, .L33
  102:Src/main.c    ****     HAL_I2C_Master_Transmit(&hi2c1, 0x3a, d, 2, 100);
  686              		.loc 1 102 0
  687 006e 8DF80C50 		strb	r5, [sp, #12]
  688 0072 0024     		movs	r4, #0
  689 0074 8DF80D40 		strb	r4, [sp, #13]
-ARM GAS  /tmp/ccQgqRSV.s 			page 19
+ARM GAS  /tmp/ccybIw25.s 			page 19
 
 
  103:Src/main.c    **** }
@@ -1093,7 +1093,7 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  697 007e FFF7FEFF 		bl	ReadRegister
  698              	.LVL53:
  699 0082 0146     		mov	r1, r0
- 700 0084 0748     		ldr	r0, .L33+4
+ 700 0084 0948     		ldr	r0, .L33+4
  701 0086 FFF7FEFF 		bl	printf
  702              	.LVL54:
  187:Src/main.c    **** 
@@ -1104,10 +1104,10 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  706              		.loc 1 190 0
  707 008e FFF7FEFF 		bl	mt_start
  708              	.LVL56:
- 709 0092 054A     		ldr	r2, .L33+8
+ 709 0092 074A     		ldr	r2, .L33+8
  191:Src/main.c    **** //  printf("%d\n", Arial_12_SymbolTable[2]);
  710              		.loc 1 191 0
- 711 0094 054B     		ldr	r3, .L33+12
+ 711 0094 074B     		ldr	r3, .L33+12
  190:Src/main.c    ****   mgui->draw = &_mt_d;
  712              		.loc 1 190 0
  713 0096 1060     		str	r0, [r2]
@@ -1116,33 +1116,38 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  715 0098 8360     		str	r3, [r0, #8]
  716              	.LVL57:
  717              	.L31:
+ 204:Src/main.c    ****       controls_595_update();      
+ 718              		.loc 1 204 0 discriminator 1
+ 719 009a 0A20     		movs	r0, #10
+ 720 009c FFF7FEFF 		bl	HAL_Delay
+ 721              	.LVL58:
  205:Src/main.c    ****       
- 718              		.loc 1 205 0 discriminator 1
- 719 009a FFF7FEFF 		bl	controls_595_update
- 720              	.LVL58:
- 721 009e FCE7     		b	.L31
- 722              	.L34:
- 723              		.align	2
- 724              	.L33:
- 725 00a0 00000000 		.word	hi2c1
- 726 00a4 00000000 		.word	.LC0
- 727 00a8 00000000 		.word	mgui
- 728 00ac 00000000 		.word	_mt_d
- 729              		.cfi_endproc
- 730              	.LFE130:
- 732              		.section	.text.Error_Handler,"ax",%progbits
- 733              		.align	1
- 734              		.p2align 2,,3
- 735              		.global	Error_Handler
- 736              		.syntax unified
- 737              		.thumb
- 738              		.thumb_func
- 739              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccQgqRSV.s 			page 20
+ 722              		.loc 1 205 0 discriminator 1
+ 723 00a0 FFF7FEFF 		bl	controls_595_update
+ 724              	.LVL59:
+ 725 00a4 F9E7     		b	.L31
+ 726              	.L34:
+ 727 00a6 00BF     		.align	2
+ 728              	.L33:
+ 729 00a8 00000000 		.word	hi2c1
+ 730 00ac 00000000 		.word	.LC0
+ 731 00b0 00000000 		.word	mgui
+ 732 00b4 00000000 		.word	_mt_d
+ 733              		.cfi_endproc
+ 734              	.LFE130:
+ 736              		.section	.text.Error_Handler,"ax",%progbits
+ 737              		.align	1
+ 738              		.p2align 2,,3
+ARM GAS  /tmp/ccybIw25.s 			page 20
 
 
- 741              	Error_Handler:
- 742              	.LFB132:
+ 739              		.global	Error_Handler
+ 740              		.syntax unified
+ 741              		.thumb
+ 742              		.thumb_func
+ 743              		.fpu fpv4-sp-d16
+ 745              	Error_Handler:
+ 746              	.LFB132:
  270:Src/main.c    **** 
  271:Src/main.c    **** /* USER CODE BEGIN 4 */
  272:Src/main.c    **** 
@@ -1155,111 +1160,111 @@ ARM GAS  /tmp/ccQgqRSV.s 			page 1
  279:Src/main.c    ****   */
  280:Src/main.c    **** void Error_Handler(void)
  281:Src/main.c    **** {
- 743              		.loc 1 281 0
- 744              		.cfi_startproc
- 745              		@ Volatile: function does not return.
- 746              		@ args = 0, pretend = 0, frame = 0
- 747              		@ frame_needed = 0, uses_anonymous_args = 0
- 748              		@ link register save eliminated.
- 749              	.L36:
- 750 0000 FEE7     		b	.L36
- 751              		.cfi_endproc
- 752              	.LFE132:
- 754              		.comm	mgui,4,4
- 755              		.global	ang
- 756              		.comm	makise_color_palette,4,4
- 757 0002 00BF     		.section	.bss.ang,"aw",%nobits
- 758              		.align	2
- 759              		.set	.LANCHOR0,. + 0
- 762              	ang:
- 763 0000 00000000 		.space	4
- 764              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 765              		.align	2
- 766              	.LC0:
- 767 0000 61636320 		.ascii	"acc %d\012\000"
- 767      25640A00 
- 768              		.text
- 769              	.Letext0:
- 770              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 771              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 772              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 773              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 774              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 775              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
- 776              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
- 777              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 778              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
- 779              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 780              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 781              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 782              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 783              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 784              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
- 785              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
- 786              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 787              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
-ARM GAS  /tmp/ccQgqRSV.s 			page 21
+ 747              		.loc 1 281 0
+ 748              		.cfi_startproc
+ 749              		@ Volatile: function does not return.
+ 750              		@ args = 0, pretend = 0, frame = 0
+ 751              		@ frame_needed = 0, uses_anonymous_args = 0
+ 752              		@ link register save eliminated.
+ 753              	.L36:
+ 754 0000 FEE7     		b	.L36
+ 755              		.cfi_endproc
+ 756              	.LFE132:
+ 758              		.comm	mgui,4,4
+ 759              		.global	ang
+ 760              		.comm	makise_color_palette,4,4
+ 761 0002 00BF     		.section	.bss.ang,"aw",%nobits
+ 762              		.align	2
+ 763              		.set	.LANCHOR0,. + 0
+ 766              	ang:
+ 767 0000 00000000 		.space	4
+ 768              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 769              		.align	2
+ 770              	.LC0:
+ 771 0000 61636320 		.ascii	"acc %d\012\000"
+ 771      25640A00 
+ 772              		.text
+ 773              	.Letext0:
+ 774              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 775              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 776              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 777              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 778              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 779              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 780              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 781              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 782              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 783              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 784              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 785              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 786              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ARM GAS  /tmp/ccybIw25.s 			page 21
 
 
- 788              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 789              		.file 21 "Inc/dma.h"
- 790              		.file 22 "Middlewares/Third_Party/FatFs/src/integer.h"
- 791              		.file 23 "Middlewares/Third_Party/FatFs/src/diskio.h"
- 792              		.file 24 "Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"
- 793              		.file 25 "Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.h"
- 794              		.file 26 "Inc/fatfs.h"
- 795              		.file 27 "Inc/i2c.h"
- 796              		.file 28 "Inc/sdio.h"
- 797              		.file 29 "Inc/spi.h"
- 798              		.file 30 "Inc/tim.h"
- 799              		.file 31 "Inc/usart.h"
- 800              		.file 32 "MakiseGUI/MakiseGUI/makise.h"
- 801              		.file 33 "MakiseGUI/MakiseGUI/makise_colors.h"
- 802              		.file 34 "MakiseGUI/MakiseGUI/makise_text.h"
- 803              		.file 35 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 804              		.file 36 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 805              		.file 37 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 806              		.file 38 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 807              		.file 39 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
- 808              		.file 40 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
- 809              		.file 41 "Inc/makise_test.h"
- 810              		.file 42 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
- 811              		.file 43 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 812              		.file 44 "Inc/gpio.h"
- 813              		.file 45 "/usr/arm-none-eabi/include/stdio.h"
- 814              		.file 46 "Controls/controls_595.h"
- 815              		.file 47 "MakiseGUI/MakiseGUI/makise_primitives.h"
- 816              		.file 48 "/usr/arm-none-eabi/include/math.h"
-ARM GAS  /tmp/ccQgqRSV.s 			page 22
+ 787              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 788              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"
+ 789              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"
+ 790              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 791              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 792              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 793              		.file 21 "Inc/dma.h"
+ 794              		.file 22 "Middlewares/Third_Party/FatFs/src/integer.h"
+ 795              		.file 23 "Middlewares/Third_Party/FatFs/src/diskio.h"
+ 796              		.file 24 "Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"
+ 797              		.file 25 "Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.h"
+ 798              		.file 26 "Inc/fatfs.h"
+ 799              		.file 27 "Inc/i2c.h"
+ 800              		.file 28 "Inc/sdio.h"
+ 801              		.file 29 "Inc/spi.h"
+ 802              		.file 30 "Inc/tim.h"
+ 803              		.file 31 "Inc/usart.h"
+ 804              		.file 32 "MakiseGUI/MakiseGUI/makise.h"
+ 805              		.file 33 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 806              		.file 34 "MakiseGUI/MakiseGUI/makise_text.h"
+ 807              		.file 35 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 808              		.file 36 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 809              		.file 37 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 810              		.file 38 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 811              		.file 39 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 812              		.file 40 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 813              		.file 41 "Inc/makise_test.h"
+ 814              		.file 42 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 815              		.file 43 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 816              		.file 44 "Inc/gpio.h"
+ 817              		.file 45 "/usr/arm-none-eabi/include/stdio.h"
+ 818              		.file 46 "Controls/controls_595.h"
+ 819              		.file 47 "MakiseGUI/MakiseGUI/makise_primitives.h"
+ 820              		.file 48 "/usr/arm-none-eabi/include/math.h"
+ARM GAS  /tmp/ccybIw25.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccQgqRSV.s:20     .text._mt_d:0000000000000000 $t
-     /tmp/ccQgqRSV.s:28     .text._mt_d:0000000000000000 _mt_d
-     /tmp/ccQgqRSV.s:166    .text._mt_d:00000000000000bc $d
+     /tmp/ccybIw25.s:20     .text._mt_d:0000000000000000 $t
+     /tmp/ccybIw25.s:28     .text._mt_d:0000000000000000 _mt_d
+     /tmp/ccybIw25.s:166    .text._mt_d:00000000000000bc $d
                             *COM*:0000000000000004 mgui
-     /tmp/ccQgqRSV.s:176    .text.ReadRegister:0000000000000000 $t
-     /tmp/ccQgqRSV.s:184    .text.ReadRegister:0000000000000000 ReadRegister
-     /tmp/ccQgqRSV.s:241    .text.ReadRegister:000000000000003c $d
-     /tmp/ccQgqRSV.s:246    .text.WriteRegister:0000000000000000 $t
-     /tmp/ccQgqRSV.s:254    .text.WriteRegister:0000000000000000 WriteRegister
-     /tmp/ccQgqRSV.s:292    .text.WriteRegister:0000000000000024 $d
-     /tmp/ccQgqRSV.s:299    .text.lsm303_read:0000000000000000 $t
-     /tmp/ccQgqRSV.s:307    .text.lsm303_read:0000000000000000 lsm303_read
-     /tmp/ccQgqRSV.s:391    .text.lsm303_read:0000000000000074 $d
-     /tmp/ccQgqRSV.s:397    .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccQgqRSV.s:405    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccQgqRSV.s:548    .text.SystemClock_Config:00000000000000a8 $d
-     /tmp/ccQgqRSV.s:555    .text.startup.main:0000000000000000 $t
-     /tmp/ccQgqRSV.s:563    .text.startup.main:0000000000000000 main
-     /tmp/ccQgqRSV.s:725    .text.startup.main:00000000000000a0 $d
-     /tmp/ccQgqRSV.s:733    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccQgqRSV.s:741    .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccQgqRSV.s:762    .bss.ang:0000000000000000 ang
+     /tmp/ccybIw25.s:176    .text.ReadRegister:0000000000000000 $t
+     /tmp/ccybIw25.s:184    .text.ReadRegister:0000000000000000 ReadRegister
+     /tmp/ccybIw25.s:241    .text.ReadRegister:000000000000003c $d
+     /tmp/ccybIw25.s:246    .text.WriteRegister:0000000000000000 $t
+     /tmp/ccybIw25.s:254    .text.WriteRegister:0000000000000000 WriteRegister
+     /tmp/ccybIw25.s:292    .text.WriteRegister:0000000000000024 $d
+     /tmp/ccybIw25.s:299    .text.lsm303_read:0000000000000000 $t
+     /tmp/ccybIw25.s:307    .text.lsm303_read:0000000000000000 lsm303_read
+     /tmp/ccybIw25.s:391    .text.lsm303_read:0000000000000074 $d
+     /tmp/ccybIw25.s:397    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccybIw25.s:405    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccybIw25.s:548    .text.SystemClock_Config:00000000000000a8 $d
+     /tmp/ccybIw25.s:555    .text.startup.main:0000000000000000 $t
+     /tmp/ccybIw25.s:563    .text.startup.main:0000000000000000 main
+     /tmp/ccybIw25.s:729    .text.startup.main:00000000000000a8 $d
+     /tmp/ccybIw25.s:737    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccybIw25.s:745    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccybIw25.s:766    .bss.ang:0000000000000000 ang
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccQgqRSV.s:758    .bss.ang:0000000000000000 $d
-     /tmp/ccQgqRSV.s:765    .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccybIw25.s:762    .bss.ang:0000000000000000 $d
+     /tmp/ccybIw25.s:769    .rodata.main.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
@@ -1290,7 +1295,7 @@ HAL_Init
 MX_GPIO_Init
 MX_DMA_Init
 MX_SDIO_SD_Init
-ARM GAS  /tmp/ccQgqRSV.s 			page 23
+ARM GAS  /tmp/ccybIw25.s 			page 23
 
 
 MX_SPI1_Init

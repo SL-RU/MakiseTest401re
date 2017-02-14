@@ -1,0 +1,1510 @@
+ARM GAS  /tmp/ccM7xG75.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 23, 1
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"makise_e_slider.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text._m_slider_focus,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	_m_slider_focus
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_m_slider_focus:
+  25              	.LFB129:
+  26              		.file 1 "MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c"
+   1:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** #include "makise_e.h"
+   2:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+   3:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** uint8_t _m_slider_draw   (MElement* b);
+   4:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** MInputResultEnum _m_slider_input  (MElement* b, MInputData data);
+   5:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** MFocusEnum _m_slider_focus  (MElement* b, MFocusEnum act);
+   6:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+   7:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** void m_create_slider(MSlider* b, MContainer *c,
+   8:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     int32_t x, int32_t y, uint32_t w, uint32_t h,
+   9:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     int32_t *value,
+  10:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     int32_t value_max,
+  11:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     int32_t value_min,
+  12:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     void    (*onchange   )(MSlider* b, uint32_t val),
+  13:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     void    (*onfocus )(MSlider* b, MFocusEnum type),
+  14:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		     MakiseStyle *style)
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** {
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->gui = c->gui;
+  18:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->data = b;
+  20:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->draw = &_m_slider_draw;
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->predraw = 0;
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->update = 0;
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->input = &_m_slider_input;
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->focus = &_m_slider_focus;
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->free = 0;
+  27:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.x = x;
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.y = y;
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.width = w;
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.height = h;
+  32:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ARM GAS  /tmp/ccM7xG75.s 			page 2
+
+
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->enabled = 1;
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->id = makise_g_newid();
+  35:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->focus_prior = 1;
+  37:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  38:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->value = value;
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->value_max = value_max;
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->value_min = value_min;
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(*b->value > value_max)
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	*b->value = value_max;
+  44:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(*b->value < value_min)
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	*b->value = value_min;
+  46:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  47:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  48:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->onchange = onchange;
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->onfocus = onfocus;
+  50:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  51:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->style = style;
+  52:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  53:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     makise_g_cont_add(c, e);
+  54:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     printf("Slider %d created\n", e->id);
+  56:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+  57:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  58:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** uint8_t _m_slider_draw   (MElement* b)
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** {
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MakiseStyleTheme *th = 0;
+  61:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  62:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MSlider *s = ((MSlider*)b->data);
+  63:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+  64:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(((MSlider*)b->data)->state == 0)
+  65:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	th = &((MSlider*)b->data)->style->normal;
+  66:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     else if(((MSlider*)b->data)->state == 1)
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	th = &((MSlider*)b->data)->style->focused;
+  68:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     _m_e_helper_draw_box(b->gui->buffer, &b->position, th);
+  70:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(_MSlider_is_horizontal(b))
+  72:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	int32_t val = (*s->value - s->value_min) * (b->position.width - 5) /
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+  75:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//borders
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+  77:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+  78:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y,
+  79:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     3,
+  80:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height,
+  81:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     ((MSlider*)b->data)->state ? th->font_col : th->bg_color);
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width - 3,
+  85:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y,
+  86:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     3,
+  87:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height,
+  88:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     ((MSlider*)b->data)->state ? th->font_col : th->bg_color);
+ARM GAS  /tmp/ccM7xG75.s 			page 3
+
+
+  90:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//filled part
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + 2,
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+  94:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height*4/6,
+  96:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     ((MSlider*)b->data)->state ? th->font_col : th->bg_color);
+  98:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//empty part
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect(b->gui->buffer,
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+ 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width - val - 5,
+ 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height*4/6,
+ 104:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col);
+ 105:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//line
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_line(b->gui->buffer,
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + val + 2,
+ 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y,
+ 109:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + val + 2,
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + b->position.height - 1,
+ 111:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      th->font_col);
+ 112:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 113:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     }
+ 114:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     else
+ 115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	int32_t val = (*s->value - s->value_min) * (b->position.height - 5) /
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	val = b->position.height - val - 5;
+ 119:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//borders
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+ 121:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y,
+ 123:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width,
+ 124:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     3,
+ 125:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+ 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     ((MSlider*)b->data)->state ? th->font_col : th->bg_color);
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+ 128:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height - 3,
+ 130:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width,
+ 131:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     3,
+ 132:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+ 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     ((MSlider*)b->data)->state ? th->font_col : th->bg_color);
+ 134:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//filled part
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect(b->gui->buffer,
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + 2,
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 139:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 140:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col);
+ 141:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//empty part
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + val + 3,
+ 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height - val - 5,
+ARM GAS  /tmp/ccM7xG75.s 			page 4
+
+
+ 147:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+ 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     ((MSlider*)b->data)->state ? th->font_col : th->bg_color);
+ 149:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//line
+ 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_line(b->gui->buffer,
+ 151:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x,
+ 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + val + 2,
+ 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + b->position.width - 1,
+ 154:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + val + 2,
+ 155:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      th->font_col);
+ 156:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 157:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     }
+ 158:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 159:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     //makise_d_string(b->gui->buffer,
+ 160:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** //		    ((MSlider*)b->data)->text, MDTextAll,
+ 161:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** //		    b->position.real_x + b->position.width / 2,
+ 162:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** //		    b->position.real_y + b->position.height / 2,
+ 163:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** //		    MDTextPlacement_Center,
+ 164:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** //		    ((MSlider*)b->data)->style->font,
+ 165:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** //		    th->font_col);
+ 166:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 167:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     //printf("Slider %d dr\n", b->id);
+ 168:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     return M_OK;
+ 169:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+ 170:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 171:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** MInputResultEnum _m_slider_input  (MElement* b, MInputData data)
+ 172:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** {
+ 173:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     printf("but click %d %d\n", b->id, b->position.real_y);
+ 174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MSlider *e = ((MSlider*)b->data);
+ 175:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(data.event == M_INPUT_CLICK || ((e->value_max - e->value_min) > 20 &&
+ 177:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 				       data.time > 400))
+ 178:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+ 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	if(data.key == (_MSlider_is_horizontal(b) ? M_KEY_RIGHT : M_KEY_UP))
+ 180:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 181:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    if(*e->value + 1 > e->value_max)
+ 182:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		*e->value = e->value_max;
+ 183:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    else
+ 184:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		(*e->value) ++;
+ 185:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    if(e->onchange != 0)
+ 186:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		e->onchange(e, *e->value);
+ 187:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 188:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    return M_INPUT_HANDLED;
+ 189:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	}
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	else if(data.key == (_MSlider_is_horizontal(b) ? M_KEY_LEFT : M_KEY_DOWN))
+ 191:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 192:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    if(*e->value - 1 < e->value_min)
+ 193:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		*e->value = e->value_min;
+ 194:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    else
+ 195:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		(*e->value) --;
+ 196:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    if(e->onchange != 0)
+ 197:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		e->onchange(e, *e->value);
+ 198:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    
+ 199:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    return M_INPUT_HANDLED;
+ 200:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	}
+ 201:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     }
+ 202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     return M_INPUT_NOT_HANDLED;
+ 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+ARM GAS  /tmp/ccM7xG75.s 			page 5
+
+
+ 204:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** MFocusEnum _m_slider_focus  (MElement* b, MFocusEnum act)
+ 205:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** {
+  27              		.loc 1 205 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 38B5     		push	{r3, r4, r5, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 3, -16
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+ 206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MSlider *e = ((MSlider*)b->data);
+ 207:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(act & M_G_FOCUS_GET)
+  39              		.loc 1 207 0
+  40 0002 0B07     		lsls	r3, r1, #28
+ 205:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MSlider *e = ((MSlider*)b->data);
+  41              		.loc 1 205 0
+  42 0004 0546     		mov	r5, r0
+  43 0006 0C46     		mov	r4, r1
+ 206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MSlider *e = ((MSlider*)b->data);
+  44              		.loc 1 206 0
+  45 0008 406B     		ldr	r0, [r0, #52]
+  46              	.LVL1:
+  47              		.loc 1 207 0
+  48 000a 0FD5     		bpl	.L2
+ 208:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+ 209:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	if(e->state != 1 && e->onfocus != 0)
+  49              		.loc 1 209 0
+  50 000c 90F86C30 		ldrb	r3, [r0, #108]	@ zero_extendqisi2
+  51 0010 012B     		cmp	r3, #1
+  52 0012 04D0     		beq	.L3
+  53              		.loc 1 209 0 is_stmt 0 discriminator 1
+  54 0014 836E     		ldr	r3, [r0, #104]
+  55 0016 13B1     		cbz	r3, .L3
+ 210:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 211:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    e->onfocus(e, M_G_FOCUS_GET);
+  56              		.loc 1 211 0 is_stmt 1
+  57 0018 0821     		movs	r1, #8
+  58              	.LVL2:
+  59 001a 9847     		blx	r3
+  60              	.LVL3:
+  61 001c 686B     		ldr	r0, [r5, #52]
+  62              	.L3:
+ 212:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	}
+ 213:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	((MSlider*)b->data)->state = 1;
+  63              		.loc 1 213 0
+  64 001e 0123     		movs	r3, #1
+  65 0020 80F86C30 		strb	r3, [r0, #108]
+  66              	.L4:
+ 214:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     }
+ 215:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(act == M_G_FOCUS_LEAVE)
+ 216:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+ 217:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	if(e->state != 0 && e->onfocus != 0)
+ 218:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ARM GAS  /tmp/ccM7xG75.s 			page 6
+
+
+ 219:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    e->onfocus(e, M_G_FOCUS_LEAVE);
+ 220:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	}
+ 221:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	((MSlider*)b->data)->state = 0;
+ 222:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     }
+ 223:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 224:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     return (act == M_G_FOCUS_PREV || act == M_G_FOCUS_NEXT)
+ 225:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	? M_G_FOCUS_NOT_NEEDED
+ 226:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	: M_G_FOCUS_OK;
+  67              		.loc 1 226 0
+  68 0024 202C     		cmp	r4, #32
+  69 0026 0FD1     		bne	.L15
+  70 0028 0220     		movs	r0, #2
+ 227:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+  71              		.loc 1 227 0
+  72 002a 38BD     		pop	{r3, r4, r5, pc}
+  73              	.LVL4:
+  74              	.L2:
+ 215:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+  75              		.loc 1 215 0
+  76 002c 0429     		cmp	r1, #4
+  77 002e F9D1     		bne	.L4
+ 217:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+  78              		.loc 1 217 0
+  79 0030 90F86C30 		ldrb	r3, [r0, #108]	@ zero_extendqisi2
+  80 0034 1BB1     		cbz	r3, .L5
+ 217:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+  81              		.loc 1 217 0 is_stmt 0 discriminator 1
+  82 0036 836E     		ldr	r3, [r0, #104]
+  83 0038 0BB1     		cbz	r3, .L5
+ 219:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	}
+  84              		.loc 1 219 0 is_stmt 1
+  85 003a 9847     		blx	r3
+  86              	.LVL5:
+  87 003c 686B     		ldr	r0, [r5, #52]
+  88              	.L5:
+ 221:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     }
+  89              		.loc 1 221 0
+  90 003e 0023     		movs	r3, #0
+  91 0040 80F86C30 		strb	r3, [r0, #108]
+ 226:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+  92              		.loc 1 226 0
+  93 0044 0120     		movs	r0, #1
+  94 0046 38BD     		pop	{r3, r4, r5, pc}
+  95              	.LVL6:
+  96              	.L15:
+ 224:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	? M_G_FOCUS_NOT_NEEDED
+  97              		.loc 1 224 0
+  98 0048 102C     		cmp	r4, #16
+ 226:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+  99              		.loc 1 226 0
+ 100 004a 14BF     		ite	ne
+ 101 004c 0120     		movne	r0, #1
+ 102 004e 0220     		moveq	r0, #2
+ 103 0050 38BD     		pop	{r3, r4, r5, pc}
+ 104              		.cfi_endproc
+ 105              	.LFE129:
+ 107 0052 00BF     		.section	.text._m_slider_input,"ax",%progbits
+ARM GAS  /tmp/ccM7xG75.s 			page 7
+
+
+ 108              		.align	1
+ 109              		.p2align 2,,3
+ 110              		.global	_m_slider_input
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 114              		.fpu fpv4-sp-d16
+ 116              	_m_slider_input:
+ 117              	.LFB128:
+ 172:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     printf("but click %d %d\n", b->id, b->position.real_y);
+ 118              		.loc 1 172 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 16
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              	.LVL7:
+ 123 0000 30B5     		push	{r4, r5, lr}
+ 124              	.LCFI1:
+ 125              		.cfi_def_cfa_offset 12
+ 126              		.cfi_offset 4, -12
+ 127              		.cfi_offset 5, -8
+ 128              		.cfi_offset 14, -4
+ 129 0002 85B0     		sub	sp, sp, #20
+ 130              	.LCFI2:
+ 131              		.cfi_def_cfa_offset 32
+ 172:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     printf("but click %d %d\n", b->id, b->position.real_y);
+ 132              		.loc 1 172 0
+ 133 0004 04AC     		add	r4, sp, #16
+ 134 0006 04E90E00 		stmdb	r4, {r1, r2, r3}
+ 135 000a 0446     		mov	r4, r0
+ 173:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MSlider *e = ((MSlider*)b->data);
+ 136              		.loc 1 173 0
+ 137 000c 1C48     		ldr	r0, .L49
+ 138              	.LVL8:
+ 139 000e E26A     		ldr	r2, [r4, #44]
+ 140 0010 6168     		ldr	r1, [r4, #4]
+ 141 0012 9DF80450 		ldrb	r5, [sp, #4]	@ zero_extendqisi2
+ 142              	.LVL9:
+ 143 0016 FFF7FEFF 		bl	printf
+ 144              	.LVL10:
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 				       data.time > 400))
+ 145              		.loc 1 176 0
+ 146 001a 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
+ 174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 147              		.loc 1 174 0
+ 148 001e 606B     		ldr	r0, [r4, #52]
+ 149              	.LVL11:
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 				       data.time > 400))
+ 150              		.loc 1 176 0
+ 151 0020 012B     		cmp	r3, #1
+ 152 0022 08D0     		beq	.L17
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 				       data.time > 400))
+ 153              		.loc 1 176 0 is_stmt 0 discriminator 1
+ 154 0024 836D     		ldr	r3, [r0, #88]
+ 155 0026 C26D     		ldr	r2, [r0, #92]
+ 156 0028 9B1A     		subs	r3, r3, r2
+ 157 002a 142B     		cmp	r3, #20
+ 158 002c 1ADD     		ble	.L29
+ARM GAS  /tmp/ccM7xG75.s 			page 8
+
+
+ 176:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 				       data.time > 400))
+ 159              		.loc 1 176 0 discriminator 2
+ 160 002e 029B     		ldr	r3, [sp, #8]
+ 161 0030 B3F5C87F 		cmp	r3, #400
+ 162 0034 16D9     		bls	.L29
+ 163              	.L17:
+ 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 164              		.loc 1 179 0 is_stmt 1
+ 165 0036 226A     		ldr	r2, [r4, #32]
+ 166 0038 636A     		ldr	r3, [r4, #36]
+ 167 003a 9A42     		cmp	r2, r3
+ 168 003c 15DB     		blt	.L48
+ 169 003e 032D     		cmp	r5, #3
+ 170 0040 17D0     		beq	.L25
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 171              		.loc 1 190 0
+ 172 0042 0223     		movs	r3, #2
+ 173              	.L26:
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 174              		.loc 1 190 0 is_stmt 0 discriminator 4
+ 175 0044 AB42     		cmp	r3, r5
+ 176 0046 0DD1     		bne	.L29
+ 192:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		*e->value = e->value_min;
+ 177              		.loc 1 192 0 is_stmt 1
+ 178 0048 436D     		ldr	r3, [r0, #84]
+ 179 004a C16D     		ldr	r1, [r0, #92]
+ 180 004c 1A68     		ldr	r2, [r3]
+ 181 004e 8A42     		cmp	r2, r1
+ 195:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    if(e->onchange != 0)
+ 182              		.loc 1 195 0
+ 183 0050 C8BF     		it	gt
+ 184 0052 02F1FF31 		addgt	r1, r2, #-1
+ 185              	.L23:
+ 196:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		e->onchange(e, *e->value);
+ 186              		.loc 1 196 0
+ 187 0056 426E     		ldr	r2, [r0, #100]
+ 188 0058 1960     		str	r1, [r3]
+ 189 005a 02B1     		cbz	r2, .L45
+ 197:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    
+ 190              		.loc 1 197 0
+ 191 005c 9047     		blx	r2
+ 192              	.LVL12:
+ 193              	.L45:
+ 199:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	}
+ 194              		.loc 1 199 0
+ 195 005e 0020     		movs	r0, #0
+ 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** MFocusEnum _m_slider_focus  (MElement* b, MFocusEnum act)
+ 196              		.loc 1 203 0
+ 197 0060 05B0     		add	sp, sp, #20
+ 198              	.LCFI3:
+ 199              		.cfi_remember_state
+ 200              		.cfi_def_cfa_offset 12
+ 201              		@ sp needed
+ 202 0062 30BD     		pop	{r4, r5, pc}
+ 203              	.LVL13:
+ 204              	.L29:
+ 205              	.LCFI4:
+ARM GAS  /tmp/ccM7xG75.s 			page 9
+
+
+ 206              		.cfi_restore_state
+ 202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+ 207              		.loc 1 202 0
+ 208 0064 0120     		movs	r0, #1
+ 209              	.LVL14:
+ 203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** MFocusEnum _m_slider_focus  (MElement* b, MFocusEnum act)
+ 210              		.loc 1 203 0
+ 211 0066 05B0     		add	sp, sp, #20
+ 212              	.LCFI5:
+ 213              		.cfi_remember_state
+ 214              		.cfi_def_cfa_offset 12
+ 215              		@ sp needed
+ 216 0068 30BD     		pop	{r4, r5, pc}
+ 217              	.LVL15:
+ 218              	.L48:
+ 219              	.LCFI6:
+ 220              		.cfi_restore_state
+ 179:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 221              		.loc 1 179 0
+ 222 006a 042D     		cmp	r5, #4
+ 223 006c 01D0     		beq	.L25
+ 190:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	{
+ 224              		.loc 1 190 0
+ 225 006e 0523     		movs	r3, #5
+ 226 0070 E8E7     		b	.L26
+ 227              	.L25:
+ 181:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		*e->value = e->value_max;
+ 228              		.loc 1 181 0
+ 229 0072 436D     		ldr	r3, [r0, #84]
+ 230 0074 816D     		ldr	r1, [r0, #88]
+ 231 0076 1A68     		ldr	r2, [r3]
+ 232 0078 8A42     		cmp	r2, r1
+ 233 007a ECDA     		bge	.L23
+ 184:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    if(e->onchange != 0)
+ 234              		.loc 1 184 0
+ 235 007c 511C     		adds	r1, r2, #1
+ 236 007e EAE7     		b	.L23
+ 237              	.L50:
+ 238              		.align	2
+ 239              	.L49:
+ 240 0080 00000000 		.word	.LC0
+ 241              		.cfi_endproc
+ 242              	.LFE128:
+ 244              		.section	.text._m_slider_draw,"ax",%progbits
+ 245              		.align	1
+ 246              		.p2align 2,,3
+ 247              		.global	_m_slider_draw
+ 248              		.syntax unified
+ 249              		.thumb
+ 250              		.thumb_func
+ 251              		.fpu fpv4-sp-d16
+ 253              	_m_slider_draw:
+ 254              	.LFB127:
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MakiseStyleTheme *th = 0;
+ 255              		.loc 1 59 0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccM7xG75.s 			page 10
+
+
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              	.LVL16:
+ 260 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 261              	.LCFI7:
+ 262              		.cfi_def_cfa_offset 28
+ 263              		.cfi_offset 4, -28
+ 264              		.cfi_offset 5, -24
+ 265              		.cfi_offset 6, -20
+ 266              		.cfi_offset 7, -16
+ 267              		.cfi_offset 8, -12
+ 268              		.cfi_offset 9, -8
+ 269              		.cfi_offset 14, -4
+  62:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 270              		.loc 1 62 0
+ 271 0004 466B     		ldr	r6, [r0, #52]
+ 272              	.LVL17:
+  64:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	th = &((MSlider*)b->data)->style->normal;
+ 273              		.loc 1 64 0
+ 274 0006 96F86C30 		ldrb	r3, [r6, #108]	@ zero_extendqisi2
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MakiseStyleTheme *th = 0;
+ 275              		.loc 1 59 0
+ 276 000a 85B0     		sub	sp, sp, #20
+ 277              	.LCFI8:
+ 278              		.cfi_def_cfa_offset 48
+  59:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MakiseStyleTheme *th = 0;
+ 279              		.loc 1 59 0
+ 280 000c 0446     		mov	r4, r0
+  64:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	th = &((MSlider*)b->data)->style->normal;
+ 281              		.loc 1 64 0
+ 282 000e 002B     		cmp	r3, #0
+ 283 0010 40F0AE80 		bne	.L52
+  65:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     else if(((MSlider*)b->data)->state == 1)
+ 284              		.loc 1 65 0
+ 285 0014 376E     		ldr	r7, [r6, #96]
+ 286 0016 1C37     		adds	r7, r7, #28
+ 287              	.LVL18:
+ 288              	.L53:
+  69:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 289              		.loc 1 69 0
+ 290 0018 2368     		ldr	r3, [r4]
+ 291 001a 3A46     		mov	r2, r7
+ 292 001c 1868     		ldr	r0, [r3]
+ 293              	.LVL19:
+ 294 001e 04F11801 		add	r1, r4, #24
+ 295 0022 FFF7FEFF 		bl	_m_e_helper_draw_box
+ 296              	.LVL20:
+  71:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     {
+ 297              		.loc 1 71 0
+ 298 0026 236A     		ldr	r3, [r4, #32]
+ 299 0028 626A     		ldr	r2, [r4, #36]
+ 300 002a 9342     		cmp	r3, r2
+ 301 002c C0F2A680 		blt	.L54
+ 302              	.LBB2:
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 303              		.loc 1 73 0
+ 304 0030 706D     		ldr	r0, [r6, #84]
+  82:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+ARM GAS  /tmp/ccM7xG75.s 			page 11
+
+
+ 305              		.loc 1 82 0
+ 306 0032 616B     		ldr	r1, [r4, #52]
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 307              		.loc 1 73 0
+ 308 0034 D0F80080 		ldr	r8, [r0]
+ 309 0038 D6F85CC0 		ldr	ip, [r6, #92]
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//borders
+ 310              		.loc 1 74 0
+ 311 003c B56D     		ldr	r5, [r6, #88]
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 312              		.loc 1 76 0
+ 313 003e 91F86CE0 		ldrb	lr, [r1, #108]	@ zero_extendqisi2
+ 314 0042 2068     		ldr	r0, [r4]
+ 315 0044 B4F92810 		ldrsh	r1, [r4, #40]
+ 316 0048 0068     		ldr	r0, [r0]
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 317              		.loc 1 73 0
+ 318 004a A8EB0C06 		sub	r6, r8, ip
+ 319              	.LVL21:
+ 320 004e 053B     		subs	r3, r3, #5
+ 321 0050 03FB06F3 		mul	r3, r3, r6
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 322              		.loc 1 76 0
+ 323 0054 1FFA82F8 		uxth	r8, r2
+  74:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//borders
+ 324              		.loc 1 74 0
+ 325 0058 A5EB0C05 		sub	r5, r5, ip
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 326              		.loc 1 76 0
+ 327 005c B4F92C20 		ldrsh	r2, [r4, #44]
+  73:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 328              		.loc 1 73 0
+ 329 0060 93FBF5F5 		sdiv	r5, r3, r5
+ 330              	.LVL22:
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 331              		.loc 1 76 0
+ 332 0064 7B68     		ldr	r3, [r7, #4]
+ 333 0066 BEF1000F 		cmp	lr, #0
+ 334 006a 40F02D81 		bne	.L63
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 335              		.loc 1 76 0 is_stmt 0 discriminator 2
+ 336 006e 3E68     		ldr	r6, [r7]
+ 337              	.L55:
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 338              		.loc 1 76 0 discriminator 4
+ 339 0070 0296     		str	r6, [sp, #8]
+ 340 0072 0193     		str	r3, [sp, #4]
+ 341 0074 CDF80080 		str	r8, [sp]
+ 342 0078 0323     		movs	r3, #3
+ 343 007a FFF7FEFF 		bl	makise_d_rect_filled
+ 344              	.LVL23:
+  89:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//filled part
+ 345              		.loc 1 89 0 is_stmt 1 discriminator 4
+ 346 007e 626B     		ldr	r2, [r4, #52]
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y,
+ 347              		.loc 1 84 0 discriminator 4
+ 348 0080 216A     		ldr	r1, [r4, #32]
+ARM GAS  /tmp/ccM7xG75.s 			page 12
+
+
+ 349 0082 A06A     		ldr	r0, [r4, #40]
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width - 3,
+ 350              		.loc 1 83 0 discriminator 4
+ 351 0084 2368     		ldr	r3, [r4]
+ 352 0086 92F86C60 		ldrb	r6, [r2, #108]	@ zero_extendqisi2
+ 353 008a D3F800C0 		ldr	ip, [r3]
+ 354 008e B4F92C20 		ldrsh	r2, [r4, #44]
+ 355 0092 B4F824E0 		ldrh	lr, [r4, #36]
+ 356 0096 7B68     		ldr	r3, [r7, #4]
+  84:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y,
+ 357              		.loc 1 84 0 discriminator 4
+ 358 0098 0844     		add	r0, r0, r1
+ 359 009a C11E     		subs	r1, r0, #3
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width - 3,
+ 360              		.loc 1 83 0 discriminator 4
+ 361 009c 09B2     		sxth	r1, r1
+ 362 009e 002E     		cmp	r6, #0
+ 363 00a0 40F01481 		bne	.L64
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width - 3,
+ 364              		.loc 1 83 0 is_stmt 0 discriminator 2
+ 365 00a4 3E68     		ldr	r6, [r7]
+ 366              	.L56:
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width - 3,
+ 367              		.loc 1 83 0 discriminator 4
+ 368 00a6 0296     		str	r6, [sp, #8]
+ 369 00a8 6046     		mov	r0, ip
+ 370 00aa 0193     		str	r3, [sp, #4]
+ 371 00ac CDF800E0 		str	lr, [sp]
+ 372 00b0 0323     		movs	r3, #3
+ 373 00b2 FFF7FEFF 		bl	makise_d_rect_filled
+ 374              	.LVL24:
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 375              		.loc 1 93 0 is_stmt 1 discriminator 4
+ 376 00b6 666A     		ldr	r6, [r4, #36]
+ 377 00b8 884B     		ldr	r3, .L70
+  97:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//empty part
+ 378              		.loc 1 97 0 discriminator 4
+ 379 00ba 606B     		ldr	r0, [r4, #52]
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 380              		.loc 1 93 0 discriminator 4
+ 381 00bc E26A     		ldr	r2, [r4, #44]
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+ 382              		.loc 1 92 0 discriminator 4
+ 383 00be A16A     		ldr	r1, [r4, #40]
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + 2,
+ 384              		.loc 1 91 0 discriminator 4
+ 385 00c0 90F86CE0 		ldrb	lr, [r0, #108]	@ zero_extendqisi2
+ 386 00c4 2068     		ldr	r0, [r4]
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 387              		.loc 1 93 0 discriminator 4
+ 388 00c6 83FB068C 		smull	r8, ip, r3, r6
+ 389 00ca ACEBE67C 		sub	ip, ip, r6, asr #31
+  95:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+ 390              		.loc 1 95 0 discriminator 4
+ 391 00ce B600     		lsls	r6, r6, #2
+ 392 00d0 83FB0683 		smull	r8, r3, r3, r6
+ 393 00d4 A3EBE673 		sub	r3, r3, r6, asr #31
+ARM GAS  /tmp/ccM7xG75.s 			page 13
+
+
+  93:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 394              		.loc 1 93 0 discriminator 4
+ 395 00d8 6244     		add	r2, r2, ip
+  92:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+ 396              		.loc 1 92 0 discriminator 4
+ 397 00da 0231     		adds	r1, r1, #2
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + 2,
+ 398              		.loc 1 91 0 discriminator 4
+ 399 00dc ADB2     		uxth	r5, r5
+ 400              	.LVL25:
+ 401 00de 9BB2     		uxth	r3, r3
+ 402 00e0 12B2     		sxth	r2, r2
+ 403 00e2 09B2     		sxth	r1, r1
+ 404 00e4 0068     		ldr	r0, [r0]
+ 405 00e6 7E68     		ldr	r6, [r7, #4]
+ 406 00e8 BEF1000F 		cmp	lr, #0
+ 407 00ec 40F0F480 		bne	.L65
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + 2,
+ 408              		.loc 1 91 0 is_stmt 0 discriminator 2
+ 409 00f0 D7F800E0 		ldr	lr, [r7]
+ 410              	.L57:
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + 2,
+ 411              		.loc 1 91 0 discriminator 4
+ 412 00f4 8DE84840 		stm	sp, {r3, r6, lr}
+ 413 00f8 2B46     		mov	r3, r5
+ 414 00fa FFF7FEFF 		bl	makise_d_rect_filled
+ 415              	.LVL26:
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width - val - 5,
+ 416              		.loc 1 101 0 is_stmt 1 discriminator 4
+ 417 00fe 666A     		ldr	r6, [r4, #36]
+ 418 0100 764A     		ldr	r2, .L70
+ 102:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height*4/6,
+ 419              		.loc 1 102 0 discriminator 4
+ 420 0102 236A     		ldr	r3, [r4, #32]
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+ 421              		.loc 1 100 0 discriminator 4
+ 422 0104 A16A     		ldr	r1, [r4, #40]
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ 423              		.loc 1 99 0 discriminator 4
+ 424 0106 2068     		ldr	r0, [r4]
+ 103:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col);
+ 425              		.loc 1 103 0 discriminator 4
+ 426 0108 4FEA860C 		lsl	ip, r6, #2
+ 427 010c 82FB0C8E 		smull	r8, lr, r2, ip
+ 428 0110 AEEBEC7E 		sub	lr, lr, ip, asr #31
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width - val - 5,
+ 429              		.loc 1 101 0 discriminator 4
+ 430 0114 82FB0682 		smull	r8, r2, r2, r6
+ 431 0118 D4F82CC0 		ldr	ip, [r4, #44]
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ 432              		.loc 1 99 0 discriminator 4
+ 433 011c 0068     		ldr	r0, [r0]
+ 434 011e A3F10508 		sub	r8, r3, #5
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width - val - 5,
+ 435              		.loc 1 101 0 discriminator 4
+ 436 0122 A2EBE672 		sub	r2, r2, r6, asr #31
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ARM GAS  /tmp/ccM7xG75.s 			page 14
+
+
+ 437              		.loc 1 99 0 discriminator 4
+ 438 0126 7B68     		ldr	r3, [r7, #4]
+ 439 0128 0193     		str	r3, [sp, #4]
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+ 440              		.loc 1 100 0 discriminator 4
+ 441 012a 0331     		adds	r1, r1, #3
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ 442              		.loc 1 99 0 discriminator 4
+ 443 012c 1FFA8EF6 		uxth	r6, lr
+ 101:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width - val - 5,
+ 444              		.loc 1 101 0 discriminator 4
+ 445 0130 6244     		add	r2, r2, ip
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ 446              		.loc 1 99 0 discriminator 4
+ 447 0132 A8EB0503 		sub	r3, r8, r5
+ 100:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + b->position.height/6,
+ 448              		.loc 1 100 0 discriminator 4
+ 449 0136 2944     		add	r1, r1, r5
+  99:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + val + 3,
+ 450              		.loc 1 99 0 discriminator 4
+ 451 0138 0096     		str	r6, [sp]
+ 452 013a 12B2     		sxth	r2, r2
+ 453 013c 9BB2     		uxth	r3, r3
+ 454 013e 09B2     		sxth	r1, r1
+ 455 0140 FFF7FEFF 		bl	makise_d_rect
+ 456              	.LVL27:
+ 108:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + val + 2,
+ 457              		.loc 1 108 0 discriminator 4
+ 458 0144 E26A     		ldr	r2, [r4, #44]
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      th->font_col);
+ 459              		.loc 1 110 0 discriminator 4
+ 460 0146 616A     		ldr	r1, [r4, #36]
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y,
+ 461              		.loc 1 107 0 discriminator 4
+ 462 0148 A36A     		ldr	r3, [r4, #40]
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + val + 2,
+ 463              		.loc 1 106 0 discriminator 4
+ 464 014a 2068     		ldr	r0, [r4]
+ 465 014c 7C68     		ldr	r4, [r7, #4]
+ 466              	.LVL28:
+ 467 014e 0068     		ldr	r0, [r0]
+ 468 0150 0194     		str	r4, [sp, #4]
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y,
+ 469              		.loc 1 107 0 discriminator 4
+ 470 0152 0233     		adds	r3, r3, #2
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      th->font_col);
+ 471              		.loc 1 110 0 discriminator 4
+ 472 0154 8C18     		adds	r4, r1, r2
+ 107:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y,
+ 473              		.loc 1 107 0 discriminator 4
+ 474 0156 2B44     		add	r3, r3, r5
+ 110:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      th->font_col);
+ 475              		.loc 1 110 0 discriminator 4
+ 476 0158 013C     		subs	r4, r4, #1
+ 106:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + val + 2,
+ 477              		.loc 1 106 0 discriminator 4
+ 478 015a 1BB2     		sxth	r3, r3
+ARM GAS  /tmp/ccM7xG75.s 			page 15
+
+
+ 479 015c 24B2     		sxth	r4, r4
+ 480 015e 1946     		mov	r1, r3
+ 481 0160 0094     		str	r4, [sp]
+ 482 0162 12B2     		sxth	r2, r2
+ 483 0164 FFF7FEFF 		bl	makise_d_line
+ 484              	.LVL29:
+ 485              	.LBE2:
+ 169:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 486              		.loc 1 169 0 discriminator 4
+ 487 0168 0120     		movs	r0, #1
+ 488 016a 05B0     		add	sp, sp, #20
+ 489              	.LCFI9:
+ 490              		.cfi_remember_state
+ 491              		.cfi_def_cfa_offset 28
+ 492              		@ sp needed
+ 493 016c BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 494              	.LVL30:
+ 495              	.L52:
+ 496              	.LCFI10:
+ 497              		.cfi_restore_state
+  66:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	th = &((MSlider*)b->data)->style->focused;
+ 498              		.loc 1 66 0
+ 499 0170 012B     		cmp	r3, #1
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 500              		.loc 1 67 0
+ 501 0172 0ABF     		itet	eq
+ 502 0174 376E     		ldreq	r7, [r6, #96]
+  60:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 503              		.loc 1 60 0
+ 504 0176 0027     		movne	r7, #0
+  67:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 505              		.loc 1 67 0
+ 506 0178 2C37     		addeq	r7, r7, #44
+ 507              	.LVL31:
+ 508 017a 4DE7     		b	.L53
+ 509              	.LVL32:
+ 510              	.L54:
+ 511              	.LBB3:
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 512              		.loc 1 116 0
+ 513 017c 716D     		ldr	r1, [r6, #84]
+ 514 017e D6F85C80 		ldr	r8, [r6, #92]
+ 515              	.LVL33:
+ 516 0182 0D68     		ldr	r5, [r1]
+ 126:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	makise_d_rect_filled(b->gui->buffer,
+ 517              		.loc 1 126 0
+ 518 0184 616B     		ldr	r1, [r4, #52]
+ 519              	.LVL34:
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	val = b->position.height - val - 5;
+ 520              		.loc 1 117 0
+ 521 0186 B66D     		ldr	r6, [r6, #88]
+ 522              	.LVL35:
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 523              		.loc 1 120 0
+ 524 0188 91F86CE0 		ldrb	lr, [r1, #108]	@ zero_extendqisi2
+ 525 018c 2068     		ldr	r0, [r4]
+ 526 018e B4F92810 		ldrsh	r1, [r4, #40]
+ARM GAS  /tmp/ccM7xG75.s 			page 16
+
+
+ 527 0192 0068     		ldr	r0, [r0]
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 528              		.loc 1 116 0
+ 529 0194 A5EB080C 		sub	ip, r5, r8
+ 530 0198 551F     		subs	r5, r2, #5
+ 117:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	val = b->position.height - val - 5;
+ 531              		.loc 1 117 0
+ 532 019a A6EB0806 		sub	r6, r6, r8
+ 116:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	    (s->value_max - s->value_min);
+ 533              		.loc 1 116 0
+ 534 019e 05FB0CF5 		mul	r5, r5, ip
+ 535 01a2 95FBF6F5 		sdiv	r5, r5, r6
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//borders
+ 536              		.loc 1 118 0
+ 537 01a6 551B     		subs	r5, r2, r5
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 538              		.loc 1 120 0
+ 539 01a8 9BB2     		uxth	r3, r3
+ 118:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//borders
+ 540              		.loc 1 118 0
+ 541 01aa 053D     		subs	r5, r5, #5
+ 542              	.LVL36:
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 543              		.loc 1 120 0
+ 544 01ac B4F92C20 		ldrsh	r2, [r4, #44]
+ 545 01b0 7E68     		ldr	r6, [r7, #4]
+ 546 01b2 BEF1000F 		cmp	lr, #0
+ 547 01b6 40F08580 		bne	.L66
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 548              		.loc 1 120 0 is_stmt 0 discriminator 2
+ 549 01ba D7F800C0 		ldr	ip, [r7]
+ 550              	.L59:
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 551              		.loc 1 120 0 discriminator 4
+ 552 01be 0196     		str	r6, [sp, #4]
+ 553 01c0 4FF0030E 		mov	lr, #3
+ 554 01c4 CDF800E0 		str	lr, [sp]
+ 555 01c8 CDF808C0 		str	ip, [sp, #8]
+ 556 01cc FFF7FEFF 		bl	makise_d_rect_filled
+ 557              	.LVL37:
+ 133:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//filled part
+ 558              		.loc 1 133 0 is_stmt 1 discriminator 4
+ 559 01d0 616B     		ldr	r1, [r4, #52]
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width,
+ 560              		.loc 1 129 0 discriminator 4
+ 561 01d2 626A     		ldr	r2, [r4, #36]
+ 562 01d4 E06A     		ldr	r0, [r4, #44]
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 563              		.loc 1 127 0 discriminator 4
+ 564 01d6 2368     		ldr	r3, [r4]
+ 565 01d8 91F86CE0 		ldrb	lr, [r1, #108]	@ zero_extendqisi2
+ 566 01dc D3F80080 		ldr	r8, [r3]
+ 567 01e0 B4F92810 		ldrsh	r1, [r4, #40]
+ 568 01e4 238C     		ldrh	r3, [r4, #32]
+ 569 01e6 7E68     		ldr	r6, [r7, #4]
+ 129:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width,
+ 570              		.loc 1 129 0 discriminator 4
+ARM GAS  /tmp/ccM7xG75.s 			page 17
+
+
+ 571 01e8 1044     		add	r0, r0, r2
+ 572 01ea C21E     		subs	r2, r0, #3
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 573              		.loc 1 127 0 discriminator 4
+ 574 01ec 12B2     		sxth	r2, r2
+ 575 01ee BEF1000F 		cmp	lr, #0
+ 576 01f2 6FD1     		bne	.L67
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 577              		.loc 1 127 0 is_stmt 0 discriminator 2
+ 578 01f4 D7F800C0 		ldr	ip, [r7]
+ 579              	.L60:
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 580              		.loc 1 127 0 discriminator 4
+ 581 01f8 CDF808C0 		str	ip, [sp, #8]
+ 582 01fc 4FF0030E 		mov	lr, #3
+ 583 0200 4046     		mov	r0, r8
+ 584 0202 0196     		str	r6, [sp, #4]
+ 585 0204 CDF800E0 		str	lr, [sp]
+ 586 0208 FFF7FEFF 		bl	makise_d_rect_filled
+ 587              	.LVL38:
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 588              		.loc 1 135 0 is_stmt 1 discriminator 4
+ 589 020c 2368     		ldr	r3, [r4]
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + 2,
+ 590              		.loc 1 136 0 discriminator 4
+ 591 020e D4F820E0 		ldr	lr, [r4, #32]
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 592              		.loc 1 138 0 discriminator 4
+ 593 0212 DFF8C880 		ldr	r8, .L70
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 594              		.loc 1 135 0 discriminator 4
+ 595 0216 1868     		ldr	r0, [r3]
+ 596 0218 7B68     		ldr	r3, [r7, #4]
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + 2,
+ 597              		.loc 1 136 0 discriminator 4
+ 598 021a A16A     		ldr	r1, [r4, #40]
+ 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 599              		.loc 1 137 0 discriminator 4
+ 600 021c E26A     		ldr	r2, [r4, #44]
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 601              		.loc 1 135 0 discriminator 4
+ 602 021e 0193     		str	r3, [sp, #4]
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 603              		.loc 1 138 0 discriminator 4
+ 604 0220 4FEA8E0C 		lsl	ip, lr, #2
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + 2,
+ 605              		.loc 1 136 0 discriminator 4
+ 606 0224 88FB0E36 		smull	r3, r6, r8, lr
+ 607 0228 A6EBEE76 		sub	r6, r6, lr, asr #31
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ 608              		.loc 1 138 0 discriminator 4
+ 609 022c 88FB0C93 		smull	r9, r3, r8, ip
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 610              		.loc 1 135 0 discriminator 4
+ 611 0230 ADB2     		uxth	r5, r5
+ 612              	.LVL39:
+ 138:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     val,
+ARM GAS  /tmp/ccM7xG75.s 			page 18
+
+
+ 613              		.loc 1 138 0 discriminator 4
+ 614 0232 A3EBEC73 		sub	r3, r3, ip, asr #31
+ 136:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + 2,
+ 615              		.loc 1 136 0 discriminator 4
+ 616 0236 3144     		add	r1, r1, r6
+ 137:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 617              		.loc 1 137 0 discriminator 4
+ 618 0238 0232     		adds	r2, r2, #2
+ 135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 619              		.loc 1 135 0 discriminator 4
+ 620 023a 9BB2     		uxth	r3, r3
+ 621 023c 09B2     		sxth	r1, r1
+ 622 023e 12B2     		sxth	r2, r2
+ 623 0240 0095     		str	r5, [sp]
+ 624 0242 FFF7FEFF 		bl	makise_d_rect
+ 625              	.LVL40:
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + val + 3,
+ 626              		.loc 1 143 0 discriminator 4
+ 627 0246 236A     		ldr	r3, [r4, #32]
+ 148:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	//line
+ 628              		.loc 1 148 0 discriminator 4
+ 629 0248 606B     		ldr	r0, [r4, #52]
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 630              		.loc 1 144 0 discriminator 4
+ 631 024a E26A     		ldr	r2, [r4, #44]
+ 146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     th->font_col,
+ 632              		.loc 1 146 0 discriminator 4
+ 633 024c 666A     		ldr	r6, [r4, #36]
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + val + 3,
+ 634              		.loc 1 143 0 discriminator 4
+ 635 024e A16A     		ldr	r1, [r4, #40]
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 636              		.loc 1 142 0 discriminator 4
+ 637 0250 90F86CE0 		ldrb	lr, [r0, #108]	@ zero_extendqisi2
+ 638 0254 2068     		ldr	r0, [r4]
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + val + 3,
+ 639              		.loc 1 143 0 discriminator 4
+ 640 0256 88FB039C 		smull	r9, ip, r8, r3
+ 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height - val - 5,
+ 641              		.loc 1 145 0 discriminator 4
+ 642 025a 4FEA8309 		lsl	r9, r3, #2
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + val + 3,
+ 643              		.loc 1 143 0 discriminator 4
+ 644 025e ACEBE37C 		sub	ip, ip, r3, asr #31
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 645              		.loc 1 144 0 discriminator 4
+ 646 0262 0332     		adds	r2, r2, #3
+ 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height - val - 5,
+ 647              		.loc 1 145 0 discriminator 4
+ 648 0264 88FB0983 		smull	r8, r3, r8, r9
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 649              		.loc 1 142 0 discriminator 4
+ 650 0268 053E     		subs	r6, r6, #5
+ 143:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_y + val + 3,
+ 651              		.loc 1 143 0 discriminator 4
+ 652 026a 6144     		add	r1, r1, ip
+ 145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.height - val - 5,
+ARM GAS  /tmp/ccM7xG75.s 			page 19
+
+
+ 653              		.loc 1 145 0 discriminator 4
+ 654 026c A3EBE973 		sub	r3, r3, r9, asr #31
+ 144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.width*4/6,
+ 655              		.loc 1 144 0 discriminator 4
+ 656 0270 2A44     		add	r2, r2, r5
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 657              		.loc 1 142 0 discriminator 4
+ 658 0272 761B     		subs	r6, r6, r5
+ 659 0274 D0F800C0 		ldr	ip, [r0]
+ 660 0278 7868     		ldr	r0, [r7, #4]
+ 661 027a 9BB2     		uxth	r3, r3
+ 662 027c 09B2     		sxth	r1, r1
+ 663 027e 12B2     		sxth	r2, r2
+ 664 0280 B6B2     		uxth	r6, r6
+ 665 0282 BEF1000F 		cmp	lr, #0
+ 666 0286 23D1     		bne	.L68
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 667              		.loc 1 142 0 is_stmt 0 discriminator 2
+ 668 0288 D7F800E0 		ldr	lr, [r7]
+ 669              	.L61:
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 670              		.loc 1 142 0 discriminator 4
+ 671 028c CDF808E0 		str	lr, [sp, #8]
+ 672 0290 0190     		str	r0, [sp, #4]
+ 673 0292 0096     		str	r6, [sp]
+ 674 0294 6046     		mov	r0, ip
+ 675 0296 FFF7FEFF 		bl	makise_d_rect_filled
+ 676              	.LVL41:
+ 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + b->position.width - 1,
+ 677              		.loc 1 152 0 is_stmt 1 discriminator 4
+ 678 029a E26A     		ldr	r2, [r4, #44]
+ 151:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + val + 2,
+ 679              		.loc 1 151 0 discriminator 4
+ 680 029c A16A     		ldr	r1, [r4, #40]
+ 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + val + 2,
+ 681              		.loc 1 153 0 discriminator 4
+ 682 029e 236A     		ldr	r3, [r4, #32]
+ 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x,
+ 683              		.loc 1 150 0 discriminator 4
+ 684 02a0 2068     		ldr	r0, [r4]
+ 685 02a2 7C68     		ldr	r4, [r7, #4]
+ 686              	.LVL42:
+ 687 02a4 0068     		ldr	r0, [r0]
+ 688 02a6 0194     		str	r4, [sp, #4]
+ 152:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x + b->position.width - 1,
+ 689              		.loc 1 152 0 discriminator 4
+ 690 02a8 0232     		adds	r2, r2, #2
+ 691 02aa 2A44     		add	r2, r2, r5
+ 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + val + 2,
+ 692              		.loc 1 153 0 discriminator 4
+ 693 02ac 0B44     		add	r3, r3, r1
+ 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x,
+ 694              		.loc 1 150 0 discriminator 4
+ 695 02ae 12B2     		sxth	r2, r2
+ 153:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_y + val + 2,
+ 696              		.loc 1 153 0 discriminator 4
+ 697 02b0 013B     		subs	r3, r3, #1
+ARM GAS  /tmp/ccM7xG75.s 			page 20
+
+
+ 150:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 		      b->position.real_x,
+ 698              		.loc 1 150 0 discriminator 4
+ 699 02b2 0092     		str	r2, [sp]
+ 700 02b4 1BB2     		sxth	r3, r3
+ 701 02b6 09B2     		sxth	r1, r1
+ 702 02b8 FFF7FEFF 		bl	makise_d_line
+ 703              	.LVL43:
+ 704              	.LBE3:
+ 169:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 705              		.loc 1 169 0 discriminator 4
+ 706 02bc 0120     		movs	r0, #1
+ 707 02be 05B0     		add	sp, sp, #20
+ 708              	.LCFI11:
+ 709              		.cfi_remember_state
+ 710              		.cfi_def_cfa_offset 28
+ 711              		@ sp needed
+ 712 02c0 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 713              	.LVL44:
+ 714              	.L66:
+ 715              	.LCFI12:
+ 716              		.cfi_restore_state
+ 717              	.LBB4:
+ 120:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 718              		.loc 1 120 0
+ 719 02c4 B446     		mov	ip, r6
+ 720 02c6 7AE7     		b	.L59
+ 721              	.LVL45:
+ 722              	.L63:
+ 723              	.LBE4:
+ 724              	.LBB5:
+  76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 725              		.loc 1 76 0
+ 726 02c8 1E46     		mov	r6, r3
+ 727 02ca D1E6     		b	.L55
+ 728              	.L64:
+  83:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width - 3,
+ 729              		.loc 1 83 0
+ 730 02cc 1E46     		mov	r6, r3
+ 731 02ce EAE6     		b	.L56
+ 732              	.LVL46:
+ 733              	.L68:
+ 734              	.LBE5:
+ 735              	.LBB6:
+ 142:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + b->position.width/6,
+ 736              		.loc 1 142 0
+ 737 02d0 8646     		mov	lr, r0
+ 738 02d2 DBE7     		b	.L61
+ 739              	.LVL47:
+ 740              	.L67:
+ 127:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x,
+ 741              		.loc 1 127 0
+ 742 02d4 B446     		mov	ip, r6
+ 743 02d6 8FE7     		b	.L60
+ 744              	.LVL48:
+ 745              	.L65:
+ 746              	.LBE6:
+ 747              	.LBB7:
+ARM GAS  /tmp/ccM7xG75.s 			page 21
+
+
+  91:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 			     b->position.real_x + 2,
+ 748              		.loc 1 91 0
+ 749 02d8 B646     		mov	lr, r6
+ 750 02da 0BE7     		b	.L57
+ 751              	.L71:
+ 752              		.align	2
+ 753              	.L70:
+ 754 02dc ABAAAA2A 		.word	715827883
+ 755              	.LBE7:
+ 756              		.cfi_endproc
+ 757              	.LFE127:
+ 759              		.section	.text.m_create_slider,"ax",%progbits
+ 760              		.align	1
+ 761              		.p2align 2,,3
+ 762              		.global	m_create_slider
+ 763              		.syntax unified
+ 764              		.thumb
+ 765              		.thumb_func
+ 766              		.fpu fpv4-sp-d16
+ 768              	m_create_slider:
+ 769              	.LFB126:
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+ 770              		.loc 1 15 0
+ 771              		.cfi_startproc
+ 772              		@ args = 32, pretend = 0, frame = 8
+ 773              		@ frame_needed = 0, uses_anonymous_args = 0
+ 774              	.LVL49:
+ 775 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 776              	.LCFI13:
+ 777              		.cfi_def_cfa_offset 36
+ 778              		.cfi_offset 4, -36
+ 779              		.cfi_offset 5, -32
+ 780              		.cfi_offset 6, -28
+ 781              		.cfi_offset 7, -24
+ 782              		.cfi_offset 8, -20
+ 783              		.cfi_offset 9, -16
+ 784              		.cfi_offset 10, -12
+ 785              		.cfi_offset 11, -8
+ 786              		.cfi_offset 14, -4
+ 787 0004 83B0     		sub	sp, sp, #12
+ 788              	.LCFI14:
+ 789              		.cfi_def_cfa_offset 48
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+ 790              		.loc 1 15 0
+ 791 0006 0446     		mov	r4, r0
+ 792 0008 0C9D     		ldr	r5, [sp, #48]
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->predraw = 0;
+ 793              		.loc 1 21 0
+ 794 000a 2048     		ldr	r0, .L76
+ 795              	.LVL50:
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->focus = &_m_slider_focus;
+ 796              		.loc 1 24 0
+ 797 000c 204F     		ldr	r7, .L76+4
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->free = 0;
+ 798              		.loc 1 25 0
+ 799 000e 214E     		ldr	r6, .L76+8
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+ARM GAS  /tmp/ccM7xG75.s 			page 22
+
+
+ 800              		.loc 1 15 0
+ 801 0010 DDF848B0 		ldr	fp, [sp, #72]
+ 802 0014 DDF84CA0 		ldr	r10, [sp, #76]
+ 803 0018 8846     		mov	r8, r1
+  17:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 804              		.loc 1 17 0
+ 805 001a 0968     		ldr	r1, [r1]
+ 806              	.LVL51:
+ 807 001c 6160     		str	r1, [r4, #4]
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->id = makise_g_newid();
+ 808              		.loc 1 33 0
+ 809 001e 4FF00109 		mov	r9, #1
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->update = 0;
+ 810              		.loc 1 22 0
+ 811 0022 0021     		movs	r1, #0
+  29:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.width = w;
+ 812              		.loc 1 29 0
+ 813 0024 2362     		str	r3, [r4, #32]
+  30:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.height = h;
+ 814              		.loc 1 30 0
+ 815 0026 6562     		str	r5, [r4, #36]
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 816              		.loc 1 31 0
+ 817 0028 0D9B     		ldr	r3, [sp, #52]
+ 818              	.LVL52:
+  28:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->position.y = y;
+ 819              		.loc 1 28 0
+ 820 002a E261     		str	r2, [r4, #28]
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+ 821              		.loc 1 15 0
+ 822 002c 0EAD     		add	r5, sp, #56
+ 823              	.LVL53:
+ 824 002e 119A     		ldr	r2, [sp, #68]
+ 825              	.LVL54:
+  24:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->focus = &_m_slider_focus;
+ 826              		.loc 1 24 0
+ 827 0030 A764     		str	r7, [r4, #72]
+  25:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->free = 0;
+ 828              		.loc 1 25 0
+ 829 0032 E664     		str	r6, [r4, #76]
+  31:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 830              		.loc 1 31 0
+ 831 0034 A362     		str	r3, [r4, #40]
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+ 832              		.loc 1 15 0
+ 833 0036 E0CD     		ldm	r5, {r5, r6, r7}
+ 834              	.LVL55:
+  22:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->update = 0;
+ 835              		.loc 1 22 0
+ 836 0038 2164     		str	r1, [r4, #64]
+  23:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->input = &_m_slider_input;
+ 837              		.loc 1 23 0
+ 838 003a 6164     		str	r1, [r4, #68]
+  26:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 839              		.loc 1 26 0
+ 840 003c 2165     		str	r1, [r4, #80]
+  19:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ARM GAS  /tmp/ccM7xG75.s 			page 23
+
+
+ 841              		.loc 1 19 0
+ 842 003e A463     		str	r4, [r4, #56]
+  21:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->predraw = 0;
+ 843              		.loc 1 21 0
+ 844 0040 E063     		str	r0, [r4, #60]
+  33:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->id = makise_g_newid();
+ 845              		.loc 1 33 0
+ 846 0042 84F81890 		strb	r9, [r4, #24]
+  15:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     MElement *e = &b->el;
+ 847              		.loc 1 15 0
+ 848 0046 0192     		str	r2, [sp, #4]
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 849              		.loc 1 34 0
+ 850 0048 FFF7FEFF 		bl	makise_g_newid
+ 851              	.LVL56:
+  36:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 852              		.loc 1 36 0
+ 853 004c 84F83490 		strb	r9, [r4, #52]
+  34:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 854              		.loc 1 34 0
+ 855 0050 A060     		str	r0, [r4, #8]
+  40:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->value_min = value_min;
+ 856              		.loc 1 40 0
+ 857 0052 A665     		str	r6, [r4, #88]
+  41:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(*b->value > value_max)
+ 858              		.loc 1 41 0
+ 859 0054 E765     		str	r7, [r4, #92]
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	*b->value = value_max;
+ 860              		.loc 1 42 0
+ 861 0056 2B68     		ldr	r3, [r5]
+ 862 0058 019A     		ldr	r2, [sp, #4]
+  39:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->value_max = value_max;
+ 863              		.loc 1 39 0
+ 864 005a 6565     		str	r5, [r4, #84]
+  42:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	*b->value = value_max;
+ 865              		.loc 1 42 0
+ 866 005c 9E42     		cmp	r6, r3
+  43:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     if(*b->value < value_min)
+ 867              		.loc 1 43 0
+ 868 005e BCBF     		itt	lt
+ 869 0060 3346     		movlt	r3, r6
+ 870 0062 2E60     		strlt	r6, [r5]
+  44:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 	*b->value = value_min;
+ 871              		.loc 1 44 0
+ 872 0064 9F42     		cmp	r7, r3
+  45:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 873              		.loc 1 45 0
+ 874 0066 C8BF     		it	gt
+ 875 0068 2F60     		strgt	r7, [r5]
+  16:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     e->gui = c->gui;
+ 876              		.loc 1 16 0
+ 877 006a 211D     		adds	r1, r4, #4
+ 878              	.LVL57:
+  53:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 879              		.loc 1 53 0
+ 880 006c 4046     		mov	r0, r8
+  48:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     b->onfocus = onfocus;
+ARM GAS  /tmp/ccM7xG75.s 			page 24
+
+
+ 881              		.loc 1 48 0
+ 882 006e 6266     		str	r2, [r4, #100]
+  49:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 883              		.loc 1 49 0
+ 884 0070 C4F868B0 		str	fp, [r4, #104]
+  51:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 885              		.loc 1 51 0
+ 886 0074 C4F860A0 		str	r10, [r4, #96]
+  53:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c ****     
+ 887              		.loc 1 53 0
+ 888 0078 FFF7FEFF 		bl	makise_g_cont_add
+ 889              	.LVL58:
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+ 890              		.loc 1 55 0
+ 891 007c A168     		ldr	r1, [r4, #8]
+ 892 007e 0648     		ldr	r0, .L76+12
+  56:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** 
+ 893              		.loc 1 56 0
+ 894 0080 03B0     		add	sp, sp, #12
+ 895              	.LCFI15:
+ 896              		.cfi_def_cfa_offset 36
+ 897              		@ sp needed
+ 898 0082 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 899              	.LCFI16:
+ 900              		.cfi_restore 14
+ 901              		.cfi_restore 11
+ 902              		.cfi_restore 10
+ 903              		.cfi_restore 9
+ 904              		.cfi_restore 8
+ 905              		.cfi_restore 7
+ 906              		.cfi_restore 6
+ 907              		.cfi_restore 5
+ 908              		.cfi_restore 4
+ 909              		.cfi_def_cfa_offset 0
+ 910              	.LVL59:
+  55:MakiseGUI/MakiseGUI/gui/elements/makise_e_slider.c **** }
+ 911              		.loc 1 55 0
+ 912 0086 FFF7FEBF 		b	printf
+ 913              	.LVL60:
+ 914              	.L77:
+ 915 008a 00BF     		.align	2
+ 916              	.L76:
+ 917 008c 00000000 		.word	_m_slider_draw
+ 918 0090 00000000 		.word	_m_slider_input
+ 919 0094 00000000 		.word	_m_slider_focus
+ 920 0098 00000000 		.word	.LC1
+ 921              		.cfi_endproc
+ 922              	.LFE126:
+ 924              		.comm	makise_color_palette,4,4
+ 925              		.section	.rodata._m_slider_input.str1.4,"aMS",%progbits,1
+ 926              		.align	2
+ 927              	.LC0:
+ 928 0000 62757420 		.ascii	"but click %d %d\012\000"
+ 928      636C6963 
+ 928      6B202564 
+ 928      2025640A 
+ 928      00
+ARM GAS  /tmp/ccM7xG75.s 			page 25
+
+
+ 929              		.section	.rodata.m_create_slider.str1.4,"aMS",%progbits,1
+ 930              		.align	2
+ 931              	.LC1:
+ 932 0000 536C6964 		.ascii	"Slider %d created\012\000"
+ 932      65722025 
+ 932      64206372 
+ 932      65617465 
+ 932      640A00
+ 933              		.text
+ 934              	.Letext0:
+ 935              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 936              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 937              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
+ 938              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 939              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 940              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 941              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 942              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 943              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 944              		.file 11 "Drivers/CMSIS/Include/core_cm4.h"
+ 945              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 946              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 947              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 948              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 949              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 950              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 951              		.file 18 "Inc/spi.h"
+ 952              		.file 19 "Inc/tim.h"
+ 953              		.file 20 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 954              		.file 21 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 955              		.file 22 "MakiseGUI/MakiseGUI/makise_text.h"
+ 956              		.file 23 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 957              		.file 24 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
+ 958              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 959              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 960              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 961              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
+ 962              		.file 29 "MakiseGUI/MakiseGUI/makise_primitives.h"
+ARM GAS  /tmp/ccM7xG75.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 makise_e_slider.c
+     /tmp/ccM7xG75.s:16     .text._m_slider_focus:0000000000000000 $t
+     /tmp/ccM7xG75.s:24     .text._m_slider_focus:0000000000000000 _m_slider_focus
+     /tmp/ccM7xG75.s:108    .text._m_slider_input:0000000000000000 $t
+     /tmp/ccM7xG75.s:116    .text._m_slider_input:0000000000000000 _m_slider_input
+     /tmp/ccM7xG75.s:240    .text._m_slider_input:0000000000000080 $d
+     /tmp/ccM7xG75.s:245    .text._m_slider_draw:0000000000000000 $t
+     /tmp/ccM7xG75.s:253    .text._m_slider_draw:0000000000000000 _m_slider_draw
+     /tmp/ccM7xG75.s:754    .text._m_slider_draw:00000000000002dc $d
+     /tmp/ccM7xG75.s:760    .text.m_create_slider:0000000000000000 $t
+     /tmp/ccM7xG75.s:768    .text.m_create_slider:0000000000000000 m_create_slider
+     /tmp/ccM7xG75.s:917    .text.m_create_slider:000000000000008c $d
+                            *COM*:0000000000000004 makise_color_palette
+     /tmp/ccM7xG75.s:926    .rodata._m_slider_input.str1.4:0000000000000000 $d
+     /tmp/ccM7xG75.s:930    .rodata.m_create_slider.str1.4:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+printf
+_m_e_helper_draw_box
+makise_d_rect_filled
+makise_d_rect
+makise_d_line
+makise_g_newid
+makise_g_cont_add

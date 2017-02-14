@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccEFXm51.s 			page 1
+ARM GAS  /tmp/cccTGDA0.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.width = w;
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->position.height = h;
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 
-ARM GAS  /tmp/ccEFXm51.s 			page 2
+ARM GAS  /tmp/cccTGDA0.s 			page 2
 
 
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->enabled = 1;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
   87:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
   88:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
   89:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     case M_G_FOCUS_GET_PREV:
-ARM GAS  /tmp/ccEFXm51.s 			page 3
+ARM GAS  /tmp/cccTGDA0.s 			page 3
 
 
   90:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	((MCanvas*)b->data)->state = 1;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
   59              		.cfi_offset 14, -4
   51:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	th = &((MCanvas*)b->data)->style->normal;
   60              		.loc 1 51 0
-ARM GAS  /tmp/ccEFXm51.s 			page 4
+ARM GAS  /tmp/cccTGDA0.s 			page 4
 
 
   61 0002 436B     		ldr	r3, [r0, #52]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  104 0030 DA6E     		ldr	r2, [r3, #108]
  105 0032 1C32     		adds	r2, r2, #28
  106              	.LVL8:
-ARM GAS  /tmp/ccEFXm51.s 			page 5
+ARM GAS  /tmp/cccTGDA0.s 			page 5
 
 
  107 0034 EFE7     		b	.L4
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  161              		.loc 1 70 0
  162 0002 466B     		ldr	r6, [r0, #52]
   69:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     if(((MCanvas*)b->data)->cont.focused == 0)
-ARM GAS  /tmp/ccEFXm51.s 			page 6
+ARM GAS  /tmp/cccTGDA0.s 			page 6
 
 
  163              		.loc 1 69 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  209 0030 EED1     		bne	.L11
   75:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** MFocusEnum _m_canvas_focus  (MElement* b, MFocusEnum act)
  210              		.loc 1 75 0
-ARM GAS  /tmp/ccEFXm51.s 			page 7
+ARM GAS  /tmp/cccTGDA0.s 			page 7
 
 
  211 0032 0120     		movs	r0, #1
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  262 0016 40       		.byte	(.L24-.L18)/2
  263 0017 40       		.byte	(.L24-.L18)/2
  264 0018 40       		.byte	(.L24-.L18)/2
-ARM GAS  /tmp/ccEFXm51.s 			page 8
+ARM GAS  /tmp/cccTGDA0.s 			page 8
 
 
  265 0019 40       		.byte	(.L24-.L18)/2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  314              		.cfi_remember_state
  315              		.cfi_restore 14
  316              		.cfi_restore 5
-ARM GAS  /tmp/ccEFXm51.s 			page 9
+ARM GAS  /tmp/cccTGDA0.s 			page 9
 
 
  317              		.cfi_restore 4
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
   97:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	return M_G_FOCUS_OK;
  363              		.loc 1 97 0
  364 0076 5C66     		str	r4, [r3, #100]
-ARM GAS  /tmp/ccEFXm51.s 			page 10
+ARM GAS  /tmp/cccTGDA0.s 			page 10
 
 
   98:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c **** 	break;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  414              		.cfi_offset 7, -24
  415              		.cfi_offset 8, -20
  416              		.cfi_offset 9, -16
-ARM GAS  /tmp/ccEFXm51.s 			page 11
+ARM GAS  /tmp/cccTGDA0.s 			page 11
 
 
  417              		.cfi_offset 10, -12
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  458              		.loc 1 24 0
  459 0038 1149     		ldr	r1, .L28
   25:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     e->free = &_m_canvas_free;
-ARM GAS  /tmp/ccEFXm51.s 			page 12
+ARM GAS  /tmp/cccTGDA0.s 			page 12
 
 
  460              		.loc 1 25 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  497 006c 0848     		ldr	r0, .L28+16
   39:MakiseGUI/MakiseGUI/gui/elements/makise_e_canvas.c ****     b->cont.el  = e;
  498              		.loc 1 39 0
-ARM GAS  /tmp/ccEFXm51.s 			page 13
+ARM GAS  /tmp/cccTGDA0.s 			page 13
 
 
  499 006e 6365     		str	r3, [r4, #84]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  546              		.file 4 "MakiseGUI/MakiseGUI/makise.h"
  547              		.file 5 "/usr/arm-none-eabi/include/machine/_default_types.h"
  548              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
-ARM GAS  /tmp/ccEFXm51.s 			page 14
+ARM GAS  /tmp/cccTGDA0.s 			page 14
 
 
  549              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
@@ -803,30 +803,30 @@ ARM GAS  /tmp/ccEFXm51.s 			page 1
  568              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
  569              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
  570              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/ccEFXm51.s 			page 15
+ARM GAS  /tmp/cccTGDA0.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_e_canvas.c
-     /tmp/ccEFXm51.s:16     .text._m_canvas_free:0000000000000000 $t
-     /tmp/ccEFXm51.s:24     .text._m_canvas_free:0000000000000000 _m_canvas_free
-     /tmp/ccEFXm51.s:40     .text._m_canvas_draw:0000000000000000 $t
-     /tmp/ccEFXm51.s:48     .text._m_canvas_draw:0000000000000000 _m_canvas_draw
-     /tmp/ccEFXm51.s:112    .text._m_canvas_predraw:0000000000000000 $t
-     /tmp/ccEFXm51.s:120    .text._m_canvas_predraw:0000000000000000 _m_canvas_predraw
-     /tmp/ccEFXm51.s:139    .text._m_canvas_input:0000000000000000 $t
-     /tmp/ccEFXm51.s:147    .text._m_canvas_input:0000000000000000 _m_canvas_input
-     /tmp/ccEFXm51.s:221    .text._m_canvas_focus:0000000000000000 $t
-     /tmp/ccEFXm51.s:229    .text._m_canvas_focus:0000000000000000 _m_canvas_focus
-     /tmp/ccEFXm51.s:254    .text._m_canvas_focus:000000000000000e $d
-     /tmp/ccEFXm51.s:393    .text.m_create_canvas:0000000000000000 $t
-     /tmp/ccEFXm51.s:401    .text.m_create_canvas:0000000000000000 m_create_canvas
-     /tmp/ccEFXm51.s:528    .text.m_create_canvas:0000000000000080 $d
+     /tmp/cccTGDA0.s:16     .text._m_canvas_free:0000000000000000 $t
+     /tmp/cccTGDA0.s:24     .text._m_canvas_free:0000000000000000 _m_canvas_free
+     /tmp/cccTGDA0.s:40     .text._m_canvas_draw:0000000000000000 $t
+     /tmp/cccTGDA0.s:48     .text._m_canvas_draw:0000000000000000 _m_canvas_draw
+     /tmp/cccTGDA0.s:112    .text._m_canvas_predraw:0000000000000000 $t
+     /tmp/cccTGDA0.s:120    .text._m_canvas_predraw:0000000000000000 _m_canvas_predraw
+     /tmp/cccTGDA0.s:139    .text._m_canvas_input:0000000000000000 $t
+     /tmp/cccTGDA0.s:147    .text._m_canvas_input:0000000000000000 _m_canvas_input
+     /tmp/cccTGDA0.s:221    .text._m_canvas_focus:0000000000000000 $t
+     /tmp/cccTGDA0.s:229    .text._m_canvas_focus:0000000000000000 _m_canvas_focus
+     /tmp/cccTGDA0.s:254    .text._m_canvas_focus:000000000000000e $d
+     /tmp/cccTGDA0.s:393    .text.m_create_canvas:0000000000000000 $t
+     /tmp/cccTGDA0.s:401    .text.m_create_canvas:0000000000000000 m_create_canvas
+     /tmp/cccTGDA0.s:528    .text.m_create_canvas:0000000000000080 $d
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccEFXm51.s:539    .rodata.m_create_canvas.str1.4:0000000000000000 $d
+     /tmp/cccTGDA0.s:539    .rodata.m_create_canvas.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
-     /tmp/ccEFXm51.s:291    .text._m_canvas_focus:0000000000000033 $d
-     /tmp/ccEFXm51.s:291    .text._m_canvas_focus:0000000000000034 $t
+     /tmp/cccTGDA0.s:291    .text._m_canvas_focus:0000000000000033 $d
+     /tmp/cccTGDA0.s:291    .text._m_canvas_focus:0000000000000034 $t
 
 UNDEFINED SYMBOLS
 _m_e_helper_draw_box
