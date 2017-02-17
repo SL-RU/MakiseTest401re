@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cctRYrCC.s 			page 1
+ARM GAS  /tmp/cc4GoWk0.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
   49              		.global	makise_g_host_call
   50              		.syntax unified
   51              		.thumb
-ARM GAS  /tmp/cctRYrCC.s 			page 2
+ARM GAS  /tmp/cc4GoWk0.s 			page 2
 
 
   52              		.thumb_func
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
   99 000a 94E80E00 		ldm	r4, {r1, r2, r3}
  100 000e 0068     		ldr	r0, [r0]
  101              	.LVL4:
-ARM GAS  /tmp/cctRYrCC.s 			page 3
+ARM GAS  /tmp/cc4GoWk0.s 			page 3
 
 
   19:MakiseGUI/MakiseGUI/gui/makise_gui.c **** }
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  148 000a 08D0     		beq	.L40
  149              	.LVL7:
  150              	.L10:
-ARM GAS  /tmp/cctRYrCC.s 			page 4
+ARM GAS  /tmp/cc4GoWk0.s 			page 4
 
 
   27:MakiseGUI/MakiseGUI/gui/makise_gui.c ****     {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  165 001a 0320     		movs	r0, #3
  166 001c 70BD     		pop	{r4, r5, r6, pc}
  167              	.LVL10:
-ARM GAS  /tmp/cctRYrCC.s 			page 5
+ARM GAS  /tmp/cc4GoWk0.s 			page 5
 
 
  168              	.L40:
@@ -270,7 +270,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  189              	.L13:
   45:MakiseGUI/MakiseGUI/gui/makise_gui.c **** 	{
  190              		.loc 1 45 0
- 191 0038 3069     		ldr	r0, [r6, #16]
+ 191 0038 7069     		ldr	r0, [r6, #20]
  192 003a 8442     		cmp	r4, r0
  193 003c 0ED0     		beq	.L36
   48:MakiseGUI/MakiseGUI/gui/makise_gui.c **** 		makise_g_focus(p->focused, M_G_FOCUS_LEAVE);
@@ -287,7 +287,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  202 0046 A36C     		ldr	r3, [r4, #72]
   52:MakiseGUI/MakiseGUI/gui/makise_gui.c **** 	    //exec onfocus func
  203              		.loc 1 52 0
- 204 0048 3461     		str	r4, [r6, #16]
+ 204 0048 7461     		str	r4, [r6, #20]
   54:MakiseGUI/MakiseGUI/gui/makise_gui.c **** 		return el->focus(el, event);	
  205              		.loc 1 54 0
  206 004a 3BB1     		cbz	r3, .L36
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  210              		.loc 1 65 0
  211 0050 BDE87040 		pop	{r4, r5, r6, lr}
  212              	.LCFI5:
-ARM GAS  /tmp/cctRYrCC.s 			page 6
+ARM GAS  /tmp/cc4GoWk0.s 			page 6
 
 
  213              		.cfi_remember_state
@@ -321,7 +321,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
   61:MakiseGUI/MakiseGUI/gui/makise_gui.c ****     }
  228              		.loc 1 61 0
  229 0058 08BF     		it	eq
- 230 005a 3361     		streq	r3, [r6, #16]
+ 230 005a 7361     		streq	r3, [r6, #20]
  231              	.L36:
   64:MakiseGUI/MakiseGUI/gui/makise_gui.c **** }
  232              		.loc 1 64 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  264              		@ frame_needed = 0, uses_anonymous_args = 0
  265              		@ link register save eliminated.
  266 0000 10B1     		cbz	r0, .L44
-ARM GAS  /tmp/cctRYrCC.s 			page 7
+ARM GAS  /tmp/cc4GoWk0.s 			page 7
 
 
  267 0002 0068     		ldr	r0, [r0]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  308              		.section	.bss._makise_new_id,"aw",%nobits
  309              		.align	2
  310              		.set	.LANCHOR0,. + 0
-ARM GAS  /tmp/cctRYrCC.s 			page 8
+ARM GAS  /tmp/cc4GoWk0.s 			page 8
 
 
  313              	_makise_new_id:
@@ -449,27 +449,27 @@ ARM GAS  /tmp/cctRYrCC.s 			page 1
  338              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
  339              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
  340              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
-ARM GAS  /tmp/cctRYrCC.s 			page 9
+ARM GAS  /tmp/cc4GoWk0.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_gui.c
-     /tmp/cctRYrCC.s:16     .text.makise_g_newid:0000000000000000 $t
-     /tmp/cctRYrCC.s:24     .text.makise_g_newid:0000000000000000 makise_g_newid
-     /tmp/cctRYrCC.s:42     .text.makise_g_newid:000000000000000c $d
-     /tmp/cctRYrCC.s:47     .text.makise_g_host_call:0000000000000000 $t
-     /tmp/cctRYrCC.s:55     .text.makise_g_host_call:0000000000000000 makise_g_host_call
-     /tmp/cctRYrCC.s:72     .text.makise_g_host_input:0000000000000000 $t
-     /tmp/cctRYrCC.s:80     .text.makise_g_host_input:0000000000000000 makise_g_host_input
-     /tmp/cctRYrCC.s:118    .text.makise_g_focus:0000000000000000 $t
-     /tmp/cctRYrCC.s:126    .text.makise_g_focus:0000000000000000 makise_g_focus
-     /tmp/cctRYrCC.s:252    .text.makise_g_host_focus_next:0000000000000000 $t
-     /tmp/cctRYrCC.s:260    .text.makise_g_host_focus_next:0000000000000000 makise_g_host_focus_next
-     /tmp/cctRYrCC.s:276    .text.makise_g_host_focus_prev:0000000000000000 $t
-     /tmp/cctRYrCC.s:284    .text.makise_g_host_focus_prev:0000000000000000 makise_g_host_focus_prev
-     /tmp/cctRYrCC.s:313    .bss._makise_new_id:0000000000000000 _makise_new_id
+     /tmp/cc4GoWk0.s:16     .text.makise_g_newid:0000000000000000 $t
+     /tmp/cc4GoWk0.s:24     .text.makise_g_newid:0000000000000000 makise_g_newid
+     /tmp/cc4GoWk0.s:42     .text.makise_g_newid:000000000000000c $d
+     /tmp/cc4GoWk0.s:47     .text.makise_g_host_call:0000000000000000 $t
+     /tmp/cc4GoWk0.s:55     .text.makise_g_host_call:0000000000000000 makise_g_host_call
+     /tmp/cc4GoWk0.s:72     .text.makise_g_host_input:0000000000000000 $t
+     /tmp/cc4GoWk0.s:80     .text.makise_g_host_input:0000000000000000 makise_g_host_input
+     /tmp/cc4GoWk0.s:118    .text.makise_g_focus:0000000000000000 $t
+     /tmp/cc4GoWk0.s:126    .text.makise_g_focus:0000000000000000 makise_g_focus
+     /tmp/cc4GoWk0.s:252    .text.makise_g_host_focus_next:0000000000000000 $t
+     /tmp/cc4GoWk0.s:260    .text.makise_g_host_focus_next:0000000000000000 makise_g_host_focus_next
+     /tmp/cc4GoWk0.s:276    .text.makise_g_host_focus_prev:0000000000000000 $t
+     /tmp/cc4GoWk0.s:284    .text.makise_g_host_focus_prev:0000000000000000 makise_g_host_focus_prev
+     /tmp/cc4GoWk0.s:313    .bss._makise_new_id:0000000000000000 _makise_new_id
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/cctRYrCC.s:309    .bss._makise_new_id:0000000000000000 $d
+     /tmp/cc4GoWk0.s:309    .bss._makise_new_id:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

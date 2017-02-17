@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccboSRtd.s 			page 1
+ARM GAS  /tmp/cc4dfb6O.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
   13:Controls/controls_595.c ****     //HAL_GPIO_WritePin(controls_595_kclk,   GPIO_PIN_RESET);
   41              		.loc 1 13 0
   42 0004 0546     		mov	r5, r0
-ARM GAS  /tmp/ccboSRtd.s 			page 2
+ARM GAS  /tmp/cc4dfb6O.s 			page 2
 
 
   43              		.loc 1 15 0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
   87              		.cfi_restore 4
   88              		.cfi_restore 3
   89              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccboSRtd.s 			page 3
+ARM GAS  /tmp/cc4dfb6O.s 			page 3
 
 
   90              	.LVL8:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
   36:Controls/controls_595.c ****     _controls_595_buttons_len   = buttons_len;
  131              		.loc 1 36 0
  132 0006 534C     		ldr	r4, .L26+4
-ARM GAS  /tmp/ccboSRtd.s 			page 4
+ARM GAS  /tmp/cc4dfb6O.s 			page 4
 
 
  133              		.loc 1 38 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  173 0028 029B     		ldr	r3, [sp, #8]
  174 002a 039A     		ldr	r2, [sp, #12]
  175 002c 9342     		cmp	r3, r2
-ARM GAS  /tmp/ccboSRtd.s 			page 5
+ARM GAS  /tmp/cc4dfb6O.s 			page 5
 
 
  176 002e 3ADA     		bge	.L25
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
   49:Controls/controls_595.c **** 		buttons[j] = buttons[i];
  219              		.loc 1 49 0
  220 005e 5E46     		mov	r6, fp
-ARM GAS  /tmp/ccboSRtd.s 			page 6
+ARM GAS  /tmp/cc4dfb6O.s 			page 6
 
 
   50:Controls/controls_595.c **** 		buttons[i] = b;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  266              	.L25:
  267              	.LBE18:
  268              	.LBB19:
-ARM GAS  /tmp/ccboSRtd.s 			page 7
+ARM GAS  /tmp/cc4dfb6O.s 			page 7
 
 
   51:Controls/controls_595.c **** 	    }
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  313              	.L16:
  314              	.LBB23:
   19:Controls/controls_595.c **** 	HAL_GPIO_WritePin(controls_595_kdat, ((val >> i) & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-ARM GAS  /tmp/ccboSRtd.s 			page 8
+ARM GAS  /tmp/cc4dfb6O.s 			page 8
 
 
  315              		.loc 1 19 0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  362 010c 2246     		mov	r2, r4
  363 010e 0821     		movs	r1, #8
  364 0110 2846     		mov	r0, r5
-ARM GAS  /tmp/ccboSRtd.s 			page 9
+ARM GAS  /tmp/cc4dfb6O.s 			page 9
 
 
  365 0112 FFF7FEFF 		bl	HAL_GPIO_WritePin
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  409              		.cfi_restore 10
  410              		.cfi_restore 9
  411              		.cfi_restore 8
-ARM GAS  /tmp/ccboSRtd.s 			page 10
+ARM GAS  /tmp/cc4dfb6O.s 			page 10
 
 
  412              		.cfi_restore 7
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  463 0006 8068     		ldr	r0, [r0, #8]
  464              	.LVL44:
  465 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
-ARM GAS  /tmp/ccboSRtd.s 			page 11
+ARM GAS  /tmp/cc4dfb6O.s 			page 11
 
 
  466              	.LVL45:
@@ -658,11 +658,11 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  492 0028 821A     		subs	r2, r0, r2
  493              	.LVL49:
   92:Controls/controls_595.c **** 	if(d > CONTROLS_LongClickTime)
-ARM GAS  /tmp/ccboSRtd.s 			page 12
+ARM GAS  /tmp/cc4dfb6O.s 			page 12
 
 
  494              		.loc 1 92 0
- 495 002a B2F5FA7F 		cmp	r2, #500
+ 495 002a B2F5967F 		cmp	r2, #300
  496 002e 1BD8     		bhi	.L51
   93:Controls/controls_595.c **** 	{
   94:Controls/controls_595.c **** 	    if(_controls_595_buttons_handler != 0)
@@ -713,12 +713,12 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  529              	.LVL53:
   78:Controls/controls_595.c **** 	    {
  530              		.loc 1 78 0
- 531 0050 B2F5FA7F 		cmp	r2, #500
+ 531 0050 B2F5967F 		cmp	r2, #300
  532 0054 17D9     		bls	.L32
   80:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_LONG_PRESSING, d);
  533              		.loc 1 80 0
  534 0056 114B     		ldr	r3, .L53
-ARM GAS  /tmp/ccboSRtd.s 			page 13
+ARM GAS  /tmp/cc4dfb6O.s 			page 13
 
 
  535 0058 1B68     		ldr	r3, [r3]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  582              	.LVL58:
  583 0082 6061     		str	r0, [r4, #20]
  584 0084 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccboSRtd.s 			page 14
+ARM GAS  /tmp/cc4dfb6O.s 			page 14
 
 
  585              	.LVL59:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  634              		.cfi_offset 3, -40
  635              		.cfi_offset 4, -36
  636              		.cfi_offset 5, -32
-ARM GAS  /tmp/ccboSRtd.s 			page 15
+ARM GAS  /tmp/cc4dfb6O.s 			page 15
 
 
  637              		.cfi_offset 6, -28
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  682 0040 0133     		adds	r3, r3, #1
  683              	.LVL66:
  110:Controls/controls_595.c **** 	if(_controls_595_outs[i].enabled && _controls_595_outs[i].pos == i)	    
-ARM GAS  /tmp/ccboSRtd.s 			page 16
+ARM GAS  /tmp/cc4dfb6O.s 			page 16
 
 
  684              		.loc 1 110 0 discriminator 1
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  728 007e 8B42     		cmp	r3, r1
  729 0080 09D1     		bne	.L62
  730              	.LVL71:
-ARM GAS  /tmp/ccboSRtd.s 			page 17
+ARM GAS  /tmp/cc4dfb6O.s 			page 17
 
 
  731              	.L63:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  770              		.loc 1 126 0
  771 00c0 AEEB030E 		sub	lr, lr, r3
  772 00c4 BEFA8EFE 		clz	lr, lr
-ARM GAS  /tmp/ccboSRtd.s 			page 18
+ARM GAS  /tmp/cc4dfb6O.s 			page 18
 
 
  773 00c8 4FEA5E1E 		lsr	lr, lr, #5
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  819              		.loc 1 21 0
  820 0112 0122     		movs	r2, #1
  821 0114 1021     		movs	r1, #16
-ARM GAS  /tmp/ccboSRtd.s 			page 19
+ARM GAS  /tmp/cc4dfb6O.s 			page 19
 
 
  822 0116 3846     		mov	r0, r7
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  866              	.LVL89:
   65:Controls/controls_595.c ****     uint32_t d;
  867              		.loc 1 65 0 discriminator 3
-ARM GAS  /tmp/ccboSRtd.s 			page 20
+ARM GAS  /tmp/cc4dfb6O.s 			page 20
 
 
  868 015a 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
@@ -1171,7 +1171,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  889              	.LVL91:
   92:Controls/controls_595.c **** 	{
  890              		.loc 1 92 0
- 891 017a B2F5FA7F 		cmp	r2, #500
+ 891 017a B2F5967F 		cmp	r2, #300
  892 017e 24D9     		bls	.L75
   94:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_LONG_CLICK, d);
  893              		.loc 1 94 0
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  911 0194 334B     		ldr	r3, .L118+8
  912 0196 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  137:Controls/controls_595.c **** 
-ARM GAS  /tmp/ccboSRtd.s 			page 21
+ARM GAS  /tmp/cc4dfb6O.s 			page 21
 
 
  138:Controls/controls_595.c **** //	printf("f %d %d\n", i, j);
@@ -1235,7 +1235,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  936              	.LVL96:
   78:Controls/controls_595.c **** 	    {
  937              		.loc 1 78 0
- 938 01b4 B2F5FA7F 		cmp	r2, #500
+ 938 01b4 B2F5967F 		cmp	r2, #300
  939 01b8 18D9     		bls	.L72
   80:Controls/controls_595.c **** 		    _controls_595_buttons_handler(b->id, CONTROLS_LONG_PRESSING, d);
  940              		.loc 1 80 0
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  955 01cc BBD9     		bls	.L71
   99:Controls/controls_595.c **** 		_controls_595_buttons_handler(b->id, CONTROLS_CLICK, d);	    
  956              		.loc 1 99 0
-ARM GAS  /tmp/ccboSRtd.s 			page 22
+ARM GAS  /tmp/cc4dfb6O.s 			page 22
 
 
  957 01ce 274B     		ldr	r3, .L118+16
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  1004              	.LVL106:
  1005              	.L82:
  1006              	.LBE58:
-ARM GAS  /tmp/ccboSRtd.s 			page 23
+ARM GAS  /tmp/cc4dfb6O.s 			page 23
 
 
  1007              	.LBB59:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
   17:Controls/controls_595.c ****     {
  1054              		.loc 1 17 0
  1055 0246 631C     		adds	r3, r4, #1
-ARM GAS  /tmp/ccboSRtd.s 			page 24
+ARM GAS  /tmp/cc4dfb6O.s 			page 24
 
 
  1056 0248 EAD1     		bne	.L80
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  1106              		.comm	_controls_595_outs_len,1,1
  1107              		.comm	_controls_595_buttons_len,1,1
  1108              		.comm	_controls_595_outs,4,4
-ARM GAS  /tmp/ccboSRtd.s 			page 25
+ARM GAS  /tmp/cc4dfb6O.s 			page 25
 
 
  1109              		.comm	_controls_595_buttons,4,4
@@ -1462,29 +1462,29 @@ ARM GAS  /tmp/ccboSRtd.s 			page 1
  1126              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  1127              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  1128              		.file 14 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/ccboSRtd.s 			page 26
+ARM GAS  /tmp/cc4dfb6O.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 controls_595.c
-     /tmp/ccboSRtd.s:16     .text.controls_595_set:0000000000000000 $t
-     /tmp/ccboSRtd.s:24     .text.controls_595_set:0000000000000000 controls_595_set
-     /tmp/ccboSRtd.s:97     .text.controls_595_set:0000000000000048 $d
-     /tmp/ccboSRtd.s:102    .text.controls_595_init:0000000000000000 $t
-     /tmp/ccboSRtd.s:110    .text.controls_595_init:0000000000000000 controls_595_init
-     /tmp/ccboSRtd.s:426    .text.controls_595_init:0000000000000150 $d
+     /tmp/cc4dfb6O.s:16     .text.controls_595_set:0000000000000000 $t
+     /tmp/cc4dfb6O.s:24     .text.controls_595_set:0000000000000000 controls_595_set
+     /tmp/cc4dfb6O.s:97     .text.controls_595_set:0000000000000048 $d
+     /tmp/cc4dfb6O.s:102    .text.controls_595_init:0000000000000000 $t
+     /tmp/cc4dfb6O.s:110    .text.controls_595_init:0000000000000000 controls_595_init
+     /tmp/cc4dfb6O.s:426    .text.controls_595_init:0000000000000150 $d
                             *COM*:0000000000000001 _controls_595_outs_len
                             *COM*:0000000000000004 _controls_595_outs
                             *COM*:0000000000000001 _controls_595_buttons_len
                             *COM*:0000000000000004 _controls_595_buttons
                             *COM*:0000000000000004 _controls_595_buttons_handler
-     /tmp/ccboSRtd.s:439    .text._controls_595_handle_button:0000000000000000 $t
-     /tmp/ccboSRtd.s:447    .text._controls_595_handle_button:0000000000000000 _controls_595_handle_button
-     /tmp/ccboSRtd.s:611    .text._controls_595_handle_button:000000000000009c $d
-     /tmp/ccboSRtd.s:616    .text.controls_595_update:0000000000000000 $t
-     /tmp/ccboSRtd.s:624    .text.controls_595_update:0000000000000000 controls_595_update
-     /tmp/ccboSRtd.s:1096   .text.controls_595_update:000000000000025c $d
-     /tmp/ccboSRtd.s:1111   .rodata.controls_595_init.str1.4:0000000000000000 $d
+     /tmp/cc4dfb6O.s:439    .text._controls_595_handle_button:0000000000000000 $t
+     /tmp/cc4dfb6O.s:447    .text._controls_595_handle_button:0000000000000000 _controls_595_handle_button
+     /tmp/cc4dfb6O.s:611    .text._controls_595_handle_button:000000000000009c $d
+     /tmp/cc4dfb6O.s:616    .text.controls_595_update:0000000000000000 $t
+     /tmp/cc4dfb6O.s:624    .text.controls_595_update:0000000000000000 controls_595_update
+     /tmp/cc4dfb6O.s:1096   .text.controls_595_update:000000000000025c $d
+     /tmp/cc4dfb6O.s:1111   .rodata.controls_595_init.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

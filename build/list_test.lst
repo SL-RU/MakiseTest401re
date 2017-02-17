@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccnNkNaj.s 			page 1
+ARM GAS  /tmp/ccLUezKG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -56,12 +56,12 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
   28:apps/list_test.c ****     &F_Arial24,
   29:apps/list_test.c ****     0,
   30:apps/list_test.c ****     //bg       font     border   double_border
-  31:apps/list_test.c ****     {MC_Gray, MC_Gray, MC_Gray,    0},  //unactive
-  32:apps/list_test.c ****     {MC_Black, MC_White, MC_White, 0},  //normal
-ARM GAS  /tmp/ccnNkNaj.s 			page 2
+  31:apps/list_test.c ****     {MC_Black, MC_Gray, MC_Gray,    0},  //unactive
+  32:apps/list_test.c ****     {MC_Gray, MC_White, MC_White, 0},  //normal
+ARM GAS  /tmp/ccLUezKG.s 			page 2
 
 
-  33:apps/list_test.c ****     {MC_Navy, MC_White, MC_White,   0},  //focused
+  33:apps/list_test.c ****     {MC_Black, MC_White, MC_White,   0},  //focused
   34:apps/list_test.c ****     {MC_Black, MC_White, MC_White, 0},  //active
   35:apps/list_test.c **** };
   36:apps/list_test.c **** MakiseStyle lable_style =
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
   87:apps/list_test.c **** };
   88:apps/list_test.c **** MSList_Item l_source[10] = {{0}};
   89:apps/list_test.c **** MSList_Item l_dest[1024] = {{0}};
-ARM GAS  /tmp/ccnNkNaj.s 			page 3
+ARM GAS  /tmp/ccLUezKG.s 			page 3
 
 
   90:apps/list_test.c **** int32_t slider_val[3] = {0};
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
   64 0016 DA6C     		ldr	r2, [r3, #76]
   65 0018 5ABB     		cbnz	r2, .L7
   66              	.LVL6:
-ARM GAS  /tmp/ccnNkNaj.s 			page 4
+ARM GAS  /tmp/ccLUezKG.s 			page 4
 
 
   67 001a 1A6E     		ldr	r2, [r3, #96]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  112              	.LVL14:
  109:apps/list_test.c **** 	    s_i ++;
  113              		.loc 1 109 0
-ARM GAS  /tmp/ccnNkNaj.s 			page 5
+ARM GAS  /tmp/ccLUezKG.s 			page 5
 
 
  114 0062 2368     		ldr	r3, [r4]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  168              		.thumb
  169              		.thumb_func
  170              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccnNkNaj.s 			page 6
+ARM GAS  /tmp/ccLUezKG.s 			page 6
 
 
  172              	b_rem:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  209 0018 0B69     		ldr	r3, [r1, #16]
  119:apps/list_test.c **** 	n = i->next;
  210              		.loc 1 119 0
-ARM GAS  /tmp/ccnNkNaj.s 			page 7
+ARM GAS  /tmp/ccLUezKG.s 			page 7
 
 
  211 001a 4C68     		ldr	r4, [r1, #4]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  142:apps/list_test.c **** 
  143:apps/list_test.c **** char slider_text[100] = {0};
  144:apps/list_test.c **** void s_onchange(MSlider* b, uint32_t val)
-ARM GAS  /tmp/ccnNkNaj.s 			page 8
+ARM GAS  /tmp/ccLUezKG.s 			page 8
 
 
  145:apps/list_test.c **** {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  296              	.LFB136:
  297              		.cfi_startproc
  298              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccnNkNaj.s 			page 9
+ARM GAS  /tmp/ccLUezKG.s 			page 9
 
 
  299              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  152:apps/list_test.c **** {
  356              		.loc 1 152 0
  357              		.cfi_startproc
-ARM GAS  /tmp/ccnNkNaj.s 			page 10
+ARM GAS  /tmp/ccLUezKG.s 			page 10
 
 
  358              		@ args = 0, pretend = 0, frame = 8
@@ -566,795 +566,821 @@ ARM GAS  /tmp/ccnNkNaj.s 			page 1
  156:apps/list_test.c **** 
  157:apps/list_test.c ****     m_create_tabs(&tabs, host->host,
  377              		.loc 1 157 0
- 378 0006 5E4B     		ldr	r3, .L42
- 379 0008 5E4D     		ldr	r5, .L42+4
+ 378 0006 664B     		ldr	r3, .L42
+ 379 0008 664D     		ldr	r5, .L42+4
  158:apps/list_test.c **** 		  0, 10, 320, 200,
  159:apps/list_test.c **** 		  tabs_source, 3,
- 160:apps/list_test.c **** 		  MTabs_Type_Up, &canvas_style);
- 161:apps/list_test.c ****     
- 162:apps/list_test.c ****     m_create_button(&butt[0], &tabs_source[0].cont, 10, 163, 100, 35, t_add, &b_add, 0, 0, &button_
- 380              		.loc 1 162 0
- 381 000a DFF8BC91 		ldr	r9, .L42+72
- 163:apps/list_test.c ****     m_create_button(&butt[1], &tabs_source[0].cont, 115, 163, 100, 35, t_remove, &b_rem, 0, 0, &but
- 164:apps/list_test.c **** 
- 165:apps/list_test.c ****     m_create_text_field(&tf[0], host->host, 5, 200, 310, 35, sample_string, &text_style);
- 166:apps/list_test.c **** 
- 167:apps/list_test.c ****     m_create_slider(slider, &tabs_source[1].cont,
- 382              		.loc 1 167 0
- 383 000e DFF8BCB1 		ldr	fp, .L42+76
- 157:apps/list_test.c **** 		  0, 10, 320, 200,
- 384              		.loc 1 157 0
- 385 0012 0024     		movs	r4, #0
+ 160:apps/list_test.c **** 		  MTabs_Type_Left, 75,
+ 161:apps/list_test.c **** 		  &canvas_style);
+ 162:apps/list_test.c ****     
+ 163:apps/list_test.c ****     m_create_button(&butt[0], &tabs_source[0].cont, 10, 103, 100, 35, t_add, &b_add, 0, 0, &button_
+ 380              		.loc 1 163 0
+ 381 000a 674F     		ldr	r7, .L42+8
+ 382 000c DFF8DCA1 		ldr	r10, .L42+76
+ 164:apps/list_test.c ****     m_create_button(&butt[1], host->host, 115, 183, 100, 35, t_remove, &b_rem, 0, 0, &button_style)
+ 165:apps/list_test.c **** 
+ 166:apps/list_test.c ****     m_create_text_field(&tf[0], &tabs_source[2].cont,
+ 167:apps/list_test.c **** 			5, 0, 310, 150,
+ 168:apps/list_test.c **** 			sample_string,
+ 169:apps/list_test.c **** 			&text_style);
+ 170:apps/list_test.c **** 
+ 171:apps/list_test.c ****     m_create_slider(slider, &tabs_source[1].cont,
+ 383              		.loc 1 171 0
+ 384 0010 DFF8DC81 		ldr	r8, .L42+80
  152:apps/list_test.c **** //    m_create_slist(&list[0], host->host, 3, 10, 156, 145, "lol", &l_onselection, &l_add, MSList_R
- 386              		.loc 1 152 0
- 387 0014 8846     		mov	r8, r1
+ 385              		.loc 1 152 0
+ 386 0014 8B46     		mov	fp, r1
  157:apps/list_test.c **** 		  0, 10, 320, 200,
- 388              		.loc 1 157 0
- 389 0016 C827     		movs	r7, #200
- 390 0018 0968     		ldr	r1, [r1]
- 391              	.LVL36:
- 392 001a 0593     		str	r3, [sp, #20]
- 393 001c 0320     		movs	r0, #3
+ 387              		.loc 1 157 0
+ 388 0016 4B26     		movs	r6, #75
+ 389 0018 0968     		ldr	r1, [r1]
+ 390              	.LVL36:
+ 391 001a 0693     		str	r3, [sp, #24]
+ 392 001c 0124     		movs	r4, #1
+ 393 001e 0320     		movs	r0, #3
+ARM GAS  /tmp/ccLUezKG.s 			page 11
+
+
  394              	.LVL37:
- 395 001e 4FF4A073 		mov	r3, #320
- 396 0022 8DE88800 		stm	sp, {r3, r7}
-ARM GAS  /tmp/ccnNkNaj.s 			page 11
-
-
- 397 0026 0494     		str	r4, [sp, #16]
- 398 0028 2246     		mov	r2, r4
+ 395 0020 C822     		movs	r2, #200
+ 396 0022 4FF4A073 		mov	r3, #320
+ 397 0026 0596     		str	r6, [sp, #20]
+ 398 0028 0494     		str	r4, [sp, #16]
  399 002a 0390     		str	r0, [sp, #12]
  400 002c 0295     		str	r5, [sp, #8]
- 401 002e 0A23     		movs	r3, #10
- 402 0030 5548     		ldr	r0, .L42+8
- 403 0032 FFF7FEFF 		bl	m_create_tabs
- 404              	.LVL38:
- 162:apps/list_test.c ****     m_create_button(&butt[1], &tabs_source[0].cont, 115, 163, 100, 35, t_remove, &b_rem, 0, 0, &but
- 405              		.loc 1 162 0
- 406 0036 554A     		ldr	r2, .L42+12
- 407 0038 554B     		ldr	r3, .L42+16
- 408 003a 1268     		ldr	r2, [r2]
- 409 003c 0292     		str	r2, [sp, #8]
- 410 003e 05F1040A 		add	r10, r5, #4
- 411 0042 2326     		movs	r6, #35
- 412 0044 0393     		str	r3, [sp, #12]
- 413 0046 534A     		ldr	r2, .L42+20
- 414 0048 0594     		str	r4, [sp, #20]
- 415 004a 6423     		movs	r3, #100
- 416 004c 0494     		str	r4, [sp, #16]
- 417 004e 5146     		mov	r1, r10
- 418 0050 4846     		mov	r0, r9
- 419 0052 0692     		str	r2, [sp, #24]
- 420 0054 0196     		str	r6, [sp, #4]
- 421 0056 0093     		str	r3, [sp]
- 422 0058 0A22     		movs	r2, #10
- 423 005a A323     		movs	r3, #163
- 424 005c FFF7FEFF 		bl	m_create_button
- 425              	.LVL39:
- 163:apps/list_test.c **** 
- 426              		.loc 1 163 0
- 427 0060 4D4A     		ldr	r2, .L42+24
- 428 0062 4E4B     		ldr	r3, .L42+28
- 429 0064 1268     		ldr	r2, [r2]
- 430 0066 4B49     		ldr	r1, .L42+20
- 431 0068 0691     		str	r1, [sp, #24]
- 432 006a 6420     		movs	r0, #100
- 433 006c 5146     		mov	r1, r10
- 434 006e 0594     		str	r4, [sp, #20]
- 435 0070 0494     		str	r4, [sp, #16]
- 436 0072 0196     		str	r6, [sp, #4]
- 437 0074 0090     		str	r0, [sp]
- 438 0076 0292     		str	r2, [sp, #8]
- 439 0078 09F16C00 		add	r0, r9, #108
- 440 007c 0393     		str	r3, [sp, #12]
- 441 007e 7322     		movs	r2, #115
- 442 0080 A323     		movs	r3, #163
- 443 0082 FFF7FEFF 		bl	m_create_button
- 444              	.LVL40:
- 165:apps/list_test.c **** 
- 445              		.loc 1 165 0
- 446 0086 464B     		ldr	r3, .L42+32
- 447 0088 4648     		ldr	r0, .L42+36
- 448 008a 1B68     		ldr	r3, [r3]
- 449 008c D8F80010 		ldr	r1, [r8]
- 450 0090 0293     		str	r3, [sp, #8]
-ARM GAS  /tmp/ccnNkNaj.s 			page 12
+ 401 002e 0192     		str	r2, [sp, #4]
+ 402 0030 0093     		str	r3, [sp]
+ 403 0032 0022     		movs	r2, #0
+ 404 0034 0A23     		movs	r3, #10
+ 405 0036 5D48     		ldr	r0, .L42+12
+ 406              		.loc 1 171 0
+ 407 0038 5D4E     		ldr	r6, .L42+16
+ 157:apps/list_test.c **** 		  0, 10, 320, 200,
+ 408              		.loc 1 157 0
+ 409 003a FFF7FEFF 		bl	m_create_tabs
+ 410              	.LVL38:
+ 163:apps/list_test.c ****     m_create_button(&butt[1], host->host, 115, 183, 100, 35, t_remove, &b_rem, 0, 0, &button_style)
+ 411              		.loc 1 163 0
+ 412 003e 5D4A     		ldr	r2, .L42+20
+ 413 0040 5D4B     		ldr	r3, .L42+24
+ 414 0042 1268     		ldr	r2, [r2]
+ 415 0044 0393     		str	r3, [sp, #12]
+ 416 0046 0024     		movs	r4, #0
+ 417 0048 4FF02309 		mov	r9, #35
+ 418 004c 6423     		movs	r3, #100
+ 419 004e 0292     		str	r2, [sp, #8]
+ 420 0050 291D     		adds	r1, r5, #4
+ 421 0052 3846     		mov	r0, r7
+ 422 0054 CDF818A0 		str	r10, [sp, #24]
+ 423 0058 0594     		str	r4, [sp, #20]
+ 424 005a 0494     		str	r4, [sp, #16]
+ 425 005c CDF80490 		str	r9, [sp, #4]
+ 426 0060 0093     		str	r3, [sp]
+ 427 0062 0A22     		movs	r2, #10
+ 428 0064 6723     		movs	r3, #103
+ 429 0066 FFF7FEFF 		bl	m_create_button
+ 430              	.LVL39:
+ 164:apps/list_test.c **** 
+ 431              		.loc 1 164 0
+ 432 006a 544B     		ldr	r3, .L42+28
+ 433 006c DBF80010 		ldr	r1, [fp]
+ 434 0070 1A68     		ldr	r2, [r3]
+ 435 0072 534B     		ldr	r3, .L42+32
+ 436 0074 CDF818A0 		str	r10, [sp, #24]
+ 437 0078 6420     		movs	r0, #100
+ 438 007a 0594     		str	r4, [sp, #20]
+ 439 007c 0494     		str	r4, [sp, #16]
+ 440 007e CDF80490 		str	r9, [sp, #4]
+ 441 0082 0090     		str	r0, [sp]
+ 442 0084 0292     		str	r2, [sp, #8]
+ 443 0086 07F16C00 		add	r0, r7, #108
+ 444 008a 0393     		str	r3, [sp, #12]
+ 445 008c 7322     		movs	r2, #115
+ 446 008e B723     		movs	r3, #183
+ 447 0090 FFF7FEFF 		bl	m_create_button
+ARM GAS  /tmp/ccLUezKG.s 			page 12
 
 
- 451 0092 4FF49B72 		mov	r2, #310
- 452 0096 0196     		str	r6, [sp, #4]
- 453 0098 3B46     		mov	r3, r7
- 454 009a 0390     		str	r0, [sp, #12]
- 455 009c 0092     		str	r2, [sp]
- 456 009e 4248     		ldr	r0, .L42+40
- 457              		.loc 1 167 0
- 458 00a0 DFF82C91 		ldr	r9, .L42+80
- 459 00a4 414F     		ldr	r7, .L42+44
- 165:apps/list_test.c **** 
- 460              		.loc 1 165 0
- 461 00a6 0522     		movs	r2, #5
- 462 00a8 FFF7FEFF 		bl	m_create_text_field
+ 448              	.LVL40:
+ 166:apps/list_test.c **** 			5, 0, 310, 150,
+ 449              		.loc 1 166 0
+ 450 0094 4B4B     		ldr	r3, .L42+36
+ 451 0096 4C48     		ldr	r0, .L42+40
+ 452 0098 1B68     		ldr	r3, [r3]
+ 453 009a 0293     		str	r3, [sp, #8]
+ 454 009c 4FF09609 		mov	r9, #150
+ 455 00a0 4FF49B72 		mov	r2, #310
+ 456 00a4 2346     		mov	r3, r4
+ 457 00a6 05F14401 		add	r1, r5, #68
+ 458 00aa 0390     		str	r0, [sp, #12]
+ 459 00ac 8DE80402 		stm	sp, {r2, r9}
+ 460 00b0 4648     		ldr	r0, .L42+44
+ 461 00b2 0522     		movs	r2, #5
+ 462 00b4 FFF7FEFF 		bl	m_create_text_field
  463              	.LVL41:
- 464              		.loc 1 167 0
- 465 00ac 0A26     		movs	r6, #10
- 466 00ae 05F12008 		add	r8, r5, #32
- 467              	.LVL42:
- 468 00b2 4FF0280A 		mov	r10, #40
- 469 00b6 9625     		movs	r5, #150
- 470 00b8 3D4B     		ldr	r3, .L42+48
- 471 00ba 0694     		str	r4, [sp, #24]
- 472 00bc 0494     		str	r4, [sp, #16]
- 473 00be 4146     		mov	r1, r8
- 474 00c0 5846     		mov	r0, fp
- 475 00c2 0793     		str	r3, [sp, #28]
- 476 00c4 0396     		str	r6, [sp, #12]
- 477 00c6 3346     		mov	r3, r6
- 478 00c8 3246     		mov	r2, r6
- 479 00ca 0297     		str	r7, [sp, #8]
- 480 00cc 8DE82004 		stm	sp, {r5, r10}
- 481 00d0 CDF81490 		str	r9, [sp, #20]
- 482 00d4 FFF7FEFF 		bl	m_create_slider
- 483              	.LVL43:
- 168:apps/list_test.c **** 		    10, 10, 150, 40,
- 169:apps/list_test.c **** 		    &slider_val[0],
- 170:apps/list_test.c **** 		    10,
- 171:apps/list_test.c **** 		    0,
- 172:apps/list_test.c **** 		    &s_onchange, 0,
- 173:apps/list_test.c **** 		    &slider_style);
- 174:apps/list_test.c ****     m_create_slider(&slider[1], &tabs_source[1].cont,
- 484              		.loc 1 174 0
- 485 00d8 3A1D     		adds	r2, r7, #4
- 486 00da 0C23     		movs	r3, #12
- 487 00dc 3449     		ldr	r1, .L42+48
- 488 00de 0791     		str	r1, [sp, #28]
- 489 00e0 0694     		str	r4, [sp, #24]
- 490 00e2 0494     		str	r4, [sp, #16]
- 491 00e4 0396     		str	r6, [sp, #12]
- 492 00e6 0095     		str	r5, [sp]
- 493 00e8 4146     		mov	r1, r8
- 494 00ea 0292     		str	r2, [sp, #8]
- 495 00ec 0BF17000 		add	r0, fp, #112
- 496 00f0 3246     		mov	r2, r6
- 497 00f2 0193     		str	r3, [sp, #4]
- 498 00f4 CDF81490 		str	r9, [sp, #20]
- 499 00f8 3C23     		movs	r3, #60
-ARM GAS  /tmp/ccnNkNaj.s 			page 13
+ 464              		.loc 1 171 0
+ 465 00b8 454B     		ldr	r3, .L42+48
+ 466 00ba 0793     		str	r3, [sp, #28]
+ 467 00bc 4FF00A0A 		mov	r10, #10
+ 468 00c0 2435     		adds	r5, r5, #36
+ 469 00c2 4FF0280B 		mov	fp, #40
+ 470              	.LVL42:
+ 471 00c6 434B     		ldr	r3, .L42+52
+ 472 00c8 0694     		str	r4, [sp, #24]
+ 473 00ca 0494     		str	r4, [sp, #16]
+ 474 00cc 2946     		mov	r1, r5
+ 475 00ce 4046     		mov	r0, r8
+ 476 00d0 0593     		str	r3, [sp, #20]
+ 477 00d2 5246     		mov	r2, r10
+ 478 00d4 0296     		str	r6, [sp, #8]
+ 479 00d6 CDF80090 		str	r9, [sp]
+ 480 00da CDF80CA0 		str	r10, [sp, #12]
+ 481 00de CDF804B0 		str	fp, [sp, #4]
+ 482 00e2 0523     		movs	r3, #5
+ 483 00e4 FFF7FEFF 		bl	m_create_slider
+ 484              	.LVL43:
+ 172:apps/list_test.c **** 		    10, 5, 150, 40,
+ 173:apps/list_test.c **** 		    &slider_val[0],
+ 174:apps/list_test.c **** 		    10,
+ 175:apps/list_test.c **** 		    0,
+ 176:apps/list_test.c **** 		    &s_onchange, 0,
+ 177:apps/list_test.c **** 		    &slider_style);
+ 178:apps/list_test.c ****     m_create_slider(&slider[1], &tabs_source[1].cont,
+ 485              		.loc 1 178 0
+ 486 00e8 3949     		ldr	r1, .L42+48
+ 487 00ea 0791     		str	r1, [sp, #28]
+ 488 00ec 321D     		adds	r2, r6, #4
+ 489 00ee 0C23     		movs	r3, #12
+ 490 00f0 3849     		ldr	r1, .L42+52
+ 491 00f2 0694     		str	r4, [sp, #24]
+ 492 00f4 0591     		str	r1, [sp, #20]
+ 493 00f6 0494     		str	r4, [sp, #16]
+ 494 00f8 2946     		mov	r1, r5
+ 495 00fa 0292     		str	r2, [sp, #8]
+ 496 00fc 08F17000 		add	r0, r8, #112
+ARM GAS  /tmp/ccLUezKG.s 			page 13
 
 
- 500 00fa FFF7FEFF 		bl	m_create_slider
- 501              	.LVL44:
- 175:apps/list_test.c **** 		    10, 60, 150, 12,
- 176:apps/list_test.c **** 		    &slider_val[1],
- 177:apps/list_test.c **** 		    10,
- 178:apps/list_test.c **** 		    0,
- 179:apps/list_test.c **** 		    &s_onchange, 0,
- 180:apps/list_test.c **** 		    &slider_style);
- 181:apps/list_test.c ****     m_create_slider(&slider[3], &tabs_source[1].cont,
- 502              		.loc 1 181 0
- 503 00fe 2C4B     		ldr	r3, .L42+48
- 504 0100 0793     		str	r3, [sp, #28]
- 505 0102 0837     		adds	r7, r7, #8
- 506 0104 1222     		movs	r2, #18
- 507 0106 6423     		movs	r3, #100
- 508 0108 0297     		str	r7, [sp, #8]
- 509 010a 0694     		str	r4, [sp, #24]
- 510 010c 0494     		str	r4, [sp, #16]
- 511 010e 0393     		str	r3, [sp, #12]
- 512 0110 0195     		str	r5, [sp, #4]
- 513 0112 0BF5A870 		add	r0, fp, #336
- 514 0116 4146     		mov	r1, r8
- 515 0118 3346     		mov	r3, r6
- 516 011a 0092     		str	r2, [sp]
- 517 011c CDF81490 		str	r9, [sp, #20]
- 518 0120 AA22     		movs	r2, #170
- 519 0122 FFF7FEFF 		bl	m_create_slider
- 520              	.LVL45:
- 182:apps/list_test.c **** 		    170, 10, 18, 150,
- 183:apps/list_test.c **** 		    &slider_val[2],
- 184:apps/list_test.c **** 		    100,
- 185:apps/list_test.c **** 		    0,
- 186:apps/list_test.c **** 		    &s_onchange, 0,
- 187:apps/list_test.c **** 		    &slider_style);
- 188:apps/list_test.c **** 
- 189:apps/list_test.c ****     m_create_lable(labls, &tabs_source[1].cont,
- 521              		.loc 1 189 0
- 522 0126 2348     		ldr	r0, .L42+52
- 523 0128 234B     		ldr	r3, .L42+56
- 524 012a 0095     		str	r5, [sp]
- 525 012c 4146     		mov	r1, r8
- 526 012e 3246     		mov	r2, r6
- 527 0130 0390     		str	r0, [sp, #12]
- 528 0132 0293     		str	r3, [sp, #8]
- 529 0134 CDF804A0 		str	r10, [sp, #4]
- 530 0138 5023     		movs	r3, #80
- 531 013a 2048     		ldr	r0, .L42+60
- 532 013c FFF7FEFF 		bl	m_create_lable
- 533              	.LVL46:
- 534              	.LBB5:
- 190:apps/list_test.c **** 		   10, 80, 150, 40,
- 191:apps/list_test.c **** 		   slider_text,
- 192:apps/list_test.c **** 		   &lable_style);
- 193:apps/list_test.c **** 		   
- 194:apps/list_test.c **** 		   
- 195:apps/list_test.c **** 
- 196:apps/list_test.c ****     for (uint32_t i = 0; i < 10; i++) {
-ARM GAS  /tmp/ccnNkNaj.s 			page 14
+ 497 0100 5246     		mov	r2, r10
+ 498 0102 0193     		str	r3, [sp, #4]
+ 499 0104 CDF80CA0 		str	r10, [sp, #12]
+ 500 0108 CDF80090 		str	r9, [sp]
+ 501 010c 3223     		movs	r3, #50
+ 502 010e FFF7FEFF 		bl	m_create_slider
+ 503              	.LVL44:
+ 179:apps/list_test.c **** 		    10, 50, 150, 12,
+ 180:apps/list_test.c **** 		    &slider_val[1],
+ 181:apps/list_test.c **** 		    10,
+ 182:apps/list_test.c **** 		    0,
+ 183:apps/list_test.c **** 		    &s_onchange, 0,
+ 184:apps/list_test.c **** 		    &slider_style);
+ 185:apps/list_test.c ****     m_create_slider(&slider[3], &tabs_source[1].cont,
+ 504              		.loc 1 185 0
+ 505 0112 6422     		movs	r2, #100
+ 506 0114 0392     		str	r2, [sp, #12]
+ 507 0116 2E4A     		ldr	r2, .L42+48
+ 508 0118 0792     		str	r2, [sp, #28]
+ 509 011a 0836     		adds	r6, r6, #8
+ 510 011c 1223     		movs	r3, #18
+ 511 011e 2D4A     		ldr	r2, .L42+52
+ 512 0120 0296     		str	r6, [sp, #8]
+ 513 0122 0694     		str	r4, [sp, #24]
+ 514 0124 0592     		str	r2, [sp, #20]
+ 515 0126 0494     		str	r4, [sp, #16]
+ 516 0128 08F5A870 		add	r0, r8, #336
+ 517 012c 2946     		mov	r1, r5
+ 518 012e 0093     		str	r3, [sp]
+ 519 0130 CDF80490 		str	r9, [sp, #4]
+ 520 0134 0523     		movs	r3, #5
+ 521 0136 AA22     		movs	r2, #170
+ 522 0138 FFF7FEFF 		bl	m_create_slider
+ 523              	.LVL45:
+ 186:apps/list_test.c **** 		    170, 5, 18, 150,
+ 187:apps/list_test.c **** 		    &slider_val[2],
+ 188:apps/list_test.c **** 		    100,
+ 189:apps/list_test.c **** 		    0,
+ 190:apps/list_test.c **** 		    &s_onchange, 0,
+ 191:apps/list_test.c **** 		    &slider_style);
+ 192:apps/list_test.c **** 
+ 193:apps/list_test.c ****     m_create_lable(labls, &tabs_source[1].cont,
+ 524              		.loc 1 193 0
+ 525 013c 2648     		ldr	r0, .L42+56
+ 526 013e 274B     		ldr	r3, .L42+60
+ 527 0140 0390     		str	r0, [sp, #12]
+ 528 0142 2946     		mov	r1, r5
+ 529 0144 5246     		mov	r2, r10
+ 530 0146 0293     		str	r3, [sp, #8]
+ 531 0148 CDF804B0 		str	fp, [sp, #4]
+ 532 014c CDF80090 		str	r9, [sp]
+ 533 0150 4623     		movs	r3, #70
+ 534 0152 2348     		ldr	r0, .L42+64
+ 535 0154 FFF7FEFF 		bl	m_create_lable
+ 536              	.LVL46:
+ 537              	.LBB5:
+ 194:apps/list_test.c **** 		   10, 70, 150, 40,
+ARM GAS  /tmp/ccLUezKG.s 			page 14
 
 
- 197:apps/list_test.c **** 	l_source[i].text = t_list[i];
- 535              		.loc 1 197 0
- 536 0140 1F4A     		ldr	r2, .L42+64
- 537 0142 204B     		ldr	r3, .L42+68
- 538 0144 5169     		ldr	r1, [r2, #20]
- 539 0146 0991     		str	r1, [sp, #36]
- 540 0148 9169     		ldr	r1, [r2, #24]
- 541 014a C3F88410 		str	r1, [r3, #132]
- 542 014e D169     		ldr	r1, [r2, #28]
- 543 0150 1768     		ldr	r7, [r2]
- 544 0152 5668     		ldr	r6, [r2, #4]
- 545 0154 9568     		ldr	r5, [r2, #8]
- 546 0156 D468     		ldr	r4, [r2, #12]
- 547 0158 1069     		ldr	r0, [r2, #16]
- 548 015a C3F89810 		str	r1, [r3, #152]
- 549 015e 116A     		ldr	r1, [r2, #32]
- 550 0160 526A     		ldr	r2, [r2, #36]
- 551 0162 C3F8C020 		str	r2, [r3, #192]
- 552 0166 099A     		ldr	r2, [sp, #36]
- 553 0168 C3F8AC10 		str	r1, [r3, #172]
- 554 016c DF60     		str	r7, [r3, #12]
- 555              	.LVL47:
- 556 016e 1E62     		str	r6, [r3, #32]
- 557              	.LVL48:
- 558 0170 5D63     		str	r5, [r3, #52]
- 559              	.LVL49:
- 560 0172 9C64     		str	r4, [r3, #72]
- 561              	.LVL50:
- 562 0174 D865     		str	r0, [r3, #92]
- 563              	.LVL51:
- 564 0176 1A67     		str	r2, [r3, #112]
- 565              	.LVL52:
- 566              	.LBE5:
- 198:apps/list_test.c ****     }
- 199:apps/list_test.c **** //    m_slist_set_array(list, l_source, 10);
- 200:apps/list_test.c **** //    m_slist_set_list(&list[1], 0);
- 201:apps/list_test.c **** 
- 202:apps/list_test.c **** //    makise_g_focus(&list[0].el, M_G_FOCUS_GET);
- 203:apps/list_test.c **** }
- 567              		.loc 1 203 0
- 568 0178 0BB0     		add	sp, sp, #44
- 569              	.LCFI7:
- 570              		.cfi_def_cfa_offset 36
- 571              		@ sp needed
- 572 017a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 573              	.L43:
- 574 017e 00BF     		.align	2
- 575              	.L42:
- 576 0180 00000000 		.word	.LANCHOR5
- 577 0184 00000000 		.word	.LANCHOR6
- 578 0188 00000000 		.word	tabs
- 579 018c 00000000 		.word	.LANCHOR8
- 580 0190 00000000 		.word	b_add
- 581 0194 00000000 		.word	.LANCHOR7
- 582 0198 00000000 		.word	.LANCHOR9
- 583 019c 00000000 		.word	b_rem
- 584 01a0 00000000 		.word	.LANCHOR11
-ARM GAS  /tmp/ccnNkNaj.s 			page 15
+ 195:apps/list_test.c **** 		   slider_text,
+ 196:apps/list_test.c **** 		   &lable_style);
+ 197:apps/list_test.c **** 		   
+ 198:apps/list_test.c **** 		   
+ 199:apps/list_test.c **** 
+ 200:apps/list_test.c ****     for (uint32_t i = 0; i < 10; i++) {
+ 201:apps/list_test.c **** 	l_source[i].text = t_list[i];
+ 538              		.loc 1 201 0
+ 539 0158 2249     		ldr	r1, .L42+68
+ 540 015a 234B     		ldr	r3, .L42+72
+ 541 015c 0A69     		ldr	r2, [r1, #16]
+ 542 015e 0992     		str	r2, [sp, #36]
+ 543 0160 4A69     		ldr	r2, [r1, #20]
+ 544 0162 1A67     		str	r2, [r3, #112]
+ 545 0164 8A69     		ldr	r2, [r1, #24]
+ 546 0166 C3F88420 		str	r2, [r3, #132]
+ 547 016a CA69     		ldr	r2, [r1, #28]
+ 548 016c C3F89820 		str	r2, [r3, #152]
+ 549 0170 91E84100 		ldm	r1, {r0, r6}
+ 550 0174 0A6A     		ldr	r2, [r1, #32]
+ 551 0176 C3F8AC20 		str	r2, [r3, #172]
+ 552 017a 4A6A     		ldr	r2, [r1, #36]
+ 553 017c 8D68     		ldr	r5, [r1, #8]
+ 554 017e CC68     		ldr	r4, [r1, #12]
+ 555 0180 C3F8C020 		str	r2, [r3, #192]
+ 556 0184 099A     		ldr	r2, [sp, #36]
+ 557 0186 D860     		str	r0, [r3, #12]
+ 558              	.LVL47:
+ 559              	.LBE5:
+ 202:apps/list_test.c ****     }
+ 203:apps/list_test.c **** //    m_slist_set_array(list, l_source, 10);
+ 204:apps/list_test.c **** //    m_slist_set_list(&list[1], 0);
+ 205:apps/list_test.c **** 
+ 206:apps/list_test.c ****     makise_g_focus(&butt[1].el, M_G_FOCUS_GET);
+ 560              		.loc 1 206 0
+ 561 0188 0821     		movs	r1, #8
+ 562 018a 07F17000 		add	r0, r7, #112
+ 563              	.LBB6:
+ 201:apps/list_test.c ****     }
+ 564              		.loc 1 201 0
+ 565 018e 1E62     		str	r6, [r3, #32]
+ 566              	.LVL48:
+ 567 0190 5D63     		str	r5, [r3, #52]
+ 568              	.LVL49:
+ 569 0192 9C64     		str	r4, [r3, #72]
+ 570              	.LVL50:
+ 571 0194 DA65     		str	r2, [r3, #92]
+ 572              	.LVL51:
+ 573              	.LBE6:
+ 207:apps/list_test.c **** }
+ 574              		.loc 1 207 0
+ 575 0196 0BB0     		add	sp, sp, #44
+ 576              	.LCFI7:
+ 577              		.cfi_def_cfa_offset 36
+ 578              		@ sp needed
+ 579 0198 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 580              	.LCFI8:
+ARM GAS  /tmp/ccLUezKG.s 			page 15
 
 
- 585 01a4 00000000 		.word	.LANCHOR10
- 586 01a8 00000000 		.word	tf
- 587 01ac 00000000 		.word	.LANCHOR3
- 588 01b0 00000000 		.word	.LANCHOR12
- 589 01b4 00000000 		.word	.LANCHOR13
- 590 01b8 00000000 		.word	.LANCHOR4
- 591 01bc 00000000 		.word	labls
- 592 01c0 00000000 		.word	.LANCHOR14
- 593 01c4 00000000 		.word	.LANCHOR0
- 594 01c8 00000000 		.word	butt
- 595 01cc 00000000 		.word	slider
- 596 01d0 00000000 		.word	s_onchange
- 597              		.cfi_endproc
- 598              	.LFE132:
- 600              		.global	slider_text
- 601              		.global	s_i
- 602              		.global	tabs_source
- 603              		.global	slider_val
- 604              		.global	l_dest
- 605              		.global	l_source
- 606              		.global	t_list
- 607              		.global	t_remove
- 608              		.global	t_add
- 609              		.global	t_canc
- 610              		.global	t_ok
- 611              		.global	slider_style
- 612              		.global	text_style
- 613              		.global	lable_style
- 614              		.global	canvas_style
- 615              		.global	button_style
- 616              		.global	sample_string
- 617              		.comm	tabs,104,4
- 618              		.comm	slider,336,4
- 619              		.comm	list,256,4
- 620              		.comm	tf,184,4
- 621              		.comm	labls,184,4
- 622              		.comm	canv,232,4
- 623              		.comm	butt,432,4
- 624              		.comm	makise_color_palette,4,4
- 625              		.section	.bss.l_dest,"aw",%nobits
- 626              		.align	2
- 627              		.set	.LANCHOR2,. + 0
- 630              	l_dest:
- 631 0000 00000000 		.space	20480
- 631      00000000 
- 631      00000000 
- 631      00000000 
- 631      00000000 
- 632              		.section	.bss.l_source,"aw",%nobits
- 633              		.align	2
- 634              		.set	.LANCHOR0,. + 0
- 637              	l_source:
- 638 0000 00000000 		.space	200
- 638      00000000 
- 638      00000000 
- 638      00000000 
- 638      00000000 
-ARM GAS  /tmp/ccnNkNaj.s 			page 16
+ 581              		.cfi_restore 14
+ 582              		.cfi_restore 11
+ 583              		.cfi_restore 10
+ 584              		.cfi_restore 9
+ 585              		.cfi_restore 8
+ 586              		.cfi_restore 7
+ 587              		.cfi_restore 6
+ 588              		.cfi_restore 5
+ 589              		.cfi_restore 4
+ 590              		.cfi_def_cfa_offset 0
+ 206:apps/list_test.c **** }
+ 591              		.loc 1 206 0
+ 592 019c FFF7FEBF 		b	makise_g_focus
+ 593              	.LVL52:
+ 594              	.L43:
+ 595              		.align	2
+ 596              	.L42:
+ 597 01a0 00000000 		.word	.LANCHOR5
+ 598 01a4 00000000 		.word	.LANCHOR6
+ 599 01a8 00000000 		.word	butt
+ 600 01ac 00000000 		.word	tabs
+ 601 01b0 00000000 		.word	.LANCHOR3
+ 602 01b4 00000000 		.word	.LANCHOR8
+ 603 01b8 00000000 		.word	b_add
+ 604 01bc 00000000 		.word	.LANCHOR9
+ 605 01c0 00000000 		.word	b_rem
+ 606 01c4 00000000 		.word	.LANCHOR11
+ 607 01c8 00000000 		.word	.LANCHOR10
+ 608 01cc 00000000 		.word	tf
+ 609 01d0 00000000 		.word	.LANCHOR12
+ 610 01d4 00000000 		.word	s_onchange
+ 611 01d8 00000000 		.word	.LANCHOR13
+ 612 01dc 00000000 		.word	.LANCHOR4
+ 613 01e0 00000000 		.word	labls
+ 614 01e4 00000000 		.word	.LANCHOR14
+ 615 01e8 00000000 		.word	.LANCHOR0
+ 616 01ec 00000000 		.word	.LANCHOR7
+ 617 01f0 00000000 		.word	slider
+ 618              		.cfi_endproc
+ 619              	.LFE132:
+ 621              		.global	slider_text
+ 622              		.global	s_i
+ 623              		.global	tabs_source
+ 624              		.global	slider_val
+ 625              		.global	l_dest
+ 626              		.global	l_source
+ 627              		.global	t_list
+ 628              		.global	t_remove
+ 629              		.global	t_add
+ 630              		.global	t_canc
+ 631              		.global	t_ok
+ 632              		.global	slider_style
+ 633              		.global	text_style
+ 634              		.global	lable_style
+ 635              		.global	canvas_style
+ 636              		.global	button_style
+ 637              		.global	sample_string
+ARM GAS  /tmp/ccLUezKG.s 			page 16
 
 
- 639              		.section	.bss.s_i,"aw",%nobits
- 640              		.align	2
- 641              		.set	.LANCHOR1,. + 0
- 644              	s_i:
- 645 0000 00000000 		.space	4
- 646              		.section	.bss.slider_text,"aw",%nobits
+ 638              		.comm	tabs,136,4
+ 639              		.comm	slider,336,4
+ 640              		.comm	list,256,4
+ 641              		.comm	tf,184,4
+ 642              		.comm	labls,184,4
+ 643              		.comm	canv,240,4
+ 644              		.comm	butt,432,4
+ 645              		.comm	makise_color_palette,4,4
+ 646              		.section	.bss.l_dest,"aw",%nobits
  647              		.align	2
- 648              		.set	.LANCHOR4,. + 0
- 651              	slider_text:
- 652 0000 00000000 		.space	100
+ 648              		.set	.LANCHOR2,. + 0
+ 651              	l_dest:
+ 652 0000 00000000 		.space	20480
  652      00000000 
  652      00000000 
  652      00000000 
  652      00000000 
- 653              		.section	.bss.slider_val,"aw",%nobits
+ 653              		.section	.bss.l_source,"aw",%nobits
  654              		.align	2
- 655              		.set	.LANCHOR3,. + 0
- 658              	slider_val:
- 659 0000 00000000 		.space	12
+ 655              		.set	.LANCHOR0,. + 0
+ 658              	l_source:
+ 659 0000 00000000 		.space	200
  659      00000000 
  659      00000000 
- 660              		.section	.data.button_style,"aw",%progbits
+ 659      00000000 
+ 659      00000000 
+ 660              		.section	.bss.s_i,"aw",%nobits
  661              		.align	2
- 662              		.set	.LANCHOR7,. + 0
- 665              	button_style:
- 666 0000 01000000 		.word	1
- 667 0004 00000000 		.word	F_Arial24
- 668 0008 00000000 		.word	0
- 669 000c 00000000 		.word	0
- 670 0010 09000000 		.word	9
- 671 0014 09000000 		.word	9
- 672 0018 0000     		.short	0
- 673 001a 0000     		.space	2
- 674 001c 00000000 		.word	0
- 675 0020 01000000 		.word	1
- 676 0024 01000000 		.word	1
- 677 0028 0000     		.short	0
- 678 002a 0000     		.space	2
- 679 002c 01000000 		.word	1
- 680 0030 00000000 		.word	0
- 681 0034 01000000 		.word	1
- 682 0038 0000     		.short	0
- 683 003a 0000     		.space	2
- 684 003c 03000000 		.word	3
- 685 0040 01000000 		.word	1
- 686 0044 01000000 		.word	1
- 687 0048 0000     		.short	0
- 688 004a 0000     		.space	2
- 689              		.section	.data.canvas_style,"aw",%progbits
- 690              		.align	2
- 691              		.set	.LANCHOR5,. + 0
- 694              	canvas_style:
- 695 0000 01000000 		.word	1
- 696 0004 00000000 		.word	F_Arial24
- 697 0008 00000000 		.word	0
- 698 000c 09000000 		.word	9
- 699 0010 09000000 		.word	9
-ARM GAS  /tmp/ccnNkNaj.s 			page 17
+ 662              		.set	.LANCHOR1,. + 0
+ 665              	s_i:
+ 666 0000 00000000 		.space	4
+ 667              		.section	.bss.slider_text,"aw",%nobits
+ 668              		.align	2
+ 669              		.set	.LANCHOR4,. + 0
+ 672              	slider_text:
+ 673 0000 00000000 		.space	100
+ 673      00000000 
+ 673      00000000 
+ 673      00000000 
+ 673      00000000 
+ 674              		.section	.bss.slider_val,"aw",%nobits
+ 675              		.align	2
+ 676              		.set	.LANCHOR3,. + 0
+ 679              	slider_val:
+ 680 0000 00000000 		.space	12
+ 680      00000000 
+ 680      00000000 
+ 681              		.section	.data.button_style,"aw",%progbits
+ 682              		.align	2
+ 683              		.set	.LANCHOR7,. + 0
+ 686              	button_style:
+ 687 0000 01000000 		.word	1
+ 688 0004 00000000 		.word	F_Arial24
+ 689 0008 00000000 		.word	0
+ 690 000c 00000000 		.word	0
+ 691 0010 09000000 		.word	9
+ 692 0014 09000000 		.word	9
+ARM GAS  /tmp/ccLUezKG.s 			page 17
 
 
- 700 0014 09000000 		.word	9
- 701 0018 0000     		.short	0
- 702 001a 0000     		.space	2
- 703 001c 00000000 		.word	0
- 704 0020 01000000 		.word	1
- 705 0024 01000000 		.word	1
- 706 0028 0000     		.short	0
- 707 002a 0000     		.space	2
- 708 002c 0B000000 		.word	11
- 709 0030 01000000 		.word	1
- 710 0034 01000000 		.word	1
- 711 0038 0000     		.short	0
- 712 003a 0000     		.space	2
- 713 003c 00000000 		.word	0
- 714 0040 01000000 		.word	1
- 715 0044 01000000 		.word	1
- 716 0048 0000     		.short	0
- 717 004a 0000     		.space	2
- 718              		.section	.data.lable_style,"aw",%progbits
- 719              		.align	2
- 720              		.set	.LANCHOR13,. + 0
- 723              	lable_style:
- 724 0000 01000000 		.word	1
- 725 0004 00000000 		.word	F_Arial15
- 726 0008 00000000 		.word	0
- 727 000c 09000000 		.word	9
- 728 0010 09000000 		.word	9
- 729 0014 09000000 		.word	9
- 730 0018 0000     		.short	0
- 731 001a 0000     		.space	2
- 732 001c 00000000 		.word	0
- 733 0020 01000000 		.word	1
- 734 0024 00000000 		.word	0
- 735 0028 0000     		.short	0
- 736 002a 0000     		.space	2
- 737 002c 04000000 		.word	4
- 738 0030 01000000 		.word	1
- 739 0034 04000000 		.word	4
- 740 0038 0000     		.short	0
- 741 003a 0000     		.space	2
- 742 003c 00000000 		.word	0
- 743 0040 03000000 		.word	3
- 744 0044 00000000 		.word	0
- 745 0048 0000     		.short	0
- 746 004a 0000     		.space	2
- 747              		.section	.data.sample_string,"aw",%progbits
- 748              		.align	2
- 749              		.set	.LANCHOR11,. + 0
- 752              	sample_string:
- 753 0000 84000000 		.word	.LC18
- 754              		.section	.data.slider_style,"aw",%progbits
- 755              		.align	2
- 756              		.set	.LANCHOR12,. + 0
- 759              	slider_style:
- 760 0000 01000000 		.word	1
- 761 0004 00000000 		.word	F_Arial15
- 762 0008 03000000 		.word	3
-ARM GAS  /tmp/ccnNkNaj.s 			page 18
+ 693 0018 0000     		.short	0
+ 694 001a 0000     		.space	2
+ 695 001c 00000000 		.word	0
+ 696 0020 01000000 		.word	1
+ 697 0024 01000000 		.word	1
+ 698 0028 0000     		.short	0
+ 699 002a 0000     		.space	2
+ 700 002c 01000000 		.word	1
+ 701 0030 00000000 		.word	0
+ 702 0034 01000000 		.word	1
+ 703 0038 0000     		.short	0
+ 704 003a 0000     		.space	2
+ 705 003c 03000000 		.word	3
+ 706 0040 01000000 		.word	1
+ 707 0044 01000000 		.word	1
+ 708 0048 0000     		.short	0
+ 709 004a 0000     		.space	2
+ 710              		.section	.data.canvas_style,"aw",%progbits
+ 711              		.align	2
+ 712              		.set	.LANCHOR5,. + 0
+ 715              	canvas_style:
+ 716 0000 01000000 		.word	1
+ 717 0004 00000000 		.word	F_Arial24
+ 718 0008 00000000 		.word	0
+ 719 000c 00000000 		.word	0
+ 720 0010 09000000 		.word	9
+ 721 0014 09000000 		.word	9
+ 722 0018 0000     		.short	0
+ 723 001a 0000     		.space	2
+ 724 001c 09000000 		.word	9
+ 725 0020 01000000 		.word	1
+ 726 0024 01000000 		.word	1
+ 727 0028 0000     		.short	0
+ 728 002a 0000     		.space	2
+ 729 002c 00000000 		.word	0
+ 730 0030 01000000 		.word	1
+ 731 0034 01000000 		.word	1
+ 732 0038 0000     		.short	0
+ 733 003a 0000     		.space	2
+ 734 003c 00000000 		.word	0
+ 735 0040 01000000 		.word	1
+ 736 0044 01000000 		.word	1
+ 737 0048 0000     		.short	0
+ 738 004a 0000     		.space	2
+ 739              		.section	.data.lable_style,"aw",%progbits
+ 740              		.align	2
+ 741              		.set	.LANCHOR13,. + 0
+ 744              	lable_style:
+ 745 0000 01000000 		.word	1
+ 746 0004 00000000 		.word	F_Arial15
+ 747 0008 00000000 		.word	0
+ 748 000c 09000000 		.word	9
+ 749 0010 09000000 		.word	9
+ 750 0014 09000000 		.word	9
+ 751 0018 0000     		.short	0
+ 752 001a 0000     		.space	2
+ 753 001c 00000000 		.word	0
+ARM GAS  /tmp/ccLUezKG.s 			page 18
 
 
- 763 000c 09000000 		.word	9
- 764 0010 09000000 		.word	9
- 765 0014 09000000 		.word	9
- 766 0018 0000     		.short	0
- 767 001a 0000     		.space	2
- 768 001c 00000000 		.word	0
- 769 0020 01000000 		.word	1
- 770 0024 00000000 		.word	0
- 771 0028 0000     		.short	0
- 772 002a 0000     		.space	2
- 773 002c 04000000 		.word	4
- 774 0030 01000000 		.word	1
- 775 0034 04000000 		.word	4
- 776 0038 0000     		.short	0
- 777 003a 0000     		.space	2
- 778 003c 00000000 		.word	0
- 779 0040 03000000 		.word	3
- 780 0044 00000000 		.word	0
- 781 0048 0000     		.short	0
- 782 004a 0000     		.space	2
- 783              		.section	.data.t_add,"aw",%progbits
- 784              		.align	2
- 785              		.set	.LANCHOR8,. + 0
- 788              	t_add:
- 789 0000 74000000 		.word	.LC15
- 790              		.section	.data.t_canc,"aw",%progbits
- 791              		.align	2
- 794              	t_canc:
- 795 0000 78000000 		.word	.LC16
- 796              		.section	.data.t_list,"aw",%progbits
- 797              		.align	2
- 798              		.set	.LANCHOR14,. + 0
- 801              	t_list:
- 802 0000 18000000 		.word	.LC4
- 803 0004 20000000 		.word	.LC5
- 804 0008 28000000 		.word	.LC6
- 805 000c 30000000 		.word	.LC7
- 806 0010 38000000 		.word	.LC8
- 807 0014 48000000 		.word	.LC9
- 808 0018 4C000000 		.word	.LC10
- 809 001c 54000000 		.word	.LC11
- 810 0020 5C000000 		.word	.LC12
- 811 0024 64000000 		.word	.LC13
- 812              		.section	.data.t_ok,"aw",%progbits
- 813              		.align	2
- 816              	t_ok:
- 817 0000 80000000 		.word	.LC17
- 818              		.section	.data.t_remove,"aw",%progbits
- 819              		.align	2
- 820              		.set	.LANCHOR9,. + 0
- 823              	t_remove:
- 824 0000 6C000000 		.word	.LC14
- 825              		.section	.data.tabs_source,"aw",%progbits
- 826              		.align	2
- 827              		.set	.LANCHOR6,. + 0
- 830              	tabs_source:
- 831 0000 00000000 		.word	.LC1
-ARM GAS  /tmp/ccnNkNaj.s 			page 19
+ 754 0020 01000000 		.word	1
+ 755 0024 00000000 		.word	0
+ 756 0028 0000     		.short	0
+ 757 002a 0000     		.space	2
+ 758 002c 04000000 		.word	4
+ 759 0030 01000000 		.word	1
+ 760 0034 04000000 		.word	4
+ 761 0038 0000     		.short	0
+ 762 003a 0000     		.space	2
+ 763 003c 00000000 		.word	0
+ 764 0040 03000000 		.word	3
+ 765 0044 00000000 		.word	0
+ 766 0048 0000     		.short	0
+ 767 004a 0000     		.space	2
+ 768              		.section	.data.sample_string,"aw",%progbits
+ 769              		.align	2
+ 770              		.set	.LANCHOR11,. + 0
+ 773              	sample_string:
+ 774 0000 84000000 		.word	.LC18
+ 775              		.section	.data.slider_style,"aw",%progbits
+ 776              		.align	2
+ 777              		.set	.LANCHOR12,. + 0
+ 780              	slider_style:
+ 781 0000 01000000 		.word	1
+ 782 0004 00000000 		.word	F_Arial15
+ 783 0008 03000000 		.word	3
+ 784 000c 09000000 		.word	9
+ 785 0010 09000000 		.word	9
+ 786 0014 09000000 		.word	9
+ 787 0018 0000     		.short	0
+ 788 001a 0000     		.space	2
+ 789 001c 00000000 		.word	0
+ 790 0020 01000000 		.word	1
+ 791 0024 00000000 		.word	0
+ 792 0028 0000     		.short	0
+ 793 002a 0000     		.space	2
+ 794 002c 04000000 		.word	4
+ 795 0030 01000000 		.word	1
+ 796 0034 04000000 		.word	4
+ 797 0038 0000     		.short	0
+ 798 003a 0000     		.space	2
+ 799 003c 00000000 		.word	0
+ 800 0040 03000000 		.word	3
+ 801 0044 00000000 		.word	0
+ 802 0048 0000     		.short	0
+ 803 004a 0000     		.space	2
+ 804              		.section	.data.t_add,"aw",%progbits
+ 805              		.align	2
+ 806              		.set	.LANCHOR8,. + 0
+ 809              	t_add:
+ 810 0000 74000000 		.word	.LC15
+ 811              		.section	.data.t_canc,"aw",%progbits
+ 812              		.align	2
+ 815              	t_canc:
+ 816 0000 78000000 		.word	.LC16
+ 817              		.section	.data.t_list,"aw",%progbits
+ 818              		.align	2
+ARM GAS  /tmp/ccLUezKG.s 			page 19
 
 
- 832 0004 00000000 		.word	0
- 833 0008 00000000 		.space	20
- 833      00000000 
- 833      00000000 
- 833      00000000 
- 833      00000000 
- 834 001c 08000000 		.word	.LC2
- 835 0020 00000000 		.word	0
- 836 0024 00000000 		.space	20
- 836      00000000 
- 836      00000000 
- 836      00000000 
- 836      00000000 
- 837 0038 10000000 		.word	.LC3
- 838 003c 00000000 		.word	0
- 839 0040 00000000 		.space	20
- 839      00000000 
- 839      00000000 
- 839      00000000 
- 839      00000000 
- 840              		.section	.data.text_style,"aw",%progbits
- 841              		.align	2
- 842              		.set	.LANCHOR10,. + 0
- 845              	text_style:
- 846 0000 01000000 		.word	1
- 847 0004 00000000 		.word	F_Arial15
- 848 0008 03000000 		.word	3
- 849 000c 00000000 		.word	0
- 850 0010 01000000 		.word	1
- 851 0014 09000000 		.word	9
- 852 0018 0000     		.short	0
- 853 001a 0000     		.space	2
- 854 001c 00000000 		.word	0
- 855 0020 01000000 		.word	1
- 856 0024 03000000 		.word	3
- 857 0028 0000     		.short	0
- 858 002a 0000     		.space	2
- 859 002c 00000000 		.word	0
- 860 0030 00000000 		.word	0
- 861 0034 00000000 		.word	0
- 862 0038 0000     		.short	0
- 863 003a 0000     		.space	2
- 864 003c 00000000 		.word	0
- 865 0040 00000000 		.word	0
- 866 0044 00000000 		.word	0
- 867 0048 0000     		.short	0
- 868 004a 0000     		.space	2
- 869              		.section	.rodata.s_onchange.str1.4,"aMS",%progbits,1
- 870              		.align	2
- 871              	.LC0:
- 872 0000 25303264 		.ascii	"%02d %02d %03d\000"
- 872      20253032 
- 872      64202530 
- 872      336400
- 873              		.section	.rodata.str1.4,"aMS",%progbits,1
- 874              		.align	2
- 875              	.LC1:
-ARM GAS  /tmp/ccnNkNaj.s 			page 20
+ 819              		.set	.LANCHOR14,. + 0
+ 822              	t_list:
+ 823 0000 18000000 		.word	.LC4
+ 824 0004 20000000 		.word	.LC5
+ 825 0008 28000000 		.word	.LC6
+ 826 000c 30000000 		.word	.LC7
+ 827 0010 38000000 		.word	.LC8
+ 828 0014 48000000 		.word	.LC9
+ 829 0018 4C000000 		.word	.LC10
+ 830 001c 54000000 		.word	.LC11
+ 831 0020 5C000000 		.word	.LC12
+ 832 0024 64000000 		.word	.LC13
+ 833              		.section	.data.t_ok,"aw",%progbits
+ 834              		.align	2
+ 837              	t_ok:
+ 838 0000 80000000 		.word	.LC17
+ 839              		.section	.data.t_remove,"aw",%progbits
+ 840              		.align	2
+ 841              		.set	.LANCHOR9,. + 0
+ 844              	t_remove:
+ 845 0000 6C000000 		.word	.LC14
+ 846              		.section	.data.tabs_source,"aw",%progbits
+ 847              		.align	2
+ 848              		.set	.LANCHOR6,. + 0
+ 851              	tabs_source:
+ 852 0000 00000000 		.word	.LC1
+ 853 0004 00000000 		.word	0
+ 854 0008 00000000 		.space	24
+ 854      00000000 
+ 854      00000000 
+ 854      00000000 
+ 854      00000000 
+ 855 0020 08000000 		.word	.LC2
+ 856 0024 00000000 		.word	0
+ 857 0028 00000000 		.space	24
+ 857      00000000 
+ 857      00000000 
+ 857      00000000 
+ 857      00000000 
+ 858 0040 10000000 		.word	.LC3
+ 859 0044 00000000 		.word	0
+ 860 0048 00000000 		.space	24
+ 860      00000000 
+ 860      00000000 
+ 860      00000000 
+ 860      00000000 
+ 861              		.section	.data.text_style,"aw",%progbits
+ 862              		.align	2
+ 863              		.set	.LANCHOR10,. + 0
+ 866              	text_style:
+ 867 0000 01000000 		.word	1
+ 868 0004 00000000 		.word	F_Arial15
+ 869 0008 03000000 		.word	3
+ 870 000c 00000000 		.word	0
+ 871 0010 01000000 		.word	1
+ 872 0014 09000000 		.word	9
+ 873 0018 0000     		.short	0
+ARM GAS  /tmp/ccLUezKG.s 			page 20
 
 
- 876 0000 53746172 		.ascii	"Start\000"
- 876      7400
- 877 0006 0000     		.space	2
- 878              	.LC2:
- 879 0008 536C6964 		.ascii	"Sliders\000"
- 879      65727300 
- 880              	.LC3:
- 881 0010 54657874 		.ascii	"Text\000"
- 881      00
- 882 0015 000000   		.space	3
- 883              	.LC4:
- 884 0018 48656C6C 		.ascii	"Hello\000"
- 884      6F00
- 885 001e 0000     		.space	2
- 886              	.LC5:
- 887 0020 D2E5F1F2 		.ascii	"\322\345\361\362\000"
- 887      00
- 888 0025 000000   		.space	3
- 889              	.LC6:
- 890 0028 73747269 		.ascii	"string\000"
- 890      6E6700
- 891 002f 00       		.space	1
- 892              	.LC7:
- 893 0030 6D657468 		.ascii	"method\000"
- 893      6F6400
- 894 0037 00       		.space	1
- 895              	.LC8:
- 896 0038 D0F3F1F1 		.ascii	"\320\363\361\361\352\350\345 \341\363\352\342\373?\000"
- 896      EAE8E520 
- 896      E1F3EAE2 
- 896      FB3F00
- 897 0047 00       		.space	1
- 898              	.LC9:
- 899 0048 47505300 		.ascii	"GPS\000"
- 900              	.LC10:
- 901 004c 53442063 		.ascii	"SD card\000"
- 901      61726400 
- 902              	.LC11:
- 903 0054 43616D65 		.ascii	"Camera\000"
- 903      726100
- 904 005b 00       		.space	1
- 905              	.LC12:
- 906 005c 696E7365 		.ascii	"insert\000"
- 906      727400
- 907 0063 00       		.space	1
- 908              	.LC13:
- 909 0064 C2C0D321 		.ascii	"\302\300\323!\000"
- 909      00
- 910 0069 000000   		.space	3
- 911              	.LC14:
- 912 006c 52656D6F 		.ascii	"Remove\000"
- 912      766500
- 913 0073 00       		.space	1
- 914              	.LC15:
- 915 0074 41646400 		.ascii	"Add\000"
- 916              	.LC16:
- 917 0078 43616E63 		.ascii	"Cancel\000"
-ARM GAS  /tmp/ccnNkNaj.s 			page 21
+ 874 001a 0000     		.space	2
+ 875 001c 00000000 		.word	0
+ 876 0020 01000000 		.word	1
+ 877 0024 03000000 		.word	3
+ 878 0028 0000     		.short	0
+ 879 002a 0000     		.space	2
+ 880 002c 00000000 		.word	0
+ 881 0030 00000000 		.word	0
+ 882 0034 00000000 		.word	0
+ 883 0038 0000     		.short	0
+ 884 003a 0000     		.space	2
+ 885 003c 00000000 		.word	0
+ 886 0040 00000000 		.word	0
+ 887 0044 00000000 		.word	0
+ 888 0048 0000     		.short	0
+ 889 004a 0000     		.space	2
+ 890              		.section	.rodata.s_onchange.str1.4,"aMS",%progbits,1
+ 891              		.align	2
+ 892              	.LC0:
+ 893 0000 25303264 		.ascii	"%02d %02d %03d\000"
+ 893      20253032 
+ 893      64202530 
+ 893      336400
+ 894              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 895              		.align	2
+ 896              	.LC1:
+ 897 0000 53746172 		.ascii	"Start\000"
+ 897      7400
+ 898 0006 0000     		.space	2
+ 899              	.LC2:
+ 900 0008 536C6964 		.ascii	"Sliders\000"
+ 900      65727300 
+ 901              	.LC3:
+ 902 0010 54657874 		.ascii	"Text\000"
+ 902      00
+ 903 0015 000000   		.space	3
+ 904              	.LC4:
+ 905 0018 48656C6C 		.ascii	"Hello\000"
+ 905      6F00
+ 906 001e 0000     		.space	2
+ 907              	.LC5:
+ 908 0020 D2E5F1F2 		.ascii	"\322\345\361\362\000"
+ 908      00
+ 909 0025 000000   		.space	3
+ 910              	.LC6:
+ 911 0028 73747269 		.ascii	"string\000"
+ 911      6E6700
+ 912 002f 00       		.space	1
+ 913              	.LC7:
+ 914 0030 6D657468 		.ascii	"method\000"
+ 914      6F6400
+ 915 0037 00       		.space	1
+ 916              	.LC8:
+ 917 0038 D0F3F1F1 		.ascii	"\320\363\361\361\352\350\345 \341\363\352\342\373?\000"
+ 917      EAE8E520 
+ 917      E1F3EAE2 
+ 917      FB3F00
+ARM GAS  /tmp/ccLUezKG.s 			page 21
 
 
- 917      656C00
- 918 007f 00       		.space	1
- 919              	.LC17:
- 920 0080 4F4B00   		.ascii	"OK\000"
- 921 0083 00       		.space	1
- 922              	.LC18:
- 923 0084 4C6F7265 		.ascii	"Lorem ipsum dolor sit amet, consectetur adipiscing "
- 923      6D206970 
- 923      73756D20 
- 923      646F6C6F 
- 923      72207369 
- 924 00b7 656C6974 		.ascii	"elit, sed do eiusmod tempor incididunt ut labore et"
- 924      2C207365 
- 924      6420646F 
- 924      20656975 
- 924      736D6F64 
- 925 00ea 20646F6C 		.ascii	" dolore magna aliqua. Ut enim ad minim veniam, quis"
- 925      6F726520 
- 925      6D61676E 
- 925      6120616C 
- 925      69717561 
- 926 011d 206E6F73 		.ascii	" nostrud exercitation ullamco laboris nisi ut aliqu"
- 926      74727564 
- 926      20657865 
- 926      72636974 
- 926      6174696F 
- 927 0150 69702065 		.ascii	"ip ex ea commodo consequat. Duis aute irure dolor i"
- 927      78206561 
- 927      20636F6D 
- 927      6D6F646F 
- 927      20636F6E 
- 928 0183 6E207265 		.ascii	"n reprehenderit in voluptate velit esse cillum dolo"
- 928      70726568 
- 928      656E6465 
- 928      72697420 
- 928      696E2076 
- 929 01b6 72652065 		.ascii	"re eu fugiat nulla pariatur. Excepteur sint occaeca"
- 929      75206675 
- 929      67696174 
- 929      206E756C 
- 929      6C612070 
- 930 01e9 74206375 		.ascii	"t cupidatat non proident, sunt in culpa qui officia"
- 930      70696461 
- 930      74617420 
- 930      6E6F6E20 
- 930      70726F69 
- 931 021c 20646573 		.ascii	" deserunt mollit anim id est laborum.\000"
- 931      6572756E 
- 931      74206D6F 
- 931      6C6C6974 
- 931      20616E69 
- 932              		.text
- 933              	.Letext0:
- 934              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
- 935              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 936              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
- 937              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
-ARM GAS  /tmp/ccnNkNaj.s 			page 22
+ 918 0047 00       		.space	1
+ 919              	.LC9:
+ 920 0048 47505300 		.ascii	"GPS\000"
+ 921              	.LC10:
+ 922 004c 53442063 		.ascii	"SD card\000"
+ 922      61726400 
+ 923              	.LC11:
+ 924 0054 43616D65 		.ascii	"Camera\000"
+ 924      726100
+ 925 005b 00       		.space	1
+ 926              	.LC12:
+ 927 005c 696E7365 		.ascii	"insert\000"
+ 927      727400
+ 928 0063 00       		.space	1
+ 929              	.LC13:
+ 930 0064 C2C0D321 		.ascii	"\302\300\323!\000"
+ 930      00
+ 931 0069 000000   		.space	3
+ 932              	.LC14:
+ 933 006c 52656D6F 		.ascii	"Remove\000"
+ 933      766500
+ 934 0073 00       		.space	1
+ 935              	.LC15:
+ 936 0074 41646400 		.ascii	"Add\000"
+ 937              	.LC16:
+ 938 0078 43616E63 		.ascii	"Cancel\000"
+ 938      656C00
+ 939 007f 00       		.space	1
+ 940              	.LC17:
+ 941 0080 4F4B00   		.ascii	"OK\000"
+ 942 0083 00       		.space	1
+ 943              	.LC18:
+ 944 0084 4C6F7265 		.ascii	"Lorem ipsum dolor sit amet, consectetur adipiscing "
+ 944      6D206970 
+ 944      73756D20 
+ 944      646F6C6F 
+ 944      72207369 
+ 945 00b7 656C6974 		.ascii	"elit, sed do eiusmod tempor incididunt ut labore et"
+ 945      2C207365 
+ 945      6420646F 
+ 945      20656975 
+ 945      736D6F64 
+ 946 00ea 20646F6C 		.ascii	" dolore magna aliqua. Ut enim ad minim veniam, quis"
+ 946      6F726520 
+ 946      6D61676E 
+ 946      6120616C 
+ 946      69717561 
+ 947 011d 206E6F73 		.ascii	" nostrud exercitation ullamco laboris nisi ut aliqu"
+ 947      74727564 
+ 947      20657865 
+ 947      72636974 
+ 947      6174696F 
+ 948 0150 69702065 		.ascii	"ip ex ea commodo consequat. Duis aute irure dolor i"
+ 948      78206561 
+ 948      20636F6D 
+ 948      6D6F646F 
+ 948      20636F6E 
+ARM GAS  /tmp/ccLUezKG.s 			page 22
 
 
- 938              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 939              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
- 940              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 941              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
- 942              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 943              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 944              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 945              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 946              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 947              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 948              		.file 16 "Inc/spi.h"
- 949              		.file 17 "Inc/tim.h"
- 950              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 951              		.file 19 "MakiseGUI/MakiseGUI/makise_colors.h"
- 952              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
- 953              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 954              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 955              		.file 23 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
- 956              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 957              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
- 958              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
- 959              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
- 960              		.file 28 "Inc/makise_test.h"
- 961              		.file 29 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/ccnNkNaj.s 			page 23
+ 949 0183 6E207265 		.ascii	"n reprehenderit in voluptate velit esse cillum dolo"
+ 949      70726568 
+ 949      656E6465 
+ 949      72697420 
+ 949      696E2076 
+ 950 01b6 72652065 		.ascii	"re eu fugiat nulla pariatur. Excepteur sint occaeca"
+ 950      75206675 
+ 950      67696174 
+ 950      206E756C 
+ 950      6C612070 
+ 951 01e9 74206375 		.ascii	"t cupidatat non proident, sunt in culpa qui officia"
+ 951      70696461 
+ 951      74617420 
+ 951      6E6F6E20 
+ 951      70726F69 
+ 952 021c 20646573 		.ascii	" deserunt mollit anim id est laborum.\000"
+ 952      6572756E 
+ 952      74206D6F 
+ 952      6C6C6974 
+ 952      20616E69 
+ 953              		.text
+ 954              	.Letext0:
+ 955              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
+ 956              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 957              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
+ 958              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
+ 959              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 960              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
+ 961              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 962              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 963              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 964              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 965              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 966              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 967              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 968              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 969              		.file 16 "Inc/spi.h"
+ 970              		.file 17 "Inc/tim.h"
+ 971              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 972              		.file 19 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 973              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
+ 974              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 975              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 976              		.file 23 "MakiseGUI/MakiseGUI/gui/styles/makise_style.h"
+ 977              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 978              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 979              		.file 26 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 980              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
+ 981              		.file 28 "Inc/makise_test.h"
+ 982              		.file 29 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccLUezKG.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 list_test.c
-     /tmp/ccnNkNaj.s:16     .text.b_add:0000000000000000 $t
-     /tmp/ccnNkNaj.s:24     .text.b_add:0000000000000000 b_add
-     /tmp/ccnNkNaj.s:154    .text.b_add:000000000000008c $d
-                            *COM*:0000000000000068 tabs
+     /tmp/ccLUezKG.s:16     .text.b_add:0000000000000000 $t
+     /tmp/ccLUezKG.s:24     .text.b_add:0000000000000000 b_add
+     /tmp/ccLUezKG.s:154    .text.b_add:000000000000008c $d
+                            *COM*:0000000000000088 tabs
                             *COM*:0000000000000100 list
-     /tmp/ccnNkNaj.s:164    .text.b_rem:0000000000000000 $t
-     /tmp/ccnNkNaj.s:172    .text.b_rem:0000000000000000 b_rem
-     /tmp/ccnNkNaj.s:230    .text.b_rem:0000000000000030 $d
-     /tmp/ccnNkNaj.s:236    .text.s_onchange:0000000000000000 $t
-     /tmp/ccnNkNaj.s:244    .text.s_onchange:0000000000000000 s_onchange
-     /tmp/ccnNkNaj.s:280    .text.s_onchange:000000000000001c $d
-     /tmp/ccnNkNaj.s:287    .text.l_add:0000000000000000 $t
-     /tmp/ccnNkNaj.s:295    .text.l_add:0000000000000000 l_add
-     /tmp/ccnNkNaj.s:306    .text.l_rem:0000000000000000 $t
-     /tmp/ccnNkNaj.s:314    .text.l_rem:0000000000000000 l_rem
-     /tmp/ccnNkNaj.s:325    .text.l_onselection:0000000000000000 $t
-     /tmp/ccnNkNaj.s:333    .text.l_onselection:0000000000000000 l_onselection
-     /tmp/ccnNkNaj.s:346    .text.at_list_init:0000000000000000 $t
-     /tmp/ccnNkNaj.s:354    .text.at_list_init:0000000000000000 at_list_init
-     /tmp/ccnNkNaj.s:576    .text.at_list_init:0000000000000180 $d
+     /tmp/ccLUezKG.s:164    .text.b_rem:0000000000000000 $t
+     /tmp/ccLUezKG.s:172    .text.b_rem:0000000000000000 b_rem
+     /tmp/ccLUezKG.s:230    .text.b_rem:0000000000000030 $d
+     /tmp/ccLUezKG.s:236    .text.s_onchange:0000000000000000 $t
+     /tmp/ccLUezKG.s:244    .text.s_onchange:0000000000000000 s_onchange
+     /tmp/ccLUezKG.s:280    .text.s_onchange:000000000000001c $d
+     /tmp/ccLUezKG.s:287    .text.l_add:0000000000000000 $t
+     /tmp/ccLUezKG.s:295    .text.l_add:0000000000000000 l_add
+     /tmp/ccLUezKG.s:306    .text.l_rem:0000000000000000 $t
+     /tmp/ccLUezKG.s:314    .text.l_rem:0000000000000000 l_rem
+     /tmp/ccLUezKG.s:325    .text.l_onselection:0000000000000000 $t
+     /tmp/ccLUezKG.s:333    .text.l_onselection:0000000000000000 l_onselection
+     /tmp/ccLUezKG.s:346    .text.at_list_init:0000000000000000 $t
+     /tmp/ccLUezKG.s:354    .text.at_list_init:0000000000000000 at_list_init
+     /tmp/ccLUezKG.s:597    .text.at_list_init:00000000000001a0 $d
+                            *COM*:00000000000001b0 butt
                             *COM*:00000000000000b8 tf
                             *COM*:00000000000000b8 labls
-                            *COM*:00000000000001b0 butt
                             *COM*:0000000000000150 slider
-     /tmp/ccnNkNaj.s:651    .bss.slider_text:0000000000000000 slider_text
-     /tmp/ccnNkNaj.s:644    .bss.s_i:0000000000000000 s_i
-     /tmp/ccnNkNaj.s:830    .data.tabs_source:0000000000000000 tabs_source
-     /tmp/ccnNkNaj.s:658    .bss.slider_val:0000000000000000 slider_val
-     /tmp/ccnNkNaj.s:630    .bss.l_dest:0000000000000000 l_dest
-     /tmp/ccnNkNaj.s:637    .bss.l_source:0000000000000000 l_source
-     /tmp/ccnNkNaj.s:801    .data.t_list:0000000000000000 t_list
-     /tmp/ccnNkNaj.s:823    .data.t_remove:0000000000000000 t_remove
-     /tmp/ccnNkNaj.s:788    .data.t_add:0000000000000000 t_add
-     /tmp/ccnNkNaj.s:794    .data.t_canc:0000000000000000 t_canc
-     /tmp/ccnNkNaj.s:816    .data.t_ok:0000000000000000 t_ok
-     /tmp/ccnNkNaj.s:759    .data.slider_style:0000000000000000 slider_style
-     /tmp/ccnNkNaj.s:845    .data.text_style:0000000000000000 text_style
-     /tmp/ccnNkNaj.s:723    .data.lable_style:0000000000000000 lable_style
-     /tmp/ccnNkNaj.s:694    .data.canvas_style:0000000000000000 canvas_style
-     /tmp/ccnNkNaj.s:665    .data.button_style:0000000000000000 button_style
-     /tmp/ccnNkNaj.s:752    .data.sample_string:0000000000000000 sample_string
-                            *COM*:00000000000000e8 canv
+     /tmp/ccLUezKG.s:672    .bss.slider_text:0000000000000000 slider_text
+     /tmp/ccLUezKG.s:665    .bss.s_i:0000000000000000 s_i
+     /tmp/ccLUezKG.s:851    .data.tabs_source:0000000000000000 tabs_source
+     /tmp/ccLUezKG.s:679    .bss.slider_val:0000000000000000 slider_val
+     /tmp/ccLUezKG.s:651    .bss.l_dest:0000000000000000 l_dest
+     /tmp/ccLUezKG.s:658    .bss.l_source:0000000000000000 l_source
+     /tmp/ccLUezKG.s:822    .data.t_list:0000000000000000 t_list
+     /tmp/ccLUezKG.s:844    .data.t_remove:0000000000000000 t_remove
+     /tmp/ccLUezKG.s:809    .data.t_add:0000000000000000 t_add
+     /tmp/ccLUezKG.s:815    .data.t_canc:0000000000000000 t_canc
+     /tmp/ccLUezKG.s:837    .data.t_ok:0000000000000000 t_ok
+     /tmp/ccLUezKG.s:780    .data.slider_style:0000000000000000 slider_style
+     /tmp/ccLUezKG.s:866    .data.text_style:0000000000000000 text_style
+     /tmp/ccLUezKG.s:744    .data.lable_style:0000000000000000 lable_style
+     /tmp/ccLUezKG.s:715    .data.canvas_style:0000000000000000 canvas_style
+     /tmp/ccLUezKG.s:686    .data.button_style:0000000000000000 button_style
+     /tmp/ccLUezKG.s:773    .data.sample_string:0000000000000000 sample_string
+                            *COM*:00000000000000f0 canv
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/ccnNkNaj.s:626    .bss.l_dest:0000000000000000 $d
-     /tmp/ccnNkNaj.s:633    .bss.l_source:0000000000000000 $d
-     /tmp/ccnNkNaj.s:640    .bss.s_i:0000000000000000 $d
-     /tmp/ccnNkNaj.s:647    .bss.slider_text:0000000000000000 $d
-     /tmp/ccnNkNaj.s:654    .bss.slider_val:0000000000000000 $d
-     /tmp/ccnNkNaj.s:661    .data.button_style:0000000000000000 $d
-     /tmp/ccnNkNaj.s:690    .data.canvas_style:0000000000000000 $d
-     /tmp/ccnNkNaj.s:719    .data.lable_style:0000000000000000 $d
-     /tmp/ccnNkNaj.s:748    .data.sample_string:0000000000000000 $d
-     /tmp/ccnNkNaj.s:755    .data.slider_style:0000000000000000 $d
-     /tmp/ccnNkNaj.s:784    .data.t_add:0000000000000000 $d
-     /tmp/ccnNkNaj.s:791    .data.t_canc:0000000000000000 $d
-ARM GAS  /tmp/ccnNkNaj.s 			page 24
+     /tmp/ccLUezKG.s:647    .bss.l_dest:0000000000000000 $d
+     /tmp/ccLUezKG.s:654    .bss.l_source:0000000000000000 $d
+     /tmp/ccLUezKG.s:661    .bss.s_i:0000000000000000 $d
+     /tmp/ccLUezKG.s:668    .bss.slider_text:0000000000000000 $d
+     /tmp/ccLUezKG.s:675    .bss.slider_val:0000000000000000 $d
+     /tmp/ccLUezKG.s:682    .data.button_style:0000000000000000 $d
+     /tmp/ccLUezKG.s:711    .data.canvas_style:0000000000000000 $d
+     /tmp/ccLUezKG.s:740    .data.lable_style:0000000000000000 $d
+     /tmp/ccLUezKG.s:769    .data.sample_string:0000000000000000 $d
+     /tmp/ccLUezKG.s:776    .data.slider_style:0000000000000000 $d
+     /tmp/ccLUezKG.s:805    .data.t_add:0000000000000000 $d
+     /tmp/ccLUezKG.s:812    .data.t_canc:0000000000000000 $d
+ARM GAS  /tmp/ccLUezKG.s 			page 24
 
 
-     /tmp/ccnNkNaj.s:797    .data.t_list:0000000000000000 $d
-     /tmp/ccnNkNaj.s:813    .data.t_ok:0000000000000000 $d
-     /tmp/ccnNkNaj.s:819    .data.t_remove:0000000000000000 $d
-     /tmp/ccnNkNaj.s:826    .data.tabs_source:0000000000000000 $d
-     /tmp/ccnNkNaj.s:841    .data.text_style:0000000000000000 $d
-     /tmp/ccnNkNaj.s:870    .rodata.s_onchange.str1.4:0000000000000000 $d
-     /tmp/ccnNkNaj.s:874    .rodata.str1.4:0000000000000000 $d
+     /tmp/ccLUezKG.s:818    .data.t_list:0000000000000000 $d
+     /tmp/ccLUezKG.s:834    .data.t_ok:0000000000000000 $d
+     /tmp/ccLUezKG.s:840    .data.t_remove:0000000000000000 $d
+     /tmp/ccLUezKG.s:847    .data.tabs_source:0000000000000000 $d
+     /tmp/ccLUezKG.s:862    .data.text_style:0000000000000000 $d
+     /tmp/ccLUezKG.s:891    .rodata.s_onchange.str1.4:0000000000000000 $d
+     /tmp/ccLUezKG.s:895    .rodata.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
@@ -1366,5 +1392,6 @@ m_create_button
 m_create_text_field
 m_create_slider
 m_create_lable
+makise_g_focus
 F_Arial24
 F_Arial15

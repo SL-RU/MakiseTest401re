@@ -68,11 +68,7 @@ void but_h(
 
 	//m_element_focus(&(butt[1].el), M_G_FOCUS_GET);
 //	    makise_g_focus(&(butt[1].el), M_G_FOCUS_GET);
-	if(id == 12)
-	    makise_g_cont_focus_prev(host->host);
-	if(id == 11)
-	    makise_g_cont_focus_next(host->host);
-	if(id == 3 &&
+ 	if(id == 3 &&
 	   makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0})
 	   == M_INPUT_NOT_HANDLED)
 	    makise_g_cont_focus_prev(host->host);
@@ -91,6 +87,21 @@ void but_h(
 	if(id == 13)
 	    makise_g_host_input(host, (MInputData){M_KEY_OK, M_INPUT_CLICK, time, 0});
 
+    }
+    if(event == CONTROLS_CLICK)
+    {
+	if(id == 12)
+	    makise_g_cont_focus_prev(host->host);
+	if(id == 11)
+	    makise_g_cont_focus_next(host->host);
+    } else if(event == CONTROLS_LONG_CLICK)
+    {
+	if(id == 11)
+	    makise_g_host_input(host,
+				(MInputData){M_KEY_TAB_NEXT, M_INPUT_CLICK, time, 0});
+	if(id == 12)
+	    makise_g_host_input(host,
+				(MInputData){M_KEY_TAB_BACK, M_INPUT_CLICK, time, 0});
     }
 //	    makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
     //m_element_focus(&(butt[0].el), M_G_FOCUS_GET);

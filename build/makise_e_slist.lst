@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc8x6qNP.s 			page 1
+ARM GAS  /tmp/ccm7sDkA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
   30:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.x = x;
   31:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.y = y;
   32:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.width = w;
-ARM GAS  /tmp/cc8x6qNP.s 			page 2
+ARM GAS  /tmp/ccm7sDkA.s 			page 2
 
 
   33:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->position.height = h;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
   87:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	x += eh + 1;
   88:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	w -= eh + 1;
   89:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     }
-ARM GAS  /tmp/cc8x6qNP.s 			page 3
+ARM GAS  /tmp/ccm7sDkA.s 			page 3
 
 
   90:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  144:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(ec == 0)
  145:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	return M_ERROR;
  146:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
-ARM GAS  /tmp/cc8x6qNP.s 			page 4
+ARM GAS  /tmp/ccm7sDkA.s 			page 4
 
 
  147:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     len = l->len;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  201:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    ci->id = i;
  202:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
  203:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    if(ci == l->selected)
-ARM GAS  /tmp/cc8x6qNP.s 			page 5
+ARM GAS  /tmp/ccm7sDkA.s 			page 5
 
 
  204:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		cuid = i;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  258:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(l->items == 0) //add first item
  259:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
  260:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->prev = 0;
-ARM GAS  /tmp/cc8x6qNP.s 			page 6
+ARM GAS  /tmp/ccm7sDkA.s 			page 6
 
 
  261:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  315:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next->prev = item->prev;
  316:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev->next = item->next;
  317:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev = 0;
-ARM GAS  /tmp/cc8x6qNP.s 			page 7
+ARM GAS  /tmp/ccm7sDkA.s 			page 7
 
 
  318:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->next = 0;
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
   39 0006 05D0     		beq	.L2
  359:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
  360:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	((MSList*)b->data)->state = 1;
-ARM GAS  /tmp/cc8x6qNP.s 			page 8
+ARM GAS  /tmp/ccm7sDkA.s 			page 8
 
 
   40              		.loc 1 360 0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
   79              		.syntax unified
   80              		.thumb
   81              		.thumb_func
-ARM GAS  /tmp/cc8x6qNP.s 			page 9
+ARM GAS  /tmp/ccm7sDkA.s 			page 9
 
 
   82              		.fpu fpv4-sp-d16
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  106 000a 446B     		ldr	r4, [r0, #52]
  107 000c 9DF80400 		ldrb	r0, [sp, #4]	@ zero_extendqisi2
  108              	.LVL8:
-ARM GAS  /tmp/cc8x6qNP.s 			page 10
+ARM GAS  /tmp/ccm7sDkA.s 			page 10
 
 
  403:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  441:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		MSList_Item *n = 0;
  442:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		for (uint32_t i = 0; i < e->len; i++)
  443:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		{
-ARM GAS  /tmp/cc8x6qNP.s 			page 11
+ARM GAS  /tmp/ccm7sDkA.s 			page 11
 
 
  444:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		    e->items[i].id = i;
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  437:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
  138              		.loc 1 437 0
  139 002a 0428     		cmp	r0, #4
-ARM GAS  /tmp/cc8x6qNP.s 			page 12
+ARM GAS  /tmp/ccm7sDkA.s 			page 12
 
 
  140 002c 07D0     		beq	.L57
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  186 0058 9542     		cmp	r5, r2
  187 005a 08BF     		it	eq
  188 005c 0646     		moveq	r6, r0
-ARM GAS  /tmp/cc8x6qNP.s 			page 13
+ARM GAS  /tmp/ccm7sDkA.s 			page 13
 
 
  189              	.LVL16:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  234 0090 8D68     		ldr	r5, [r1, #8]
  235 0092 0135     		adds	r5, r5, #1
  236 0094 9542     		cmp	r5, r2
-ARM GAS  /tmp/cc8x6qNP.s 			page 14
+ARM GAS  /tmp/ccm7sDkA.s 			page 14
 
 
  237 0096 08BF     		it	eq
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  284              	.LVL28:
  285              	.L58:
  286              	.LBE18:
-ARM GAS  /tmp/cc8x6qNP.s 			page 15
+ARM GAS  /tmp/ccm7sDkA.s 			page 15
 
 
  287              	.LBB19:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  333              	.LBB21:
  383:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		e->items[i].value = 0;
  334              		.loc 1 383 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 16
+ARM GAS  /tmp/ccm7sDkA.s 			page 16
 
 
  335 00f8 226E     		ldr	r2, [r4, #96]
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  383              		.p2align 2,,3
  384              		.global	m_create_slist
  385              		.syntax unified
-ARM GAS  /tmp/cc8x6qNP.s 			page 17
+ARM GAS  /tmp/ccm7sDkA.s 			page 17
 
 
  386              		.thumb
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
   21:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 
  432              		.loc 1 21 0
  433 0018 211D     		adds	r1, r4, #4
-ARM GAS  /tmp/cc8x6qNP.s 			page 18
+ARM GAS  /tmp/ccm7sDkA.s 			page 18
 
 
  434              	.LVL42:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  473 0056 C4F828A0 		str	r10, [r4, #40]
   23:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     e->predraw = 0;
  474              		.loc 1 23 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 19
+ARM GAS  /tmp/ccm7sDkA.s 			page 19
 
 
  475 005a C4F83CE0 		str	lr, [r4, #60]
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  512              		.loc 1 42 0
  513 008c E766     		str	r7, [r4, #108]
   49:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     
-ARM GAS  /tmp/cc8x6qNP.s 			page 20
+ARM GAS  /tmp/ccm7sDkA.s 			page 20
 
 
  514              		.loc 1 49 0
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  565              		@ frame_needed = 0, uses_anonymous_args = 0
  566              	.LVL49:
  567 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
-ARM GAS  /tmp/cc8x6qNP.s 			page 21
+ARM GAS  /tmp/ccm7sDkA.s 			page 21
 
 
  568              	.LCFI10:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  614              		.loc 1 65 0
  615 0038 96F87030 		ldrb	r3, [r6, #112]	@ zero_extendqisi2
  616 003c 022B     		cmp	r3, #2
-ARM GAS  /tmp/cc8x6qNP.s 			page 22
+ARM GAS  /tmp/ccm7sDkA.s 			page 22
 
 
  617 003e 47D0     		beq	.L76
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  665 0086 0093     		str	r3, [sp]
  666 0088 149B     		ldr	r3, [sp, #80]
  667 008a BDF84850 		ldrh	r5, [sp, #72]
-ARM GAS  /tmp/cc8x6qNP.s 			page 23
+ARM GAS  /tmp/ccm7sDkA.s 			page 23
 
 
  668 008e C3F34F0A 		ubfx	r10, r3, #1, #16
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  715 00ec BDF84850 		ldrh	r5, [sp, #72]
  716              	.L68:
   76:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     } else if(l->type == MSList_RadioButton)
-ARM GAS  /tmp/cc8x6qNP.s 			page 24
+ARM GAS  /tmp/ccm7sDkA.s 			page 24
 
 
  717              		.loc 1 76 0
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  764              	.LVL68:
  765 0144 B8E7     		b	.L71
  766              		.cfi_endproc
-ARM GAS  /tmp/cc8x6qNP.s 			page 25
+ARM GAS  /tmp/ccm7sDkA.s 			page 25
 
 
  767              	.LFE127:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  105:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_foc =l->state ? &l->item_style->focused : &l->item_style->active;
  815              		.loc 1 105 0 discriminator 1
  816 0016 03F12C0B 		add	fp, r3, #44
-ARM GAS  /tmp/cc8x6qNP.s 			page 26
+ARM GAS  /tmp/ccm7sDkA.s 			page 26
 
 
  817              	.LVL71:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  857 004a 0134     		adds	r4, r4, #1
  115:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     uint32_t
  858              		.loc 1 115 0 discriminator 4
-ARM GAS  /tmp/cc8x6qNP.s 			page 27
+ARM GAS  /tmp/ccm7sDkA.s 			page 27
 
 
  859 004c 9BB2     		uxth	r3, r3
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  901 008c 336A     		ldr	r3, [r6, #32]
  135:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		      b->position.x + b->position.width, y,
  902              		.loc 1 135 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 28
+ARM GAS  /tmp/ccm7sDkA.s 			page 28
 
 
  903 008e 1068     		ldr	r0, [r2]
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  947 00be 6B6F     		ldr	r3, [r5, #116]
  106:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     MakiseStyleTheme *i_nom = &l->item_style->normal,
  948              		.loc 1 106 0 discriminator 2
-ARM GAS  /tmp/cc8x6qNP.s 			page 29
+ARM GAS  /tmp/ccm7sDkA.s 			page 29
 
 
  949 00c0 D5F87890 		ldr	r9, [r5, #120]
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  990 00fa 6B6E     		ldr	r3, [r5, #100]
  174:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
  991              		.loc 1 174 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 30
+ARM GAS  /tmp/ccm7sDkA.s 			page 30
 
 
  992 00fc 8A45     		cmp	r10, r1
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  206:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    y += eh + 1;
  1039              		.loc 1 206 0
  1040 0138 059B     		ldr	r3, [sp, #20]
-ARM GAS  /tmp/cc8x6qNP.s 			page 31
+ARM GAS  /tmp/ccm7sDkA.s 			page 31
 
 
  201:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    c_th = (ci == l->selected) ? i_foc : i_nom;
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1083              	.LVL110:
  229:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     if(sh < 5)
  1084              		.loc 1 229 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 32
+ARM GAS  /tmp/ccm7sDkA.s 			page 32
 
 
  1085 0170 B1FBF2F5 		udiv	r5, r1, r2
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1126              		.loc 1 241 0
  1127 01ac 013F     		subs	r7, r7, #1
  239:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 		  x + w - 1, b->position.real_y,
-ARM GAS  /tmp/cc8x6qNP.s 			page 33
+ARM GAS  /tmp/ccm7sDkA.s 			page 33
 
 
  1128              		.loc 1 239 0
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1171 01f2 0095     		str	r5, [sp]
  1172 01f4 2246     		mov	r2, r4
  1173 01f6 1946     		mov	r1, r3
-ARM GAS  /tmp/cc8x6qNP.s 			page 34
+ARM GAS  /tmp/ccm7sDkA.s 			page 34
 
 
  1174 01f8 FFF7FEFF 		bl	makise_d_line
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1218              		.loc 1 159 0
  1219 0222 002B     		cmp	r3, #0
  1220 0224 3FF447AF 		beq	.L120
-ARM GAS  /tmp/cc8x6qNP.s 			page 35
+ARM GAS  /tmp/ccm7sDkA.s 			page 35
 
 
  161:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    {
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1266 025e 84D0     		beq	.L102
  1267 0260 8246     		mov	r10, r0
  1268              	.LVL137:
-ARM GAS  /tmp/cc8x6qNP.s 			page 36
+ARM GAS  /tmp/ccm7sDkA.s 			page 36
 
 
  1269 0262 0746     		mov	r7, r0
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1317 029e 0094     		str	r4, [sp]
  1318 02a0 9642     		cmp	r6, r2
  1319 02a2 08BF     		it	eq
-ARM GAS  /tmp/cc8x6qNP.s 			page 37
+ARM GAS  /tmp/ccm7sDkA.s 			page 37
 
 
  1320 02a4 5B46     		moveq	r3, fp
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1367 02e0 B1EB5E0F 		cmp	r1, lr, lsr #1
  1368 02e4 15D8     		bhi	.L115
  184:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     {
-ARM GAS  /tmp/cc8x6qNP.s 			page 38
+ARM GAS  /tmp/ccm7sDkA.s 			page 38
 
 
  1369              		.loc 1 184 0
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1414 0316 ECE7     		b	.L97
  1415              	.LVL173:
  1416              	.L145:
-ARM GAS  /tmp/cc8x6qNP.s 			page 39
+ARM GAS  /tmp/ccm7sDkA.s 			page 39
 
 
  122:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	len = 0;  //count of items
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1463              		.cfi_endproc
  1464              	.LFE128:
  1466 0346 00BF     		.section	.text.m_slist_add,"ax",%progbits
-ARM GAS  /tmp/cc8x6qNP.s 			page 40
+ARM GAS  /tmp/ccm7sDkA.s 			page 40
 
 
  1467              		.align	1
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1512              		.loc 1 274 0
  1513 0020 0466     		str	r4, [r0, #96]
  275:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** void m_slist_clear(MSList *l)
-ARM GAS  /tmp/cc8x6qNP.s 			page 41
+ARM GAS  /tmp/ccm7sDkA.s 			page 41
 
 
  1514              		.loc 1 275 0
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1563              		.p2align 2,,3
  1564              		.global	m_slist_remove
  1565              		.syntax unified
-ARM GAS  /tmp/cc8x6qNP.s 			page 42
+ARM GAS  /tmp/ccm7sDkA.s 			page 42
 
 
  1566              		.thumb
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1608 001c 4266     		streq	r2, [r0, #100]
  315:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c ****     item->prev->next = item->next;
  1609              		.loc 1 315 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 43
+ARM GAS  /tmp/ccm7sDkA.s 			page 43
 
 
  1610 001e 1A60     		str	r2, [r3]
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1650 003c 013A     		subs	r2, r2, #1
  293:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	item->next = 0;
  1651              		.loc 1 293 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 44
+ARM GAS  /tmp/ccm7sDkA.s 			page 44
 
 
  1652 003e 1C60     		str	r4, [r3]
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  288:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    l->selected = 0;
  1690              		.loc 1 288 0
  1691 0068 0366     		str	r3, [r0, #96]
-ARM GAS  /tmp/cc8x6qNP.s 			page 45
+ARM GAS  /tmp/ccm7sDkA.s 			page 45
 
 
  289:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	    return;
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1738              		.cfi_offset 5, -8
  1739              		.cfi_offset 6, -4
  1740 0012 0B46     		mov	r3, r1
-ARM GAS  /tmp/cc8x6qNP.s 			page 46
+ARM GAS  /tmp/ccm7sDkA.s 			page 46
 
 
  1741              	.LBB31:
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1785 0042 5A60     		str	r2, [r3, #4]
  1786              	.LVL199:
  1787              	.L204:
-ARM GAS  /tmp/cc8x6qNP.s 			page 47
+ARM GAS  /tmp/ccm7sDkA.s 			page 47
 
 
  1788              	.LBE32:
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1833 001a 2BB1     		cbz	r3, .L206
  1834 001c 0122     		movs	r2, #1
  1835              	.LVL202:
-ARM GAS  /tmp/cc8x6qNP.s 			page 48
+ARM GAS  /tmp/ccm7sDkA.s 			page 48
 
 
  1836              	.L209:
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1884 0012 F8D1     		bne	.L232
  381:MakiseGUI/MakiseGUI/gui/elements/makise_e_slist.c **** 	{
  1885              		.loc 1 381 0
-ARM GAS  /tmp/cc8x6qNP.s 			page 49
+ARM GAS  /tmp/ccm7sDkA.s 			page 49
 
 
  1886 0014 90F85C20 		ldrb	r2, [r0, #92]	@ zero_extendqisi2
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1930 0042 0B69     		ldr	r3, [r1, #16]
  1931 0044 B3FA83F3 		clz	r3, r3
  1932 0048 5B09     		lsrs	r3, r3, #5
-ARM GAS  /tmp/cc8x6qNP.s 			page 50
+ARM GAS  /tmp/ccm7sDkA.s 			page 50
 
 
  1933 004a 0B61     		str	r3, [r1, #16]
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  1977              		.text
  1978              	.Letext0:
  1979              		.file 2 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
-ARM GAS  /tmp/cc8x6qNP.s 			page 51
+ARM GAS  /tmp/ccm7sDkA.s 			page 51
 
 
  1980              		.file 3 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
@@ -3028,36 +3028,36 @@ ARM GAS  /tmp/cc8x6qNP.s 			page 1
  2004              		.file 27 "MakiseGUI/MakiseGUI/gui/elements/makise_e.h"
  2005              		.file 28 "MakiseGUI/MakiseGUI/makise_primitives.h"
  2006              		.file 29 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/cc8x6qNP.s 			page 52
+ARM GAS  /tmp/ccm7sDkA.s 			page 52
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_e_slist.c
-     /tmp/cc8x6qNP.s:16     .text._m_slist_focus:0000000000000000 $t
-     /tmp/cc8x6qNP.s:24     .text._m_slist_focus:0000000000000000 _m_slist_focus
-     /tmp/cc8x6qNP.s:76     .text._m_slist_input:0000000000000000 $t
-     /tmp/cc8x6qNP.s:84     .text._m_slist_input:0000000000000000 _m_slist_input
-     /tmp/cc8x6qNP.s:382    .text.m_create_slist:0000000000000000 $t
-     /tmp/cc8x6qNP.s:390    .text.m_create_slist:0000000000000000 m_create_slist
-     /tmp/cc8x6qNP.s:544    .text.m_create_slist:00000000000000a0 $d
-     /tmp/cc8x6qNP.s:778    .text._m_slist_draw:0000000000000000 _m_slist_draw
-     /tmp/cc8x6qNP.s:552    .text._m_slist_draw_item:0000000000000000 $t
-     /tmp/cc8x6qNP.s:560    .text._m_slist_draw_item:0000000000000000 _m_slist_draw_item
-     /tmp/cc8x6qNP.s:770    .text._m_slist_draw:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1467   .text.m_slist_add:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1475   .text.m_slist_add:0000000000000000 m_slist_add
-     /tmp/cc8x6qNP.s:1541   .text.m_slist_clear:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1549   .text.m_slist_clear:0000000000000000 m_slist_clear
-     /tmp/cc8x6qNP.s:1562   .text.m_slist_remove:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1570   .text.m_slist_remove:0000000000000000 m_slist_remove
-     /tmp/cc8x6qNP.s:1700   .text.m_slist_set_array:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1708   .text.m_slist_set_array:0000000000000000 m_slist_set_array
-     /tmp/cc8x6qNP.s:1795   .text.m_slist_set_list:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1803   .text.m_slist_set_list:0000000000000000 m_slist_set_list
-     /tmp/cc8x6qNP.s:1852   .text._m_slist_input_item:0000000000000000 $t
-     /tmp/cc8x6qNP.s:1860   .text._m_slist_input_item:0000000000000000 _m_slist_input_item
+     /tmp/ccm7sDkA.s:16     .text._m_slist_focus:0000000000000000 $t
+     /tmp/ccm7sDkA.s:24     .text._m_slist_focus:0000000000000000 _m_slist_focus
+     /tmp/ccm7sDkA.s:76     .text._m_slist_input:0000000000000000 $t
+     /tmp/ccm7sDkA.s:84     .text._m_slist_input:0000000000000000 _m_slist_input
+     /tmp/ccm7sDkA.s:382    .text.m_create_slist:0000000000000000 $t
+     /tmp/ccm7sDkA.s:390    .text.m_create_slist:0000000000000000 m_create_slist
+     /tmp/ccm7sDkA.s:544    .text.m_create_slist:00000000000000a0 $d
+     /tmp/ccm7sDkA.s:778    .text._m_slist_draw:0000000000000000 _m_slist_draw
+     /tmp/ccm7sDkA.s:552    .text._m_slist_draw_item:0000000000000000 $t
+     /tmp/ccm7sDkA.s:560    .text._m_slist_draw_item:0000000000000000 _m_slist_draw_item
+     /tmp/ccm7sDkA.s:770    .text._m_slist_draw:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1467   .text.m_slist_add:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1475   .text.m_slist_add:0000000000000000 m_slist_add
+     /tmp/ccm7sDkA.s:1541   .text.m_slist_clear:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1549   .text.m_slist_clear:0000000000000000 m_slist_clear
+     /tmp/ccm7sDkA.s:1562   .text.m_slist_remove:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1570   .text.m_slist_remove:0000000000000000 m_slist_remove
+     /tmp/ccm7sDkA.s:1700   .text.m_slist_set_array:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1708   .text.m_slist_set_array:0000000000000000 m_slist_set_array
+     /tmp/ccm7sDkA.s:1795   .text.m_slist_set_list:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1803   .text.m_slist_set_list:0000000000000000 m_slist_set_list
+     /tmp/ccm7sDkA.s:1852   .text._m_slist_input_item:0000000000000000 $t
+     /tmp/ccm7sDkA.s:1860   .text._m_slist_input_item:0000000000000000 _m_slist_input_item
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/cc8x6qNP.s:1974   .rodata.m_create_slist.str1.4:0000000000000000 $d
+     /tmp/ccm7sDkA.s:1974   .rodata.m_create_slist.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

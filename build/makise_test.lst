@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cctnYOgc.s 			page 1
+ARM GAS  /tmp/ccVUROQI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cctnYOgc.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cctnYOgc.s 			page 2
+ARM GAS  /tmp/ccVUROQI.s 			page 2
 
 
   31              		@ link register save eliminated.
@@ -117,8 +117,8 @@ ARM GAS  /tmp/cctnYOgc.s 			page 1
   57:Src/makise_test.c **** {
   58              		.loc 1 57 0
   59              		.cfi_startproc
-  60              		@ args = 0, pretend = 0, frame = 112
-ARM GAS  /tmp/cctnYOgc.s 			page 3
+  60              		@ args = 0, pretend = 0, frame = 136
+ARM GAS  /tmp/ccVUROQI.s 			page 3
 
 
   61              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -136,16 +136,16 @@ ARM GAS  /tmp/cctnYOgc.s 			page 1
   72 0002 11F0050F 		tst	r1, #5
   57:Src/makise_test.c ****     if(event & CONTROLS_ALL_CLICK)
   73              		.loc 1 57 0
-  74 0006 9DB0     		sub	sp, sp, #116
+  74 0006 A3B0     		sub	sp, sp, #140
   75              	.LCFI1:
-  76              		.cfi_def_cfa_offset 136
+  76              		.cfi_def_cfa_offset 160
   57:Src/makise_test.c ****     if(event & CONTROLS_ALL_CLICK)
   77              		.loc 1 57 0
   78 0008 0D46     		mov	r5, r1
   79 000a 0446     		mov	r4, r0
   80 000c 1646     		mov	r6, r2
   81              		.loc 1 58 0
-  82 000e 11D0     		beq	.L5
+  82 000e 0CD0     		beq	.L5
   59:Src/makise_test.c ****     {
   60:Src/makise_test.c **** 	/* if(id == 3) */
   61:Src/makise_test.c **** 	/*     butt[2].el.position.y --; */
@@ -158,899 +158,999 @@ ARM GAS  /tmp/cctnYOgc.s 			page 1
   68:Src/makise_test.c **** 
   69:Src/makise_test.c **** 	//m_element_focus(&(butt[1].el), M_G_FOCUS_GET);
   70:Src/makise_test.c **** //	    makise_g_focus(&(butt[1].el), M_G_FOCUS_GET);
-  71:Src/makise_test.c **** 	if(id == 12)
+  71:Src/makise_test.c ****  	if(id == 3 &&
   83              		.loc 1 71 0
-  84 0010 0C28     		cmp	r0, #12
-  85 0012 2ED0     		beq	.L31
-  72:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
-  73:Src/makise_test.c **** 	if(id == 11)
-  86              		.loc 1 73 0
-  87 0014 0B28     		cmp	r0, #11
-  88 0016 00F0A680 		beq	.L32
-  74:Src/makise_test.c **** 	    makise_g_cont_focus_next(host->host);
-  75:Src/makise_test.c **** 	if(id == 3 &&
-  89              		.loc 1 75 0
-  90 001a 0328     		cmp	r0, #3
-  91 001c 00F08A80 		beq	.L33
-  76:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0})
+  84 0010 0328     		cmp	r0, #3
+  85 0012 73D0     		beq	.L37
+  72:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0})
+  73:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
+  74:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
+  75:Src/makise_test.c **** 	if(id == 1 &&
+  86              		.loc 1 75 0
+  87 0014 0128     		cmp	r0, #1
+  88 0016 00F0AB80 		beq	.L38
+  76:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_CLICK, time, 0})
   77:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
-  78:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
-  79:Src/makise_test.c **** 	if(id == 1 &&
-  92              		.loc 1 79 0
-  93 0020 0128     		cmp	r0, #1
-ARM GAS  /tmp/cctnYOgc.s 			page 4
-
-
-  94 0022 00F0A680 		beq	.L34
-  80:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_CLICK, time, 0})
+  78:Src/makise_test.c **** 	    makise_g_cont_focus_next(host->host);
+  79:Src/makise_test.c **** 	if(id == 4 &&
+  89              		.loc 1 79 0
+  90 001a 0428     		cmp	r0, #4
+  91 001c 00F0D680 		beq	.L39
+  80:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0})
   81:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
+ARM GAS  /tmp/ccVUROQI.s 			page 4
+
+
   82:Src/makise_test.c **** 	    makise_g_cont_focus_next(host->host);
-  83:Src/makise_test.c **** 	if(id == 4 &&
-  95              		.loc 1 83 0
-  96 0026 0428     		cmp	r0, #4
-  97 0028 3CD0     		beq	.L35
-  84:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0})
+  83:Src/makise_test.c **** 	if(id == 2 &&
+  92              		.loc 1 83 0
+  93 0020 0228     		cmp	r0, #2
+  94 0022 00F0BC80 		beq	.L20
+  84:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0})
   85:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
-  86:Src/makise_test.c **** 	    makise_g_cont_focus_next(host->host);
-  87:Src/makise_test.c **** 	if(id == 2 &&
-  98              		.loc 1 87 0
-  99 002a 0228     		cmp	r0, #2
- 100 002c 00F0B880 		beq	.L20
-  88:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0})
-  89:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
-  90:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
-  91:Src/makise_test.c **** 	if(id == 13)
- 101              		.loc 1 91 0
- 102 0030 0D28     		cmp	r0, #13
- 103 0032 24D0     		beq	.L21
- 104              	.LVL4:
- 105              	.L5:
-  92:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_OK, M_INPUT_CLICK, time, 0});
-  93:Src/makise_test.c **** 
-  94:Src/makise_test.c ****     }
-  95:Src/makise_test.c **** //	    makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
-  96:Src/makise_test.c ****     //m_element_focus(&(butt[0].el), M_G_FOCUS_GET);
-  97:Src/makise_test.c **** //	if(id == 13)
-  98:Src/makise_test.c **** //	    makise_g_focus(&(butt[2].el), M_G_FOCUS_GET);
-  99:Src/makise_test.c **** //	    m_element_focus(&(butt[2].el), M_G_FOCUS_GET);
- 100:Src/makise_test.c **** 	
- 101:Src/makise_test.c ****     if(event & CONTROLS_ALL_PRESSING)
- 106              		.loc 1 101 0
- 107 0034 15F00A0F 		tst	r5, #10
- 108 0038 08D0     		beq	.L4
- 102:Src/makise_test.c ****     {
- 103:Src/makise_test.c **** 	if(id == 3)
- 109              		.loc 1 103 0
- 110 003a 032C     		cmp	r4, #3
- 111 003c 58D0     		beq	.L36
- 104:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_PRESSING, time, 0});
- 105:Src/makise_test.c **** 	if(id == 1)
- 112              		.loc 1 105 0
- 113 003e 012C     		cmp	r4, #1
- 114 0040 67D0     		beq	.L37
- 106:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_PRESSING, time, 0});
- 107:Src/makise_test.c **** 	if(id == 4)
- 115              		.loc 1 107 0
- 116 0042 042C     		cmp	r4, #4
- 117 0044 00F0C380 		beq	.L38
- 118              	.L19:
- 108:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_PRESSING, time, 0});
- 109:Src/makise_test.c **** 	if(id == 2) 
- 119              		.loc 1 109 0
- 120 0048 022C     		cmp	r4, #2
-ARM GAS  /tmp/cctnYOgc.s 			page 5
+  86:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
+  87:Src/makise_test.c **** 	if(id == 13)
+  95              		.loc 1 87 0
+  96 0026 0D28     		cmp	r0, #13
+  97 0028 56D0     		beq	.L21
+  98              	.LVL4:
+  99              	.L5:
+  88:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_OK, M_INPUT_CLICK, time, 0});
+  89:Src/makise_test.c **** 
+  90:Src/makise_test.c ****     }
+  91:Src/makise_test.c ****     if(event == CONTROLS_CLICK)
+ 100              		.loc 1 91 0
+ 101 002a 012D     		cmp	r5, #1
+ 102 002c 0FD0     		beq	.L40
+ 103              	.L23:
+  92:Src/makise_test.c ****     {
+  93:Src/makise_test.c **** 	if(id == 12)
+  94:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
+  95:Src/makise_test.c **** 	if(id == 11)
+  96:Src/makise_test.c **** 	    makise_g_cont_focus_next(host->host);
+  97:Src/makise_test.c ****     } else if(event == CONTROLS_LONG_CLICK)
+ 104              		.loc 1 97 0
+ 105 002e 042D     		cmp	r5, #4
+ 106 0030 1AD0     		beq	.L41
+  98:Src/makise_test.c ****     {
+  99:Src/makise_test.c **** 	if(id == 11)
+ 100:Src/makise_test.c **** 	    makise_g_host_input(host,
+ 101:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_NEXT, M_INPUT_CLICK, time, 0});
+ 102:Src/makise_test.c **** 	if(id == 12)
+ 103:Src/makise_test.c **** 	    makise_g_host_input(host,
+ 104:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_BACK, M_INPUT_CLICK, time, 0});
+ 105:Src/makise_test.c ****     }
+ 106:Src/makise_test.c **** //	    makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
+ 107:Src/makise_test.c ****     //m_element_focus(&(butt[0].el), M_G_FOCUS_GET);
+ 108:Src/makise_test.c **** //	if(id == 13)
+ 109:Src/makise_test.c **** //	    makise_g_focus(&(butt[2].el), M_G_FOCUS_GET);
+ 110:Src/makise_test.c **** //	    m_element_focus(&(butt[2].el), M_G_FOCUS_GET);
+ 111:Src/makise_test.c **** 	
+ 112:Src/makise_test.c ****     if(event & CONTROLS_ALL_PRESSING)
+ 107              		.loc 1 112 0
+ 108 0032 15F00A0F 		tst	r5, #10
+ 109 0036 08D0     		beq	.L4
+ 113:Src/makise_test.c ****     {
+ 114:Src/makise_test.c **** 	if(id == 3)
+ 110              		.loc 1 114 0
+ 111 0038 032C     		cmp	r4, #3
+ 112 003a 00F08880 		beq	.L42
+ 115:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_PRESSING, time, 0});
+ 116:Src/makise_test.c **** 	if(id == 1)
+ 113              		.loc 1 116 0
+ARM GAS  /tmp/ccVUROQI.s 			page 5
 
 
- 121 004a 01D0     		beq	.L39
+ 114 003e 012C     		cmp	r4, #1
+ 115 0040 39D0     		beq	.L43
+ 117:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_PRESSING, time, 0});
+ 118:Src/makise_test.c **** 	if(id == 4)
+ 116              		.loc 1 118 0
+ 117 0042 042C     		cmp	r4, #4
+ 118 0044 72D0     		beq	.L44
+ 119:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_PRESSING, time, 0});
+ 120:Src/makise_test.c **** 	if(id == 2) 
+ 119              		.loc 1 120 0
+ 120 0046 022C     		cmp	r4, #2
+ 121 0048 24D0     		beq	.L45
  122              	.L4:
- 110:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_PRESSING, time, 0});
- 111:Src/makise_test.c **** //	printf("click %d\n", id);
- 112:Src/makise_test.c ****     }
- 113:Src/makise_test.c **** }
- 123              		.loc 1 113 0
- 124 004c 1DB0     		add	sp, sp, #116
+ 121:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_PRESSING, time, 0});
+ 122:Src/makise_test.c **** //	printf("click %d\n", id);
+ 123:Src/makise_test.c ****     }
+ 124:Src/makise_test.c **** }
+ 123              		.loc 1 124 0
+ 124 004a 23B0     		add	sp, sp, #140
  125              	.LCFI2:
  126              		.cfi_remember_state
  127              		.cfi_def_cfa_offset 20
  128              		@ sp needed
- 129 004e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 129 004c F0BD     		pop	{r4, r5, r6, r7, pc}
  130              	.LVL5:
- 131              	.L39:
+ 131              	.L40:
  132              	.LCFI3:
  133              		.cfi_restore_state
- 110:Src/makise_test.c **** 	    makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_PRESSING, time, 0});
- 134              		.loc 1 110 0
- 135 0050 624B     		ldr	r3, .L41
- 136 0052 8DF86440 		strb	r4, [sp, #100]
- 137 0056 1868     		ldr	r0, [r3]
- 138 0058 8DF86540 		strb	r4, [sp, #101]
- 139 005c 0023     		movs	r3, #0
- 140 005e 8DF86C30 		strb	r3, [sp, #108]
- 141 0062 1A96     		str	r6, [sp, #104]
- 142 0064 1CAB     		add	r3, sp, #112
- 143 0066 13E90E00 		ldmdb	r3, {r1, r2, r3}
- 144 006a FFF7FEFF 		bl	makise_g_host_input
- 145              	.LVL6:
- 146              		.loc 1 113 0
- 147 006e 1DB0     		add	sp, sp, #116
- 148              	.LCFI4:
- 149              		.cfi_remember_state
- 150              		.cfi_def_cfa_offset 20
- 151              		@ sp needed
- 152 0070 F0BD     		pop	{r4, r5, r6, r7, pc}
- 153              	.LVL7:
- 154              	.L31:
- 155              	.LCFI5:
- 156              		.cfi_restore_state
-  72:Src/makise_test.c **** 	if(id == 11)
- 157              		.loc 1 72 0
- 158 0072 5A4F     		ldr	r7, .L41
- 159 0074 3B68     		ldr	r3, [r7]
- 160 0076 1868     		ldr	r0, [r3]
- 161              	.LVL8:
- 162 0078 FFF7FEFF 		bl	makise_g_cont_focus_prev
- 163              	.LVL9:
- 164 007c DAE7     		b	.L5
- 165              	.LVL10:
- 166              	.L21:
-  92:Src/makise_test.c **** 
- 167              		.loc 1 92 0
- 168 007e 574B     		ldr	r3, .L41
- 169 0080 0E96     		str	r6, [sp, #56]
- 170 0082 0022     		movs	r2, #0
-ARM GAS  /tmp/cctnYOgc.s 			page 6
+  93:Src/makise_test.c **** 	    makise_g_cont_focus_prev(host->host);
+ 134              		.loc 1 93 0
+ 135 004e 0C2C     		cmp	r4, #12
+ 136 0050 00F0E180 		beq	.L46
+  95:Src/makise_test.c **** 	    makise_g_cont_focus_next(host->host);
+ 137              		.loc 1 95 0
+ 138 0054 0B2C     		cmp	r4, #11
+ 139 0056 F8D1     		bne	.L4
+  96:Src/makise_test.c ****     } else if(event == CONTROLS_LONG_CLICK)
+ 140              		.loc 1 96 0
+ 141 0058 734B     		ldr	r3, .L48
+ 142 005a 1B68     		ldr	r3, [r3]
+ 143 005c 1868     		ldr	r0, [r3]
+ 144              		.loc 1 124 0
+ 145 005e 23B0     		add	sp, sp, #140
+ 146              	.LCFI4:
+ 147              		.cfi_remember_state
+ 148              		.cfi_def_cfa_offset 20
+ 149              		@ sp needed
+ 150 0060 BDE8F040 		pop	{r4, r5, r6, r7, lr}
+ 151              	.LCFI5:
+ 152              		.cfi_restore 14
+ 153              		.cfi_restore 7
+ 154              		.cfi_restore 6
+ 155              		.cfi_restore 5
+ 156              		.cfi_restore 4
+ 157              		.cfi_def_cfa_offset 0
+ 158              	.LVL6:
+  96:Src/makise_test.c ****     } else if(event == CONTROLS_LONG_CLICK)
+ARM GAS  /tmp/ccVUROQI.s 			page 6
 
 
- 171              	.LVL11:
- 172 0084 1868     		ldr	r0, [r3]
- 173              	.LVL12:
- 174 0086 8DF83C20 		strb	r2, [sp, #60]
- 175 008a 0123     		movs	r3, #1
- 176 008c 8DF83430 		strb	r3, [sp, #52]
- 177 0090 8DF83530 		strb	r3, [sp, #53]
- 178 0094 0DAB     		add	r3, sp, #52
- 179 0096 0ECB     		ldm	r3, {r1, r2, r3}
- 180              	.LVL13:
- 181 0098 FFF7FEFF 		bl	makise_g_host_input
- 182              	.LVL14:
- 183              	.L14:
- 101:Src/makise_test.c ****     {
- 184              		.loc 1 101 0
- 185 009c 15F00A0F 		tst	r5, #10
- 186 00a0 D2D1     		bne	.L19
- 187 00a2 D3E7     		b	.L4
- 188              	.LVL15:
- 189              	.L35:
-  84:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
- 190              		.loc 1 84 0 discriminator 1
- 191 00a4 0892     		str	r2, [sp, #32]
- 192 00a6 0321     		movs	r1, #3
- 193              	.LVL16:
- 194 00a8 0122     		movs	r2, #1
- 195              	.LVL17:
- 196 00aa 0023     		movs	r3, #0
- 197 00ac 4B4F     		ldr	r7, .L41
- 198 00ae 8DF82430 		strb	r3, [sp, #36]
- 199 00b2 8DF81C10 		strb	r1, [sp, #28]
- 200 00b6 8DF81D20 		strb	r2, [sp, #29]
- 201 00ba 07AB     		add	r3, sp, #28
- 202 00bc 3868     		ldr	r0, [r7]
- 203              	.LVL18:
- 204 00be 0ECB     		ldm	r3, {r1, r2, r3}
- 205 00c0 FFF7FEFF 		bl	makise_g_host_input
- 206              	.LVL19:
-  83:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0})
- 207              		.loc 1 83 0 discriminator 1
- 208 00c4 0128     		cmp	r0, #1
- 209 00c6 00F08480 		beq	.L40
- 210              	.L13:
- 101:Src/makise_test.c ****     {
- 211              		.loc 1 101 0
- 212 00ca 15F00A0F 		tst	r5, #10
- 213 00ce BDD0     		beq	.L4
- 214              	.L24:
- 108:Src/makise_test.c **** 	if(id == 2) 
- 215              		.loc 1 108 0
- 216 00d0 0321     		movs	r1, #3
- 217 00d2 0222     		movs	r2, #2
- 218 00d4 0023     		movs	r3, #0
- 219 00d6 8DF86030 		strb	r3, [sp, #96]
- 220 00da 1796     		str	r6, [sp, #92]
- 221 00dc 8DF85810 		strb	r1, [sp, #88]
- 222 00e0 8DF85920 		strb	r2, [sp, #89]
-ARM GAS  /tmp/cctnYOgc.s 			page 7
+ 159              		.loc 1 96 0
+ 160 0064 FFF7FEBF 		b	makise_g_cont_focus_next
+ 161              	.LVL7:
+ 162              	.L41:
+ 163              	.LCFI6:
+ 164              		.cfi_restore_state
+  99:Src/makise_test.c **** 	    makise_g_host_input(host,
+ 165              		.loc 1 99 0
+ 166 0068 0B2C     		cmp	r4, #11
+ 167 006a 00F0C380 		beq	.L47
+ 102:Src/makise_test.c **** 	    makise_g_host_input(host,
+ 168              		.loc 1 102 0
+ 169 006e 0C2C     		cmp	r4, #12
+ 170 0070 EBD1     		bne	.L4
+ 103:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_BACK, M_INPUT_CLICK, time, 0});
+ 171              		.loc 1 103 0
+ 172 0072 6D4B     		ldr	r3, .L48
+ 104:Src/makise_test.c ****     }
+ 173              		.loc 1 104 0
+ 174 0074 1496     		str	r6, [sp, #80]
+ 175 0076 0A21     		movs	r1, #10
+ 176 0078 0122     		movs	r2, #1
+ 103:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_BACK, M_INPUT_CLICK, time, 0});
+ 177              		.loc 1 103 0
+ 178 007a 1868     		ldr	r0, [r3]
+ 104:Src/makise_test.c ****     }
+ 179              		.loc 1 104 0
+ 180 007c 8DF84C10 		strb	r1, [sp, #76]
+ 181 0080 0023     		movs	r3, #0
+ 182 0082 8DF85430 		strb	r3, [sp, #84]
+ 183 0086 8DF84D20 		strb	r2, [sp, #77]
+ 103:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_BACK, M_INPUT_CLICK, time, 0});
+ 184              		.loc 1 103 0
+ 185 008a 13AB     		add	r3, sp, #76
+ 186 008c 0ECB     		ldm	r3, {r1, r2, r3}
+ 187 008e FFF7FEFF 		bl	makise_g_host_input
+ 188              	.LVL8:
+ 189 0092 DAE7     		b	.L4
+ 190              	.L45:
+ 121:Src/makise_test.c **** //	printf("click %d\n", id);
+ 191              		.loc 1 121 0
+ 192 0094 644B     		ldr	r3, .L48
+ 193 0096 8DF87C40 		strb	r4, [sp, #124]
+ 194 009a 1868     		ldr	r0, [r3]
+ 195 009c 8DF87D40 		strb	r4, [sp, #125]
+ 196 00a0 0023     		movs	r3, #0
+ 197 00a2 8DF88430 		strb	r3, [sp, #132]
+ 198 00a6 2096     		str	r6, [sp, #128]
+ 199 00a8 22AB     		add	r3, sp, #136
+ 200 00aa 13E90E00 		ldmdb	r3, {r1, r2, r3}
+ 201 00ae FFF7FEFF 		bl	makise_g_host_input
+ 202              	.LVL9:
+ 203              		.loc 1 124 0
+ 204 00b2 23B0     		add	sp, sp, #140
+ 205              	.LCFI7:
+ 206              		.cfi_remember_state
+ 207              		.cfi_def_cfa_offset 20
+ARM GAS  /tmp/ccVUROQI.s 			page 7
 
 
- 223 00e4 16AB     		add	r3, sp, #88
- 224 00e6 3868     		ldr	r0, [r7]
- 225 00e8 0ECB     		ldm	r3, {r1, r2, r3}
- 226 00ea FFF7FEFF 		bl	makise_g_host_input
- 227              	.LVL20:
- 228 00ee ADE7     		b	.L4
- 229              	.L36:
- 104:Src/makise_test.c **** 	if(id == 1)
- 230              		.loc 1 104 0
- 231 00f0 3A4B     		ldr	r3, .L41
- 232 00f2 1196     		str	r6, [sp, #68]
- 233 00f4 0421     		movs	r1, #4
- 234 00f6 0222     		movs	r2, #2
- 235 00f8 1868     		ldr	r0, [r3]
- 236 00fa 8DF84010 		strb	r1, [sp, #64]
- 237 00fe 0023     		movs	r3, #0
- 238 0100 8DF84830 		strb	r3, [sp, #72]
- 239 0104 8DF84120 		strb	r2, [sp, #65]
- 240 0108 10AB     		add	r3, sp, #64
- 241 010a 0ECB     		ldm	r3, {r1, r2, r3}
- 242 010c FFF7FEFF 		bl	makise_g_host_input
- 243              	.LVL21:
- 244 0110 9CE7     		b	.L4
- 245              	.L37:
- 106:Src/makise_test.c **** 	if(id == 4)
- 246              		.loc 1 106 0
- 247 0112 324B     		ldr	r3, .L41
- 248 0114 1496     		str	r6, [sp, #80]
- 249 0116 0521     		movs	r1, #5
- 250 0118 0222     		movs	r2, #2
- 251 011a 1868     		ldr	r0, [r3]
- 252 011c 8DF84C10 		strb	r1, [sp, #76]
- 253 0120 0023     		movs	r3, #0
- 254 0122 8DF85430 		strb	r3, [sp, #84]
- 255 0126 8DF84D20 		strb	r2, [sp, #77]
- 256 012a 13AB     		add	r3, sp, #76
- 257 012c 0ECB     		ldm	r3, {r1, r2, r3}
- 258 012e FFF7FEFF 		bl	makise_g_host_input
- 259              	.LVL22:
- 260 0132 8BE7     		b	.L4
- 261              	.LVL23:
- 262              	.L33:
+ 208              		@ sp needed
+ 209 00b4 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 210              	.LVL10:
+ 211              	.L43:
+ 212              	.LCFI8:
+ 213              		.cfi_restore_state
+ 117:Src/makise_test.c **** 	if(id == 4)
+ 214              		.loc 1 117 0
+ 215 00b6 5C4B     		ldr	r3, .L48
+ 216 00b8 1A96     		str	r6, [sp, #104]
+ 217 00ba 0521     		movs	r1, #5
+ 218 00bc 0222     		movs	r2, #2
+ 219 00be 1868     		ldr	r0, [r3]
+ 220 00c0 8DF86410 		strb	r1, [sp, #100]
+ 221 00c4 0023     		movs	r3, #0
+ 222 00c6 8DF86C30 		strb	r3, [sp, #108]
+ 223 00ca 8DF86520 		strb	r2, [sp, #101]
+ 224 00ce 19AB     		add	r3, sp, #100
+ 225 00d0 0ECB     		ldm	r3, {r1, r2, r3}
+ 226 00d2 FFF7FEFF 		bl	makise_g_host_input
+ 227              	.LVL11:
+ 228 00d6 B8E7     		b	.L4
+ 229              	.LVL12:
+ 230              	.L21:
+  88:Src/makise_test.c **** 
+ 231              		.loc 1 88 0
+ 232 00d8 534B     		ldr	r3, .L48
+ 233 00da 0E96     		str	r6, [sp, #56]
+ 234 00dc 0022     		movs	r2, #0
+ 235              	.LVL13:
+ 236 00de 1868     		ldr	r0, [r3]
+ 237              	.LVL14:
+ 238 00e0 8DF83C20 		strb	r2, [sp, #60]
+ 239 00e4 0123     		movs	r3, #1
+ 240 00e6 8DF83430 		strb	r3, [sp, #52]
+ 241 00ea 8DF83530 		strb	r3, [sp, #53]
+ 242 00ee 0DAB     		add	r3, sp, #52
+ 243 00f0 0ECB     		ldm	r3, {r1, r2, r3}
+ 244              	.LVL15:
+ 245 00f2 FFF7FEFF 		bl	makise_g_host_input
+ 246              	.LVL16:
+ 247              	.L11:
+  91:Src/makise_test.c ****     {
+ 248              		.loc 1 91 0
+ 249 00f6 012D     		cmp	r5, #1
+ 250 00f8 99D1     		bne	.L23
+ 251 00fa A6E7     		b	.L4
+ 252              	.LVL17:
+ 253              	.L37:
+  72:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
+ 254              		.loc 1 72 0 discriminator 1
+ 255 00fc 0292     		str	r2, [sp, #8]
+ 256 00fe 0421     		movs	r1, #4
+ 257              	.LVL18:
+ 258 0100 0122     		movs	r2, #1
+ 259              	.LVL19:
+ 260 0102 0023     		movs	r3, #0
+ARM GAS  /tmp/ccVUROQI.s 			page 8
+
+
+ 261 0104 484F     		ldr	r7, .L48
+ 262 0106 8DF80C30 		strb	r3, [sp, #12]
+ 263 010a 8DF80410 		strb	r1, [sp, #4]
+ 264 010e 8DF80520 		strb	r2, [sp, #5]
+ 265 0112 0DEB0103 		add	r3, sp, r1
+ 266 0116 3868     		ldr	r0, [r7]
+ 267              	.LVL20:
+ 268 0118 0ECB     		ldm	r3, {r1, r2, r3}
+ 269 011a FFF7FEFF 		bl	makise_g_host_input
+ 270              	.LVL21:
+  71:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0})
+ 271              		.loc 1 71 0 discriminator 1
+ 272 011e 0128     		cmp	r0, #1
+ 273 0120 83D1     		bne	.L5
+  74:Src/makise_test.c **** 	if(id == 1 &&
+ 274              		.loc 1 74 0
+ 275 0122 3B68     		ldr	r3, [r7]
+ 276 0124 1868     		ldr	r0, [r3]
+ 277 0126 FFF7FEFF 		bl	makise_g_cont_focus_prev
+ 278              	.LVL22:
+ 279 012a 7EE7     		b	.L5
+ 280              	.L44:
+ 119:Src/makise_test.c **** 	if(id == 2) 
+ 281              		.loc 1 119 0
+ 282 012c 3E4B     		ldr	r3, .L48
+ 283 012e 1D96     		str	r6, [sp, #116]
+ 284 0130 0321     		movs	r1, #3
+ 285 0132 0222     		movs	r2, #2
+ 286 0134 1868     		ldr	r0, [r3]
+ 287 0136 8DF87010 		strb	r1, [sp, #112]
+ 288 013a 0023     		movs	r3, #0
+ 289 013c 8DF87830 		strb	r3, [sp, #120]
+ 290 0140 8DF87120 		strb	r2, [sp, #113]
+ 291 0144 1CAB     		add	r3, sp, #112
+ 292 0146 0ECB     		ldm	r3, {r1, r2, r3}
+ 293 0148 FFF7FEFF 		bl	makise_g_host_input
+ 294              	.LVL23:
+ 295 014c 7DE7     		b	.L4
+ 296              	.L42:
+ 115:Src/makise_test.c **** 	if(id == 1)
+ 297              		.loc 1 115 0
+ 298 014e 364B     		ldr	r3, .L48
+ 299 0150 1796     		str	r6, [sp, #92]
+ 300 0152 0421     		movs	r1, #4
+ 301 0154 0222     		movs	r2, #2
+ 302 0156 1868     		ldr	r0, [r3]
+ 303 0158 8DF85810 		strb	r1, [sp, #88]
+ 304 015c 0023     		movs	r3, #0
+ 305 015e 8DF86030 		strb	r3, [sp, #96]
+ 306 0162 8DF85920 		strb	r2, [sp, #89]
+ 307 0166 16AB     		add	r3, sp, #88
+ 308 0168 0ECB     		ldm	r3, {r1, r2, r3}
+ 309 016a FFF7FEFF 		bl	makise_g_host_input
+ 310              	.LVL24:
+ 311 016e 6CE7     		b	.L4
+ 312              	.LVL25:
+ 313              	.L38:
+ARM GAS  /tmp/ccVUROQI.s 			page 9
+
+
   76:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
- 263              		.loc 1 76 0 discriminator 1
- 264 0134 0292     		str	r2, [sp, #8]
- 265 0136 0421     		movs	r1, #4
- 266              	.LVL24:
- 267 0138 0122     		movs	r2, #1
- 268              	.LVL25:
- 269 013a 0023     		movs	r3, #0
- 270 013c 274F     		ldr	r7, .L41
- 271 013e 8DF80C30 		strb	r3, [sp, #12]
- 272 0142 8DF80410 		strb	r1, [sp, #4]
- 273 0146 8DF80520 		strb	r2, [sp, #5]
- 274 014a 0DEB0103 		add	r3, sp, r1
- 275 014e 3868     		ldr	r0, [r7]
- 276              	.LVL26:
-ARM GAS  /tmp/cctnYOgc.s 			page 8
+ 314              		.loc 1 76 0 discriminator 1
+ 315 0170 0592     		str	r2, [sp, #20]
+ 316 0172 0023     		movs	r3, #0
+ 317 0174 0522     		movs	r2, #5
+ 318              	.LVL26:
+ 319 0176 2C4F     		ldr	r7, .L48
+ 320 0178 8DF81100 		strb	r0, [sp, #17]
+ 321 017c 8DF81830 		strb	r3, [sp, #24]
+ 322 0180 8DF81020 		strb	r2, [sp, #16]
+ 323 0184 04AB     		add	r3, sp, #16
+ 324 0186 3868     		ldr	r0, [r7]
+ 325              	.LVL27:
+ 326 0188 0ECB     		ldm	r3, {r1, r2, r3}
+ 327              	.LVL28:
+ 328 018a FFF7FEFF 		bl	makise_g_host_input
+ 329              	.LVL29:
+  75:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_CLICK, time, 0})
+ 330              		.loc 1 75 0 discriminator 1
+ 331 018e 0128     		cmp	r0, #1
+ 332 0190 7FF44BAF 		bne	.L5
+ 333              	.L34:
+  82:Src/makise_test.c **** 	if(id == 2 &&
+ 334              		.loc 1 82 0
+ 335 0194 3B68     		ldr	r3, [r7]
+ 336 0196 1868     		ldr	r0, [r3]
+ 337 0198 FFF7FEFF 		bl	makise_g_cont_focus_next
+ 338              	.LVL30:
+ 339 019c 45E7     		b	.L5
+ 340              	.LVL31:
+ 341              	.L20:
+  84:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
+ 342              		.loc 1 84 0 discriminator 1
+ 343 019e 0122     		movs	r2, #1
+ 344              	.LVL32:
+ 345 01a0 0023     		movs	r3, #0
+ 346 01a2 214F     		ldr	r7, .L48
+ 347 01a4 8DF83030 		strb	r3, [sp, #48]
+ 348 01a8 8DF82840 		strb	r4, [sp, #40]
+ 349 01ac 0B96     		str	r6, [sp, #44]
+ 350 01ae 8DF82920 		strb	r2, [sp, #41]
+ 351 01b2 0AAB     		add	r3, sp, #40
+ 352 01b4 3868     		ldr	r0, [r7]
+ 353              	.LVL33:
+ 354 01b6 0ECB     		ldm	r3, {r1, r2, r3}
+ 355              	.LVL34:
+ 356 01b8 FFF7FEFF 		bl	makise_g_host_input
+ 357              	.LVL35:
+  83:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0})
+ 358              		.loc 1 83 0 discriminator 1
+ 359 01bc 0128     		cmp	r0, #1
+ 360 01be 7FF434AF 		bne	.L5
+  86:Src/makise_test.c **** 	if(id == 13)
+ 361              		.loc 1 86 0
+ 362 01c2 3B68     		ldr	r3, [r7]
+ 363 01c4 1868     		ldr	r0, [r3]
+ 364 01c6 FFF7FEFF 		bl	makise_g_cont_focus_prev
+ARM GAS  /tmp/ccVUROQI.s 			page 10
 
 
- 277 0150 0ECB     		ldm	r3, {r1, r2, r3}
- 278 0152 FFF7FEFF 		bl	makise_g_host_input
- 279              	.LVL27:
-  75:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_UP, M_INPUT_CLICK, time, 0})
- 280              		.loc 1 75 0 discriminator 1
- 281 0156 0128     		cmp	r0, #1
- 282 0158 7FF46CAF 		bne	.L5
-  78:Src/makise_test.c **** 	if(id == 1 &&
- 283              		.loc 1 78 0
- 284 015c 3B68     		ldr	r3, [r7]
- 285 015e 1868     		ldr	r0, [r3]
- 286 0160 FFF7FEFF 		bl	makise_g_cont_focus_prev
- 287              	.LVL28:
- 288 0164 66E7     		b	.L5
- 289              	.LVL29:
- 290              	.L32:
-  74:Src/makise_test.c **** 	if(id == 3 &&
- 291              		.loc 1 74 0
- 292 0166 1D4F     		ldr	r7, .L41
- 293 0168 3B68     		ldr	r3, [r7]
- 294 016a 1868     		ldr	r0, [r3]
- 295              	.LVL30:
- 296 016c FFF7FEFF 		bl	makise_g_cont_focus_next
- 297              	.LVL31:
- 298 0170 60E7     		b	.L5
- 299              	.LVL32:
- 300              	.L34:
+ 365              	.LVL36:
+ 366 01ca 94E7     		b	.L11
+ 367              	.LVL37:
+ 368              	.L39:
   80:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
- 301              		.loc 1 80 0 discriminator 1
- 302 0172 0592     		str	r2, [sp, #20]
- 303 0174 0023     		movs	r3, #0
- 304 0176 0522     		movs	r2, #5
- 305              	.LVL33:
- 306 0178 184F     		ldr	r7, .L41
- 307 017a 8DF81100 		strb	r0, [sp, #17]
- 308 017e 8DF81830 		strb	r3, [sp, #24]
- 309 0182 8DF81020 		strb	r2, [sp, #16]
- 310 0186 04AB     		add	r3, sp, #16
- 311 0188 3868     		ldr	r0, [r7]
- 312              	.LVL34:
- 313 018a 0ECB     		ldm	r3, {r1, r2, r3}
- 314              	.LVL35:
- 315 018c FFF7FEFF 		bl	makise_g_host_input
- 316              	.LVL36:
-  79:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_DOWN, M_INPUT_CLICK, time, 0})
- 317              		.loc 1 79 0 discriminator 1
- 318 0190 0128     		cmp	r0, #1
- 319 0192 7FF44FAF 		bne	.L5
-  82:Src/makise_test.c **** 	if(id == 4 &&
- 320              		.loc 1 82 0
- 321 0196 3B68     		ldr	r3, [r7]
- 322 0198 1868     		ldr	r0, [r3]
- 323 019a FFF7FEFF 		bl	makise_g_cont_focus_next
- 324              	.LVL37:
- 325 019e 49E7     		b	.L5
- 326              	.LVL38:
- 327              	.L20:
-ARM GAS  /tmp/cctnYOgc.s 			page 9
+ 369              		.loc 1 80 0 discriminator 1
+ 370 01cc 0892     		str	r2, [sp, #32]
+ 371 01ce 0321     		movs	r1, #3
+ 372              	.LVL38:
+ 373 01d0 0122     		movs	r2, #1
+ 374              	.LVL39:
+ 375 01d2 0023     		movs	r3, #0
+ 376 01d4 144F     		ldr	r7, .L48
+ 377 01d6 8DF82430 		strb	r3, [sp, #36]
+ 378 01da 8DF81C10 		strb	r1, [sp, #28]
+ 379 01de 8DF81D20 		strb	r2, [sp, #29]
+ 380 01e2 07AB     		add	r3, sp, #28
+ 381 01e4 3868     		ldr	r0, [r7]
+ 382              	.LVL40:
+ 383 01e6 0ECB     		ldm	r3, {r1, r2, r3}
+ 384 01e8 FFF7FEFF 		bl	makise_g_host_input
+ 385              	.LVL41:
+  79:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_RIGHT, M_INPUT_CLICK, time, 0})
+ 386              		.loc 1 79 0 discriminator 1
+ 387 01ec 0128     		cmp	r0, #1
+ 388 01ee 7FF41CAF 		bne	.L5
+ 389 01f2 CFE7     		b	.L34
+ 390              	.L47:
+ 100:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_NEXT, M_INPUT_CLICK, time, 0});
+ 391              		.loc 1 100 0
+ 392 01f4 0C4B     		ldr	r3, .L48
+ 101:Src/makise_test.c **** 	if(id == 12)
+ 393              		.loc 1 101 0
+ 394 01f6 1196     		str	r6, [sp, #68]
+ 395 01f8 0921     		movs	r1, #9
+ 396 01fa 0122     		movs	r2, #1
+ 100:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_NEXT, M_INPUT_CLICK, time, 0});
+ 397              		.loc 1 100 0
+ 398 01fc 1868     		ldr	r0, [r3]
+ 101:Src/makise_test.c **** 	if(id == 12)
+ 399              		.loc 1 101 0
+ 400 01fe 8DF84010 		strb	r1, [sp, #64]
+ 401 0202 0023     		movs	r3, #0
+ 402 0204 8DF84830 		strb	r3, [sp, #72]
+ 403 0208 8DF84120 		strb	r2, [sp, #65]
+ 100:Src/makise_test.c **** 				(MInputData){M_KEY_TAB_NEXT, M_INPUT_CLICK, time, 0});
+ 404              		.loc 1 100 0
+ 405 020c 10AB     		add	r3, sp, #64
+ 406 020e 0ECB     		ldm	r3, {r1, r2, r3}
+ 407 0210 FFF7FEFF 		bl	makise_g_host_input
+ 408              	.LVL42:
+ 409 0214 19E7     		b	.L4
+ 410              	.L46:
+  94:Src/makise_test.c **** 	if(id == 11)
+ 411              		.loc 1 94 0
+ 412 0216 044B     		ldr	r3, .L48
+ 413 0218 1B68     		ldr	r3, [r3]
+ARM GAS  /tmp/ccVUROQI.s 			page 11
 
 
-  88:Src/makise_test.c **** 	   == M_INPUT_NOT_HANDLED)
- 328              		.loc 1 88 0 discriminator 1
- 329 01a0 0122     		movs	r2, #1
- 330              	.LVL39:
- 331 01a2 0023     		movs	r3, #0
- 332 01a4 0D4F     		ldr	r7, .L41
- 333 01a6 8DF83030 		strb	r3, [sp, #48]
- 334 01aa 8DF82840 		strb	r4, [sp, #40]
- 335 01ae 0B96     		str	r6, [sp, #44]
- 336 01b0 8DF82920 		strb	r2, [sp, #41]
- 337 01b4 0AAB     		add	r3, sp, #40
- 338 01b6 3868     		ldr	r0, [r7]
- 339              	.LVL40:
- 340 01b8 0ECB     		ldm	r3, {r1, r2, r3}
- 341              	.LVL41:
- 342 01ba FFF7FEFF 		bl	makise_g_host_input
- 343              	.LVL42:
-  87:Src/makise_test.c **** 	   makise_g_host_input(host, (MInputData){M_KEY_LEFT, M_INPUT_CLICK, time, 0})
- 344              		.loc 1 87 0 discriminator 1
- 345 01be 0128     		cmp	r0, #1
- 346 01c0 7FF46CAF 		bne	.L14
-  90:Src/makise_test.c **** 	if(id == 13)
- 347              		.loc 1 90 0
- 348 01c4 3B68     		ldr	r3, [r7]
- 349 01c6 1868     		ldr	r0, [r3]
- 350 01c8 FFF7FEFF 		bl	makise_g_cont_focus_prev
- 351              	.LVL43:
- 352 01cc 66E7     		b	.L14
- 353              	.L38:
- 354 01ce 034F     		ldr	r7, .L41
- 355 01d0 7EE7     		b	.L24
- 356              	.L40:
-  86:Src/makise_test.c **** 	if(id == 2 &&
- 357              		.loc 1 86 0
- 358 01d2 3B68     		ldr	r3, [r7]
- 359 01d4 1868     		ldr	r0, [r3]
- 360 01d6 FFF7FEFF 		bl	makise_g_cont_focus_next
- 361              	.LVL44:
- 362 01da 76E7     		b	.L13
- 363              	.L42:
- 364              		.align	2
- 365              	.L41:
- 366 01dc 00000000 		.word	host
- 367              		.cfi_endproc
- 368              	.LFE129:
- 370              		.section	.text.HAL_SPI_TxHalfCpltCallback,"ax",%progbits
- 371              		.align	1
- 372              		.p2align 2,,3
- 373              		.global	HAL_SPI_TxHalfCpltCallback
- 374              		.syntax unified
- 375              		.thumb
- 376              		.thumb_func
- 377              		.fpu fpv4-sp-d16
- 379              	HAL_SPI_TxHalfCpltCallback:
- 380              	.LFB126:
+ 414 021a 1868     		ldr	r0, [r3]
+ 415              		.loc 1 124 0
+ 416 021c 23B0     		add	sp, sp, #140
+ 417              	.LCFI9:
+ 418              		.cfi_def_cfa_offset 20
+ 419              		@ sp needed
+ 420 021e BDE8F040 		pop	{r4, r5, r6, r7, lr}
+ 421              	.LCFI10:
+ 422              		.cfi_restore 14
+ 423              		.cfi_restore 7
+ 424              		.cfi_restore 6
+ 425              		.cfi_restore 5
+ 426              		.cfi_restore 4
+ 427              		.cfi_def_cfa_offset 0
+ 428              	.LVL43:
+  94:Src/makise_test.c **** 	if(id == 11)
+ 429              		.loc 1 94 0
+ 430 0222 FFF7FEBF 		b	makise_g_cont_focus_prev
+ 431              	.LVL44:
+ 432              	.L49:
+ 433 0226 00BF     		.align	2
+ 434              	.L48:
+ 435 0228 00000000 		.word	host
+ 436              		.cfi_endproc
+ 437              	.LFE129:
+ 439              		.section	.text.HAL_SPI_TxHalfCpltCallback,"ax",%progbits
+ 440              		.align	1
+ 441              		.p2align 2,,3
+ 442              		.global	HAL_SPI_TxHalfCpltCallback
+ 443              		.syntax unified
+ 444              		.thumb
+ 445              		.thumb_func
+ 446              		.fpu fpv4-sp-d16
+ 448              	HAL_SPI_TxHalfCpltCallback:
+ 449              	.LFB126:
   16:Src/makise_test.c ****     if(hspi == &ILI9340_SPI)
- 381              		.loc 1 16 0
-ARM GAS  /tmp/cctnYOgc.s 			page 10
-
-
- 382              		.cfi_startproc
- 383              		@ args = 0, pretend = 0, frame = 0
- 384              		@ frame_needed = 0, uses_anonymous_args = 0
- 385              		@ link register save eliminated.
- 386              	.LVL45:
+ 450              		.loc 1 16 0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+ 454              		@ link register save eliminated.
+ 455              	.LVL45:
   17:Src/makise_test.c **** 	ili9340_spi_txhalfcplt(mGui->driver);
- 387              		.loc 1 17 0
- 388 0000 044B     		ldr	r3, .L46
- 389 0002 8342     		cmp	r3, r0
- 390 0004 00D0     		beq	.L45
- 391 0006 7047     		bx	lr
- 392              	.L45:
+ 456              		.loc 1 17 0
+ 457 0000 044B     		ldr	r3, .L53
+ 458 0002 8342     		cmp	r3, r0
+ 459 0004 00D0     		beq	.L52
+ 460 0006 7047     		bx	lr
+ 461              	.L52:
   18:Src/makise_test.c **** }
- 393              		.loc 1 18 0
- 394 0008 034B     		ldr	r3, .L46+4
- 395 000a 1B68     		ldr	r3, [r3]
- 396 000c 5868     		ldr	r0, [r3, #4]
- 397              	.LVL46:
- 398 000e FFF7FEBF 		b	ili9340_spi_txhalfcplt
- 399              	.LVL47:
- 400              	.L47:
- 401 0012 00BF     		.align	2
- 402              	.L46:
- 403 0014 00000000 		.word	hspi1
- 404 0018 00000000 		.word	mGui
- 405              		.cfi_endproc
- 406              	.LFE126:
- 408              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
- 409              		.align	1
- 410              		.p2align 2,,3
- 411              		.global	HAL_SPI_TxCpltCallback
- 412              		.syntax unified
- 413              		.thumb
- 414              		.thumb_func
- 415              		.fpu fpv4-sp-d16
- 417              	HAL_SPI_TxCpltCallback:
- 418              	.LFB127:
+ 462              		.loc 1 18 0
+ 463 0008 034B     		ldr	r3, .L53+4
+ 464 000a 1B68     		ldr	r3, [r3]
+ 465 000c 5868     		ldr	r0, [r3, #4]
+ 466              	.LVL46:
+ 467 000e FFF7FEBF 		b	ili9340_spi_txhalfcplt
+ 468              	.LVL47:
+ARM GAS  /tmp/ccVUROQI.s 			page 12
+
+
+ 469              	.L54:
+ 470 0012 00BF     		.align	2
+ 471              	.L53:
+ 472 0014 00000000 		.word	hspi1
+ 473 0018 00000000 		.word	mGui
+ 474              		.cfi_endproc
+ 475              	.LFE126:
+ 477              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
+ 478              		.align	1
+ 479              		.p2align 2,,3
+ 480              		.global	HAL_SPI_TxCpltCallback
+ 481              		.syntax unified
+ 482              		.thumb
+ 483              		.thumb_func
+ 484              		.fpu fpv4-sp-d16
+ 486              	HAL_SPI_TxCpltCallback:
+ 487              	.LFB127:
   21:Src/makise_test.c ****     if(hspi == &ILI9340_SPI)
- 419              		.loc 1 21 0
- 420              		.cfi_startproc
- 421              		@ args = 0, pretend = 0, frame = 0
- 422              		@ frame_needed = 0, uses_anonymous_args = 0
- 423              		@ link register save eliminated.
- 424              	.LVL48:
+ 488              		.loc 1 21 0
+ 489              		.cfi_startproc
+ 490              		@ args = 0, pretend = 0, frame = 0
+ 491              		@ frame_needed = 0, uses_anonymous_args = 0
+ 492              		@ link register save eliminated.
+ 493              	.LVL48:
   22:Src/makise_test.c **** 	ili9340_spi_txcplt(mGui->driver);
- 425              		.loc 1 22 0
- 426 0000 044B     		ldr	r3, .L51
- 427 0002 8342     		cmp	r3, r0
- 428 0004 00D0     		beq	.L50
- 429 0006 7047     		bx	lr
- 430              	.L50:
+ 494              		.loc 1 22 0
+ 495 0000 044B     		ldr	r3, .L58
+ 496 0002 8342     		cmp	r3, r0
+ 497 0004 00D0     		beq	.L57
+ 498 0006 7047     		bx	lr
+ 499              	.L57:
   23:Src/makise_test.c **** }
- 431              		.loc 1 23 0
- 432 0008 034B     		ldr	r3, .L51+4
- 433 000a 1B68     		ldr	r3, [r3]
- 434 000c 5868     		ldr	r0, [r3, #4]
- 435              	.LVL49:
-ARM GAS  /tmp/cctnYOgc.s 			page 11
-
-
- 436 000e FFF7FEBF 		b	ili9340_spi_txcplt
- 437              	.LVL50:
- 438              	.L52:
- 439 0012 00BF     		.align	2
- 440              	.L51:
- 441 0014 00000000 		.word	hspi1
- 442 0018 00000000 		.word	mGui
- 443              		.cfi_endproc
- 444              	.LFE127:
- 446              		.section	.text.mt_start,"ax",%progbits
- 447              		.align	1
- 448              		.p2align 2,,3
- 449              		.global	mt_start
- 450              		.syntax unified
- 451              		.thumb
- 452              		.thumb_func
- 453              		.fpu fpv4-sp-d16
- 455              	mt_start:
- 456              	.LFB130:
- 114:Src/makise_test.c **** 
- 115:Src/makise_test.c **** uint32_t bb[9600] = {0};
- 116:Src/makise_test.c **** MakiseGUI* mt_start()
- 117:Src/makise_test.c **** {
- 457              		.loc 1 117 0
- 458              		.cfi_startproc
- 459              		@ args = 0, pretend = 0, frame = 0
- 460              		@ frame_needed = 0, uses_anonymous_args = 0
- 461              	.LVL51:
- 462 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 463              	.LCFI6:
- 464              		.cfi_def_cfa_offset 24
- 465              		.cfi_offset 4, -24
- 466              		.cfi_offset 5, -20
- 467              		.cfi_offset 6, -16
- 468              		.cfi_offset 7, -12
- 469              		.cfi_offset 8, -8
- 470              		.cfi_offset 14, -4
- 118:Src/makise_test.c ****     //malloc structures
- 119:Src/makise_test.c ****     MakiseGUI    * gu = &Gu;//malloc(sizeof(MakiseGUI));
- 120:Src/makise_test.c ****     MakiseBuffer * bu = &Bu;//malloc(sizeof(MakiseBuffer));
- 121:Src/makise_test.c ****     MakiseDriver * dr = &Dr;//malloc(sizeof(MakiseDriver));
- 122:Src/makise_test.c ****     host = &hs;//malloc(sizeof(MHost));
- 123:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
- 124:Src/makise_test.c ****     host->host->gui = gu;
+ 500              		.loc 1 23 0
+ 501 0008 034B     		ldr	r3, .L58+4
+ 502 000a 1B68     		ldr	r3, [r3]
+ 503 000c 5868     		ldr	r0, [r3, #4]
+ 504              	.LVL49:
+ 505 000e FFF7FEBF 		b	ili9340_spi_txcplt
+ 506              	.LVL50:
+ 507              	.L59:
+ 508 0012 00BF     		.align	2
+ 509              	.L58:
+ 510 0014 00000000 		.word	hspi1
+ 511 0018 00000000 		.word	mGui
+ 512              		.cfi_endproc
+ 513              	.LFE127:
+ 515              		.section	.text.mt_start,"ax",%progbits
+ 516              		.align	1
+ 517              		.p2align 2,,3
+ 518              		.global	mt_start
+ 519              		.syntax unified
+ 520              		.thumb
+ 521              		.thumb_func
+ 522              		.fpu fpv4-sp-d16
+ 524              	mt_start:
+ 525              	.LFB130:
  125:Src/makise_test.c **** 
- 126:Src/makise_test.c ****     //init driver structure
- 127:Src/makise_test.c ****     ili9340_driver(dr);
- 471              		.loc 1 127 0
- 472 0004 204D     		ldr	r5, .L55
- 122:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
- 473              		.loc 1 122 0
- 474 0006 214A     		ldr	r2, .L55+4
- 123:Src/makise_test.c ****     host->host->gui = gu;
- 475              		.loc 1 123 0
- 476 0008 214B     		ldr	r3, .L55+8
- 122:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
- 477              		.loc 1 122 0
-ARM GAS  /tmp/cctnYOgc.s 			page 12
+ARM GAS  /tmp/ccVUROQI.s 			page 13
 
 
- 478 000a 224E     		ldr	r6, .L55+12
- 128:Src/makise_test.c ****     //malloc small buffer
- 129:Src/makise_test.c ****     dr->buffer = sb;//malloc(dr->size);
- 130:Src/makise_test.c ****     printf("%d\n", (uint32_t)(dr->size));
- 479              		.loc 1 130 0
- 480 000c 224F     		ldr	r7, .L55+16
- 124:Src/makise_test.c **** 
- 481              		.loc 1 124 0
- 482 000e 234C     		ldr	r4, .L55+20
- 131:Src/makise_test.c ****     //init gui struct
- 132:Src/makise_test.c **** 
- 133:Src/makise_test.c ****     uint32_t sz = makise_init(gu, dr, bu);
- 483              		.loc 1 133 0
- 484 0010 DFF8A880 		ldr	r8, .L55+52
- 122:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
- 485              		.loc 1 122 0
- 486 0014 3260     		str	r2, [r6]
- 117:Src/makise_test.c ****     //malloc structures
- 487              		.loc 1 117 0
- 488 0016 82B0     		sub	sp, sp, #8
- 489              	.LCFI7:
- 490              		.cfi_def_cfa_offset 32
- 127:Src/makise_test.c ****     //malloc small buffer
- 491              		.loc 1 127 0
- 492 0018 2846     		mov	r0, r5
- 123:Src/makise_test.c ****     host->host->gui = gu;
- 493              		.loc 1 123 0
- 494 001a 1360     		str	r3, [r2]
- 124:Src/makise_test.c **** 
- 495              		.loc 1 124 0
- 496 001c 1C60     		str	r4, [r3]
- 127:Src/makise_test.c ****     //malloc small buffer
- 497              		.loc 1 127 0
- 498 001e FFF7FEFF 		bl	ili9340_driver
- 499              	.LVL52:
- 129:Src/makise_test.c ****     printf("%d\n", (uint32_t)(dr->size));
- 500              		.loc 1 129 0
- 501 0022 1F4B     		ldr	r3, .L55+24
- 130:Src/makise_test.c ****     //init gui struct
- 502              		.loc 1 130 0
- 503 0024 6969     		ldr	r1, [r5, #20]
- 129:Src/makise_test.c ****     printf("%d\n", (uint32_t)(dr->size));
- 504              		.loc 1 129 0
- 505 0026 2B61     		str	r3, [r5, #16]
- 130:Src/makise_test.c ****     //init gui struct
- 506              		.loc 1 130 0
- 507 0028 3846     		mov	r0, r7
- 508 002a FFF7FEFF 		bl	printf
- 509              	.LVL53:
- 510              		.loc 1 133 0
- 511 002e 2946     		mov	r1, r5
- 512 0030 4246     		mov	r2, r8
- 513 0032 2046     		mov	r0, r4
- 514 0034 FFF7FEFF 		bl	makise_init
- 515              	.LVL54:
- 516 0038 0546     		mov	r5, r0
- 517              	.LVL55:
-ARM GAS  /tmp/cctnYOgc.s 			page 13
+ 126:Src/makise_test.c **** uint32_t bb[9600] = {0};
+ 127:Src/makise_test.c **** MakiseGUI* mt_start()
+ 128:Src/makise_test.c **** {
+ 526              		.loc 1 128 0
+ 527              		.cfi_startproc
+ 528              		@ args = 0, pretend = 0, frame = 0
+ 529              		@ frame_needed = 0, uses_anonymous_args = 0
+ 530              	.LVL51:
+ 531 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 532              	.LCFI11:
+ 533              		.cfi_def_cfa_offset 24
+ 534              		.cfi_offset 4, -24
+ 535              		.cfi_offset 5, -20
+ 536              		.cfi_offset 6, -16
+ 537              		.cfi_offset 7, -12
+ 538              		.cfi_offset 8, -8
+ 539              		.cfi_offset 14, -4
+ 129:Src/makise_test.c ****     //malloc structures
+ 130:Src/makise_test.c ****     MakiseGUI    * gu = &Gu;//malloc(sizeof(MakiseGUI));
+ 131:Src/makise_test.c ****     MakiseBuffer * bu = &Bu;//malloc(sizeof(MakiseBuffer));
+ 132:Src/makise_test.c ****     MakiseDriver * dr = &Dr;//malloc(sizeof(MakiseDriver));
+ 133:Src/makise_test.c ****     host = &hs;//malloc(sizeof(MHost));
+ 134:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
+ 135:Src/makise_test.c ****     host->host->gui = gu;
+ 136:Src/makise_test.c **** 
+ 137:Src/makise_test.c ****     //init driver structure
+ 138:Src/makise_test.c ****     ili9340_driver(dr);
+ 540              		.loc 1 138 0
+ 541 0004 204D     		ldr	r5, .L62
+ 133:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
+ 542              		.loc 1 133 0
+ 543 0006 214A     		ldr	r2, .L62+4
+ 134:Src/makise_test.c ****     host->host->gui = gu;
+ 544              		.loc 1 134 0
+ 545 0008 214B     		ldr	r3, .L62+8
+ 133:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
+ 546              		.loc 1 133 0
+ 547 000a 224E     		ldr	r6, .L62+12
+ 139:Src/makise_test.c ****     //malloc small buffer
+ 140:Src/makise_test.c ****     dr->buffer = sb;//malloc(dr->size);
+ 141:Src/makise_test.c ****     printf("%d\n", (uint32_t)(dr->size));
+ 548              		.loc 1 141 0
+ 549 000c 224F     		ldr	r7, .L62+16
+ 135:Src/makise_test.c **** 
+ 550              		.loc 1 135 0
+ 551 000e 234C     		ldr	r4, .L62+20
+ 142:Src/makise_test.c ****     //init gui struct
+ 143:Src/makise_test.c **** 
+ 144:Src/makise_test.c ****     uint32_t sz = makise_init(gu, dr, bu);
+ 552              		.loc 1 144 0
+ 553 0010 DFF8A880 		ldr	r8, .L62+52
+ 133:Src/makise_test.c ****     host->host = &co;//malloc(sizeof(MContainer));
+ 554              		.loc 1 133 0
+ 555 0014 3260     		str	r2, [r6]
+ 128:Src/makise_test.c ****     //malloc structures
+ 556              		.loc 1 128 0
+ 557 0016 82B0     		sub	sp, sp, #8
+ARM GAS  /tmp/ccVUROQI.s 			page 14
 
 
- 134:Src/makise_test.c ****     //malloc big buffer
- 135:Src/makise_test.c ****     bu->buffer = bb;//malloc(sz);
- 136:Src/makise_test.c ****     memset(bu->buffer, 0, sz);
- 518              		.loc 1 136 0
- 519 003a 2A46     		mov	r2, r5
- 135:Src/makise_test.c ****     memset(bu->buffer, 0, sz);
- 520              		.loc 1 135 0
- 521 003c 1948     		ldr	r0, .L55+28
- 522              	.LVL56:
- 523 003e C8F80C00 		str	r0, [r8, #12]
- 524              		.loc 1 136 0
- 525 0042 0021     		movs	r1, #0
- 526 0044 FFF7FEFF 		bl	memset
- 527              	.LVL57:
- 137:Src/makise_test.c ****     printf("%d\n", (uint32_t)(sz));
- 528              		.loc 1 137 0
- 529 0048 2946     		mov	r1, r5
- 530 004a 3846     		mov	r0, r7
- 531 004c FFF7FEFF 		bl	printf
- 532              	.LVL58:
- 138:Src/makise_test.c **** 
- 139:Src/makise_test.c **** 
- 140:Src/makise_test.c ****     at_list_init(gu, host);
- 141:Src/makise_test.c ****     
- 142:Src/makise_test.c ****     
- 143:Src/makise_test.c ****     mGui = gu;
- 533              		.loc 1 143 0
- 534 0050 154D     		ldr	r5, .L55+32
- 535              	.LVL59:
- 140:Src/makise_test.c ****     
- 536              		.loc 1 140 0
- 537 0052 3168     		ldr	r1, [r6]
- 538 0054 2046     		mov	r0, r4
- 539 0056 FFF7FEFF 		bl	at_list_init
- 540              	.LVL60:
- 144:Src/makise_test.c ****     ili9340_init(gu);
- 541              		.loc 1 144 0
- 542 005a 2046     		mov	r0, r4
- 143:Src/makise_test.c ****     ili9340_init(gu);
- 543              		.loc 1 143 0
- 544 005c 2C60     		str	r4, [r5]
- 545              		.loc 1 144 0
- 546 005e FFF7FEFF 		bl	ili9340_init
- 547              	.LVL61:
- 145:Src/makise_test.c ****     makise_start(gu);
- 548              		.loc 1 145 0
- 549 0062 2046     		mov	r0, r4
- 550 0064 FFF7FEFF 		bl	makise_start
- 551              	.LVL62:
- 146:Src/makise_test.c **** 
- 147:Src/makise_test.c ****     mGui->predraw = &mt_predraw;
- 552              		.loc 1 147 0
- 553 0068 2B68     		ldr	r3, [r5]
- 554 006a 1049     		ldr	r1, .L55+36
- 148:Src/makise_test.c **** 
- 149:Src/makise_test.c ****     //makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
- 150:Src/makise_test.c ****     controls_595_init(buttons, 8, outs, 4, &but_h);
-ARM GAS  /tmp/cctnYOgc.s 			page 14
+ 558              	.LCFI12:
+ 559              		.cfi_def_cfa_offset 32
+ 138:Src/makise_test.c ****     //malloc small buffer
+ 560              		.loc 1 138 0
+ 561 0018 2846     		mov	r0, r5
+ 134:Src/makise_test.c ****     host->host->gui = gu;
+ 562              		.loc 1 134 0
+ 563 001a 1360     		str	r3, [r2]
+ 135:Src/makise_test.c **** 
+ 564              		.loc 1 135 0
+ 565 001c 1C60     		str	r4, [r3]
+ 138:Src/makise_test.c ****     //malloc small buffer
+ 566              		.loc 1 138 0
+ 567 001e FFF7FEFF 		bl	ili9340_driver
+ 568              	.LVL52:
+ 140:Src/makise_test.c ****     printf("%d\n", (uint32_t)(dr->size));
+ 569              		.loc 1 140 0
+ 570 0022 1F4B     		ldr	r3, .L62+24
+ 141:Src/makise_test.c ****     //init gui struct
+ 571              		.loc 1 141 0
+ 572 0024 6969     		ldr	r1, [r5, #20]
+ 140:Src/makise_test.c ****     printf("%d\n", (uint32_t)(dr->size));
+ 573              		.loc 1 140 0
+ 574 0026 2B61     		str	r3, [r5, #16]
+ 141:Src/makise_test.c ****     //init gui struct
+ 575              		.loc 1 141 0
+ 576 0028 3846     		mov	r0, r7
+ 577 002a FFF7FEFF 		bl	printf
+ 578              	.LVL53:
+ 579              		.loc 1 144 0
+ 580 002e 2946     		mov	r1, r5
+ 581 0030 4246     		mov	r2, r8
+ 582 0032 2046     		mov	r0, r4
+ 583 0034 FFF7FEFF 		bl	makise_init
+ 584              	.LVL54:
+ 585 0038 0546     		mov	r5, r0
+ 586              	.LVL55:
+ 145:Src/makise_test.c ****     //malloc big buffer
+ 146:Src/makise_test.c ****     bu->buffer = bb;//malloc(sz);
+ 147:Src/makise_test.c ****     memset(bu->buffer, 0, sz);
+ 587              		.loc 1 147 0
+ 588 003a 2A46     		mov	r2, r5
+ 146:Src/makise_test.c ****     memset(bu->buffer, 0, sz);
+ 589              		.loc 1 146 0
+ 590 003c 1948     		ldr	r0, .L62+28
+ 591              	.LVL56:
+ 592 003e C8F80C00 		str	r0, [r8, #12]
+ 593              		.loc 1 147 0
+ 594 0042 0021     		movs	r1, #0
+ 595 0044 FFF7FEFF 		bl	memset
+ 596              	.LVL57:
+ 148:Src/makise_test.c ****     printf("%d\n", (uint32_t)(sz));
+ 597              		.loc 1 148 0
+ 598 0048 2946     		mov	r1, r5
+ 599 004a 3846     		mov	r0, r7
+ 600 004c FFF7FEFF 		bl	printf
+ 601              	.LVL58:
+ARM GAS  /tmp/ccVUROQI.s 			page 15
 
 
- 555              		.loc 1 150 0
- 556 006c 104A     		ldr	r2, .L55+40
- 147:Src/makise_test.c **** 
- 557              		.loc 1 147 0
- 558 006e D960     		str	r1, [r3, #12]
- 559              		.loc 1 150 0
- 560 0070 1048     		ldr	r0, .L55+44
- 561 0072 0092     		str	r2, [sp]
- 562 0074 0423     		movs	r3, #4
- 563 0076 104A     		ldr	r2, .L55+48
- 564 0078 0821     		movs	r1, #8
- 565 007a FFF7FEFF 		bl	controls_595_init
- 566              	.LVL63:
- 151:Src/makise_test.c ****    
- 152:Src/makise_test.c ****     return mGui;
- 153:Src/makise_test.c **** }
- 567              		.loc 1 153 0
- 568 007e 2868     		ldr	r0, [r5]
- 569 0080 02B0     		add	sp, sp, #8
- 570              	.LCFI8:
- 571              		.cfi_def_cfa_offset 24
- 572              		@ sp needed
- 573 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 574              	.L56:
- 575 0086 00BF     		.align	2
- 576              	.L55:
- 577 0088 00000000 		.word	Dr
- 578 008c 00000000 		.word	hs
- 579 0090 00000000 		.word	co
- 580 0094 00000000 		.word	host
- 581 0098 00000000 		.word	.LC0
- 582 009c 00000000 		.word	Gu
- 583 00a0 00000000 		.word	.LANCHOR0
- 584 00a4 00000000 		.word	.LANCHOR1
- 585 00a8 00000000 		.word	mGui
- 586 00ac 00000000 		.word	mt_predraw
- 587 00b0 00000000 		.word	but_h
- 588 00b4 00000000 		.word	.LANCHOR3
- 589 00b8 00000000 		.word	.LANCHOR2
- 590 00bc 00000000 		.word	Bu
- 591              		.cfi_endproc
- 592              	.LFE130:
- 594              		.global	bb
- 595              		.global	outs
- 596              		.global	buttons
- 597              		.global	sb
- 598              		.comm	co,24,4
- 599              		.comm	hs,124,4
- 600              		.comm	Dr,48,4
- 601              		.comm	Bu,20,4
- 602              		.comm	Gu,20,4
- 603              		.comm	host,4,4
- 604              		.comm	mGui,4,4
- 605              		.comm	makise_color_palette,4,4
- 606              		.section	.bss.bb,"aw",%nobits
- 607              		.align	2
- 608              		.set	.LANCHOR1,. + 0
-ARM GAS  /tmp/cctnYOgc.s 			page 15
+ 149:Src/makise_test.c **** 
+ 150:Src/makise_test.c **** 
+ 151:Src/makise_test.c ****     at_list_init(gu, host);
+ 152:Src/makise_test.c ****     
+ 153:Src/makise_test.c ****     
+ 154:Src/makise_test.c ****     mGui = gu;
+ 602              		.loc 1 154 0
+ 603 0050 154D     		ldr	r5, .L62+32
+ 604              	.LVL59:
+ 151:Src/makise_test.c ****     
+ 605              		.loc 1 151 0
+ 606 0052 3168     		ldr	r1, [r6]
+ 607 0054 2046     		mov	r0, r4
+ 608 0056 FFF7FEFF 		bl	at_list_init
+ 609              	.LVL60:
+ 155:Src/makise_test.c ****     ili9340_init(gu);
+ 610              		.loc 1 155 0
+ 611 005a 2046     		mov	r0, r4
+ 154:Src/makise_test.c ****     ili9340_init(gu);
+ 612              		.loc 1 154 0
+ 613 005c 2C60     		str	r4, [r5]
+ 614              		.loc 1 155 0
+ 615 005e FFF7FEFF 		bl	ili9340_init
+ 616              	.LVL61:
+ 156:Src/makise_test.c ****     makise_start(gu);
+ 617              		.loc 1 156 0
+ 618 0062 2046     		mov	r0, r4
+ 619 0064 FFF7FEFF 		bl	makise_start
+ 620              	.LVL62:
+ 157:Src/makise_test.c **** 
+ 158:Src/makise_test.c ****     mGui->predraw = &mt_predraw;
+ 621              		.loc 1 158 0
+ 622 0068 2B68     		ldr	r3, [r5]
+ 623 006a 1049     		ldr	r1, .L62+36
+ 159:Src/makise_test.c **** 
+ 160:Src/makise_test.c ****     //makise_g_focus(&(butt[0].el), M_G_FOCUS_GET);
+ 161:Src/makise_test.c ****     controls_595_init(buttons, 8, outs, 4, &but_h);
+ 624              		.loc 1 161 0
+ 625 006c 104A     		ldr	r2, .L62+40
+ 158:Src/makise_test.c **** 
+ 626              		.loc 1 158 0
+ 627 006e D960     		str	r1, [r3, #12]
+ 628              		.loc 1 161 0
+ 629 0070 1048     		ldr	r0, .L62+44
+ 630 0072 0092     		str	r2, [sp]
+ 631 0074 0423     		movs	r3, #4
+ 632 0076 104A     		ldr	r2, .L62+48
+ 633 0078 0821     		movs	r1, #8
+ 634 007a FFF7FEFF 		bl	controls_595_init
+ 635              	.LVL63:
+ 162:Src/makise_test.c ****    
+ 163:Src/makise_test.c ****     return mGui;
+ 164:Src/makise_test.c **** }
+ 636              		.loc 1 164 0
+ 637 007e 2868     		ldr	r0, [r5]
+ 638 0080 02B0     		add	sp, sp, #8
+ 639              	.LCFI13:
+ARM GAS  /tmp/ccVUROQI.s 			page 16
 
 
- 611              	bb:
- 612 0000 00000000 		.space	38400
- 612      00000000 
- 612      00000000 
- 612      00000000 
- 612      00000000 
- 613              		.section	.bss.sb,"aw",%nobits
- 614              		.align	2
- 615              		.set	.LANCHOR0,. + 0
- 618              	sb:
- 619 0000 00000000 		.space	15680
- 619      00000000 
- 619      00000000 
- 619      00000000 
- 619      00000000 
- 620              		.section	.data.buttons,"aw",%progbits
- 621              		.align	2
- 622              		.set	.LANCHOR3,. + 0
- 625              	buttons:
- 626 0000 01       		.byte	1
- 627 0001 000000   		.space	3
- 628 0004 01000000 		.word	1
- 629 0008 00080240 		.word	1073874944
- 630 000c 0100     		.short	1
- 631 000e 0700     		.short	7
- 632 0010 00       		.byte	0
- 633 0011 00       		.byte	0
- 634 0012 0000     		.space	2
- 635 0014 00000000 		.word	0
- 636 0018 01       		.byte	1
- 637 0019 000000   		.space	3
- 638 001c 02000000 		.word	2
- 639 0020 00080240 		.word	1073874944
- 640 0024 0100     		.short	1
- 641 0026 0600     		.short	6
- 642 0028 00       		.byte	0
- 643 0029 00       		.byte	0
- 644 002a 0000     		.space	2
- 645 002c 00000000 		.word	0
- 646 0030 01       		.byte	1
- 647 0031 000000   		.space	3
- 648 0034 03000000 		.word	3
- 649 0038 00080240 		.word	1073874944
- 650 003c 0100     		.short	1
- 651 003e 0500     		.short	5
- 652 0040 00       		.byte	0
- 653 0041 00       		.byte	0
- 654 0042 0000     		.space	2
- 655 0044 00000000 		.word	0
- 656 0048 01       		.byte	1
- 657 0049 000000   		.space	3
- 658 004c 04000000 		.word	4
- 659 0050 00080240 		.word	1073874944
- 660 0054 0100     		.short	1
- 661 0056 0400     		.short	4
- 662 0058 00       		.byte	0
- 663 0059 00       		.byte	0
-ARM GAS  /tmp/cctnYOgc.s 			page 16
+ 640              		.cfi_def_cfa_offset 24
+ 641              		@ sp needed
+ 642 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 643              	.L63:
+ 644 0086 00BF     		.align	2
+ 645              	.L62:
+ 646 0088 00000000 		.word	Dr
+ 647 008c 00000000 		.word	hs
+ 648 0090 00000000 		.word	co
+ 649 0094 00000000 		.word	host
+ 650 0098 00000000 		.word	.LC0
+ 651 009c 00000000 		.word	Gu
+ 652 00a0 00000000 		.word	.LANCHOR0
+ 653 00a4 00000000 		.word	.LANCHOR1
+ 654 00a8 00000000 		.word	mGui
+ 655 00ac 00000000 		.word	mt_predraw
+ 656 00b0 00000000 		.word	but_h
+ 657 00b4 00000000 		.word	.LANCHOR3
+ 658 00b8 00000000 		.word	.LANCHOR2
+ 659 00bc 00000000 		.word	Bu
+ 660              		.cfi_endproc
+ 661              	.LFE130:
+ 663              		.global	bb
+ 664              		.global	outs
+ 665              		.global	buttons
+ 666              		.global	sb
+ 667              		.comm	co,28,4
+ 668              		.comm	hs,124,4
+ 669              		.comm	Dr,48,4
+ 670              		.comm	Bu,20,4
+ 671              		.comm	Gu,20,4
+ 672              		.comm	host,4,4
+ 673              		.comm	mGui,4,4
+ 674              		.comm	makise_color_palette,4,4
+ 675              		.section	.bss.bb,"aw",%nobits
+ 676              		.align	2
+ 677              		.set	.LANCHOR1,. + 0
+ 680              	bb:
+ 681 0000 00000000 		.space	38400
+ 681      00000000 
+ 681      00000000 
+ 681      00000000 
+ 681      00000000 
+ 682              		.section	.bss.sb,"aw",%nobits
+ 683              		.align	2
+ 684              		.set	.LANCHOR0,. + 0
+ 687              	sb:
+ 688 0000 00000000 		.space	15680
+ 688      00000000 
+ 688      00000000 
+ 688      00000000 
+ 688      00000000 
+ 689              		.section	.data.buttons,"aw",%progbits
+ 690              		.align	2
+ 691              		.set	.LANCHOR3,. + 0
+ 694              	buttons:
+ 695 0000 01       		.byte	1
+ARM GAS  /tmp/ccVUROQI.s 			page 17
 
 
- 664 005a 0000     		.space	2
- 665 005c 00000000 		.word	0
- 666 0060 01       		.byte	1
- 667 0061 000000   		.space	3
- 668 0064 0B000000 		.word	11
- 669 0068 00080240 		.word	1073874944
- 670 006c 0200     		.short	2
- 671 006e 0700     		.short	7
- 672 0070 00       		.byte	0
- 673 0071 00       		.byte	0
- 674 0072 0000     		.space	2
- 675 0074 00000000 		.word	0
- 676 0078 01       		.byte	1
- 677 0079 000000   		.space	3
- 678 007c 0C000000 		.word	12
- 679 0080 00080240 		.word	1073874944
- 680 0084 0200     		.short	2
- 681 0086 0600     		.short	6
- 682 0088 00       		.byte	0
- 683 0089 00       		.byte	0
- 684 008a 0000     		.space	2
- 685 008c 00000000 		.word	0
- 686 0090 01       		.byte	1
- 687 0091 000000   		.space	3
- 688 0094 0D000000 		.word	13
- 689 0098 00080240 		.word	1073874944
- 690 009c 0200     		.short	2
- 691 009e 0500     		.short	5
- 692 00a0 00       		.byte	0
- 693 00a1 00       		.byte	0
- 694 00a2 0000     		.space	2
- 695 00a4 00000000 		.word	0
- 696 00a8 01       		.byte	1
- 697 00a9 000000   		.space	3
- 698 00ac 0E000000 		.word	14
- 699 00b0 00080240 		.word	1073874944
- 700 00b4 0200     		.short	2
- 701 00b6 0400     		.short	4
- 702 00b8 00       		.byte	0
- 703 00b9 00       		.byte	0
- 704 00ba 0000     		.space	2
- 705 00bc 00000000 		.word	0
- 706              		.section	.data.outs,"aw",%progbits
- 707              		.align	2
- 708              		.set	.LANCHOR2,. + 0
- 711              	outs:
- 712 0000 01       		.byte	1
- 713 0001 000000   		.space	3
- 714 0004 05000000 		.word	5
- 715 0008 0000     		.short	0
- 716 000a 01       		.byte	1
- 717 000b 00       		.space	1
- 718 000c 01       		.byte	1
- 719 000d 000000   		.space	3
- 720 0010 06000000 		.word	6
- 721 0014 0100     		.short	1
- 722 0016 00       		.byte	0
-ARM GAS  /tmp/cctnYOgc.s 			page 17
+ 696 0001 000000   		.space	3
+ 697 0004 01000000 		.word	1
+ 698 0008 00080240 		.word	1073874944
+ 699 000c 0100     		.short	1
+ 700 000e 0700     		.short	7
+ 701 0010 00       		.byte	0
+ 702 0011 00       		.byte	0
+ 703 0012 0000     		.space	2
+ 704 0014 00000000 		.word	0
+ 705 0018 01       		.byte	1
+ 706 0019 000000   		.space	3
+ 707 001c 02000000 		.word	2
+ 708 0020 00080240 		.word	1073874944
+ 709 0024 0100     		.short	1
+ 710 0026 0600     		.short	6
+ 711 0028 00       		.byte	0
+ 712 0029 00       		.byte	0
+ 713 002a 0000     		.space	2
+ 714 002c 00000000 		.word	0
+ 715 0030 01       		.byte	1
+ 716 0031 000000   		.space	3
+ 717 0034 03000000 		.word	3
+ 718 0038 00080240 		.word	1073874944
+ 719 003c 0100     		.short	1
+ 720 003e 0500     		.short	5
+ 721 0040 00       		.byte	0
+ 722 0041 00       		.byte	0
+ 723 0042 0000     		.space	2
+ 724 0044 00000000 		.word	0
+ 725 0048 01       		.byte	1
+ 726 0049 000000   		.space	3
+ 727 004c 04000000 		.word	4
+ 728 0050 00080240 		.word	1073874944
+ 729 0054 0100     		.short	1
+ 730 0056 0400     		.short	4
+ 731 0058 00       		.byte	0
+ 732 0059 00       		.byte	0
+ 733 005a 0000     		.space	2
+ 734 005c 00000000 		.word	0
+ 735 0060 01       		.byte	1
+ 736 0061 000000   		.space	3
+ 737 0064 0B000000 		.word	11
+ 738 0068 00080240 		.word	1073874944
+ 739 006c 0200     		.short	2
+ 740 006e 0700     		.short	7
+ 741 0070 00       		.byte	0
+ 742 0071 00       		.byte	0
+ 743 0072 0000     		.space	2
+ 744 0074 00000000 		.word	0
+ 745 0078 01       		.byte	1
+ 746 0079 000000   		.space	3
+ 747 007c 0C000000 		.word	12
+ 748 0080 00080240 		.word	1073874944
+ 749 0084 0200     		.short	2
+ 750 0086 0600     		.short	6
+ 751 0088 00       		.byte	0
+ 752 0089 00       		.byte	0
+ARM GAS  /tmp/ccVUROQI.s 			page 18
 
 
- 723 0017 00       		.space	1
- 724 0018 01       		.byte	1
- 725 0019 000000   		.space	3
- 726 001c 07000000 		.word	7
- 727 0020 0200     		.short	2
- 728 0022 00       		.byte	0
- 729 0023 00       		.space	1
- 730 0024 01       		.byte	1
- 731 0025 000000   		.space	3
- 732 0028 08000000 		.word	8
- 733 002c 0300     		.short	3
- 734 002e 01       		.byte	1
- 735 002f 00       		.space	1
- 736              		.section	.rodata.mt_start.str1.4,"aMS",%progbits,1
- 737              		.align	2
- 738              	.LC0:
- 739 0000 25640A00 		.ascii	"%d\012\000"
- 740              		.text
- 741              	.Letext0:
- 742              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
- 743              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 744              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
- 745              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
- 746              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 747              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
- 748              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 749              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
- 750              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 751              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 752              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 753              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 754              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 755              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 756              		.file 16 "Inc/spi.h"
- 757              		.file 17 "Inc/tim.h"
- 758              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
- 759              		.file 19 "MakiseGUI/MakiseGUI/makise_colors.h"
- 760              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
- 761              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
- 762              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
- 763              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
- 764              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
- 765              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
- 766              		.file 26 "Inc/makise_test.h"
- 767              		.file 27 "Controls/controls_595.h"
- 768              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
-ARM GAS  /tmp/cctnYOgc.s 			page 18
+ 753 008a 0000     		.space	2
+ 754 008c 00000000 		.word	0
+ 755 0090 01       		.byte	1
+ 756 0091 000000   		.space	3
+ 757 0094 0D000000 		.word	13
+ 758 0098 00080240 		.word	1073874944
+ 759 009c 0200     		.short	2
+ 760 009e 0500     		.short	5
+ 761 00a0 00       		.byte	0
+ 762 00a1 00       		.byte	0
+ 763 00a2 0000     		.space	2
+ 764 00a4 00000000 		.word	0
+ 765 00a8 01       		.byte	1
+ 766 00a9 000000   		.space	3
+ 767 00ac 0E000000 		.word	14
+ 768 00b0 00080240 		.word	1073874944
+ 769 00b4 0200     		.short	2
+ 770 00b6 0400     		.short	4
+ 771 00b8 00       		.byte	0
+ 772 00b9 00       		.byte	0
+ 773 00ba 0000     		.space	2
+ 774 00bc 00000000 		.word	0
+ 775              		.section	.data.outs,"aw",%progbits
+ 776              		.align	2
+ 777              		.set	.LANCHOR2,. + 0
+ 780              	outs:
+ 781 0000 01       		.byte	1
+ 782 0001 000000   		.space	3
+ 783 0004 05000000 		.word	5
+ 784 0008 0000     		.short	0
+ 785 000a 01       		.byte	1
+ 786 000b 00       		.space	1
+ 787 000c 01       		.byte	1
+ 788 000d 000000   		.space	3
+ 789 0010 06000000 		.word	6
+ 790 0014 0100     		.short	1
+ 791 0016 00       		.byte	0
+ 792 0017 00       		.space	1
+ 793 0018 01       		.byte	1
+ 794 0019 000000   		.space	3
+ 795 001c 07000000 		.word	7
+ 796 0020 0200     		.short	2
+ 797 0022 00       		.byte	0
+ 798 0023 00       		.space	1
+ 799 0024 01       		.byte	1
+ 800 0025 000000   		.space	3
+ 801 0028 08000000 		.word	8
+ 802 002c 0300     		.short	3
+ 803 002e 01       		.byte	1
+ 804 002f 00       		.space	1
+ 805              		.section	.rodata.mt_start.str1.4,"aMS",%progbits,1
+ 806              		.align	2
+ 807              	.LC0:
+ 808 0000 25640A00 		.ascii	"%d\012\000"
+ 809              		.text
+ 810              	.Letext0:
+ 811              		.file 2 "MakiseGUI/MakiseGUI/makise.h"
+ARM GAS  /tmp/ccVUROQI.s 			page 19
+
+
+ 812              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 813              		.file 4 "/usr/arm-none-eabi/include/sys/lock.h"
+ 814              		.file 5 "/usr/arm-none-eabi/include/sys/_types.h"
+ 815              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 816              		.file 7 "/usr/arm-none-eabi/include/sys/reent.h"
+ 817              		.file 8 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 818              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 819              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 820              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 821              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 822              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 823              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 824              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 825              		.file 16 "Inc/spi.h"
+ 826              		.file 17 "Inc/tim.h"
+ 827              		.file 18 "MakiseGUI/MakiseGUI/ILI9340C/ili9340.h"
+ 828              		.file 19 "MakiseGUI/MakiseGUI/makise_colors.h"
+ 829              		.file 20 "MakiseGUI/MakiseGUI/makise_text.h"
+ 830              		.file 21 "MakiseGUI/MakiseGUI/fonts/fonts.h"
+ 831              		.file 22 "MakiseGUI/MakiseGUI/gui/makise_gui.h"
+ 832              		.file 23 "MakiseGUI/MakiseGUI/gui/makise_gui_input.h"
+ 833              		.file 24 "MakiseGUI/MakiseGUI/gui/makise_gui_container.h"
+ 834              		.file 25 "MakiseGUI/MakiseGUI/gui/makise_gui_elements.h"
+ 835              		.file 26 "Inc/makise_test.h"
+ 836              		.file 27 "Controls/controls_595.h"
+ 837              		.file 28 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/ccVUROQI.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 makise_test.c
-     /tmp/cctnYOgc.s:16     .text.mt_predraw:0000000000000000 $t
-     /tmp/cctnYOgc.s:24     .text.mt_predraw:0000000000000000 mt_predraw
-     /tmp/cctnYOgc.s:43     .text.mt_predraw:000000000000000c $d
+     /tmp/ccVUROQI.s:16     .text.mt_predraw:0000000000000000 $t
+     /tmp/ccVUROQI.s:24     .text.mt_predraw:0000000000000000 mt_predraw
+     /tmp/ccVUROQI.s:43     .text.mt_predraw:000000000000000c $d
                             *COM*:0000000000000004 host
-     /tmp/cctnYOgc.s:48     .text.but_h:0000000000000000 $t
-     /tmp/cctnYOgc.s:56     .text.but_h:0000000000000000 but_h
-     /tmp/cctnYOgc.s:366    .text.but_h:00000000000001dc $d
-     /tmp/cctnYOgc.s:371    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 $t
-     /tmp/cctnYOgc.s:379    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 HAL_SPI_TxHalfCpltCallback
-     /tmp/cctnYOgc.s:403    .text.HAL_SPI_TxHalfCpltCallback:0000000000000014 $d
+     /tmp/ccVUROQI.s:48     .text.but_h:0000000000000000 $t
+     /tmp/ccVUROQI.s:56     .text.but_h:0000000000000000 but_h
+     /tmp/ccVUROQI.s:435    .text.but_h:0000000000000228 $d
+     /tmp/ccVUROQI.s:440    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccVUROQI.s:448    .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 HAL_SPI_TxHalfCpltCallback
+     /tmp/ccVUROQI.s:472    .text.HAL_SPI_TxHalfCpltCallback:0000000000000014 $d
                             *COM*:0000000000000004 mGui
-     /tmp/cctnYOgc.s:409    .text.HAL_SPI_TxCpltCallback:0000000000000000 $t
-     /tmp/cctnYOgc.s:417    .text.HAL_SPI_TxCpltCallback:0000000000000000 HAL_SPI_TxCpltCallback
-     /tmp/cctnYOgc.s:441    .text.HAL_SPI_TxCpltCallback:0000000000000014 $d
-     /tmp/cctnYOgc.s:447    .text.mt_start:0000000000000000 $t
-     /tmp/cctnYOgc.s:455    .text.mt_start:0000000000000000 mt_start
-     /tmp/cctnYOgc.s:577    .text.mt_start:0000000000000088 $d
+     /tmp/ccVUROQI.s:478    .text.HAL_SPI_TxCpltCallback:0000000000000000 $t
+     /tmp/ccVUROQI.s:486    .text.HAL_SPI_TxCpltCallback:0000000000000000 HAL_SPI_TxCpltCallback
+     /tmp/ccVUROQI.s:510    .text.HAL_SPI_TxCpltCallback:0000000000000014 $d
+     /tmp/ccVUROQI.s:516    .text.mt_start:0000000000000000 $t
+     /tmp/ccVUROQI.s:524    .text.mt_start:0000000000000000 mt_start
+     /tmp/ccVUROQI.s:646    .text.mt_start:0000000000000088 $d
                             *COM*:0000000000000030 Dr
                             *COM*:000000000000007c hs
-                            *COM*:0000000000000018 co
+                            *COM*:000000000000001c co
                             *COM*:0000000000000014 Gu
                             *COM*:0000000000000014 Bu
-     /tmp/cctnYOgc.s:611    .bss.bb:0000000000000000 bb
-     /tmp/cctnYOgc.s:711    .data.outs:0000000000000000 outs
-     /tmp/cctnYOgc.s:625    .data.buttons:0000000000000000 buttons
-     /tmp/cctnYOgc.s:618    .bss.sb:0000000000000000 sb
+     /tmp/ccVUROQI.s:680    .bss.bb:0000000000000000 bb
+     /tmp/ccVUROQI.s:780    .data.outs:0000000000000000 outs
+     /tmp/ccVUROQI.s:694    .data.buttons:0000000000000000 buttons
+     /tmp/ccVUROQI.s:687    .bss.sb:0000000000000000 sb
                             *COM*:0000000000000004 makise_color_palette
-     /tmp/cctnYOgc.s:607    .bss.bb:0000000000000000 $d
-     /tmp/cctnYOgc.s:614    .bss.sb:0000000000000000 $d
-     /tmp/cctnYOgc.s:621    .data.buttons:0000000000000000 $d
-     /tmp/cctnYOgc.s:707    .data.outs:0000000000000000 $d
-     /tmp/cctnYOgc.s:737    .rodata.mt_start.str1.4:0000000000000000 $d
+     /tmp/ccVUROQI.s:676    .bss.bb:0000000000000000 $d
+     /tmp/ccVUROQI.s:683    .bss.sb:0000000000000000 $d
+     /tmp/ccVUROQI.s:690    .data.buttons:0000000000000000 $d
+     /tmp/ccVUROQI.s:776    .data.outs:0000000000000000 $d
+     /tmp/ccVUROQI.s:806    .rodata.mt_start.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 makise_g_host_call
+makise_g_cont_focus_next
 makise_g_host_input
 makise_g_cont_focus_prev
-makise_g_cont_focus_next
 ili9340_spi_txhalfcplt
 hspi1
 ili9340_spi_txcplt

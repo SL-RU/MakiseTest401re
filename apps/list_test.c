@@ -28,9 +28,9 @@ MakiseStyle canvas_style =
     &F_Arial24,
     0,
     //bg       font     border   double_border
-    {MC_Gray, MC_Gray, MC_Gray,    0},  //unactive
-    {MC_Black, MC_White, MC_White, 0},  //normal
-    {MC_Navy, MC_White, MC_White,   0},  //focused
+    {MC_Black, MC_Gray, MC_Gray,    0},  //unactive
+    {MC_Gray, MC_White, MC_White, 0},  //normal
+    {MC_Black, MC_White, MC_White,   0},  //focused
     {MC_Black, MC_White, MC_White, 0},  //active
 };
 MakiseStyle lable_style =
@@ -157,29 +157,33 @@ void at_list_init(MakiseGUI *gui, MHost *host)
     m_create_tabs(&tabs, host->host,
 		  0, 10, 320, 200,
 		  tabs_source, 3,
-		  MTabs_Type_Up, &canvas_style);
+		  MTabs_Type_Left, 75,
+		  &canvas_style);
     
-    m_create_button(&butt[0], &tabs_source[0].cont, 10, 163, 100, 35, t_add, &b_add, 0, 0, &button_style);
-    m_create_button(&butt[1], &tabs_source[0].cont, 115, 163, 100, 35, t_remove, &b_rem, 0, 0, &button_style);
+    m_create_button(&butt[0], &tabs_source[0].cont, 10, 103, 100, 35, t_add, &b_add, 0, 0, &button_style);
+    m_create_button(&butt[1], host->host, 115, 183, 100, 35, t_remove, &b_rem, 0, 0, &button_style);
 
-    m_create_text_field(&tf[0], host->host, 5, 200, 310, 35, sample_string, &text_style);
+    m_create_text_field(&tf[0], &tabs_source[2].cont,
+			5, 0, 310, 150,
+			sample_string,
+			&text_style);
 
     m_create_slider(slider, &tabs_source[1].cont,
-		    10, 10, 150, 40,
+		    10, 5, 150, 40,
 		    &slider_val[0],
 		    10,
 		    0,
 		    &s_onchange, 0,
 		    &slider_style);
     m_create_slider(&slider[1], &tabs_source[1].cont,
-		    10, 60, 150, 12,
+		    10, 50, 150, 12,
 		    &slider_val[1],
 		    10,
 		    0,
 		    &s_onchange, 0,
 		    &slider_style);
     m_create_slider(&slider[3], &tabs_source[1].cont,
-		    170, 10, 18, 150,
+		    170, 5, 18, 150,
 		    &slider_val[2],
 		    100,
 		    0,
@@ -187,7 +191,7 @@ void at_list_init(MakiseGUI *gui, MHost *host)
 		    &slider_style);
 
     m_create_lable(labls, &tabs_source[1].cont,
-		   10, 80, 150, 40,
+		   10, 70, 150, 40,
 		   slider_text,
 		   &lable_style);
 		   
@@ -199,7 +203,7 @@ void at_list_init(MakiseGUI *gui, MHost *host)
 //    m_slist_set_array(list, l_source, 10);
 //    m_slist_set_list(&list[1], 0);
 
-//    makise_g_focus(&list[0].el, M_G_FOCUS_GET);
+    makise_g_focus(&butt[1].el, M_G_FOCUS_GET);
 }
 
 
